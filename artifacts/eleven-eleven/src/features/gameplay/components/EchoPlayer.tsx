@@ -60,6 +60,8 @@ export function EchoPlayer({
   const lastPositionRef = useRef(new Vector3());
   const initializedPositionRef = useRef(false);
 
+  const velocityYRef = useRef(0);
+
   useInteraction({
     playerRef,
     context: { flags },
@@ -132,9 +134,24 @@ export function EchoPlayer({
       movement: OPENING_ROOM_CONFIG.movement,
     });
 
+    const isGrounded = current.y <= 0.001;
+    if (isGrounded && inputRef.current.jump) {
+      velocityYRef.current = 4.5;
+    }
+    
+    velocityYRef.current -= 12.0 * delta; // specific gravity
+    let nextY = current.y + velocityYRef.current * delta;
+
+    if (nextY <= 0) {
+      nextY = 0;
+      velocityYRef.current = 0;
+    }
+
     const deltaX = next.x - current.x;
     const deltaZ = next.z - current.z;
     const isMoving = Math.abs(deltaX) + Math.abs(deltaZ) > 0.00001;
+    const isJumpingOrFalling = Math.abs(nextY - current.y) > 0.00001;
+
     const speed = Math.hypot(deltaX, deltaZ) / Math.max(delta, 0.0001);
     const visual = visualStateRef.current;
     visual.speed = MathUtils.damp(visual.speed, speed, 14, delta);
@@ -159,8 +176,11 @@ export function EchoPlayer({
     });
     visual.lookYaw = MathUtils.damp(visual.lookYaw, 0, 6, delta);
 
+    if (isMoving || isJumpingOrFalling) {
+      player.position.set(next.x, nextY, next.z);
+    }
+
     if (isMoving) {
-      player.position.set(next.x, next.y, next.z);
       const desiredRotation = Math.atan2(deltaX, deltaZ);
       const turnDelta = MathUtils.euclideanModulo(
         desiredRotation - player.rotation.y + Math.PI,

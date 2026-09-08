@@ -17,6 +17,7 @@ export interface PlayerControlsSnapshot {
   left: boolean;
   right: boolean;
   sprint: boolean;
+  jump: boolean;
 }
 
 export interface PlayerControlsApi {
@@ -41,6 +42,7 @@ const INITIAL_CONTROLS: PlayerControlsSnapshot = {
   left: false,
   right: false,
   sprint: false,
+  jump: false,
 };
 
 const KEY_DIRECTIONS: Partial<Record<string, MovementDirection>> = {
@@ -58,6 +60,7 @@ function isGameplayKey(code: string): boolean {
   return code in KEY_DIRECTIONS
     || code === 'ShiftLeft'
     || code === 'ShiftRight'
+    || code === 'Space'
     || code === 'KeyE'
     || code === 'Escape';
 }
@@ -107,6 +110,10 @@ export function usePlayerControls({
         inputRef.current.sprint = true;
         return;
       }
+      if (event.code === 'Space') {
+        inputRef.current.jump = true;
+        return;
+      }
       if (event.code === 'KeyE' && !event.repeat) {
         onInteract();
         return;
@@ -118,6 +125,9 @@ export function usePlayerControls({
       if (direction) inputRef.current[direction] = false;
       if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
         inputRef.current.sprint = false;
+      }
+      if (event.code === 'Space') {
+        inputRef.current.jump = false;
       }
     };
 

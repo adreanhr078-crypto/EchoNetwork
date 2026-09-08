@@ -30,7 +30,7 @@ const configuredModelUrl = import.meta.env.VITE_ECHO_MODEL_URL?.trim();
  * rig at human scale with its feet at y=0 and include named animation clips.
  */
 export const ECHO_MODEL_CONFIG = Object.freeze({
-  modelUrl: configuredModelUrl || null,
+  modelUrl: configuredModelUrl || '/assets/characters/echo.glb',
   scale: 1,
   yOffset: 0,
 });
