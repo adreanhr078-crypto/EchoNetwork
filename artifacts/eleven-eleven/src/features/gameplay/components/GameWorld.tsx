@@ -26,6 +26,8 @@ import {
   NarrativeOverlay,
   type NarrativeOverlayContent,
 } from './NarrativeOverlay';
+import { RoomLoader } from './RoomLoader';
+import { OPENING_LAB_DEFINITION } from '../data/openingLabDefinition';
 import {
   OpeningRoom,
   type OpeningRoomVisualEvent,
@@ -369,7 +371,8 @@ export function GameWorld({
           ]}
         />
         <Suspense fallback={null}>
-          <OpeningRoom
+          <RoomLoader
+            definition={OPENING_LAB_DEFINITION}
             flags={flags}
             quality={quality}
             focusedInteractionId={

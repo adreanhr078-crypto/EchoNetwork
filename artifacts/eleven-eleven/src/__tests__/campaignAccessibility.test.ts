@@ -84,11 +84,11 @@ describe('story puzzle interaction accessibility', () => {
   });
 
   it('keeps stage-owned clipping without restricting interactive transition hit testing', () => {
-    const foundation = source('src/ui/design-system/styles/foundation.css');
-    const shellStyles = source('src/app/shell/application-shell.css');
+    const foundation = source('src/ui/design-system/styles/foundation.css').replace(/\r\n/g, '\n');
+    const shellStyles = source('src/app/shell/application-shell.css').replace(/\r\n/g, '\n');
     const presentationStyles = source(
       'src/ui/presentation/premium-presentation.css',
-    );
+    ).replace(/\r\n/g, '\n');
 
     assert.ok(foundation.includes('html,\nbody,\n#root'));
     assert.ok(foundation.includes('overflow: hidden;'));

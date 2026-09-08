@@ -302,11 +302,11 @@ describe('Application Shell', () => {
     const shellStyles = readFileSync(
       resolve(process.cwd(), 'src', 'app', 'shell', 'application-shell.css'),
       'utf8',
-    );
+    ).replace(/\r\n/g, '\n');
     const objectiveStyles = readFileSync(
       resolve(process.cwd(), 'src', 'features', 'player-journey', 'core-objective-card.css'),
       'utf8',
-    );
+    ).replace(/\r\n/g, '\n');
 
     assert.ok(shellSource.indexOf('<CoreObjectiveCard') < shellSource.indexOf('<Suspense'));
     assert.ok(objectiveStyles.includes('.core-objective-card[data-compact] {\n    position: relative;'));

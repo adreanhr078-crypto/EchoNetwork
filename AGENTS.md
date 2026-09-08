@@ -6,9 +6,10 @@ The active 11.11 application is under `artifacts/eleven-eleven`. Read and preser
 
 Before planning, designing, reviewing, or implementing any 11.11 work, read:
 
-1. `artifacts/eleven-eleven/docs/PROJECT_VISION.md`
-2. `artifacts/eleven-eleven/docs/project-memory.json`
-3. `artifacts/eleven-eleven/docs/internal/narrative/current/ar/manifest.json`
+1. `artifacts/eleven-eleven/docs/11-11/START_HERE.md`
+2. `artifacts/eleven-eleven/docs/PROJECT_VISION.md`
+3. `artifacts/eleven-eleven/docs/project-memory.json`
+4. `artifacts/eleven-eleven/docs/internal/narrative/current/ar/manifest.json`
 
 Use `$11-11-game-director` for roadmap, system-order, story-to-gameplay,
 third-person, Manhwa, puzzle, progression, economy, or milestone decisions.

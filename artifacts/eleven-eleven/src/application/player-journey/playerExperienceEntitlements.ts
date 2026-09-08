@@ -466,10 +466,10 @@ export function experienceLockCopy(
       : { eyebrow: 'الجزء الثاني مقفل', title: 'استعد السجل كاملًا أولًا', detail: 'يبدأ خارج النظام بعد توثيق الألغاز العشرين والفصول الأربعة.', action: 'متابعة المهمة' },
     'opening-recovery-required': english
       ? { eyebrow: 'OPENING GATEWAY', title: 'Reconstruct the first signal', detail: 'Align the cover to wake the room beyond the interface.', action: 'Open the reconstruction' }
-      : { eyebrow: 'Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø§ÙØªØªØ§Ø­', title: 'Ø£Ø¹Ø¯ Ø¨Ù†Ø§Ø¡ Ø§Ù„Ø¥Ø´Ø§Ø±Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰', detail: 'Ø±ØªÙ‘Ø¨ Ø§Ù„ØºÙ„Ø§Ù Ù„Ø¥ÙŠÙ‚Ø§Ø¸ Ø§Ù„ØºØ±ÙØ© Ø®Ù„Ù Ø§Ù„ÙˆØ§Ø¬Ù‡Ø©.', action: 'ÙØªØ­ ØªØ±ÙƒÙŠØ¨ Ø§Ù„ØºÙ„Ø§Ù' },
+      : { eyebrow: 'بوابة الافتتاح', title: 'أعد بناء الإشارة الأولى', detail: 'رتّب الغلاف لإيقاظ الغرفة خلف الواجهة.', action: 'فتح تركيب الغلاف' },
     'opening-room-required': english
       ? { eyebrow: 'ROOM REQUIRED', title: 'Enter the opening room', detail: 'The old puzzle channels stay quiet until the first room and memory beat are complete.', action: 'Enter the room' }
-      : { eyebrow: 'Ø§Ù„ØºØ±ÙØ© Ù…Ø·Ù„ÙˆØ¨Ø©', title: 'Ø§Ø¯Ø®Ù„ Ø§Ù„ØºØ±ÙØ© Ø§Ù„Ø§ÙØªØªØ§Ø­ÙŠØ©', detail: 'ØªØ¨Ù‚Ù‰ Ù‚Ù†ÙˆØ§Øª Ø§Ù„Ø£Ù„ØºØ§Ø² Ù‡Ø§Ø¯Ø¦Ø© Ø­ØªÙ‰ ÙŠÙƒØªÙ…Ù„ Ø§Ù„Ù…Ø´Ù‡Ø¯ Ø§Ù„Ø£ÙˆÙ„.', action: 'Ø§Ø¯Ø®Ù„ Ø§Ù„ØºØ±ÙØ©' },
+      : { eyebrow: 'الغرفة مطلوبة', title: 'ادخل الغرفة الافتتاحية', detail: 'تبقى قنوات الألغاز هادئة حتى يكتمل المشهد الأول.', action: 'ادخل الغرفة' },
   };
   return copy[reason];
 }
