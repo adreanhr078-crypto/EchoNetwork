@@ -79,6 +79,7 @@ export function CinematicDirector({
           src={sequence.videoUrl}
           poster={sequence.fallbackImageUrl}
           playsInline
+          muted // Muted to allow autoplay without interaction if needed
           onEnded={onComplete}
           style={{
             width: '100%',
@@ -87,7 +88,7 @@ export function CinematicDirector({
           }}
         />
       )}
-      {sequence && reducedMotion && sequence.fallbackImageUrl && (
+      {sequence && (!videoRef.current?.src || reducedMotion) && sequence.fallbackImageUrl && (
         <img
           src={sequence.fallbackImageUrl}
           alt="Cinematic sequence frame"
@@ -95,6 +96,8 @@ export function CinematicDirector({
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            transform: isPlaying && !reducedMotion ? 'scale(1.08) translate(1%, 1%)' : 'scale(1)',
+            transition: `transform ${sequence.durationMs ?? 4500}ms ease-out`,
           }}
         />
       )}

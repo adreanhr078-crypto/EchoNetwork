@@ -32,10 +32,8 @@ import {
   OpeningRoom,
   type OpeningRoomVisualEvent,
 } from './OpeningRoom';
-import {
-  OpeningCinematic,
-  OpeningCinematicOverlay,
-} from './OpeningCinematic';
+import { CinematicDirector } from '../../cinematics/components/CinematicDirector';
+import { OPENING_CINEMATIC_SEQUENCE } from '../../cinematics/data/sequences';
 import { OpeningMemoryBeat } from './OpeningMemoryBeat';
 import {
   completeOpeningRoom,
@@ -399,16 +397,6 @@ export function GameWorld({
             enabled={inputEnabled}
             config={cameraConfig}
           />
-          <OpeningCinematic
-            targetRef={playerRef}
-            active={cinematicActive}
-            paused={paused}
-            reducedMotion={motion === 'reduced'}
-            onComplete={() => {
-              markCinematicSeen();
-              setCinematicActive(false);
-            }}
-          />
           <InteractionCamera
             playerRef={playerRef}
             target={interactionTarget}
@@ -418,9 +406,17 @@ export function GameWorld({
         </Suspense>
       </Canvas>
 
-      <OpeningCinematicOverlay
-        active={cinematicActive}
+      <CinematicDirector
+        sequence={cinematicActive ? OPENING_CINEMATIC_SEQUENCE : null}
         reducedMotion={motion === 'reduced'}
+        onComplete={() => {
+          markCinematicSeen();
+          setCinematicActive(false);
+        }}
+        onSkip={() => {
+          markCinematicSeen();
+          setCinematicActive(false);
+        }}
       />
 
       {memoryBeatActive && roomCompletionStatus === 'idle' && (
