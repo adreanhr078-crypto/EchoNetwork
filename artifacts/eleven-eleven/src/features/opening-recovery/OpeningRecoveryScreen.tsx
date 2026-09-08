@@ -308,10 +308,19 @@ export default function OpeningRecoveryScreen() {
       syncAuthoritativeStoryState(response.storyState);
       setHasSubmitted(true);
       setStatus('break');
-    } catch {
+    } catch (error) {
+      if (import.meta.env.DEV && storyState) {
+        console.warn('Simulating success for DEV mode due to missing server:', error);
+        const mockState = { ...storyState, openingCoverPuzzleCompleted: true };
+        hydrateStoryState(mockState as any);
+        syncAuthoritativeStoryState(mockState as any);
+        setHasSubmitted(true);
+        setStatus('break');
+        return;
+      }
       setStatus('error');
     }
-  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState]);
+  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState, storyState]);
 
   return (
     <main
@@ -376,6 +385,7 @@ export default function OpeningRecoveryScreen() {
               data-solved={solved}
               data-dragging={draggingSlot !== null}
               aria-label={copy.alt}
+              style={{ '--board-columns': dimensions.columns } as React.CSSProperties}
             >
               {order.map((piece, slot) => {
                 const row = Math.floor(piece / dimensions.columns);

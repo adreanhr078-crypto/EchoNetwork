@@ -35,9 +35,7 @@ export function RoomLoader({
 }: RoomLoaderProps) {
   // If we have an asset URL, we attempt to load it. 
   // For Phase 3.0, since the AI-generated GLB is pending, we might catch errors
-  // or fall back. Currently, the asset doesn't exist on disk, so we render the fallback.
-  
-  const hasValidGLB = false; // Toggle this when the asset is actually placed in public/assets/
+  const hasValidGLB = true;
 
   if (hasValidGLB && definition.assetUrl) {
     return (

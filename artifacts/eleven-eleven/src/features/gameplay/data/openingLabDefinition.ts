@@ -3,7 +3,7 @@ import type { RoomDefinition } from '../domain/RoomDefinition';
 export const OPENING_LAB_DEFINITION: RoomDefinition = {
   id: 'opening-lab',
   name: 'Opening Lab',
-  assetUrl: '/assets/environments/opening-lab.glb', // Future high-quality blender asset
+  assetUrl: '/assets/rooms/opening-lab.glb',
   spawnPoints: {
     default: {
       id: 'default',
