@@ -4,6 +4,8 @@ interface ScreenBreakRuntimeProps {
   reducedMotion: boolean;
   onComplete: () => void;
 }
+import { useEchoMindLivingStore } from '../../application/echo/echoMindLivingStore';
+
 export function ScreenBreakRuntime({
   reducedMotion,
   onComplete,
@@ -14,6 +16,8 @@ export function ScreenBreakRuntime({
     completedRef.current = true;
     onComplete();
   };
+
+  const soundsEnabled = useEchoMindLivingStore(s => s.preferences.signalSoundsEnabled);
 
   useEffect(() => {
     if (reducedMotion) {
@@ -46,7 +50,7 @@ export function ScreenBreakRuntime({
           src="/assets/cinematics/part-1-opening.webm"
           poster="/assets/cinematics/part-1-opening-poster.webp"
           autoPlay
-          muted
+          muted={!soundsEnabled}
           playsInline
           onEnded={finish}
           style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
