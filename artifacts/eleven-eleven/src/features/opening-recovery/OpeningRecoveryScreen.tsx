@@ -100,7 +100,7 @@ function shuffledOrder(pieceCount: number): number[] {
 
 function dimensionsFor(pieceCount: number): { rows: number; columns: number } {
   return pieceCount === 12
-    ? { rows: 3, columns: 4 }
+    ? { rows: 4, columns: 3 }
     : { rows: 4, columns: 4 };
 }
 
@@ -321,6 +321,12 @@ export default function OpeningRecoveryScreen() {
       setStatus('error');
     }
   }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState, storyState]);
+
+  useEffect(() => {
+    if (solved && puzzleInteractive) {
+      verify();
+    }
+  }, [solved, puzzleInteractive, verify]);
 
   return (
     <main

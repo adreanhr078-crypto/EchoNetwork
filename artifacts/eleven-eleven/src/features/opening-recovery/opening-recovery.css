@@ -163,7 +163,7 @@
 .opening-recovery__board {
   display: grid;
   grid-template-columns: repeat(var(--board-columns, 4), minmax(0, 1fr));
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 1 / 1.4142;
   overflow: hidden;
   border: 1px solid rgb(98 234 255 / 34%);
   background: #010407;
