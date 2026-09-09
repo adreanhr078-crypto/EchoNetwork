@@ -26,7 +26,7 @@ export function ScreenBreakRuntime({
     }
     // For non-reduced motion, the video onEnded event will trigger finish()
     // We add a safety timeout just in case the video fails to play or hangs.
-    const fallbackTimer = window.setTimeout(finish, 16000);
+    const fallbackTimer = window.setTimeout(finish, 28000);
     return () => window.clearTimeout(fallbackTimer);
   }, [reducedMotion]);
 
