@@ -69,6 +69,30 @@ describe('Story puzzle visual asset accessibility', () => {
     assert.match(stylesheet, /\[data-motion="reduced"\] \.opening-recovery__piece/);
   });
 
+  it('hands the verified composition into one recoverable cinematic and the authored room', () => {
+    const transition = source('src/features/opening-recovery/ScreenBreakRuntime.tsx');
+    const recovery = source('src/features/opening-recovery/OpeningRecoveryScreen.tsx');
+    const roomLoader = source('src/features/gameplay/components/RoomLoader.tsx');
+    const director = source('src/features/cinematics/components/CinematicDirector.tsx');
+
+    assert.match(transition, /part-1-opening-v2\.webm/);
+    assert.match(transition, /part-1-opening-v2-poster\.webp/);
+    assert.match(transition, /onError=\{finish\}/);
+    assert.match(recovery, /opening_room_cinematic_seen/);
+    assert.match(roomLoader, /A decorative GLB cannot replace it/);
+    assert.doesNotMatch(roomLoader, /useGLTF\(/);
+    assert.match(director, /setTimeout\(onComplete, 2000\)/);
+    assert.match(director, /onError=\{onComplete\}/);
+  });
+
+  it('automatically requests opening verification without fabricating a development receipt', () => {
+    const recovery = source('src/features/opening-recovery/OpeningRecoveryScreen.tsx');
+    assert.match(recovery, /if \(submissionPendingRef\.current\) return/);
+    assert.match(recovery, /response\.storyState\.openingCoverPuzzleCompleted !== true/);
+    assert.match(recovery, /if \(solved && status === 'idle' && !storyState\?\.openingCoverPuzzleCompleted\)/);
+    assert.doesNotMatch(recovery, /Simulating success|mockState|import\.meta\.env\.DEV/);
+  });
+
   it('flushes a local draft before a confirmed hint purchase and does not rehydrate the active puzzle on its snapshot response', () => {
     const screen = source('src/features/screens/PuzzleScreen.tsx');
     const openHint = screen.slice(

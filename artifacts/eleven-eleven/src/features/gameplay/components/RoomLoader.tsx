@@ -1,5 +1,3 @@
-import { useGLTF } from '@react-three/drei';
-import { Suspense, useMemo } from 'react';
 import type { RoomDefinition } from '../domain/RoomDefinition';
 import { OpeningRoom } from './OpeningRoom';
 import type { OpeningRoomNarrativeFlags } from '../systems/puzzleSystem';
@@ -14,17 +12,10 @@ interface RoomLoaderProps {
   visualEvent?: OpeningRoomVisualEvent | null;
 }
 
-function GLBRoom({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
-  // Clone the scene so we can mutate it safely if needed
-  const clonedScene = useMemo(() => scene.clone(), [scene]);
-  return <primitive object={clonedScene} />;
-}
-
 /**
- * Dynamically loads a 3D environment based on a RoomDefinition.
- * Falls back to the procedural OpeningRoom if the GLB is not yet available,
- * allowing seamless transition as high-quality blender assets are delivered.
+ * The authored room is both the environment and the interaction surface.
+ * A decorative GLB cannot replace it until every named interaction has a
+ * validated mesh binding, collision, lighting, and accessibility fallback.
  */
 export function RoomLoader({
   definition,
@@ -33,19 +24,6 @@ export function RoomLoader({
   focusedInteractionId,
   visualEvent,
 }: RoomLoaderProps) {
-  // If we have an asset URL, we attempt to load it. 
-  // For Phase 3.0, since the AI-generated GLB is pending, we might catch errors
-  const hasValidGLB = true;
-
-  if (hasValidGLB && definition.assetUrl) {
-    return (
-      <Suspense fallback={null}>
-        <GLBRoom url={definition.assetUrl} />
-      </Suspense>
-    );
-  }
-
-  // Fallback to procedural OpeningRoom for now
   if (definition.id === 'opening-lab') {
     return (
       <OpeningRoom
