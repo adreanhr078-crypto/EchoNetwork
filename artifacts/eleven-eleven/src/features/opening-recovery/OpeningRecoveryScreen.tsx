@@ -387,6 +387,7 @@ export default function OpeningRecoveryScreen() {
             </div>
             <div
               className="opening-recovery__board"
+              dir="ltr"
               data-piece-count={pieceCount}
               data-solved={solved}
               data-dragging={draggingSlot !== null}
