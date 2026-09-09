@@ -74,28 +74,21 @@ export function ScreenBreakRuntime({
   };
 
   useEffect(() => {
-    if (reducedMotion) {
-      const timer = window.setTimeout(finish, 850);
-      return () => window.clearTimeout(timer);
-    }
-    return undefined;
+    const timer = window.setTimeout(finish, reducedMotion ? 850 : 2_650);
+    return () => window.clearTimeout(timer);
   }, [reducedMotion]);
 
   return (
     <div className="screen-break-runtime" role="dialog" aria-modal="true" aria-label="Screen break">
-      {reducedMotion ? (
-        <div className="screen-break-runtime__canvas" style={{ backgroundColor: '#010407' }} />
-      ) : (
-        <video
-          className="screen-break-runtime__video"
-          src="/assets/cinematics/opening-awakening.webm"
-          autoPlay
-          muted
-          playsInline
-          onEnded={finish}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
-        />
-      )}
+      <Canvas
+        className="screen-break-runtime__canvas"
+        dpr={reducedMotion ? [1, 1] : [1, 1.5]}
+        camera={{ fov: 48, near: .1, far: 30, position: [0, 0, 5.2] }}
+        gl={{ antialias: !reducedMotion, powerPreference: 'high-performance' }}
+      >
+        <color attach="background" args={['#010407']} />
+        <ScreenBreakScene reducedMotion={reducedMotion} />
+      </Canvas>
       <div className="screen-break-runtime__hud" aria-hidden="true">
         <small>INTERFACE LAYER // FAILURE</small>
         <strong>11:11</strong>
