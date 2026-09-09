@@ -22,12 +22,12 @@ const INTERACTION_COPY = {
   ar: {
     instruction: 'اسحب القطعة إلى موضعها، أو اختر قطعتين لتبديلهما. لا يوجد مؤقت أو عقوبة.',
     dragging: 'حرّك القطعة إلى موضعها الصحيح…',
-    solved: 'اكتملت الصورة. ثبّت الإشارة لفتح الذاكرة.',
+    solved: 'اكتملت الصورة. جارٍ فتح الذاكرة…',
   },
   en: {
     instruction: 'Drag a piece into place, or select two pieces to swap. No timer, no penalty.',
     dragging: 'Move the piece into its correct position…',
-    solved: 'Image aligned. Anchor the signal to open the memory.',
+    solved: 'Image aligned. Opening the memory…',
   },
 } as const;
 
@@ -131,6 +131,7 @@ export default function OpeningRecoveryScreen() {
   const draggingSlotRef = useRef<number | null>(null);
   const dragOverSlotRef = useRef<number | null>(null);
   const dragMovedRef = useRef(false);
+  const submissionPendingRef = useRef(false);
 
   const dimensions = useMemo(() => dimensionsFor(pieceCount), [pieceCount]);
   const solved = order.every((piece, index) => piece === index);
@@ -300,27 +301,33 @@ export default function OpeningRecoveryScreen() {
   }, [pieceCount, status]);
 
   const verify = useCallback(async () => {
+    if (submissionPendingRef.current) return;
     if (status === 'verifying' || status === 'receipt' || status === 'break' || hasSubmitted) return;
+    submissionPendingRef.current = true;
     setStatus('verifying');
     try {
       const response = await completeOpeningRecovery(order);
+      if (response.storyState.openingCoverPuzzleCompleted !== true) {
+        throw new Error('Opening recovery was not confirmed');
+      }
       hydrateStoryState(response.storyState);
       syncAuthoritativeStoryState(response.storyState);
       setHasSubmitted(true);
       setStatus('break');
-    } catch (error) {
-      if (import.meta.env.DEV && storyState) {
-        console.warn('Simulating success for DEV mode due to missing server:', error);
-        const mockState = { ...storyState, openingCoverPuzzleCompleted: true };
-        hydrateStoryState(mockState as any);
-        syncAuthoritativeStoryState(mockState as any);
-        setHasSubmitted(true);
-        setStatus('break');
-        return;
-      }
+    } catch {
       setStatus('error');
+    } finally {
+      submissionPendingRef.current = false;
     }
-  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState, storyState]);
+  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState]);
+
+  useEffect(() => {
+    // Alignment triggers a request, never a client-owned completion receipt.
+    // Failures remain retryable without an automatic request loop.
+    if (solved && status === 'idle' && !storyState?.openingCoverPuzzleCompleted) {
+      void verify();
+    }
+  }, [solved, status, storyState?.openingCoverPuzzleCompleted, verify]);
 
   useEffect(() => {
     if (solved && puzzleInteractive) {
@@ -340,6 +347,12 @@ export default function OpeningRecoveryScreen() {
         <ScreenBreakRuntime
           reducedMotion={motion === 'reduced'}
             onComplete={() => {
+              // The transfer cinematic already ends with Echo's arrival.
+              // Avoid replaying a second introduction on the 3D route.
+              useGameStore.getState().actions.setNarrativeFlag(
+                'opening_room_cinematic_seen',
+                true,
+              );
               setTransitionFinished(true);
               setStatus('receipt');
             }}

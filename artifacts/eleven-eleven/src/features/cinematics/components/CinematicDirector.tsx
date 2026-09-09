@@ -36,9 +36,9 @@ export function CinematicDirector({
     }
 
     if (reducedMotion) {
-      // In reduced motion, we could show the fallback image instead of playing video,
-      // or just immediately complete the sequence.
-      const timer = setTimeout(onComplete, sequence.durationMs ?? 2000);
+      // Preserve the key frame long enough to orient the player, without making
+      // Reduced Motion wait through the full cinematic duration.
+      const timer = setTimeout(onComplete, 2000);
       return () => clearTimeout(timer);
     }
 
@@ -81,6 +81,7 @@ export function CinematicDirector({
           playsInline
           muted // Muted to allow autoplay without interaction if needed
           onEnded={onComplete}
+          onError={onComplete}
           style={{
             width: '100%',
             height: '100%',

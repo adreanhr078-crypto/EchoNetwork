@@ -348,3 +348,20 @@ Future Owner instructions may evolve this charter. Record material changes in
 `docs/project-memory.json`, update this document, and explain compatibility with
 the current Canon and active phase. No agent may silently reinterpret ambition,
 skip the agreed order, or mark later systems complete from prototypes.
+
+### Owner direction — 2026-09-09: Part 1 opening vertical slice
+
+The Owner has explicitly approved the next bounded journey: the authoritative
+cover-composition puzzle fractures into a skippable, Reduced-Motion-safe
+cinematic, then gives immediate control of Echo in the first 3D escape room.
+The supplied Part 1 Manhwa and Owner-supplied visual and video references are
+the primary appearance and editorial references for this slice.
+
+The cinematic may show Echo's ordinary approach, laboratory entry,
+disorienting neural-transfer strain, and his awakening into the system. It must
+not reveal the later torture arc, a full Zero reveal, transformation, combat,
+or later Canon beats early. The playable room is an escape/exploration puzzle,
+not a static 3D showcase. Any Blender room, Echo model, or resource is
+provisional until it passes visual, interaction, collision, performance, and
+Manhwa-fidelity review; a primitive prototype may never silently replace the
+authored playable room.
