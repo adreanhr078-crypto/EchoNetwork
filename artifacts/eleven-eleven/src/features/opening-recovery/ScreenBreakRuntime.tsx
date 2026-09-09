@@ -1,66 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { AdditiveBlending, MathUtils, type Group } from 'three';
 
 interface ScreenBreakRuntimeProps {
   reducedMotion: boolean;
   onComplete: () => void;
 }
-
-function ScreenBreakScene({ reducedMotion }: { reducedMotion: boolean }) {
-  const shardsRef = useRef<Group>(null);
-  const { camera } = useThree();
-  const elapsedRef = useRef(0);
-
-  useFrame((_, delta) => {
-    const group = shardsRef.current;
-    if (!group) return;
-    elapsedRef.current += Math.min(delta, .05);
-    const progress = MathUtils.clamp(
-      elapsedRef.current / (reducedMotion ? .7 : 2.35),
-      0,
-      1,
-    );
-    const eased = MathUtils.smoothstep(progress, 0, 1);
-    camera.position.z = MathUtils.lerp(5.2, 2.4, eased);
-    camera.position.x = Math.sin(progress * Math.PI) * .26;
-    camera.lookAt(0, 0, 0);
-    group.children.forEach((shard, index) => {
-      const direction = index % 2 === 0 ? 1 : -1;
-      shard.position.x = MathUtils.lerp(0, direction * (1.1 + index * .09), eased);
-      shard.position.y = MathUtils.lerp(0, (index - 8) * .11, eased);
-      shard.position.z = MathUtils.lerp(.18, -.55 - index * .035, eased);
-      shard.rotation.x += delta * (1.5 + index * .04) * direction;
-      shard.rotation.y += delta * (1.2 + index * .03);
-    });
-  });
-
-  return (
-    <group ref={shardsRef}>
-      <mesh position={[0, 0, -.5]}>
-        <planeGeometry args={[8, 5]} />
-        <meshBasicMaterial color="#010407" />
-      </mesh>
-      {Array.from({ length: 18 }, (_, index) => (
-        <mesh
-          key={index}
-          position={[(index - 9) * .08, (index % 3 - 1) * .08, index * .02]}
-          rotation={[0, 0, (index % 4 - 2) * .12]}
-        >
-          <planeGeometry args={[.25 + (index % 3) * .08, .8 + (index % 4) * .13]} />
-          <meshBasicMaterial
-            color={index % 3 === 0 ? '#ff4962' : '#58e9ff'}
-            transparent
-            opacity={.32 + (index % 4) * .1}
-            blending={AdditiveBlending}
-            toneMapped={false}
-            side={2}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
+import { useEchoMindLivingStore } from '../../application/echo/echoMindLivingStore';
 
 export function ScreenBreakRuntime({
   reducedMotion,
@@ -73,24 +17,40 @@ export function ScreenBreakRuntime({
     onComplete();
   };
 
+  const soundsEnabled = useEchoMindLivingStore(s => s.preferences.signalSoundsEnabled);
+
   useEffect(() => {
     if (reducedMotion) {
-      const timer = window.setTimeout(finish, 850);
+      const timer = window.setTimeout(finish, 2000);
       return () => window.clearTimeout(timer);
     }
-    return undefined;
+    // For non-reduced motion, the video onEnded event will trigger finish()
+    // We add a safety timeout just in case the video fails to play or hangs.
+    const fallbackTimer = window.setTimeout(finish, 28000);
+    return () => window.clearTimeout(fallbackTimer);
   }, [reducedMotion]);
 
   return (
     <div className="screen-break-runtime" role="dialog" aria-modal="true" aria-label="Screen break">
       {reducedMotion ? (
-        <div className="screen-break-runtime__canvas" style={{ backgroundColor: '#010407' }} />
+        <div
+          className="screen-break-runtime__poster"
+          style={{
+            backgroundImage: 'url("/assets/cinematics/part-1-opening-poster.webp")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+          }}
+        />
       ) : (
         <video
           className="screen-break-runtime__video"
-          src="/assets/cinematics/opening-awakening.webm"
+          src="/assets/cinematics/part-1-opening.webm"
+          poster="/assets/cinematics/part-1-opening-poster.webp"
           autoPlay
-          muted
+          muted={!soundsEnabled}
           playsInline
           onEnded={finish}
           style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
