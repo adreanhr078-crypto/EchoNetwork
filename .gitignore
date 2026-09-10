@@ -87,3 +87,8 @@ artifacts/eleven-eleven/art/godot/**/*.translation
 
 # Vercel - ignore pnpm lockfile to prevent Vercel from using pnpm
 pnpm-lock.yaml
+node_modules/
+.env
+.dev.vars
+.godot/
+*.blend1
