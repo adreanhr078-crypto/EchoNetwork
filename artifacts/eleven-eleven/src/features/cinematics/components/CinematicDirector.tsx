@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useUiPreferencesStore } from '../../../app/shell/shellStore';
 
 export interface CinematicSequence {
   id: string;
@@ -26,6 +27,11 @@ export function CinematicDirector({
   reducedMotion,
 }: CinematicDirectorProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const locale = useUiPreferencesStore(state => state.locale);
+  const audioEnabled = useUiPreferencesStore(state => state.audioEnabled);
+  const completionRef = useRef(onComplete);
+  completionRef.current = onComplete;
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // If reduced motion is on, or no sequence, we might skip video and just fire onComplete
@@ -38,22 +44,22 @@ export function CinematicDirector({
     if (reducedMotion) {
       // Preserve the key frame long enough to orient the player, without making
       // Reduced Motion wait through the full cinematic duration.
-      const timer = setTimeout(onComplete, 2000);
+      const timer = setTimeout(() => completionRef.current(), 2000);
       return () => clearTimeout(timer);
     }
 
     setIsPlaying(true);
+    setFailed(false);
     
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch((err) => {
-        console.warn('Cinematic autoplay failed, skipping:', err);
-        onComplete();
+      videoRef.current.play().catch(() => {
+        setIsPlaying(false);
       });
     }
     
     return undefined;
-  }, [sequence, reducedMotion, onComplete]);
+  }, [sequence?.id, sequence?.videoUrl, reducedMotion]);
 
   if (!sequence && !isPlaying) return null;
 
@@ -79,17 +85,18 @@ export function CinematicDirector({
           src={sequence.videoUrl}
           poster={sequence.fallbackImageUrl}
           playsInline
-          muted // Muted to allow autoplay without interaction if needed
+          muted={!audioEnabled}
+          controls
           onEnded={onComplete}
-          onError={onComplete}
+          onError={() => { setFailed(true); setIsPlaying(false); }}
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
+            objectFit: 'contain',
           }}
         />
       )}
-      {sequence && (!videoRef.current?.src || reducedMotion) && sequence.fallbackImageUrl && (
+      {sequence && reducedMotion && sequence.fallbackImageUrl && (
         <img
           src={sequence.fallbackImageUrl}
           alt="Cinematic sequence frame"
@@ -102,6 +109,12 @@ export function CinematicDirector({
           }}
         />
       )}
+      {sequence && failed && <div role="alert" style={{ position: 'absolute', top: '40%', padding: '1rem', background: '#101018', color: '#f1ede6' }}>
+        <p>{locale === 'ar' ? 'تعذر تحميل المشهد. يمكنك إعادة المحاولة أو تجاوزه.' : 'The cinematic could not load. Retry or skip it.'}</p>
+        <button type="button" onClick={() => { setFailed(false); videoRef.current?.load(); void videoRef.current?.play().catch(() => setFailed(true)); }}>
+          {locale === 'ar' ? 'إعادة المحاولة' : 'Retry'}
+        </button>
+      </div>}
       
       {sequence && onSkip && (
         <button
@@ -122,7 +135,7 @@ export function CinematicDirector({
             backdropFilter: 'blur(4px)',
           }}
         >
-          SKIP
+          {locale === 'ar' ? 'تجاوز المشهد' : 'Skip cinematic'}
         </button>
       )}
     </div>

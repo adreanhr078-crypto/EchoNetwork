@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useUiPreferencesStore } from '../../../app/shell/shellStore';
 
 interface OpeningMemoryBeatProps {
   reducedMotion: boolean;
@@ -10,11 +11,14 @@ export function OpeningMemoryBeat({
   reducedMotion,
   onComplete,
 }: OpeningMemoryBeatProps) {
+  const locale = useUiPreferencesStore(state => state.locale);
+  const completeRef = useRef(onComplete);
+  completeRef.current = onComplete;
   const completedRef = useRef(false);
   const finish = () => {
     if (completedRef.current) return;
     completedRef.current = true;
-    onComplete();
+    completeRef.current();
   };
 
   useEffect(() => {
@@ -34,10 +38,10 @@ export function OpeningMemoryBeat({
         <i />
         <b />
       </div>
-      <small>MEMORY BEAT // 11:11</small>
-      <h2 id="opening-memory-beat-title">A shape returns before a name.</h2>
-      <p>Echo does not explain it yet. The room leaves one trace behind.</p>
-      <button type="button" onClick={finish}>Skip scene</button>
+      <small>{locale === 'ar' ? 'أثر من الذاكرة · 11:11' : 'Memory trace · 11:11'}</small>
+      <h2 id="opening-memory-beat-title">{locale === 'ar' ? 'تعود الملامح قبل الاسم.' : 'A shape returns before a name.'}</h2>
+      <p>{locale === 'ar' ? 'لا يفهم إيكو ما رآه بعد. لكن الغرفة تركت أثرًا.' : 'Echo cannot explain it yet. The room leaves a trace behind.'}</p>
+      <button type="button" onClick={finish}>{locale === 'ar' ? 'متابعة' : 'Continue'}</button>
     </section>
   );
 }

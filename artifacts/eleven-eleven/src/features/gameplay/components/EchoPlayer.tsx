@@ -134,7 +134,9 @@ export function EchoPlayer({
       movement: OPENING_ROOM_CONFIG.movement,
     });
 
-    const isGrounded = current.y <= 0.001;
+    const floorY = OPENING_ROOM_CONFIG.bounds.min.y + OPENING_ROOM_CONFIG.movement.halfExtents.y;
+    const ceilingY = OPENING_ROOM_CONFIG.bounds.max.y - OPENING_ROOM_CONFIG.movement.halfExtents.y;
+    const isGrounded = current.y <= floorY + 0.001;
     if (isGrounded && inputRef.current.jump) {
       velocityYRef.current = 4.5;
     }
@@ -142,9 +144,13 @@ export function EchoPlayer({
     velocityYRef.current -= 12.0 * delta; // specific gravity
     let nextY = current.y + velocityYRef.current * delta;
 
-    if (nextY <= 0) {
-      nextY = 0;
+    if (nextY <= floorY) {
+      nextY = floorY;
       velocityYRef.current = 0;
+    }
+    if (nextY >= ceilingY) {
+      nextY = ceilingY;
+      velocityYRef.current = Math.min(velocityYRef.current, 0);
     }
 
     const deltaX = next.x - current.x;
@@ -194,7 +200,7 @@ export function EchoPlayer({
       );
       player.rotation.y = MathUtils.damp(
         player.rotation.y,
-        desiredRotation,
+        player.rotation.y + turnDelta,
         13,
         delta,
       );

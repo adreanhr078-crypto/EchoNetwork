@@ -404,6 +404,12 @@
 [data-motion="reduced"] .opening-recovery__receipt { transition: none; animation: none; }
 
 .screen-break-runtime { position: fixed; inset: 0; z-index: 80; overflow: hidden; background: #010407; }
+.screen-break-runtime__fracture { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 900px; }
+.screen-break-runtime__fracture span { position: absolute; inset: 0; background: #010407 url('/manhwa/echo-network-final-2026-09-v1/page-001.webp') center / contain no-repeat; animation: opening-screen-shard 1400ms cubic-bezier(.4, 0, .8, .3) both; }
+@keyframes opening-screen-shard { 0%, 22% { transform: none; opacity: 1; } 40% { filter: brightness(1.15); opacity: 1; } 100% { transform: translate3d(var(--shard-x), var(--shard-y), 180px) rotate(var(--shard-turn)); opacity: 0; } }
+.screen-break-runtime__message { position: absolute; inset: 40% 10% auto; padding: 1rem; background: #090b13ee; color: #f1ede6; text-align: center; }
+.screen-break-runtime__message button { min-height: 44px; padding: .6rem 1rem; color: #f1ede6; background: #241a35; border: 1px solid #a38abb; border-radius: .4rem; }
+@media (prefers-reduced-motion: reduce) { .screen-break-runtime__fracture { display: none; } }
 .screen-break-runtime__canvas { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
 .screen-break-runtime__hud { position: absolute; inset: 50% auto auto 50%; display: grid; justify-items: center; gap: .35rem; transform: translate(-50%, -50%); color: #e8fbff; text-align: center; text-shadow: 0 0 1.6rem rgb(87 231 255 / 55%); pointer-events: none; }
 .screen-break-runtime__hud small { color: #57e7ff; font: 600 .62rem var(--gds-font-mono); letter-spacing: .16em; }

@@ -77,12 +77,15 @@ describe('Story puzzle visual asset accessibility', () => {
 
     assert.match(transition, /part-1-opening-v2\.webm/);
     assert.match(transition, /part-1-opening-v2-poster\.webp/);
-    assert.match(transition, /onError=\{finish\}/);
+    assert.match(transition, /onError=\{\(\) => setPlayback\('error'\)\}/);
+    assert.doesNotMatch(transition, /setTimeout\(finish, 28000\)/);
+    assert.match(transition, /screen-break-runtime__fracture/);
     assert.match(recovery, /opening_room_cinematic_seen/);
     assert.match(roomLoader, /A decorative GLB cannot replace it/);
     assert.doesNotMatch(roomLoader, /useGLTF\(/);
-    assert.match(director, /setTimeout\(onComplete, 2000\)/);
-    assert.match(director, /onError=\{onComplete\}/);
+    assert.match(director, /completionRef\.current\(\), 2000/);
+    assert.doesNotMatch(director, /onError=\{onComplete\}/);
+    assert.doesNotMatch(director, /!videoRef\.current\?\.src/);
   });
 
   it('automatically requests opening verification without fabricating a development receipt', () => {
@@ -91,6 +94,8 @@ describe('Story puzzle visual asset accessibility', () => {
     assert.match(recovery, /response\.storyState\.openingCoverPuzzleCompleted !== true/);
     assert.match(recovery, /if \(solved && status === 'idle' && !storyState\?\.openingCoverPuzzleCompleted\)/);
     assert.doesNotMatch(recovery, /Simulating success|mockState|import\.meta\.env\.DEV/);
+    assert.doesNotMatch(recovery, /if \(solved && puzzleInteractive\)/);
+    assert.doesNotMatch(recovery, /media\.addEventListener\('change'/);
   });
 
   it('flushes a local draft before a confirmed hint purchase and does not rehydrate the active puzzle on its snapshot response', () => {

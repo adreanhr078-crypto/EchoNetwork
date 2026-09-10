@@ -9,6 +9,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
     strictPort: true,
+    // Local QA profiles, render intermediates and D1 state are not source.
+    // Windows locks browser session files; watching them can crash dev startup.
+    watch: { ignored: ['**/.tmp/**', '**/.wrangler/**', '**/art/**'] },
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8788',

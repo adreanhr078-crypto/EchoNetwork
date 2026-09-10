@@ -10,7 +10,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, ShieldCheck, Sparkles } from 'lucide-
 import { useShellStore, useUiPreferencesStore } from '../../app/shell/shellStore';
 import { usePlayerProgressionStore } from '../player-progression/playerProgressionStore';
 import { useGameStore } from '../../stores/gameStore';
-import { completeOpeningRecovery } from '../../infrastructure/player-progression/playerProgressionApi';
+import { completeOpeningRecovery, PlayerProgressionApiError } from '../../infrastructure/player-progression/playerProgressionApi';
 import { OPENING_COVER_PUZZLE_ID } from '../../domain/opening/openingProgress';
 import { GameButton, GlassPanel } from '../../ui/design-system';
 import { ScreenBreakRuntime } from './ScreenBreakRuntime';
@@ -56,8 +56,8 @@ const COPY = {
     reset: 'إعادة الخلط',
     verify: 'تحقق من الإشارة',
     verifying: 'جارٍ تثبيت الإشارة…',
-    receipt: 'تم تثبيت الإيصال السلطوي',
-    receiptDetail: 'انكسرت الطبقة الأولى. جارٍ تسليمك إلى العمق ثلاثي الأبعاد…',
+    receipt: 'استُعيدت الذاكرة',
+    receiptDetail: 'انفتحت القناة. جارٍ الانتقال إلى إيكو…',
     retry: 'حاول مرة أخرى',
     error: 'تعذر تثبيت الحل على الخادم. ترتيبك محفوظ هنا؛ أعد المحاولة عندما يعود الاتصال.',
     alt: 'غلاف 11:11: Echo Network، يظهر أثناء إعادة تركيبه.',
@@ -75,8 +75,8 @@ const COPY = {
     reset: 'Shuffle again',
     verify: 'Verify the signal',
     verifying: 'Anchoring the signal…',
-    receipt: 'Authoritative receipt confirmed',
-    receiptDetail: 'The first layer fractures. Handing you into the 3D depth…',
+    receipt: 'Memory restored',
+    receiptDetail: 'The channel is open. Returning to Echo…',
     retry: 'Try again',
     error: 'The solution could not be anchored on the server. Your arrangement is kept here; retry when the connection returns.',
     alt: '11:11: Echo Network cover, shown while it is being reconstructed.',
@@ -127,6 +127,7 @@ export default function OpeningRecoveryScreen() {
   const [dragPreview, setDragPreview] = useState<OpeningDragPreview | null>(null);
   const [status, setStatus] = useState<'idle' | 'verifying' | 'receipt' | 'error' | 'break'>('idle');
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [failureKind, setFailureKind] = useState<'connection' | 'alignment' | 'session'>('connection');
   const [transitionFinished, setTransitionFinished] = useState(false);
   const draggingSlotRef = useRef<number | null>(null);
   const dragOverSlotRef = useRef<number | null>(null);
@@ -159,8 +160,7 @@ export default function OpeningRecoveryScreen() {
       dragMovedRef.current = false;
     };
     update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
+    // Keep this attempt's pieces stable when rotating or resizing the screen.
   }, []);
 
   useEffect(() => {
@@ -314,7 +314,12 @@ export default function OpeningRecoveryScreen() {
       syncAuthoritativeStoryState(response.storyState);
       setHasSubmitted(true);
       setStatus('break');
-    } catch {
+    } catch (error) {
+      setFailureKind(error instanceof PlayerProgressionApiError && error.code === 'opening_solution_not_verified'
+        ? 'alignment'
+        : error instanceof PlayerProgressionApiError && (error.status === 401 || error.status === 403)
+          ? 'session'
+          : 'connection');
       setStatus('error');
     } finally {
       submissionPendingRef.current = false;
@@ -328,12 +333,6 @@ export default function OpeningRecoveryScreen() {
       void verify();
     }
   }, [solved, status, storyState?.openingCoverPuzzleCompleted, verify]);
-
-  useEffect(() => {
-    if (solved && puzzleInteractive) {
-      verify();
-    }
-  }, [solved, puzzleInteractive, verify]);
 
   return (
     <main
@@ -378,7 +377,7 @@ export default function OpeningRecoveryScreen() {
           }}
         />
       )}
-      <section className="opening-recovery__layout">
+      <section className="opening-recovery__layout" inert={status === 'break'}>
         <header className="opening-recovery__header">
           <div>
             <span className="opening-recovery__eyebrow"><Sparkles aria-hidden="true" /> {copy.eyebrow}</span>
@@ -480,7 +479,11 @@ export default function OpeningRecoveryScreen() {
             </p>
             {status === 'error' && (
               <p className="opening-recovery__error" role="alert">
-                {copy.error}
+                {failureKind === 'alignment'
+                  ? locale === 'ar' ? 'الصورة لم تتطابق بعد. راجع اتصال القطع ثم أعد المحاولة.' : 'The image is not aligned yet. Check the adjoining pieces and retry.'
+                  : failureKind === 'session'
+                    ? locale === 'ar' ? 'تعذر التحقق من جلسة الدخول. استعد اتصال حسابك ثم أعد المحاولة.' : 'Your session could not be verified. Restore your account connection and retry.'
+                    : copy.error}
               </p>
             )}
             {status === 'receipt' || status === 'break' ? (
