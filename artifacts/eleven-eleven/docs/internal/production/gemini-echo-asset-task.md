@@ -1,6 +1,6 @@
 # Gemini / Antigravity — bounded Echo asset task
 
-Dispatch status: PREPARED, NOT SENT. Codex has not established an interactive connection to Antigravity or the signed-in Gemini browser.
+Dispatch status (2026-09-10): OWNER CONFIRMED SENT to Antigravity. Its delivery at commit `4821db6` in the separate `C:/Users/yasmo/EchoNetwork` checkout was inspected and **REJECTED**; see `echo-candidate-4821db6-review.md`. No submitted asset was imported here. Codex verified the installed Antigravity process, but this session has browser control only and cannot directly inspect its native agent conversation. The signed-in Gemini video interface is reachable; automated file attachment returned `Not allowed`, including after the Owner enabled file-URL access. Manual reference attachment is pending.
 
 ## Role and boundaries
 

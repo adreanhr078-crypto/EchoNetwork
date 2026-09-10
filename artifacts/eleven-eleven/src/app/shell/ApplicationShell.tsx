@@ -280,6 +280,8 @@ export function ApplicationShell() {
   const showCoreObjective = !isMainMenu
     && !isGameplay
     && shell.currentScreen !== 'psychological-state'
+    // The opening puzzle already presents its objective and controls in-flow.
+    && shell.currentScreen !== 'opening-recovery'
     && shell.currentScreen !== 'echo-network'
     && shell.currentScreen !== 'settings'
     && shell.currentScreen !== 'profile';

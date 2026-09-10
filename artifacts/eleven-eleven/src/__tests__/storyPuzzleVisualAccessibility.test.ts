@@ -77,7 +77,9 @@ describe('Story puzzle visual asset accessibility', () => {
 
     assert.match(transition, /part-1-opening-v2\.webm/);
     assert.match(transition, /part-1-opening-v2-poster\.webp/);
-    assert.match(transition, /onError=\{\(\) => setPlayback\('error'\)\}/);
+    // Playback failure/retry is exercised in e2e/screen-break.spec.ts.
+    // Keep this source check on the authority boundary, not handler formatting.
+    assert.doesNotMatch(transition, /onError=\{finish\}/);
     assert.doesNotMatch(transition, /setTimeout\(finish, 28000\)/);
     assert.match(transition, /screen-break-runtime__fracture/);
     assert.match(recovery, /opening_room_cinematic_seen/);

@@ -1,4 +1,4 @@
-"""Re-import and validate a production-bound 11.11 character GLB."""
+"""Structural gate for a character GLB; never a visual/Canon approval."""
 
 import argparse
 import os
@@ -53,6 +53,36 @@ def mesh_triangles(mesh_object):
     return len(mesh_object.data.loop_triangles)
 
 
+def validate_animated_pose(armature, action):
+    """Reject named but stationary clips, including armature-object-only motion."""
+    start, end = action.frame_range
+    if end - start < 1:
+        raise RuntimeError(f"Animation has no duration: {action.name}")
+    armature.animation_data_create()
+    for track in armature.animation_data.nla_tracks:
+        track.mute = True
+    armature.animation_data.action = action
+    if action.slots:
+        armature.animation_data.action_slot = action.slots[0]
+    samples = []
+    # Relative bone matrices exclude moving the entire rig as a rigid prop.
+    for fraction in (0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1):
+        frame = start + (end - start) * fraction
+        bpy.context.scene.frame_set(int(frame), subframe=frame % 1)
+        bpy.context.view_layer.update()
+        samples.append(tuple(
+            value
+            for bone in armature.pose.bones if bone.parent
+            for row in (bone.parent.matrix.inverted_safe() @ bone.matrix)
+            for value in row
+        ))
+    if not samples[0] or not any(
+        any(abs(value - initial) > 1e-5 for value, initial in zip(sample, samples[0]))
+        for sample in samples[1:]
+    ):
+        raise RuntimeError(f"Animation has no changing bone pose: {action.name}")
+
+
 def main():
     args = parse_args()
     source = os.path.abspath(args.input)
@@ -78,6 +108,12 @@ def main():
     if len(bone_names) > args.max_bones:
         raise RuntimeError(f"Bone count {len(bone_names)} exceeds {args.max_bones}")
 
+    root = armatures[0].data.bones["root"]
+    disconnected = [name for name in REQUIRED_BONES - {"root"}
+                    if root not in armatures[0].data.bones[name].parent_recursive]
+    if disconnected:
+        raise RuntimeError(f"Required bones are disconnected from root: {sorted(disconnected)}")
+
     compact_id = args.identifier.replace("-", "").upper()
     tattoo_meshes = [
         obj for obj in meshes
@@ -98,6 +134,8 @@ def main():
     }
     if len(material_names) > args.max_materials:
         raise RuntimeError(f"Material count {len(material_names)} exceeds {args.max_materials}")
+    if not material_names:
+        raise RuntimeError("Character has no assigned materials")
 
     triangle_count = sum(mesh_triangles(mesh) for mesh in meshes)
     if triangle_count > args.max_triangles:
@@ -106,11 +144,15 @@ def main():
     action_names = {action.name.upper() for action in bpy.data.actions}
     required_clips = [name.strip().upper() for name in args.required_clips.split(",") if name.strip()]
     for clip in required_clips:
-        if not any(clip in action_name for action_name in action_names):
+        matches = [action for action in bpy.data.actions
+                   if action.name.upper().split("|")[-1] == clip]
+        if not matches:
             raise RuntimeError(f"Missing runtime animation: {clip}")
+        validate_animated_pose(armatures[0], matches[0])
 
     print(f"CHARACTER_GLB_VALID={source}")
-    print(f"CHARACTER_IDENTIFIER_VALID={args.identifier}")
+    print(f"CHARACTER_IDENTIFIER_BINDING_PRESENT={args.identifier}")
+    print("CHARACTER_VISUAL_CANON_AND_SKINNING_REVIEW=UNVERIFIED")
     print(f"CHARACTER_MESH_COUNT={len(meshes)}")
     print(f"CHARACTER_MATERIAL_COUNT={len(material_names)}")
     print(f"CHARACTER_TRIANGLE_COUNT={triangle_count}")

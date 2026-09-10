@@ -65,11 +65,11 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: clamp(1.1rem, 3vw, 2.5rem);
+  gap: 1rem;
   width: min(1180px, calc(100% - 2rem));
   min-height: 100%;
   margin: 0 auto;
-  padding: clamp(1rem, 4vw, 3.5rem) 0;
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
   animation: opening-layout-in 720ms cubic-bezier(.2, .8, .2, 1) both;
 }
 
@@ -98,7 +98,7 @@
 .opening-recovery h1 {
   max-width: 35rem;
   margin-top: .55rem;
-  font-size: clamp(1.65rem, 4vw, 3.4rem);
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
   line-height: 1.03;
   letter-spacing: -.035em;
 }
@@ -162,6 +162,8 @@
 
 .opening-recovery__board {
   display: grid;
+  width: min(100%, max(220px, 32dvh));
+  justify-self: center;
   grid-template-columns: repeat(var(--board-columns, 4), minmax(0, 1fr));
   aspect-ratio: 1 / 1.4142;
   overflow: hidden;
@@ -262,15 +264,17 @@
 
 .opening-recovery__preview {
   position: relative;
+  width: min(100%, max(220px, 32dvh));
+  justify-self: center;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1.4142;
   border: 1px solid rgb(98 234 255 / 24%);
   background: #020609;
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 42%);
   animation: opening-preview-in 900ms 300ms cubic-bezier(.2, .8, .2, 1) both;
 }
 
-.opening-recovery__preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.opening-recovery__preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .opening-recovery__preview::after {
   position: absolute;
   inset: 0;
@@ -403,7 +407,8 @@
 [data-motion="reduced"] .opening-recovery__piece,
 [data-motion="reduced"] .opening-recovery__receipt { transition: none; animation: none; }
 
-.screen-break-runtime { position: fixed; inset: 0; z-index: 80; overflow: hidden; background: #010407; }
+.screen-break-runtime { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; z-index: 80; overflow: hidden; background: #010407; }
+.screen-break-runtime::backdrop { background: #010407; }
 .screen-break-runtime__fracture { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 900px; }
 .screen-break-runtime__fracture span { position: absolute; inset: 0; background: #010407 url('/manhwa/echo-network-final-2026-09-v1/page-001.webp') center / contain no-repeat; animation: opening-screen-shard 1400ms cubic-bezier(.4, 0, .8, .3) both; }
 @keyframes opening-screen-shard { 0%, 22% { transform: none; opacity: 1; } 40% { filter: brightness(1.15); opacity: 1; } 100% { transform: translate3d(var(--shard-x), var(--shard-y), 180px) rotate(var(--shard-turn)); opacity: 0; } }
@@ -415,5 +420,5 @@
 .screen-break-runtime__hud small { color: #57e7ff; font: 600 .62rem var(--gds-font-mono); letter-spacing: .16em; }
 .screen-break-runtime__hud strong { font: 700 clamp(3rem, 12vw, 8rem) var(--gds-font-mono); line-height: .9; }
 .screen-break-runtime__hud span { color: rgb(220 242 247 / 75%); font: 600 .7rem var(--gds-font-mono); letter-spacing: .12em; }
-.screen-break-runtime__skip { position: absolute; inset: 1.2rem 1.2rem auto auto; min-height: 2.35rem; padding: 0 .75rem; border: 1px solid rgb(87 231 255 / 36%); color: #dffaff; background: rgb(1 7 11 / 72%); cursor: pointer; }
+.screen-break-runtime__skip { position: absolute; inset: 1.2rem 1.2rem auto auto; min-height: 44px; padding: 0 .75rem; border: 1px solid rgb(87 231 255 / 36%); color: #dffaff; background: rgb(1 7 11 / 72%); cursor: pointer; }
 .screen-break-runtime__skip:hover, .screen-break-runtime__skip:focus-visible { border-color: #57e7ff; outline: none; box-shadow: 0 0 1rem rgb(87 231 255 / 18%); }
