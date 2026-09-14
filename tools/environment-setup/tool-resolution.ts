@@ -373,11 +373,18 @@ export function checkTools(): ToolCheck[] {
       note: "Verified portable candidate for isolated non-Canon proofs; it is not the selected production runtime.",
     }),
     {
-      id: "comfyui",
-      requirement: "deferred",
+      id: 'comfyui',
+      requirement: 'deferred',
       found: false,
       healthy: false,
-      note: "Deliberately deferred on this 8 GB Intel-UHD machine; use connected generation tools for concepts.",
+      note: 'Deliberately deferred on this 8 GB Intel-UHD machine; use connected generation tools for concepts.',
+    },
+    {
+      id: 'higgsfield',
+      requirement: 'optional' as ToolRequirement,
+      found: Boolean(process.env['HF_API_KEY_ID'] && process.env['HF_API_KEY_SECRET']),
+      healthy: Boolean(process.env['HF_API_KEY_ID'] && process.env['HF_API_KEY_SECRET']),
+      note: 'Higgsfield AI video/image generation. Set HF_API_KEY_ID and HF_API_KEY_SECRET from https://cloud.higgsfield.ai',
     },
   ];
 }
