@@ -34,7 +34,7 @@ const CLIP_PATTERNS: Record<EchoAnimationState, readonly RegExp[]> = {
   walk: [/walk/i, /locomo/i],
   run: [/run/i, /sprint/i, /jog/i],
   interact: [/inspect/i, /interact/i, /reach/i],
-  lockedByCinematic: [/idle/i, /stand/i, /breath/i],
+  lockedByCinematic: [/wakeup/i, /wake/i, /standup/i, /idle/i, /stand/i, /breath/i],
 };
 
 /**

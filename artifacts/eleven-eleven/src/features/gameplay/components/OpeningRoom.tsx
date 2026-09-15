@@ -1,4 +1,5 @@
 import {
+  Suspense,
   useMemo,
   useRef,
 } from 'react';
@@ -26,6 +27,7 @@ import { InteractiveHighlight } from './InteractiveHighlight';
 import { MemoryGlitchEffect } from './MemoryGlitchEffect';
 import { RoomAtmosphere } from './RoomAtmosphere';
 import { RoomLighting } from './RoomLighting';
+import { WakeCapsuleModel } from './WakeCapsuleModel';
 
 export type OpeningRoomVisualEvent = RoomVisualEvent;
 
@@ -543,89 +545,63 @@ function ExitDoor({
   );
 }
 
+function BedFallback() {
+  return (
+    <mesh position={[-2.68, 0.45, 1.33]} castShadow>
+      <boxGeometry args={[1.8, 0.6, 2.2]} />
+      <meshStandardMaterial
+        color="#15252c"
+        emissive="#07313a"
+        emissiveIntensity={0.15}
+        roughness={0.9}
+      />
+    </mesh>
+  );
+}
+
 function Bed() {
   return (
     <group name="opening-room-bed">
-      <mesh position={[-2.68, 0.17, 1.33]} castShadow receiveShadow>
-        <boxGeometry args={[2.42, 0.22, 2.82]} />
+      {/* Sci-Fi Awakening Dais with Obsidian Finish & Cyan Emissive Conduit Rings */}
+      <mesh position={[-2.68, 0.08, 1.33]} castShadow receiveShadow>
+        <cylinderGeometry args={[1.45, 1.55, 0.16, 24]} />
         <meshStandardMaterial
-          color="#121b20"
-          metalness={0.55}
-          roughness={0.54}
+          color="#0b1114"
+          metalness={0.65}
+          roughness={0.42}
         />
       </mesh>
-      {[
-        [-3.79, 0.13, 0.05],
-        [-1.57, 0.13, 0.05],
-        [-3.79, 0.13, 2.61],
-        [-1.57, 0.13, 2.61],
-      ].map(([x, y, z], index) => (
-        <mesh key={index} position={[x, y, z]} castShadow>
-          <boxGeometry args={[0.1, 0.26, 0.1]} />
-          <meshStandardMaterial color="#0a1014" metalness={0.7} />
-        </mesh>
-      ))}
-      <mesh position={[-2.68, 0.48, 1.33]} castShadow>
-        <boxGeometry args={[2.3, 0.42, 2.64]} />
-        <meshStandardMaterial
-          color="#253138"
-          emissive="#08262c"
-          emissiveIntensity={0.11}
-          roughness={0.96}
-        />
+      {/* Outer Cyan Emissive Energy Ring */}
+      <mesh position={[-2.68, 0.165, 1.33]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.32, 1.42, 32]} />
+        <meshBasicMaterial color="#00e5ff" toneMapped={false} />
       </mesh>
-      <mesh
-        position={[-2.68, 0.75, 1.65]}
-        rotation={[-0.055, 0, 0]}
-        castShadow
-      >
-        <boxGeometry args={[2.34, 0.14, 1.95]} />
-        <meshStandardMaterial
-          color="#15252c"
-          emissive="#07313a"
-          emissiveIntensity={0.13}
-          roughness={1}
+      {/* Radial floor energy conduits */}
+      {[0, 1, 2, 3].map((i) => {
+        const angle = (i * Math.PI) / 2 + 0.35;
+        const x = -2.68 + Math.cos(angle) * 1.6;
+        const z = 1.33 + Math.sin(angle) * 1.6;
+        return (
+          <mesh key={i} position={[x, 0.02, z]} rotation={[0, -angle, 0]}>
+            <boxGeometry args={[0.42, 0.025, 0.06]} />
+            <meshStandardMaterial
+              color="#0d1e24"
+              emissive="#00b4d8"
+              emissiveIntensity={0.8}
+              roughness={0.5}
+            />
+          </mesh>
+        );
+      })}
+      {/* Production Sector 11 Wake Capsule (Hard-Surface, Rigged Hydraulic Canopy) */}
+      <Suspense fallback={<BedFallback />}>
+        <WakeCapsuleModel
+          position={[-2.68, 0.16, 1.33]}
+          rotation={[0, 0.35, 0]}
+          scale={2.35}
+          isOpen={true}
         />
-      </mesh>
-      {[0.96, 1.33, 1.7].map((z, index) => (
-        <mesh
-          key={z}
-          position={[-2.68, 0.83 - index * 0.012, z]}
-          rotation={[0, 0.035 - index * 0.02, 0]}
-        >
-          <boxGeometry args={[2.28, 0.018, 0.035]} />
-          <meshBasicMaterial
-            color={index === 1 ? '#1d5360' : '#263a41'}
-            transparent
-            opacity={0.58}
-          />
-        </mesh>
-      ))}
-      <mesh
-        position={[-3.22, 0.79, 2.28]}
-        rotation={[0, -0.12, 0.03]}
-        castShadow
-      >
-        <boxGeometry args={[1.02, 0.23, 0.58]} />
-        <meshStandardMaterial
-          color="#3a474d"
-          roughness={1}
-        />
-      </mesh>
-      <mesh position={[-2.68, 1.03, 2.7]} castShadow>
-        <boxGeometry args={[2.45, 1.6, 0.13]} />
-        <meshStandardMaterial
-          color="#10191d"
-          metalness={0.48}
-          roughness={0.58}
-        />
-      </mesh>
-      {[-3.58, -2.68, -1.78].map((x) => (
-        <mesh key={x} position={[x, 1.1, 2.62]}>
-          <boxGeometry args={[0.04, 1.2, 0.04]} />
-          <meshStandardMaterial color="#24404a" metalness={0.6} />
-        </mesh>
-      ))}
+      </Suspense>
     </group>
   );
 }
