@@ -35,11 +35,32 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   const capture = async (name: string) => {
     await page.screenshot({ path: testInfo.outputPath(`${name}.png`) });
   };
+  const echoPosition = () => page.evaluate(() => {
+    const player = (window as any).__11_11_SCENE__?.scene
+      ?.getObjectByName('echo-player');
+    return player ? { x: player.position.x, z: player.position.z } : null;
+  });
+  const distance = (a: { x: number; z: number }, b: { x: number; z: number }) => (
+    Math.hypot(a.x - b.x, a.z - b.z)
+  );
   await capture('room-entry');
   // Real input, not teleporting or granting any progression.
+  const start = await echoPosition();
+  expect(start).not.toBeNull();
   await page.keyboard.down('w');
-  await page.waitForTimeout(1800);
+  await page.waitForTimeout(150);
+  const accelerationSample = await echoPosition();
+  await page.waitForTimeout(850);
+  const cruiseSample = await echoPosition();
   await page.keyboard.up('w');
+  await page.waitForTimeout(80);
+  const releaseSample = await echoPosition();
+  await page.waitForTimeout(420);
+  const settledSample = await echoPosition();
+  expect(distance(start!, accelerationSample!)).toBeGreaterThan(0.01);
+  expect(distance(accelerationSample!, cruiseSample!)).toBeGreaterThan(0.5);
+  expect(distance(cruiseSample!, releaseSample!)).toBeGreaterThan(0.001);
+  expect(distance(releaseSample!, settledSample!)).toBeLessThan(0.2);
   await capture('after-walking');
   const rendered = await page.evaluate(() => {
     const bridge = (window as any).__11_11_SCENE__;

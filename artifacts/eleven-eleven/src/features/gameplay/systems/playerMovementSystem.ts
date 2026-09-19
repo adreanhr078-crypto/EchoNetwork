@@ -17,6 +17,21 @@ export interface MovePlayerOptions {
   readonly movement: PlayerMovementConfig;
 }
 
+export interface HorizontalVelocity {
+  readonly x: number;
+  readonly z: number;
+}
+
+export interface IntegrateHorizontalVelocityOptions {
+  readonly velocity: HorizontalVelocity;
+  readonly input: PlayerMovementInput;
+  readonly deltaSeconds: number;
+  readonly facingYawRadians?: number;
+  readonly movement: PlayerMovementConfig;
+  readonly acceleration?: number;
+  readonly deceleration?: number;
+}
+
 type HorizontalAxis = 'x' | 'z';
 
 const COLLISION_EPSILON = 1e-9;
@@ -238,29 +253,85 @@ export function movePlayer({
   );
   const safeDeltaSeconds = Math.max(0, finiteOrZero(deltaSeconds));
 
+  if (safeDeltaSeconds === 0) return start;
+  const velocity = integrateHorizontalVelocity({
+    velocity: { x: 0, z: 0 },
+    input,
+    deltaSeconds: 1,
+    facingYawRadians,
+    movement,
+    acceleration: Number.POSITIVE_INFINITY,
+    deceleration: Number.POSITIVE_INFINITY,
+  });
+  return movePlayerByVelocity({
+    position: start,
+    velocity,
+    deltaSeconds: safeDeltaSeconds,
+    roomBounds,
+    obstacles,
+    movement,
+  });
+}
+
+export function integrateHorizontalVelocity({
+  velocity,
+  input,
+  deltaSeconds,
+  facingYawRadians = 0,
+  movement,
+  acceleration = 18,
+  deceleration = 24,
+}: IntegrateHorizontalVelocityOptions): HorizontalVelocity {
+  const delta = Math.max(0, finiteOrZero(deltaSeconds));
   const moveRight = Number(input.right) - Number(input.left);
   const moveForward = Number(input.forward) - Number(input.backward);
   const inputLength = Math.hypot(moveRight, moveForward);
-  if (inputLength === 0 || safeDeltaSeconds === 0) return start;
-
-  const normRight = moveRight / inputLength;
-  const normForward = moveForward / inputLength;
+  const hasInput = inputLength > 0;
+  const normRight = hasInput ? moveRight / inputLength : 0;
+  const normForward = hasInput ? moveForward / inputLength : 0;
   const yaw = finiteOrZero(facingYawRadians);
+  const speed = Math.max(0, finiteOrZero(
+    input.sprint ? movement.sprintSpeed : movement.walkSpeed,
+  ));
+  const targetX = hasInput
+    ? (normRight * Math.cos(yaw) - normForward * Math.sin(yaw)) * speed
+    : 0;
+  const targetZ = hasInput
+    ? (normRight * -Math.sin(yaw) - normForward * Math.cos(yaw)) * speed
+    : 0;
+  const sharpness = hasInput ? acceleration : deceleration;
+  const alpha = Number.isFinite(sharpness)
+    ? 1 - Math.exp(-Math.max(0, sharpness) * delta)
+    : 1;
 
-  // Genshin Impact 3rd-Person Camera-Relative World Direction:
-  // Camera Forward in world XZ: (-sin(yaw), -cos(yaw))
-  // Camera Right in world XZ:   ( cos(yaw), -sin(yaw))
-  const worldX = normRight * Math.cos(yaw) - normForward * Math.sin(yaw);
-  const worldZ = normRight * (-Math.sin(yaw)) - normForward * Math.cos(yaw);
-  const speed = input.sprint
-    ? movement.sprintSpeed
-    : movement.walkSpeed;
-  const distance = Math.max(0, finiteOrZero(speed)) * safeDeltaSeconds;
+  return {
+    x: finiteOrZero(velocity.x) + (targetX - finiteOrZero(velocity.x)) * alpha,
+    z: finiteOrZero(velocity.z) + (targetZ - finiteOrZero(velocity.z)) * alpha,
+  };
+}
+
+export function movePlayerByVelocity({
+  position,
+  velocity,
+  deltaSeconds,
+  roomBounds,
+  obstacles,
+  movement,
+}: {
+  readonly position: Vector3;
+  readonly velocity: HorizontalVelocity;
+  readonly deltaSeconds: number;
+  readonly roomBounds: RoomBounds;
+  readonly obstacles: readonly CollisionObstacle[];
+  readonly movement: PlayerMovementConfig;
+}): Vector3 {
+  const start = clampToRoomBounds(position, roomBounds, movement.halfExtents);
+  const delta = Math.max(0, finiteOrZero(deltaSeconds));
 
   const movedOnX = moveAlongAxis(
     start,
     'x',
-    worldX * distance,
+    finiteOrZero(velocity.x) * delta,
     movement.halfExtents,
     roomBounds,
     obstacles,
@@ -269,7 +340,7 @@ export function movePlayer({
   const movedOnZ = moveAlongAxis(
     movedOnX,
     'z',
-    worldZ * distance,
+    finiteOrZero(velocity.z) * delta,
     movement.halfExtents,
     roomBounds,
     obstacles,

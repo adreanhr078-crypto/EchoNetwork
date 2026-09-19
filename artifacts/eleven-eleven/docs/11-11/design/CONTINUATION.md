@@ -93,3 +93,21 @@ from measured failures; maintain this record after each accepted change.
   was available. No worker output is claimed.
 - Next exact action: postflight and safe WIP checkpoint; then measure and repair
   locomotion/camera/animation feel before introducing Witness Anchor or more content.
+
+## CP-20260919-03 — locomotion response pass
+
+- Replaced instant horizontal speed snapping in the playable Echo path with a
+  camera-relative velocity integrator: normalized diagonal input, responsive
+  acceleration, stronger release deceleration and blocked-axis velocity reset.
+- Preserved the original stateless `movePlayer` contract for existing callers and
+  collision tests; the runtime now uses `movePlayerByVelocity` without bypassing
+  room bounds or authored AABB obstacles.
+- Added a deterministic regression proving acceleration and release behavior.
+  Foundation suite is now 589/589 after this change; TypeScript passes.
+- Edge runtime evidence uses real W input and records acceleration, cruise,
+  release glide and settling from the actual `echo-player` scene object. PASS.
+- Limitation: timing/feel is technically verified but remains subject to human
+  playtest tuning. Camera comfort, foot planting and stride synchronization are
+  not yet accepted. No quality percentage is claimed.
+- Next exact action: run postflight, checkpoint this bounded pass, then measure
+  camera obstruction/recovery and animation stride using the same loaded room.

@@ -17,6 +17,7 @@ import {
 } from '../features/gameplay/systems/echoAnimationSystem';
 import {
   collidesWithObstacle,
+  integrateHorizontalVelocity,
   movePlayer,
 } from '../features/gameplay/systems/playerMovementSystem';
 import {
@@ -52,6 +53,11 @@ const FORWARD_INPUT: PlayerMovementInput = {
   sprint: false,
 };
 
+const IDLE_INPUT: PlayerMovementInput = {
+  ...FORWARD_INPUT,
+  forward: false,
+};
+
 function approximatelyEqual(
   actual: number,
   expected: number,
@@ -73,6 +79,33 @@ function solvedFlags(): OpeningRoomNarrativeFlags {
 }
 
 describe('Opening room player movement', () => {
+  it('accelerates responsively and decelerates without an instant speed snap', () => {
+    const first = integrateHorizontalVelocity({
+      velocity: { x: 0, z: 0 },
+      input: FORWARD_INPUT,
+      deltaSeconds: 1 / 60,
+      movement: MOVEMENT,
+    });
+    const second = integrateHorizontalVelocity({
+      velocity: first,
+      input: FORWARD_INPUT,
+      deltaSeconds: 1 / 60,
+      movement: MOVEMENT,
+    });
+    assert.ok(Math.abs(first.z) > 0);
+    assert.ok(Math.abs(first.z) < MOVEMENT.walkSpeed);
+    assert.ok(Math.abs(second.z) > Math.abs(first.z));
+
+    const released = integrateHorizontalVelocity({
+      velocity: second,
+      input: IDLE_INPUT,
+      deltaSeconds: 1 / 60,
+      movement: MOVEMENT,
+    });
+    assert.ok(Math.abs(released.z) < Math.abs(second.z));
+    assert.ok(Math.abs(released.z) > 0);
+  });
+
   it('uses delta time and clamps the player to the room', () => {
     const quarterSecond = movePlayer({
       position: { x: 0, y: 0.5, z: 0 },

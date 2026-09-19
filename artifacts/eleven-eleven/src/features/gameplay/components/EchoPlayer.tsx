@@ -14,7 +14,10 @@ import { OPENING_ROOM_CONFIG } from '../data/openingRoom.config';
 import type {
   OpeningRoomNarrativeFlags,
 } from '../systems/puzzleSystem';
-import { movePlayer } from '../systems/playerMovementSystem';
+import {
+  integrateHorizontalVelocity,
+  movePlayerByVelocity,
+} from '../systems/playerMovementSystem';
 import { useInteraction } from '../hooks/useInteraction';
 import type {
   PlayerControlsSnapshot,
@@ -73,6 +76,7 @@ export function EchoPlayer({
   const initializedPositionRef = useRef(false);
 
   const velocityYRef = useRef(0);
+  const horizontalVelocityRef = useRef({ x: 0, z: 0 });
   const katanaGroupRef = useRef<Group>(null);
   const slashArcRef = useRef<Mesh>(null);
   const attackElapsedRef = useRef(1);
@@ -142,6 +146,7 @@ export function EchoPlayer({
     }
 
     if (!enabled) {
+      horizontalVelocityRef.current = { x: 0, z: 0 };
       const visual = visualStateRef.current;
       visual.speed = MathUtils.damp(visual.speed, 0, 12, frameDelta);
       visual.speedNormalized = MathUtils.damp(
@@ -194,19 +199,32 @@ export function EchoPlayer({
       activeInput.right = false;
     }
 
-    const next = movePlayer({
+    horizontalVelocityRef.current = integrateHorizontalVelocity({
+      velocity: horizontalVelocityRef.current,
+      input: activeInput,
+      deltaSeconds: delta,
+      facingYawRadians: cameraYawRef.current,
+      movement: OPENING_ROOM_CONFIG.movement,
+    });
+    const intendedVelocity = horizontalVelocityRef.current;
+    const next = movePlayerByVelocity({
       position: {
         x: current.x,
         y: current.y,
         z: current.z,
       },
-      input: activeInput,
+      velocity: intendedVelocity,
       deltaSeconds: delta,
-      facingYawRadians: cameraYawRef.current,
       roomBounds: OPENING_ROOM_CONFIG.bounds,
       obstacles: OPENING_ROOM_CONFIG.obstacles,
       movement: OPENING_ROOM_CONFIG.movement,
     });
+    if (Math.abs(next.x - current.x - intendedVelocity.x * delta) > 0.001) {
+      horizontalVelocityRef.current = { ...horizontalVelocityRef.current, x: 0 };
+    }
+    if (Math.abs(next.z - current.z - intendedVelocity.z * delta) > 0.001) {
+      horizontalVelocityRef.current = { ...horizontalVelocityRef.current, z: 0 };
+    }
 
     const floorY = OPENING_ROOM_CONFIG.bounds.min.y + OPENING_ROOM_CONFIG.movement.halfExtents.y;
     const ceilingY = OPENING_ROOM_CONFIG.bounds.max.y - OPENING_ROOM_CONFIG.movement.halfExtents.y;
