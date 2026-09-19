@@ -12,6 +12,10 @@ import {
   findNearestEnabledInteraction,
 } from '../features/gameplay/systems/interactionSystem';
 import {
+  resolveCameraArmScale,
+  resolveCameraRegionBounds,
+} from '../features/gameplay/systems/cameraCollisionSystem';
+import {
   findEchoAnimationClip,
   resolveEchoAnimationState,
 } from '../features/gameplay/systems/echoAnimationSystem';
@@ -328,6 +332,43 @@ describe('Opening room interactions', () => {
       );
       assert.ok(distance <= interaction.interactionDistance);
     }
+  });
+});
+
+describe('Opening room camera containment', () => {
+  const bounds = {
+    minX: -4.5,
+    maxX: 13.5,
+    minZ: -14,
+    maxZ: 16,
+    minY: 0.5,
+    maxY: 5.5,
+  };
+
+  it('selects the authored corridor and chamber bounds from player position', () => {
+    assert.equal(resolveCameraRegionBounds({ x: 0, y: 1, z: 0 }, bounds).maxX, 4.7);
+    const alpha = resolveCameraRegionBounds({ x: 7, y: 1, z: 7 }, bounds);
+    assert.equal(alpha.minX, 5.2);
+    assert.equal(alpha.minZ, 4.3);
+    assert.equal(alpha.maxZ, 10.7);
+    const vault = resolveCameraRegionBounds({ x: 10, y: 1, z: -8 }, bounds);
+    assert.equal(vault.maxZ, -4.3);
+  });
+
+  it('pulls the camera arm inside a wall and restores full distance in open space', () => {
+    const region = resolveCameraRegionBounds({ x: 0, y: 1, z: 0 }, bounds);
+    const blocked = resolveCameraArmScale(
+      { x: 4, y: 2, z: 0 },
+      { x: 3, y: 1, z: 0 },
+      region,
+    );
+    assert.ok(blocked < 1);
+    assert.ok(blocked >= 0.35);
+    assert.equal(resolveCameraArmScale(
+      { x: 0, y: 2, z: 0 },
+      { x: 1, y: 1, z: 1 },
+      region,
+    ), 1);
   });
 });
 

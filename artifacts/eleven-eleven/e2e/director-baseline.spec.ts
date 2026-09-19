@@ -61,6 +61,22 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   expect(distance(accelerationSample!, cruiseSample!)).toBeGreaterThan(0.5);
   expect(distance(cruiseSample!, releaseSample!)).toBeGreaterThan(0.001);
   expect(distance(releaseSample!, settledSample!)).toBeLessThan(0.2);
+  const cameraState = await page.evaluate(() => {
+    const camera = (window as any).__11_11_SCENE__?.camera;
+    return camera ? {
+      x: camera.position.x,
+      y: camera.position.y,
+      z: camera.position.z,
+    } : null;
+  });
+  expect(cameraState).not.toBeNull();
+  for (const value of Object.values(cameraState!)) expect(Number.isFinite(value)).toBe(true);
+  expect(cameraState!.x).toBeGreaterThanOrEqual(-4.5);
+  expect(cameraState!.x).toBeLessThanOrEqual(4.7);
+  expect(cameraState!.y).toBeGreaterThanOrEqual(0.45);
+  expect(cameraState!.y).toBeLessThanOrEqual(5.75);
+  expect(cameraState!.z).toBeGreaterThanOrEqual(-14);
+  expect(cameraState!.z).toBeLessThanOrEqual(16);
   await capture('after-walking');
   const rendered = await page.evaluate(() => {
     const bridge = (window as any).__11_11_SCENE__;

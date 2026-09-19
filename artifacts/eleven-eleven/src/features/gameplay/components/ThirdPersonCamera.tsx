@@ -10,6 +10,10 @@ import {
   Vector3,
   type Group,
 } from 'three';
+import {
+  resolveCameraArmScale,
+  resolveCameraRegionBounds,
+} from '../systems/cameraCollisionSystem';
 
 export interface ThirdPersonCameraConfig {
   distance: number;
@@ -61,6 +65,7 @@ export function ThirdPersonCamera({
   const targetPosition = useMemo(() => new Vector3(), []);
   const desiredPosition = useMemo(() => new Vector3(), []);
   const lookTarget = useMemo(() => new Vector3(), []);
+  const armVector = useMemo(() => new Vector3(), []);
 
   const distanceRef = useRef(config.distance);
 
@@ -190,72 +195,23 @@ export function ThirdPersonCamera({
     const armH = distance * cosPitch;
     const armV = distance * sinPitch + config.height;
 
-    const armVec = new Vector3(
+    armVector.set(
       Math.sin(yaw) * armH + shoulderX,
       armV,
       Math.cos(yaw) * armH + shoulderZ,
     );
-
-    // Dynamic chamber bounds for interior divider partitions:
-    let effectiveMinX = config.bounds.minX;
-    let effectiveMaxX = config.bounds.maxX;
-    let effectiveMinZ = config.bounds.minZ;
-    let effectiveMaxZ = config.bounds.maxZ;
-
-    // Eastern Sub-Chambers vs Main Corridor separation:
-    if (targetPosition.x > 5.0) {
-      effectiveMinX = 5.2; // Keep camera inside sub-labs, avoiding east corridor wall at x = 4.9
-      if (targetPosition.z < -4.0) {
-        // Deep Containment Vault (z: -14.5 to -4.0)
-        effectiveMaxZ = -4.3; // Prevent clipping through Entrance 3 divider at z = -4.0
-      } else if (targetPosition.z < 4.0) {
-        // Sub-Chamber Beta (z: -4.0 to 4.0)
-        effectiveMinZ = -3.7;
-        effectiveMaxZ = 3.7;
-      } else {
-        // Sub-Lab Alpha (z: 4.0 to 11.0)
-        effectiveMinZ = 4.3;
-        effectiveMaxZ = 10.7;
-      }
-    } else {
-      // Main Corridor (x <= 5.0)
-      effectiveMaxX = 4.7; // Avoid clipping through the East dividing wall at x = 4.9
-    }
-
-    // Wall collision test: pull camera in along arm vector if hitting room or partition boundary
-    let scaleFactor = 1.0;
-    const testPos = new Vector3().addVectors(lookTarget, armVec);
-
-    if (Math.abs(armVec.x) > 0.001) {
-      if (testPos.x < effectiveMinX) {
-        const sx = (effectiveMinX - lookTarget.x) / armVec.x;
-        if (sx > 0) scaleFactor = Math.min(scaleFactor, sx);
-      } else if (testPos.x > effectiveMaxX) {
-        const sx = (effectiveMaxX - lookTarget.x) / armVec.x;
-        if (sx > 0) scaleFactor = Math.min(scaleFactor, sx);
-      }
-    }
-    if (Math.abs(armVec.z) > 0.001) {
-      if (testPos.z < effectiveMinZ) {
-        const sz = (effectiveMinZ - lookTarget.z) / armVec.z;
-        if (sz > 0) scaleFactor = Math.min(scaleFactor, sz);
-      } else if (testPos.z > effectiveMaxZ) {
-        const sz = (effectiveMaxZ - lookTarget.z) / armVec.z;
-        if (sz > 0) scaleFactor = Math.min(scaleFactor, sz);
-      }
-    }
-
-    scaleFactor = MathUtils.clamp(scaleFactor, 0.35, 1.0);
+    const region = resolveCameraRegionBounds(targetPosition, config.bounds);
+    const scaleFactor = resolveCameraArmScale(lookTarget, armVector, region);
 
     desiredPosition.set(
-      lookTarget.x + armVec.x * scaleFactor,
-      lookTarget.y + armVec.y * scaleFactor,
-      lookTarget.z + armVec.z * scaleFactor,
+      lookTarget.x + armVector.x * scaleFactor,
+      lookTarget.y + armVector.y * scaleFactor,
+      lookTarget.z + armVector.z * scaleFactor,
     );
 
-    desiredPosition.x = MathUtils.clamp(desiredPosition.x, effectiveMinX, effectiveMaxX);
-    desiredPosition.y = MathUtils.clamp(desiredPosition.y, config.bounds.minY, config.bounds.maxY);
-    desiredPosition.z = MathUtils.clamp(desiredPosition.z, effectiveMinZ, effectiveMaxZ);
+    desiredPosition.x = MathUtils.clamp(desiredPosition.x, region.minX, region.maxX);
+    desiredPosition.y = MathUtils.clamp(desiredPosition.y, region.minY, region.maxY);
+    desiredPosition.z = MathUtils.clamp(desiredPosition.z, region.minZ, region.maxZ);
 
     let shakePitchOffset = 0;
     let shakeYawOffset = 0;
@@ -276,6 +232,9 @@ export function ThirdPersonCamera({
     } else {
       const followAlpha = 1 - Math.exp(-config.followSmoothing * delta);
       camera.position.lerp(desiredPosition, followAlpha);
+      camera.position.x = MathUtils.clamp(camera.position.x, region.minX, region.maxX);
+      camera.position.y = MathUtils.clamp(camera.position.y, region.minY, region.maxY);
+      camera.position.z = MathUtils.clamp(camera.position.z, region.minZ, region.maxZ);
       camera.lookAt(lookTarget);
     }
 

@@ -111,3 +111,24 @@ from measured failures; maintain this record after each accepted change.
   not yet accepted. No quality percentage is claimed.
 - Next exact action: run postflight, checkpoint this bounded pass, then measure
   camera obstruction/recovery and animation stride using the same loaded room.
+
+## CP-20260919-04 — authored camera containment
+
+- Moved opening-room camera containment into a pure, tested system with explicit
+  bounds for the main corridor, Alpha room, Beta room and vault. The camera arm
+  shortens when its desired position would cross the active room boundary.
+- Removed a per-frame temporary vector allocation from the third-person camera.
+  Both the desired camera position and the smoothed runtime position are clamped,
+  preventing transient partition clipping while interpolation catches up.
+- Added deterministic coverage for room-region selection, blocked-arm shortening
+  and unobstructed full-arm recovery. Foundation suite is now 591/591; TypeScript
+  passes.
+- Edge runtime evidence reads the real camera after movement and verifies finite
+  coordinates inside the authored main-corridor bounds. Director baseline PASS.
+- Visual review confirms that the tested view remains readable and the HUD stays
+  clear, but the current room remains a dark cyan prototype—not final-quality
+  lighting, composition or environmental art.
+- Limitations: no complete human comfort playtest and no arbitrary-prop occlusion
+  ray are claimed. Foot planting and animation stride remain unaccepted.
+- Next exact action: run postflight and checkpoint this bounded pass, then align
+  locomotion feedback with actual distance travelled before any content expansion.
