@@ -1,7 +1,18 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-19",
+  "productionMandate": "docs/11-11/design/OWNER_PRODUCTION_MANDATE.md",
+  "continuationRecord": "docs/11-11/design/CONTINUATION.md",
+  "ownerRevision20260919": {
+    "runtime": "Preserve active Three/R3F; no automatic Godot or Unity migration",
+    "scope": "Definitive System vertical slice before outside-world production",
+    "outsideWorld": "Fictional Japanese coastal city; Yokohama inspiration, not a copy",
+    "combat": "Human survival combat allowed before Zero; supernatural power requires contract",
+    "checkpointPolicy": "Record evidence, limitations and next action after each meaningful delivery",
+    "communication": "Minimal tokens; required work updates only: يكمل or ينجز",
+    "delegation": "Prefer verified Gemini terminal worker for bounded tasks; review actual output"
+  },
   "ownerApproved": true,
   "ownerDirective": "Build an original world-class hybrid anime game with quality over speed, using as many evidence-gated phases and professional tools as needed.",
   "currentPhase": "PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE",

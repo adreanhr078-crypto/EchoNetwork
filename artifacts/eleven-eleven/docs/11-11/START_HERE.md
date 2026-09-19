@@ -1,5 +1,12 @@
 # START HERE: 11.11 Echo Network Architecture & Context
 
+## Current continuation — 2026-09-19
+
+Read [Owner mandate](design/OWNER_PRODUCTION_MANDATE.md) and
+[continuation checkpoint](design/CONTINUATION.md) first. The historical snapshot
+below is not proof of today's implementation. Preserve the active Three/R3F
+runtime; no engine migration or city construction is currently authorized.
+
 **Welcome to 11.11 — Echo Network.** If you are an AI agent, you must read this document before making any architectural or implementation decisions.
 
 ## The Core Product Vision

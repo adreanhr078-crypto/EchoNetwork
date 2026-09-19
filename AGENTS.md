@@ -1,5 +1,19 @@
 # Repository Agent Instructions
 
+## Current Owner mandate and continuation (2026-09-19)
+
+Read `artifacts/eleven-eleven/docs/11-11/design/OWNER_PRODUCTION_MANDATE.md`
+and `artifacts/eleven-eleven/docs/11-11/design/CONTINUATION.md` before task work.
+The revised mandate supersedes conflicting older production directions, subject
+to platform safety and the Owner's later instructions. Preserve Manhwa authority.
+After each meaningful delivery, append a checkpoint with files, actual tests,
+limitations, worker status and the next exact action. Never equate plans with work.
+Keep work in EchoNetwork; verify origin before publishing. Preserve dirty work.
+Owner communication preference: no work narration; when a progress update is
+required, use only «يكمل» or «ينجز». Keep final factual handoffs concise.
+Prefer bounded Gemini terminal delegation when verified available; do not claim
+it was used without a real returned result. Send relevant context, not full history.
+
 The active 11.11 application is under `artifacts/eleven-eleven`. Read and preserve its project rules in `artifacts/eleven-eleven/AGENT_RULES.md` before making application changes. Do not modify legacy or unrelated project paths unless the task explicitly requires it.
 
 # Mandatory Product Memory

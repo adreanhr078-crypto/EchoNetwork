@@ -14,6 +14,17 @@ the story becomes a game; it does not invent or overwrite story Canon.
 
 ## North star
 
+### Owner revision — 2026-09-19
+
+The current production reference is
+`11-11/design/OWNER_PRODUCTION_MANDATE.md`; resume from
+`11-11/design/CONTINUATION.md`, without restarting accepted work.
+Keep the active Three/R3F architecture. Preserve existing Godot work without
+starting a migration. Current scope remains the definitive System vertical slice.
+The long-term outside world is a fictional Japanese coastal city inspired by
+Yokohama, not a reproduction. Human survival combat may precede Zero; supernatural
+transformation remains after despair and contract. City implementation is deferred.
+
 Build an original, emotionally powerful hybrid anime game that can compete in
 craft, attachment, visual quality, narrative impact, and playability with major
 global productions. Quality matters more than speed. A multi-year production
