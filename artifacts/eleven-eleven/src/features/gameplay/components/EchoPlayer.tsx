@@ -27,6 +27,7 @@ import {
   INITIAL_ECHO_VISUAL_STATE,
 } from '../types/echoAnimation.types';
 import {
+  advanceFootstepPhase,
   resolveEchoAnimationState,
 } from '../systems/echoAnimationSystem';
 import type {
@@ -71,9 +72,7 @@ export function EchoPlayer({
   onFootstep,
 }: EchoPlayerProps) {
   const visualStateRef = useRef({ ...INITIAL_ECHO_VISUAL_STATE });
-  const footstepElapsedRef = useRef(0);
-  const lastPositionRef = useRef(new Vector3());
-  const initializedPositionRef = useRef(false);
+  const footstepPhaseRef = useRef(0);
 
   const velocityYRef = useRef(0);
   const horizontalVelocityRef = useRef({ x: 0, z: 0 });
@@ -140,11 +139,6 @@ export function EchoPlayer({
     const player = playerRef.current;
     if (!player) return;
 
-    if (!initializedPositionRef.current) {
-      lastPositionRef.current.copy(player.position);
-      initializedPositionRef.current = true;
-    }
-
     if (!enabled) {
       horizontalVelocityRef.current = { x: 0, z: 0 };
       const visual = visualStateRef.current;
@@ -182,7 +176,7 @@ export function EchoPlayer({
           frameDelta,
         );
       }
-      footstepElapsedRef.current = 0;
+      footstepPhaseRef.current = 0;
       return;
     }
 
@@ -298,15 +292,18 @@ export function EchoPlayer({
         delta,
       );
 
-      footstepElapsedRef.current += delta;
-      const cadence = inputRef.current.sprint ? 0.28 : 0.43;
-      if (footstepElapsedRef.current >= cadence) {
-        footstepElapsedRef.current = 0;
+      const footstepProgress = advanceFootstepPhase(
+        footstepPhaseRef.current,
+        Math.hypot(deltaX, deltaZ),
+        visual.sprinting,
+      );
+      footstepPhaseRef.current = footstepProgress.phase;
+      for (let step = 0; step < footstepProgress.emittedSteps; step += 1) {
         onFootstep();
       }
     } else {
       visual.turnLean = MathUtils.damp(visual.turnLean, 0, 9, delta);
-      footstepElapsedRef.current = 0;
+      footstepPhaseRef.current = 0;
     }
 
     // Combat Attack & Dodge Execution (Genshin / NieR fast tactical martial arts)
@@ -409,7 +406,6 @@ export function EchoPlayer({
       if (slashArcRef.current) slashArcRef.current.visible = false;
     }
 
-    lastPositionRef.current.copy(player.position);
     onPositionUpdate?.(player.position);
   });
 

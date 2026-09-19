@@ -9,6 +9,17 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   page.on('response', response => {
     if (/\.glb(?:\?|$)/.test(response.url())) assets.add(response.url());
   });
+  await page.addInitScript(() => {
+    const AudioContextConstructor = window.AudioContext
+      ?? (window as any).webkitAudioContext;
+    if (!AudioContextConstructor) return;
+    const originalCreateBufferSource = AudioContextConstructor.prototype.createBufferSource;
+    (window as any).__11_11_FOOTSTEP_SOURCES__ = 0;
+    AudioContextConstructor.prototype.createBufferSource = function createBufferSource() {
+      (window as any).__11_11_FOOTSTEP_SOURCES__ += 1;
+      return originalCreateBufferSource.call(this);
+    };
+  });
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto('/e2e/fixtures/gameplay-room.html');
   await expect(page.locator('[data-canvas-ready="true"]')).toBeVisible({ timeout: 60000 });
@@ -61,6 +72,7 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   expect(distance(accelerationSample!, cruiseSample!)).toBeGreaterThan(0.5);
   expect(distance(cruiseSample!, releaseSample!)).toBeGreaterThan(0.001);
   expect(distance(releaseSample!, settledSample!)).toBeLessThan(0.2);
+  expect(await page.evaluate(() => (window as any).__11_11_FOOTSTEP_SOURCES__)).toBeGreaterThan(0);
   const cameraState = await page.evaluate(() => {
     const camera = (window as any).__11_11_SCENE__?.camera;
     return camera ? {

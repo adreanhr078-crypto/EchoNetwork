@@ -16,6 +16,7 @@ import {
   resolveCameraRegionBounds,
 } from '../features/gameplay/systems/cameraCollisionSystem';
 import {
+  advanceFootstepPhase,
   findEchoAnimationClip,
   resolveEchoAnimationState,
 } from '../features/gameplay/systems/echoAnimationSystem';
@@ -369,6 +370,30 @@ describe('Opening room camera containment', () => {
       { x: 1, y: 1, z: 1 },
       region,
     ), 1);
+  });
+});
+
+describe('Echo locomotion feedback', () => {
+  it('emits footsteps from travelled distance instead of elapsed time', () => {
+    const partial = advanceFootstepPhase(0, 0.52, false);
+    assert.equal(partial.emittedSteps, 0);
+    assert.ok(partial.phase > 0.5);
+
+    const contact = advanceFootstepPhase(partial.phase, 0.52, false);
+    assert.equal(contact.emittedSteps, 1);
+    assert.ok(contact.phase < 0.02);
+
+    const blocked = advanceFootstepPhase(contact.phase, 0, false);
+    assert.equal(blocked.emittedSteps, 0);
+    assert.equal(blocked.phase, contact.phase);
+  });
+
+  it('keeps gait phase stable while changing to the longer sprint step', () => {
+    const walk = advanceFootstepPhase(0, 0.5, false);
+    const sprint = advanceFootstepPhase(walk.phase, 0.75, true);
+    assert.equal(sprint.emittedSteps, 0);
+    assert.ok(sprint.phase > walk.phase);
+    assert.ok(sprint.phase < 1);
   });
 });
 

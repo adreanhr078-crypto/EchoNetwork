@@ -132,3 +132,21 @@ from measured failures; maintain this record after each accepted change.
   ray are claimed. Foot planting and animation stride remain unaccepted.
 - Next exact action: run postflight and checkpoint this bounded pass, then align
   locomotion feedback with actual distance travelled before any content expansion.
+
+## CP-20260919-05 — distance-driven locomotion feedback
+
+- Replaced timer-driven footstep cues with a normalized gait phase advanced by
+  actual horizontal distance travelled. Collisions and stationary input no longer
+  advance footstep audio, and switching between walk and sprint preserves phase.
+- Calibrated the initial walk/sprint step distances from the prior runtime cadence
+  and movement targets rather than claiming model-specific foot contacts. Removed
+  unused position bookkeeping and a render-path debug log.
+- Evidence: TypeScript PASS; foundation 593/593 PASS; deterministic tests cover
+  partial travel, a completed contact, blocked movement and a gait transition.
+  Edge baseline PASS and observes a real procedural footstep source after real W
+  movement, while its existing acceleration and camera-containment checks remain.
+- Limitation: this synchronizes movement feedback to distance, not to exact rig
+  heel/toe contact. Final foot planting needs approved locomotion clips plus visual
+  bone/contact review; it is not claimed here.
+- Next exact action: run postflight and checkpoint this bounded pass. Then audit
+  the loaded Echo clip inventory and model rig before changing animation playback.

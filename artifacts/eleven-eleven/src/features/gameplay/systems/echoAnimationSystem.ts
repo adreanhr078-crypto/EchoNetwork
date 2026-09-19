@@ -36,6 +36,37 @@ export function resolveEchoAnimationState({
   return 'walk';
 }
 
+export interface FootstepProgress {
+  readonly phase: number;
+  readonly emittedSteps: number;
+}
+
+const WALK_STEP_DISTANCE = 1.03;
+const SPRINT_STEP_DISTANCE = 1.46;
+
+export function advanceFootstepPhase(
+  phase: number,
+  travelledDistance: number,
+  sprinting: boolean,
+): FootstepProgress {
+  const safePhase = Number.isFinite(phase)
+    ? Math.max(0, phase % 1)
+    : 0;
+  const safeDistance = Number.isFinite(travelledDistance)
+    ? Math.max(0, travelledDistance)
+    : 0;
+  const distancePerStep = sprinting
+    ? SPRINT_STEP_DISTANCE
+    : WALK_STEP_DISTANCE;
+  const totalPhase = safePhase + safeDistance / distancePerStep;
+  const emittedSteps = Math.floor(totalPhase);
+
+  return {
+    phase: totalPhase - emittedSteps,
+    emittedSteps,
+  };
+}
+
 const CLIP_PATTERNS: Record<EchoAnimationState, readonly RegExp[]> = {
   idle: [/idle/i, /stand/i, /breath/i],
   walk: [/walk/i, /locomo/i],

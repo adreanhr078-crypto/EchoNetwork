@@ -186,7 +186,6 @@ function EchoGlbModel({
 export function EchoModel({
   visualStateRef,
 }: EchoModelProps) {
-  console.log('[EchoModel] Invoked. Config:', ECHO_MODEL_CONFIG);
   if (ECHO_MODEL_CONFIG.modelUrl) {
     return (
       <Suspense fallback={<EchoAnimationController visualStateRef={visualStateRef} />}>
