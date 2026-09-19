@@ -77,6 +77,7 @@ export default function MainMenuScreen() {
     (store) => store.storyState,
   );
   const authStatus = useAuthStore((store) => store.status);
+  const authConfigured = useAuthStore((store) => store.configured);
   const [authOpen, setAuthOpen] = useState(false);
   const objective = useMemo(
     // Legacy two-argument signature remains supported for non-authenticated
@@ -95,14 +96,16 @@ export default function MainMenuScreen() {
   }, [signedIn]);
 
   const continueJourney = () => {
-    if (!signedIn) {
-      setAuthOpen(true);
+  if (!signedIn) {
+    if (import.meta.env.DEV && !authConfigured) {
+      navigate('play');
       return;
     }
-    // Signing in should first return the player to the central mission hub.
-    // The Manhwa opens only from an explicit objective inside that hub.
-    navigate('psychological-state');
-  };
+    setAuthOpen(true);
+    return;
+  }
+  navigate('psychological-state');
+};
 
   return (
     <CinematicFrame

@@ -73,16 +73,18 @@ export function EchoAnimationController({
     const moving = visual.state === 'walk' || visual.state === 'run';
     const running = visual.state === 'run';
     const interacting = visual.state === 'interact';
+    // Combat states — fully suppress all locomotion animation during attacks
+    const inCombat = ['punch1', 'punch2', 'kick', 'slash', 'dodge'].includes(visual.state);
 
     locomotionBlendRef.current = MathUtils.damp(
       locomotionBlendRef.current,
-      moving ? 1 : 0,
+      moving && !inCombat ? 1 : 0,
       9,
       delta,
     );
     runBlendRef.current = MathUtils.damp(
       runBlendRef.current,
-      running ? 1 : 0,
+      running && !inCombat ? 1 : 0,
       8,
       delta,
     );
@@ -97,56 +99,97 @@ export function EchoAnimationController({
     const run = runBlendRef.current;
     const interaction = interactionBlendRef.current;
     const cadence = MathUtils.lerp(5.6, 9.4, run);
-    phaseRef.current += delta * cadence * Math.max(0.32, visual.speedNormalized);
+
+    // KEY FIX: Only advance phase when ACTUALLY moving (locomotion > 0.05).
+    // Previously Math.max(0.32, speedNormalized) caused constant phase advance
+    // even when fully stopped — Echo would perpetually oscillate and "sit down".
+    if (locomotion > 0.05) {
+      phaseRef.current += delta * cadence * visual.speedNormalized;
+    } else {
+      // Slowly ease phase toward 0 when stopped so limbs come to rest naturally
+      phaseRef.current = MathUtils.damp(phaseRef.current, 0, 4, delta);
+    }
 
     const phase = phaseRef.current;
-    const stride = Math.sin(phase) * MathUtils.lerp(0.48, 0.78, run)
-      * locomotion;
-    const oppositeStride = Math.sin(phase + Math.PI)
-      * MathUtils.lerp(0.48, 0.78, run) * locomotion;
-    const bob = Math.abs(Math.sin(phase * 2))
-      * MathUtils.lerp(0.018, 0.045, run) * locomotion;
-    const breath = Math.sin(phaseRef.current * 0.24) * 0.012
-      * (1 - locomotion * 0.72);
+    const stride = Math.sin(phase) * MathUtils.lerp(0.48, 0.78, run) * locomotion;
+    const oppositeStride = Math.sin(phase + Math.PI) * MathUtils.lerp(0.48, 0.78, run) * locomotion;
+    const bob = Math.abs(Math.sin(phase * 2)) * MathUtils.lerp(0.018, 0.045, run) * locomotion;
 
-    root.position.y = bob + breath;
+    // Calm idle breathing — very subtle, only active when not moving
+    const idleBreath = Math.sin(Date.now() * 0.0008) * 0.006 * (1 - locomotion);
+
+    root.position.y = bob + idleBreath;
+
+    // Suppress all tilt when stopped — prevents Echo from leaning permanently
     root.rotation.z = MathUtils.damp(
       root.rotation.z,
-      visual.turnLean * 0.08,
-      10,
+      inCombat ? 0 : visual.turnLean * 0.08,
+      12,
       delta,
     );
     torso.rotation.x = MathUtils.damp(
       torso.rotation.x,
-      -run * 0.16 - interaction * 0.11,
+      inCombat ? 0 : -run * 0.16 - interaction * 0.11,
       9,
       delta,
     );
-    torso.rotation.z = Math.sin(phase) * 0.035 * locomotion;
+    torso.rotation.z = MathUtils.damp(
+      torso.rotation.z,
+      inCombat ? 0 : Math.sin(phase) * 0.035 * locomotion,
+      8,
+      delta,
+    );
 
-    if (leftLegRef.current) leftLegRef.current.rotation.x = stride;
-    if (rightLegRef.current) rightLegRef.current.rotation.x = oppositeStride;
+    // All limbs use damp() so they smoothly return to rest pose instead of snapping
+    if (leftLegRef.current) {
+      leftLegRef.current.rotation.x = MathUtils.damp(leftLegRef.current.rotation.x, inCombat ? 0 : stride, 10, delta);
+    }
+    if (rightLegRef.current) {
+      rightLegRef.current.rotation.x = MathUtils.damp(rightLegRef.current.rotation.x, inCombat ? 0 : oppositeStride, 10, delta);
+    }
     if (leftShinRef.current) {
-      leftShinRef.current.rotation.x = Math.max(0, -stride) * 0.72;
+      leftShinRef.current.rotation.x = MathUtils.damp(leftShinRef.current.rotation.x, inCombat ? 0 : Math.max(0, -stride) * 0.72, 10, delta);
     }
     if (rightShinRef.current) {
-      rightShinRef.current.rotation.x = Math.max(0, -oppositeStride) * 0.72;
+      rightShinRef.current.rotation.x = MathUtils.damp(rightShinRef.current.rotation.x, inCombat ? 0 : Math.max(0, -oppositeStride) * 0.72, 10, delta);
     }
     if (leftArmRef.current) {
-      leftArmRef.current.rotation.x = oppositeStride * 0.72
-        - interaction * 0.28;
+      leftArmRef.current.rotation.x = MathUtils.damp(
+        leftArmRef.current.rotation.x,
+        inCombat ? 0 : oppositeStride * 0.72 - interaction * 0.28,
+        10,
+        delta,
+      );
     }
     if (rightArmRef.current) {
-      rightArmRef.current.rotation.x = stride * 0.72
-        - interaction * 1.02;
-      rightArmRef.current.rotation.z = -interaction * 0.16;
+      rightArmRef.current.rotation.x = MathUtils.damp(
+        rightArmRef.current.rotation.x,
+        inCombat ? 0 : stride * 0.72 - interaction * 1.02,
+        10,
+        delta,
+      );
+      rightArmRef.current.rotation.z = MathUtils.damp(
+        rightArmRef.current.rotation.z,
+        inCombat ? 0 : -interaction * 0.16,
+        10,
+        delta,
+      );
     }
     if (leftForearmRef.current) {
-      leftForearmRef.current.rotation.x = -0.12 - run * 0.28;
+      leftForearmRef.current.rotation.x = MathUtils.damp(
+        leftForearmRef.current.rotation.x,
+        inCombat ? 0 : -0.12 - run * 0.28,
+        8,
+        delta,
+      );
     }
     if (rightForearmRef.current) {
-      rightForearmRef.current.rotation.x = -0.12 - run * 0.28
-        - interaction * 0.62;
+      rightForearmRef.current.rotation.x = MathUtils.damp(
+        rightForearmRef.current.rotation.x,
+        inCombat ? 0 : -0.12 - run * 0.28 - interaction * 0.62,
+        8,
+        delta,
+      );
     }
 
     head.rotation.y = MathUtils.damp(
@@ -157,11 +200,12 @@ export function EchoAnimationController({
     );
     head.rotation.x = MathUtils.damp(
       head.rotation.x,
-      interaction * 0.12 + Math.sin(phase * 0.18) * 0.018,
+      inCombat ? 0 : interaction * 0.12 + Math.sin(phase * 0.18) * 0.018,
       8,
       delta,
     );
   });
+
 
   return (
     <group ref={rootRef} name="echo-procedural-proxy">

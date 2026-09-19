@@ -118,12 +118,18 @@ function moveAlongAxis(
 
     if (distance > 0) {
       const stoppingPoint = obstacle.min[movementAxis] - extent;
-      if (start <= stoppingPoint && target > stoppingPoint) {
+      if (start <= stoppingPoint + 0.05) {
+        target = Math.min(target, stoppingPoint);
+      } else if (start < obstacle.max[movementAxis] + extent) {
+        // Player is penetrating: firmly clamp back outside the obstacle near face
         target = Math.min(target, stoppingPoint);
       }
     } else {
       const stoppingPoint = obstacle.max[movementAxis] + extent;
-      if (start >= stoppingPoint && target < stoppingPoint) {
+      if (start >= stoppingPoint - 0.05) {
+        target = Math.max(target, stoppingPoint);
+      } else if (start > obstacle.min[movementAxis] - extent) {
+        // Player is penetrating: firmly clamp back outside the obstacle near face
         target = Math.max(target, stoppingPoint);
       }
     }
@@ -133,6 +139,39 @@ function moveAlongAxis(
     ...position,
     [movementAxis]: target,
   };
+}
+
+export function resolveObstaclePenetration(
+  position: Vector3,
+  halfExtents: Vector3,
+  obstacles: readonly CollisionObstacle[],
+  roomBounds: RoomBounds,
+): Vector3 {
+  let resolved = { ...position };
+
+  for (let iteration = 0; iteration < 2; iteration++) {
+    for (const obstacle of obstacles) {
+      if (!aabbsIntersect(positionAabb(resolved, halfExtents), obstacle)) {
+        continue;
+      }
+
+      const pushLeft = obstacle.min.x - halfExtents.x - resolved.x;
+      const pushRight = obstacle.max.x + halfExtents.x - resolved.x;
+      const pushBack = obstacle.min.z - halfExtents.z - resolved.z;
+      const pushForward = obstacle.max.z + halfExtents.z - resolved.z;
+
+      const minXPush = Math.abs(pushLeft) < Math.abs(pushRight) ? pushLeft : pushRight;
+      const minZPush = Math.abs(pushBack) < Math.abs(pushForward) ? pushBack : pushForward;
+
+      if (Math.abs(minXPush) < Math.abs(minZPush)) {
+        resolved.x += minXPush;
+      } else {
+        resolved.z += minZPush;
+      }
+    }
+  }
+
+  return clampToRoomBounds(resolved, roomBounds, halfExtents);
 }
 
 export function createAabb(
@@ -199,18 +238,20 @@ export function movePlayer({
   );
   const safeDeltaSeconds = Math.max(0, finiteOrZero(deltaSeconds));
 
-  const localX = Number(input.right) - Number(input.left);
-  const localZ = Number(input.backward) - Number(input.forward);
-  const inputLength = Math.hypot(localX, localZ);
+  const moveRight = Number(input.right) - Number(input.left);
+  const moveForward = Number(input.forward) - Number(input.backward);
+  const inputLength = Math.hypot(moveRight, moveForward);
   if (inputLength === 0 || safeDeltaSeconds === 0) return start;
 
-  const normalizedX = localX / inputLength;
-  const normalizedZ = localZ / inputLength;
+  const normRight = moveRight / inputLength;
+  const normForward = moveForward / inputLength;
   const yaw = finiteOrZero(facingYawRadians);
-  const sine = Math.sin(yaw);
-  const cosine = Math.cos(yaw);
-  const worldX = normalizedX * cosine - normalizedZ * sine;
-  const worldZ = normalizedX * sine + normalizedZ * cosine;
+
+  // Genshin Impact 3rd-Person Camera-Relative World Direction:
+  // Camera Forward in world XZ: (-sin(yaw), -cos(yaw))
+  // Camera Right in world XZ:   ( cos(yaw), -sin(yaw))
+  const worldX = normRight * Math.cos(yaw) - normForward * Math.sin(yaw);
+  const worldZ = normRight * (-Math.sin(yaw)) - normForward * Math.cos(yaw);
   const speed = input.sprint
     ? movement.sprintSpeed
     : movement.walkSpeed;
@@ -225,12 +266,19 @@ export function movePlayer({
     obstacles,
   );
 
-  return moveAlongAxis(
+  const movedOnZ = moveAlongAxis(
     movedOnX,
     'z',
     worldZ * distance,
     movement.halfExtents,
     roomBounds,
     obstacles,
+  );
+
+  return resolveObstaclePenetration(
+    movedOnZ,
+    movement.halfExtents,
+    obstacles,
+    roomBounds,
   );
 }

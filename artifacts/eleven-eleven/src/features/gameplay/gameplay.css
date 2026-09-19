@@ -117,6 +117,26 @@
   font-size: clamp(0.84rem, 1.5vw, 1rem);
 }
 
+.gameplay-hud__status--glitch {
+  border-inline-start-color: #ff2a4b;
+  background: linear-gradient(90deg, rgb(30 4 8 / 92%), rgb(4 15 20 / 35%));
+  animation: hud-glitch-jitter 0.48s ease-in-out;
+  text-shadow: 1.5px 0 #ff2a4b, -1.5px 0 #00e5ff;
+}
+
+.gameplay-hud__status--glitch small {
+  color: #ff5e73 !important;
+}
+
+@keyframes hud-glitch-jitter {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
 .gameplay-hud__pause {
   position: absolute;
   inset: clamp(0.8rem, 2.5vw, 1.5rem) clamp(0.8rem, 2.5vw, 1.5rem) auto auto;
@@ -139,6 +159,447 @@
   border-color: #57e7ff;
   outline: none;
   box-shadow: 0 0 1.2rem rgb(87 231 255 / 15%);
+}
+
+.gameplay-hud__sprint {
+  position: absolute;
+  inset: clamp(0.8rem, 2.5vw, 1.5rem) calc(clamp(0.8rem, 2.5vw, 1.5rem) + 6rem) auto auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.55rem;
+  padding: 0 0.9rem;
+  border: 1px solid rgb(87 231 255 / 24%);
+  color: #dffaff;
+  font: 600 var(--gds-type-xs) var(--gds-font-mono);
+  background: rgb(2 9 14 / 68%);
+  backdrop-filter: blur(0.65rem);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gameplay-hud__sprint:hover,
+.gameplay-hud__sprint:focus-visible {
+  border-color: #57e7ff;
+  outline: none;
+  box-shadow: 0 0 1.2rem rgb(87 231 255 / 15%);
+}
+
+.gameplay-hud__sprint.is-active {
+  border-color: #00f0ff;
+  background: rgb(0 240 255 / 18%);
+  color: #ffffff;
+  box-shadow: 0 0 1.2rem rgb(0 240 255 / 35%), inset 0 0 0.6rem rgb(0 240 255 / 25%);
+}
+
+/* -------------------------------------------------------------
+   BOSS ENCOUNTER HEALTH BAR (SPECIMEN EX-000)
+   ------------------------------------------------------------- */
+.gameplay-hud__boss-container {
+  position: absolute;
+  top: clamp(0.75rem, 2vw, 1.35rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 540px);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.65rem 1rem;
+  background:
+    radial-gradient(ellipse at center, rgb(255 0 51 / 15%) 0%, transparent 80%),
+    rgb(4 8 14 / 88%);
+  border: 1.5px solid rgb(255 42 75 / 65%);
+  box-shadow:
+    0 8px 32px rgb(0 0 0 / 75%),
+    0 0 24px rgb(255 0 51 / 28%),
+    inset 0 0 12px rgb(255 0 51 / 15%);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  animation: bossBarPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes bossBarPulse {
+  0% {
+    border-color: rgb(255 42 75 / 55%);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 75%), 0 0 18px rgb(255 0 51 / 20%);
+  }
+  100% {
+    border-color: rgb(255 42 75 / 90%);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 75%), 0 0 32px rgb(255 0 51 / 45%);
+  }
+}
+
+.gameplay-hud__boss-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--gds-font-mono);
+}
+
+.gameplay-hud__boss-warning {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ff3355;
+  text-transform: uppercase;
+}
+
+.gameplay-hud__boss-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fff2f4;
+  text-shadow: 0 0 8px rgb(255 51 85 / 75%);
+}
+
+.gameplay-hud__boss-hp-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffa8b6;
+}
+
+.gameplay-hud__boss-bar {
+  width: 100%;
+  height: 9px;
+  background: rgb(20 4 8 / 90%);
+  border: 1px solid rgb(255 42 75 / 45%);
+  overflow: hidden;
+  position: relative;
+}
+
+.gameplay-hud__boss-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0044 0%, #ff3366 70%, #ff88aa 100%);
+  box-shadow: 0 0 14px rgb(255 0 68 / 85%);
+  transition: width 0.2s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* -------------------------------------------------------------
+   TOUCH CONTROLS (HIGH-END CYBERPUNK HUD GAMEPAD)
+   ------------------------------------------------------------- */
+.gameplay-touch-controls {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 15;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: clamp(1rem, 3.5vw, 2.2rem);
+  pointer-events: none;
+}
+
+/* Left: Virtual D-Pad / Thumbstick */
+.gameplay-touch-controls__dpad {
+  position: relative;
+  width: 146px;
+  height: 146px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgb(0 240 255 / 8%) 0%, transparent 60%),
+    radial-gradient(circle at center, rgb(4 18 28 / 75%) 0%, rgb(1 6 10 / 55%) 100%);
+  border: 1.5px solid rgb(87 231 255 / 32%);
+  box-shadow:
+    0 8px 32px rgb(0 0 0 / 65%),
+    inset 0 0 20px rgb(0 240 255 / 10%);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+}
+
+.gameplay-touch-controls__center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgb(0 240 255 / 22%);
+  border: 1.5px solid rgb(0 240 255 / 65%);
+  box-shadow: 0 0 10px rgb(0 240 255 / 45%);
+  pointer-events: none;
+}
+
+.gameplay-touch-controls__dpad button {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-content: center;
+  border-radius: 12px;
+  background: rgb(6 18 28 / 85%);
+  border: 1px solid rgb(87 231 255 / 35%);
+  color: #57e7ff;
+  font-size: 1.25rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 55%);
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+  touch-action: none;
+}
+
+.gameplay-touch-controls__dpad button[data-direction="forward"] {
+  top: 6px;
+  left: calc(50% - 22px);
+}
+
+.gameplay-touch-controls__dpad button[data-direction="backward"] {
+  bottom: 6px;
+  left: calc(50% - 22px);
+}
+
+.gameplay-touch-controls__dpad button[data-direction="left"] {
+  left: 6px;
+  top: calc(50% - 22px);
+}
+
+.gameplay-touch-controls__dpad button[data-direction="right"] {
+  right: 6px;
+  top: calc(50% - 22px);
+}
+
+.gameplay-touch-controls__dpad button:active,
+.gameplay-touch-controls__dpad button:focus-visible {
+  background: rgb(0 240 255 / 38%);
+  border-color: #00f0ff;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgb(0 240 255 / 75%), inset 0 0 8px rgb(0 240 255 / 55%);
+  transform: scale(0.92);
+  outline: none;
+}
+
+.gameplay-touch-controls__actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  max-width: 260px;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+}
+
+.gameplay-touch-controls__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgb(5 14 22 / 85%);
+  border: 1.5px solid rgb(87 231 255 / 38%);
+  color: #e4faff;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 60%), inset 0 0 8px rgb(87 231 255 / 8%);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1), background 0.15s ease, border-color 0.15s ease;
+  touch-action: none;
+}
+
+.gameplay-touch-controls__glyph {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.gameplay-touch-controls__label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  font-family: var(--gds-font-mono);
+  letter-spacing: 0.05em;
+  opacity: 0.88;
+}
+
+.gameplay-touch-controls__btn:active {
+  transform: scale(0.92);
+  outline: none;
+}
+
+/* Punch Button */
+.gameplay-touch-controls__btn--punch {
+  border-color: #ff8800;
+  background: radial-gradient(circle at center, rgb(255 136 0 / 22%) 0%, rgb(18 9 2 / 85%) 100%);
+  color: #ffcc88;
+}
+
+.gameplay-touch-controls__btn--punch:active {
+  background: rgb(255 136 0 / 40%);
+  border-color: #ffa533;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgb(255 136 0 / 70%);
+}
+
+/* Kick Button */
+.gameplay-touch-controls__btn--kick {
+  border-color: #e024c3;
+  background: radial-gradient(circle at center, rgb(224 36 195 / 22%) 0%, rgb(18 2 16 / 85%) 100%);
+  color: #f7a8ed;
+}
+
+.gameplay-touch-controls__btn--kick:active {
+  background: rgb(224 36 195 / 40%);
+  border-color: #ff55ea;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgb(224 36 195 / 70%);
+}
+
+/* Dodge Button */
+.gameplay-touch-controls__btn--dodge {
+  border-color: #00ffaa;
+  background: radial-gradient(circle at center, rgb(0 255 170 / 20%) 0%, rgb(1 18 12 / 85%) 100%);
+  color: #a3ffd6;
+}
+
+.gameplay-touch-controls__btn--dodge:active {
+  background: rgb(0 255 170 / 38%);
+  border-color: #33ffbb;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgb(0 255 170 / 70%);
+}
+
+/* Jump Button */
+.gameplay-touch-controls__btn--jump {
+  border-color: rgb(87 231 255 / 55%);
+}
+
+.gameplay-touch-controls__btn--jump:active {
+  background: rgb(0 240 255 / 32%);
+  border-color: #00f0ff;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgb(0 240 255 / 65%);
+}
+
+/* Katana Attack Button */
+.gameplay-touch-controls__btn--attack {
+  width: 60px;
+  height: 60px;
+  border-color: #ff2a4b;
+  background: radial-gradient(circle at center, rgb(255 42 75 / 24%) 0%, rgb(18 3 7 / 88%) 100%);
+  color: #ffa3b0;
+  box-shadow: 0 0 18px rgb(255 42 75 / 35%);
+}
+
+.gameplay-touch-controls__btn--attack:active {
+  background: rgb(255 42 75 / 45%);
+  border-color: #ff5e73;
+  color: #ffffff;
+  box-shadow: 0 0 24px rgb(255 42 75 / 85%);
+  transform: scale(0.92);
+}
+
+/* Sprint Button */
+.gameplay-touch-controls__btn--sprint {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.gameplay-touch-controls__btn--sprint.is-active,
+.gameplay-touch-controls__btn--sprint:active {
+  background: rgb(0 240 255 / 35%);
+  border-color: #00f0ff;
+  color: #ffffff;
+  box-shadow: 0 0 18px rgb(0 240 255 / 65%);
+}
+
+/* Interact Button */
+.gameplay-touch-controls__btn--interact {
+  grid-column: 2;
+  grid-row: 2;
+  border-color: rgb(87 231 255 / 28%);
+  opacity: 0.55;
+}
+
+.gameplay-touch-controls__btn--interact.is-ready {
+  opacity: 1;
+  border-color: #00f0ff;
+  background: radial-gradient(circle at center, rgb(0 240 255 / 32%) 0%, rgb(3 16 25 / 92%) 100%);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgb(0 240 255 / 65%);
+  animation: hud-interact-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hud-interact-pulse {
+  0%, 100% {
+    box-shadow: 0 0 14px rgb(0 240 255 / 55%);
+    border-color: #57e7ff;
+  }
+  50% {
+    box-shadow: 0 0 26px rgb(0 240 255 / 85%), inset 0 0 10px rgb(0 240 255 / 40%);
+    border-color: #ffffff;
+  }
+}
+
+/* -------------------------------------------------------------
+   DESKTOP HUD KEYBOARD HINTS
+   ------------------------------------------------------------- */
+.gameplay-desktop-hints {
+  position: absolute;
+  bottom: clamp(1rem, 2.5vh, 1.8rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  background: rgb(1 6 10 / 78%);
+  border: 1px solid rgb(87 231 255 / 22%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgb(0 0 0 / 55%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.gameplay-desktop-hints__item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgb(194 244 255 / 82%);
+  font: 550 0.72rem var(--gds-font-mono);
+  letter-spacing: 0.04em;
+}
+
+.gameplay-desktop-hints kbd {
+  display: inline-block;
+  padding: 0.12rem 0.36rem;
+  border-radius: 4px;
+  background: rgb(87 231 255 / 12%);
+  border: 1px solid rgb(87 231 255 / 45%);
+  color: #57e7ff;
+  font-weight: 700;
+  font-size: 0.68rem;
+  font-family: var(--gds-font-mono);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
+}
+
+.gameplay-desktop-hints__item--weapon kbd {
+  background: rgb(255 42 75 / 16%);
+  border-color: rgb(255 42 75 / 55%);
+  color: #ff6e85;
+}
+
+@media (pointer: coarse) {
+  .gameplay-desktop-hints {
+    display: none !important;
+  }
+}
+
+@media (pointer: fine) and (min-width: 900px) {
+  .gameplay-touch-controls {
+    display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .gameplay-hud__sprint {
+    display: none;
+  }
 }
 
 .gameplay-interaction-prompt {
@@ -266,6 +727,25 @@
   letter-spacing: 0.1em;
 }
 
+.gameplay-narrative__image-frame {
+  margin: 0.6rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgb(87 231 255 / 35%);
+  box-shadow: 0 0 1.5rem rgb(87 231 255 / 15%);
+  max-height: 14rem;
+  display: flex;
+  justify-content: center;
+  background: #010609;
+}
+
+.gameplay-narrative__image {
+  max-height: 14rem;
+  width: auto;
+  object-fit: contain;
+  filter: contrast(1.06) saturate(1.1);
+}
+
 .gameplay-touch-controls {
   display: none;
 }
@@ -276,6 +756,27 @@
   z-index: 20;
   overflow: hidden;
   pointer-events: none;
+}
+
+.cinematic-letterbox-top,
+.cinematic-letterbox-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 9vh;
+  background: #000;
+  z-index: 100;
+  pointer-events: none;
+  transition: height 0.6s ease;
+}
+.cinematic-letterbox-top { top: 0; border-bottom: 1px solid rgba(0, 240, 255, 0.25); }
+.cinematic-letterbox-bottom { bottom: 0; border-top: 1px solid rgba(0, 240, 255, 0.25); }
+
+.opening-cinematic-overlay.is-monster-breach .cinematic-letterbox-top {
+  border-bottom-color: rgba(255, 17, 68, 0.6);
+}
+.opening-cinematic-overlay.is-monster-breach .cinematic-letterbox-bottom {
+  border-top-color: rgba(255, 17, 68, 0.6);
 }
 
 .opening-memory-beat {
@@ -410,8 +911,48 @@
 
 .gameplay-screen[data-cinematic-active="true"] .gameplay-hud__status,
 .gameplay-screen[data-cinematic-active="true"] .gameplay-touch-controls,
-.gameplay-screen[data-cinematic-active="true"] .gameplay-interaction-prompt {
+.gameplay-screen[data-cinematic-active="true"] .gameplay-interaction-prompt,
+.gameplay-screen[data-cinematic-active="true"] .gameplay-hud__sprint {
   opacity: 0;
+  pointer-events: none;
+}
+
+.gameplay-hud__sprint {
+  position: absolute;
+  top: 6.6rem;
+  left: clamp(0.8rem, 2.5vw, 1.5rem);
+  right: auto;
+  bottom: auto;
+  width: fit-content;
+  max-width: min(18rem, calc(100vw - 15rem));
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.9rem;
+  border: 1px solid rgb(0 240 255 / 45%);
+  border-radius: 999px;
+  color: #e0f8ff;
+  background: rgb(8 22 32 / 85%);
+  backdrop-filter: blur(8px);
+  font: 600 var(--gds-type-xs) var(--gds-font-mono);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  z-index: 15;
+}
+
+.gameplay-hud__sprint:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  background: rgb(12 34 50 / 95%);
+}
+
+.gameplay-hud__sprint.is-active {
+  border-color: #ff3366;
+  color: #fff;
+  background: rgb(255 17 68 / 75%);
+  box-shadow: 0 0 16px rgba(255, 17, 68, 0.6);
 }
 
 .gameplay-screen[data-active-interaction="opening-photo"] .gameplay-canvas {
@@ -572,6 +1113,29 @@
   .gameplay-touch-controls button[data-direction="backward"] {
     grid-column: 2;
     grid-row: 3;
+  }
+
+  .gameplay-touch-controls__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .gameplay-touch-controls__sprint {
+    width: 4rem;
+    min-height: 4rem;
+    border-color: rgb(0 240 255 / 45%);
+    color: #e0f8ff;
+    background: rgb(8 22 32 / 75%);
+    font-size: 1.3rem;
+  }
+
+  .gameplay-touch-controls__sprint:active,
+  .gameplay-touch-controls__sprint.is-active {
+    border-color: #ff3366;
+    background: rgb(255 17 68 / 80%);
+    color: #fff;
   }
 
   .gameplay-touch-controls .gameplay-touch-controls__interact {

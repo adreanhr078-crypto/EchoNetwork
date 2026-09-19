@@ -12,6 +12,7 @@ import {
   OPENING_ROOM_MEMORY_ID,
   OPENING_ROOM_PUZZLE_ID,
 } from './openingRoom.puzzles';
+import { OPENING_ROOM_ANCHORS } from './openingRoom.anchors';
 
 export interface OpeningRoomInteractionContext {
   readonly flags: Readonly<Partial<OpeningRoomNarrativeFlags>>;
@@ -66,7 +67,7 @@ readonly OpeningRoomInteraction[] = [
   {
     id: 'opening-clock',
     type: 'inspect',
-    position: { x: 0.65, y: 1.55, z: -3.28 },
+    position: OPENING_ROOM_ANCHORS.clock,
     interactionDistance: 1.45,
     prompt: 'E — افحص الساعة',
     enabledCondition: ({ flags }) => (
@@ -92,7 +93,7 @@ readonly OpeningRoomInteraction[] = [
   {
     id: 'opening-photo',
     type: 'inspect',
-    position: { x: 2.55, y: 1.12, z: -1.46 },
+    position: OPENING_ROOM_ANCHORS.photo,
     interactionDistance: 1.5,
     prompt: 'E — افحص الصورة الممزقة',
     enabledCondition: ({ flags }) => (
@@ -121,7 +122,7 @@ readonly OpeningRoomInteraction[] = [
   {
     id: 'opening-door',
     type: 'door',
-    position: { x: -2.3, y: 1.05, z: -3.32 },
+    position: OPENING_ROOM_ANCHORS.door,
     interactionDistance: 1.4,
     prompt: 'E — افحص الباب',
     enabledCondition: ({ flags }) => (
@@ -153,6 +154,47 @@ readonly OpeningRoomInteraction[] = [
       };
     },
     puzzleId: OPENING_ROOM_PUZZLE_ID,
+  },
+];
+
+// Preserve experimental encounters without adding them to the canonical clue loop.
+export const EXPERIMENTAL_OPENING_INTERACTIONS: readonly OpeningRoomInteraction[] = [
+  {
+    id: 'opening-katana-chest',
+    type: 'inspect',
+    position: { x: 9.2, y: 0.9, z: -1.5 },
+    interactionDistance: 2.2,
+    prompt: 'E — افتح صندوق الكاتانا التكتيكية',
+    enabledCondition: ({ flags }) => (
+      flags.openingMemoryRecovered !== true && flags.openingPuzzleSolved !== true
+    ),
+    onInteract: () => ({
+      outcome: 'narration',
+      message: (
+        'تم فتح صندوق التجهيزات التكتيكية! '
+        + 'سيف الكاتana الإلكتروني عالي التردد أصبح جاهزًا للقتال.'
+      ),
+      effects: [],
+    }),
+
+  },
+  {
+    id: 'sublab-terminal',
+    type: 'inspect',
+    position: { x: 8.5, y: 1.2, z: 6.8 },
+    interactionDistance: 1.8,
+    prompt: 'E — افحص سجلات المختبر',
+    enabledCondition: () => true,
+    onInteract: () => ({
+      outcome: 'narration',
+      message: (
+        'سجل المختبر // قطاع 11: '
+        + '«العينة EX-000 أظهرت نموًا عضليًا شاذًا ومقاومة غير مسبوقة. '
+        + 'تم عزلها في غرفة الاحتواء القصوى خلف البوابة الغربية. '
+        + 'تحذير: لا تدخل دون سلاح حاد عالي التردد.»'
+      ),
+      effects: [],
+    }),
   },
 ];
 

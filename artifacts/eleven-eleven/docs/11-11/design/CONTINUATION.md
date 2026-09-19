@@ -69,3 +69,27 @@ Do not restart the full audit, regenerate accepted sources, rewrite the three
 design documents, migrate engines, or build the Japanese city. The Witness Anchor
 mechanic and 28-minute slice are hypotheses, not delivered gameplay. Continue
 from measured failures; maintain this record after each accepted change.
+
+## CP-20260919-02 — opening evidence repair verified
+
+- Restored rendered 11:11 clock and torn-photo evidence from the existing authored
+  presentation; added a visible vault control panel. Geometry, focus visuals and
+  interaction definitions now share `openingRoom.anchors.ts`.
+- Verified collision-free approach points within interaction range for all three
+  canonical clues. Experimental katana/terminal interactions remain recoverable
+  but are excluded from the canonical interaction list.
+- Disabled the automatic arcade combat study in the default opening. Its source
+  remains intact; memory/puzzle completion no longer grants a weapon implicitly.
+- Repaired the sprint HUD overlap, hid redundant desktop combat prompts when the
+  study is inactive, and reduced snow-like room particles after visual inspection.
+- Evidence: TypeScript PASS; foundation 588/588 PASS; Edge director room baseline
+  PASS with loaded skinned Echo and named evidence props; screen-break Edge suite
+  8/8 PASS (combined Edge run 9/9). Visual inspection confirms objective, sprint,
+  pause and movement hints no longer overlap at 1280×800.
+- Limitations: the room is still a prototype and does not meet final visual,
+  animation, audio or performance acceptance. The automated room route is an
+  isolated presentation fixture, not authenticated receipt end-to-end evidence.
+- Worker status: Gemini/Antigravity was not used; no verified terminal launcher
+  was available. No worker output is claimed.
+- Next exact action: postflight and safe WIP checkpoint; then measure and repair
+  locomotion/camera/animation feel before introducing Witness Anchor or more content.

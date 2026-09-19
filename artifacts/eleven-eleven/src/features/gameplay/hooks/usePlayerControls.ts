@@ -26,6 +26,12 @@ export interface PlayerControlsApi {
     direction: MovementDirection,
     active: boolean,
   ) => void;
+  setSprint: (active: boolean) => void;
+  toggleSprint: () => void;
+  setJump: (active: boolean) => void;
+  triggerPunch: () => void;
+  triggerKick: () => void;
+  triggerDodge: () => void;
   resetInput: () => void;
 }
 
@@ -34,6 +40,10 @@ interface UsePlayerControlsOptions {
   pauseEnabled?: boolean;
   onInteract: () => void;
   onPause: () => void;
+  onAttack?: () => void;
+  onPunch?: () => void;
+  onKick?: () => void;
+  onDodge?: () => void;
 }
 
 const INITIAL_CONTROLS: PlayerControlsSnapshot = {
@@ -45,7 +55,7 @@ const INITIAL_CONTROLS: PlayerControlsSnapshot = {
   jump: false,
 };
 
-const KEY_DIRECTIONS: Partial<Record<string, MovementDirection>> = {
+const KEY_DIRECTIONS: Partial<Record<MovementDirection | string, MovementDirection>> = {
   KeyW: 'forward',
   ArrowUp: 'forward',
   KeyS: 'backward',
@@ -62,6 +72,8 @@ function isGameplayKey(code: string): boolean {
     || code === 'ShiftRight'
     || code === 'Space'
     || code === 'KeyE'
+    || code === 'KeyF'
+    || code === 'KeyQ'
     || code === 'Escape';
 }
 
@@ -70,6 +82,10 @@ export function usePlayerControls({
   pauseEnabled = enabled,
   onInteract,
   onPause,
+  onAttack,
+  onPunch,
+  onKick,
+  onDodge,
 }: UsePlayerControlsOptions): PlayerControlsApi {
   const inputRef = useRef<PlayerControlsSnapshot>({
     ...INITIAL_CONTROLS,
@@ -86,6 +102,37 @@ export function usePlayerControls({
     inputRef.current[direction] = enabled && active;
   }, [enabled]);
 
+  const setSprint = useCallback((active: boolean) => {
+    inputRef.current.sprint = enabled && active;
+  }, [enabled]);
+
+  const toggleSprint = useCallback(() => {
+    if (enabled) {
+      inputRef.current.sprint = !inputRef.current.sprint;
+    }
+  }, [enabled]);
+
+  const setJump = useCallback((active: boolean) => {
+    inputRef.current.jump = enabled && active;
+  }, [enabled]);
+
+  const triggerPunch = useCallback(() => {
+    if (!enabled) return;
+    if (onPunch) onPunch();
+    else onAttack?.();
+  }, [enabled, onAttack, onPunch]);
+
+  const triggerKick = useCallback(() => {
+    if (!enabled) return;
+    if (onKick) onKick();
+    else onAttack?.();
+  }, [enabled, onAttack, onKick]);
+
+  const triggerDodge = useCallback(() => {
+    if (!enabled) return;
+    if (onDodge) onDodge();
+  }, [enabled, onDodge]);
+
   useEffect(() => {
     if (!enabled) resetInput();
   }, [enabled, resetInput]);
@@ -99,7 +146,6 @@ export function usePlayerControls({
         return;
       }
       if (!enabled) return;
-      if (isGameplayKey(event.code)) event.preventDefault();
 
       const direction = KEY_DIRECTIONS[event.code];
       if (direction) {
@@ -110,12 +156,21 @@ export function usePlayerControls({
         inputRef.current.sprint = true;
         return;
       }
-      if (event.code === 'Space') {
+      if (event.code === 'Space' && !event.repeat) {
         inputRef.current.jump = true;
+        triggerDodge();
         return;
       }
       if (event.code === 'KeyE' && !event.repeat) {
         onInteract();
+        return;
+      }
+      if ((event.code === 'KeyF' || event.code === 'KeyJ' || event.code === 'KeyZ') && !event.repeat) {
+        triggerPunch();
+        return;
+      }
+      if ((event.code === 'KeyK' || event.code === 'KeyX') && !event.repeat) {
+        triggerKick();
         return;
       }
     };
@@ -131,29 +186,60 @@ export function usePlayerControls({
       }
     };
 
+    const handleMouseDown = (event: MouseEvent) => {
+      if (!enabled) return;
+      // If clicking inside canvas/gameplay, allow combat clicks
+      const target = event.target as HTMLElement | null;
+      const isUiButton = target?.closest('button, input, select, a, [role="button"]');
+      if (isUiButton) return;
+
+      if (event.button === 0) {
+        // Left click = Punch Combo
+        triggerPunch();
+      } else if (event.button === 2) {
+        // Right click = Heavy Kick
+        event.preventDefault();
+        triggerKick();
+      }
+    };
+
+    const handleContextMenu = (event: MouseEvent) => {
+      if (enabled) event.preventDefault();
+    };
+
     const handleVisibilityChange = () => {
       if (document.hidden) resetInput();
     };
 
     window.addEventListener('keydown', handleKeyDown, { passive: false });
     window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('contextmenu', handleContextMenu);
     window.addEventListener('blur', resetInput);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('contextmenu', handleContextMenu);
       window.removeEventListener('blur', resetInput);
       document.removeEventListener(
         'visibilitychange',
         handleVisibilityChange,
       );
     };
-  }, [enabled, onInteract, onPause, pauseEnabled, resetInput]);
+  }, [enabled, onAttack, onDodge, onInteract, onKick, onPause, onPunch, pauseEnabled, resetInput, triggerDodge, triggerKick, triggerPunch]);
 
   return {
     inputRef,
     setTouchDirection,
+    setSprint,
+    toggleSprint,
+    setJump,
+    triggerPunch,
+    triggerKick,
+    triggerDodge,
     resetInput,
   };
 }

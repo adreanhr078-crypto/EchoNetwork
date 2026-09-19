@@ -6,8 +6,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import { Canvas } from '@react-three/fiber';
-import type { Group } from 'three';
+import { Canvas, useThree } from '@react-three/fiber';
+import { ACESFilmicToneMapping, Vector3, type Group } from 'three';
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 import type {
   MotionTier,
   QualityTier,
@@ -47,6 +48,14 @@ import {
   ThirdPersonCamera,
   type ThirdPersonCameraConfig,
 } from './ThirdPersonCamera';
+import {
+  CombatEffects,
+  type CombatEffectsHandle,
+} from './CombatEffects';
+
+
+export const GLOBALS = { timeScale: 1.0 };
+const OPENING_COMBAT_STUDY_ENABLED = false;
 
 interface GameWorldProps {
   paused: boolean;
@@ -121,6 +130,24 @@ function narrationForExecution(
   };
 }
 
+function SceneDebugBridge() {
+  const { scene, camera, gl } = useThree();
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).__11_11_SCENE__ = {
+        scene,
+        camera,
+        gl,
+        captureScreenshot: () => {
+          gl.render(scene, camera);
+          return gl.domElement.toDataURL('image/png');
+        },
+      };
+    }
+  }, [scene, camera, gl]);
+  return null;
+}
+
 export function GameWorld({
   paused,
   quality,
@@ -130,6 +157,8 @@ export function GameWorld({
 }: GameWorldProps) {
   const playerRef = useRef<Group | null>(null);
   const cameraYawRef = useRef(0);
+  const cameraTraumaRef = useRef(0);
+  const combatEffectsRef = useRef<CombatEffectsHandle | null>(null);
   const [canvasReady, setCanvasReady] = useState(false);
   const [nearestInteractionId, setNearestInteractionId] = useState<
     string | null
@@ -204,6 +233,9 @@ export function GameWorld({
           : 'doorLocked',
         { volume: 0.5 },
       );
+    } else if (execution.interaction.id === 'opening-katana-chest') {
+      setPickedUpWeapon(true);
+      playCue('slash', { volume: 0.8 });
     }
     if (
       execution.interaction.id === 'opening-door'
@@ -211,6 +243,7 @@ export function GameWorld({
     ) {
       setPendingMemoryBeat(true);
     }
+
     if (execution.memoryGranted) {
       playCue('memoryGlitch', { volume: 0.5 });
     }
@@ -263,19 +296,229 @@ export function GameWorld({
     }
   }, [completeRoomLocally, onRoomComplete, roomCompletionStatus]);
 
+  const inputEnabled = !paused
+    && !cinematicActive
+    && !showTutorial
+    && !memoryBeatActive
+    && roomCompletionStatus !== 'submitting'
+    && roomCompletionStatus !== 'completed'
+    && narrative === null
+    && activeInteractionId === null;
+
+  const [pickedUpWeapon, setPickedUpWeapon] = useState(false);
+  const hasWeapon = OPENING_COMBAT_STUDY_ENABLED && pickedUpWeapon;
+  const [combatAction, setCombatAction] = useState<{
+    type: 'punch' | 'kick' | 'dodge' | 'slash';
+    nonce: number;
+  } | null>(null);
+  const combatNonceRef = useRef(0);
+  const hitStopTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [breachProgress, setBreachProgress] = useState(0);
+  const [monsterHp, setMonsterHp] = useState(1000);
+  const [bossFightActive, setBossFightActive] = useState(false);
+  const [lastHitNonce, setLastHitNonce] = useState(0);
+  const [lastHitDamage, setLastHitDamage] = useState(0);
+  const [playerPosition, setPlayerPosition] = useState<Vector3>(
+    () => new Vector3(0, 0, 10.8),
+  );
+  const breachStartedRef = useRef(false);
+  const breachShatterPlayedRef = useRef(false);
+  const breachRoarPlayedRef = useRef(false);
+
+  useEffect(() => () => {
+    if (hitStopTimerRef.current) clearTimeout(hitStopTimerRef.current);
+    if (typeof window !== 'undefined') (window as any).__11_11_TIME_SCALE = 1.0;
+  }, []);
+
+  // Proximity-based containment breach trigger & animation
+  const handlePositionUpdate = useCallback((pos: Vector3) => {
+    setPlayerPosition(pos.clone());
+    // Deep containment vault entrance: x > 6.5 and z < -3.5, OR deep corridor quarantine z < -5.0
+    if (OPENING_COMBAT_STUDY_ENABLED && !breachStartedRef.current && ((pos.x > 6.5 && pos.z < -3.5) || pos.z < -5.0)) {
+      breachStartedRef.current = true;
+      setBossFightActive(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!bossFightActive) return;
+    let animId: number;
+    const startTime = performance.now();
+    const duration = 3600; // 3.6s dramatic breach sequence
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      setBreachProgress(progress);
+
+      if (progress >= 0.55 && !breachShatterPlayedRef.current) {
+        breachShatterPlayedRef.current = true;
+        playCue('glassShatter', { volume: 0.85 });
+      }
+      if (progress >= 0.70 && !breachRoarPlayedRef.current) {
+        breachRoarPlayedRef.current = true;
+        playCue('monsterRoar', { volume: 0.9 });
+      }
+
+      if (progress < 1) {
+        animId = requestAnimationFrame(tick);
+      }
+    };
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, [bossFightActive, playCue]);
+
+  const handlePunch = useCallback(() => {
+    if (!inputEnabled) return;
+    combatNonceRef.current += 1;
+    setCombatAction({ type: 'punch', nonce: combatNonceRef.current });
+    playCue('punch', { volume: 0.55 });
+  }, [inputEnabled, playCue]);
+
+  const handleKick = useCallback(() => {
+    if (!inputEnabled) return;
+    combatNonceRef.current += 1;
+    setCombatAction({ type: 'kick', nonce: combatNonceRef.current });
+    playCue('kick', { volume: 0.65 });
+  }, [inputEnabled, playCue]);
+
+  const handleDodge = useCallback(() => {
+    if (!inputEnabled) return;
+    combatNonceRef.current += 1;
+    setCombatAction({ type: 'dodge', nonce: combatNonceRef.current });
+    playCue('dodge', { volume: 0.45 });
+  }, [inputEnabled, playCue]);
+
+  const handleAttack = useCallback(() => {
+    if (!inputEnabled) return;
+    combatNonceRef.current += 1;
+    if (hasWeapon) {
+      setCombatAction({ type: 'slash', nonce: combatNonceRef.current });
+      playCue('slash', { volume: 0.55 });
+    } else {
+      setCombatAction({ type: 'punch', nonce: combatNonceRef.current });
+      playCue('punch', { volume: 0.55 });
+    }
+  }, [hasWeapon, inputEnabled, playCue]);
+
+  const handleHitTarget = useCallback((damage: number, impactPos: Vector3, reach = 1.5, attackType = 'punch') => {
+    if (!bossFightActive) return;
+    const monsterX = 11.0;
+    const monsterZ = -8.5;
+    const monsterRadius = 0.85;
+
+    const monsterDirX = monsterX - playerPosition.x;
+    const monsterDirZ = monsterZ - playerPosition.z;
+    const distToCenter = Math.hypot(monsterDirX, monsterDirZ);
+
+    // Directional alignment: player must be facing within ~60 degrees of monster
+    const playerYaw = playerRef.current?.rotation.y ?? 0;
+    const forwardX = Math.sin(playerYaw);
+    const forwardZ = Math.cos(playerYaw);
+    const facingDot = (forwardX * monsterDirX + forwardZ * monsterDirZ) / Math.max(0.001, distToCenter);
+
+    // Physical reach boundary check: strike tip must reach monster cylinder boundary
+    const distToBoundary = distToCenter - monsterRadius;
+    const inReach = distToBoundary <= reach;
+    const isFacing = facingDot >= 0.45;
+
+    if (inReach && isFacing) {
+      // DIRECT PHYSICAL CONTACT HIT
+      playCue('hitImpact', { volume: 0.8 });
+      cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.6);
+      setLastHitNonce((prev) => prev + 1);
+      setLastHitDamage(damage);
+      setMonsterHp((prev) => Math.max(0, prev - damage));
+      const isCrit = damage >= 125;
+      combatEffectsRef.current?.triggerHit(impactPos, damage, isCrit);
+
+      // Hit Stop (Time Freeze)
+      if (typeof window !== 'undefined') {
+        if (hitStopTimerRef.current) clearTimeout(hitStopTimerRef.current);
+        (window as any).__11_11_TIME_SCALE = 0.05;
+        hitStopTimerRef.current = setTimeout(() => {
+          (window as any).__11_11_TIME_SCALE = 1.0;
+          hitStopTimerRef.current = null;
+        }, isCrit ? 60 : 40);
+      }
+    } else {
+      // WHIFF / AIR SWING (Physical miss: zero damage, monster unaffected)
+      playCue('whoosh', { volume: 0.4 });
+    }
+  }, [bossFightActive, playCue, playerPosition.x, playerPosition.z]);
+
+  const handleMonsterAttack = useCallback((damage: number) => {
+    if (playerRef.current?.userData.isInvulnerable) {
+      // PERFECT DODGE
+      playCue('dodge', { volume: 0.9 });
+      if (typeof window !== 'undefined') {
+        if (hitStopTimerRef.current) clearTimeout(hitStopTimerRef.current);
+        (window as any).__11_11_TIME_SCALE = 0.2;
+        hitStopTimerRef.current = setTimeout(() => {
+          (window as any).__11_11_TIME_SCALE = 1.0;
+          hitStopTimerRef.current = null;
+        }, 500);
+      }
+      return;
+    }
+    playCue('hitImpact', { volume: 0.7 });
+    cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.85);
+  }, [playCue]);
+
+  const handleMonsterDefeated = useCallback(() => {
+    // Victory sequence — cinematic moment like a Genshin boss kill
+    playCue('monsterRoar', { volume: 0.8 });
+    // Spike camera trauma for dramatic shake
+    cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 1.5);
+
+    // Slow-motion after 0.8s
+    const slowTimer = setTimeout(() => {
+      GLOBALS.timeScale = 0.15;
+
+      // After 2.5s of slow-mo, restore time and trigger room completion
+      const restoreTimer = setTimeout(() => {
+        GLOBALS.timeScale = 1.0;
+        // Trigger memory beat / room completion path
+        setMemoryBeatActive(true);
+      }, 2500);
+
+      return () => clearTimeout(restoreTimer);
+    }, 800);
+
+    return () => clearTimeout(slowTimer);
+  }, [playCue, setMemoryBeatActive]);
+
+
+
   const controls = usePlayerControls({
-    enabled: !paused
-      && !cinematicActive
-      && !showTutorial
-      && !memoryBeatActive
-      && roomCompletionStatus !== 'submitting'
-      && roomCompletionStatus !== 'completed'
-      && narrative === null
-      && activeInteractionId === null,
+    enabled: inputEnabled,
     pauseEnabled: !paused,
     onInteract: handleInteract,
     onPause,
+    onAttack: OPENING_COMBAT_STUDY_ENABLED ? handleAttack : undefined,
+    onPunch: OPENING_COMBAT_STUDY_ENABLED ? handlePunch : undefined,
+    onKick: OPENING_COMBAT_STUDY_ENABLED ? handleKick : undefined,
+    onDodge: OPENING_COMBAT_STUDY_ENABLED ? handleDodge : undefined,
   });
+
+  if (typeof window !== 'undefined') {
+    (window as any).__11_11_DEBUG__ = {
+      playerPosition,
+      bossFightActive,
+      monsterHp,
+      breachProgress,
+      triggerBreach: () => {
+        breachStartedRef.current = true;
+        setBossFightActive(true);
+      },
+      attackMonster: (damage = 100) => {
+        handleHitTarget(damage, new Vector3(11.0, 0, -8.5));
+      },
+      setPlayerPos: (x: number, y: number, z: number) => {
+        setPlayerPosition(new Vector3(x, y, z));
+      },
+    };
+  }
 
   const interactionPrompt = useMemo(() => {
     const interaction = OPENING_ROOM_INTERACTIONS.find(
@@ -293,33 +536,26 @@ export function GameWorld({
   const cameraConfig = useMemo<ThirdPersonCameraConfig>(() => {
     const padding = OPENING_ROOM_CONFIG.camera.collisionPadding;
     return {
-      distance: OPENING_ROOM_CONFIG.camera.positionOffset.z,
-      height: OPENING_ROOM_CONFIG.camera.positionOffset.y,
-      lookHeight: OPENING_ROOM_CONFIG.camera.targetOffset.y,
-      followSmoothing: OPENING_ROOM_CONFIG.camera.followSharpness,
-      pointerSensitivity: 0.003,
-      minPitch: -0.18,
-      maxPitch: 0.28,
+      distance: 3.2,
+      height: 0.78,
+      lookHeight: 1.15,
+      followSmoothing: 22,
+      pointerSensitivity: 0.0022,
+      minPitch: -0.45,
+      maxPitch: 0.55,
       bounds: {
         minX: OPENING_ROOM_CONFIG.bounds.min.x + padding,
         maxX: OPENING_ROOM_CONFIG.bounds.max.x - padding,
         minZ: OPENING_ROOM_CONFIG.bounds.min.z + padding,
         maxZ: OPENING_ROOM_CONFIG.bounds.max.z - padding,
-        minY: 0.9,
-        maxY: OPENING_ROOM_CONFIG.dimensions.height - 0.18,
+        minY: 0.4,
+        maxY: OPENING_ROOM_CONFIG.dimensions.height - 0.5,
       },
     };
   }, []);
 
+
   const stageCopy = PUZZLE_STAGE_COPY[puzzle.stage];
-  const inputEnabled = !paused
-    && !cinematicActive
-    && !showTutorial
-    && !memoryBeatActive
-    && roomCompletionStatus !== 'submitting'
-    && roomCompletionStatus !== 'completed'
-    && narrative === null
-    && activeInteractionId === null;
   const dpr: [number, number] = quality === 'high'
     ? [1, 2]
     : quality === 'mobile'
@@ -347,7 +583,7 @@ export function GameWorld({
         shadows={quality !== 'mobile'}
         dpr={dpr}
         camera={{
-          fov: 54,
+          fov: 52,
           near: 0.08,
           far: 42,
           position: [0, 2.9, 3.1],
@@ -355,6 +591,9 @@ export function GameWorld({
         gl={{
           antialias: quality !== 'mobile',
           powerPreference: 'high-performance',
+          preserveDrawingBuffer: false,
+          toneMapping: ACESFilmicToneMapping,
+          toneMappingExposure: 0.88,
         }}
         onCreated={() => setCanvasReady(true)}
         aria-label="الغرفة الافتتاحية ثلاثية الأبعاد"
@@ -364,11 +603,12 @@ export function GameWorld({
           attach="fog"
           args={[
             '#01070a',
-            quality === 'mobile' ? 6.5 : 5.4,
-            quality === 'mobile' ? 14 : 12,
+            quality === 'mobile' ? 8.0 : 7.0,
+            quality === 'mobile' ? 22 : 28,
           ]}
         />
         <Suspense fallback={null}>
+          <SceneDebugBridge />
           <RoomLoader
             definition={OPENING_LAB_DEFINITION}
             flags={flags}
@@ -377,6 +617,19 @@ export function GameWorld({
               inputEnabled ? nearestInteractionId : activeInteractionId
             }
             visualEvent={visualEvent}
+            hasWeapon={hasWeapon}
+            onPickupWeapon={() => {
+              setPickedUpWeapon(true);
+              playCue('slash', { volume: 0.8 });
+            }}
+            breachProgress={breachProgress}
+            isAgitated={bossFightActive}
+            playerPos={playerPosition}
+            onMonsterHpChange={(hp) => setMonsterHp(hp)}
+            onMonsterAttack={handleMonsterAttack}
+            onMonsterDefeated={handleMonsterDefeated}
+            lastHitNonce={lastHitNonce}
+            lastHitDamage={lastHitDamage}
           />
           <EchoPlayer
             playerRef={playerRef}
@@ -388,12 +641,29 @@ export function GameWorld({
             cinematicLocked={cinematicActive}
             activeInteractionId={activeInteractionId}
             interactionTarget={interactionTarget}
+            hasWeapon={hasWeapon}
+            combatAction={combatAction}
+            onPositionUpdate={handlePositionUpdate}
+            onHitTarget={handleHitTarget}
             onNearestInteractionChange={setNearestInteractionId}
             onFootstep={() => playCue('footstep', { volume: 0.18 })}
           />
+          <CombatEffects ref={combatEffectsRef} />
+          {quality !== 'mobile' && (
+            <EffectComposer multisampling={quality === 'high' ? 4 : 0}>
+              <Bloom
+                intensity={1.4}
+                luminanceThreshold={0.55}
+                luminanceSmoothing={0.85}
+                mipmapBlur
+              />
+              <Vignette offset={0.28} darkness={0.65} />
+            </EffectComposer>
+          )}
           <ThirdPersonCamera
             targetRef={playerRef}
             yawRef={cameraYawRef}
+            traumaRef={cameraTraumaRef}
             enabled={inputEnabled}
             config={cameraConfig}
           />
@@ -453,6 +723,17 @@ export function GameWorld({
         onInteract={handleInteract}
         onPause={onPause}
         setTouchDirection={controls.setTouchDirection}
+        onSprintToggle={controls.toggleSprint}
+        onSprintHold={controls.setSprint}
+        onJumpHold={controls.setJump}
+        onAttack={OPENING_COMBAT_STUDY_ENABLED ? handleAttack : undefined}
+        onPunch={OPENING_COMBAT_STUDY_ENABLED ? handlePunch : undefined}
+        onKick={OPENING_COMBAT_STUDY_ENABLED ? handleKick : undefined}
+        onDodge={OPENING_COMBAT_STUDY_ENABLED ? handleDodge : undefined}
+        hasWeapon={hasWeapon}
+        bossActive={OPENING_COMBAT_STUDY_ENABLED && bossFightActive}
+        monsterHp={monsterHp}
+        maxMonsterHp={1000}
       />
 
       <NarrativeOverlay

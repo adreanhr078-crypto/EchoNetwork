@@ -6,6 +6,8 @@ import {
   OPENING_ROOM_INTERACTIONS,
 } from '../features/gameplay/data/openingRoom.interactions';
 import { OPENING_ROOM_MEMORY_ID } from '../features/gameplay/data/openingRoom.puzzles';
+import { OPENING_ROOM_ANCHORS } from '../features/gameplay/data/openingRoom.anchors';
+import { OPENING_ROOM_CONFIG } from '../features/gameplay/data/openingRoom.config';
 import {
   findNearestEnabledInteraction,
 } from '../features/gameplay/systems/interactionSystem';
@@ -255,6 +257,44 @@ describe('Opening room interactions', () => {
       photoCopy,
       /لا أتذكر الوجه… فقط أنني لم أكن وحدي\./,
     );
+  });
+
+  it('uses one reachable spatial contract for every canonical room clue', () => {
+    const expectedAnchors = [
+      OPENING_ROOM_ANCHORS.clock,
+      OPENING_ROOM_ANCHORS.photo,
+      OPENING_ROOM_ANCHORS.door,
+    ];
+    assert.deepEqual(
+      OPENING_ROOM_INTERACTIONS.map(({ position }) => position),
+      expectedAnchors,
+    );
+
+    const approachPoints = [
+      { x: 3.4, y: 0.88, z: 2 },
+      { x: 6, y: 0.88, z: 6.5 },
+      { x: 0, y: 0.88, z: -12.8 },
+    ];
+    for (const point of approachPoints) {
+      assert.equal(
+        collidesWithObstacle(
+          point,
+          OPENING_ROOM_CONFIG.movement.halfExtents,
+          OPENING_ROOM_CONFIG.obstacles,
+        ),
+        false,
+      );
+    }
+
+    for (let index = 0; index < approachPoints.length; index += 1) {
+      const interaction = OPENING_ROOM_INTERACTIONS[index];
+      const distance = Math.hypot(
+        approachPoints[index].x - interaction.position.x,
+        approachPoints[index].y - interaction.position.y,
+        approachPoints[index].z - interaction.position.z,
+      );
+      assert.ok(distance <= interaction.interactionDistance);
+    }
   });
 });
 

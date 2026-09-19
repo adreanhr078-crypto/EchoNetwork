@@ -1,4 +1,5 @@
 import type { QualityTier } from '../../../ui/design-system';
+import { OPENING_ROOM_ANCHORS, anchorTuple } from './openingRoom.anchors';
 
 export const OPENING_ROOM_PALETTE = {
   void: '#010407',
@@ -35,21 +36,21 @@ export interface OpeningRoomVisualQuality {
 export const OPENING_ROOM_VISUAL_QUALITY:
 Record<QualityTier, OpeningRoomVisualQuality> = {
   high: {
-    dustParticles: 72,
+    dustParticles: 28,
     glitchStrips: 5,
     floorDetails: 13,
     propDetails: true,
     dynamicShadows: true,
   },
   balanced: {
-    dustParticles: 42,
+    dustParticles: 18,
     glitchStrips: 3,
     floorDetails: 9,
     propDetails: true,
     dynamicShadows: false,
   },
   mobile: {
-    dustParticles: 18,
+    dustParticles: 8,
     glitchStrips: 2,
     floorDetails: 6,
     propDetails: false,
@@ -59,15 +60,15 @@ Record<QualityTier, OpeningRoomVisualQuality> = {
 
 export const OPENING_ROOM_INTERACTION_VISUALS = {
   'opening-clock': {
-    position: [0.65, 1.58, -3.16],
+    position: anchorTuple(OPENING_ROOM_ANCHORS.clock),
     radius: 0.58,
   },
   'opening-photo': {
-    position: [2.55, 1.12, -1.38],
+    position: anchorTuple(OPENING_ROOM_ANCHORS.photo),
     radius: 0.5,
   },
   'opening-door': {
-    position: [-2.3, 1.45, -3.14],
+    position: anchorTuple(OPENING_ROOM_ANCHORS.door),
     radius: 0.72,
   },
 } as const;

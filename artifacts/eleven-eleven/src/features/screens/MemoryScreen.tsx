@@ -121,6 +121,11 @@ export default function MemoryScreen() {
   const consumeReaderLaunch = useShellStore(
     (state) => state.consumeManhwaReaderLaunch,
   );
+  const navigate = useShellStore((state) => state.navigate);
+  const accessibleScreens = useShellStore(
+    (state) => state.experienceEntitlements.accessibleScreens,
+  );
+  const canEnterRoom = accessibleScreens.includes('play');
   const completedPuzzleIds = useMemo(() => (
     storyPuzzleSnapshot?.entries
       .filter((entry) => entry.status === 'completed')
@@ -352,6 +357,15 @@ export default function MemoryScreen() {
           <p>{copy.archiveDescription}</p>
         </span>
         <div className="final-manhwa-reader__summary" aria-label={copy.progress}>
+          {canEnterRoom && (
+            <GameButton
+              variant="secondary"
+              size="sm"
+              onClick={() => navigate('play')}
+            >
+              {locale === 'ar' ? 'العودة إلى الغرفة 3D' : 'Return to 3D Room'}
+            </GameButton>
+          )}
           <span>
             <strong>{viewedCount}/{releasedPages.length}</strong>
             <small>{copy.read}</small>

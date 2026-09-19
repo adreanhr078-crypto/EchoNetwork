@@ -1,3 +1,4 @@
+import type { Vector3 } from 'three';
 import type { RoomDefinition } from '../domain/RoomDefinition';
 import { OpeningRoom } from './OpeningRoom';
 import type { OpeningRoomNarrativeFlags } from '../systems/puzzleSystem';
@@ -10,6 +11,16 @@ interface RoomLoaderProps {
   quality: QualityTier;
   focusedInteractionId?: string | null;
   visualEvent?: OpeningRoomVisualEvent | null;
+  breachProgress?: number;
+  isAgitated?: boolean;
+  hasWeapon?: boolean;
+  onPickupWeapon?: () => void;
+  playerPos?: Vector3;
+  onMonsterHpChange?: (currentHp: number, maxHp: number) => void;
+  onMonsterAttack?: (damage: number) => void;
+  onMonsterDefeated?: () => void;
+  lastHitNonce?: number;
+  lastHitDamage?: number;
 }
 
 /**
@@ -23,6 +34,16 @@ export function RoomLoader({
   quality,
   focusedInteractionId,
   visualEvent,
+  breachProgress,
+  isAgitated,
+  hasWeapon,
+  onPickupWeapon,
+  playerPos,
+  onMonsterHpChange,
+  onMonsterAttack,
+  onMonsterDefeated,
+  lastHitNonce,
+  lastHitDamage,
 }: RoomLoaderProps) {
   if (definition.id === 'opening-lab') {
     return (
@@ -31,6 +52,16 @@ export function RoomLoader({
         quality={quality}
         focusedInteractionId={focusedInteractionId}
         visualEvent={visualEvent}
+        breachProgress={breachProgress}
+        isAgitated={isAgitated}
+        hasWeapon={hasWeapon}
+        onPickupWeapon={onPickupWeapon}
+        playerPos={playerPos}
+        onMonsterHpChange={onMonsterHpChange}
+        onMonsterAttack={onMonsterAttack}
+        onMonsterDefeated={onMonsterDefeated}
+        lastHitNonce={lastHitNonce}
+        lastHitDamage={lastHitDamage}
       />
     );
   }

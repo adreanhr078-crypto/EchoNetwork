@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useRef,
   type MutableRefObject,
 } from 'react';
@@ -7,6 +8,7 @@ import {
   MathUtils,
   Vector3,
   type Group,
+  type Mesh,
 } from 'three';
 import { OPENING_ROOM_CONFIG } from '../data/openingRoom.config';
 import type {
@@ -38,6 +40,11 @@ interface EchoPlayerProps {
   cinematicLocked: boolean;
   activeInteractionId: string | null;
   interactionTarget: GameplayVector3 | null;
+  hasWeapon?: boolean;
+  attackTrigger?: number;
+  combatAction?: { type: 'punch' | 'kick' | 'dodge' | 'slash'; nonce: number } | null;
+  onPositionUpdate?: (pos: Vector3) => void;
+  onHitTarget?: (damage: number, impactPos: Vector3, reach?: number, attackType?: string) => void;
   onNearestInteractionChange: (interactionId: string | null) => void;
   onFootstep: () => void;
 }
@@ -52,6 +59,11 @@ export function EchoPlayer({
   cinematicLocked,
   activeInteractionId,
   interactionTarget,
+  hasWeapon = false,
+  attackTrigger = 0,
+  combatAction = null,
+  onPositionUpdate,
+  onHitTarget,
   onNearestInteractionChange,
   onFootstep,
 }: EchoPlayerProps) {
@@ -61,6 +73,55 @@ export function EchoPlayer({
   const initializedPositionRef = useRef(false);
 
   const velocityYRef = useRef(0);
+  const katanaGroupRef = useRef<Group>(null);
+  const slashArcRef = useRef<Mesh>(null);
+  const attackElapsedRef = useRef(1);
+  const lastAttackTriggerRef = useRef(attackTrigger);
+  const attackTypeRef = useRef<'punch1' | 'punch2' | 'kick' | 'slash' | 'dodge'>('punch1');
+  const comboStepRef = useRef(0);
+  const lastCombatNonceRef = useRef(-1);
+  const hitAppliedRef = useRef(false);
+
+  useEffect(() => {
+    if (combatAction && combatAction.nonce !== lastCombatNonceRef.current) {
+      lastCombatNonceRef.current = combatAction.nonce;
+      hitAppliedRef.current = false;
+      attackElapsedRef.current = 0;
+
+      let chosenType: 'punch1' | 'punch2' | 'kick' | 'slash' | 'dodge' = 'punch1';
+      if (combatAction.type === 'kick') {
+        chosenType = 'kick';
+      } else if (combatAction.type === 'dodge') {
+        chosenType = 'dodge';
+      } else if (hasWeapon || combatAction.type === 'slash') {
+        chosenType = 'slash';
+      } else {
+        comboStepRef.current = (comboStepRef.current + 1) % 2;
+        chosenType = comboStepRef.current === 1 ? 'punch1' : 'punch2';
+      }
+      attackTypeRef.current = chosenType;
+
+      const visual = visualStateRef.current;
+      visual.attackActive = true;
+      visual.attackType = chosenType;
+      visual.attackProgress = 0;
+    }
+  }, [combatAction, hasWeapon]);
+
+  useEffect(() => {
+    if (attackTrigger > 0 && attackTrigger !== lastAttackTriggerRef.current) {
+      lastAttackTriggerRef.current = attackTrigger;
+      hitAppliedRef.current = false;
+      attackElapsedRef.current = 0;
+      comboStepRef.current = (comboStepRef.current + 1) % 2;
+      const chosenType = hasWeapon ? 'slash' : (comboStepRef.current === 1 ? 'punch1' : 'punch2');
+      attackTypeRef.current = chosenType;
+      const visual = visualStateRef.current;
+      visual.attackActive = true;
+      visual.attackType = chosenType;
+      visual.attackProgress = 0;
+    }
+  }, [attackTrigger, hasWeapon]);
 
   useInteraction({
     playerRef,
@@ -70,6 +131,8 @@ export function EchoPlayer({
   });
 
   useFrame((_, frameDelta) => {
+    // @ts-ignore - GLOBALS imported or directly referenced
+    const timeScale = (window as any).__11_11_TIME_SCALE ?? 1.0;
     const player = playerRef.current;
     if (!player) return;
 
@@ -118,15 +181,26 @@ export function EchoPlayer({
       return;
     }
 
-    const delta = Math.min(frameDelta, 0.05);
+    const delta = Math.min(frameDelta, 0.05) * timeScale;
     const current = player.position;
+
+    // Dampen directional input during melee strikes to prevent skating
+    const isAttacking = visualStateRef.current.attackActive;
+    const activeInput = { ...inputRef.current };
+    if (isAttacking && attackTypeRef.current !== 'dodge') {
+      activeInput.forward = false;
+      activeInput.backward = false;
+      activeInput.left = false;
+      activeInput.right = false;
+    }
+
     const next = movePlayer({
       position: {
         x: current.x,
         y: current.y,
         z: current.z,
       },
-      input: inputRef.current,
+      input: activeInput,
       deltaSeconds: delta,
       facingYawRadians: cameraYawRef.current,
       roomBounds: OPENING_ROOM_CONFIG.bounds,
@@ -179,6 +253,7 @@ export function EchoPlayer({
       interactionActive: false,
       cinematicLocked: false,
       paused: false,
+      attackState: visual.attackActive ? visual.attackType : null,
     });
     visual.lookYaw = MathUtils.damp(visual.lookYaw, 0, 6, delta);
 
@@ -215,7 +290,109 @@ export function EchoPlayer({
       visual.turnLean = MathUtils.damp(visual.turnLean, 0, 9, delta);
       footstepElapsedRef.current = 0;
     }
+
+    // Combat Attack & Dodge Execution (Genshin / NieR fast tactical martial arts)
+    // Combat Attack & Dodge Execution (Genshin / NieR fast tactical martial arts)
+    const currentAttack = attackTypeRef.current;
+    // Exactly matches durations in combatAnimationClips.ts
+    const duration =
+      currentAttack === 'kick'
+        ? 0.72
+        : currentAttack === 'slash'
+          ? 0.60
+          : currentAttack === 'punch2'
+            ? 0.55
+            : currentAttack === 'dodge'
+              ? 0.34
+              : 0.45;
+
+    if (attackElapsedRef.current < duration) {
+      attackElapsedRef.current += delta;
+      const progress = Math.min(attackElapsedRef.current / duration, 1);
+      const visual = visualStateRef.current;
+      visual.attackProgress = progress;
+
+      const forwardX = Math.sin(player.rotation.y);
+      const forwardZ = Math.cos(player.rotation.y);
+
+      // Dodge: quick forward burst + I-Frames
+      if (currentAttack === 'dodge') {
+        const isIFrame = progress > 0.1 && progress < 0.8;
+        player.userData.isInvulnerable = isIFrame;
+
+        player.position.x += forwardX * 7.0 * delta;
+        player.position.z += forwardZ * 7.0 * delta;
+      } else {
+        player.userData.isInvulnerable = false;
+
+        // Combat Root Motion (Lunges forward into strike)
+        if (progress > 0.12 && progress < 0.42) {
+          const lungeSpeed = currentAttack === 'slash' ? 3.8 : currentAttack === 'kick' ? 3.0 : 1.8;
+          player.position.x += forwardX * lungeSpeed * delta;
+          player.position.z += forwardZ * lungeSpeed * delta;
+        }
+      }
+
+      // Hitbox Application at peak of strike
+      const hitWindow =
+        currentAttack === 'kick'
+          ? (progress >= 0.35 && progress <= 0.55)
+          : currentAttack === 'slash'
+            ? (progress >= 0.28 && progress <= 0.50)
+            : (progress >= 0.22 && progress <= 0.45);
+
+      if (hitWindow && !hitAppliedRef.current && currentAttack !== 'dodge') {
+        hitAppliedRef.current = true;
+        const forwardX = Math.sin(player.rotation.y);
+        const forwardZ = Math.cos(player.rotation.y);
+        const reach = currentAttack === 'slash' ? 2.5 : currentAttack === 'kick' ? 2.2 : currentAttack === 'punch2' ? 1.8 : 1.6;
+        const impactPos = player.position.clone().add(new Vector3(forwardX * reach, 1.1, forwardZ * reach));
+        const damage = currentAttack === 'slash' ? 175 : currentAttack === 'kick' ? 125 : currentAttack === 'punch2' ? 80 : 55;
+        onHitTarget?.(damage, impactPos, reach, currentAttack);
+      }
+
+      // Katana Group Transform (if slashing with sword)
+      if (hasWeapon && katanaGroupRef.current && currentAttack === 'slash') {
+        if (progress < 0.35) {
+          const slashT = progress / 0.35;
+          katanaGroupRef.current.position.set(
+            MathUtils.lerp(0.32, 0.52, slashT),
+            MathUtils.lerp(0.58, 0.72, slashT),
+            MathUtils.lerp(-0.05, 0.65, slashT),
+          );
+          katanaGroupRef.current.rotation.set(
+            MathUtils.lerp(-0.2, 0.45, slashT),
+            MathUtils.lerp(0.15, -1.35, slashT),
+            MathUtils.lerp(-0.5, 1.45, slashT),
+          );
+        } else {
+          const returnT = (progress - 0.35) / 0.65;
+          katanaGroupRef.current.position.set(
+            MathUtils.lerp(0.52, 0.32, returnT),
+            MathUtils.lerp(0.72, 0.58, returnT),
+            MathUtils.lerp(0.65, -0.05, returnT),
+          );
+          katanaGroupRef.current.rotation.set(
+            MathUtils.lerp(0.45, -0.2, returnT),
+            MathUtils.lerp(-1.35, 0.15, returnT),
+            MathUtils.lerp(1.45, -0.5, returnT),
+          );
+        }
+      }
+      if (slashArcRef.current) {
+        slashArcRef.current.visible = hasWeapon && currentAttack === 'slash' && progress < 0.38;
+        const mat = slashArcRef.current.material as any;
+        if (mat) mat.opacity = (1 - progress / 0.38) * 0.9;
+      }
+    } else {
+      const visual = visualStateRef.current;
+      visual.attackActive = false;
+      visual.attackType = null;
+      if (slashArcRef.current) slashArcRef.current.visible = false;
+    }
+
     lastPositionRef.current.copy(player.position);
+    onPositionUpdate?.(player.position);
   });
 
   const spawn = OPENING_ROOM_CONFIG.spawnPosition;
@@ -225,10 +402,55 @@ export function EchoPlayer({
     <group
       ref={playerRef}
       position={[spawn.x, spawn.y, spawn.z]}
+      rotation={[0, Math.PI, 0]}
       name="echo-player"
     >
       <group position={[0, -playerCenterHeight, 0]}>
         <EchoAvatar visualStateRef={visualStateRef} />
+        {/* Equipped Tactical Cyber-Katana */}
+        {hasWeapon && (
+          <group
+            ref={katanaGroupRef}
+            position={[0.42, 0.92, -0.05]}
+            rotation={[-0.2, 0.15, -0.5]}
+            scale={1.22}
+          >
+            <mesh position={[0, -0.18, 0]}>
+              <cylinderGeometry args={[0.02, 0.022, 0.22, 8]} />
+              <meshStandardMaterial color="#080a0f" metalness={0.92} roughness={0.2} />
+            </mesh>
+            <mesh position={[0, -0.06, 0]}>
+              <boxGeometry args={[0.08, 0.012, 0.04]} />
+              <meshStandardMaterial color="#2a3a46" metalness={0.9} />
+            </mesh>
+            <mesh position={[0, 0.38, 0]} castShadow>
+              <boxGeometry args={[0.014, 0.88, 0.038]} />
+              <meshStandardMaterial
+                color="#05080c"
+                emissive="#00f0ff"
+                emissiveIntensity={1.35}
+                metalness={0.95}
+                roughness={0.12}
+              />
+            </mesh>
+            {/* Cyan Slash Energy Trail Arc */}
+            <mesh
+              ref={slashArcRef}
+              visible={false}
+              position={[0, 0.35, 0.2]}
+              rotation={[0, 0, -Math.PI / 4]}
+            >
+              <ringGeometry args={[0.6, 0.9, 16, 1, 0, Math.PI * 0.8]} />
+              <meshBasicMaterial
+                color="#00f0ff"
+                transparent
+                opacity={0.8}
+                side={2}
+                toneMapped={false}
+              />
+            </mesh>
+          </group>
+        )}
       </group>
     </group>
   );

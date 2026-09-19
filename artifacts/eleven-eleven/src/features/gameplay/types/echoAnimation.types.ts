@@ -1,13 +1,18 @@
-import type {
-  MutableRefObject,
-} from 'react';
+import type { MutableRefObject } from 'react';
 
 export type EchoAnimationState =
   | 'idle'
   | 'walk'
   | 'run'
   | 'interact'
-  | 'lockedByCinematic';
+  | 'lockedByCinematic'
+  | 'wakeup'
+  | 'standup'
+  | 'punch1'
+  | 'punch2'
+  | 'kick'
+  | 'slash'
+  | 'dodge';
 
 export interface EchoVisualState {
   state: EchoAnimationState;
@@ -17,16 +22,22 @@ export interface EchoVisualState {
   frozen: boolean;
   lookYaw: number;
   turnLean: number;
+  attackActive: boolean;
+  attackType: 'punch1' | 'punch2' | 'kick' | 'slash' | 'dodge' | null;
+  attackProgress: number;
 }
 
 export type EchoVisualStateRef = MutableRefObject<EchoVisualState>;
 
 export const INITIAL_ECHO_VISUAL_STATE: EchoVisualState = {
-  state: 'idle',
+  state: 'lockedByCinematic',
   speed: 0,
   speedNormalized: 0,
   sprinting: false,
-  frozen: false,
+  frozen: true,
   lookYaw: 0,
   turnLean: 0,
+  attackActive: false,
+  attackType: null,
+  attackProgress: 0,
 };

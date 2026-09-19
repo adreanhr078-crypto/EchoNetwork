@@ -5,6 +5,7 @@ export interface NarrativeOverlayContent {
   title: string;
   body: string;
   memoryFragment?: string;
+  imagePreviewUrl?: string;
 }
 
 interface NarrativeOverlayProps {
@@ -31,6 +32,16 @@ export function NarrativeOverlay({
       >
         <small>{content.eyebrow}</small>
         <h2 id="gameplay-narrative-title">{content.title}</h2>
+        {content.imagePreviewUrl && (
+          <div className="gameplay-narrative__image-frame">
+            <img
+              src={content.imagePreviewUrl}
+              alt={content.title}
+              className="gameplay-narrative__image"
+              loading="lazy"
+            />
+          </div>
+        )}
         <p>{content.body}</p>
         {content.memoryFragment && (
           <blockquote>
