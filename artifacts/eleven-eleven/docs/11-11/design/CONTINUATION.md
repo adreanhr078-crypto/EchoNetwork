@@ -174,3 +174,20 @@ from measured failures; maintain this record after each accepted change.
   visually below the requested target; no AAA acceptance is claimed.
 - Next exact action: postflight and checkpoint. Then perform a measured material,
   lighting and particle readability pass without generating more room content.
+
+## CP-20260919-07 — opening-room readability pass
+
+- Removed a legacy second atmosphere layer that emitted 1,500 random white points
+  across the whole room. The authored seeded `RoomAtmosphere` remains and already
+  scales from 8 to 28 subtle cyan dust motes by quality tier.
+- Raised filmic exposure from 0.88 to 0.98 and modestly increased ambient and
+  hemisphere fill. Key, evidence, danger and chamber lights are unchanged, so the
+  narrative color hierarchy remains intact while Echo and floor planes read better.
+- Edge director baseline PASSes after the changes. Before/after visual inspection
+  at 1280×800 confirms the snow-like obstruction is gone, the full Echo silhouette
+  remains grounded and framed, and the clock/pod path stays legible.
+- Limitation: this is a readability correction, not final lighting acceptance.
+  Environment topology, pod occupants, material richness and authored volumetrics
+  remain visibly below target and require asset-level work, not more post effects.
+- Next exact action: postflight and checkpoint. Continue with a bounded material
+  audit of the main corridor and evidence path; do not expand the room footprint.

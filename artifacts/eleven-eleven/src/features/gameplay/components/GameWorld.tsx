@@ -594,7 +594,7 @@ export function GameWorld({
           powerPreference: 'high-performance',
           preserveDrawingBuffer: false,
           toneMapping: ACESFilmicToneMapping,
-          toneMappingExposure: 0.88,
+          toneMappingExposure: 0.98,
         }}
         onCreated={() => setCanvasReady(true)}
         aria-label="الغرفة الافتتاحية ثلاثية الأبعاد"

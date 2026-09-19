@@ -6,7 +6,6 @@ import {
 } from 'react';
 import { useFrame } from '@react-three/fiber';
 import {
-  AdditiveBlending,
   CatmullRomCurve3,
   DoubleSide,
   MathUtils,
@@ -14,7 +13,6 @@ import {
   type Group,
   type MeshBasicMaterial,
   type MeshStandardMaterial,
-  type Points,
 } from 'three';
 import type { QualityTier } from '../../../ui/design-system';
 import { OPENING_ROOM_CONFIG } from '../data/openingRoom.config';
@@ -567,36 +565,6 @@ function CyberKatanaPickup({
 }
 
 
-function VolumetricFogParticles() {
-  const pointsRef = useRef<any>(null);
-  const particleCount = 1500;
-  const positions = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 16;
-      pos[i * 3 + 1] = Math.random() * 5;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 35;
-    }
-    return pos;
-  }, [particleCount]);
-
-  useFrame(({ clock }) => {
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y = clock.getElapsedTime() * 0.02;
-      pointsRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5) * 0.1;
-    }
-  });
-
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      <pointsMaterial color="#ffffff" size={0.05} transparent opacity={0.15} depthWrite={false} blending={AdditiveBlending} />
-    </points>
-  );
-}
-
 function HolographicConsole({ position, rotation }: { position: [number, number, number], rotation: [number, number, number] }) {
   return (
     <group position={position} rotation={rotation}>
@@ -794,7 +762,6 @@ function CeilingGrates() {
 function MainCorridorAndWings({ focusedInteractionId = null }: { focusedInteractionId?: string | null }) {
   return (
     <group name="opening-room-geometry">
-      <VolumetricFogParticles />
       <CeilingGrates />
 
       {/* Interactive Research Terminal in Sub-Lab Alpha */}

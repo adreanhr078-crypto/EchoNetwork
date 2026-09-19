@@ -124,13 +124,13 @@ export function RoomLighting({
   return (
     <group name="opening-room-light-rig">
       {/* Global ambient — balanced obsidian contrast for sci-fi atmosphere */}
-      <ambientLight intensity={0.55} color="#101a26" />
+      <ambientLight intensity={0.68} color="#101a26" />
       <hemisphereLight
         color="#182c40"
         groundColor="#040810"
-        intensity={0.6}
+        intensity={0.72}
       />
-      {/* Key directional — focused top-down key light like Genshin */}
+      {/* Focused top-down key light. */}
       <directionalLight
         position={[3, 16, 6]}
         intensity={2.4}
