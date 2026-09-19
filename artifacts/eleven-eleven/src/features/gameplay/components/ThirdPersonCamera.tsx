@@ -172,12 +172,12 @@ export function ThirdPersonCamera({
 
     target.getWorldPosition(targetPosition);
 
-    // GENSHIN IMPACT & THE LAST OF US 3RD PERSON CINEMATIC OVER-THE-SHOULDER FRAMING:
+    // Authored third-person over-the-shoulder framing.
     const yaw = yawRef.current;
     const pitch = pitchRef.current;
     const distance = distanceRef.current;
 
-    // Golden Ratio cinematic over-the-shoulder offset (Echo framed cleanly on left-third)
+    // Subtle shoulder offset keeps Echo clear of the forward sightline.
     const shoulderOffset = 0.36;
     const shoulderX = Math.cos(yaw) * shoulderOffset;
     const shoulderZ = -Math.sin(yaw) * shoulderOffset;

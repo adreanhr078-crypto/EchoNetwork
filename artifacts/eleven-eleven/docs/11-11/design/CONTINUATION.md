@@ -150,3 +150,27 @@ from measured failures; maintain this record after each accepted change.
   bone/contact review; it is not claimed here.
 - Next exact action: run postflight and checkpoint this bounded pass. Then audit
   the loaded Echo clip inventory and model rig before changing animation playback.
+
+## CP-20260919-06 — measured Echo rig fit and gait calibration
+
+- Audited the exact runtime `echo.glb` read-only through Blender 4.2 and recorded
+  its hash, topology, 41-bone rig, six imported clip durations and texture sizes
+  in `ECHO_RUNTIME_ASSET_AUDIT.md`.
+- Replaced the guessed fixed model scale with deterministic bounds fitting to a
+  1.78 m target, horizontal centring and lowest-point ground planting. This fixes
+  the source asset's lateral origin offset and prior floor sinking.
+- Calibrated walk/run playback from the measured 24 fps clip lengths and the same
+  contact distances used by footstep feedback. Removed unsupported final-quality
+  claims and remaining render-path debug output from the character component.
+- Corrected the camera's chest target: the player transform is already centred
+  0.88 m above the floor, so the old +1.15 m offset aimed above Echo's head. The
+  +0.42 m authored offset restores a complete third-person silhouette.
+- Evidence: TypeScript PASS; foundation 596/596 PASS. Edge baseline now waits for
+  a skinned mesh specifically below `echo-player`, uses deterministic two-frame
+  release sampling, and PASSes movement, footstep and camera checks. Visual review
+  confirms the loaded model is centred, fully framed and planted at 1280×800.
+- Limitations: mesh deformation, exact heel/toe contacts, face, hair/cloth motion,
+  materials and Manhwa likeness remain open gates. The current room also remains
+  visually below the requested target; no AAA acceptance is claimed.
+- Next exact action: postflight and checkpoint. Then perform a measured material,
+  lighting and particle readability pass without generating more room content.

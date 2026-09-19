@@ -18,8 +18,12 @@ import {
 import {
   advanceFootstepPhase,
   findEchoAnimationClip,
+  resolveLocomotionPlaybackScale,
   resolveEchoAnimationState,
 } from '../features/gameplay/systems/echoAnimationSystem';
+import {
+  resolveCharacterModelFit,
+} from '../features/gameplay/systems/characterModelSystem';
 import {
   collidesWithObstacle,
   integrateHorizontalVelocity,
@@ -394,6 +398,36 @@ describe('Echo locomotion feedback', () => {
     assert.equal(sprint.emittedSteps, 0);
     assert.ok(sprint.phase > walk.phase);
     assert.ok(sprint.phase < 1);
+  });
+
+  it('matches playback rate to the audited walk and run cycles', () => {
+    const walkScale = resolveLocomotionPlaybackScale(2.4, 'walk');
+    const runScale = resolveLocomotionPlaybackScale(5.2, 'run');
+    assert.ok(walkScale > 1.45 && walkScale < 1.55);
+    assert.ok(runScale > 1.35 && runScale < 1.45);
+    assert.equal(resolveLocomotionPlaybackScale(Number.NaN, 'walk'), 0.65);
+  });
+});
+
+describe('Echo model fit', () => {
+  it('centres an offset asset, plants its lowest point, and fits target height', () => {
+    const fit = resolveCharacterModelFit({
+      min: { x: 0.174, y: -0.123, z: -0.29 },
+      max: { x: 0.507, y: 0.76, z: 0.08 },
+    }, 1.78);
+    assert.ok(fit.scale > 2 && fit.scale < 2.02);
+    assert.equal(fit.offset.y, 0.123);
+    assert.ok(fit.offset.x < -0.34 && fit.offset.x > -0.341);
+  });
+
+  it('falls back safely for invalid bounds', () => {
+    assert.deepEqual(resolveCharacterModelFit({
+      min: { x: 0, y: 0, z: 0 },
+      max: { x: 0, y: 0, z: 0 },
+    }, 1.78), {
+      scale: 1,
+      offset: { x: 0, y: 0, z: 0 },
+    });
   });
 });
 

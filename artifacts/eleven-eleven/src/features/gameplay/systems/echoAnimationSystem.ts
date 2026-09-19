@@ -43,6 +43,8 @@ export interface FootstepProgress {
 
 const WALK_STEP_DISTANCE = 1.03;
 const SPRINT_STEP_DISTANCE = 1.46;
+const WALK_CLIP_DURATION_SECONDS = 31 / 24;
+const RUN_CLIP_DURATION_SECONDS = 19 / 24;
 
 export function advanceFootstepPhase(
   phase: number,
@@ -65,6 +67,21 @@ export function advanceFootstepPhase(
     phase: totalPhase - emittedSteps,
     emittedSteps,
   };
+}
+
+export function resolveLocomotionPlaybackScale(
+  speed: number,
+  state: 'walk' | 'run',
+): number {
+  const safeSpeed = Number.isFinite(speed) ? Math.max(0, speed) : 0;
+  const stepDistance = state === 'run'
+    ? SPRINT_STEP_DISTANCE
+    : WALK_STEP_DISTANCE;
+  const clipDuration = state === 'run'
+    ? RUN_CLIP_DURATION_SECONDS
+    : WALK_CLIP_DURATION_SECONDS;
+  const nominalClipSpeed = (stepDistance * 2) / clipDuration;
+  return Math.min(1.75, Math.max(0.65, safeSpeed / nominalClipSpeed));
 }
 
 const CLIP_PATTERNS: Record<EchoAnimationState, readonly RegExp[]> = {

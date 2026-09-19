@@ -37,8 +37,9 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   }), { timeout: 60000 }).toBe(true);
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).__11_11_SCENE__?.scene;
+    const echo = scene?.getObjectByName('echo-player');
     let loadedEcho = false;
-    scene?.traverse((object: any) => {
+    echo?.traverse((object: any) => {
       if (object.isSkinnedMesh) loadedEcho = true;
     });
     return loadedEcho;
@@ -64,7 +65,9 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   await page.waitForTimeout(850);
   const cruiseSample = await echoPosition();
   await page.keyboard.up('w');
-  await page.waitForTimeout(80);
+  await page.evaluate(() => new Promise<void>((resolve) => {
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+  }));
   const releaseSample = await echoPosition();
   await page.waitForTimeout(420);
   const settledSample = await echoPosition();

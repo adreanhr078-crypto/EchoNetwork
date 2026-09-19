@@ -14,15 +14,15 @@ export const OPENING_ROOM_CONFIG: RoomConfig = {
   // Echo steps out onto the Dais in front of the Stasis Capsule in the first quarter of the corridor facing forward (-Z)
   spawnPosition: { x: 0, y: 0.88, z: 9.5 },
   camera: {
-    positionOffset: { x: 0.38, y: 0.35, z: 2.5 }, // Genshin Impact 3rd person OTS framing
+    positionOffset: { x: 0.38, y: 0.35, z: 2.5 },
     targetOffset: { x: 0, y: 1.18, z: 0 },
     followSharpness: 14,
     rotationSharpness: 18,
     collisionPadding: 0.45,
   },
   movement: {
-    walkSpeed: 2.4, // Genshin Impact responsive walk
-    sprintSpeed: 5.2, // Genshin Impact responsive sprint dash
+    walkSpeed: 2.4,
+    sprintSpeed: 5.2,
     halfExtents: { x: 0.35, y: 0.88, z: 0.35 },
   },
   // Interior dividers shaping the main corridor and the nested sub-chambers (Entrance 1 -> Entrance 2 -> Entrance 3)

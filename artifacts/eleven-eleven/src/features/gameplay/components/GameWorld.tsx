@@ -538,7 +538,8 @@ export function GameWorld({
     return {
       distance: 3.2,
       height: 0.78,
-      lookHeight: 1.15,
+      // Player origin is the 0.88 m collision centre; +0.42 m frames Echo's chest.
+      lookHeight: 0.42,
       followSmoothing: 22,
       pointerSensitivity: 0.0022,
       minPitch: -0.45,

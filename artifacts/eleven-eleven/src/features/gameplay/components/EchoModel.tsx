@@ -10,15 +10,20 @@ import {
 } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import {
+  Box3,
   Color,
+  DoubleSide,
   LoopOnce,
+  Vector3,
   type AnimationAction,
   type Group,
 } from 'three';
 
 import {
   findEchoAnimationClip,
+  resolveLocomotionPlaybackScale,
 } from '../systems/echoAnimationSystem';
+import { resolveCharacterModelFit } from '../systems/characterModelSystem';
 import { createCombatAnimationClips } from '../animations/combatAnimationClips';
 import type {
   EchoAnimationState,
@@ -28,15 +33,10 @@ import { EchoAnimationController } from './EchoAnimationController';
 
 const configuredModelUrl = import.meta.env.VITE_ECHO_MODEL_URL?.trim();
 
-/**
- * FINAL ECHO MODEL REPLACEMENT POINT:
- * Human proportioned rigged 3D character at 1.78m height with Genshin cel-shading
- * and high-fidelity obsidian cyber coat.
- */
+/** Replaceable Echo runtime asset. Visual acceptance remains quality-gated. */
 export const ECHO_MODEL_CONFIG = Object.freeze({
   modelUrl: configuredModelUrl || '/assets/characters/echo.glb',
-  scale: 1.82,
-  yOffset: 0,
+  targetHeight: 1.78,
 });
 
 interface EchoModelProps {
@@ -53,7 +53,23 @@ function EchoGlbModel({
   const groupRef = useRef<Group>(null);
   const { scene, animations } = useGLTF(url);
 
-  // Combine GLB animations with high-fidelity anime martial arts combat clips
+  const modelFit = useMemo(() => {
+    scene.updateMatrixWorld(true);
+    const bounds = new Box3().setFromObject(scene);
+    const fit = resolveCharacterModelFit(
+      {
+        min: { x: bounds.min.x, y: bounds.min.y, z: bounds.min.z },
+        max: { x: bounds.max.x, y: bounds.max.y, z: bounds.max.z },
+      },
+      ECHO_MODEL_CONFIG.targetHeight,
+    );
+    return {
+      ...fit,
+      offsetVector: new Vector3(fit.offset.x, fit.offset.y, fit.offset.z),
+    };
+  }, [scene]);
+
+  // Keep imported locomotion clips and the recoverable procedural combat study separate.
   const sanitizedAnimations = useMemo(() => {
     const glbClips = animations.map((clip) => clip.clone());
     const combatClips = createCombatAnimationClips();
@@ -69,9 +85,7 @@ function EchoGlbModel({
     [sanitizedAnimations],
   );
 
-  console.log('[EchoGlbModel] Mounted successfully with clips:', clipNames);
-
-  // Genshin Impact style Anime Cel-Shading + Rim Light shader injection
+  // Stylized cel/rim treatment; final material acceptance remains quality-gated.
   useMemo(() => {
     scene.traverse((child) => {
       if ((child as any).isMesh) {
@@ -81,7 +95,7 @@ function EchoGlbModel({
         const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
         for (const mat of materials) {
           if (!mat) continue;
-          mat.side = 2; // DoubleSide to prevent backface clipping
+          mat.side = DoubleSide;
 
           if (mat.name === 'M_SkinTattoo_EX011') {
             mat.emissiveIntensity = 2.8;
@@ -106,7 +120,7 @@ function EchoGlbModel({
                 '#include <dithering_fragment>',
                 `
                 #include <dithering_fragment>
-                // Genshin Impact Anime Fresnel Rim Glow
+                // View-space Fresnel rim accent.
                 vec3 viewDir = normalize(vViewPosition);
                 float rimDot = 1.0 - max(dot(viewDir, normal), 0.0);
                 float rimIntensity = pow(rimDot, uRimPower);
@@ -159,11 +173,12 @@ function EchoGlbModel({
       }
     }
 
-    // Dynamic locomotion timeScale sync: eliminates foot sliding and matches natural steps
+    // Model-audited clip durations and distance-driven steps share one gait scale.
     if (activeActionRef.current && (desiredState === 'walk' || desiredState === 'run')) {
-      const targetSpeed = desiredState === 'run' ? 5.2 : 2.4;
-      const speedScale = Math.max(0.88, Math.min(1.35, visual.speed / targetSpeed));
-      activeActionRef.current.timeScale = speedScale;
+      activeActionRef.current.timeScale = resolveLocomotionPlaybackScale(
+        visual.speed,
+        desiredState,
+      );
     }
   });
 
@@ -175,10 +190,14 @@ function EchoGlbModel({
   return (
     <group
       ref={groupRef}
-      scale={ECHO_MODEL_CONFIG.scale}
-      position={[0, ECHO_MODEL_CONFIG.yOffset, 0]}
+      scale={modelFit.scale}
     >
-      <primitive object={scene} castShadow receiveShadow />
+      <primitive
+        object={scene}
+        position={modelFit.offsetVector}
+        castShadow
+        receiveShadow
+      />
     </group>
   );
 }

@@ -306,8 +306,7 @@ export function EchoPlayer({
       footstepPhaseRef.current = 0;
     }
 
-    // Combat Attack & Dodge Execution (Genshin / NieR fast tactical martial arts)
-    // Combat Attack & Dodge Execution (Genshin / NieR fast tactical martial arts)
+    // Recoverable combat-study attack and dodge execution.
     const currentAttack = attackTypeRef.current;
     // Exactly matches durations in combatAnimationClips.ts
     const duration =
