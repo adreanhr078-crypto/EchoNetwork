@@ -191,3 +191,23 @@ from measured failures; maintain this record after each accepted change.
   remain visibly below target and require asset-level work, not more post effects.
 - Next exact action: postflight and checkpoint. Continue with a bounded material
   audit of the main corridor and evidence path; do not expand the room footprint.
+
+## CP-20260919-08 — corridor material hierarchy and steam repair
+
+- Rebuilt the existing main-corridor floor within its original footprint as a
+  segmented material system: alternating side plates, a distinct central route,
+  recessed dark rail housings and narrow emissive guidance strips. Roughness and
+  metalness now separate structural steel from the traversable path instead of one
+  uniformly reflective plane.
+- Visual review exposed the old steam effect as large opaque triangular cones at
+  the screen edges. Replaced each cone with a five-lobe, low-opacity expanding
+  vapor puff that travels outward from the existing vent; no new encounter or room
+  content was added.
+- TypeScript PASS. Edge director baseline PASS after an isolated rerun and visual
+  inspection confirms the panels/route read clearly, Echo remains grounded, and
+  the triangle obstruction is gone. A concurrent first run starved the 22.8 MB
+  character load and timed out; it was not treated as gameplay acceptance evidence.
+- Limitation: this is procedural prototype surfacing. It does not replace authored
+  PBR texture sets, decals, edge wear, bespoke wall modules or final volumetrics.
+- Next exact action: postflight and checkpoint. Audit evidence-path interaction
+  readability and the loading budget before adding any new content or assets.

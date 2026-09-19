@@ -677,21 +677,24 @@ function ResearchTerminal({ position, rotation = [0, 0, 0], focused = false }: {
 // DYNAMIC STEAM VENT (High-Pressure Cryo Release Puffs)
 // -------------------------------------------------------------
 function SteamVent({ position, rotation = [0, 0, 0] }: { position: [number, number, number]; rotation?: [number, number, number] }) {
-  const puffRef = useRef<any>(null);
+  const puffRef = useRef<Group>(null);
+  const puffMaterialRefs = useRef<(MeshBasicMaterial | null)[]>([]);
 
   useFrame(({ clock }) => {
     if (puffRef.current) {
       const time = clock.getElapsedTime();
-      // Periodically releases steam every 3.5s
       const cycle = (time % 3.5);
       const active = cycle < 1.2;
       puffRef.current.visible = active;
       if (active) {
         const t = cycle / 1.2;
-        puffRef.current.scale.set(1 + t * 2.2, 1 + t * 3.5, 1 + t * 2.2);
-        puffRef.current.position.y = t * 0.65;
-        const mat = puffRef.current.material as any;
-        if (mat) mat.opacity = (1 - t) * 0.45;
+        const expansion = 0.72 + t * 1.45;
+        puffRef.current.scale.set(expansion, expansion, 0.8 + t * 1.8);
+        puffRef.current.position.z = 0.18 + t * 0.5;
+        puffRef.current.position.y = 0.05 + Math.sin(t * Math.PI) * 0.12;
+        puffMaterialRefs.current.forEach((material, index) => {
+          if (material) material.opacity = (1 - t) * (0.09 - index * 0.008);
+        });
       }
     }
   });
@@ -703,11 +706,28 @@ function SteamVent({ position, rotation = [0, 0, 0] }: { position: [number, numb
         <cylinderGeometry args={[0.12, 0.14, 0.22, 12]} />
         <meshStandardMaterial color="#1a2530" metalness={0.9} roughness={0.3} />
       </mesh>
-      {/* Steam Puff Volume */}
-      <mesh ref={puffRef} position={[0, 0, 0.25]} rotation={[Math.PI / 2, 0, 0]}>
-        <coneGeometry args={[0.22, 0.65, 8]} />
-        <meshBasicMaterial color="#bfefff" transparent opacity={0.35} depthWrite={false} />
-      </mesh>
+      <group ref={puffRef} position={[0, 0.05, 0.18]}>
+        {Array.from({ length: 5 }, (_, index) => (
+          <mesh
+            key={index}
+            position={[
+              ((index % 2) - 0.5) * 0.12,
+              (index % 3) * 0.055,
+              index * 0.105,
+            ]}
+            scale={[1 + index * 0.08, 0.72 + index * 0.06, 1.25]}
+          >
+            <sphereGeometry args={[0.14, 10, 7]} />
+            <meshBasicMaterial
+              ref={(material) => { puffMaterialRefs.current[index] = material; }}
+              color="#bfefff"
+              transparent
+              opacity={0.09 - index * 0.008}
+              depthWrite={false}
+            />
+          </mesh>
+        ))}
+      </group>
     </group>
   );
 }
@@ -754,6 +774,55 @@ function CeilingGrates() {
   );
 }
 
+const CORRIDOR_PANEL_Z = [-13, -9, -5, -1, 3, 7, 11, 15] as const;
+
+function CorridorFloor() {
+  return (
+    <group name="main-corridor-floor">
+      <mesh position={[0, -0.015, 1]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <planeGeometry args={[10, 32]} />
+        <meshStandardMaterial color="#071018" roughness={0.5} metalness={0.68} />
+      </mesh>
+
+      {CORRIDOR_PANEL_Z.map((z, index) => (
+        <group key={z} position={[0, 0.002, z]} rotation={[-Math.PI / 2, 0, 0]}>
+          {([-1, 1] as const).map((side) => (
+            <mesh key={side} position={[side * 3.05, 0, 0]} receiveShadow>
+              <planeGeometry args={[3.38, 3.72]} />
+              <meshStandardMaterial
+                color={index % 2 === 0 ? '#101d28' : '#0c1822'}
+                roughness={index % 2 === 0 ? 0.34 : 0.44}
+                metalness={0.72}
+              />
+            </mesh>
+          ))}
+          <mesh position={[0, 0, 0]} receiveShadow>
+            <planeGeometry args={[2.22, 3.72]} />
+            <meshStandardMaterial
+              color={index % 2 === 0 ? '#142636' : '#102130'}
+              roughness={0.38}
+              metalness={0.64}
+            />
+          </mesh>
+        </group>
+      ))}
+
+      {([-3.8, 3.8] as const).map((x) => (
+        <group key={x} position={[x, 0.008, 1]} rotation={[-Math.PI / 2, 0, 0]}>
+          <mesh position={[0, 0, -0.002]} receiveShadow>
+            <planeGeometry args={[0.16, 32]} />
+            <meshStandardMaterial color="#071018" roughness={0.24} metalness={0.9} />
+          </mesh>
+          <mesh position={[0, 0, 0.003]}>
+            <planeGeometry args={[0.045, 31.7]} />
+            <meshBasicMaterial color="#27d9ec" toneMapped={false} />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  );
+}
+
 // -------------------------------------------------------------
 // MAIN ARCHITECTURE & NESTED SUB-CHAMBERS
 // -------------------------------------------------------------
@@ -781,31 +850,7 @@ function MainCorridorAndWings({ focusedInteractionId = null }: { focusedInteract
       <SparkingCable position={[7.5, 5.8, 2.0]} />
       <SparkingCable position={[10.1, 5.8, -3.8]} />
 
-
-      {/* 1. Main Corridor Floor (x: -5 to +5, z: -15 to +17) - Wet Obsidian Cyber Floor */}
-      <mesh position={[0, 0, 1.0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[10, 32]} />
-        <meshStandardMaterial
-          color="#0a1520"
-          roughness={0.22}
-          metalness={0.88}
-        />
-      </mesh>
-
-      {/* Vivid Cyan Emissive Floor Guide Rails along entire 32m corridor */}
-      <mesh position={[-3.8, 0.005, 1.0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[0.15, 32]} />
-        <meshBasicMaterial color="#00f0ff" toneMapped={false} />
-      </mesh>
-      <mesh position={[3.8, 0.005, 1.0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[0.15, 32]} />
-        <meshBasicMaterial color="#00f0ff" toneMapped={false} />
-      </mesh>
-      {/* Center Pathway Inlay */}
-      <mesh position={[0, 0.003, 1.0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[2.4, 32]} />
-        <meshStandardMaterial color="#142638" roughness={0.2} metalness={0.8} />
-      </mesh>
+      <CorridorFloor />
 
       {/* Floor Grating Strips & Conduit Lights along Main Corridor */}
       {[-12, -8, -4, 0, 4, 8, 12, 15].map((z) => (
