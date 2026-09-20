@@ -51,6 +51,7 @@ export interface OpeningRoomProps {
   lastHitNonce?: number;
   lastHitDamage?: number;
   combatStudyEnabled?: boolean;
+  capsuleOpen?: boolean;
 }
 
 const KATANA_POSITION: [number, number, number] = [9.2, 0.9, -1.5];
@@ -1112,6 +1113,7 @@ export function OpeningRoom({
   lastHitNonce = 0,
   lastHitDamage = 0,
   combatStudyEnabled = false,
+  capsuleOpen = true,
 }: OpeningRoomProps) {
   const visualQuality = OPENING_ROOM_VISUAL_QUALITY[quality];
 
@@ -1155,7 +1157,7 @@ export function OpeningRoom({
         position={[0, 0.3, 14.6]}
         rotation={[0, Math.PI, 0]}
         scale={1.25}
-        isOpen={true}
+        isOpen={capsuleOpen}
       />
 
       {/* 3. Row of Ultra-Detailed Stasis Pods in Main Corridor */}

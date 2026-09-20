@@ -280,3 +280,39 @@ from measured failures; maintain this record after each accepted change.
   surface-detail/FX pass on the accepted capsule, followed by the wake choreography
   and player-teaching gate. Use Mixamo only after Echo's deformation/rig gate is
   accepted; do not replace the canonical rig or clips without measured comparison.
+
+## CP-20260920-11 — cinematic-to-playable awakening handoff
+
+- Connected the accepted external opening movie to a 4.6-second in-engine awakening
+  beat instead of cutting directly from video to free movement. The real capsule
+  starts closed, opens through its authored `CAPSULE_OPEN` action, and the camera
+  moves from a pod close-up through a three-quarter exit view to the accepted
+  third-person framing.
+- Echo now begins the handoff inside the pod, plays the measured `WAKEUP` and
+  `STANDUP` clips through the canonical rig, steps onto the dais, and finishes at
+  the configured collision-safe spawn. Player movement remains locked until the
+  handoff completes. Skipping the movie also skips this beat and opens the capsule
+  immediately, preserving explicit player control.
+- Added a short-lived, deterministic cold-vapor sprite treatment at the pod seal
+  and a dedicated procedural pneumatic/hydraulic release cue. Both are tied to the
+  actual door-open state instead of running as permanent ambient decoration.
+- The first-entry control guide is deliberately delayed until the in-engine beat
+  finishes, so instruction does not cover the emotional wake moment. Reduced
+  Motion uses a compressed, shake-free 1.5-second orientation path, opens the
+  capsule, then hands over without the full orbit choreography.
+- Extended the room fixture with separate cinematic/tutorial modes. Microsoft Edge
+  verifies the real video-to-engine transition, door rotation, inside-pod start,
+  final 9.5 m spawn, control-guide reveal and absence of page errors. The combined
+  director suite passes 3/3, including the reduced-motion handoff; the independent
+  screen-break suite passes 8/8. Captured full and reduced-motion frames both keep
+  Echo, the pod and the corridor readable in the approved cyan/red hierarchy.
+- Quality boundary: this improves continuity and player teaching but does not claim
+  final facial/finger performance, cloth/hair dynamics, condensation streaks,
+  recorded Foley or cinematic color-match. Mixamo was not used because the current
+  audited rig already contains dedicated wake/stand clips; replacing them without
+  a deformation comparison would reduce evidence, not raise quality. Godot shaders
+  were not introduced into the active Three/R3F runtime, avoiding unapproved engine
+  fragmentation.
+- Next exact action: visually compare full/reduced-motion handoff variants, then
+  add a bounded glass-condensation treatment only if it improves the pod close-up;
+  do not expand the room or add a threat before this wake gate is accepted.

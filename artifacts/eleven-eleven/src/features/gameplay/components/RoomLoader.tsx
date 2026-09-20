@@ -21,6 +21,7 @@ interface RoomLoaderProps {
   onMonsterDefeated?: () => void;
   lastHitNonce?: number;
   lastHitDamage?: number;
+  capsuleOpen?: boolean;
 }
 
 /**
@@ -44,6 +45,7 @@ export function RoomLoader({
   onMonsterDefeated,
   lastHitNonce,
   lastHitDamage,
+  capsuleOpen,
 }: RoomLoaderProps) {
   if (definition.id === 'opening-lab') {
     return (
@@ -62,6 +64,7 @@ export function RoomLoader({
         onMonsterDefeated={onMonsterDefeated}
         lastHitNonce={lastHitNonce}
         lastHitDamage={lastHitDamage}
+        capsuleOpen={capsuleOpen}
       />
     );
   }

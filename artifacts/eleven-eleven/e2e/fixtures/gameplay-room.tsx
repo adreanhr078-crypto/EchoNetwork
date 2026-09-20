@@ -5,9 +5,13 @@ import '../../src/ui/design-system/styles/index.css';
 import '../../src/features/gameplay/gameplay.css';
 import { useGameStore } from '../../src/stores/gameStore';
 
-// Mark cinematic seen so gameplay enters directly
-useGameStore.getState().actions.setNarrativeFlag('opening_room_cinematic_seen', true);
-useGameStore.getState().actions.setNarrativeFlag('opening_room_controls_seen', true);
+// Direct-room mode is the stable movement fixture. `?cinematic` preserves the
+// first-entry movie so the in-engine awakening handoff can be audited separately.
+const includeCinematic = new URLSearchParams(window.location.search).has('cinematic');
+const includeTutorial = new URLSearchParams(window.location.search).has('tutorial');
+const reducedMotion = new URLSearchParams(window.location.search).has('reduced');
+useGameStore.getState().actions.setNarrativeFlag('opening_room_cinematic_seen', !includeCinematic);
+useGameStore.getState().actions.setNarrativeFlag('opening_room_controls_seen', !includeTutorial);
 
 function Fixture() {
   return (
@@ -15,7 +19,7 @@ function Fixture() {
       <GameWorld
         paused={false}
         quality="high"
-        motion="full"
+        motion={reducedMotion ? 'reduced' : 'full'}
         onPause={() => {}}
         onRoomComplete={() => {
           console.log('ROOM_COMPLETED_EVENT');

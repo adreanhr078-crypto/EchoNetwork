@@ -167,3 +167,70 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   expect(declaredGlbBytes).toBeLessThanOrEqual(6 * 1024 * 1024);
   expect(errors).toEqual([]);
 });
+
+test('cinematic handoff opens the real capsule and returns control through the authored wake beat', async ({ page }, testInfo) => {
+  test.setTimeout(120000);
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/e2e/fixtures/gameplay-room.html?cinematic&tutorial');
+
+  const video = page.locator('.cinematic-director-overlay video');
+  await expect(video).toBeVisible({ timeout: 30000 });
+  await expect(page.locator('[data-cinematic-active="true"]')).toBeVisible();
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).__11_11_SCENE__?.scene;
+    return !!scene?.getObjectByName('CAPSULE_DOOR_HINGE');
+  }), { timeout: 30000 }).toBe(true);
+
+  const closedRotation = await page.evaluate(() => (
+    (window as any).__11_11_SCENE__.scene
+      .getObjectByName('CAPSULE_DOOR_HINGE').rotation.y
+  ));
+  await video.evaluate((node: HTMLVideoElement) => {
+    node.dispatchEvent(new Event('ended'));
+  });
+  await expect(page.getByText('CONSCIOUSNESS LINK // 01')).toBeVisible();
+  await page.waitForTimeout(250);
+  const insidePosition = await page.evaluate(() => (
+    (window as any).__11_11_SCENE__.scene
+      .getObjectByName('echo-player').position.z
+  ));
+  expect(insidePosition).toBeGreaterThan(13.8);
+  await page.waitForTimeout(1100);
+  const openingRotation = await page.evaluate(() => (
+    (window as any).__11_11_SCENE__.scene
+      .getObjectByName('CAPSULE_DOOR_HINGE').rotation.y
+  ));
+  expect(Math.abs(openingRotation - closedRotation)).toBeGreaterThan(0.15);
+  await page.screenshot({ path: testInfo.outputPath('awakening-handoff.png') });
+
+  await expect(page.getByRole('dialog', { name: 'تحكم بـEcho' })).toBeVisible({ timeout: 30000 });
+  await expect(page.locator('.cinematic-director-overlay')).toHaveCount(0);
+  await expect(page.getByText('CONSCIOUSNESS LINK // 01')).toHaveCount(0);
+  await expect.poll(() => page.evaluate(() => (
+    (window as any).__11_11_SCENE__.scene
+      .getObjectByName('echo-player').position.z
+  ))).toBeCloseTo(9.5, 1);
+  expect(errors).toEqual([]);
+});
+
+test('reduced-motion awakening preserves orientation and reaches the same control gate', async ({ page }, testInfo) => {
+  test.setTimeout(90000);
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/e2e/fixtures/gameplay-room.html?cinematic&tutorial&reduced');
+
+  await expect(page.locator('[data-cinematic-active="true"]')).toBeVisible({ timeout: 30000 });
+  await expect(page.locator('.cinematic-director-overlay video')).toHaveCount(0);
+  await expect(page.getByRole('dialog', { name: 'تحكم بـEcho' })).toBeVisible({ timeout: 30000 });
+  await expect(page.locator('.cinematic-director-overlay')).toHaveCount(0);
+  await expect(page.getByText('CONSCIOUSNESS LINK // 01')).toHaveCount(0);
+  await page.waitForTimeout(450);
+  await page.screenshot({ path: testInfo.outputPath('reduced-control-handoff.png') });
+  await expect.poll(() => page.evaluate(() => (
+    (window as any).__11_11_SCENE__?.scene
+      ?.getObjectByName('echo-player')?.position.z
+  ))).toBeCloseTo(9.5, 1);
+  expect(errors).toEqual([]);
+});

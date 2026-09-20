@@ -12,6 +12,7 @@ export type GameplayAudioCue =
   | 'clock'
   | 'doorLocked'
   | 'doorOpen'
+  | 'capsuleRelease'
   | 'memoryGlitch'
   | 'slash'
   | 'whoosh'
@@ -32,6 +33,7 @@ export const GAMEPLAY_AUDIO_ASSETS: Readonly<
   clock: null,
   doorLocked: null,
   doorOpen: null,
+  capsuleRelease: null,
   memoryGlitch: null,
   slash: null,
   whoosh: null,
@@ -188,6 +190,57 @@ class CognitiveSoundEngine {
             osc.start(now + idx * 0.08);
             osc.stop(now + idx * 0.08 + 1.25);
           });
+        } catch {}
+        break;
+      }
+
+      case 'capsuleRelease': {
+        // Pneumatic seal break: cold-gas hiss over a short hydraulic motor fall.
+        try {
+          const noiseBuffer = ctx.createBuffer(
+            1,
+            Math.floor(ctx.sampleRate * 1.45),
+            ctx.sampleRate,
+          );
+          const noiseData = noiseBuffer.getChannelData(0);
+          for (let index = 0; index < noiseData.length; index += 1) {
+            const life = index / noiseData.length;
+            noiseData[index] = (Math.random() * 2 - 1)
+              * Math.sin(Math.min(1, life * 16) * Math.PI * 0.5)
+              * Math.pow(1 - life, 1.65);
+          }
+          const hiss = ctx.createBufferSource();
+          const hissFilter = ctx.createBiquadFilter();
+          const hissGain = ctx.createGain();
+          hiss.buffer = noiseBuffer;
+          hissFilter.type = 'bandpass';
+          hissFilter.frequency.setValueAtTime(1450, now);
+          hissFilter.frequency.exponentialRampToValueAtTime(310, now + 1.35);
+          hissFilter.Q.setValueAtTime(0.7, now);
+          hissGain.gain.setValueAtTime(0.001, now);
+          hissGain.gain.linearRampToValueAtTime(volume * 0.38, now + 0.045);
+          hissGain.gain.exponentialRampToValueAtTime(0.001, now + 1.42);
+          hiss.connect(hissFilter);
+          hissFilter.connect(hissGain);
+          hissGain.connect(ctx.destination);
+          hiss.start(now);
+
+          const motor = ctx.createOscillator();
+          const motorFilter = ctx.createBiquadFilter();
+          const motorGain = ctx.createGain();
+          motor.type = 'sawtooth';
+          motor.frequency.setValueAtTime(92, now);
+          motor.frequency.exponentialRampToValueAtTime(34, now + 1.1);
+          motorFilter.type = 'lowpass';
+          motorFilter.frequency.setValueAtTime(190, now);
+          motorGain.gain.setValueAtTime(0.001, now);
+          motorGain.gain.linearRampToValueAtTime(volume * 0.22, now + 0.08);
+          motorGain.gain.exponentialRampToValueAtTime(0.001, now + 1.18);
+          motor.connect(motorFilter);
+          motorFilter.connect(motorGain);
+          motorGain.connect(ctx.destination);
+          motor.start(now);
+          motor.stop(now + 1.2);
         } catch {}
         break;
       }

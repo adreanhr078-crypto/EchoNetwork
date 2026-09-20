@@ -13,6 +13,7 @@ import {
   Vector3,
   type Group,
 } from 'three';
+import { OPENING_ROOM_CONFIG } from '../data/openingRoom.config';
 
 export type CinematicPhase = 'awakening' | 'monster-breach' | null;
 
@@ -49,13 +50,20 @@ export function OpeningCinematic({
     }
   }, [active, phase]);
 
-  // Awakening Camera Trajectory (Capsule at z=13.8, Echo spawn at z=10.8)
-  // Stage 1: Looking from front of capsule INTO Echo inside it (from z=7.5, looking toward z=10.8)
-  const awakeFaceCloseUp = useMemo(() => new Vector3(0, 1.45, 7.5), []);
+  // Awakening Camera Trajectory (capsule at z=14.6, exit at authored spawn z=9.5).
+  // Stage 1: look through the open front while Echo is still inside the pod.
+  const awakeFaceCloseUp = useMemo(() => new Vector3(0, 1.5, 10.65), []);
   // Stage 2: 3/4 orbit side view showing capsule opening and Echo standing up
-  const awakeOrbitSide = useMemo(() => new Vector3(2.5, 1.5, 9.5), []);
+  const awakeOrbitSide = useMemo(() => new Vector3(2.45, 1.65, 11.9), []);
   // Stage 3: Behind Echo's shoulder, looking down the brightly lit corridor (-Z)
-  const awakeThirdPerson = useMemo(() => new Vector3(0.4, 1.55, 13.8), []);
+  const awakeThirdPerson = useMemo(() => new Vector3(0.42, 2.08, 12.15), []);
+  const awakeInsidePod = useMemo(() => new Vector3(0, 0.88, 14.16), []);
+  const awakeStepOut = useMemo(() => new Vector3(0, 0.88, 10.75), []);
+  const awakeGameplayStart = useMemo(() => new Vector3(
+    OPENING_ROOM_CONFIG.spawnPosition.x,
+    OPENING_ROOM_CONFIG.spawnPosition.y,
+    OPENING_ROOM_CONFIG.spawnPosition.z,
+  ), []);
 
   // Monster Breach Camera Trajectory Vectors
   // Close-up on the violently shaking containment pod EX-000
@@ -123,12 +131,14 @@ export function OpeningCinematic({
     if (reducedMotion) {
       onAwakeningSubPhase?.('standup');
       desired.lerpVectors(awakeFaceCloseUp, awakeThirdPerson, MathUtils.smoothstep(progress, 0, 1));
-      lookTarget.copy(targetPosition);
+      target.position.lerpVectors(awakeInsidePod, awakeGameplayStart, MathUtils.smoothstep(progress, 0, 1));
+      lookTarget.set(target.position.x, target.position.y + 0.72, target.position.z);
     } else if (progress < 0.42) {
       onAwakeningSubPhase?.('wakeup');
       // Stage 1: Close-up through stasis glass as Echo's eyes open inside pod
       desired.lerpVectors(awakeFaceCloseUp, awakeOrbitSide, MathUtils.smootherstep(progress / 0.42, 0, 1));
-      lookTarget.set(targetPosition.x, targetPosition.y + 0.95, targetPosition.z);
+      target.position.copy(awakeInsidePod);
+      lookTarget.set(target.position.x, target.position.y + 0.76, target.position.z);
     } else if (progress < 0.82) {
       onAwakeningSubPhase?.('standup');
       // Stage 2: Pod opens! Camera glides around Echo stepping onto the dais
@@ -137,22 +147,37 @@ export function OpeningCinematic({
         awakeThirdPerson,
         MathUtils.smootherstep((progress - 0.42) / 0.4, 0, 1),
       );
-      lookTarget.set(targetPosition.x, targetPosition.y + 0.75, targetPosition.z - 0.8);
+      target.position.lerpVectors(
+        awakeInsidePod,
+        awakeStepOut,
+        MathUtils.smootherstep((progress - 0.42) / 0.4, 0, 1),
+      );
+      lookTarget.set(target.position.x, target.position.y + 0.72, target.position.z - 0.45);
     } else {
       onAwakeningSubPhase?.('idle');
       // Stage 3: Lock behind Echo's shoulder looking down the full corridor
-      desired.set(
-        targetPosition.x + 0.4,
-        targetPosition.y + 1.5,
-        targetPosition.z + 2.8,
+      target.position.lerpVectors(
+        awakeStepOut,
+        awakeGameplayStart,
+        MathUtils.smootherstep((progress - 0.82) / 0.18, 0, 1),
       );
-      lookTarget.set(targetPosition.x, targetPosition.y + 0.5, targetPosition.z - 16.0);
+      desired.set(
+        target.position.x + 0.4,
+        target.position.y + 1.5,
+        target.position.z + 2.8,
+      );
+      lookTarget.set(
+        target.position.x,
+        target.position.y + 0.5,
+        target.position.z - 16.0,
+      );
     }
 
     camera.position.copy(desired);
     camera.lookAt(lookTarget);
 
     if (progress >= 1) {
+      target.position.copy(awakeGameplayStart);
       completedRef.current = true;
       onComplete();
     }

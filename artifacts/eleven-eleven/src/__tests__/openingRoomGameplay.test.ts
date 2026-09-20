@@ -220,6 +220,24 @@ describe('Echo visual animation state', () => {
       }),
       'lockedByCinematic',
     );
+    assert.equal(
+      resolveEchoAnimationState({
+        ...base,
+        speed: 0,
+        cinematicLocked: true,
+        cinematicPhase: 'wakeup',
+      }),
+      'wakeup',
+    );
+    assert.equal(
+      resolveEchoAnimationState({
+        ...base,
+        speed: 0,
+        cinematicLocked: true,
+        cinematicPhase: 'standup',
+      }),
+      'standup',
+    );
   });
 
   it('maps only animation clips that actually exist in a supplied GLB', () => {

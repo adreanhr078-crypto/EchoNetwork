@@ -52,6 +52,10 @@ import {
   CombatEffects,
   type CombatEffectsHandle,
 } from './CombatEffects';
+import {
+  OpeningCinematic,
+  OpeningCinematicOverlay,
+} from './OpeningCinematic';
 
 
 export const GLOBALS = { timeScale: 1.0 };
@@ -198,8 +202,15 @@ export function GameWorld({
   const [cinematicActive, setCinematicActive] = useState(
     () => !cinematicSeen,
   );
+  const [awakeningHandoffActive, setAwakeningHandoffActive] = useState(false);
+  const [awakeningPhase, setAwakeningPhase] = useState<
+    'wakeup' | 'standup' | 'idle' | null
+  >(null);
+  const [capsuleOpen, setCapsuleOpen] = useState(() => cinematicSeen);
   const { playCue } = useGameplayAudio();
-  const showTutorial = !controlsSeen && !cinematicActive;
+  const showTutorial = !controlsSeen
+    && !cinematicActive
+    && !awakeningHandoffActive;
 
   useEffect(() => {
     enterRoom();
@@ -301,10 +312,17 @@ export function GameWorld({
 
   const inputEnabled = !paused
     && !cinematicActive
+    && !awakeningHandoffActive
     && !showTutorial
     && !memoryBeatActive
     && roomCompletionStatus !== 'submitting'
     && roomCompletionStatus !== 'completed'
+    && narrative === null
+    && activeInteractionId === null;
+  const cameraFollowEnabled = !paused
+    && !cinematicActive
+    && !awakeningHandoffActive
+    && !memoryBeatActive
     && narrative === null
     && activeInteractionId === null;
 
@@ -571,7 +589,7 @@ export function GameWorld({
       className="gameplay-screen"
       data-canvas-ready={canvasReady}
       data-puzzle-stage={puzzle.stage}
-      data-cinematic-active={cinematicActive}
+      data-cinematic-active={cinematicActive || awakeningHandoffActive}
       data-active-interaction={activeInteractionId ?? undefined}
     >
       {!canvasReady && (
@@ -634,6 +652,7 @@ export function GameWorld({
             onMonsterDefeated={handleMonsterDefeated}
             lastHitNonce={lastHitNonce}
             lastHitDamage={lastHitDamage}
+            capsuleOpen={capsuleOpen}
           />
           <EchoPlayer
             playerRef={playerRef}
@@ -642,7 +661,8 @@ export function GameWorld({
             flags={flags}
             enabled={inputEnabled}
             paused={paused}
-            cinematicLocked={cinematicActive}
+            cinematicLocked={cinematicActive || awakeningHandoffActive}
+            cinematicPhase={awakeningPhase}
             activeInteractionId={activeInteractionId}
             interactionTarget={interactionTarget}
             hasWeapon={hasWeapon}
@@ -668,7 +688,7 @@ export function GameWorld({
             targetRef={playerRef}
             yawRef={cameraYawRef}
             traumaRef={cameraTraumaRef}
-            enabled={inputEnabled}
+            enabled={cameraFollowEnabled}
             config={cameraConfig}
           />
           <InteractionCamera
@@ -676,6 +696,17 @@ export function GameWorld({
             target={interactionTarget}
             active={activeInteractionId !== null}
             paused={paused}
+          />
+          <OpeningCinematic
+            targetRef={playerRef}
+            active={awakeningHandoffActive}
+            paused={paused}
+            reducedMotion={motion === 'reduced'}
+            onAwakeningSubPhase={setAwakeningPhase}
+            onComplete={() => {
+              setAwakeningPhase('idle');
+              setAwakeningHandoffActive(false);
+            }}
           />
         </Suspense>
       </Canvas>
@@ -686,11 +717,26 @@ export function GameWorld({
         onComplete={() => {
           markCinematicSeen();
           setCinematicActive(false);
+          setCapsuleOpen(true);
+          if (motion === 'reduced') {
+            setAwakeningPhase('idle');
+            setAwakeningHandoffActive(false);
+          } else {
+            setAwakeningHandoffActive(true);
+          }
+          playCue('capsuleRelease', { volume: 0.52 });
         }}
         onSkip={() => {
           markCinematicSeen();
           setCinematicActive(false);
+          setCapsuleOpen(true);
+          setAwakeningPhase('idle');
         }}
+      />
+
+      <OpeningCinematicOverlay
+        active={awakeningHandoffActive}
+        reducedMotion={motion === 'reduced'}
       />
 
       {memoryBeatActive && roomCompletionStatus === 'idle' && (

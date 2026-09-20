@@ -42,6 +42,7 @@ interface EchoPlayerProps {
   enabled: boolean;
   paused: boolean;
   cinematicLocked: boolean;
+  cinematicPhase?: 'wakeup' | 'standup' | 'idle' | null;
   activeInteractionId: string | null;
   interactionTarget: GameplayVector3 | null;
   hasWeapon?: boolean;
@@ -61,6 +62,7 @@ export function EchoPlayer({
   enabled,
   paused,
   cinematicLocked,
+  cinematicPhase = null,
   activeInteractionId,
   interactionTarget,
   hasWeapon = false,
@@ -156,6 +158,7 @@ export function EchoPlayer({
         sprinting: false,
         interactionActive: activeInteractionId !== null,
         cinematicLocked,
+        cinematicPhase,
         paused,
       });
       if (interactionTarget) {
