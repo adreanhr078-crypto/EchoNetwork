@@ -21,6 +21,7 @@ import {
 
 import {
   findEchoAnimationClip,
+  normalizeImportedHipTranslation,
   resolveLocomotionPlaybackScale,
 } from '../systems/echoAnimationSystem';
 import { resolveCharacterModelFit } from '../systems/characterModelSystem';
@@ -71,10 +72,13 @@ function EchoGlbModel({
 
   // Keep imported locomotion clips and the recoverable procedural combat study separate.
   const sanitizedAnimations = useMemo(() => {
-    const glbClips = animations.map((clip) => clip.clone());
+    const hips = scene.getObjectByName('hips');
+    const glbClips = url === '/assets/characters/echo.runtime.glb' && hips
+      ? normalizeImportedHipTranslation(animations, hips.position.toArray())
+      : animations.map((clip) => clip.clone());
     const combatClips = createCombatAnimationClips();
     return [...glbClips, ...combatClips];
-  }, [animations]);
+  }, [animations, scene, url]);
 
   // Bind animations directly to scene Object3D so mixer actions are valid on frame 1
   const { actions } = useAnimations(sanitizedAnimations, scene);

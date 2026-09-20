@@ -758,6 +758,19 @@
   pointer-events: none;
 }
 
+.opening-cinematic-overlay::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 42%, rgb(133 102 194 / 32%), transparent 34%),
+    linear-gradient(180deg, rgb(74 50 115 / 18%), transparent 58%);
+  mix-blend-mode: screen;
+  animation: opening-cinematic-color-bridge 2.35s ease-out both;
+}
+
 .cinematic-letterbox-top,
 .cinematic-letterbox-bottom {
   position: absolute;
@@ -851,12 +864,16 @@
 }
 
 .opening-cinematic-overlay__blackout {
-  background: #000;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 42%, rgb(75 52 116 / 20%), transparent 38%),
+    #000;
   animation: opening-cinematic-blackout 4.6s ease both;
 }
 
 .opening-cinematic-overlay__copy {
   position: absolute;
+  z-index: 2;
   inset: 50% auto auto 50%;
   display: grid;
   justify-items: center;
@@ -887,13 +904,15 @@
 }
 
 .opening-cinematic-overlay__scan {
+  z-index: 3;
   inset: -30% 0 auto;
   height: 16%;
   opacity: 0;
   background: linear-gradient(
     180deg,
     transparent,
-    rgb(87 231 255 / 14%),
+    rgb(153 116 219 / 18%) 42%,
+    rgb(87 231 255 / 13%) 64%,
     transparent
   );
   mix-blend-mode: screen;
@@ -907,6 +926,11 @@
 
 .opening-cinematic-overlay.is-reduced .opening-cinematic-overlay__scan {
   display: none;
+}
+
+.opening-cinematic-overlay.is-reduced::before {
+  animation: none;
+  opacity: 0;
 }
 
 .gameplay-screen[data-cinematic-active="true"] .gameplay-hud__status,
@@ -1018,6 +1042,12 @@
   28% { opacity: 0.2; }
   42%, 84% { opacity: 0; }
   92% { opacity: 0.16; }
+  100% { opacity: 0; }
+}
+
+@keyframes opening-cinematic-color-bridge {
+  0%, 14% { opacity: 0.72; }
+  42% { opacity: 0.3; }
   100% { opacity: 0; }
 }
 

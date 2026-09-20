@@ -360,3 +360,32 @@ from measured failures; maintain this record after each accepted change.
   remain open. No Gemini execution or new generation credit spend in this review.
 - Continue directly with the wake handoff's existing runtime verification and
   color-match gate. Do not restart the cover, room or accepted controller.
+
+## CP-20260920-14 — wake centring and movie-to-engine colour bridge
+
+- Closed the visible wake defect in the current `echo.runtime.glb`: its exported
+  IDLE track contained leaked hip translation and STANDUP blended that offset
+  back into the bind pose. Runtime sanitation now clones imported clips, restores
+  IDLE to the audited bind hip position, and removes only STANDUP's unintended
+  local X/Y drift while preserving its authored vertical rise, rotations and the
+  source GLB. Other models and procedural combat clips are untouched.
+- Added a violet-to-cyan overlay and scan treatment that carries the final purple
+  movie palette into the cyan capsule reveal, with a motion-reduced alternative.
+- Added regression evidence for source-clip immutability, repaired hip tracks,
+  live world-space centring, active colour-bridge styling, capsule opening and
+  the complete return-to-control handoff.
+- Verification: targeted animation test PASS; Microsoft Edge handoff PASS with
+  centred Echo and two captured frames; `npm run agent:postflight` PASS including
+  content, TypeScript, 597/597 tests, production build and every doctor check;
+  `git diff --check` PASS apart from line-ending notices.
+- Google AI Studio was invoked as a bounded animation reviewer, but returned the
+  same internal error on the initial request and one retry. No unreturned advice
+  was claimed or adopted. Direct GLB inspection supplied the decisive axis and
+  bind-pose evidence. Antigravity exposed no controllable surface in this run.
+- Quality gate: technical and live desktop evidence PASS. The handoff is more
+  coherent and the displacement is fixed; this does not claim final AAA character
+  animation. Phone performance and an external player/emotional review remain
+  open before expanding Sector 11.
+- Next exact action: verify this accepted wake cut on target phone landscape and
+  profile the first playable minute. Fix only measured continuity or performance
+  defects before adding the first corridor interaction.

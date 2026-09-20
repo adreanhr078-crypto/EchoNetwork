@@ -197,6 +197,32 @@ test('cinematic handoff opens the real capsule and returns control through the a
       .getObjectByName('echo-player').position.z
   ));
   expect(insidePosition).toBeGreaterThan(13.8);
+  const wakeHipOffset = await page.evaluate(() => {
+    const scene = (window as any).__11_11_SCENE__.scene;
+    const echo = scene.getObjectByName('echo-player');
+    let hips: any = null;
+    echo.traverse((object: any) => {
+      if (!hips && /(?:mixamorig)?hips$/i.test(object.name)) hips = object;
+    });
+    if (!hips) return null;
+    const hipWorld = hips.position.clone();
+    const echoWorld = echo.position.clone();
+    hips.getWorldPosition(hipWorld);
+    echo.getWorldPosition(echoWorld);
+    return Math.abs(hipWorld.x - echoWorld.x);
+  });
+  expect(wakeHipOffset).not.toBeNull();
+  expect(wakeHipOffset!).toBeLessThan(0.12);
+  const colorBridge = await page.locator('.opening-cinematic-overlay').evaluate((overlay) => {
+    const style = getComputedStyle(overlay, '::before');
+    return {
+      animationName: style.animationName,
+      backgroundImage: style.backgroundImage,
+    };
+  });
+  expect(colorBridge.animationName).toContain('opening-cinematic-color-bridge');
+  expect(colorBridge.backgroundImage).toContain('133, 102, 194');
+  await page.screenshot({ path: testInfo.outputPath('awakening-color-bridge.png') });
   await page.waitForTimeout(1100);
   const openingRotation = await page.evaluate(() => (
     (window as any).__11_11_SCENE__.scene

@@ -1,4 +1,5 @@
 import type { EchoAnimationState } from '../types/echoAnimation.types';
+import type { AnimationClip, KeyframeTrack } from 'three';
 
 export interface ResolveEchoAnimationStateOptions {
   speed: number;
@@ -12,6 +13,57 @@ export interface ResolveEchoAnimationStateOptions {
 
 const WALK_THRESHOLD = 0.06;
 const RUN_THRESHOLD = 2.25;
+
+function isHipPositionTrack(track: KeyframeTrack): boolean {
+  return /(?:^|[./|])(?:mixamorig)?hips\.position$/i.test(track.name)
+    && track.getValueSize() === 3;
+}
+
+/**
+ * Repairs the current export's leaked crouch offset in IDLE and lateral
+ * translation in STANDUP. This rig's root maps local Z to world up.
+ * Other clips, rotations, and the original cached clips remain untouched.
+ */
+export function normalizeImportedHipTranslation(
+  clips: readonly AnimationClip[],
+  bindHipPosition: readonly [number, number, number],
+): AnimationClip[] {
+  return clips.map((sourceClip) => {
+    const clip = sourceClip.clone();
+    const clipName = clip.name.toUpperCase();
+    if (!bindHipPosition.every(Number.isFinite)
+      || !['IDLE', 'STANDUP'].includes(clipName)) {
+      return clip;
+    }
+
+    const track = clip.tracks.find(isHipPositionTrack);
+    if (!track || track.values.length < 3 || track.times.length === 0) {
+      return clip;
+    }
+
+    const first = Array.from(track.values.slice(0, 3));
+    const last = Array.from(track.values.slice(-3));
+    const firstTime = track.times[0];
+    const lastTime = track.times[track.times.length - 1];
+    const timeSpan = lastTime - firstTime;
+
+    for (let frame = 0; frame < track.times.length; frame += 1) {
+      const valueIndex = frame * 3;
+      const progress = timeSpan > 0
+        ? (track.times[frame] - firstTime) / timeSpan
+        : 1;
+      const axes = clipName === 'IDLE' ? 3 : 2;
+      for (let axis = 0; axis < axes; axis += 1) {
+        const baseline = clipName === 'STANDUP'
+          ? first[axis] + (last[axis] - first[axis]) * progress
+          : first[axis];
+        track.values[valueIndex + axis] += bindHipPosition[axis] - baseline;
+      }
+    }
+
+    return clip;
+  });
+}
 
 export function resolveEchoAnimationState({
   speed,

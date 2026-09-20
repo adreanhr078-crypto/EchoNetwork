@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
+import { AnimationClip, VectorKeyframeTrack } from 'three';
 import {
   OPENING_DOOR_INTERACTION,
   OPENING_PHOTO_INTERACTION,
@@ -18,6 +19,7 @@ import {
 import {
   advanceFootstepPhase,
   findEchoAnimationClip,
+  normalizeImportedHipTranslation,
   resolveLocomotionPlaybackScale,
   resolveEchoAnimationState,
 } from '../features/gameplay/systems/echoAnimationSystem';
@@ -396,6 +398,38 @@ describe('Opening room camera containment', () => {
 });
 
 describe('Echo locomotion feedback', () => {
+  it('repairs leaked idle and stand hip offsets without changing the other clips', () => {
+    const clip = (name: string, times: number[], values: number[]) => new AnimationClip(
+      name,
+      times[times.length - 1] ?? 0,
+      [new VectorKeyframeTrack('hips.position', times, values)],
+    );
+    const source = [
+      clip('IDLE', [0, 1], [0.3335, 0.22, 0.3367, 0.3335, 0.22, 0.3367]),
+      clip('WAKEUP', [0, 1], [0, 0, 0.543, 0, 0.1, 0.4]),
+      clip('WALK', [0, 1], [0, 0.22, 0.3367, 0.0225, 0.22, 0.3367]),
+      clip('STANDUP', [0, 1], [0, 0, 0.3367, 0.3335, 0.22, 0.543]),
+    ];
+
+    const normalized = normalizeImportedHipTranslation(source, [0, 0, 0.543]);
+    const values = (name: string) => normalized
+      .find((entry) => entry.name === name)!.tracks[0].values;
+
+    assert.ok(Math.abs(values('IDLE')[0]) < 1e-6);
+    assert.ok(Math.abs(values('IDLE')[1]) < 1e-6);
+    assert.ok(Math.abs(values('IDLE')[2] - 0.543) < 1e-6);
+    assert.ok(Math.abs(values('WAKEUP')[0]) < 1e-6);
+    assert.ok(Math.abs(values('WAKEUP')[3]) < 1e-6);
+    assert.ok(Math.abs(values('WAKEUP')[2] - 0.543) < 1e-6);
+    assert.ok(Math.abs(values('WALK')[3] - 0.0225) < 1e-6);
+    assert.ok(Math.abs(values('STANDUP')[0]) < 1e-6);
+    assert.ok(Math.abs(values('STANDUP')[1]) < 1e-6);
+    assert.ok(Math.abs(values('STANDUP')[3]) < 1e-6);
+    assert.ok(Math.abs(values('STANDUP')[4]) < 1e-6);
+    assert.ok(Math.abs(values('STANDUP')[5] - 0.543) < 1e-6);
+    assert.equal(source[1].tracks[0].values[0], 0);
+  });
+
   it('emits footsteps from travelled distance instead of elapsed time', () => {
     const partial = advanceFootstepPhase(0, 0.52, false);
     assert.equal(partial.emittedSteps, 0);
