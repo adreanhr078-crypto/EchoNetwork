@@ -1083,9 +1083,15 @@ function AwakeningDais() {
       {/* Cyan Uplight Recess Ring */}
       <mesh position={[0, 0.31, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <ringGeometry args={[1.6, 1.85, 32]} />
-        <meshBasicMaterial color="#00f0ff" toneMapped={false} />
+        <meshStandardMaterial
+          color="#063b46"
+          emissive="#00c6d8"
+          emissiveIntensity={0.72}
+          metalness={0.35}
+          roughness={0.32}
+        />
       </mesh>
-      <pointLight position={[0, 0.5, 0]} color="#00f0ff" intensity={3.5} distance={5.5} />
+      <pointLight position={[0, 0.5, 0]} color="#00d8e8" intensity={1.1} distance={3.2} />
     </group>
   );
 }
@@ -1148,7 +1154,7 @@ export function OpeningRoom({
       <WakeCapsuleModel
         position={[0, 0.3, 14.6]}
         rotation={[0, Math.PI, 0]}
-        scale={2.2}
+        scale={1.25}
         isOpen={true}
       />
 

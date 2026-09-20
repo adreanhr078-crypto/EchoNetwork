@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { LoopOnce, type Group } from 'three';
 
-export const WAKE_CAPSULE_MODEL_URL = '/assets/props/sector11-wake-capsule.glb';
+export const WAKE_CAPSULE_MODEL_URL = '/assets/props/sector11-wake-capsule-v2.glb';
 
 export interface WakeCapsuleModelProps {
   position?: [number, number, number];
@@ -14,7 +14,7 @@ export interface WakeCapsuleModelProps {
 export function WakeCapsuleModel({
   position = [-2.68, 0.18, 1.33],
   rotation = [0, 0.35, 0],
-  scale = 2.4,
+  scale = 1.25,
   isOpen = true,
 }: WakeCapsuleModelProps) {
   const groupRef = useRef<Group>(null);
@@ -47,8 +47,8 @@ export function WakeCapsuleModel({
       <pointLight
         position={[0, 0.5, 0]}
         color="#00f0ff"
-        intensity={2.8}
-        distance={3.2}
+        intensity={0.72}
+        distance={1.9}
         decay={2}
       />
     </group>

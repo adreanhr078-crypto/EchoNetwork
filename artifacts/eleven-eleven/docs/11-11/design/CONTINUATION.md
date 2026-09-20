@@ -242,3 +242,41 @@ from measured failures; maintain this record after each accepted change.
 - Next exact action: after explicit credit confirmation, run one 10-credit Tripo
   standard quad retopology pass at 50,000 polygons on the existing pod, then audit
   silhouette, topology, UV readiness and exported GLB before any texturing spend.
+
+## CP-20260920-10 — Sector 11 wake capsule runtime rebuild
+
+- Ran the explicitly approved Tripo standard Quad retopology operation with Smart
+  Mesh disabled and a 50,000-polygon request. Actual spend was 10 credits; the
+  authenticated balance changed from 3,020 to 3,010. No other generation or paid
+  operation was used.
+- Rejected the paid export from direct integration after measuring 126,364
+  triangles, 62 meshes/materials, no textures, 115 Khronos errors and visibly
+  exploded presentation pieces. Completion was not treated as quality acceptance.
+- Added a deterministic Blender 4.2 correction pipeline that preserves the central
+  shell, removes detached display pieces, normalizes scale, authors a seven-part
+  PBR material hierarchy, builds a separate beveled glass door and exports the
+  `CAPSULE_OPEN` hinge action.
+- Published the Meshopt runtime derivative at 358,148 bytes, 70,570 triangles,
+  four meshes, eight primitives, seven materials and one animation. Strict GLB
+  validation reports zero errors and zero warnings; SHA-256 is
+  `9F69F129EB25F700CAB5A0AFFE1204D9E7165BFF0AE338A0B0DA4F4217C70866`.
+- Integrated the v2 pod at measured room scale and reduced the local cyan fill.
+  The Edge director fixture now waits for the real capsule hierarchy and records a
+  deterministic camera view without moving Echo or granting gameplay progress.
+- Quality evidence: content validation PASS; TypeScript PASS; foundation suite
+  596/596 PASS; production build PASS; agent postflight PASS; focused Microsoft
+  Edge director baseline 1/1 PASS after visual review; capsule-only strict GLB
+  validation PASS with zero errors and warnings.
+- The repository-wide media sweep still FAILS on pre-existing authoring/experimental
+  assets (`echo.glb`, `echo.runtime.glb`, the untracked `echo_tripo_native.glb`, the
+  superseded v1 capsule and disabled monster study). None is introduced or worsened
+  by this checkpoint; the accepted v2 capsule itself passes strict validation.
+- Quality boundary: this is a coherent, performant runtime prop, not final AAA
+  art. Tripo supplied no textures; bespoke decals, controlled wear, normal detail,
+  condensation/fluid FX, contact audio and human Manhwa-likeness review remain
+  open gates. No Godot or engine migration was introduced: the active verified
+  runtime remains the repository's Three/R3F application.
+- Next exact action: keep the opening footprint fixed and run a bounded authored
+  surface-detail/FX pass on the accepted capsule, followed by the wake choreography
+  and player-teaching gate. Use Mixamo only after Echo's deformation/rig gate is
+  accepted; do not replace the canonical rig or clips without measured comparison.

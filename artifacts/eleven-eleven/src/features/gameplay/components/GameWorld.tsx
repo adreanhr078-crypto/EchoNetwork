@@ -130,7 +130,7 @@ function narrationForExecution(
   };
 }
 
-function SceneDebugBridge() {
+function SceneDebugBridge({ cameraYawRef }: { cameraYawRef: { current: number } }) {
   const { scene, camera, gl } = useThree();
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -142,9 +142,12 @@ function SceneDebugBridge() {
           gl.render(scene, camera);
           return gl.domElement.toDataURL('image/png');
         },
+        setCameraYaw: (radians: number) => {
+          if (Number.isFinite(radians)) cameraYawRef.current = radians;
+        },
       };
     }
-  }, [scene, camera, gl]);
+  }, [scene, camera, gl, cameraYawRef]);
   return null;
 }
 
@@ -609,7 +612,7 @@ export function GameWorld({
           ]}
         />
         <Suspense fallback={null}>
-          <SceneDebugBridge />
+          <SceneDebugBridge cameraYawRef={cameraYawRef} />
           <RoomLoader
             definition={OPENING_LAB_DEFINITION}
             flags={flags}

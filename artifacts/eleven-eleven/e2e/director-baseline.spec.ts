@@ -46,6 +46,15 @@ test('director baseline: record the actual rendered room and loaded assets', asy
     });
     return loadedEcho;
   }), { timeout: 60000 }).toBe(true);
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).__11_11_SCENE__?.scene;
+    const capsule = scene?.getObjectByName('sector11-wake-capsule');
+    let meshCount = 0;
+    capsule?.traverse((object: any) => {
+      if (object.isMesh) meshCount += 1;
+    });
+    return !!capsule && meshCount >= 4;
+  }), { timeout: 60000 }).toBe(true);
   const capture = async (name: string) => {
     await page.screenshot({ path: testInfo.outputPath(`${name}.png`) });
   };
@@ -58,6 +67,15 @@ test('director baseline: record the actual rendered room and loaded assets', asy
     Math.hypot(a.x - b.x, a.z - b.z)
   );
   await capture('room-entry');
+
+  // The debug bridge changes presentation only; it cannot move Echo or grant
+  // progress. Use it for a deterministic visual audit of the capsule behind him.
+  await page.evaluate(() => (window as any).__11_11_SCENE__.setCameraYaw(Math.PI));
+  await page.waitForTimeout(350);
+  await capture('wake-capsule');
+  await page.evaluate(() => (window as any).__11_11_SCENE__.setCameraYaw(0));
+  await page.waitForTimeout(350);
+
   // Real input, not teleporting or granting any progression.
   const start = await echoPosition();
   expect(start).not.toBeNull();
