@@ -79,7 +79,11 @@ function parseGlbJson(bytes: Buffer): GlbJson {
   return JSON.parse(bytes.toString('utf8', 20, 20 + jsonLength).trimEnd()) as GlbJson;
 }
 
-export async function validateGlb(inputPath: string, strict = false): Promise<Record<string, unknown>> {
+export async function validateGlb(
+  inputPath: string,
+  strict = false,
+  enforceBudgets = true,
+): Promise<Record<string, unknown>> {
   const input = resolve(inputPath);
   if (extname(input).toLowerCase() !== '.glb') throw new Error('Only .glb input is accepted.');
   const bytes = readFileSync(input);
@@ -102,13 +106,15 @@ export async function validateGlb(inputPath: string, strict = false): Promise<Re
   const failures: string[] = [];
   if ((issues.numErrors ?? 0) > 0) failures.push(`Khronos validator errors: ${issues.numErrors}`);
   if (strict && (issues.numWarnings ?? 0) > 0) failures.push(`Khronos validator warnings: ${issues.numWarnings}`);
-  if (bytes.length > budgets.glb.maxBytes) failures.push(`File size ${bytes.length} exceeds ${budgets.glb.maxBytes} bytes.`);
-  if (triangleCount > budgets.glb.maxTriangles) failures.push(`Triangles ${triangleCount} exceed ${budgets.glb.maxTriangles}.`);
-  if (meshCount > budgets.glb.maxMeshes) failures.push(`Meshes ${meshCount} exceed ${budgets.glb.maxMeshes}.`);
-  if (primitiveCount > budgets.glb.maxPrimitives) failures.push(`Primitives ${primitiveCount} exceed ${budgets.glb.maxPrimitives}.`);
-  if (materialCount > budgets.glb.maxMaterials) failures.push(`Materials ${materialCount} exceed ${budgets.glb.maxMaterials}.`);
-  if (textureCount > budgets.glb.maxTextures) failures.push(`Textures ${textureCount} exceed ${budgets.glb.maxTextures}.`);
-  if (maxJoints > budgets.glb.maxJointsPerSkin) failures.push(`Joints per skin ${maxJoints} exceed ${budgets.glb.maxJointsPerSkin}.`);
+  if (enforceBudgets) {
+    if (bytes.length > budgets.glb.maxBytes) failures.push(`File size ${bytes.length} exceeds ${budgets.glb.maxBytes} bytes.`);
+    if (triangleCount > budgets.glb.maxTriangles) failures.push(`Triangles ${triangleCount} exceed ${budgets.glb.maxTriangles}.`);
+    if (meshCount > budgets.glb.maxMeshes) failures.push(`Meshes ${meshCount} exceed ${budgets.glb.maxMeshes}.`);
+    if (primitiveCount > budgets.glb.maxPrimitives) failures.push(`Primitives ${primitiveCount} exceed ${budgets.glb.maxPrimitives}.`);
+    if (materialCount > budgets.glb.maxMaterials) failures.push(`Materials ${materialCount} exceed ${budgets.glb.maxMaterials}.`);
+    if (textureCount > budgets.glb.maxTextures) failures.push(`Textures ${textureCount} exceed ${budgets.glb.maxTextures}.`);
+    if (maxJoints > budgets.glb.maxJointsPerSkin) failures.push(`Joints per skin ${maxJoints} exceed ${budgets.glb.maxJointsPerSkin}.`);
+  }
   if ((json.cameras?.length ?? 0) > 0) failures.push('Runtime GLB must not contain cameras.');
 
   const result = {

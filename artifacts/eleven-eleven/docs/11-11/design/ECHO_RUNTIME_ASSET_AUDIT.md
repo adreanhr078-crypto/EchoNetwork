@@ -2,7 +2,7 @@
 
 ## Inspected source
 
-- Runtime file: `public/assets/characters/echo.glb`
+- Authoring source: `public/assets/characters/echo.glb`
 - SHA-256: `44EF65C46D74E5156ED732B83864709E5CCA8A6AE406EE91732C36ADB31B877B`
 - File size: 22,774,444 bytes
 - Inspection path: official local Blender 4.2 glTF importer, headless/read-only.
@@ -26,6 +26,13 @@
   ground origin; this removes the prior lateral offset and floor sinking.
 - Derive walk/run playback scale from the measured clip durations and the same
   distance-per-contact values used by procedural footsteps.
+- Preserve that authoring source untouched and publish the runtime derivative as
+  `public/assets/characters/echo.runtime.glb` using Meshopt geometry compression,
+  WebP 2048 texture delivery, animation resampling and non-destructive pruning.
+- Runtime derivative size: 1,896,568 bytes (91.7% smaller than the source), with
+  the same 75,001 triangles, 41-joint rig and six named animation clips.
+- Browser verification on Microsoft Edge confirms the compressed rig loads,
+  animates, remains centred/planted and keeps its accepted third-person appearance.
 
 ## Quality boundary
 

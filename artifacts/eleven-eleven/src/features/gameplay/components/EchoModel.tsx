@@ -35,7 +35,7 @@ const configuredModelUrl = import.meta.env.VITE_ECHO_MODEL_URL?.trim();
 
 /** Replaceable Echo runtime asset. Visual acceptance remains quality-gated. */
 export const ECHO_MODEL_CONFIG = Object.freeze({
-  modelUrl: configuredModelUrl || '/assets/characters/echo.glb',
+  modelUrl: configuredModelUrl || '/assets/characters/echo.runtime.glb',
   targetHeight: 1.78,
 });
 

@@ -211,3 +211,34 @@ from measured failures; maintain this record after each accepted change.
   PBR texture sets, decals, edge wear, bespoke wall modules or final volumetrics.
 - Next exact action: postflight and checkpoint. Audit evidence-path interaction
   readability and the loading budget before adding any new content or assets.
+
+## CP-20260920-09 — evidence path and runtime loading budget
+
+- Repaired the GLB optimization pipeline so structurally valid authoring sources
+  may exceed runtime budgets before optimization, while generated runtime files
+  must still have no Khronos errors and pass every configured budget.
+- Preserved the 22,774,444-byte 8K/4K/2K Echo authoring source and published a
+  1,896,568-byte Meshopt/WebP runtime derivative. Edge visual review confirms the
+  same rig, six clips, framing and floor planting; no final character-art claim is
+  made. Transfer size fell by 91.7% without decimating Echo's 75,001 triangles.
+- Removed the unconditional preload of the disabled 30.02 MB monster study. The
+  canonical room no longer downloads that experimental asset at module import.
+- Expanded the director baseline to traverse the actual clock/photo evidence loop,
+  capture both focus states, verify the recovered-memory dialog, record GLB timing
+  and transfer evidence, enforce the 6 MiB GLB budget and reject monster preloading.
+- Visual review found the old focus rings too dominant and the interaction prompt
+  overlapping the desktop control strip. Reduced bloom-driving ring opacity and
+  line weight, and separated the prompt vertically from the persistent controls.
+- Computer-use audit opened the authenticated Tripo Pro workspace (3,020 credits),
+  Google Flow project and Google AI Studio project. The strongest existing Tripo
+  containment-pod candidate was exported for read-only validation: 1,870,199
+  triangles, 62 meshes, 45,288,772 bytes, no textures and 113 accessor errors. It
+  is rejected from runtime integration until retopology/material gates pass.
+- Tripo CLI authentication resolves to a different zero-credit profile, so no CLI
+  generation was attempted. No Tripo credits were spent in this checkpoint.
+- Quality boundary: interaction readability and delivery efficiency improved, but
+  the procedural clock/photo art and room modules remain below final visual target.
+  The rejected Tripo pod is evidence, not an integrated deliverable.
+- Next exact action: after explicit credit confirmation, run one 10-credit Tripo
+  standard quad retopology pass at 50,000 polygons on the existing pod, then audit
+  silhouette, topology, UV readiness and exported GLB before any texturing spend.

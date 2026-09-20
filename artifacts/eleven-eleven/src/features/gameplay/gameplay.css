@@ -604,7 +604,7 @@
 
 .gameplay-interaction-prompt {
   position: absolute;
-  inset: auto 50% clamp(1.4rem, 4vh, 2.7rem) auto;
+  inset: auto 50% clamp(5.15rem, 10vh, 6.5rem) auto;
   transform: translateX(50%);
   pointer-events: auto;
   animation: gameplay-prompt-in 220ms ease-out both;

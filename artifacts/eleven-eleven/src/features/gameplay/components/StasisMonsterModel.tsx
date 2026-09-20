@@ -406,5 +406,3 @@ export function StasisMonsterModel({
     </group>
   );
 }
-
-useGLTF.preload('/assets/props/tripo_monster.glb');

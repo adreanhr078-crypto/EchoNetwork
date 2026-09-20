@@ -4,10 +4,12 @@ import { test, expect } from 'playwright/test';
 test('director baseline: record the actual rendered room and loaded assets', async ({ page }, testInfo) => {
   test.setTimeout(90000);
   const errors: string[] = [];
-  const assets = new Set<string>();
+  const assets = new Map<string, number>();
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => {
-    if (/\.glb(?:\?|$)/.test(response.url())) assets.add(response.url());
+    if (!/\.glb(?:\?|$)/.test(response.url())) return;
+    const declaredBytes = Number(response.headers()['content-length'] ?? 0);
+    assets.set(response.url(), Number.isFinite(declaredBytes) ? declaredBytes : 0);
   });
   await page.addInitScript(() => {
     const AudioContextConstructor = window.AudioContext
@@ -93,6 +95,33 @@ test('director baseline: record the actual rendered room and loaded assets', asy
   expect(cameraState!.z).toBeGreaterThanOrEqual(-14);
   expect(cameraState!.z).toBeLessThanOrEqual(16);
   await capture('after-walking');
+
+  const placeEchoNear = async (x: number, z: number) => {
+    await page.evaluate(({ x: nextX, z: nextZ }) => {
+      const player = (window as any).__11_11_SCENE__?.scene
+        ?.getObjectByName('echo-player');
+      if (!player) throw new Error('Echo player is unavailable.');
+      player.position.x = nextX;
+      player.position.z = nextZ;
+    }, { x, z });
+  };
+
+  // Inspect the real evidence loop in the rendered room. Teleporting is used
+  // only to remove pathfinding time from this presentation audit; interaction,
+  // focus feedback and narrative state still run through production code.
+  await placeEchoNear(3.8, 2.55);
+  await expect(page.locator('.gameplay-interaction-prompt')).toContainText('الساعة');
+  await capture('clock-focus');
+  await page.keyboard.press('e');
+  await expect(page.getByRole('dialog')).toContainText('الساعة المتوقفة');
+  await page.getByRole('button', { name: 'متابعة' }).click();
+
+  await placeEchoNear(6.8, 7.35);
+  await expect(page.locator('.gameplay-interaction-prompt')).toContainText('الصورة');
+  await capture('photo-focus');
+  await page.keyboard.press('e');
+  await expect(page.getByRole('dialog')).toContainText('الصورة الممزقة');
+  await expect(page.getByRole('dialog')).toContainText('MEMORY FRAGMENT');
   const rendered = await page.evaluate(() => {
     const bridge = (window as any).__11_11_SCENE__;
     const names: string[] = [];
@@ -100,6 +129,23 @@ test('director baseline: record the actual rendered room and loaded assets', asy
     return { names, renderer: bridge.gl.info.render, geometries: bridge.gl.info.memory.geometries,
       textures: bridge.gl.info.memory.textures, hud: document.querySelector('.gameplay-hud')?.textContent };
   });
-  await testInfo.attach('observation', { body: JSON.stringify({ assets: [...assets], errors, rendered }, null, 2), contentType: 'application/json' });
+  const runtimeResources = await page.evaluate(() => performance
+    .getEntriesByType('resource')
+    .filter((entry) => /\.glb(?:\?|$)/.test(entry.name))
+    .map((entry) => {
+      const resource = entry as PerformanceResourceTiming;
+      return {
+        name: resource.name,
+        durationMs: Math.round(resource.duration),
+        transferBytes: resource.transferSize,
+        decodedBytes: resource.decodedBodySize,
+      };
+    }));
+  const glbUrls = [...assets.keys()];
+  const declaredGlbBytes = [...assets.values()].reduce((sum, bytes) => sum + bytes, 0);
+  await testInfo.attach('observation', { body: JSON.stringify({ assets: Object.fromEntries(assets), declaredGlbBytes, runtimeResources, errors, rendered }, null, 2), contentType: 'application/json' });
+  expect(glbUrls.some(url => url.endsWith('/assets/characters/echo.runtime.glb'))).toBe(true);
+  expect(glbUrls.some(url => url.endsWith('/assets/props/tripo_monster.glb'))).toBe(false);
+  expect(declaredGlbBytes).toBeLessThanOrEqual(6 * 1024 * 1024);
   expect(errors).toEqual([]);
 });

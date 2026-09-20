@@ -39,13 +39,13 @@ export function InteractiveHighlight({
     const pulse = 0.5 + Math.sin(clock.elapsedTime * 3.4) * 0.5;
     const opacity = MathUtils.damp(
       outerMaterial.opacity,
-      target * (0.2 + pulse * 0.18),
+      target * (0.09 + pulse * 0.08),
       9,
       delta,
     );
     outerMaterial.opacity = opacity;
-    innerMaterial.opacity = opacity * 0.55;
-    group.scale.setScalar(0.94 + pulse * 0.08);
+    innerMaterial.opacity = opacity * 0.34;
+    group.scale.setScalar(0.97 + pulse * 0.045);
     group.rotation.z = Math.sin(clock.elapsedTime * 0.7) * 0.025;
     group.visible = opacity > 0.008;
   });
@@ -58,7 +58,7 @@ export function InteractiveHighlight({
       name="interaction-highlight"
     >
       <mesh>
-        <torusGeometry args={[radius, 0.018, 8, 40]} />
+        <torusGeometry args={[radius, 0.009, 8, 40]} />
         <meshBasicMaterial
           ref={outerMaterialRef}
           color={color}

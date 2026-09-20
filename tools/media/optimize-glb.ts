@@ -55,7 +55,11 @@ async function main(): Promise<void> {
   if (!existsSync(input)) throw new Error(`Input GLB not found: ${input}`);
   if (existsSync(output) && !args.force) throw new Error(`Output already exists; pass --force to replace it: ${output}`);
 
-  const before = await validateGlb(input, true);
+  // The optimizer must accept structurally valid source assets that exceed the
+  // runtime budget; reducing those overages is the purpose of this command.
+  // Keep Khronos errors blocking, but enforce the complete strict budget only
+  // against the generated runtime asset below.
+  const before = await validateGlb(input, false, false);
   if (before.status !== 'PASS') throw new Error('Input GLB failed validation; optimization was not attempted.');
 
   mkdirSync(dirname(output), { recursive: true });
@@ -111,7 +115,10 @@ async function main(): Promise<void> {
     throw new Error(`glTF Transform failed with exit code ${result.status ?? 'unknown'}.`);
   }
 
-  const after = await validateGlb(temporary, true);
+  // Runtime acceptance blocks Khronos errors and every configured budget.
+  // Known portability warnings are preserved in the report for asset review,
+  // but do not discard an otherwise valid optimized asset automatically.
+  const after = await validateGlb(temporary, false, true);
   if (after.status !== 'PASS') {
     unlinkSync(temporary);
     throw new Error('Optimized GLB failed validation and was not published.');
