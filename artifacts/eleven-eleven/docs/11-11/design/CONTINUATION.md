@@ -316,3 +316,25 @@ from measured failures; maintain this record after each accepted change.
 - Next exact action: visually compare full/reduced-motion handoff variants, then
   add a bounded glass-condensation treatment only if it improves the pod close-up;
   do not expand the room or add a threat before this wake gate is accepted.
+
+## CP-20260920-12 — capsule glass micro-surface gate
+
+- Added a deterministic 512 px condensation roughness map directly to the moving
+  `Door_Glass` mesh. One hundred eighty varied droplets and a restrained subset of
+  gravity streaks now break up the otherwise uniform glass highlight without
+  requiring a large image download or changing the accepted capsule geometry.
+- The treated glass preserves the authored transparent material, disables depth
+  writing to avoid dark sorting blocks, and raises reflection response only on the
+  glass surface. Condensation roughness eases down after the seal opens while the
+  droplets remain attached to the animated door.
+- Microsoft Edge replayed the actual movie-to-engine handoff successfully after
+  the treatment, with no page error and a readable Echo silhouette. The captured
+  close-up remains within the cyan/red visual hierarchy; the effect is deliberately
+  subtle enough not to turn the pod window into an opaque texture.
+- Quality boundary: this is a runtime micro-surface pass, not simulated liquid.
+  No screen-space-reflection or water system was added because the fixed opening
+  does not yet justify its GPU cost. Add those only when a playable water-bearing
+  space passes a composition and performance gate.
+- Next exact action: complete the wake gate with a measured color-match review
+  between the clean licensed opening movie and the first in-engine frame. Do not
+  expand Sector 11 until the cut is perceptually continuous on desktop and phone.

@@ -6,6 +6,8 @@ import {
   LoopOnce,
   MathUtils,
   type Group,
+  type Mesh,
+  type MeshStandardMaterial,
   type Sprite,
   type SpriteMaterial,
 } from 'three';
@@ -20,6 +22,121 @@ export interface WakeCapsuleModelProps {
 }
 
 const VAPOR_COUNT = 8;
+
+function createCondensationRoughnessMap() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 512;
+  const context = canvas.getContext('2d');
+  if (!context) return new CanvasTexture(canvas);
+
+  context.fillStyle = '#242424';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  let seed = 0x1111;
+  const random = () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 0xffffffff;
+  };
+
+  for (let index = 0; index < 180; index += 1) {
+    const x = 24 + random() * 464;
+    const y = 18 + random() * 476;
+    const radius = 1.8 + Math.pow(random(), 2.4) * 11;
+    const stretch = 0.72 + random() * 1.55;
+    const droplet = context.createRadialGradient(
+      x - radius * 0.22,
+      y - radius * 0.28,
+      radius * 0.08,
+      x,
+      y,
+      radius * 1.1,
+    );
+    droplet.addColorStop(0, 'rgba(248,248,248,0.92)');
+    droplet.addColorStop(0.38, 'rgba(188,188,188,0.72)');
+    droplet.addColorStop(1, 'rgba(50,50,50,0)');
+    context.save();
+    context.translate(x, y);
+    context.scale(1, stretch);
+    context.translate(-x, -y);
+    context.fillStyle = droplet;
+    context.beginPath();
+    context.arc(x, y, radius, 0, Math.PI * 2);
+    context.fill();
+    context.restore();
+
+    if (radius > 7 && random() > 0.42) {
+      const length = 18 + random() * 58;
+      context.strokeStyle = `rgba(178,178,178,${0.12 + random() * 0.22})`;
+      context.lineWidth = Math.max(1.2, radius * 0.28);
+      context.lineCap = 'round';
+      context.beginPath();
+      context.moveTo(x, y + radius * 0.72);
+      context.bezierCurveTo(
+        x + (random() - 0.5) * 7,
+        y + radius + length * 0.32,
+        x + (random() - 0.5) * 9,
+        y + radius + length * 0.68,
+        x + (random() - 0.5) * 12,
+        y + radius + length,
+      );
+      context.stroke();
+    }
+  }
+
+  const texture = new CanvasTexture(canvas);
+  texture.needsUpdate = true;
+  return texture;
+}
+
+function CapsuleGlassSurface({
+  scene,
+  capsuleOpen,
+}: {
+  scene: Group;
+  capsuleOpen: boolean;
+}) {
+  const treatedMaterialRef = useRef<MeshStandardMaterial | null>(null);
+  const condensationMap = useMemo(createCondensationRoughnessMap, []);
+
+  useEffect(() => {
+    const glass = scene.getObjectByName('Door_Glass') as Mesh | null;
+    if (!glass || Array.isArray(glass.material)) return undefined;
+
+    const originalMaterial = glass.material as MeshStandardMaterial;
+    const treatedMaterial = originalMaterial.clone();
+    treatedMaterial.name = 'M_Capsule_Glass_Condensation';
+    treatedMaterial.roughness = capsuleOpen ? 0.34 : 0.68;
+    treatedMaterial.roughnessMap = condensationMap;
+    treatedMaterial.metalness = 0.03;
+    treatedMaterial.depthWrite = false;
+    treatedMaterial.envMapIntensity = 1.35;
+    treatedMaterial.needsUpdate = true;
+    treatedMaterialRef.current = treatedMaterial;
+    glass.material = treatedMaterial;
+
+    return () => {
+      glass.material = originalMaterial;
+      treatedMaterial.dispose();
+      treatedMaterialRef.current = null;
+    };
+  }, [condensationMap, scene]);
+
+  useEffect(() => () => condensationMap.dispose(), [condensationMap]);
+
+  useFrame((_, rawDelta) => {
+    const material = treatedMaterialRef.current;
+    if (!material) return;
+    material.roughness = MathUtils.damp(
+      material.roughness,
+      capsuleOpen ? 0.34 : 0.68,
+      2.4,
+      Math.min(rawDelta, 0.05),
+    );
+  });
+
+  return null;
+}
 
 function CapsuleColdVapor({ active }: { active: boolean }) {
   const spritesRef = useRef<(Sprite | null)[]>([]);
@@ -125,6 +242,7 @@ export function WakeCapsuleModel({
       name="sector11-wake-capsule"
     >
       <primitive object={scene} />
+      <CapsuleGlassSurface scene={scene} capsuleOpen={isOpen} />
       <CapsuleColdVapor active={isOpen} />
       {/* Interior cryo-fluid uplight */}
       <pointLight
