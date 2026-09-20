@@ -14,6 +14,20 @@ the story becomes a game; it does not invent or overwrite story Canon.
 
 ## North star
 
+### Owner revision — 2026-09-20
+
+The complete consolidated mandate is preserved in
+`11-11/design/OWNER_PRODUCTION_MANDATE.md`. The approved outside-world city is
+**Minato-Kasumi**, an original fictional Japanese coastal city. Its name is no
+longer provisional. First accept the Definitive Inside-System Vertical Slice;
+then build only the hospital/street/residential/bus-stop/konbini cluster toward
+home. No full city production is authorized now. Preserve Echo/Zero/Kinja/Yuki/
+Shizuka and the Manhwa chronology. Human survival defense is allowed before Zero;
+supernatural combat requires despair and the contract, superseding older blanket
+combat restrictions below. Resume the accepted work at CP-20260920-12. Section 30
+of the new mandate refers to Godot according to Project Memory; the verified
+runtime in that memory remains Three/R3F, so no migration is silently inferred.
+
 ### Owner revision — 2026-09-19
 
 The current production reference is

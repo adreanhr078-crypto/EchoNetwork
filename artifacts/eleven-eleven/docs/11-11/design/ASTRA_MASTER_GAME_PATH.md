@@ -1,6 +1,9 @@
 # 11.11 — Master Game Path
 
-Date: 2026-09-19. Status: **operational direction; slice NOT accepted**.
+Date: 2026-09-19; reconciled 2026-09-20. Status: **operational direction; slice NOT accepted**.
+The consolidated Owner mandate is adopted in full. Resume CP-20260920-12 rather
+than replaying this document's historical intake. The outside city is now named
+Minato-Kasumi; see OPEN_WORLD_LONG_TERM_ARCHITECTURE for its deferred first cluster.
 Authority: latest Owner production mandate → approved 70-page Part 1 publication
 `echo-network-final-2026-09-v1` → narrative manifest → this adaptation plan.
 This document supersedes conflicting engine/scope recommendations in older audits,

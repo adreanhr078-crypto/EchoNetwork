@@ -298,8 +298,8 @@ from measured failures; maintain this record after each accepted change.
   actual door-open state instead of running as permanent ambient decoration.
 - The first-entry control guide is deliberately delayed until the in-engine beat
   finishes, so instruction does not cover the emotional wake moment. Reduced
-  Motion uses a compressed, shake-free 1.5-second orientation path, opens the
-  capsule, then hands over without the full orbit choreography.
+  Motion bypasses the in-engine orbit and hands over directly after the static
+  movie alternative. The component's 1.5-second branch is not used by this path.
 - Extended the room fixture with separate cinematic/tutorial modes. Microsoft Edge
   verifies the real video-to-engine transition, door rotation, inside-pod start,
   final 9.5 m spawn, control-guide reveal and absence of page errors. The combined
@@ -338,3 +338,25 @@ from measured failures; maintain this record after each accepted change.
 - Next exact action: complete the wake gate with a measured color-match review
   between the clean licensed opening movie and the first in-engine frame. Do not
   expand Sector 11 until the cut is perceptually continuous on desktop and phone.
+
+## CP-20260920-13 — consolidated mandate reconciliation
+
+- Read the new Owner attachment, previous mandate record, master path, existing
+  audit findings/disagreements and current wake implementation. Adopted the full
+  supplied text in OWNER_PRODUCTION_MANDATE.md; previous text remains in Git.
+- Corrected the missing Minato-Kasumi name in vision, structured memory and
+  outside-world architecture. Restricted its future first cluster to the new
+  mandate. Corrected the stale blanket pre-Zero combat memory field.
+- Explicit discrepancy: section 30 names Godot according to Project Memory,
+  while verified memory and executable gameplay use Three/R3F. Preserved current
+  runtime under the Owner's no-restart/nearest-valid-checkpoint instruction.
+- KEEP: accepted source assets, cover/receipt/transition, authentication, saves,
+  canonical reveal order and existing tests. No city assets or new engine added.
+- Corrected CP-11's inaccurate reduced-motion description against GameWorld:
+  it skips the in-engine orbit, not a 1.5-second moving-camera sequence.
+- Acceptance remains limited: technical tests and close-up screenshots do not
+  prove AAA quality, emotional effectiveness or complete Manhwa fidelity. The
+  complete slice remains WIP; wake/color matching, performance and player review
+  remain open. No Gemini execution or new generation credit spend in this review.
+- Continue directly with the wake handoff's existing runtime verification and
+  color-match gate. Do not restart the cover, room or accepted controller.

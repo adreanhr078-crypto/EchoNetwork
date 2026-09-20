@@ -6,16 +6,18 @@ Ordinary life must earn attachment before its reality becomes questionable.
 
 ## Approved Japanese-city direction (Owner revision 2026-09-19)
 
-Setting: Japan, a fictional coastal city inspired by Yokohama's waterfront,
+Setting: **Minato-Kasumi** (Owner-approved name, 2026-09-20), a fictional Japanese
+coastal city inspired by Yokohama's waterfront,
 rail-connected neighborhoods, residential hills and port/research contrast.
-Do not copy its map or substitute a generic neon-anime city. The city's final
-Japanese name, geography and history remain design decisions, not invented Canon.
+Do not copy its map or substitute a generic neon-anime city. The approved name is
+locked; detailed geography and history remain design decisions, not invented Canon.
 Candidate districts: station/commercial core, residential-school cluster,
 waterfront, historic streets and medical/industrial edge. Include only areas that
 earn their gameplay, relationships and mystery; no city assets are commissioned now.
 
-The first future area connects hospital, home, school and local station with
-meaningful interiors, one shopping street and a landmark. Rail/public transport
+The first future slice connects hospital and exterior, nearby street, residential
+block, bus stop, konbini and the route toward home. Home/school/station expansion
+waits for this compact cluster's acceptance. Rail/public transport
 supports believable routines before any large vehicle simulation. Authored NPC
 schedules connect home/work/school and remember relevant player actions.
 Research street markings, signage, crossings, drainage, bicycle parking and
