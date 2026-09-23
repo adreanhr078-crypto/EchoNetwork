@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/cinematics/blast_gate_breach_cinematic.gd" id="1_breach_cine"]
+
+[node name="BlastGateBreachCinematic" type="Node"]
+script = ExtResource("1_breach_cine")

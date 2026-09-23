@@ -7,14 +7,29 @@ signal tactical_scan_completed(target: Node3D)
 @export var follow_target: Node3D
 @export var aim_target: Node3D
 
-var float_offset: Vector3 = Vector3(0.65, 1.4, -0.5)
+var float_offset: Vector3 = Vector3(0.45, 1.8, 0.25)
 var current_time: float = 0.0
 var scan_cooldown: float = 0.0
 
 @onready var searchlight: SpotLight3D = $Searchlight if has_node("Searchlight") else null
 
+func _ready() -> void:
+	if searchlight:
+		searchlight.shadow_enabled = false
+	_set_guide_shadow_casting($GuideCore)
+
+func _set_guide_shadow_casting(node: Node) -> void:
+	if node is GeometryInstance3D:
+		node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	for child in node.get_children():
+		_set_guide_shadow_casting(child)
+
 func _process(delta: float) -> void:
 	current_time += delta
+	if has_node("OuterHalo"):
+		$OuterHalo.rotate_object_local(Vector3.FORWARD, delta * 0.7)
+	if has_node("InnerHalo"):
+		$InnerHalo.rotate_object_local(Vector3.UP, delta * 1.1)
 
 	# Follow Player with Spring Damped Lerp
 	if follow_target:
@@ -27,8 +42,8 @@ func _process(delta: float) -> void:
 			var target_look: Vector3 = aim_target.global_position + Vector3(0, 1.0, 0)
 			look_at(target_look, Vector3.UP)
 		else:
-			var look_dir: Vector3 = -follow_target.global_transform.basis.z
-			look_at(global_position + look_dir, Vector3.UP)
+			var echo_look_point := follow_target.global_position + Vector3(0.0, 1.25, 0.0)
+			look_at(echo_look_point, Vector3.UP)
 
 	# Handle Tactical Ultrasonic Resonance Scan (Q Key)
 	if scan_cooldown > 0.0:

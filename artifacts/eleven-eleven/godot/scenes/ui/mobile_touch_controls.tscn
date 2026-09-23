@@ -67,6 +67,23 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
 
+[node name="UseBtn" type="Button" parent="ActionCluster"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = 85.0
+offset_right = -85.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "USE"
+
 [node name="AttackBtn" type="Button" parent="ActionCluster"]
 layout_mode = 1
 anchors_preset = 8
@@ -171,3 +188,4 @@ text = "📡 SCAN"
 [connection signal="pressed" from="ActionCluster/JumpBtn" to="." method="_on_jump_btn_pressed"]
 [connection signal="pressed" from="ActionCluster/LockOnBtn" to="." method="_on_lock_on_btn_pressed"]
 [connection signal="pressed" from="ActionCluster/ScanBtn" to="." method="_on_scan_btn_pressed"]
+[connection signal="pressed" from="ActionCluster/UseBtn" to="." method="_on_use_btn_pressed"]

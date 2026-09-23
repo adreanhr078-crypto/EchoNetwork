@@ -1,8 +1,8 @@
 class_name LocomotionAnimController
 extends Node
 
-## AAA Locomotion Animation Blending & Root Motion Controller
-## Simulates 4-directional blend spaces, inertia skid/foot-planting, and weapon attack root motion.
+## Chooses a locomotion clip from horizontal movement. AnimationPlayer owns the crossfade.
+## Combat displacement remains scripted until authored root-motion clips exist.
 
 signal skid_triggered(intensity: float)
 signal root_motion_started(step: int, distance: float)
@@ -57,7 +57,7 @@ func cancel_root_motion() -> void:
 		root_motion_velocity = Vector3.ZERO
 		emit_signal("root_motion_finished", root_motion_step)
 
-func update(delta: float, input_vec: Vector2, speed: float, was_sprinting: bool, attacking: bool) -> Dictionary:
+func update(delta: float, input_vec: Vector2, speed: float, sprint_requested: bool, _attacking: bool) -> Dictionary:
 	# Update Root Motion
 	if root_motion_active:
 		root_motion_timer -= delta
@@ -89,7 +89,7 @@ func update(delta: float, input_vec: Vector2, speed: float, was_sprinting: bool,
 			}
 
 	# Detect Skid Trigger: moving fast (> 6.0 m/s) and player suddenly releases input
-	if was_sprinting and speed > 5.5 and input_vec.length() < 0.1 and not is_skidding:
+	if current_state == LocomotionState.SPRINT and speed > 5.5 and input_vec.length() < 0.1 and not is_skidding:
 		is_skidding = true
 		skid_timer = SKID_DURATION
 		current_state = LocomotionState.SKID_STOP
@@ -104,16 +104,13 @@ func update(delta: float, input_vec: Vector2, speed: float, was_sprinting: bool,
 
 	# Locomotion Blend Space Target calculation
 	target_blend = input_vec.normalized()
-	blend_pos = blend_pos.lerp(target_blend, blend_smoothing * delta)
+	blend_pos = blend_pos.lerp(target_blend, minf(1.0, blend_smoothing * delta))
 
 	# Determine Locomotion State & Animation
 	var anim_name: String = "preset_biped_idle_001"
-	if input_vec.length() > 0.1:
-		if was_sprinting and speed > 5.0:
+	if input_vec.length() > 0.1 and speed > 0.35:
+		if sprint_requested and speed > 4.6:
 			current_state = LocomotionState.SPRINT
-			anim_name = "preset_biped_run_001"
-		elif speed > 3.0:
-			current_state = LocomotionState.RUN
 			anim_name = "preset_biped_run_001"
 		else:
 			current_state = LocomotionState.WALK

@@ -1,30 +1,31 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://scripts/environment/substation_terminal.gd" id="1_terminal"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interactable"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pedestal"]
-size = Vector3(1.6, 1.2, 1.0)
+size = Vector3(1.05, 1.2, 0.58)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pedestal"]
-albedo_color = Color(0.03, 0.04, 0.06, 1)
-metallic = 0.9
-roughness = 0.3
+albedo_color = Color(0.075, 0.09, 0.12, 1)
+metallic = 0.62
+roughness = 0.46
 
 [sub_resource type="QuadMesh" id="QuadMesh_screen"]
 size = Vector2(1.4, 0.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_screen"]
-albedo_color = Color(0.01, 0.05, 0.09, 1)
+albedo_color = Color(0.035, 0.05, 0.065, 1)
 emission_enabled = true
-emission = Color(0, 0.94, 1, 1)
-emission_energy_multiplier = 2.4
+emission = Color(0.025, 0.14, 0.19, 1)
+emission_energy_multiplier = 0.28
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_area"]
 height = 2.5
-radius = 2.8
+radius = 3.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_collider"]
-size = Vector3(1.6, 1.2, 1.0)
+size = Vector3(1.05, 1.2, 0.58)
 
 [node name="SubstationTerminal" type="Node3D"]
 script = ExtResource("1_terminal")
@@ -41,29 +42,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("BoxShape3D_collider")
 
 [node name="TerminalScreen" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.35, -0.2)
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.35, 0.31)
 mesh = SubResource("QuadMesh_screen")
 surface_material_override/0 = SubResource("StandardMaterial3D_screen")
+
+[node name="ScreenReadout" type="Label3D" parent="."]
+position = Vector3(0, 1.35, 0.35)
+rotation = Vector3(-0.436332, 0, 0)
+text = "SECTOR 11 // SIGNAL\n111 MHz  ·  45°\nCHANNEL 07  /  LOST"
+font_size = 36
+pixel_size = 0.003
+outline_size = 4
+outline_modulate = Color(0.01, 0.03, 0.07, 1)
+modulate = Color(0.66, 0.92, 1, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TerminalLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0.4)
 light_color = Color(1, 0.65, 0.1, 1)
-light_energy = 1.8
-omni_range = 4.0
+light_energy = 0.15
+omni_range = 1.1
 
 [node name="InteractionArea" type="Area3D" parent="."]
+script = ExtResource("2_interactable")
+verb = 4
+prompt_target_name = "Signal Terminal"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("CylinderShape3D_area")
-
-[node name="InteractionPrompt" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
-visible = false
-billboard = 1
-double_sided = false
-text = "[E / SCAN] ACCESS TERMINAL"
-font_size = 28
-outline_size = 6
-outline_modulate = Color(0, 0, 0, 1)
-modulate = Color(0, 0.94, 1, 1)

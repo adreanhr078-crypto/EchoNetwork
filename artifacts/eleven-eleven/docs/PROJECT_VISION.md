@@ -4,6 +4,14 @@ Status: **OWNER APPROVED**
 Version: **1.0**  
 Approved: **2026-08-28**
 
+## Owner update — 2026-09-23
+
+The Owner directly instructed the team to use the existing Godot 4.7 project
+for the game's 3D work and to correct its existing defects before adding new
+systems. This supersedes earlier runtime notes below for this work. It does not
+claim that the React/web shell, authentication, or authoritative services have
+been migrated; keep them intact until an integration audit defines their role.
+
 This document is durable product memory for every designer, developer, artist,
 writer, tester, and agent working on 11.11. It records the Owner's desired game,
 the agreed player journey, system order, quality bar, and production boundaries.

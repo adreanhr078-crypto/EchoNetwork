@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/main.tscn" id="1_main"]
+[ext_resource type="Script" path="res://_foot_ik_probe_driver.gd" id="2_driver"]
+
+[node name="Main" instance=ExtResource("1_main")]
+
+[node name="FootIKProbeDriver" type="Node" parent="."]
+script = ExtResource("2_driver")
+disable_ik = true

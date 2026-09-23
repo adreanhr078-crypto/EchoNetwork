@@ -52,9 +52,13 @@ func _init() -> void:
 	print("[2/8] Scene hierarchy verified: EchoPlayer, SpecimenEX000, FloatingPod, GameplayHUD, Sector11Capsule, IntroCamera.")
 
 	# Verify Visual Model Instantiations & Skeletal Rig
-	var echo_model = player.find_child("echo_tripo_native", true, false)
+	var echo_model = player.find_child("EchoOpeningUniform", true, false)
+	if not echo_model:
+		echo_model = player.find_child("echo_tripo_native", true, false)
 	var boss_model = boss.find_child("tripo_monster", true, false)
-	var capsule_model = capsule.find_child("sector11-wake-capsule-v2", true, false)
+	var capsule_model = capsule.find_child("CryogenicPodModel", true, false)
+	if not capsule_model:
+		capsule_model = capsule.find_child("sector11-wake-capsule-v2", true, false)
 
 	assert(echo_model != null, "Echo native rigged GLB model must be instantiated")
 	assert(boss_model != null, "Specimen EX-000 GLB model must be instantiated")
@@ -68,9 +72,12 @@ func _init() -> void:
 
 	var player_anim = player.find_child("AnimationPlayer", true, false) as AnimationPlayer
 	assert(player_anim != null, "Echo model must contain an AnimationPlayer")
-	assert(player_anim.has_animation("preset_biped_idle_001"), "Echo must have idle animation")
-	assert(player_anim.has_animation("preset_biped_walk_001"), "Echo must have walk animation")
-	assert(player_anim.has_animation("preset_biped_run_001"), "Echo must have run animation")
+	var has_idle: bool = player_anim.has_animation("preset_biped_idle_001") or player_anim.has_animation("preset_idle") or player_anim.has_animation("IDLE")
+	var has_walk: bool = player_anim.has_animation("preset_biped_walk_001") or player_anim.has_animation("preset_walk") or player_anim.has_animation("WALK")
+	var has_run: bool = player_anim.has_animation("preset_biped_run_001") or player_anim.has_animation("preset_run") or player_anim.has_animation("RUN")
+	assert(has_idle, "Echo must have idle animation")
+	assert(has_walk, "Echo must have walk animation")
+	assert(has_run, "Echo must have run animation")
 
 	print("[3/8] Cold weapon & GLB assets verified: Tactical Katana, Slash Arc, Rigged Echo & Animations.")
 
@@ -817,7 +824,8 @@ func _init() -> void:
 	assert(echo_house.photo_father_inspected == false, "Father photo uninspected initially")
 	var father_photo_res = echo_house.inspect_father_photo(player)
 	assert(father_photo_res["inspected"] == true, "Father photo inspection succeeds")
-	assert(father_photo_res["text"].contains("Dr. Kinga") and father_photo_res["text"].contains("Sector 11"), "Narrative contains Kinga & Sector 11 memory")
+	var has_kinja: bool = father_photo_res["text"].contains("Kinja") or father_photo_res["text"].contains("Kinga")
+	assert(has_kinja and father_photo_res["text"].contains("Sector 11"), "Narrative contains Kinja & Sector 11 memory")
 	assert(echo_house.photo_father_inspected == true, "photo_father_inspected flag set")
 	print("[49/58] Father Photo Inspection verified: Dr. Kinga pre-singularity smile memory and dialogue active.")
 

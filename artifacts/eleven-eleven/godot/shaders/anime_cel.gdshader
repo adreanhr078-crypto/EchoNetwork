@@ -5,6 +5,9 @@ render_mode diffuse_toon, specular_toon, cull_back;
 group_uniforms BaseProperties;
 uniform vec4 albedo_color : source_color = vec4(0.9, 0.9, 0.9, 1.0);
 uniform sampler2D albedo_texture : source_color, filter_linear_mipmap, hint_default_white;
+uniform sampler2D normal_texture : hint_normal, filter_linear_mipmap;
+uniform bool use_normal_texture = false;
+uniform float normal_depth : hint_range(0.0, 2.0) = 1.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.35;
 uniform float metallic : hint_range(0.0, 1.0) = 0.1;
 
@@ -28,24 +31,14 @@ void fragment() {
 	ALBEDO = albedo_color.rgb * tex_color.rgb;
 	ROUGHNESS = roughness;
 	METALLIC = metallic;
+	if (use_normal_texture) {
+		NORMAL_MAP = texture(normal_texture, UV).rgb;
+		NORMAL_MAP_DEPTH = normal_depth;
+	}
 	
 	// Rim lighting calculation
 	float fresnel = 1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0);
 	float rim = pow(fresnel, rim_power) * rim_intensity;
 	
 	EMISSION = (emissive_color.rgb * emissive_intensity) + (rim_color.rgb * rim);
-}
-
-void light() {
-	// N.L Cel Stepping
-	float n_dot_l = dot(NORMAL, LIGHT);
-	float light_step_1 = smoothstep(cel_split_1 - cel_smoothness, cel_split_1 + cel_smoothness, n_dot_l);
-	float light_step_2 = smoothstep(cel_split_2 - cel_smoothness, cel_split_2 + cel_smoothness, n_dot_l);
-	
-	vec3 ramp_color = mix(shadow_color.rgb, vec3(1.0), light_step_1);
-	ramp_color = mix(shadow_color.rgb * 0.7, ramp_color, light_step_2);
-	
-	// Attenuation & Light color
-	vec3 diffuse_light = ramp_color * LIGHT_COLOR * ATTENUATION;
-	DIFFUSE_LIGHT += diffuse_light * ALBEDO;
 }

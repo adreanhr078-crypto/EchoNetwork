@@ -5,6 +5,7 @@ signal line_displayed(index, line_data)
 signal dialogue_completed
 
 @export var typewriter_speed: float = 0.025
+@export var reduced_motion: bool = false
 
 var dialogue_lines: Array = [
 	{
@@ -44,6 +45,7 @@ func _ready() -> void:
 	visible = false
 
 func start_dialogue(custom_lines: Array = []) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if custom_lines.size() > 0:
 		dialogue_lines = custom_lines
 	current_line_index = -1
@@ -97,7 +99,7 @@ func advance_dialogue() -> void:
 	var line = dialogue_lines[current_line_index]
 	full_text = line.get("text", "")
 	displayed_chars = 0
-	is_typing = true
+	is_typing = not reduced_motion
 	if continue_prompt:
 		continue_prompt.visible = false
 
@@ -111,7 +113,9 @@ func advance_dialogue() -> void:
 		speaker_lbl.modulate = line.get("speaker_color", Color.WHITE)
 
 	if text_lbl:
-		text_lbl.text = ""
+		text_lbl.text = full_text if reduced_motion else ""
+	if continue_prompt and reduced_motion:
+		continue_prompt.visible = true
 
 	emit_signal("line_displayed", current_line_index, line)
 

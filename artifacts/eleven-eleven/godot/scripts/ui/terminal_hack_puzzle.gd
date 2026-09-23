@@ -108,7 +108,7 @@ func _update_ui() -> void:
 func _solve_puzzle() -> void:
 	is_solved = true
 	if status_lbl:
-		status_lbl.text = ">>> PROTOCOL OVERRIDDEN // PROJECT ZEO DECRYPTED <<<"
+		status_lbl.text = ">>> SIGNAL ALIGNED // ACCESS GRANTED <<<"
 		status_lbl.modulate = Color(0.1, 1.0, 0.4, 1.0)
 	if progress_bar:
 		progress_bar.value = 100.0
@@ -116,10 +116,10 @@ func _solve_puzzle() -> void:
 		proceed_btn.visible = true
 
 	var payload = {
-		"project": "ZEO",
-		"subject_code": "SPECIMEN-000-ORIGIN",
+		"signal_source": "INTERNAL_RELAY",
+		"subject_code": "EX-011",
 		"facility_sector": 11,
-		"wake_authorized_by": "CENTRAL_CORE_USER_ZEO"
+		"trace": "111.0_MHZ_PHASE_45_CHANNEL_7"
 	}
 	emit_signal("puzzle_completed", payload)
 

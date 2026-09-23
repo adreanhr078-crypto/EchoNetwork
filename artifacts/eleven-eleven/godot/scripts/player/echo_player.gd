@@ -10,6 +10,8 @@ signal weapon_sheathed()
 signal iai_charged()
 signal iai_executed(damage: int)
 signal shadow_step_executed(from_pos: Vector3, to_pos: Vector3)
+signal nearby_interactable_changed(interactable: Node)
+signal opening_recovery_completed()
 
 const ImpactSpawner = preload("res://scripts/combat/impact_spawner.gd")
 const GhostTrailSpawner = preload("res://scripts/player/ghost_trail_spawner.gd")
@@ -28,11 +30,17 @@ var nearby_interactables: Array = []
 
 const MAX_HP: float = 200.0
 const MAX_STAMINA: float = 100.0
-const WALK_SPEED: float = 4.2
-const SPRINT_SPEED: float = 7.2
+const WALK_SPEED: float = 2.6
+const SPRINT_SPEED: float = 5.8
+const AUTHORED_WALK_SPEED: float = 1.94
+const AUTHORED_RUN_SPEED: float = 6.4
 const JUMP_VELOCITY: float = 5.4
 const DODGE_SPEED: float = 9.8
 const GRAVITY: float = 14.0
+const GROUND_ACCEL: float = 18.0
+const GROUND_BRAKE: float = 22.0
+const AIR_ACCEL: float = 6.0
+const MODEL_FORWARD_YAW_OFFSET: float = -PI * 0.5
 
 var hp: float = MAX_HP
 var stamina: float = MAX_STAMINA
@@ -52,6 +60,9 @@ var mobile_input_vector: Vector2 = Vector2.ZERO
 var ghost_trail_timer: float = 0.0
 
 var _visual_root: Node3D = null
+var _recovery_skeleton: Skeleton3D = null
+var _recovery_left_toe: int = -1
+var _recovery_right_toe: int = -1
 var visual_root: Node3D:
 	get:
 		if not _visual_root:
@@ -61,11 +72,20 @@ var visual_root: Node3D:
 		_visual_root = val
 var animation_player: AnimationPlayer = null
 var player_camera: Camera3D = null
+var camera_boom: SpringArm3D = null
+@export var mouse_look_sensitivity: float = 0.0022
 var current_anim: String = ""
 var is_locked_on: bool = false
 var lock_target: Node3D = null
+var combat_available: bool = true
+var opening_recovery_active: bool = false
+var _opening_tween: Tween = null
+var _landing_recoil: float = 0.0
+var _last_safe_ground_position: Vector3 = Vector3.ZERO
+var _suppress_attack_until_release: bool = false
 
 func _ready() -> void:
+	_last_safe_ground_position = global_position
 	if not locomotion_controller.is_inside_tree():
 		add_child(locomotion_controller)
 	# Instantiate and wire SpatialVoiceManager as a child of the player
@@ -73,12 +93,19 @@ func _ready() -> void:
 	spatial_voice_manager.name = "SpatialVoiceManager"
 	add_child(spatial_voice_manager)
 	animation_player = find_child("AnimationPlayer", true, false)
+	_recovery_skeleton = find_child("Skeleton3D", true, false) as Skeleton3D
+	if _recovery_skeleton:
+		_recovery_left_toe = _recovery_skeleton.find_bone("tripo__1_Left_Limb_3")
+		_recovery_right_toe = _recovery_skeleton.find_bone("tripo__1_Right_Limb_3")
 	player_camera = find_child("Camera3D", true, false) as Camera3D
+	camera_boom = find_child("CameraBoom", true, false) as SpringArm3D
 	if animation_player:
 		for anim_name in animation_player.get_animation_list():
 			var anim: Animation = animation_player.get_animation(anim_name)
-			anim.loop_mode = Animation.LOOP_LINEAR
-		play_anim("preset_biped_idle_001", 0.1)
+			var loops := anim_name in ["IDLE", "WALK", "RUN", "preset_idle", "preset_walk", "preset_run", "preset_biped_idle_001", "preset_biped_walk_001", "preset_biped_run_001", "preset:idle", "preset:walk", "preset:run", "preset:biped:idle.001", "preset:biped:walk.001", "preset:biped:run.001"]
+			anim.loop_mode = Animation.LOOP_LINEAR if loops else Animation.LOOP_NONE
+		opening_recovery_active = true
+		call_deferred("_play_opening_recovery")
 
 	emit_signal("hp_changed", hp, MAX_HP)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
@@ -92,14 +119,94 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		animation_player = find_child("AnimationPlayer", true, false)
 	if not animation_player:
 		return
-	if not animation_player.has_animation(anim_name):
+	var resolved_anim := anim_name
+	if not animation_player.has_animation(resolved_anim):
+		var candidate_aliases := {
+			"IDLE": ["preset_idle", "preset:idle", "preset:biped:idle.001", "preset_biped_idle_001"],
+			"WALK": ["preset_walk", "preset:walk", "preset:biped:walk.001", "preset_biped_walk_001"],
+			"RUN": ["preset_run", "preset:run", "preset:biped:run.001", "preset_biped_run_001"],
+			"WAKEUP": ["preset_wakeup", "preset:wakeup", "preset:biped:wakeup.001", "preset_biped_wakeup_001"],
+			"preset_idle": ["IDLE", "preset:idle", "preset:biped:idle.001", "preset_biped_idle_001"],
+			"preset_walk": ["WALK", "preset:walk", "preset:biped:walk.001", "preset_biped_walk_001"],
+			"preset_run": ["RUN", "preset:run", "preset:biped:run.001", "preset_biped_run_001"],
+			"preset_biped_idle_001": ["preset_idle", "IDLE", "preset:idle", "preset:biped:idle.001"],
+			"preset_biped_walk_001": ["preset_walk", "WALK", "preset:walk", "preset:biped:walk.001"],
+			"preset_biped_run_001": ["preset_run", "RUN", "preset:run", "preset:biped:run.001"],
+			"preset_biped_interact_001": ["INTERACT"],
+			"preset_biped_wakeup_001": ["preset_wakeup", "WAKEUP"],
+			"preset_biped_standup_001": ["STANDUP"],
+		}
+		var candidates: Array = candidate_aliases.get(anim_name, [])
+		for candidate in candidates:
+			if animation_player.has_animation(candidate):
+				resolved_anim = candidate
+				break
+	if not animation_player.has_animation(resolved_anim):
 		return
-	if current_anim == anim_name and animation_player.is_playing():
+	if current_anim == resolved_anim and animation_player.is_playing():
 		return
-	current_anim = anim_name
-	animation_player.play(anim_name, blend_time)
+	current_anim = resolved_anim
+	animation_player.play(resolved_anim, blend_time)
+
+func _play_opening_recovery() -> void:
+	if not animation_player:
+		opening_recovery_active = false
+		emit_signal("opening_recovery_completed")
+		return
+	visual_root.position = Vector3.ZERO
+	visual_root.rotation = Vector3(0.0, PI * 0.5, 0.0)
+	var recovery_clip := ""
+	for candidate in ["preset_wakeup", "preset:wakeup", "WAKEUP"]:
+		if animation_player.has_animation(candidate):
+			recovery_clip = candidate
+			break
+	if not recovery_clip.is_empty():
+		play_anim(recovery_clip, 0.0)
+		while opening_recovery_active and is_inside_tree() and animation_player.is_playing() and animation_player.current_animation == recovery_clip:
+			await get_tree().process_frame
+			_align_recovery_feet_to_floor()
+		if not is_inside_tree() or not opening_recovery_active:
+			return
+		_align_recovery_feet_to_floor()
+	else:
+		# Keep a restrained fallback for older character assets without the authored clip.
+		play_anim("IDLE", 0.0)
+		visual_root.position.y = -0.08
+		visual_root.rotation.x = 0.12
+		_opening_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_opening_tween.tween_property(visual_root, "position:y", 0.0, 1.25)
+		_opening_tween.parallel().tween_property(visual_root, "rotation:x", 0.0, 1.25)
+		await _opening_tween.finished
+		if not is_inside_tree() or not opening_recovery_active:
+			return
+	finish_opening_recovery()
+
+func _align_recovery_feet_to_floor() -> void:
+	if not _recovery_skeleton or _recovery_left_toe < 0 or _recovery_right_toe < 0:
+		return
+	var left_foot := _recovery_skeleton.global_transform * _recovery_skeleton.get_bone_global_pose(_recovery_left_toe)
+	var right_foot := _recovery_skeleton.global_transform * _recovery_skeleton.get_bone_global_pose(_recovery_right_toe)
+	var lowest_foot_y := minf(left_foot.origin.y, right_foot.origin.y)
+	visual_root.position.y += global_position.y + 0.015 - lowest_foot_y
+
+func finish_opening_recovery() -> void:
+	if not opening_recovery_active:
+		return
+	if _opening_tween and _opening_tween.is_running():
+		_opening_tween.kill()
+	visual_root.position.y = 0.0
+	visual_root.rotation.x = 0.0
+	visual_root.rotation.y = PI * 0.5
+	visual_root.rotation.z = 0.0
+	opening_recovery_active = false
+	play_anim("IDLE", 0.18)
+	emit_signal("opening_recovery_completed")
 
 func _physics_process(delta: float) -> void:
+	if opening_recovery_active:
+		velocity = Vector3.ZERO
+		move_and_slide()
+		return
 	# Add Gravity
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
@@ -158,7 +265,7 @@ func _physics_process(delta: float) -> void:
 		var target_diff: Vector3 = lock_target.global_position - global_position
 		target_diff.y = 0.0
 		if target_diff.length() > 0.1:
-			var lock_yaw: float = atan2(target_diff.x, target_diff.z)
+			var lock_yaw: float = atan2(target_diff.x, target_diff.z) + MODEL_FORWARD_YAW_OFFSET
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, lock_yaw, 10.0 * delta)
 
 	# Dynamic FOV Warping
@@ -168,16 +275,24 @@ func _physics_process(delta: float) -> void:
 		player_camera.fov = lerp(player_camera.fov, target_fov, 6.0 * delta)
 
 	# Attack & Iai Charge Input (Keyboard/Mouse)
-	if Input.is_action_just_pressed("attack_light"):
+	if Input.is_action_just_pressed("attack_light") and not _suppress_attack_until_release:
 		start_iai_charge()
-	if Input.is_action_just_released("attack_light"):
+	if Input.is_action_just_released("attack_light") and not _suppress_attack_until_release:
 		execute_iai_slash()
+	if not Input.is_action_pressed("attack_light"):
+		_suppress_attack_until_release = false
 
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if mobile_input_vector.length() > 0.05:
 		input_dir = mobile_input_vector
 
-	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = Vector3(input_dir.x, 0, input_dir.y).normalized()
+	if player_camera:
+		var camera_right: Vector3 = player_camera.global_transform.basis.x
+		var camera_forward: Vector3 = -player_camera.global_transform.basis.z
+		camera_right.y = 0.0
+		camera_forward.y = 0.0
+		direction = (camera_right.normalized() * input_dir.x - camera_forward.normalized() * input_dir.y).normalized()
 	is_sprinting = is_sprinting and direction.length() > 0.1
 
 	if is_sprinting:
@@ -188,7 +303,10 @@ func _physics_process(delta: float) -> void:
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
 	var current_speed: float = SPRINT_SPEED if is_sprinting else WALK_SPEED
-	var loco_data: Dictionary = locomotion_controller.update(delta, input_dir, velocity.length(), is_sprinting, is_attacking)
+	var horizontal_speed: float = Vector2(velocity.x, velocity.z).length()
+	var loco_data: Dictionary = locomotion_controller.update(delta, input_dir, horizontal_speed, is_sprinting, is_attacking)
+	if is_attacking and not locomotion_controller.root_motion_active:
+		is_attacking = false
 
 	if loco_data["root_velocity"].length() > 0.1:
 		velocity.x = loco_data["root_velocity"].x
@@ -197,33 +315,101 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, 18.0 * delta)
 		velocity.z = move_toward(velocity.z, 0.0, 18.0 * delta)
 	elif direction.length() > 0.1:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
+		var acceleration: float = GROUND_ACCEL if is_on_floor() else AIR_ACCEL
+		velocity.x = move_toward(velocity.x, direction.x * current_speed, acceleration * delta)
+		velocity.z = move_toward(velocity.z, direction.z * current_speed, acceleration * delta)
 		# Rotate visual model towards move direction unless locked-on
 		if not is_locked_on or not lock_target:
-			var target_yaw: float = atan2(direction.x, direction.z)
-			var turn_diff: float = wrapf(target_yaw - visual_root.rotation.y, -PI, PI)
+			var target_yaw: float = atan2(direction.x, direction.z) + MODEL_FORWARD_YAW_OFFSET
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_yaw, 14.0 * delta)
-			# Procedural Lean into sharp turns (Genshin style banking)
-			var lean_angle: float = clamp(turn_diff * 0.22, -0.28, 0.28)
-			visual_root.rotation.z = lerp_angle(visual_root.rotation.z, -lean_angle, 8.0 * delta)
-		play_anim(loco_data["anim_name"], 0.15)
+			visual_root.rotation.z = lerp_angle(visual_root.rotation.z, 0.0, 12.0 * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, current_speed)
-		velocity.z = move_toward(velocity.z, 0.0, current_speed)
-		visual_root.rotation.z = lerp_angle(visual_root.rotation.z, 0.0, 10.0 * delta)
-		play_anim(loco_data["anim_name"], 0.2)
-
+		var braking: float = GROUND_BRAKE if is_on_floor() else AIR_ACCEL
+		velocity.x = move_toward(velocity.x, 0.0, braking * delta)
+		velocity.z = move_toward(velocity.z, 0.0, braking * delta)
+		visual_root.rotation.z = lerp_angle(visual_root.rotation.z, 0.0, 12.0 * delta)
+	var grounded_before_move: bool = is_on_floor()
+	var landing_speed: float = absf(velocity.y)
 	move_and_slide()
+	if is_on_floor() and not grounded_before_move:
+		_landing_recoil = minf(0.18, landing_speed * 0.025 + 0.04)
+	if is_on_floor():
+		_last_safe_ground_position = global_position
+		_landing_recoil = move_toward(_landing_recoil, 0.0, 2.0 * delta)
+		visual_root.rotation.x = lerpf(visual_root.rotation.x, _landing_recoil, minf(1.0, 12.0 * delta))
+		if not locomotion_controller.root_motion_active:
+			var actual_speed: float = Vector2(velocity.x, velocity.z).length()
+			var clip: String = "IDLE"
+			var target_blend_time: float = 0.22
+			if loco_data.get("is_skid", false):
+				clip = "IDLE"
+				target_blend_time = 0.12
+				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.08, minf(1.0, 14.0 * delta))
+			elif actual_speed > 0.2:
+				if is_sprinting and actual_speed > 3.8:
+					clip = "RUN"
+					target_blend_time = 0.2
+				else:
+					clip = "WALK"
+					target_blend_time = 0.25
+			play_anim(clip, target_blend_time)
+			if animation_player:
+				var ref_speed: float = AUTHORED_RUN_SPEED if clip == "RUN" else AUTHORED_WALK_SPEED
+				animation_player.speed_scale = clampf(actual_speed / ref_speed, 0.4, 1.6) if clip != "IDLE" else 1.0
+	else:
+		# Keep the authored jump through its airborne phase; ledge falls use a
+		# stable pose until a separate playable fall cycle is authored.
+		if current_anim != "preset_jump" or not animation_player or not animation_player.is_playing():
+			play_anim("IDLE", 0.14)
+		visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.1 if velocity.y > 0.0 else 0.14, minf(1.0, 8.0 * delta))
+		if global_position.y < _last_safe_ground_position.y - 7.0:
+			global_position = _last_safe_ground_position + Vector3.UP * 0.08
+			velocity = Vector3.ZERO
 
 func perform_jump() -> void:
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		play_anim("preset_jump", 0.12)
+		if animation_player:
+			animation_player.speed_scale = 2.5
 
 func set_mobile_input_vector(vec: Vector2) -> void:
 	mobile_input_vector = vec
 
+func set_combat_available(available: bool) -> void:
+	combat_available = available
+	var standard_katana = find_child("KatanaBlade", true, false) as Node3D
+	if standard_katana:
+		standard_katana.visible = available and not is_shadow_katana_equipped
+	var touch_ui = get_tree().root.find_child("MobileTouchControls", true, false) if is_inside_tree() else null
+	if touch_ui and touch_ui.has_method("set_combat_available"):
+		touch_ui.set_combat_available(available)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+	if opening_recovery_active:
+		return
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and camera_boom:
+		camera_boom.rotation.y -= event.relative.x * mouse_look_sensitivity
+		camera_boom.rotation.x = clampf(camera_boom.rotation.x - event.relative.y * mouse_look_sensitivity, -0.3, 0.8)
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		var root := get_tree().root
+		var dialogue := root.find_child("DialogueOverlay", true, false) as Control
+		var puzzle := root.find_child("TerminalHackPuzzle", true, false) as Control
+		var window := root.find_child("SystemWindow", true, false) as Control
+		if not ((dialogue and dialogue.visible) or (puzzle and puzzle.visible) or (window and window.visible)):
+			_suppress_attack_until_release = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		return
+	if event.is_action_pressed("interact") and not event.is_echo():
+		interact_with_nearest()
+
 func start_iai_charge() -> void:
+	if not combat_available:
+		return
 	if is_sheathed:
 		unsheath_weapon()
 	is_charging_iai = true
@@ -247,6 +433,10 @@ func update_iai_charge(delta: float) -> void:
 				glow.light_energy = 5.5
 
 func execute_iai_slash(charge_ratio: float = -1.0) -> void:
+	if not combat_available:
+		is_charging_iai = false
+		iai_charge = 0.0
+		return
 	var eff_ratio: float = charge_ratio if charge_ratio >= 0.0 else iai_charge
 	is_charging_iai = false
 	iai_charge = 0.0
@@ -334,6 +524,7 @@ func equip_shadow_katana() -> void:
 	if shadow_katana:
 		shadow_katana.visible = true
 	is_shadow_katana_equipped = true
+	set_combat_available(true)
 	# Strict narrative constraint: Shadow Katana equip does NOT manifest Zero's eye or wing.
 	# Zero's Singularity and Monarch Wing appear strictly after the Zero Pact is forged.
 
@@ -434,6 +625,8 @@ const KATANA_READY_TRANSFORM := Transform3D(Basis(Vector3(0.965926, -0.258819, 0
 const KATANA_SHEATHED_TRANSFORM := Transform3D(Basis(Vector3(0.866, 0, -0.5), Vector3(0, 1, 0), Vector3(0.5, 0, 0.866)), Vector3(-0.28, 0.62, 0.08))
 
 func perform_attack() -> void:
+	if not combat_available:
+		return
 	if is_sheathed:
 		unsheath_weapon()
 	is_attacking = true
@@ -441,7 +634,7 @@ func perform_attack() -> void:
 	combo_step = 1 if combo_step >= 3 else combo_step + 1
 	combo_step_timer = 0.85
 
-	var forward_dir: Vector3 = -visual_root.transform.basis.z if visual_root else -transform.basis.z
+	var forward_dir: Vector3 = visual_root.transform.basis.x if visual_root else -transform.basis.z
 	locomotion_controller.trigger_combo_root_motion(current_step, forward_dir)
 
 	# AAA Japanese combat voice — step-matched anime action yell
@@ -515,6 +708,8 @@ func trigger_hit_stop(duration: float = 0.06) -> void:
 		)
 
 func toggle_lock_on(target: Node3D = null) -> void:
+	if not combat_available:
+		return
 	if is_locked_on and lock_target and lock_target.has_method("set_targeted"):
 		lock_target.set_targeted(false)
 
@@ -638,9 +833,14 @@ func get_inventory() -> PlayerInventory:
 func register_nearby_interactable(interactable: Node) -> void:
 	if not nearby_interactables.has(interactable):
 		nearby_interactables.append(interactable)
+		if get_nearest_interactable() == interactable:
+			emit_signal("nearby_interactable_changed", interactable)
 
 func unregister_nearby_interactable(interactable: Node) -> void:
+	var was_nearest: bool = get_nearest_interactable() == interactable
 	nearby_interactables.erase(interactable)
+	if was_nearest:
+		emit_signal("nearby_interactable_changed", get_nearest_interactable())
 
 func get_nearest_interactable() -> Node:
 	if nearby_interactables.is_empty():
@@ -658,6 +858,8 @@ func get_nearest_interactable() -> Node:
 	return nearest
 
 func interact_with_nearest() -> Dictionary:
+	if opening_recovery_active:
+		return {"success": false, "reason": "opening_recovery"}
 	var target = get_nearest_interactable()
 	if not target:
 		return {"success": false, "reason": "none_nearby"}
@@ -707,5 +909,3 @@ func restore_thirst(amount: float) -> void:
 func restore_energy(amount: float) -> void:
 	if needs:
 		needs.restore_energy(amount)
-
-

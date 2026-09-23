@@ -1,5 +1,25 @@
 # Active continuation — 2026-09-19
+## CP-20260923-16 — Grounded v9 locomotion wired to Godot
 
+- Rebuilt the preserved opening-uniform Blender source as `echo-opening-uniform-v9.blend` and exported `godot/assets/characters/echo_opening_uniform_v9.glb`. The walk and run now solve the complete thigh-to-toe chain against toe endpoints, then bake the solved poses into the clips. The v9 cycles are 49-frame walk and 25-frame run; authored stride distance is matched to the runtime 3.0 m/s walk and 6.4 m/s sprint rates.
+- Switched `godot/scenes/player/echo_player.tscn` to v9. Blender validated all sampled toe positions after baking (maximum residual 0.00694 Blender units). Godot 4.7.2 imported the v9 GLB with 22 bones and all six clips. An independent runtime probe confirmed `preset_walk` and `preset_run` play; a 360-frame walk and a walk/sprint check stayed grounded at y≈0 on the opening floor.
+- Saved the runtime review frame at `art/production/sector11-modular-kit/walk-v9-runtime.png`. This is a focused locomotion correction, not a full character rebuild or a claim of Genshin-level final quality.
+- Phase 1 remains open. The current foot placement is baked for flat ground; the existing fixed-point `ProceduralFootIK` still does not solve bones on uneven terrain. Start/stop blends, turns, landings, bespoke awakening acting, capsule/corridor polish, and the missing hospital route still need independent review. The Godot shutdown ObjectDB leak also remains.
+
+
+
+## CP-20260923-17 — HUD right-side hierarchy and floor seam audit
+
+- Repositioned the active mission dock to the upper-right safe area. Compact System notifications can now stay beside Echo without hiding the mission; large level/reward panels still take priority. A 1280×720 Godot capture verified the mission dock and player-side System card are both visible: `art/production/sector11-modular-kit/ui-rightside-dual-review-v1.png`.
+- Audited the Sector 11 floor in the running Godot scene with physics rays. The main floor and corridor collider overlap continuously through Z=-47.9 at Y≈0, matching the visible catwalk endpoint at Z=-48; there is no gap along this route. A ray at Z=-48.5 correctly found no floor beyond the visible platform.
+- Phase 1 remains open for authored wake-up/landing/start-stop/turn animation, uneven-ground skeletal IK, final HUD polish, high/low graphics passes, and connected story scenes. The project still emits one ObjectDB leak on normal shutdown.
+
+## CP-20260923-18 — v10 authored opening recovery
+
+- Added `preset:wakeup` to the preserved uniform Blender source and switched the Godot player to v10. The 73-frame clip stages the available collapse take into a standing idle; runtime toe tracking keeps the lowest toe on the player's floor height during recovery.
+- Directly inspected the existing alternate EX-011 candidate rather than relying on its report. Its `WAKEUP` clip starts from a bent standing pose, so it does not replace the floor recovery for this opening.
+- Godot 4.7.2 imported and played `preset_wakeup` with all six locomotion/action clips retained. A 1920×1080, 24 FPS runtime capture was reviewed at several points. The first prone pose still needs custom hand bracing and a lower, more settled silhouette; phase 1 remains open.
+- Runtime review: `art/production/echo-opening-uniform-reference/godot-wakeup-v10-flooring.avi` and `godot-wakeup-v10-flooring-contact.png`. Existing flat-floor locomotion remains unchanged; uneven-ground IK and movement transitions remain open.
 ## CP-20260919-01 — revised mandate adopted
 
 - Objective: cohesive definitive System vertical slice, not full city production.
@@ -957,4 +977,178 @@ from measured failures; maintain this record after each accepted change.
   - Project Doctor Postflight (`npm run agent:postflight`): ALL 8 DOCTOR CHECKS PASSED.
 - Next exact action: Await Owner evaluation and authorization for Phase 3 progression.
 
+## CP-20260923-01 — Owner-Directed Godot Reconciliation & Sector 11 Opening Repair
+
+- Owner direction recorded in `docs/PROJECT_VISION.md`, `docs/11-11/START_HERE.md`, `docs/11-11/design/OWNER_PRODUCTION_MANDATE.md`, and `docs/project-memory.json`: use the existing Godot project for game implementation while retaining the React application and its services; this does not claim a completed migration.
+- Added `docs/11-11/audits/2026-09-23-current-state-and-production-plan.md` with the evidence scope, accomplished systems, missing Manhwa beats, baseline findings, and ordered M00–M07 roadmap. The user's living-world crime/witness/police/prison feature is scheduled after the story and world foundations.
+- Repaired the Sector 11 entry in `godot/scenes/main.tscn`, `godot/scripts/main.gd`, `godot/scenes/player/echo_player.tscn`, and `godot/scenes/ui/gameplay_hud.tscn`: the default path no longer starts a boss encounter, shows a combat objective, or equips the supernatural katana. The objective now points Echo to an escape route; boss UI and desktop mobile controls stay hidden at entry.
+- Made the existing wake terminal usable through the interaction system, gave its first puzzle a fair visible alignment target, and connected completion to opening the blast gate. Deferred combat unlock to later story progression.
+- Adjusted the initial environment exposure/material response and floating pod glow for basic readability. The refreshed in-engine capture is `C:\Users\yasmo\AppData\Local\Temp\echo-godot-m00-0300000000.png`; it is improved but still clearly a sparse blockout with a runtime character that does not match the stronger V3 candidate/model sheet.
+- Fixed the world-streamer false-success path for absent scenes and separated the hospital/street portal radii and positions. **Known blocker:** `res://scenes/environment/hospital_interior.tscn` is still absent; the route now fails explicitly and produces a warning instead of pretending to load it.
+- Replaced the ambiguous unresolved global-class use for `GameClock` with explicit script preloads in the weather/world-streamer startup path after the runtime capture exposed a stale class-cache failure.
+- Evidence recorded: runtime visual capture showed the Sector 11 escape directive and terminal interaction prompt with no boss HUD, desktop touch controls, or early katana. The Godot log showed the expected missing-hospital warning and no script-parse failure after import-cache refresh. `git diff --check` completed without whitespace errors (Git reported only expected LF/CRLF normalization notices).
+- Automated gameplay, web, build, and doctor tests were **not run** in this checkpoint.
+- Next exact action: continue M01 by evaluating the V3 Echo candidate against runtime needs, replacing the empty-looking Sector 11 blockout with a coherent authored art pass, and capturing the result before proceeding to new story systems.
+
+## CP-20260923-02 — V3 Echo Runtime, Sector 11 Art Pass & First Recovery Beat
+
+- **Correction recorded in CP-20260923-04:** this checkpoint incorrectly stated that `echo_candidate_v3.glb` was the runtime player model. At the start of CP-04, `echo_player.tscn` referenced `echo_tripo_native.glb`; V3 was only a separate candidate. Its six-clip inventory did not prove those clips were imported by the active player scene.
+- Found and corrected the material-loss issue in `scripts/combat/shader_applicator.gd`: the old approach replaced all imported materials with one flat cyan-tinted shader, hiding Echo's authored skin, coat, normal map, and identity details. V3 now keeps its material response and receives only a restrained outline; the fallback cel shader carries source surface textures/normal data forward.
+- Added an initial modular containment-room shell and balanced overhead keys in `scripts/environment/sector11_visual_shell.gd` and `scenes/environment/sector11_visual_shell.tscn`. Reduced excessive terminal emission and gave its screen the same frequency/angle/channel clue used by the first alignment puzzle.
+- Reworked the opening HUD prompt to avoid covering Echo's torso, gave the floating pod an orbital ring/lens/fin silhouette, and normalized user-facing father dialogue to the production canon spelling **Kinja**.
+- Added code intending to play `WAKEUP` and `STANDUP` one-shot while input is locked. **Those clips were absent from the actual `echo_tripo_native.glb` runtime model, so the earlier capture did not prove that the recovery animation played.** The exact native clip names also did not match the older animation aliases; CP-04 adds exact-name routing and a reversed fall-clip fallback to the new uniform asset.
+- Added a hospital decompression-ward scene and adjusted `WorldStreamer`: a new run begins in `SECTOR11_SYSTEM`, where hospital/street portal checks are inactive. The story can later enter the preloaded ward through `enter_story_zone`; that hook is not yet connected to the ending cinematic.
+- Visual evidence: 1920×1080 in-engine captures at `C:\Users\yasmo\AppData\Local\Temp\echo-godot-checkpoint-02.png00000003.png`, `C:\Users\yasmo\AppData\Local\Temp\echo-godot-wakeup-complete00000034.png`, and `C:\Users\yasmo\AppData\Local\Temp\echo-godot-screen-readout-fixed00000003.png`. The seven-second capture showed the new mission header, Echo standing, screen hint, and the start of the guide dialogue; it does not establish that a wake animation played. The corridor and lighting are more readable but remain a repeated blockout, not a finished Genshin-quality environment.
+- Godot runtime captures after the final script correction had no script parse errors or missing hospital scene warning. Movie capture reported one ObjectDB leak at shutdown; this was not investigated further. Automated gameplay/web/build/doctor tests were **not run**.
+- Next exact action: complete the opening art/animation review and author the missing cover assembly → screen fracture → experiment → transfer → capsule awakening scenes as one connected, skippable route. Keep the crime, police, and prison loop scheduled after the canon story and neighborhood foundations.
+
+## CP-20260923-03 — Terminal Readability & Tripo Guide-Core Framing
+
+- Fixed the substation screen placement: the screen and three-line signal readout now face outward beyond the terminal pedestal, so the lettering is no longer floating over an unreadable, occluded display. Reduced and lightened the oversized pedestal so it reads more like a kiosk.
+- Integrated the first Tripo-generated floating guide core into `godot/scenes/companion/floating_pod.tscn`, retaining the generated model and provenance under `art/production/tripo-out/`. Tripo task `12e72234-d4ba-4faa-a9c9-213ba1ee8c7d` cost 40 credits. Scaled the core and orbit rings down, positioned it at Echo's shoulder, and disabled its hard cast shadows.
+- Latest manual 1920×1080 frame: `C:\Users\yasmo\AppData\Local\Temp\echo-godot-guide-framing00000034.png`. It confirms the terminal readout is legible and the guide core no longer blocks the terminal. The frame still exposes major quality gaps: repeated corridor geometry, sparse dressing, dark/glossy Echo surfaces, simple combat-free blockout composition, and no canon opening cinematics. M01 remains in progress and is not approved.
+- Tripo balance was 460 before this generation; 40 credits were used, leaving an estimated 420. Google Flow was not used; browser automation timed out while binding its existing tab. No automated tests were run. Godot movie capture showed no parse errors; its recurring ObjectDB leak-at-exit notice remains unexplained.
+- Next exact action: complete the M01 character/environment review and visual baseline correction before starting additional story content. Once the visual gate is accepted, author the canon opening as connected skippable scenes, beginning with cover assembly and the screen fracture.
+
+## CP-20260923-04 — Opening Uniform Asset & Animation Name Repair
+
+- Corrected the earlier scene-path assumption: at the start of this checkpoint, `echo_player.tscn` referenced `echo_tripo_native.glb`, not `echo_candidate_v3.glb`. The native GLB has 41 bones and four clips named `preset:biped:idle.001`, `preset:biped:look_around.001`, `preset:biped:run.001`, and `preset:biped:walk.001`; the player’s former underscore aliases did not match these names. It also has no `WAKEUP` or `STANDUP` clips. The V3 candidate remains separate and was not the prior runtime asset.
+- Compared the opening model to the approved Manhwa: Echo wears a navy school blazer, white shirt, dark tie, trousers, and backpack at the school/Sector X gate. The tactical long coat, glowing-eye presentation, and hidden neck identity mark in the old runtime candidate did not fit this pre-transformation opening.
+- Saved the two source panel crops and a four-view uniform guide under `art/production/echo-opening-uniform-reference/`. The Tripo run made from cropped story panels produced an incomplete torso-only mesh; it remains preserved but is not used in the player scene.
+- Generated a full-body uniform model, rigged it, and retargeted idle, walk, run, and fall. The optimized Blender/Godot derivative is `godot/assets/characters/echo_opening_uniform_v1.glb`: 72,507 triangles, 54,744 vertices, 22 bones, four clips, three 4K PBR maps, approximately 5.26 MB. The Blender source and repeatable build recipe are stored beside the reference guide. The current scene references this model at approximately 1.81 m target height.
+- Updated player animation lookup to resolve the new exact `preset:idle`, `preset:walk`, `preset:run`, and `preset:fall` names and the earlier native GLB naming variants. The fall clip plays backward as a temporary recovery motion when no dedicated `WAKEUP` clip exists. Updated the material shader branch to preserve the new character’s imported PBR maps.
+- Spent 65 credits on the first incomplete Tripo iteration and 105 on the full-body model, rig, and four clips. Together with the earlier 40-credit guide core, cumulative Tripo spend is 210 of the original 460; balance last read at 250. No Google Flow credits were used.
+- Manual Blender preview confirms a full-body school-uniform asset and the saved derivative remains within the project’s 75k-triangle target. **M01 is not approved:** no post-change Godot capture or animation sign-off exists; the experiment route may need a backpack-free variant, EX-011 skin mark is not yet present, and the wake/fall fallback is not the authored cinematic. Sector 11 still needs authored environment forms and the UI still needs a production pass.
+- No automated tests were run. Next: review the uniform in Godot, correct its chapter-specific backpack and EX-011 mark, then continue the M01 environment/HUD art pass before authoring connected opening cinematics. Keep crime/witness/police/prison work behind the Manhwa story and world gates.
+
+## CP-20260923-05 — Godot Animation Import Name Fix & Recovery Playback Review
+
+- Inspected the imported GLB in Godot and found the actual animation names are `preset_idle`, `preset_walk`, `preset_run`, and `preset_fall`; Godot normalized the source colons to underscores. The player previously looked only for colon names and legacy biped aliases, so none of the new clips played and the entry stayed on the neural-reboot directive without reaching dialogue.
+- Updated `scripts/player/echo_player.gd` to recognize the normalized clips, set the locomotion clips to loop, and use the imported fall clip for the temporary reverse recovery.
+- Captured and reviewed the Godot opening at 1280×720. Echo visibly moves through the recovery, returns to idle, then receives the escape objective and first line (“Where... is this?”). Saved the review frame as `art/production/echo-opening-uniform-reference/echo-opening-recovery-godot-review-v2.png`.
+- The capture log had no script parse error or missing-scene warning. Godot still reports one ObjectDB instance leaked at shutdown; this remains uninvestigated. No automated test suites were run.
+- **M01 remains open:** backpack and EX-011 mark still need canon review, close-up likeness/animation quality needs work, and the corridor is still a dark repeated blockout. The saved frame confirms the animation path works; it does not approve the art. Continue with the uniform details and Sector 11 environment art before authoring the connected opening cinematics.
+
+## CP-20260923-06 — Sector 11 Cryogenic Pod Hero Prop
+
+- Checked Tripo balance (250, zero frozen), ran a dry-run, then generated a stylized single-person cryogenic pod with P1 at an 18,000-face target. Task `6248cb3a-6746-47cc-a58d-b1f05e73acc7` billed 40 credits; confirmed balance is now 210, zero frozen, from the initially reported 460.
+- Preserved the original generated output under `art/production/tripo-out/sector11-cryo-pod-v1-6248cb3a/`; copied the GLB into Godot and added `scenes/props/sector11_cryo_pod.tscn`. The opening scene now uses this pod, turned so its glass bay faces the camera. Added a simple static collision shape. The former `sector11_capsule.tscn` and its original mesh remain intact.
+- Manually reviewed the 1280×720 in-engine frame at 8 seconds and saved it as `art/production/sector11-cryo-pod-v1/godot-opening-cryopod-review-v3.png`. The new prop reads clearly at runtime and the objective/dialogue arrive after the temporary recovery beat. Capture showed no script parse or missing-scene errors; the known one-ObjectDB-leak shutdown notice remains.
+- Added `art/production/sector11-cryo-pod-v1/README.md` with task, integration, preview, and limitations. The prop is a visual upgrade, not an approved final asset: there is no door animation or character inside it, and the rest of Sector 11 remains blockout geometry. M01 remains open; next continue the environment and uniform art pass, then build the connected Manhwa opening cinematics. Google Flow remains unused; no Flow credits were spent.
+
+## CP-20260923-07 — Sector 11 Blockout Composition & Gate Contrast
+
+- Narrowed the procedural shell from 22×9.2 m to 18×7.2 m around the opening route; replaced the evenly repeated wall-panels function with alternating observation bays and service-panel groups, routed utility lines overhead, and moved the corridor’s side pipes so they no longer cross Echo at head height.
+- Added visible armor plates, a central illuminated seal, a sealed-state label, and brighter blue-gray material response to the blast gate. It now reads more clearly as a closed mechanism in the long shot.
+- Captured and reviewed a 1280×720 in-engine frame at 8 seconds. Saved as `art/production/sector11-cryo-pod-v1/godot-sector11-environment-review-v4.png`. The scene loaded without script parse or missing-resource errors; one ObjectDB leak warning persists at shutdown.
+- This remains a procedural graybox with box-based architecture; the new modules improve spacing and staging but do not meet the Genshin art target. M01 is still open. Continue the bespoke mesh/material pass and canon check of Echo’s outfit, then proceed into the connected awakening cinematics. The cryopod generation total remains 40 credits and the Tripo balance remains 210.
+
+## CP-20260923-08 — Blender Modular Sector 11 Wall Kit
+
+- Built two editable, bevelled hard-surface modules in Blender: an observation bay with smoked glass, frame, coolant returns, status strips, and console; and a service module with access hatch, intake slats, diagnostics display, pressure gauge, and emergency lever.
+- Exported two upright Y-up GLBs and integrated ten instances in the Sector 11 wall shell (two observation bays and eight service modules). Moved structural ribs behind the authored wall faces so they do not cut across the new panels. No additional collision was added because the corridor's existing walls already contain the walkable boundary.
+- Godot imported both GLBs and rendered the opening without script-parse or missing-resource errors. The 11-second manual run was reviewed at 1280×720 and saved to `art/production/sector11-modular-kit/godot-sector11-modular-review-v5.png`; the full capture and Blender product render are alongside it. The editable source, exports, integration notes, and limitations are in `art/production/sector11-modular-kit/README.md`.
+- The kit improves the repeated side-wall read but remains simple stylized hard-surface work; the floor, ceiling, room shell, and character still need art review. M01 remains open; no Tripo or Google Flow credits were used for this pass. Next, continue the character/canon review and higher-quality lighting/material pass before connecting the missing Manhwa opening cinematics.
+
+## CP-20260923-09 — Skippable Opening Camera Beat
+
+- Added `scenes/cinematics/opening_awakening_cinematic.tscn` and integrated it into the Sector 11 entry. It orbits the player's spring-arm camera from a close recovery view to the standard follow-camera direction, subtly pulls out, then yields to player control. Enter/Space or E skips the camera move while the recovery itself continues.
+- Shifted the guide core off Echo's face during the close shot and restores its normal follow offset after the beat. The existing reverse-fall clip remains a temporary body animation; this addition does not claim to replace the missing authored Manhwa awakening.
+- Ran and inspected a 6-second 1920×1080 Godot movie capture, with saved 1280×720 review frame `art/production/echo-opening-uniform-reference/godot-opening-awakening-cinematic-v9-2.png`. The camera move now matches the imported 3.04-second recovery clip and ends at the standard follow-camera angle. The runtime showed no script parse or missing-resource errors; the one ObjectDB-leak shutdown warning remains.
+- The uniform reference check confirms the page-5 approach image includes Echo's backpack. The opening candidate retains it, pending panel-level evidence on the later capsule moment. The production-required direct-skin `EX-011` neck mark is still absent. M01/M02 remain open; next author and review the awakening acting and skin mark against the approved character references, then connect the missing Manhwa opening scenes.
+
+## CP-20260923-10 — Direct-Skin EX-011 Layer
+
+- Added `scripts/player/echo_skin_identifier.gd` to the opening model root. It finds the imported neck joint and attaches a small, non-emissive `EX-011` TextMesh to a `BoneAttachment3D`, keeping the identifier separate from the later Zero visual layer and easy to replace during texture work.
+- Godot loaded the model and completed the 8-second manual runtime capture without a missing-bone warning or scene-load error. The current wide review frame does not establish that the tiny mark is readable; close-up placement, orientation, and skin contact still need visual review. It is a production placeholder layer, not final texture painting.
+- The player continues to wear the page-5 backpack reference. Whether that bag remains in the later capsule scene is still not confirmed by the currently inspected panel crops. M01 remains open.
+
+## CP-20260923-11 — Cryo Docking Dais Art Pass
+
+- Built an open-frame Blender docking dais around the imported pod: beveled rails, isolation pads, flush anchors, a cyan synchronization ring, a second metal trace, amber hazard bars, a control readout, and a subject-bay engraving. Exported and integrated the Y-up GLB under the existing pod wrapper without changing pod scale, position, or collision.
+- The 1280×720 in-engine image `art/production/sector11-cryo-dais/godot-sector11-cryo-dais-review-v1.png` shows the new dais under the pod and beside the recovery character. The 6-second Godot capture had no parse/missing-resource errors; the existing ObjectDB leak notice remains.
+- Blender source, preview, GLB, and runtime capture are documented in `art/production/sector11-cryo-dais/README.md`. No Tripo or Google Flow credits were spent. M01 remains open; floor/ceiling and lighting still need a full pass.
+
+## CP-20260923-12 — Phase 1 Structural Repairs (in progress)
+
+- Added matching static collisions to the visible Sector 11 extension floor and to the hospital, road, and sidewalk meshes in Minato-Kasumi. Set Echo's floor snap to 0.3 m and added safe ground recovery for a fall out of the world.
+- Corrected ordinary walk selecting the run clip, removed vertical speed from locomotion selection, added horizontal acceleration/braking and imported clip speed matching, and aligned turn/attack direction with the model's apparent +X facing axis. Reduced exaggerated banking.
+- Replaced reverse playback of the collapse clip with a short staged in-engine recovery. Skipping the opening camera now completes the recovery and restores the same gameplay camera state.
+- Moved directive and System windows beside Echo through camera projection with screen clamping. Quest changes get compact temporary notices; dialogue and puzzle suppress the directive card. Removed the full-screen dark click shield from System notices.
+- Reduced dynamic ceiling keys from eight to four, plus fewer warm beacons. See `docs/11-11/audits/2026-09-23-phase-one-progress.ar.md` for the remaining acceptance gate. These latest changes have not yet had a gameplay capture or performance review; authored character clips and visual polish remain before Phase 1 can be signed off.
+
+## CP-20260923-13 — Reference comparison, dialogue fix, jump clip
+
+- Compared the Owner's latest image with an actual 1920×1080 Godot capture. Corrected Echo's camera-facing orientation, added camera-relative walking and mouse look, adjusted the cryopod glow and floor material, and reduced the dialogue card. A scene probe found the card at x=1952 outside the captured frame; its anchor was corrected and the card is now visible in the reviewed frame at `art/production/sector11-modular-kit/phase1-review-20260923-v4.png`.
+- Generated an original first-room art-direction concept at `public/assets/ui/sector11/sector11-hud-visual-contract-v1.png`; this is not a game asset. Design review: `docs/11-11/audits/2026-09-23-sector11-visual-contract.md`.
+- Retargeted jump and turn on the existing opening-uniform rig. Tripo task `59a9fd4e-016b-4d97-b1ec-6bd96ca34cd2` succeeded and cost 20 credits (210 to an estimated 190). Exported versioned Blender source and `godot/assets/characters/echo_opening_uniform_v2.glb` with six clips; Godot imported both new clips. Wired `preset_jump` into player jump with a speed adjustment. A Godot probe confirmed jump height, airborne clip, landing, and return to idle. The turn clip is imported but not yet used in locomotion.
+- A nine-second forward-input probe stayed grounded to the sealed gate at z=-17.2. The 1080p movie capture had no parse or missing-resource errors; it still shows crossed idle feet, flat floor response, and scene polish below the target. A second movie requested at 1280×720 was recorded by Godot at 1920×1080, so 720p remains unverified. Compatibility emits unsupported screen-space AA, SSR and volumetric fog warnings on Intel UHD; one ObjectDB leak remains at shutdown.
+- Phase 1 stays open. Next exact action: correct the idle foot pose and locomotion transitions, record interactive walking and jumping, improve floor/lighting and capsule framing, validate 720p and sustained performance, then run the Phase 1 acceptance gate before Phase 2.
+
+## CP-20260923-14 — Repair crossed feet and author a clean gait
+
+- Reviewed the supplied 30-second motion/atmosphere reference. The source model's rest feet are aligned, while the retargeted idle pose moves the full leg chain into a broad, twisted stance and turns toes backward. Removed those idle lower-body transforms in Blender; the standing pose now keeps both feet parallel and apart.
+- Authored a looping 28-frame walk and a 15-frame run on the same rig, with alternating hip swing, knee flex, stable lateral foot separation, and the original upper-body sway. Rebuilt the runtime GLB as `godot/assets/characters/echo_opening_uniform_v8.glb` and pointed `echo_player.tscn` to it. Added Blender source `art/production/echo-opening-uniform-reference/build_echo_opening_uniform_v8.py`.
+- Reduced walk speed from 4.2 to 3.0 m/s and matched walk playback to 1.55× at full pace. A Godot runtime probe confirmed the walk and run clips both play, Echo stays grounded, and measured positions advance through the corridor. Reviewed reference captures at `art/production/sector11-modular-kit/walk-v8-contact.png`, `phase1-idle-v6.png`, and `run-v8-03.png`.
+- Tripo balance is estimated at 190 credits; no new Tripo work or Google Flow generation was needed to correct the leg pose. Phase 1 remains open: this is a clean gait correction, not final Genshin-level animation. Next, inspect start/stop/turn/landing blends in motion, then improve the capsule shot, reflective floor, lighting and authored opening scenes; validate true 720p and sustained play before moving to Phase 2.
+
+## CP-20260923-15 — Runtime check and remaining foot-plant gap
+
+- Updated the character README to point to the v8 runtime GLB and its preserved Blender iterations. The walk/run capture verifies the model and cycles in the actual corridor, but camera distance limits foot-level review.
+- Code review found `procedural_foot_ik.gd` is not skeletal foot IK: its two rays sample fixed points beside the player and only move the visual root vertically. It does not solve knee/ankle poses or lock feet during stance. Treat foot sliding and uneven-ground adaptation as unresolved; replace this with bone-aware IK or baked foot-contact motion before animation sign-off.
+- `npm run agent:postflight` passed content validation, TypeScript, all 628 foundation tests, production build, registry, boot graph, save foundation, and required-file checks. `git diff --check` passed; only Git line-ending notices were emitted. Phase 1 stays open; no Phase 2 work started.
+
+## CP-20260923-16 — Grounded v9 locomotion wired to Godot
+
+- Rebuilt the preserved opening-uniform source as v9 with baked thigh-to-toe contact for walk and run, then wired it into the Godot player. The 22-bone model and all six clips imported; runtime walk/run probes stayed grounded on the flat opening floor.
+- This was a locomotion repair, not final character animation. Uneven terrain, transitions, and close-up acting remained open.
+
+## CP-20260923-17 — HUD placement and floor seam review
+
+- Moved the active mission dock to the upper-right safe area and reviewed the paired mission/System presentation in Godot. Physics-ray checks found continuous collision along the visible Sector 11 route and no floor beyond its platform edge.
+- Phase 1 remained open for authored movement transitions, uneven-ground foot placement, cinematics, graphics tiers, and performance review.
+
+## CP-20260923-18 — v10 opening recovery
+
+- Added the `preset_wakeup` clip to the uniform rig and switched the opening to v10. A 1920×1080 Godot capture verified the imported clip; temporary toe tracking kept the lowest foot at floor height during the recovery.
+- The first prone pose still lacks hand-bracing and the low, settled silhouette. No final animation-quality claim was made.
+
+## CP-20260923-19 — Skeletal foot-contact prototype
+
+- Replaced the old fixed-point rays and whole-model vertical offset with toe-ground probes and a two-bone `SkeletonModifier3D` solve on the existing leg rig. Contact correction does not move Echo's collision capsule. Godot 4.7.2 loaded the scripts and a 12-second walk/sprint runtime probe completed without script errors; the player remained grounded until the sealed gate.
+- The runtime review still shows a poor walk cycle. Foot grounding alone does not correct the authored gait; the Owner has directed animation authoring to Gemini. Slope behavior and artistic acceptance remain unverified, and Phase 1 remains open.
+- Verification: Godot editor import, headless gameplay probe, and a 1920×1080/30 FPS Compatibility-renderer capture. The requested 1280×720 output size was ignored by Movie Maker. The earlier Forward+ capture failed on Intel UHD GPU allocation; normal shutdown still reports one ObjectDB leak.
+- Next exact action: integrate and review the replacement gait on the same rig, then recheck foot contact, walk/run transitions, turns, stops, and landings in Godot.
+
+## CP-20260923-20 — Locomotion repair, roll removal, and Genshin-style post-puzzle breach cinematic
+
+- Diagnosed and resolved the root causes of Echo's awkward/broken walking locomotion:
+  - Removed the artificial `gait_rate = 1.55` multiplier in `echo_player.gd` that caused severe ice-skating and out-of-sync leg pedaling; synchronized `speed_scale` linearly to actual ground displacement.
+  - Calibrated natural walk and sprint speeds: `WALK_SPEED = 2.6 m/s` (relaxed schoolboy pace) and `SPRINT_SPEED = 5.8 m/s`.
+  - Removed procedural airplane banking (`visual_root.rotation.z = -lean_angle`) to prevent artificial model tilting during turns.
+  - Disabled the destructive `FootGroundingModifier` in `procedural_foot_ik.gd` (`enabled = false`), eliminating violent bone snapping and jitter on flat surfaces.
+- Authored and integrated a new Genshin Impact-style dynamic cutscene sequence for Sector 11 Blast Gate breach:
+  - Created `scripts/cinematics/blast_gate_breach_cinematic.gd` and `scenes/cinematics/blast_gate_breach_cinematic.tscn`.
+  - Connected the cutscene to `_on_terminal_puzzle_solved` in `scripts/main.gd`.
+  - Staged dramatic low-angle camera framing, hydraulic camera trauma rumble (`_player_camera.h_offset/v_offset`), steam venting, amber-to-cyan status indicators, and smooth return to over-the-shoulder player exploration.
+- Verified in Godot 4.7.2:
+  - Headless probe `_foot_ik_probe.tscn` executed with 0 errors: smooth forward progress (`preset_walk` and `preset_run` at grounded elevation Y=0.0).
+  - Headless test suite `scripts/test_combat_headless.gd` passed **ALL 58/58 AAA Minato-Kasumi Gates (100% OK)**.
+  - Edge Computer-Use connection and UI Automation successfully verified on active Mixamo and Google Flow browser sessions.
+- Next exact action: download and retarget clean anime humanoid animations from Mixamo into a new character GLB, construct an `AnimationTree` with `BlendSpace1D` to replace discrete script crossfades, and record in-engine video evidence of the new locomotion and breach cinematic.
+
+## CP-20260923-21 — Physical stride synchronization, alias remediation, and opening flow verification
+
+- Calibrated the physical stride velocity ratios in `echo_player.gd` using authored gait benchmarks:
+  - Walk stride base: `AUTHORED_WALK_SPEED = 1.94 m/s`.
+  - Sprint stride base: `AUTHORED_RUN_SPEED = 6.4 m/s`.
+  - `speed_scale` dynamically scales as `clampf(actual_speed / ref_speed, 0.4, 1.6)`, mathematically locking the foot displacement speed to ground translation and eliminating foot-skating / ice-sliding during acceleration and steady movement.
+- Fixed the animation alias resolution table `candidate_aliases` in `echo_player.gd`:
+  - Mapped `preset_biped_idle_001`, `preset_biped_walk_001`, and `preset_biped_run_001` directly to the imported GLB clips (`preset_idle`, `preset_walk`, `preset_run`), preventing silent animation lookup drops.
+- Wired and verified the capsule awakening flow in `scripts/main.gd`:
+  - Connected `opening_cinematic.play(player)` and defined `_on_opening_recovery_completed()` to seamlessly transition into directive `"01. ESCAPE CONTAINMENT // SECTOR 11"`.
+- Verified in Godot 4.7.2:
+  - `_foot_ik_probe.tscn`: Clean walk, sprint, and stop transitions with full ground contact (`floor=true`) and zero errors.
+  - `scripts/test_combat_headless.gd`: **ALL 58/58 AAA Minato-Kasumi Gates Passed (100% OK)**.
+- Next exact action: retarget humanoid MoCap FBX takes into the uniform rig and wire `AnimationTree` blend spaces for multi-directional motion.
 

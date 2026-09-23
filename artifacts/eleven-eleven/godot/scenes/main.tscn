@@ -1,38 +1,47 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://scenes/player/echo_player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/specimen_ex000.tscn" id="3_boss"]
 [ext_resource type="PackedScene" path="res://scenes/companion/floating_pod.tscn" id="4_pod"]
-[ext_resource type="PackedScene" path="res://scenes/props/sector11_capsule.tscn" id="5_capsule"]
+[ext_resource type="PackedScene" path="res://scenes/props/sector11_cryo_pod.tscn" id="5_capsule"]
 [ext_resource type="PackedScene" path="res://scenes/ui/gameplay_hud.tscn" id="6_hud"]
 [ext_resource type="PackedScene" path="res://scenes/environment/sector11_facility.tscn" id="7_facility"]
 [ext_resource type="PackedScene" path="res://scenes/cinematics/kinga_torture_sequence.tscn" id="8_torture_seq"]
 [ext_resource type="PackedScene" path="res://scenes/ui/reality_glitch_overlay.tscn" id="9_glitch"]
 [ext_resource type="PackedScene" path="res://scenes/environment/minato_kasumi_alleyway.tscn" id="10_alleyway"]
+[ext_resource type="PackedScene" path="res://scenes/environment/sector11_visual_shell.tscn" id="11_sector_shell"]
+[ext_resource type="PackedScene" path="res://scenes/cinematics/opening_awakening_cinematic.tscn" id="12_opening_cine"]
+[ext_resource type="PackedScene" path="res://scenes/cinematics/blast_gate_breach_cinematic.tscn" id="13_breach_cine"]
 
 [sub_resource type="Environment" id="Environment_main"]
 background_mode = 1
-background_color = Color(0.008, 0.012, 0.02, 1)
+background_color = Color(0.025, 0.035, 0.06, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.05, 0.07, 0.1, 1)
+ambient_light_color = Color(0.42, 0.48, 0.62, 1)
+ambient_light_energy = 0.85
 tonemap_mode = 3
+tonemap_exposure = 1.1
 ssr_enabled = true
 ssao_enabled = true
 glow_enabled = true
 glow_intensity = 0.85
-glow_bloom = 0.35
+glow_bloom = 0.16
+glow_hdr_threshold = 0.92
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.022
-volumetric_fog_albedo = Color(0.04, 0.08, 0.14, 1)
+volumetric_fog_density = 0.004
+volumetric_fog_albedo = Color(0.24, 0.18, 0.38, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(50, 1, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_color = Color(0.025, 0.035, 0.055, 1)
-metallic = 0.75
-roughness = 0.22
+albedo_color = Color(0.03, 0.04, 0.06, 1)
+metallic = 0.45
+roughness = 0.16
+clearcoat_enabled = true
+clearcoat = 0.9
+clearcoat_roughness = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
 material = SubResource("StandardMaterial3D_floor")
@@ -46,9 +55,29 @@ environment = SubResource("Environment_main")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 12, 0)
-light_color = Color(0.7, 0.8, 0.95, 1)
+light_color = Color(0.72, 0.78, 0.95, 1)
 light_energy = 1.1
 shadow_enabled = true
+
+[node name="Sector11KeyFill" type="OmniLight3D" parent="."]
+position = Vector3(0, 6.5, 0)
+light_color = Color(0.65, 0.78, 1, 1)
+light_energy = 2.6
+omni_range = 22.0
+
+[node name="Sector11NeonVioletRim" type="OmniLight3D" parent="."]
+position = Vector3(-7.5, 3.2, 1.0)
+light_color = Color(0.68, 0.18, 0.98, 1)
+light_energy = 4.5
+omni_range = 16.0
+omni_attenuation = 1.1
+
+[node name="Sector11NeonCyanRim" type="OmniLight3D" parent="."]
+position = Vector3(7.5, 3.2, -9.0)
+light_color = Color(0.0, 0.92, 1.0, 1)
+light_energy = 4.2
+omni_range = 16.0
+omni_attenuation = 1.1
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -57,16 +86,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_floor")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
 mesh = SubResource("BoxMesh_floor")
 
 [node name="Sector11Capsule" parent="." instance=ExtResource("5_capsule")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -3.5, 0, 4)
+transform = Transform3D(0.623538, 0, 0.36, 0, 0.72, 0, -0.36, 0, 0.623538, -2.5, 0, 2.8)
 
 [node name="EchoPlayer" parent="." instance=ExtResource("2_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="SpecimenEX000" parent="." instance=ExtResource("3_boss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+visible = false
+process_mode = 4
 
 [node name="FloatingPod" parent="." instance=ExtResource("4_pod")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1.5, 3.5)
@@ -74,7 +106,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1.5, 3.5)
 [node name="IntroCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5, -0.224144, 0.836516, -2, 1.1, -4)
 
+[node name="OpeningAwakeningCinematic" parent="." instance=ExtResource("12_opening_cine")]
+
+[node name="BlastGateBreachCinematic" parent="." instance=ExtResource("13_breach_cine")]
+
 [node name="Sector11Facility" parent="." instance=ExtResource("7_facility")]
+
+[node name="Sector11VisualShell" parent="." instance=ExtResource("11_sector_shell")]
 
 [node name="GameplayHUD" parent="." instance=ExtResource("6_hud")]
  
@@ -85,5 +123,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
 
 [node name="MinatoKasumiAlleyway" parent="." instance=ExtResource("10_alleyway")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -55)
-
-

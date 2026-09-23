@@ -1,6 +1,8 @@
 class_name WeatherSystem
 extends Node
 
+const GameClockScript = preload("res://scripts/systems/game_clock.gd")
+
 ## AAA Dynamic Weather System — Street-Only Procedural Rain, Fog & Ocean Ambience
 ## Subscribes to GameClock signals. Active only within the MinatoKasumiAlleyway zone.
 ## Designed to match Genshin Impact's cinematic environment quality.
@@ -19,7 +21,7 @@ enum WeatherState {
 # Reference to WorldEnvironment for visual transitions
 var _world_env: WorldEnvironment = null
 # Clock reference (set by parent scene)
-var game_clock: GameClock = null
+var game_clock: GameClockScript = null
 
 var current_state: WeatherState = WeatherState.CLEAR
 var rain_intensity: float = 0.0
@@ -73,7 +75,7 @@ func _ready() -> void:
 		_ocean_player.stream = ocean_stream
 		_ocean_player.play()
 
-func connect_to_clock(clock: GameClock) -> void:
+func connect_to_clock(clock: GameClockScript) -> void:
 	game_clock = clock
 	if game_clock:
 		game_clock.hour_ticked.connect(_on_hour_ticked)

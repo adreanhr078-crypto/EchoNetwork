@@ -114,7 +114,30 @@ func show_victory_banner(title: String = "TARGET NEUTRALIZED", subtitle: String 
 
 var current_directive_title: String = ""
 var current_directive_desc: String = ""
+var follow_player: Node3D = null
 
+func set_player(target: Node3D) -> void:
+	follow_player = target
+	if system_window and system_window.has_method("set_player"):
+		system_window.set_player(target)
+
+func _process(delta: float) -> void:
+	if not quest_container:
+		return
+	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
+	var major_system_window: bool = false
+	if system_window and system_window.has_method("blocks_quest_tracker"):
+		major_system_window = bool(system_window.call("blocks_quest_tracker"))
+	quest_container.visible = not overlay_open and not major_system_window
+	if not quest_container.visible:
+		return
+	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+	var safe_margin: float = 30.0
+	var target_position := Vector2(
+		maxf(safe_margin, viewport_size.x - quest_container.size.x - safe_margin),
+		maxf(safe_margin, viewport_size.y * 0.12)
+	)
+	quest_container.position = quest_container.position.lerp(target_position, minf(1.0, delta * 14.0))
 func set_directive(title: String, desc: String) -> void:
 	current_directive_title = title
 	current_directive_desc = desc
@@ -135,7 +158,10 @@ func set_directive(title: String, desc: String) -> void:
 			tween.tween_property(quest_container, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.5)
 
 func complete_directive(next_title: String, next_desc: String) -> void:
+	var completed_title: String = current_directive_title
 	set_directive(next_title, next_desc)
+	if system_window and system_window.has_method("show_quest_update") and completed_title != "":
+		system_window.show_quest_update(completed_title, next_title)
 	if quest_container:
 		quest_container.modulate = Color(0.2, 1.0, 0.5, 1.0)
 		var tree = get_tree() if is_inside_tree() else null
@@ -147,6 +173,7 @@ func complete_directive(next_title: String, next_desc: String) -> void:
 @onready var dialogue_overlay: Control = $DialogueOverlay if has_node("DialogueOverlay") else null
 
 func open_terminal_puzzle() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if not terminal_puzzle:
 		terminal_puzzle = find_child("TerminalHackPuzzle", true, false)
 	if terminal_puzzle and terminal_puzzle.has_method("open_puzzle"):
@@ -197,8 +224,5 @@ func hide_interaction_prompt() -> void:
 		interaction_prompt = find_child("InteractionPromptHUD", true, false)
 	if interaction_prompt and interaction_prompt.has_method("hide_prompt"):
 		interaction_prompt.hide_prompt()
-
-
-
 
 

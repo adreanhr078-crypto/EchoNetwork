@@ -1,0 +1,28 @@
+{
+  "task_id": "6248cb3a-6746-47cc-a58d-b1f05e73acc7",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "A single-person cryogenic containment pod from a sophisticated Japanese science-fiction anime RPG: tall vertical capsule with a smoked transparent glass canopy, sculpted gunmetal and ivory ceramic shell, asymmetrical mechanical clamps, visible coolant hoses, small cyan status strips and restrained amber hazard accents, subtle hand-painted surface breakup, elegant readable silhouette, realistic construction with stylized anime materials, no text, no logo, no person, isolated three-quarter product view.",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 18000,
+    "model_version": "P1-20260311",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 40,
+  "created_at": "2026-09-23T07:53:51.386388Z",
+  "completed_at": "2026-09-23T07:54:50.786106Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

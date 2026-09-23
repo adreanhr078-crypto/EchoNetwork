@@ -233,7 +233,7 @@ func start_confrontation() -> void:
 		"أبي؟ ما الذي فعلته بهذا المكان وبنا؟! // Father... what have you done to us?!",
 		"لن أسمح لك بإجراء تجاربك علي مجدداً! // I will destroy your experiments!"
 	]
-	emit_signal("dialogue_prompt_ready", "DR. KINGA // كينجا", "لقد كبرت يا بني... لكنك لست هنا كابن، بل كأعظم إنجاز بشري: التجربة EX-011.", choices)
+	emit_signal("dialogue_prompt_ready", "DR. KINJA // كينجا", "لقد كبرت يا بني... لكنك لست هنا كابن، بل كأعظم إنجاز بشري: التجربة EX-011.", choices)
 
 ## Step 2: Kinga Injects Neuro-Toxin, Echo Collapses
 func trigger_neural_injection() -> void:

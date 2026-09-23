@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" path="res://assets/props/sector11-wake-capsule-v2.glb" id="1_capsule_model"]
+[ext_resource type="Script" path="res://scripts/props/sector11_capsule_visual.gd" id="2_visual"]
 
 [node name="Sector11Capsule" type="Node3D"]
+script = ExtResource("2_visual")
 
 [node name="sector11-wake-capsule-v2" parent="." instance=ExtResource("1_capsule_model")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

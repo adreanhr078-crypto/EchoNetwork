@@ -119,15 +119,15 @@ var dust_layer: Node3D:
 	set(val): _dust_layer = val
 
 const FATHER_PHOTO_TEXT: String = (
-	"Echo picks up the dust-coated frame. In the photograph, young Echo stands beside Dr. Kinga outside Kasumi Central Lab.\n" +
-	"Kinga is smiling warmly with his hand on Echo's shoulder—long before the Singularity experiments tore his humanity apart.\n" +
+	"Echo picks up the dust-coated frame. In the photograph, young Echo stands beside Dr. Kinja outside Kasumi Central Lab.\n" +
+	"Kinja is smiling warmly with his hand on Echo's shoulder—long before the Singularity experiments tore his humanity apart.\n" +
 	"'Dad... you used to smile. Before Sector 11 consumed you.'"
 )
 
 const MOTHER_PHOTO_BROKEN_TEXT: String = (
 	"On the tatami floor lies a shattered glass frame, face down among scattered shards.\n" +
 	"Echo lifts it carefully. It's the only surviving portrait of his mother, taken in the Kasumi plum orchards.\n" +
-	"The night Kinga and the Sector 11 enforcers dragged Echo away in the rain, the frame crashed to the floor. Nobody ever came back for it."
+	"The night Kinja and the Sector 11 enforcers dragged Echo away in the rain, the frame crashed to the floor. Nobody ever came back for it."
 )
 
 const MOTHER_PHOTO_RESTORED_TEXT: String = (

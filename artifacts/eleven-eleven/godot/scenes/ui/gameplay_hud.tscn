@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/gameplay_hud.gd" id="1_hud"]
 [ext_resource type="PackedScene" path="res://scenes/ui/mobile_touch_controls.tscn" id="2_touch_ui"]
@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/dialogue_overlay.tscn" id="4_dialogue_ui"]
 [ext_resource type="PackedScene" path="res://scenes/ui/system_window.tscn" id="5_sys_window"]
 [ext_resource type="PackedScene" path="res://scenes/ui/interaction_prompt_hud.tscn" id="6_prompt_ui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_plate"]
+bg_color = Color(0.012, 0.024, 0.045, 0.76)
+border_width_left = 2
+border_color = Color(0.08, 0.58, 0.72, 0.8)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_bar"]
+bg_color = Color(0.045, 0.067, 0.09, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 
 [node name="GameplayHUD" type="CanvasLayer"]
@@ -19,12 +35,24 @@ offset_top = 32.0
 offset_right = 350.0
 offset_bottom = 120.0
 
+[node name="Plate" type="Panel" parent="VitalsContainer"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_plate")
+
 [node name="PlayerName" type="Label" parent="VitalsContainer"]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "SUBJECT EX-011 // ECHO"
 
 [node name="PlayerHPBar" type="ProgressBar" parent="VitalsContainer"]
@@ -36,6 +64,8 @@ offset_bottom = 44.0
 max_value = 200.0
 value = 200.0
 show_percentage = false
+theme_override_styles/background = SubResource("StyleBoxFlat_hud_bar")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hud_bar")
 
 [node name="PlayerStaminaBar" type="ProgressBar" parent="VitalsContainer"]
 modulate = Color(0, 0.8, 1, 1)
@@ -46,40 +76,58 @@ offset_bottom = 58.0
 max_value = 100.0
 value = 100.0
 show_percentage = false
+theme_override_styles/background = SubResource("StyleBoxFlat_hud_bar")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hud_bar")
 
 [node name="QuestContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 32.0
-offset_top = 100.0
-offset_right = 380.0
-offset_bottom = 190.0
+offset_left = 1528.0
+offset_top = 86.0
+offset_right = 1888.0
+offset_bottom = 204.0
+mouse_filter = 2
+
+[node name="Plate" type="Panel" parent="QuestContainer"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_plate")
 
 [node name="Header" type="Label" parent="QuestContainer"]
 layout_mode = 0
-offset_right = 340.0
+offset_left = 10.0
+offset_right = 350.0
 offset_bottom = 18.0
 theme_override_colors/font_color = Color(0.3, 1, 0.8, 1)
 theme_override_font_sizes/font_size = 11
-text = "◈ DIRECTIVE // SECTOR 11 ESCAPE"
+text = "◈ 11.11 // SYSTEM LINK"
 
 [node name="QuestTitle" type="Label" parent="QuestContainer"]
 layout_mode = 0
 offset_top = 18.0
-offset_right = 340.0
+offset_left = 10.0
+offset_right = 350.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
-theme_override_font_sizes/font_size = 14
-text = "01. Neutralize Threat: Specimen EX-000"
+theme_override_font_sizes/font_size = 16
+text = "01. Find a way out of Sector 11"
 
 [node name="QuestDesc" type="Label" parent="QuestContainer"]
 layout_mode = 0
 offset_top = 40.0
-offset_right = 340.0
-offset_bottom = 75.0
+offset_left = 10.0
+offset_right = 350.0
+offset_bottom = 106.0
 theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 0.85)
-theme_override_font_sizes/font_size = 11
-text = "Cold Weapon defense required. Eliminate biological threat."
+theme_override_font_sizes/font_size = 13
+text = "Recovery is unstable. Follow the signal and find a route out."
 autowrap_mode = 2
 
 [node name="MobileTouchControls" parent="." instance=ExtResource("2_touch_ui")]
@@ -117,6 +165,7 @@ theme_override_font_sizes/font_size = 14
 text = "✦ CHAIN ×2"
 
 [node name="BossContainer" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -363,6 +412,3 @@ visible = false
 
 [node name="InteractionPromptHUD" parent="." instance=ExtResource("6_prompt_ui")]
 visible = false
-
-
-

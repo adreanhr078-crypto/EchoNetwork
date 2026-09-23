@@ -9,6 +9,15 @@ than silently migrate. Minato-Kasumi is now the approved outside-world name.
 The Definitive Inside-System Vertical Slice remains incomplete and gates any
 outside-world production. Automated PASS is not artistic or emotional acceptance.
 
+## Owner update — 2026-09-23
+
+The Owner now directly directs use of the existing Godot 4.7 game project for
+3D work, correcting existing defects before new feature production. This
+supersedes the runtime restriction recorded above for this task; it does not
+mean the React/web shell or authoritative services have been migrated. The new
+crime, witness, police, and prison request follows the Manhwa-ordered opening
+and System story work.
+
 ---
 
 # ============================================================

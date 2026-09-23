@@ -14,6 +14,7 @@ signal jump_tapped()
 signal lock_on_tapped()
 signal scan_tapped()
 signal camera_swiped(relative: Vector2)
+signal use_tapped()
 
 const JOYSTICK_MAX_RADIUS: float = 75.0
 const IAI_CHARGE_THRESHOLD: float = 0.35
@@ -23,6 +24,8 @@ const IAI_FULL_CHARGE_TIME: float = 1.0
 @onready var joystick_stick: Control = $JoystickZone/JoystickBase/Stick if has_node("JoystickZone/JoystickBase/Stick") else null
 @onready var attack_btn: Button = $ActionCluster/AttackBtn if has_node("ActionCluster/AttackBtn") else null
 @onready var charge_bar: ProgressBar = $ActionCluster/AttackBtn/ChargeBar if has_node("ActionCluster/AttackBtn/ChargeBar") else null
+@onready var lock_on_btn: Button = $ActionCluster/LockOnBtn if has_node("ActionCluster/LockOnBtn") else null
+@onready var use_btn: Button = $ActionCluster/UseBtn if has_node("ActionCluster/UseBtn") else null
 
 var is_joystick_active: bool = false
 var joystick_touch_index: int = -1
@@ -36,10 +39,21 @@ var is_attack_held: bool = false
 var attack_hold_timer: float = 0.0
 
 func _ready() -> void:
-	# Show on mobile or desktop touch emulation
-	visible = true
+	var platform_name: String = OS.get_name()
+	visible = platform_name == "Android" or platform_name == "iOS" or (platform_name == "Web" and DisplayServer.is_touchscreen_available())
+	set_combat_available(false)
 	if charge_bar:
 		charge_bar.visible = false
+	if use_btn:
+		use_btn.visible = true
+
+func set_combat_available(available: bool) -> void:
+	if attack_btn:
+		attack_btn.visible = available
+	if lock_on_btn:
+		lock_on_btn.visible = available
+	if use_btn:
+		use_btn.visible = not available
 
 func _process(delta: float) -> void:
 	# Handle Attack Button Charging (Charged Iai Slash)
@@ -146,3 +160,6 @@ func _on_lock_on_btn_pressed() -> void:
 
 func _on_scan_btn_pressed() -> void:
 	emit_signal("scan_tapped")
+
+func _on_use_btn_pressed() -> void:
+	emit_signal("use_tapped")

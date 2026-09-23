@@ -1,18 +1,20 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/echo_player.gd" id="1_player"]
-[ext_resource type="PackedScene" path="res://assets/characters/echo_tripo_native.glb" id="2_echo_model"]
+[ext_resource type="PackedScene" path="res://assets/characters/echo_opening_uniform_v10.glb" id="2_echo_model"]
 [ext_resource type="PackedScene" path="res://scenes/player/katana_blade.tscn" id="3_katana"]
 [ext_resource type="Script" path="res://scripts/player/procedural_foot_ik.gd" id="4_foot_ik"]
 [ext_resource type="PackedScene" path="res://scenes/player/shadow_katana.tscn" id="5_shadow_katana"]
 [ext_resource type="PackedScene" path="res://scenes/player/zero_eye_singularity.tscn" id="6_eye_singularity"]
 [ext_resource type="PackedScene" path="res://scenes/player/zero_shadow_wing.tscn" id="7_shadow_wing"]
+[ext_resource type="Script" path="res://scripts/player/echo_skin_identifier.gd" id="8_skin_identifier"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 radius = 0.4
 height = 1.8
 
 [node name="EchoPlayer" type="CharacterBody3D"]
+floor_snap_length = 0.3
 script = ExtResource("1_player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -20,12 +22,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_player")
 
 [node name="ModelRoot" type="Node3D" parent="."]
+script = ExtResource("8_skin_identifier")
 
-[node name="echo_tripo_native" parent="ModelRoot" instance=ExtResource("2_echo_model")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+[node name="EchoOpeningUniform" parent="ModelRoot" instance=ExtResource("2_echo_model")]
+transform = Transform3D(1.81, 0, 0, 0, 1.81, 0, 0, 0, 1.81, 0, 0, 0)
+
+[node name="EchoFaceFill" type="OmniLight3D" parent="ModelRoot"]
+position = Vector3(0, 1.15, -0.55)
+light_color = Color(0.78, 0.86, 1, 1)
+light_energy = 1.35
+omni_range = 3.6
+omni_attenuation = 1.35
+shadow_enabled = false
 
 [node name="KatanaBlade" parent="ModelRoot" instance=ExtResource("3_katana")]
 transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 0.42, 0.75, 0.15)
+visible = false
 
 [node name="ShadowKatana" parent="ModelRoot" instance=ExtResource("5_shadow_katana")]
 transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 0.42, 0.75, 0.15)
@@ -44,7 +56,7 @@ script = ExtResource("4_foot_ik")
 
 [node name="CameraBoom" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1.4, 0)
-spring_length = 3.6
+spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraBoom"]
 current = true

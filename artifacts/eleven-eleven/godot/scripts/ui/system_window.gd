@@ -11,6 +11,9 @@ enum WindowType {
 }
 
 var current_type: WindowType = WindowType.NOTIFICATION
+var follow_player: Node3D = null
+var _window_generation: int = 0
+var _popup_tween: Tween = null
 
 @onready var panel: Panel = $Panel if has_node("Panel") else null
 @onready var header_lbl: Label = $Panel/VBox/SystemHeader if has_node("Panel/VBox/SystemHeader") else null
@@ -33,10 +36,41 @@ func _ready() -> void:
 	if confirm_btn and not confirm_btn.pressed.is_connected(close_window):
 		confirm_btn.pressed.connect(close_window)
 
+func set_player(target: Node3D) -> void:
+	follow_player = target
+
+func _process(delta: float) -> void:
+	if not visible or not panel or not follow_player or not is_instance_valid(follow_player):
+		return
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	if not camera or camera.is_position_behind(follow_player.global_position):
+		return
+	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+	var anchor: Vector2 = camera.unproject_position(follow_player.global_position + Vector3(0, 1.45, 0))
+	var target_position := Vector2(
+		clampf(anchor.x + 108.0, 24.0, viewport_size.x - panel.size.x - 24.0),
+		clampf(anchor.y - 56.0, 24.0, viewport_size.y - panel.size.y - 24.0)
+	)
+	panel.position = panel.position.lerp(target_position, minf(1.0, delta * 13.0))
+
+func blocks_quest_tracker() -> bool:
+	return visible and (current_type == WindowType.LEVEL_UP or current_type == WindowType.REWARD)
+
 func show_system_window(type: WindowType, title: String, message: String, stats: Array = [], auto_close_delay: float = 0.0) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_ensure_nodes()
+	_window_generation += 1
+	var generation: int = _window_generation
 	current_type = type
 	visible = true
+	var compact: bool = type == WindowType.NOTIFICATION or type == WindowType.QUEST_COMPLETED
+	if panel:
+		panel.size = Vector2(410.0, 190.0 if compact else 300.0)
+		panel.pivot_offset = panel.size * 0.5
+	if stats_box:
+		stats_box.visible = not stats.is_empty()
+	if confirm_btn:
+		confirm_btn.visible = not compact or auto_close_delay <= 0.0
 
 	if title_lbl:
 		title_lbl.text = title
@@ -73,17 +107,19 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 
 	# Animate pop-in
 	if panel:
+		if _popup_tween and _popup_tween.is_running():
+			_popup_tween.kill()
 		panel.scale = Vector2(0.85, 0.85)
 		panel.modulate.a = 0.0
 		var tree = get_tree() if is_inside_tree() else null
 		if tree:
-			var tween = tree.create_tween().set_parallel(true)
-			tween.tween_property(panel, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property(panel, "modulate:a", 1.0, 0.18)
+			_popup_tween = tree.create_tween().set_parallel(true)
+			_popup_tween.tween_property(panel, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			_popup_tween.tween_property(panel, "modulate:a", 1.0, 0.18)
 
 			if auto_close_delay > 0.0:
 				tree.create_timer(auto_close_delay).timeout.connect(func():
-					if visible:
+					if visible and generation == _window_generation:
 						close_window()
 				)
 		else:
@@ -92,8 +128,18 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 
 	emit_signal("system_window_opened", current_type)
 
+func show_quest_update(completed_title: String, next_title: String) -> void:
+	show_system_window(
+		WindowType.QUEST_COMPLETED,
+		"مهمة مكتملة // TASK COMPLETE",
+		completed_title + "\n◈ التالي: " + next_title,
+		[],
+		3.5
+	)
+
 func close_window() -> void:
 	_ensure_nodes()
+	_window_generation += 1
 	visible = false
 	emit_signal("system_window_closed", current_type)
 

@@ -2,6 +2,13 @@
 
 ## Current continuation — 2026-09-19
 
+### Owner update — 2026-09-23
+
+Use the existing Godot 4.7 project for 3D game work, following
+`docs/11-11/audits/2026-09-23-current-state-and-production-plan.md`. This
+supersedes the older runtime restriction below for this work. Do not claim the
+React/web shell or its authoritative services have been migrated.
+
 Read [Owner mandate](design/OWNER_PRODUCTION_MANDATE.md) and
 [continuation checkpoint](design/CONTINUATION.md) first. The historical snapshot
 below is not proof of today's implementation. Preserve the active Three/R3F

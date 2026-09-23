@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3]
+[gd_scene load_steps=40 format=3]
 
 [ext_resource type="Script" path="res://scripts/environment/minato_kasumi_alleyway.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/props/hospital_sliding_doors.tscn" id="2_doors"]
@@ -15,6 +15,9 @@
 
 
 [sub_resource type="BoxMesh" id="BoxMesh_hospital_floor"]
+size = Vector3(8.0, 0.2, 8.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hospital_floor"]
 size = Vector3(8.0, 0.2, 8.0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hosp_floor"]
@@ -47,11 +50,17 @@ emission_energy_multiplier = 2.5
 [sub_resource type="BoxMesh" id="BoxMesh_road"]
 size = Vector3(36.0, 0.2, 8.0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_road"]
+size = Vector3(36.0, 0.2, 8.0)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_road"]
 albedo_color = Color(0.13, 0.14, 0.16, 1)
 roughness = 0.88
 
 [sub_resource type="BoxMesh" id="BoxMesh_sidewalk"]
+size = Vector3(36.0, 0.3, 3.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sidewalk"]
 size = Vector3(36.0, 0.3, 3.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sidewalk"]
@@ -148,6 +157,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 mesh = SubResource("BoxMesh_hospital_floor")
 surface_material_override/0 = SubResource("StandardMaterial3D_hosp_floor")
 
+[node name="HospitalFloorBody" type="StaticBody3D" parent="HospitalZone"]
+position = Vector3(0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HospitalZone/HospitalFloorBody"]
+shape = SubResource("BoxShape3D_hospital_floor")
+
 [node name="HospitalWallLeft" type="MeshInstance3D" parent="HospitalZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
 mesh = SubResource("BoxMesh_hospital_wall")
@@ -176,10 +191,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -3.2)
 mesh = SubResource("BoxMesh_sidewalk")
 surface_material_override/0 = SubResource("StandardMaterial3D_sidewalk")
 
+[node name="SidewalkBody" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.05, -3.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SidewalkBody"]
+shape = SubResource("BoxShape3D_sidewalk")
+
 [node name="RoadAsphalt" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 1.8)
 mesh = SubResource("BoxMesh_road")
 surface_material_override/0 = SubResource("StandardMaterial3D_road")
+
+[node name="RoadBody" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.1, 1.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadBody"]
+shape = SubResource("BoxShape3D_road")
 
 [node name="RoadWhiteLineSide" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, -1.8)
@@ -445,5 +472,4 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 39.5, 0.15
 
 [node name="KeiCar" parent="Vehicles" instance=ExtResource("12_car")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0, 0.2, 1.5)
-
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/props/sector11_cryo_pod_v1.glb" id="1_model"]
+[ext_resource type="Script" path="res://scripts/props/sector11_capsule_visual.gd" id="2_visual"]
+[ext_resource type="PackedScene" path="res://assets/environment/sector11_cryo_dais_v1.glb" id="3_dais"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cryo_pod"]
+size = Vector3(0.62, 1.02, 0.65)
+
+[node name="Sector11Capsule" type="Node3D"]
+script = ExtResource("2_visual")
+
+[node name="CryoDockingDais" parent="." instance=ExtResource("3_dais")]
+
+[node name="CryogenicPodModel" parent="." instance=ExtResource("1_model")]
+position = Vector3(0, 2, 0)
+rotation = Vector3(0, -1.570796, 0)
+scale = Vector3(4, 4, 4)
+
+[node name="RecoveryGlow" type="OmniLight3D" parent="."]
+position = Vector3(0, 2.0, 0.35)
+light_color = Color(0.25, 0.62, 1, 1)
+light_energy = 0.9
+omni_range = 3.1
+shadow_enabled = false
+
+[node name="PodBody" type="StaticBody3D" parent="CryogenicPodModel"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CryogenicPodModel/PodBody"]
+shape = SubResource("BoxShape3D_cryo_pod")
