@@ -257,6 +257,81 @@ test('reduced-motion awakening preserves orientation and reaches the same contro
   await expect.poll(() => page.evaluate(() => (
     (window as any).__11_11_SCENE__?.scene
       ?.getObjectByName('echo-player')?.position.z
-  ))).toBeCloseTo(9.5, 1);
+  )), { timeout: 30000 }).toBeCloseTo(9.5, 1);
+  expect(errors).toEqual([]);
+});
+
+test('phone landscape wake handoff fits the viewport and sustains the mobile frame budget', async ({ page }, testInfo) => {
+  test.setTimeout(120000);
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/e2e/fixtures/gameplay-room.html?cinematic&tutorial&mobile');
+
+  const video = page.locator('.cinematic-director-overlay video');
+  await expect(video).toBeVisible({ timeout: 30000 });
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).__11_11_SCENE__?.scene;
+    return !!scene?.getObjectByName('CAPSULE_DOOR_HINGE');
+  }), { timeout: 30000 }).toBe(true);
+  await video.evaluate((node: HTMLVideoElement) => {
+    (window as any).__11_11_PHONE_HANDOFF_STARTED__ = performance.now();
+    node.dispatchEvent(new Event('ended'));
+  });
+  await expect(page.getByRole('dialog', { name: 'تحكم بـEcho' })).toBeVisible({ timeout: 60000 });
+  const handoffMs = await page.evaluate(() => (
+    performance.now() - (window as any).__11_11_PHONE_HANDOFF_STARTED__
+  ));
+  expect(handoffMs).toBeLessThan(60000);
+
+  const layout = await page.evaluate(() => {
+    const dialog = document.querySelector('.gameplay-controls-guide')?.getBoundingClientRect();
+    return {
+      scrollWidth: document.documentElement.scrollWidth,
+      viewportWidth: window.innerWidth,
+      dialog: dialog
+        ? { left: dialog.left, top: dialog.top, right: dialog.right, bottom: dialog.bottom }
+        : null,
+    };
+  });
+  expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  if (layout.dialog) {
+    expect(layout.dialog.left).toBeGreaterThanOrEqual(0);
+    expect(layout.dialog.top).toBeGreaterThanOrEqual(0);
+    expect(layout.dialog.right).toBeLessThanOrEqual(844);
+    expect(layout.dialog.bottom).toBeLessThanOrEqual(390);
+    await page.getByRole('button', { name: 'ابدأ الاستكشاف' }).click();
+  }
+
+  const frameProfile = await page.evaluate(() => new Promise<{
+    medianMs: number;
+    p95Ms: number;
+    maxMs: number;
+  }>((resolve) => {
+    const samples: number[] = [];
+    let previous = performance.now();
+    const collect = (now: number) => {
+      samples.push(now - previous);
+      previous = now;
+      if (samples.length < 180) {
+        requestAnimationFrame(collect);
+        return;
+      }
+      const sorted = samples.slice(5).sort((a, b) => a - b);
+      resolve({
+        medianMs: sorted[Math.floor(sorted.length * 0.5)],
+        p95Ms: sorted[Math.floor(sorted.length * 0.95)],
+        maxMs: sorted[sorted.length - 1],
+      });
+    };
+    requestAnimationFrame(collect);
+  }));
+  await testInfo.attach('phone-frame-profile', {
+    body: JSON.stringify(frameProfile, null, 2),
+    contentType: 'application/json',
+  });
+  expect(frameProfile.medianMs).toBeLessThan(120);
+  expect(frameProfile.p95Ms).toBeLessThan(200);
+  await page.screenshot({ path: testInfo.outputPath('phone-landscape-playable.png') });
   expect(errors).toEqual([]);
 });

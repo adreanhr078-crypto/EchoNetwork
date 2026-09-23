@@ -1,0 +1,219 @@
+[gd_scene load_steps=26 format=3]
+
+[ext_resource type="Script" path="res://scripts/props/konbini_store.gd" id="1_konbini_script"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interact"]
+[ext_resource type="PackedScene" path="res://scenes/characters/minato_npc.tscn" id="3_npc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(10.0, 0.2, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.92, 0.93, 0.95, 1)
+roughness = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_back"]
+size = Vector3(10.0, 3.6, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+albedo_color = Color(0.88, 0.9, 0.92, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+size = Vector3(0.4, 3.6, 8.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sign"]
+size = Vector3(5.2, 0.9, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sign"]
+albedo_color = Color(0.08, 0.65, 0.42, 1)
+emission_enabled = true
+emission = Color(0.12, 0.82, 0.55, 1)
+emission_energy_multiplier = 2.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_fridge"]
+size = Vector3(0.8, 2.4, 4.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fridge"]
+albedo_color = Color(0.15, 0.18, 0.22, 1)
+metallic = 0.5
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_fridge_glass"]
+size = Vector3(0.05, 2.1, 4.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fridge_glass"]
+albedo_color = Color(0.2, 0.85, 1.0, 0.4)
+emission_enabled = true
+emission = Color(0.15, 0.7, 0.95, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_shelf"]
+size = Vector3(1.2, 1.4, 3.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shelf"]
+albedo_color = Color(0.78, 0.8, 0.82, 1)
+roughness = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_counter"]
+size = Vector3(2.4, 1.1, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_counter"]
+albedo_color = Color(0.3, 0.34, 0.38, 1)
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_register"]
+size = Vector3(0.5, 0.4, 0.45)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_register"]
+albedo_color = Color(0.12, 0.14, 0.16, 1)
+emission_enabled = true
+emission = Color(0.1, 0.9, 0.4, 1)
+emission_energy_multiplier = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door_sensor"]
+size = Vector3(4.0, 2.8, 3.0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_shelf_interact"]
+radius = 2.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_register_interact"]
+radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fridge_col"]
+size = Vector3(0.8, 2.4, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_counter_col"]
+size = Vector3(2.4, 1.1, 1.4)
+
+[node name="KonbiniStore" type="Node3D"]
+script = ExtResource("1_konbini_script")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="WallBack" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -4.0)
+mesh = SubResource("BoxMesh_wall_back")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="WallLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0, 1.8, 0)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="WallRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 1.8, 0)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="CanopySign" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 4.1)
+mesh = SubResource("BoxMesh_sign")
+surface_material_override/0 = SubResource("StandardMaterial3D_sign")
+
+[node name="StoreInteriorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+light_color = Color(1, 0.98, 0.95, 1)
+light_energy = 4.2
+omni_range = 14.0
+
+[node name="DoorSensor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 3.8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorSensor"]
+shape = SubResource("BoxShape3D_door_sensor")
+
+[node name="DrinkRefrigerator" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 1.2, -0.5)
+
+[node name="Body" type="MeshInstance3D" parent="DrinkRefrigerator"]
+mesh = SubResource("BoxMesh_fridge")
+surface_material_override/0 = SubResource("StandardMaterial3D_fridge")
+
+[node name="GlassDoor" type="MeshInstance3D" parent="DrinkRefrigerator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0, 0)
+mesh = SubResource("BoxMesh_fridge_glass")
+surface_material_override/0 = SubResource("StandardMaterial3D_fridge_glass")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkRefrigerator"]
+shape = SubResource("BoxShape3D_fridge_col")
+
+[node name="FridgeInteractable" type="Area3D" parent="DrinkRefrigerator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+script = ExtResource("2_interact")
+verb = 4
+prompt_target_name = "Cold Drinks Refrigerator"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DrinkRefrigerator/FridgeInteractable"]
+shape = SubResource("SphereShape3D_shelf_interact")
+
+[node name="CenterAisle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.7, -0.8)
+
+[node name="ShelfMesh" type="MeshInstance3D" parent="CenterAisle"]
+mesh = SubResource("BoxMesh_shelf")
+surface_material_override/0 = SubResource("StandardMaterial3D_shelf")
+
+[node name="FoodInteractable" type="Area3D" parent="CenterAisle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+script = ExtResource("2_interact")
+verb = 4
+prompt_target_name = "Onigiri & Bento Shelf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CenterAisle/FoodInteractable"]
+shape = SubResource("SphereShape3D_shelf_interact")
+
+[node name="SnackAisle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.7, -0.8)
+
+[node name="ShelfMesh" type="MeshInstance3D" parent="SnackAisle"]
+mesh = SubResource("BoxMesh_shelf")
+surface_material_override/0 = SubResource("StandardMaterial3D_shelf")
+
+[node name="SnackInteractable" type="Area3D" parent="SnackAisle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+script = ExtResource("2_interact")
+verb = 4
+prompt_target_name = "Snacks & Ramen Shelf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SnackAisle/SnackInteractable"]
+shape = SubResource("SphereShape3D_shelf_interact")
+
+[node name="CheckoutCounter" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.55, 1.8)
+
+[node name="CounterMesh" type="MeshInstance3D" parent="CheckoutCounter"]
+mesh = SubResource("BoxMesh_counter")
+surface_material_override/0 = SubResource("StandardMaterial3D_counter")
+
+[node name="RegisterMesh" type="MeshInstance3D" parent="CheckoutCounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.75, 0.1)
+mesh = SubResource("BoxMesh_register")
+surface_material_override/0 = SubResource("StandardMaterial3D_register")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckoutCounter"]
+shape = SubResource("BoxShape3D_counter_col")
+
+[node name="CheckoutRegister" type="Area3D" parent="CheckoutCounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.6, 0.1)
+script = ExtResource("2_interact")
+verb = 2
+prompt_target_name = "Kasumi Mart Register"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckoutCounter/CheckoutRegister"]
+shape = SubResource("SphereShape3D_register_interact")
+
+[node name="ClerkHana" parent="." instance=ExtResource("3_npc")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.4, 0.05, 0.8)
+npc_id = "NPC_HANA_04"
+display_name = "Hana Mori"
+role = "Kasumi Mart Store Clerk"
+home_or_work_role = "Kasumi Mart (24H Shift)"
+current_activity = "Operating checkout register and stocking shelves"
+dialogue_lines = [
+	"Irasshaimase! // Welcome to Kasumi Mart! Let me know if you need anything heated up.",
+	"Our fresh bento and onigiri arrived just before sundown.",
+	"Don't forget to stay hydrated, the coastal sea breeze can be deceiving!"
+]

@@ -21,7 +21,18 @@ export type GameplayAudioCue =
   | 'hitImpact'
   | 'glassShatter'
   | 'monsterRoar'
-  | 'dodge';
+  | 'dodge'
+  | 'resonanceBurst'
+  | 'sonarPulse'
+  | 'circuitClick'
+  | 'circuitSpark'
+  | 'powerSurge'
+  | 'thoughtWhisper'
+  | 'bossEnrage'
+  | 'groundSlam'
+  | 'shockwavePass'
+  | 'watcherAlert'
+  | 'airlockVent';
 
 export const GAMEPLAY_AUDIO_ASSETS: Readonly<
   Record<GameplayAudioCue, string | null>
@@ -43,6 +54,17 @@ export const GAMEPLAY_AUDIO_ASSETS: Readonly<
   glassShatter: null,
   monsterRoar: null,
   dodge: null,
+  resonanceBurst: null,
+  sonarPulse: null,
+  circuitClick: null,
+  circuitSpark: null,
+  powerSurge: null,
+  thoughtWhisper: null,
+  bossEnrage: null,
+  groundSlam: null,
+  shockwavePass: null,
+  watcherAlert: null,
+  airlockVent: null,
 });
 
 interface PlayCueOptions {
@@ -451,12 +473,466 @@ class CognitiveSoundEngine {
         break;
       }
 
+      case 'resonanceBurst': {
+        // 432Hz crystal harmonic counter chime + sub-bass punch
+        try {
+          const sub = ctx.createOscillator();
+          const subGain = ctx.createGain();
+          sub.type = 'sine';
+          sub.frequency.setValueAtTime(120, now);
+          sub.frequency.exponentialRampToValueAtTime(36, now + 0.45);
+          subGain.gain.setValueAtTime(volume * 0.6, now);
+          subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+          sub.connect(subGain);
+          subGain.connect(ctx.destination);
+          sub.start(now);
+          sub.stop(now + 0.52);
+
+          [432, 864, 1296].forEach((freq, i) => {
+            const chime = ctx.createOscillator();
+            const chimeGain = ctx.createGain();
+            chime.type = 'triangle';
+            chime.frequency.setValueAtTime(freq, now + i * 0.04);
+            chimeGain.gain.setValueAtTime(0.001, now + i * 0.04);
+            chimeGain.gain.exponentialRampToValueAtTime(volume * 0.28, now + i * 0.04 + 0.03);
+            chimeGain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.04 + 0.65);
+            chime.connect(chimeGain);
+            chimeGain.connect(ctx.destination);
+            chime.start(now + i * 0.04);
+            chime.stop(now + i * 0.04 + 0.7);
+          });
+        } catch {}
+        break;
+      }
+
+      case 'sonarPulse': {
+        // High-tech companion radar sonar chirp (1200Hz -> 2800Hz)
+        try {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.exponentialRampToValueAtTime(2800, now + 0.22);
+          osc.frequency.exponentialRampToValueAtTime(600, now + 0.55);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume * 0.45, now + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.58);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.6);
+        } catch {}
+        break;
+      }
+
+      case 'circuitClick': {
+        // Crisp tactile mechanical breaker switch click
+        try {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(1800, now);
+          osc.frequency.exponentialRampToValueAtTime(450, now + 0.025);
+
+          gain.gain.setValueAtTime(volume * 0.55, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } catch {}
+        break;
+      }
+
+      case 'circuitSpark': {
+        // High-frequency electrical discharge sizzle
+        try {
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc1.type = 'sawtooth';
+          osc2.type = 'square';
+          osc1.frequency.setValueAtTime(2800, now);
+          osc1.frequency.linearRampToValueAtTime(3600, now + 0.08);
+          osc2.frequency.setValueAtTime(1900, now);
+          osc2.frequency.linearRampToValueAtTime(4200, now + 0.08);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume * 0.42, now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+          osc1.connect(gain);
+          osc2.connect(gain);
+          gain.connect(ctx.destination);
+          osc1.start(now);
+          osc2.start(now);
+          osc1.stop(now + 0.13);
+          osc2.stop(now + 0.13);
+        } catch {}
+        break;
+      }
+
+      case 'powerSurge': {
+        // Deep resonant auxiliary power restoration swell
+        try {
+          const sub = ctx.createOscillator();
+          const subGain = ctx.createGain();
+          sub.type = 'sine';
+          sub.frequency.setValueAtTime(48, now);
+          sub.frequency.exponentialRampToValueAtTime(96, now + 0.8);
+          subGain.gain.setValueAtTime(0.001, now);
+          subGain.gain.linearRampToValueAtTime(volume * 0.7, now + 0.2);
+          subGain.gain.exponentialRampToValueAtTime(0.001, now + 1.6);
+          sub.connect(subGain);
+          subGain.connect(ctx.destination);
+          sub.start(now);
+          sub.stop(now + 1.7);
+
+          [144, 288, 576, 864].forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq * 0.85, now + i * 0.06);
+            osc.frequency.exponentialRampToValueAtTime(freq, now + i * 0.06 + 0.6);
+            gain.gain.setValueAtTime(0.001, now + i * 0.06);
+            gain.gain.linearRampToValueAtTime(volume * 0.25, now + i * 0.06 + 0.15);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 1.4);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + i * 0.06);
+            osc.stop(now + i * 0.06 + 1.5);
+          });
+        } catch {}
+        break;
+      }
+
+      case 'thoughtWhisper': {
+        // 528Hz Solfeggio frequency + delicate cognitive shimmer
+        try {
+          const osc = ctx.createOscillator();
+          const oscHarmonic = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(528, now);
+          oscHarmonic.type = 'sine';
+          oscHarmonic.frequency.setValueAtTime(1056, now);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume * 0.35, now + 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 1.3);
+
+          osc.connect(gain);
+          oscHarmonic.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          oscHarmonic.start(now);
+          osc.stop(now + 1.4);
+          oscHarmonic.stop(now + 1.4);
+        } catch {}
+        break;
+      }
+
+      case 'bossEnrage': {
+        // Terrifying sub-bass roar with distortion and chaotic harmonic screech
+        try {
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const filter = ctx.createBiquadFilter();
+
+          osc1.type = 'sawtooth';
+          osc1.frequency.setValueAtTime(65, now);
+          osc1.frequency.exponentialRampToValueAtTime(38, now + 1.8);
+
+          osc2.type = 'triangle';
+          osc2.frequency.setValueAtTime(140, now);
+          osc2.frequency.exponentialRampToValueAtTime(75, now + 1.8);
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(550, now);
+          filter.frequency.linearRampToValueAtTime(180, now + 1.8);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume * 0.95, now + 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+
+          osc1.connect(filter);
+          osc2.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc1.start(now);
+          osc2.start(now);
+          osc1.stop(now + 2.1);
+          osc2.stop(now + 2.1);
+        } catch {}
+        break;
+      }
+
+      case 'groundSlam': {
+        // Heavy crushing seismic ground impact with sub-bass compression
+        try {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(120, now);
+          osc.frequency.exponentialRampToValueAtTime(28, now + 0.6);
+
+          gain.gain.setValueAtTime(volume * 1.0, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.85);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.9);
+        } catch {}
+        break;
+      }
+
+      case 'shockwavePass': {
+        // Whooshing high-speed kinetic air distortion
+        try {
+          const bufferSize = ctx.sampleRate * 0.5;
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = (Math.random() * 2 - 1) * 0.4;
+          }
+          const noise = ctx.createBufferSource();
+          noise.buffer = buffer;
+
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.frequency.setValueAtTime(320, now);
+          filter.frequency.exponentialRampToValueAtTime(1200, now + 0.25);
+          filter.frequency.exponentialRampToValueAtTime(220, now + 0.5);
+
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume * 0.7, now + 0.15);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          noise.start(now);
+        } catch {}
+        break;
+      }
+
+      case 'watcherAlert': {
+        // High-tension mechanical click and urgent two-tone surveillance siren
+        try {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.setValueAtTime(1320, now + 0.12);
+          osc.frequency.setValueAtTime(880, now + 0.24);
+          osc.frequency.setValueAtTime(1320, now + 0.36);
+
+          gain.gain.setValueAtTime(volume * 0.5, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.65);
+        } catch {}
+        break;
+      }
+
+      case 'airlockVent': {
+        // High-pressure pneumatic steam release hiss
+        try {
+          const bufferSize = ctx.sampleRate * 1.5;
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = (Math.random() * 2 - 1) * 0.35;
+          }
+          const noise = ctx.createBufferSource();
+          noise.buffer = buffer;
+
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(1800, now);
+          filter.frequency.exponentialRampToValueAtTime(450, now + 1.4);
+
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(volume * 0.65, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
+
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          noise.start(now);
+        } catch {}
+        break;
+      }
+
       default:
         break;
     }
   }
 
+  private masterFilter: BiquadFilterNode | null = null;
+  private ostMode: 'ambient' | 'tension' | 'combat' | 'victory' = 'ambient';
+  private ostTimer: ReturnType<typeof setInterval> | null = null;
+  private ostStep = 0;
+
+  private getMasterOutput(): AudioNode {
+    const ctx = this.getContext();
+    if (!ctx) throw new Error('AudioContext unavailable');
+    if (!this.masterFilter) {
+      this.masterFilter = ctx.createBiquadFilter();
+      this.masterFilter.type = 'lowpass';
+      this.masterFilter.frequency.setValueAtTime(20000, ctx.currentTime);
+      this.masterFilter.Q.setValueAtTime(0.7, ctx.currentTime);
+      this.masterFilter.connect(ctx.destination);
+    }
+    return this.masterFilter;
+  }
+
+  public setBulletTime(active: boolean): void {
+    const ctx = this.getContext();
+    if (!ctx) return;
+    try {
+      const output = this.getMasterOutput();
+      if (this.masterFilter) {
+        const now = ctx.currentTime;
+        if (active) {
+          this.masterFilter.frequency.cancelScheduledValues(now);
+          this.masterFilter.frequency.exponentialRampToValueAtTime(360, now + 0.08);
+          this.masterFilter.Q.cancelScheduledValues(now);
+          this.masterFilter.Q.linearRampToValueAtTime(5.5, now + 0.08);
+        } else {
+          this.masterFilter.frequency.cancelScheduledValues(now);
+          this.masterFilter.frequency.exponentialRampToValueAtTime(20000, now + 0.18);
+          this.masterFilter.Q.cancelScheduledValues(now);
+          this.masterFilter.Q.linearRampToValueAtTime(0.7, now + 0.18);
+        }
+      }
+    } catch {}
+  }
+
+  public setAdaptiveOST(mode: 'ambient' | 'tension' | 'combat' | 'victory'): void {
+    if (this.ostMode === mode && this.ostTimer) return;
+    this.ostMode = mode;
+    const ctx = this.getContext();
+    if (!ctx) return;
+
+    if (this.ostTimer) {
+      clearInterval(this.ostTimer);
+      this.ostTimer = null;
+    }
+
+    if (mode === 'victory') {
+      try {
+        const now = ctx.currentTime;
+        [220, 277.18, 329.63, 415.3, 554.37].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(0.18, now + 0.4 + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.8);
+          osc.connect(gain);
+          gain.connect(this.getMasterOutput());
+          osc.start(now);
+          osc.stop(now + 4.0);
+        });
+      } catch {}
+      return;
+    }
+
+    if (mode === 'ambient') {
+      return; // Standard ambient drone already handles this
+    }
+
+    // Sequenced rhythm loop for 'tension' and 'combat'
+    const stepInterval = mode === 'combat' ? 220 : 440; // 136 BPM eighth notes in combat
+    this.ostStep = 0;
+
+    this.ostTimer = setInterval(() => {
+      try {
+        const now = ctx.currentTime;
+        const step = this.ostStep % 16;
+        this.ostStep = (this.ostStep + 1) % 16;
+
+        if (this.ostMode === 'combat') {
+          // Cyber kick drum on beats 0, 4, 8, 12
+          if (step % 4 === 0) {
+            const kick = ctx.createOscillator();
+            const kickGain = ctx.createGain();
+            kick.type = 'sine';
+            kick.frequency.setValueAtTime(120, now);
+            kick.frequency.exponentialRampToValueAtTime(38, now + 0.12);
+            kickGain.gain.setValueAtTime(0.35, now);
+            kickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+            kick.connect(kickGain);
+            kickGain.connect(this.getMasterOutput());
+            kick.start(now);
+            kick.stop(now + 0.2);
+          }
+
+          // Driving syncopated cyber bass on steps 0, 3, 6, 8, 11, 14
+          if ([0, 3, 6, 8, 11, 14].includes(step)) {
+            const bass = ctx.createOscillator();
+            const bassGain = ctx.createGain();
+            bass.type = 'sawtooth';
+            const bassFreq = step === 6 || step === 14 ? 65.4 : step === 8 ? 58.27 : 55.0; // A / C / A#
+            bass.frequency.setValueAtTime(bassFreq, now);
+            bassGain.gain.setValueAtTime(0.18, now);
+            bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.19);
+            bass.connect(bassGain);
+            bassGain.connect(this.getMasterOutput());
+            bass.start(now);
+            bass.stop(now + 0.2);
+          }
+
+          // Electronic hi-hat on off-beats
+          if (step % 2 === 1) {
+            const hat = ctx.createOscillator();
+            const hatGain = ctx.createGain();
+            hat.type = 'square';
+            hat.frequency.setValueAtTime(3200, now);
+            hatGain.gain.setValueAtTime(0.04, now);
+            hatGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+            hat.connect(hatGain);
+            hatGain.connect(this.getMasterOutput());
+            hat.start(now);
+            hat.stop(now + 0.05);
+          }
+        } else if (this.ostMode === 'tension') {
+          // Low tension pulse heartbeat on steps 0 and 8
+          if (step === 0 || step === 8) {
+            const pulse = ctx.createOscillator();
+            const pulseGain = ctx.createGain();
+            pulse.type = 'sine';
+            pulse.frequency.setValueAtTime(52, now);
+            pulse.frequency.exponentialRampToValueAtTime(38, now + 0.25);
+            pulseGain.gain.setValueAtTime(0.18, now);
+            pulseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+            pulse.connect(pulseGain);
+            pulseGain.connect(this.getMasterOutput());
+            pulse.start(now);
+            pulse.stop(now + 0.36);
+          }
+        }
+      } catch {}
+    }, stepInterval);
+  }
+
   public stopAmbient(): void {
+    if (this.ostTimer) {
+      clearInterval(this.ostTimer);
+      this.ostTimer = null;
+    }
     if (this.ambientGain && this.ctx) {
       try {
         this.ambientGain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 1.0);
@@ -502,6 +978,14 @@ export function useGameplayAudio() {
     }
   }, []);
 
+  const setBulletTimeAudio = useCallback((active: boolean) => {
+    soundEngine.setBulletTime(active);
+  }, []);
+
+  const setAdaptiveMusic = useCallback((mode: 'ambient' | 'tension' | 'combat' | 'victory') => {
+    soundEngine.setAdaptiveOST(mode);
+  }, []);
+
   useEffect(() => () => {
     for (const audio of activeAudioRef.current) {
       audio.pause();
@@ -511,5 +995,5 @@ export function useGameplayAudio() {
     soundEngine.stopAmbient();
   }, []);
 
-  return { playCue };
+  return { playCue, setBulletTimeAudio, setAdaptiveMusic };
 }

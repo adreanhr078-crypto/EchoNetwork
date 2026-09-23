@@ -30,6 +30,7 @@ import { RoomAtmosphere } from './RoomAtmosphere';
 import { RoomLighting } from './RoomLighting';
 import { WakeCapsuleModel } from './WakeCapsuleModel';
 import { StasisMonsterModel } from './StasisMonsterModel';
+import { SubstationTerminal } from './SubstationTerminal';
 import { DigitalClock, TornPhoto } from './OpeningEvidenceProps';
 import { OPENING_ROOM_ANCHORS, anchorTuple } from '../data/openingRoom.anchors';
 
@@ -48,10 +49,17 @@ export interface OpeningRoomProps {
   onMonsterHpChange?: (currentHp: number, maxHp: number) => void;
   onMonsterAttack?: (damage: number) => void;
   onMonsterDefeated?: () => void;
+  onPhaseChange?: (phase: 1 | 2) => void;
+  onShockwave?: (pos: Vector3, radius: number) => void;
+  onStaggerChange?: (isStaggered: boolean) => void;
+  onSlamWindup?: (isWindup: boolean) => void;
   lastHitNonce?: number;
   lastHitDamage?: number;
+  stunNonce?: number;
+  stunDuration?: number;
   combatStudyEnabled?: boolean;
   capsuleOpen?: boolean;
+  substationOverridden?: boolean;
 }
 
 const KATANA_POSITION: [number, number, number] = [9.2, 0.9, -1.5];
@@ -115,9 +123,6 @@ function Cable({
   );
 }
 
-// -------------------------------------------------------------
-// SUSPENDED LIVING CYBERNETIC SPECIMEN (Inside Stasis Tubes)
-// -------------------------------------------------------------
 function StasisPodSpecimen({
   fluidColor,
   isCritical = false,
@@ -1110,10 +1115,17 @@ export function OpeningRoom({
   onMonsterHpChange,
   onMonsterAttack,
   onMonsterDefeated,
+  onPhaseChange,
+  onShockwave,
+  onStaggerChange,
+  onSlamWindup,
   lastHitNonce = 0,
   lastHitDamage = 0,
+  stunNonce = 0,
+  stunDuration = 2.0,
   combatStudyEnabled = false,
   capsuleOpen = true,
+  substationOverridden = false,
 }: OpeningRoomProps) {
   const visualQuality = OPENING_ROOM_VISUAL_QUALITY[quality];
 
@@ -1165,7 +1177,6 @@ export function OpeningRoom({
       <UltraStasisPod position={[-3.6, 0, 5.0]} label="EX-002" fluidColor="#00f0ff" />
       <UltraStasisPod position={[-3.6, 0, 0.0]} label="EX-003" fluidColor="#ff8800" isCritical={true} />
       <UltraStasisPod position={[-3.6, 0, -5.0]} label="EX-004" fluidColor="#00f0ff" />
-
       {/* 4. Sub-Chamber Beta: Corrupted Ruptured Pods */}
       <UltraStasisPod position={[11.5, 0, 2.0]} label="EX-007" fluidColor="#ff2255" isCritical={true} />
       <UltraStasisPod position={[11.5, 0, -2.0]} label="EX-008" fluidColor="#ff0033" isCritical={true} />
@@ -1192,14 +1203,19 @@ export function OpeningRoom({
           onMonsterHpChange={onMonsterHpChange}
           onMonsterAttack={onMonsterAttack}
           onMonsterDefeated={onMonsterDefeated}
+          onPhaseChange={onPhaseChange}
+          onShockwave={onShockwave}
+          onStaggerChange={onStaggerChange}
+          onSlamWindup={onSlamWindup}
           lastHitNonce={lastHitNonce}
           lastHitDamage={lastHitDamage}
+          stunNonce={stunNonce}
+          stunDuration={stunDuration}
         />
       </group>}
 
       {/* 6. End Monument: 5-Meter Quarantine Blast Vault at z = -14.5 */}
       <QuarantineBlastVault isBreached={breachProgress > 0.8} />
-
       {/* 7. Tactical Cyber-Katana Weapon Supply Crate */}
       {combatStudyEnabled && <CyberKatanaPickup
         hasWeapon={hasWeapon}
@@ -1207,6 +1223,12 @@ export function OpeningRoom({
         onPickup={onPickupWeapon}
       />}
 
+      {/* 7.5. Auxiliary Power Substation Terminal (Sector 11 Stage 11.4) */}
+      <SubstationTerminal
+        position={[9.5, 0, 2.0]}
+        isOverridden={substationOverridden}
+        focused={focusedInteractionId === 'opening-substation'}
+      />
 
       {/* 8. Room Atmosphere: Floating Dust, Nitrogen Fog, Flickering LED lights */}
       <RoomAtmosphere quality={quality} visualEvent={visualEvent} />

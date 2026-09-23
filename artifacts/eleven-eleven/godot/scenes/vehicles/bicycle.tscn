@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/vehicles/rideable_vehicle.gd" id="1_vehicle"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interact"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bike_col"]
+size = Vector3(0.5, 1.1, 1.8)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_frame_tube"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+albedo_color = Color(0.18, 0.45, 0.72, 1)
+metallic = 0.6
+roughness = 0.35
+
+[sub_resource type="TorusMesh" id="TorusMesh_wheel"]
+inner_radius = 0.28
+outer_radius = 0.34
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tire"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_basket"]
+size = Vector3(0.38, 0.24, 0.28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_basket"]
+albedo_color = Color(0.85, 0.86, 0.88, 1)
+metallic = 0.8
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_saddle"]
+size = Vector3(0.22, 0.08, 0.26)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saddle"]
+albedo_color = Color(0.15, 0.14, 0.13, 1)
+roughness = 0.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_interact"]
+radius = 2.2
+
+[node name="Bicycle" type="CharacterBody3D"]
+script = ExtResource("1_vehicle")
+vehicle_type = 0
+vehicle_name = "Mamachari Bicycle // ママチャリ"
+max_speed = 9.5
+acceleration = 8.5
+turn_speed = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+shape = SubResource("BoxShape3D_bike_col")
+
+[node name="FrameRoot" type="Node3D" parent="."]
+
+[node name="TopTube" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0.75, 0)
+mesh = SubResource("CylinderMesh_frame_tube")
+surface_material_override/0 = SubResource("StandardMaterial3D_frame")
+
+[node name="DownTube" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.5, 0.1)
+mesh = SubResource("CylinderMesh_frame_tube")
+surface_material_override/0 = SubResource("StandardMaterial3D_frame")
+
+[node name="FrontWheel" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.35, -0.65)
+mesh = SubResource("TorusMesh_wheel")
+surface_material_override/0 = SubResource("StandardMaterial3D_tire")
+
+[node name="RearWheel" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.35, 0.65)
+mesh = SubResource("TorusMesh_wheel")
+surface_material_override/0 = SubResource("StandardMaterial3D_tire")
+
+[node name="FrontBasket" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, -0.72)
+mesh = SubResource("BoxMesh_basket")
+surface_material_override/0 = SubResource("StandardMaterial3D_basket")
+
+[node name="Saddle" type="MeshInstance3D" parent="FrameRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82, 0.25)
+mesh = SubResource("BoxMesh_saddle")
+surface_material_override/0 = SubResource("StandardMaterial3D_saddle")
+
+[node name="VehicleInteractable" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("2_interact")
+verb = 7
+prompt_target_name = "Mamachari Bicycle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleInteractable"]
+shape = SubResource("SphereShape3D_interact")

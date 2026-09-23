@@ -1,0 +1,449 @@
+[gd_scene load_steps=37 format=3]
+
+[ext_resource type="Script" path="res://scripts/environment/minato_kasumi_alleyway.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/props/hospital_sliding_doors.tscn" id="2_doors"]
+[ext_resource type="Script" path="res://scripts/props/minato_vending_machine.gd" id="3_vending_script"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="4_interact"]
+[ext_resource type="PackedScene" path="res://scenes/props/residential_house.tscn" id="5_house"]
+[ext_resource type="PackedScene" path="res://scenes/characters/minato_npc.tscn" id="6_npc"]
+[ext_resource type="PackedScene" path="res://scenes/props/konbini_store.tscn" id="7_konbini"]
+[ext_resource type="PackedScene" path="res://scenes/props/echo_residence.tscn" id="8_echo_house"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/bicycle.tscn" id="9_bicycle"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/moped.tscn" id="10_moped"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/skateboard.tscn" id="11_skate"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/kei_car.tscn" id="12_car"]
+
+
+[sub_resource type="BoxMesh" id="BoxMesh_hospital_floor"]
+size = Vector3(8.0, 0.2, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hosp_floor"]
+albedo_color = Color(0.9, 0.89, 0.86, 1)
+roughness = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_hospital_wall"]
+size = Vector3(0.4, 4.0, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hosp_wall"]
+albedo_color = Color(0.92, 0.94, 0.95, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_hospital_facade"]
+size = Vector3(12.0, 5.0, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_facade"]
+albedo_color = Color(0.85, 0.88, 0.9, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_exit_sign"]
+size = Vector3(0.6, 0.25, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exit_sign"]
+albedo_color = Color(0.1, 0.8, 0.3, 1)
+emission_enabled = true
+emission = Color(0.1, 0.85, 0.35, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_road"]
+size = Vector3(36.0, 0.2, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_road"]
+albedo_color = Color(0.13, 0.14, 0.16, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_sidewalk"]
+size = Vector3(36.0, 0.3, 3.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sidewalk"]
+albedo_color = Color(0.65, 0.67, 0.69, 1)
+roughness = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_paint_line"]
+size = Vector3(36.0, 0.22, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paint"]
+shading_mode = 0
+albedo_color = Color(0.95, 0.95, 0.92, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_crosswalk_stripe"]
+size = Vector3(0.6, 0.22, 3.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_seawall"]
+size = Vector3(36.0, 1.4, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seawall"]
+albedo_color = Color(0.38, 0.41, 0.44, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ocean"]
+size = Vector2(120.0, 80.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocean"]
+albedo_color = Color(0.03, 0.12, 0.18, 1)
+metallic = 0.3
+roughness = 0.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pole"]
+top_radius = 0.12
+bottom_radius = 0.15
+height = 6.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pole"]
+albedo_color = Color(0.28, 0.3, 0.32, 1)
+metallic = 0.5
+roughness = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_transformer"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 1.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_transformer"]
+albedo_color = Color(0.2, 0.24, 0.28, 1)
+metallic = 0.7
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_distant_building"]
+size = Vector3(10.0, 14.0, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_distant"]
+albedo_color = Color(0.25, 0.28, 0.32, 1)
+roughness = 0.95
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trigger"]
+size = Vector3(5.0, 3.0, 4.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_col"]
+size = Vector3(36.0, 1.4, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vending"]
+size = Vector3(1.2, 2.0, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vending"]
+albedo_color = Color(0.18, 0.22, 0.32, 1)
+metallic = 0.6
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_vending_panel"]
+size = Vector3(0.95, 0.8, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vending_panel"]
+shading_mode = 0
+albedo_color = Color(0.2, 0.9, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vending_col"]
+size = Vector3(1.2, 2.0, 0.9)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vending_interact"]
+radius = 2.2
+
+[node name="MinatoKasumiAlleyway" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="HospitalZone" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="HospitalFloor" type="MeshInstance3D" parent="HospitalZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_hospital_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_hosp_floor")
+
+[node name="HospitalWallLeft" type="MeshInstance3D" parent="HospitalZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+mesh = SubResource("BoxMesh_hospital_wall")
+surface_material_override/0 = SubResource("StandardMaterial3D_hosp_wall")
+
+[node name="HospitalWallRight" type="MeshInstance3D" parent="HospitalZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+mesh = SubResource("BoxMesh_hospital_wall")
+surface_material_override/0 = SubResource("StandardMaterial3D_hosp_wall")
+
+[node name="HospitalFacade" type="MeshInstance3D" parent="HospitalZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 3.8)
+mesh = SubResource("BoxMesh_hospital_facade")
+surface_material_override/0 = SubResource("StandardMaterial3D_facade")
+
+[node name="ExitSign" type="MeshInstance3D" parent="HospitalZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 3.6)
+mesh = SubResource("BoxMesh_exit_sign")
+surface_material_override/0 = SubResource("StandardMaterial3D_exit_sign")
+
+[node name="HospitalSlidingDoors" parent="HospitalZone" instance=ExtResource("2_doors")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8)
+
+[node name="Sidewalk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -3.2)
+mesh = SubResource("BoxMesh_sidewalk")
+surface_material_override/0 = SubResource("StandardMaterial3D_sidewalk")
+
+[node name="RoadAsphalt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 1.8)
+mesh = SubResource("BoxMesh_road")
+surface_material_override/0 = SubResource("StandardMaterial3D_road")
+
+[node name="RoadWhiteLineSide" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, -1.8)
+mesh = SubResource("BoxMesh_paint_line")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="RoadWhiteLineCenter" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 1.8)
+mesh = SubResource("BoxMesh_paint_line")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Crosswalk" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, -0.08, 1.8)
+
+[node name="Stripe1" type="MeshInstance3D" parent="Crosswalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 0)
+mesh = SubResource("BoxMesh_crosswalk_stripe")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Stripe2" type="MeshInstance3D" parent="Crosswalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
+mesh = SubResource("BoxMesh_crosswalk_stripe")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Stripe3" type="MeshInstance3D" parent="Crosswalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_crosswalk_stripe")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Stripe4" type="MeshInstance3D" parent="Crosswalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+mesh = SubResource("BoxMesh_crosswalk_stripe")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Stripe5" type="MeshInstance3D" parent="Crosswalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 0)
+mesh = SubResource("BoxMesh_crosswalk_stripe")
+surface_material_override/0 = SubResource("StandardMaterial3D_paint")
+
+[node name="Seawall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 5.8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Seawall"]
+mesh = SubResource("BoxMesh_seawall")
+surface_material_override/0 = SubResource("StandardMaterial3D_seawall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seawall"]
+shape = SubResource("BoxShape3D_wall_col")
+
+[node name="OceanSurface" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2, 45)
+mesh = SubResource("PlaneMesh_ocean")
+surface_material_override/0 = SubResource("StandardMaterial3D_ocean")
+
+[node name="UtilityPole" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.2)
+
+[node name="Pole" type="MeshInstance3D" parent="UtilityPole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+mesh = SubResource("CylinderMesh_pole")
+surface_material_override/0 = SubResource("StandardMaterial3D_pole")
+
+[node name="Transformer" type="MeshInstance3D" parent="UtilityPole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+mesh = SubResource("CylinderMesh_transformer")
+surface_material_override/0 = SubResource("StandardMaterial3D_transformer")
+
+[node name="StreetLight" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -4.2)
+
+[node name="StreetLightGlow" type="OmniLight3D" parent="StreetLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0.6)
+light_color = Color(1, 0.85, 0.6, 1)
+light_energy = 3.5
+omni_range = 12.0
+light_volumetric_fog_energy = 2.0
+
+[node name="MinatoVendingMachine" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.1, -4.2)
+script = ExtResource("3_vending_script")
+
+[node name="Body" type="MeshInstance3D" parent="MinatoVendingMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+mesh = SubResource("BoxMesh_vending")
+surface_material_override/0 = SubResource("StandardMaterial3D_vending")
+
+[node name="Panel" type="MeshInstance3D" parent="MinatoVendingMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.48)
+mesh = SubResource("BoxMesh_vending_panel")
+surface_material_override/0 = SubResource("StandardMaterial3D_vending_panel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MinatoVendingMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+shape = SubResource("BoxShape3D_vending_col")
+
+[node name="VendingGlow" type="OmniLight3D" parent="MinatoVendingMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.8)
+light_color = Color(0.2, 0.9, 1, 1)
+light_energy = 2.4
+omni_range = 3.5
+
+[node name="VendingInteractable" type="Area3D" parent="MinatoVendingMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0.6)
+script = ExtResource("4_interact")
+verb = 2
+prompt_target_name = "Vending Machine"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MinatoVendingMachine/VendingInteractable"]
+shape = SubResource("SphereShape3D_vending_interact")
+
+[node name="ResidentialHouse" parent="." instance=ExtResource("5_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0, 0.1, -4.5)
+
+[node name="DistantCityWest" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0, 7.0, -2.0)
+mesh = SubResource("BoxMesh_distant_building")
+surface_material_override/0 = SubResource("StandardMaterial3D_distant")
+
+[node name="DistantCityEast" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0, 7.0, -2.0)
+mesh = SubResource("BoxMesh_distant_building")
+surface_material_override/0 = SubResource("StandardMaterial3D_distant")
+
+[node name="EmergenceTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -4.0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EmergenceTrigger"]
+shape = SubResource("BoxShape3D_trigger")
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="NurseAoi" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -1.8, 0.1, -3.2)
+npc_id = "NPC_AOI_01"
+display_name = "Nurse Aoi Tanaka"
+role = "Hospital Outpatient Nurse"
+current_activity = "Exiting hospital shift and heading home"
+
+[node name="ResidentDaiki" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 8.5, 0.1, -3.2)
+npc_id = "NPC_DAIKI_02"
+display_name = "Daiki Yamada"
+role = "Local Resident"
+current_activity = "Evening stroll near Sato residence"
+schedule_phase = 1
+dialogue_lines = [
+	"Evening! Mind the curb, the sea breeze gets chilly after sundown.",
+	"Lived in Minato-Kasumi for twenty years. Peaceful town, nothing ever happens here.",
+	"If you're looking for Sato-san, their doorbell is right there by the door."
+]
+
+[node name="CommuterRen" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.0, 0.0, 0.5)
+npc_id = "NPC_REN_03"
+display_name = "Ren Takahashi"
+role = "Seaside Commuter"
+current_activity = "Crossing to the coastal tram line"
+schedule_phase = 2
+dialogue_lines = [
+	"Excuse me, just heading to the tram stop.",
+	"Train's delayed again down the line, so I'm taking the coastal walk.",
+	"Cold wind coming off the water tonight."
+]
+
+[node name="GrandmaHaruko" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.1, -3.2)
+npc_id = "NPC_HARUKO_05"
+display_name = "Haruko Kobayashi"
+role = "Elderly Resident & Gardener"
+current_activity = "Tending garden pots outside residence"
+schedule_phase = 1
+dialogue_lines = [
+	"The evening air does wonders for the hydrangeas.",
+	"Mind the bicycles along the alleyway, dearie.",
+	"If you visit Kasumi Mart, say hello to Hana-chan for me."
+]
+
+[node name="StudentKenji" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -9.0, 0.1, -3.2)
+npc_id = "NPC_KENJI_06"
+display_name = "Kenji Sato"
+role = "High School Student"
+current_activity = "Walking to Kasumi Mart after cram school"
+schedule_phase = 2
+dialogue_lines = [
+	"Cram school was brutal today. Gotta grab an energy drink from Kasumi Mart.",
+	"Did you hear the waves earlier? High tide is coming in."
+]
+
+[node name="CourierTakuya" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.5, 0.0, 1.2)
+npc_id = "NPC_TAKUYA_07"
+display_name = "Takuya Endo"
+role = "Yamato Express Courier"
+current_activity = "Delivering parcels across the residential block"
+schedule_phase = 1
+dialogue_lines = [
+	"Just three more parcels for the 2-Chome residential block!",
+	"Sato-san's house is 4-1, delivery for Dr. Sato."
+]
+
+[node name="JoggerMai" parent="NPCs" instance=ExtResource("6_npc")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 10.0, 0.0, 3.8)
+npc_id = "NPC_MAI_08"
+display_name = "Mai Suzuki"
+role = "Coastal Jogger"
+current_activity = "Evening jog along the seawall"
+schedule_phase = 1
+dialogue_lines = [
+	"Three kilometers done! The sea breeze keeps me going.",
+	"Evening run along the seawall is the best part of the day."
+]
+
+[node name="Households" type="Node3D" parent="."]
+
+[node name="HouseTanaka" parent="Households" instance=ExtResource("5_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.1, -4.5)
+household_id = "HOUSE_002"
+address = "Minato-Kasumi 2-Chome 4-3"
+resident_name = "Aoi Tanaka"
+is_resident_home = false
+
+[node name="HouseYamada" parent="Households" instance=ExtResource("5_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0, 0.1, -4.5)
+household_id = "HOUSE_003"
+address = "Minato-Kasumi 2-Chome 5-2"
+resident_name = "Daiki Yamada"
+is_resident_home = false
+
+[node name="HouseTakahashi" parent="Households" instance=ExtResource("5_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.1, -4.5)
+household_id = "HOUSE_004"
+address = "Minato-Kasumi 2-Chome 5-5"
+resident_name = "Ren Takahashi"
+is_resident_home = false
+
+[node name="HouseKobayashi" parent="Households" instance=ExtResource("5_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0, 0.1, -4.5)
+household_id = "HOUSE_005"
+address = "Minato-Kasumi 2-Chome 6-1"
+resident_name = "Haruko Kobayashi"
+is_resident_home = true
+
+[node name="KonbiniStore" parent="." instance=ExtResource("7_konbini")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0, 0.1, -5.5)
+
+[node name="EchoResidence" parent="." instance=ExtResource("8_echo_house")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.0, 0.1, -4.5)
+
+[node name="Vehicles" type="Node3D" parent="."]
+
+[node name="BicycleResidence" parent="Vehicles" instance=ExtResource("9_bicycle")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 38.5, 0.2, -3.2)
+
+[node name="BicycleKonbini" parent="Vehicles" instance=ExtResource("9_bicycle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, 0.2, -3.8)
+
+[node name="KasumiMoped" parent="Vehicles" instance=ExtResource("10_moped")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.0, 0.2, -2.8)
+
+[node name="StreetSkateboard" parent="Vehicles" instance=ExtResource("11_skate")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 39.5, 0.15, -2.5)
+
+[node name="KeiCar" parent="Vehicles" instance=ExtResource("12_car")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0, 0.2, 1.5)
+
+

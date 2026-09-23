@@ -37,8 +37,8 @@ export function ScreenBreakRuntime({
   const soundsEnabled = useUiPreferencesStore(state => state.audioEnabled);
   const locale = useUiPreferencesStore((state) => state.locale);
   const copy = locale === 'ar'
-    ? { label: 'انتقال إلى عمق النظام', layer: 'طبقة الواجهة تتشظّى', channel: 'القناة العميقة مفتوحة', skip: 'تجاوز المشهد' }
-    : { label: 'Transitioning into system depth', layer: 'Interface layer fracturing', channel: 'Depth channel open', skip: 'Skip cinematic' };
+    ? { label: 'انتقال إلى عمق النظام', layer: 'طبقة الواجهة تتشظّى', channel: 'القناة العميقة مفتوحة', skip: 'تجاوز المشهد ❯❯' }
+    : { label: 'Transitioning into system depth', layer: 'Interface layer fracturing', channel: 'Depth channel open', skip: 'Skip ❯❯' };
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -106,13 +106,15 @@ export function ScreenBreakRuntime({
           poster={posterUrl}
           muted={!soundsEnabled}
           playsInline
-          controls={!fracturing}
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
           onPlaying={() => setPlayback('playing')}
           onPause={() => setPlayback(current => current === 'error' ? current : 'paused')}
           onWaiting={() => setPlayback('loading')}
           onEnded={finish}
           onError={() => { playbackAttemptRef.current += 1; setPlayback('error'); }}
-          style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}
         />
       )}
       {fracturing && !reducedMotion && <div className="screen-break-runtime__fracture" aria-hidden="true" style={boardRect ? { inset: 'auto', left: boardRect.left, top: boardRect.top, width: boardRect.width, height: boardRect.height, overflow: 'visible' } : undefined}>

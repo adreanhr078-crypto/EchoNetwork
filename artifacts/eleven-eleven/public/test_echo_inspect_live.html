@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Echo Model Direct Test</title>
+  <style>
+    body { margin: 0; background: #010407; overflow: hidden; }
+    canvas { width: 100vw; height: 100vh; display: block; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/node_modules/three/build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader.js": "/node_modules/three/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#010407');
+
+    const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.08, 42);
+    // OTS Camera behind Echo looking forward:
+    camera.position.set(0.36, 1.45, 2.6);
+    camera.lookAt(0, 1.15, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.88;
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Floor grid
+    const grid = new THREE.GridHelper(20, 20, 0x00f0ff, 0x112233);
+    grid.position.y = 0;
+    scene.add(grid);
+
+    // Balanced Lighting
+    const ambient = new THREE.AmbientLight('#ffffff', 0.6);
+    scene.add(ambient);
+    const sun = new THREE.DirectionalLight('#e0f2fe', 2.4);
+    sun.position.set(4, 5.5, 6);
+    scene.add(sun);
+    const fill = new THREE.PointLight('#00f0ff', 2.5, 12, 2);
+    fill.position.set(0, 3, 2);
+    scene.add(fill);
+
+    const loader = new GLTFLoader();
+    loader.load('/assets/characters/echo.glb', (gltf) => {
+      const model = gltf.scene;
+      model.position.set(0, 0, 0);
+      model.scale.set(1.82, 1.82, 1.82);
+      scene.add(model);
+
+      const box = new THREE.Box3().setFromObject(model);
+      const size = box.getSize(new THREE.Vector3());
+
+      const mixer = new THREE.AnimationMixer(model);
+      const idle = gltf.animations.find(a => a.name === 'IDLE');
+      if (idle) {
+        mixer.clipAction(idle).play();
+      }
+
+      window.__READY__ = {
+        boxMin: box.min.toArray(),
+        boxMax: box.max.toArray(),
+        boxSize: size.toArray(),
+        animations: gltf.animations.map(a => a.name),
+        bones: (() => { const b = []; model.traverse(c => { if (c.isBone) b.push(c.name); }); return b; })()
+      };
+
+      const clock = new THREE.Clock();
+      function animate() {
+        requestAnimationFrame(animate);
+        mixer.update(clock.getDelta());
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>

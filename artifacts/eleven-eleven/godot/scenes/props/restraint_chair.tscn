@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/props/restraint_chair.gd" id="1_chair_script"]
+[ext_resource type="PackedScene" path="res://assets/props/restraint_chair.glb" id="2_chair_glb"]
+
+[node name="RestraintChair" type="Node3D"]
+script = ExtResource("1_chair_script")
+
+[node name="Model" parent="." instance=ExtResource("2_chair_glb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="NeuralSurgeLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+visible = false
+light_color = Color(0.95, 0.1, 0.25, 1)
+light_energy = 4.5
+omni_range = 5.5

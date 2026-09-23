@@ -13,6 +13,7 @@ import {
 
 export interface CombatEffectsHandle {
   triggerHit: (impactPos: Vector3, damage: number, isCrit?: boolean) => void;
+  triggerResonanceWave: (originPos: Vector3, type?: 'pulse' | 'dodge_surge') => void;
 }
 
 interface DamageNumberData {
@@ -26,6 +27,7 @@ interface DamageNumberData {
   damage: number;
   isCrit: boolean;
   age: number; // 0 to 1
+  customText?: string;
 }
 
 interface ImpactRingData {
@@ -35,6 +37,10 @@ interface ImpactRingData {
   z: number;
   radius: number;
   opacity: number;
+  color?: string;
+  expansionSpeed?: number;
+  fadeSpeed?: number;
+  thickness?: number;
 }
 
 interface HitSparkData {
@@ -107,6 +113,67 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
         });
       }
     },
+
+    triggerResonanceWave: (originPos: Vector3, type: 'pulse' | 'dodge_surge' = 'pulse') => {
+      const id = nextIdRef.current++;
+      const isPulse = type === 'pulse';
+      const ringColor = isPulse ? '#00f0ff' : '#ffaa00';
+
+      // 1. Expanding Sonic/Resonance Ring
+      ringsRef.current.push({
+        id,
+        x: originPos.x,
+        y: originPos.y + 0.08,
+        z: originPos.z,
+        radius: 0.25,
+        opacity: 0.95,
+        color: ringColor,
+        expansionSpeed: isPulse ? 13.5 : 7.5,
+        fadeSpeed: isPulse ? 1.35 : 1.7,
+        thickness: isPulse ? 0.16 : 0.22,
+      });
+
+      // 2. Radiating Energy Particle Halo
+      const sparkColors = isPulse
+        ? ['#00f0ff', '#38bdf8', '#ffffff']
+        : ['#ffaa00', '#ffd700', '#ffffff'];
+
+      for (let i = 0; i < 18; i++) {
+        const angle = (i / 18) * Math.PI * 2 + (Math.random() * 0.2 - 0.1);
+        const speed = isPulse ? 4.0 + Math.random() * 3.0 : 2.8 + Math.random() * 2.2;
+        sparksRef.current.push({
+          id: nextIdRef.current++,
+          x: originPos.x,
+          y: originPos.y + 0.12,
+          z: originPos.z,
+          vx: Math.cos(angle) * speed,
+          vy: 0.4 + Math.random() * 0.8,
+          vz: Math.sin(angle) * speed,
+          scale: 0.055 + Math.random() * 0.035,
+          color: sparkColors[i % sparkColors.length],
+        });
+      }
+
+      // 3. 3D Floating Notification for Perfect Dodge Surge
+      if (!isPulse) {
+        setDamageItems((prev) => [
+          ...prev.slice(-10),
+          {
+            id: nextIdRef.current++,
+            x: originPos.x,
+            y: originPos.y + 1.2,
+            z: originPos.z,
+            vx: 0,
+            vy: 1.5,
+            vz: 0,
+            damage: 0,
+            isCrit: true,
+            age: 0,
+            customText: '⚡ PERFECT DODGE // 3x SURGE',
+          },
+        ]);
+      }
+    },
   }));
 
   useFrame((_, delta) => {
@@ -129,8 +196,10 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
     const rings = ringsRef.current;
     for (let i = rings.length - 1; i >= 0; i--) {
       const ring = rings[i];
-      ring.radius += delta * 4.8;
-      ring.opacity -= delta * 3.8;
+      const speed = ring.expansionSpeed ?? 4.8;
+      const fade = ring.fadeSpeed ?? 3.8;
+      ring.radius += delta * speed;
+      ring.opacity -= delta * fade;
       if (ring.opacity <= 0) {
         rings.splice(i, 1);
       }
@@ -179,7 +248,7 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
                 anchorX="center"
                 anchorY="middle"
               >
-                {item.damage}{item.isCrit ? ' CRIT!' : ''}
+                {item.customText || `${item.damage}${item.isCrit ? ' CRIT!' : ''}`}
               </Text>
             </Billboard>
 
@@ -193,11 +262,13 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
                 style={{
                   fontFamily: "'Space Grotesk', system-ui, sans-serif",
                   fontWeight: 900,
-                  fontSize: item.isCrit ? '32px' : '24px',
-                  color: item.isCrit ? '#ff0055' : '#ffaa00',
-                  textShadow: item.isCrit
-                    ? '0 0 16px #ff0055, 0 0 4px #ffffff, 0 2px 4px #000000'
-                    : '0 0 10px #ff7700, 0 2px 4px #000000',
+                  fontSize: item.customText ? '18px' : (item.isCrit ? '32px' : '24px'),
+                  color: item.customText ? '#ffaa00' : (item.isCrit ? '#ff0055' : '#ffaa00'),
+                  textShadow: item.customText
+                    ? '0 0 16px #ffaa00, 0 0 4px #ffffff, 0 2px 4px #000000'
+                    : item.isCrit
+                      ? '0 0 16px #ff0055, 0 0 4px #ffffff, 0 2px 4px #000000'
+                      : '0 0 10px #ff7700, 0 2px 4px #000000',
                   letterSpacing: '0.05em',
                   userSelect: 'none',
                   pointerEvents: 'none',
@@ -207,21 +278,27 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
                   transition: 'opacity 0.05s ease-out',
                 }}
               >
-                {item.damage}
-                {item.isCrit && (
-                  <span
-                    style={{
-                      fontSize: '14px',
-                      marginLeft: '4px',
-                      color: '#ffffff',
-                      background: '#ff0055',
-                      padding: '2px 5px',
-                      borderRadius: '3px',
-                      verticalAlign: 'middle',
-                    }}
-                  >
-                    CRIT
-                  </span>
+                {item.customText ? (
+                  item.customText
+                ) : (
+                  <>
+                    {item.damage}
+                    {item.isCrit && (
+                      <span
+                        style={{
+                          fontSize: '14px',
+                          marginLeft: '4px',
+                          color: '#ffffff',
+                          background: '#ff0055',
+                          padding: '2px 5px',
+                          borderRadius: '3px',
+                          verticalAlign: 'middle',
+                        }}
+                      >
+                        CRIT
+                      </span>
+                    )}
+                  </>
                 )}
               </div>
             </Html>
@@ -236,9 +313,9 @@ export const CombatEffects = forwardRef<CombatEffectsHandle>((_, ref) => {
           position={[ring.x, ring.y, ring.z]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
-          <ringGeometry args={[ring.radius, ring.radius + 0.06, 24]} />
+          <ringGeometry args={[ring.radius, ring.radius + (ring.thickness ?? 0.06), 28]} />
           <meshBasicMaterial
-            color="#ff0055"
+            color={ring.color ?? '#ff0055'}
             transparent
             opacity={ring.opacity}
             side={DoubleSide}

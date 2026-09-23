@@ -419,6 +419,47 @@
 .screen-break-runtime__hud { position: absolute; inset: 50% auto auto 50%; display: grid; justify-items: center; gap: .35rem; transform: translate(-50%, -50%); color: #e8fbff; text-align: center; text-shadow: 0 0 1.6rem rgb(87 231 255 / 55%); pointer-events: none; }
 .screen-break-runtime__hud small { color: #57e7ff; font: 600 .62rem var(--gds-font-mono); letter-spacing: .16em; }
 .screen-break-runtime__hud strong { font: 700 clamp(3rem, 12vw, 8rem) var(--gds-font-mono); line-height: .9; }
-.screen-break-runtime__hud span { color: rgb(220 242 247 / 75%); font: 600 .7rem var(--gds-font-mono); letter-spacing: .12em; }
-.screen-break-runtime__skip { position: absolute; inset: 1.2rem 1.2rem auto auto; min-height: 44px; padding: 0 .75rem; border: 1px solid rgb(87 231 255 / 36%); color: #dffaff; background: rgb(1 7 11 / 72%); cursor: pointer; }
-.screen-break-runtime__skip:hover, .screen-break-runtime__skip:focus-visible { border-color: #57e7ff; outline: none; box-shadow: 0 0 1rem rgb(87 231 255 / 18%); }
+.screen-break-runtime__skip {
+  position: absolute;
+  top: max(1.2rem, env(safe-area-inset-top, 1.2rem));
+  right: max(1.5rem, env(safe-area-inset-right, 1.5rem));
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(244, 211, 140, 0.45);
+  color: #fdfaf3;
+  font-family: var(--gds-font-ui, system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: rgba(12, 16, 24, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(244, 211, 140, 0.12);
+  cursor: pointer;
+  z-index: 100;
+  transition: all 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  user-select: none;
+}
+.screen-break-runtime__skip:hover {
+  background: rgba(26, 32, 48, 0.88);
+  border-color: rgba(244, 211, 140, 0.9);
+  color: #fff;
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(244, 211, 140, 0.35);
+}
+.screen-break-runtime__skip:active {
+  transform: translateY(0) scale(0.98);
+}
+.screen-break-runtime__skip:focus-visible {
+  outline: 2px solid #62eaff;
+  outline-offset: 2px;
+}
+[dir="rtl"] .screen-break-runtime__skip {
+  right: auto;
+  left: max(1.5rem, env(safe-area-inset-left, 1.5rem));
+}

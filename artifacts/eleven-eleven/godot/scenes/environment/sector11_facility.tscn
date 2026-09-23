@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/environment/blast_gate.tscn" id="1_gate"]
+[ext_resource type="PackedScene" path="res://scenes/environment/substation_terminal.tscn" id="2_sub_terminal"]
+[ext_resource type="PackedScene" path="res://scenes/props/server_rack.tscn" id="3_server_rack"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_catwalk"]
+size = Vector3(48, 0.4, 48)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_catwalk"]
+albedo_color = Color(0.03, 0.04, 0.06, 1)
+metallic = 0.85
+roughness = 0.28
+
+[sub_resource type="BoxMesh" id="BoxMesh_conduit"]
+size = Vector3(48, 0.05, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_conduit"]
+albedo_color = Color(0, 0.94, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.94, 1, 1)
+emission_energy_multiplier = 3.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pipe"]
+top_radius = 0.22
+bottom_radius = 0.22
+height = 48.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pipe"]
+albedo_color = Color(0.12, 0.14, 0.18, 1)
+metallic = 0.9
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_terminal"]
+size = Vector3(1.4, 2.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_terminal"]
+albedo_color = Color(0.02, 0.03, 0.05, 1)
+metallic = 0.8
+roughness = 0.4
+
+[sub_resource type="QuadMesh" id="QuadMesh_screen"]
+size = Vector2(1.1, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_screen"]
+albedo_color = Color(0.01, 0.08, 0.12, 1)
+emission_enabled = true
+emission = Color(0, 0.94, 1, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_steam"]
+direction = Vector3(0, 1, 0)
+spread = 25.0
+initial_velocity_min = 0.8
+initial_velocity_max = 1.6
+gravity = Vector3(0, 0.2, 0)
+scale_min = 0.2
+scale_max = 0.6
+color = Color(0.8, 0.95, 1, 0.25)
+
+[sub_resource type="SphereMesh" id="SphereMesh_particle"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_sub_catwalk"]
+size = Vector3(14, 0.4, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_server_rack"]
+size = Vector3(1.2, 3.8, 2.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_server"]
+albedo_color = Color(0.02, 0.025, 0.04, 1)
+metallic = 0.85
+roughness = 0.35
+emission_enabled = true
+emission = Color(0, 0.85, 1, 1)
+emission_energy_multiplier = 0.25
+
+[node name="Sector11Facility" type="Node3D"]
+
+[node name="CatwalkFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_catwalk")
+surface_material_override/0 = SubResource("StandardMaterial3D_catwalk")
+
+[node name="CyanConduitLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -8)
+mesh = SubResource("BoxMesh_conduit")
+surface_material_override/0 = SubResource("StandardMaterial3D_conduit")
+
+[node name="CyanConduitRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 8)
+mesh = SubResource("BoxMesh_conduit")
+surface_material_override/0 = SubResource("StandardMaterial3D_conduit")
+
+[node name="CryoPipeNorth" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -16, 4, 0)
+mesh = SubResource("CylinderMesh_pipe")
+surface_material_override/0 = SubResource("StandardMaterial3D_pipe")
+
+[node name="CryoPipeSouth" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 16, 4, 0)
+mesh = SubResource("CylinderMesh_pipe")
+surface_material_override/0 = SubResource("StandardMaterial3D_pipe")
+
+[node name="CryoSteamParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4.2, 0)
+amount = 16
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_steam")
+draw_pass_1 = SubResource("SphereMesh_particle")
+
+[node name="SectorTerminal" type="Node3D" parent="."]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -5.5, 0, 5.5)
+
+[node name="TerminalHousing" type="MeshInstance3D" parent="SectorTerminal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_terminal")
+surface_material_override/0 = SubResource("StandardMaterial3D_terminal")
+
+[node name="TerminalScreen" type="MeshInstance3D" parent="SectorTerminal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.11)
+mesh = SubResource("QuadMesh_screen")
+surface_material_override/0 = SubResource("StandardMaterial3D_screen")
+
+[node name="TerminalLight" type="OmniLight3D" parent="SectorTerminal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.5)
+light_color = Color(0, 0.94, 1, 1)
+light_energy = 1.4
+omni_range = 3.0
+
+[node name="PrimaryBlastGate" parent="." instance=ExtResource("1_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="SubstationExtension" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33)
+
+[node name="CorridorFloor" type="MeshInstance3D" parent="SubstationExtension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_sub_catwalk")
+surface_material_override/0 = SubResource("StandardMaterial3D_catwalk")
+
+[node name="ServerRackLeft" parent="SubstationExtension" instance=ExtResource("3_server_rack")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 0, -5)
+
+[node name="ServerRackRight" parent="SubstationExtension" instance=ExtResource("3_server_rack")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.2, 0, -5)
+
+[node name="SubstationLight" type="OmniLight3D" parent="SubstationExtension"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5)
+light_color = Color(0, 0.85, 1, 1)
+light_energy = 2.0
+omni_range = 14.0
+
+[node name="MainframeTerminal" parent="SubstationExtension" instance=ExtResource("2_sub_terminal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)

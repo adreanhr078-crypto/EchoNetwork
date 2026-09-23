@@ -19,9 +19,17 @@ interface RoomLoaderProps {
   onMonsterHpChange?: (currentHp: number, maxHp: number) => void;
   onMonsterAttack?: (damage: number) => void;
   onMonsterDefeated?: () => void;
+  onPhaseChange?: (phase: 1 | 2) => void;
+  onShockwave?: (pos: Vector3, radius: number) => void;
+  onStaggerChange?: (isStaggered: boolean) => void;
+  onSlamWindup?: (isWindup: boolean) => void;
   lastHitNonce?: number;
   lastHitDamage?: number;
+  stunNonce?: number;
+  stunDuration?: number;
+  combatStudyEnabled?: boolean;
   capsuleOpen?: boolean;
+  substationOverridden?: boolean;
 }
 
 /**
@@ -43,9 +51,17 @@ export function RoomLoader({
   onMonsterHpChange,
   onMonsterAttack,
   onMonsterDefeated,
+  onPhaseChange,
+  onShockwave,
+  onStaggerChange,
+  onSlamWindup,
   lastHitNonce,
   lastHitDamage,
+  stunNonce,
+  stunDuration,
+  combatStudyEnabled = true,
   capsuleOpen,
+  substationOverridden = false,
 }: RoomLoaderProps) {
   if (definition.id === 'opening-lab') {
     return (
@@ -62,9 +78,17 @@ export function RoomLoader({
         onMonsterHpChange={onMonsterHpChange}
         onMonsterAttack={onMonsterAttack}
         onMonsterDefeated={onMonsterDefeated}
+        onPhaseChange={onPhaseChange}
+        onShockwave={onShockwave}
+        onStaggerChange={onStaggerChange}
+        onSlamWindup={onSlamWindup}
         lastHitNonce={lastHitNonce}
         lastHitDamage={lastHitDamage}
+        stunNonce={stunNonce}
+        stunDuration={stunDuration}
+        combatStudyEnabled={combatStudyEnabled}
         capsuleOpen={capsuleOpen}
+        substationOverridden={substationOverridden}
       />
     );
   }

@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/procedural_secondary_motion.gd" id="4_secondary_motion"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_handle"]
+size = Vector3(0.03, 0.24, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_handle"]
+albedo_color = Color(0.04, 0.05, 0.07, 1)
+metallic = 0.5
+roughness = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_tsuba"]
+size = Vector3(0.08, 0.012, 0.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsuba"]
+albedo_color = Color(0.08, 0.1, 0.14, 1)
+metallic = 0.9
+roughness = 0.2
+emission_enabled = true
+emission = Color(0, 0.85, 1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_blade"]
+size = Vector3(0.035, 0.95, 0.008)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blade"]
+albedo_color = Color(0.92, 0.94, 0.98, 1)
+metallic = 0.95
+roughness = 0.15
+emission_enabled = true
+emission = Color(0, 0.9, 1, 1)
+emission_energy_multiplier = 2.2
+
+[sub_resource type="TorusMesh" id="TorusMesh_slash"]
+inner_radius = 1.1
+outer_radius = 1.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slash"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0, 0.94, 1, 0.75)
+emission_enabled = true
+emission = Color(0, 0.94, 1, 1)
+emission_energy_multiplier = 4.0
+
+[node name="KatanaBlade" type="Node3D"]
+
+[node name="Handle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, 0)
+mesh = SubResource("BoxMesh_handle")
+surface_material_override/0 = SubResource("StandardMaterial3D_handle")
+
+[node name="Tsuba" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_tsuba")
+surface_material_override/0 = SubResource("StandardMaterial3D_tsuba")
+
+[node name="Blade" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+mesh = SubResource("BoxMesh_blade")
+surface_material_override/0 = SubResource("StandardMaterial3D_blade")
+
+[node name="BladeGlowLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0, 0.94, 1, 1)
+light_energy = 1.8
+omni_range = 1.5
+
+[node name="SlashArc" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.45, -0.4)
+visible = false
+mesh = SubResource("TorusMesh_slash")
+surface_material_override/0 = SubResource("StandardMaterial3D_slash")
+
+[node name="TasselRoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+script = ExtResource("4_secondary_motion")
+
+[node name="TasselRibbon" type="MeshInstance3D" parent="TasselRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
+mesh = SubResource("BoxMesh_blade")
+surface_material_override/0 = SubResource("StandardMaterial3D_blade")
+

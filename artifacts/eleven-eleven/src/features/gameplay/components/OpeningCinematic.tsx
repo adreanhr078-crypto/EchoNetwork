@@ -42,11 +42,13 @@ export function OpeningCinematic({
   const { camera } = useThree();
   const elapsedRef = useRef(0);
   const completedRef = useRef(false);
+  const previousFrameAtRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (active) {
       elapsedRef.current = 0;
       completedRef.current = false;
+      previousFrameAtRef.current = null;
     }
   }, [active, phase]);
 
@@ -76,11 +78,24 @@ export function OpeningCinematic({
   const lookTarget = useMemo(() => new Vector3(), []);
 
   useFrame((_, frameDelta) => {
-    if (!active || paused || completedRef.current) return;
+    if (!active || completedRef.current) {
+      previousFrameAtRef.current = null;
+      return;
+    }
+    const frameAt = performance.now();
+    if (paused) {
+      previousFrameAtRef.current = frameAt;
+      return;
+    }
+    const previousFrameAt = previousFrameAtRef.current;
+    previousFrameAtRef.current = frameAt;
+    const cinematicDelta = previousFrameAt === null
+      ? Math.min(frameDelta, 0.05)
+      : Math.min(Math.max(frameDelta, (frameAt - previousFrameAt) / 1000), 1.0);
 
     if (phase === 'monster-breach') {
       const duration = reducedMotion ? 2.0 : 5.8;
-      elapsedRef.current += Math.min(frameDelta, 0.05);
+      elapsedRef.current += cinematicDelta;
       const progress = MathUtils.clamp(elapsedRef.current / duration, 0, 1);
       onBreachProgress?.(progress);
 
@@ -123,7 +138,10 @@ export function OpeningCinematic({
     if (!target) return;
 
     const duration = reducedMotion ? 1.5 : 4.6;
-    elapsedRef.current += Math.min(frameDelta, 0.05);
+    // Use visible wall time so a 4.6 s authored handoff does not become a
+    // half-minute sequence on a slow phone. Hidden tabs and paused play do not
+    // advance the timeline.
+    elapsedRef.current += cinematicDelta;
     const progress = MathUtils.clamp(elapsedRef.current / duration, 0, 1);
 
     target.getWorldPosition(targetPosition);

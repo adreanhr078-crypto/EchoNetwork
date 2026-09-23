@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/props/hospital_bed.glb" id="1_bed_model"]
+
+[node name="HospitalBed" type="Node3D"]
+
+[node name="hospital_bed" parent="." instance=ExtResource("1_bed_model")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)

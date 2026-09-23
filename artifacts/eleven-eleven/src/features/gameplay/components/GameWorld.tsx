@@ -56,10 +56,13 @@ import {
   OpeningCinematic,
   OpeningCinematicOverlay,
 } from './OpeningCinematic';
-
+import { FloatingCompanion } from './FloatingCompanion';
+import { GhostTrail } from './GhostTrail';
+import { SubstationMinigame } from './SubstationMinigame';
+import { EchoInternalMonologue, type MonologueEntry } from './EchoInternalMonologue';
+import { getActiveSectorTask, type SectorCombatState } from '../domain/sectorStoryTasks';
 
 export const GLOBALS = { timeScale: 1.0 };
-const OPENING_COMBAT_STUDY_ENABLED = false;
 
 interface GameWorldProps {
   paused: boolean;
@@ -207,7 +210,10 @@ export function GameWorld({
     'wakeup' | 'standup' | 'idle' | null
   >(null);
   const [capsuleOpen, setCapsuleOpen] = useState(() => cinematicSeen);
-  const { playCue } = useGameplayAudio();
+  const { playCue, setBulletTimeAudio, setAdaptiveMusic } = useGameplayAudio();
+  const [substationModalOpen, setSubstationModalOpen] = useState(false);
+  const [substationOverridden, setSubstationOverridden] = useState(false);
+  const [monologue, setMonologue] = useState<MonologueEntry | null>(null);
   const showTutorial = !controlsSeen
     && !cinematicActive
     && !awakeningHandoffActive;
@@ -216,7 +222,8 @@ export function GameWorld({
     enterRoom();
     playCue('ambient', { loop: true, volume: 0.28 });
     playCue('systemHum', { loop: true, volume: 0.18 });
-  }, [enterRoom, playCue]);
+    setAdaptiveMusic('ambient');
+  }, [enterRoom, playCue, setAdaptiveMusic]);
 
   useEffect(() => () => {
     if (narrativeTimerRef.current) {
@@ -231,8 +238,19 @@ export function GameWorld({
       || showTutorial
       || narrative
       || activeInteractionId
-      || !nearestInteractionId
     ) {
+      return;
+    }
+
+    // Substation terminal interaction check (Stage 11.4: requires memory recovered)
+    const distToSubstation = playerPosition.distanceTo(new Vector3(9.5, 0, 2.0));
+    if (distToSubstation < 1.8 && flags.openingMemoryRecovered && !substationOverridden) {
+      setSubstationModalOpen(true);
+      playCue('circuitClick', { volume: 0.6 });
+      return;
+    }
+
+    if (!nearestInteractionId) {
       return;
     }
     const execution = executeInteraction(nearestInteractionId);
@@ -240,6 +258,19 @@ export function GameWorld({
 
     if (execution.interaction.id === 'opening-clock') {
       playCue('clock', { volume: 0.45 });
+      setMonologue({
+        id: 'clock',
+        textAr: '11:11… الساعة متجمدة. هل هذا توقيت انهيار المحطة المركزية، أم لحظة انفصالي عن الواقع؟',
+        textEn: '11:11... The clock is frozen. Is this when the core collapsed, or when I broke away from reality?',
+        speaker: 'ECHO // الأثر الزمني',
+      });
+    } else if (execution.interaction.id === 'opening-photo') {
+      setMonologue({
+        id: 'photo',
+        textAr: '«عندما تشعر بالخوف، عُدّ حتى أحد عشر.» يوكي… هل كنتِ هنا معي؟ لا أتذكر وجهكِ، لكن صوتكِ ما زال يتردد.',
+        textEn: '"When afraid, count to eleven." Yuki... Were you here with me? I cannot see your face, but your voice echoes.',
+        speaker: 'ECHO // شظايا الذاكرة',
+      });
     } else if (execution.interaction.id === 'opening-door') {
       playCue(
         execution.result.outcome === 'unlocked'
@@ -327,7 +358,9 @@ export function GameWorld({
     && activeInteractionId === null;
 
   const [pickedUpWeapon, setPickedUpWeapon] = useState(false);
-  const hasWeapon = OPENING_COMBAT_STUDY_ENABLED && pickedUpWeapon;
+  const [bossFightActive, setBossFightActive] = useState(false);
+  const isCombatActive = bossFightActive;
+  const hasWeapon = pickedUpWeapon;
   const [combatAction, setCombatAction] = useState<{
     type: 'punch' | 'kick' | 'dodge' | 'slash';
     nonce: number;
@@ -336,30 +369,82 @@ export function GameWorld({
   const hitStopTimerRef = useRef<NodeJS.Timeout | null>(null);
   const [breachProgress, setBreachProgress] = useState(0);
   const [monsterHp, setMonsterHp] = useState(1000);
-  const [bossFightActive, setBossFightActive] = useState(false);
   const [lastHitNonce, setLastHitNonce] = useState(0);
   const [lastHitDamage, setLastHitDamage] = useState(0);
+  const [perfectDodgeSurgeActive, setPerfectDodgeSurgeActive] = useState(false);
+  const [pulseCooldown, setPulseCooldown] = useState(0);
+  const [stunNonce, setStunNonce] = useState(0);
+  const [stunBannerText, setStunBannerText] = useState<string | null>(null);
   const [playerPosition, setPlayerPosition] = useState<Vector3>(
     () => new Vector3(0, 0, 10.8),
   );
+  // ── Monster Phase 2 & Stagger state ──────────────────────────
+  const [monsterPhase, setMonsterPhase] = useState<1 | 2>(1);
+  const [monsterStaggered, setMonsterStaggered] = useState(false);
+  const [slamWarning, setSlamWarning] = useState(false);
+  // ── Player HP, Stamina & Combo system ─────────────────────────
+  const MAX_PLAYER_HP = 200;
+  const MAX_PLAYER_STAMINA = 100;
+  const [playerHp, setPlayerHp] = useState(MAX_PLAYER_HP);
+  const [playerStamina, setPlayerStamina] = useState(MAX_PLAYER_STAMINA);
+  const [comboCount, setComboCount] = useState(0);
+  const [comboMultiplier, setComboMultiplier] = useState(1);
+  const [damageVignette, setDamageVignette] = useState(false);
+  const playerHpRef = useRef(MAX_PLAYER_HP);
+  const comboTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const staminaRecoveryRef = useRef<NodeJS.Timeout | null>(null);
+  const hpRecoveryRef = useRef<NodeJS.Timeout | null>(null);
   const breachStartedRef = useRef(false);
   const breachShatterPlayedRef = useRef(false);
   const breachRoarPlayedRef = useRef(false);
 
   useEffect(() => () => {
     if (hitStopTimerRef.current) clearTimeout(hitStopTimerRef.current);
+    if (comboTimerRef.current) clearTimeout(comboTimerRef.current);
+    if (staminaRecoveryRef.current) clearInterval(staminaRecoveryRef.current);
+    if (hpRecoveryRef.current) clearInterval(hpRecoveryRef.current);
     if (typeof window !== 'undefined') (window as any).__11_11_TIME_SCALE = 1.0;
   }, []);
+
+  // ── Slow HP regen out of combat (1 HP / 2s) ─────────────────
+  useEffect(() => {
+    if (bossFightActive) return;
+    const id = setInterval(() => {
+      setPlayerHp((prev) => {
+        const next = Math.min(MAX_PLAYER_HP, prev + 1);
+        playerHpRef.current = next;
+        return next;
+      });
+    }, 2000);
+    hpRecoveryRef.current = id;
+    return () => clearInterval(id);
+  }, [bossFightActive]);
+
+  // Cooldown countdown for Companion Resonance Pulse
+  useEffect(() => {
+    if (pulseCooldown <= 0) return;
+    const interval = setInterval(() => {
+      setPulseCooldown((prev) => Math.max(0, prev - 0.2));
+    }, 200);
+    return () => clearInterval(interval);
+  }, [pulseCooldown]);
 
   // Proximity-based containment breach trigger & animation
   const handlePositionUpdate = useCallback((pos: Vector3) => {
     setPlayerPosition(pos.clone());
     // Deep containment vault entrance: x > 6.5 and z < -3.5, OR deep corridor quarantine z < -5.0
-    if (OPENING_COMBAT_STUDY_ENABLED && !breachStartedRef.current && ((pos.x > 6.5 && pos.z < -3.5) || pos.z < -5.0)) {
+    if (!breachStartedRef.current && ((pos.x > 6.5 && pos.z < -3.5) || pos.z < -5.0)) {
       breachStartedRef.current = true;
       setBossFightActive(true);
+      setAdaptiveMusic('combat');
+      setMonologue({
+        id: 'breach-started',
+        textAr: 'هذا ليس إنساناً… جسد مشوه وألياف عصبية متقدة. النجاة تعتمد على تفادي ضرباته والرد في اللحظة الحاسمة!',
+        textEn: 'This is not human... A mutated frame and pulsing neural sinew. Survival demands dodging and striking in the split second!',
+        speaker: 'ECHO // غريزة البقاء',
+      });
     }
-  }, []);
+  }, [setAdaptiveMusic]);
 
   useEffect(() => {
     if (!bossFightActive) return;
@@ -405,10 +490,15 @@ export function GameWorld({
 
   const handleDodge = useCallback(() => {
     if (!inputEnabled) return;
+    if (playerStamina < 15) {
+      playCue('whoosh', { volume: 0.25 });
+      return;
+    }
+    setPlayerStamina((prev) => Math.max(0, prev - 20));
     combatNonceRef.current += 1;
     setCombatAction({ type: 'dodge', nonce: combatNonceRef.current });
     playCue('dodge', { volume: 0.45 });
-  }, [inputEnabled, playCue]);
+  }, [inputEnabled, playerStamina, playCue]);
 
   const handleAttack = useCallback(() => {
     if (!inputEnabled) return;
@@ -432,26 +522,60 @@ export function GameWorld({
     const monsterDirZ = monsterZ - playerPosition.z;
     const distToCenter = Math.hypot(monsterDirX, monsterDirZ);
 
-    // Directional alignment: player must be facing within ~60 degrees of monster
-    const playerYaw = playerRef.current?.rotation.y ?? 0;
-    const forwardX = Math.sin(playerYaw);
-    const forwardZ = Math.cos(playerYaw);
-    const facingDot = (forwardX * monsterDirX + forwardZ * monsterDirZ) / Math.max(0.001, distToCenter);
+    const facingX = -Math.sin(playerRef.current?.rotation.y ?? 0);
+    const facingZ = -Math.cos(playerRef.current?.rotation.y ?? 0);
+    const dot = distToCenter > 0.01 ? (facingX * monsterDirX + facingZ * monsterDirZ) / distToCenter : 1;
 
-    // Physical reach boundary check: strike tip must reach monster cylinder boundary
-    const distToBoundary = distToCenter - monsterRadius;
-    const inReach = distToBoundary <= reach;
-    const isFacing = facingDot >= 0.45;
+    const inReach = distToCenter <= (reach + monsterRadius);
+    const inDirection = dot > 0.35;
 
-    if (inReach && isFacing) {
-      // DIRECT PHYSICAL CONTACT HIT
-      playCue('hitImpact', { volume: 0.8 });
-      cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.6);
+    if (inReach && inDirection) {
       setLastHitNonce((prev) => prev + 1);
-      setLastHitDamage(damage);
-      setMonsterHp((prev) => Math.max(0, prev - damage));
-      const isCrit = damage >= 125;
-      combatEffectsRef.current?.triggerHit(impactPos, damage, isCrit);
+      let effectiveDamage = damage;
+      const isSurge = perfectDodgeSurgeActive;
+
+      // ── Combo accumulation ────────────────────────────────────
+      setComboCount((prev) => {
+        const next = prev + 1;
+        const newMult = next >= 10 ? 3 : next >= 5 ? 2 : 1;
+        setComboMultiplier(newMult);
+
+        // Combo milestone monologues
+        if (next === 5) {
+          setMonologue({ id: 'combo5', textAr: 'خمس ضربات متتالية — الإيقاع في يدي!', textEn: '5-hit combo — rhythm is mine!', speaker: 'ECHO // تدفق القتال' });
+        } else if (next === 10) {
+          setMonologue({ id: 'combo10', textAr: 'عشر ضربات! طاقة قتالية قصوى — الآن!', textEn: '10-hit chain! Maximum combat flow — NOW!', speaker: 'ECHO // ذروة الرنين' });
+        }
+
+        // Reset combo break timer (2.5s window)
+        if (comboTimerRef.current) clearTimeout(comboTimerRef.current);
+        comboTimerRef.current = setTimeout(() => {
+          setComboCount(0);
+          setComboMultiplier(1);
+        }, 2500);
+
+        return next;
+      });
+
+      // Apply combo multiplier to damage
+      if (!isSurge) {
+        effectiveDamage = Math.round(damage * comboMultiplier);
+      }
+
+      // Consume 3x Perfect Dodge Surge
+      if (isSurge) {
+        effectiveDamage = Math.round(damage * 3.0);
+        setPerfectDodgeSurgeActive(false);
+        playCue('resonanceBurst', { volume: 1.0 });
+      }
+
+      // Drain stamina on attack
+      setPlayerStamina((prev) => Math.max(0, prev - (attackType === 'slash' ? 12 : 6)));
+
+      setLastHitDamage(effectiveDamage);
+      setMonsterHp((prev) => Math.max(0, prev - effectiveDamage));
+      const isCrit = effectiveDamage >= 125 || isSurge;
+      combatEffectsRef.current?.triggerHit(impactPos, effectiveDamage, isCrit);
 
       // Hit Stop (Time Freeze)
       if (typeof window !== 'undefined') {
@@ -463,32 +587,106 @@ export function GameWorld({
         }, isCrit ? 60 : 40);
       }
     } else {
-      // WHIFF / AIR SWING (Physical miss: zero damage, monster unaffected)
+      // WHIFF / AIR SWING
       playCue('whoosh', { volume: 0.4 });
     }
-  }, [bossFightActive, playCue, playerPosition.x, playerPosition.z]);
+  }, [bossFightActive, comboMultiplier, perfectDodgeSurgeActive, playCue, playerPosition.x, playerPosition.z]);
 
   const handleMonsterAttack = useCallback((damage: number) => {
     if (playerRef.current?.userData.isInvulnerable) {
       // PERFECT DODGE
-      playCue('dodge', { volume: 0.9 });
+      setPerfectDodgeSurgeActive(true);
+      playCue('dodge', { volume: 1.0 });
+      playCue('resonanceBurst', { volume: 0.95 });
+      cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.5);
+
+      if (playerRef.current) {
+        combatEffectsRef.current?.triggerResonanceWave(playerRef.current.position, 'dodge_surge');
+      }
+
+      // 1.2s Bullet-Time Dilation & Audio Filter
       if (typeof window !== 'undefined') {
         if (hitStopTimerRef.current) clearTimeout(hitStopTimerRef.current);
         (window as any).__11_11_TIME_SCALE = 0.2;
+        setBulletTimeAudio(true);
         hitStopTimerRef.current = setTimeout(() => {
           (window as any).__11_11_TIME_SCALE = 1.0;
+          setBulletTimeAudio(false);
           hitStopTimerRef.current = null;
-        }, 500);
+        }, 1200);
       }
+
+      setMonologue({
+        id: 'perfect-dodge',
+        textAr: 'تباطأ الزمن… مسار ضربته مكشوف تماماً! هجومي القادم سيحمل طاقة مضاعفة!',
+        textEn: 'Time slowed down... The strike vector is wide open! My counter-surge will hit with 3x force!',
+        speaker: 'ECHO // انعكاس الرنين',
+      });
       return;
     }
+
+    // ── Apply real damage ──────────────────────────────────────
     playCue('hitImpact', { volume: 0.7 });
     cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.85);
-  }, [playCue]);
+
+    // Break combo on hit
+    setComboCount(0);
+    setComboMultiplier(1);
+    if (comboTimerRef.current) { clearTimeout(comboTimerRef.current); comboTimerRef.current = null; }
+
+    setPlayerHp((prev) => {
+      const next = Math.max(0, prev - damage);
+      playerHpRef.current = next;
+
+      // Damage vignette flash
+      setDamageVignette(true);
+      setTimeout(() => setDamageVignette(false), 550);
+
+      // Low HP monologue
+      if (next <= 60 && prev > 60) {
+        setMonologue({
+          id: 'low-hp',
+          textAr: 'جسدي يتداعى… يجب أن أتفادى ضرباته وأضرب بدقة أكبر!',
+          textEn: 'My body is failing... I must dodge precisely and strike with more focus!',
+          speaker: 'ECHO // حافة البقاء',
+        });
+      }
+
+      // Death / KO
+      if (next <= 0) {
+        playCue('glassShatter', { volume: 0.9 });
+        setAdaptiveMusic('ambient');
+        cameraTraumaRef.current = 1.0;
+        setMonologue({
+          id: 'player-ko',
+          textAr: 'سقطت… لكن الإشارة لن تنطفئ. العودة إلى نقطة التحكم.',
+          textEn: 'I fell... But the signal will not die. Returning to checkpoint.',
+          speaker: 'ECHO // انهيار الوعي',
+        });
+        // Reset HP after 2.5s (checkpoint respawn)
+        setTimeout(() => {
+          setPlayerHp(MAX_PLAYER_HP);
+          playerHpRef.current = MAX_PLAYER_HP;
+          setPlayerStamina(MAX_PLAYER_STAMINA);
+        }, 2500);
+      }
+      return next;
+    });
+
+    // Stamina drain on hit
+    setPlayerStamina((prev) => Math.max(0, prev - 18));
+  }, [playCue, setBulletTimeAudio, setAdaptiveMusic]);
 
   const handleMonsterDefeated = useCallback(() => {
     // Victory sequence — cinematic moment like a Genshin boss kill
     playCue('monsterRoar', { volume: 0.8 });
+    setAdaptiveMusic('victory');
+    setMonologue({
+      id: 'monster-defeated',
+      textAr: 'سقط الكيان… يداي ترتجفان، لكن طريقي نحو بوابة القطاع 03 أصبح مفتوحاً بالكامل.',
+      textEn: 'The entity collapsed... My hands are shaking, but the path to Sector 03 decompression is clear.',
+      speaker: 'ECHO // خلاص الحجر',
+    });
     // Spike camera trauma for dramatic shake
     cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 1.5);
 
@@ -507,20 +705,127 @@ export function GameWorld({
     }, 800);
 
     return () => clearTimeout(slowTimer);
-  }, [playCue, setMemoryBeatActive]);
+  }, [playCue, setAdaptiveMusic, setMemoryBeatActive]);
 
+  // ── Phase 2 enrage callback ───────────────────────────────────
+  const handleMonsterPhaseChange = useCallback((phase: 1 | 2) => {
+    setMonsterPhase(phase);
+    if (phase === 2) {
+      playCue('bossEnrage', { volume: 1.0 });
+      setAdaptiveMusic('combat');
+      cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.9);
+      setMonologue({
+        id: 'boss-phase2',
+        textAr: 'تحوّل EX-000 إلى مرحلته الثانية! الطاقة الحيوية الحرجة أطلقت الهجمات الأرضية والموجات الصدمية. احذر!',
+        textEn: 'EX-000 entered Phase II! Critical vitals unleashed ground slams and shockwaves. Extreme caution!',
+        speaker: 'ECHO // خطر حرج',
+      });
+    }
+  }, [playCue, setAdaptiveMusic]);
 
+  // ── Shockwave expansion callback ─────────────────────────────
+  const handleShockwave = useCallback((_pos: Vector3, _radius: number) => {
+    playCue('shockwavePass', { volume: 0.85 });
+    playCue('groundSlam', { volume: 0.75 });
+    cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.65);
+  }, [playCue]);
+
+  // ── Kinetic stagger callback ──────────────────────────────────
+  const handleStaggerChange = useCallback((isStaggered: boolean) => {
+    setMonsterStaggered(isStaggered);
+    if (isStaggered) {
+      playCue('watcherAlert', { volume: 0.8 });
+      setMonologue({
+        id: 'stagger-window',
+        textAr: 'نافذة العداد الحركية مفتوحة! الضرر مضاعف خلال 3.5 ثانية — اضرب الآن!',
+        textEn: 'Kinetic counter window open! Damage doubled for 3.5s — strike now!',
+        speaker: 'ECHO // غريزة القتال',
+      });
+    }
+  }, [playCue]);
+
+  // ── Ground slam telegraph windup callback ──────────────────────
+  const handleSlamWindup = useCallback((isWindup: boolean) => {
+    setSlamWarning(isWindup);
+    if (isWindup) {
+      playCue('watcherAlert', { volume: 0.95 });
+      cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.35);
+    }
+  }, [playCue]);
+
+  const handleSubstationSuccess = useCallback(() => {
+    setSubstationModalOpen(false);
+    setSubstationOverridden(true);
+    setAdaptiveMusic('tension');
+    playCue('powerSurge', { volume: 0.9 });
+    setMonologue({
+      id: 'substation-rerouted',
+      textAr: 'تحويل الطاقة إلى البوابة سيزعزع استقرار أقفال العزل… أشعر باهتزازات غريبة في الممر الغربي.',
+      textEn: 'Auxiliary power routed to blast gate... Stasis locks are destabilizing. Something is moving in the western vault.',
+      speaker: 'ECHO // المونولوج الداخلي',
+    });
+  }, [playCue, setAdaptiveMusic]);
+
+  const handleResonancePulse = useCallback(() => {
+    if (pulseCooldown > 0 || !inputEnabled) return;
+    setPulseCooldown(8.0);
+    playCue('sonarPulse', { volume: 0.95 });
+    cameraTraumaRef.current = Math.min(1.0, cameraTraumaRef.current + 0.35);
+
+    if (playerRef.current) {
+      combatEffectsRef.current?.triggerResonanceWave(playerRef.current.position, 'pulse');
+    }
+
+    const monsterX = 11.0;
+    const monsterZ = -8.5;
+    const dist = Math.hypot(monsterX - playerPosition.x, monsterZ - playerPosition.z);
+    if (bossFightActive && monsterHp > 0 && dist <= 14.0) {
+      setStunNonce((prev) => prev + 1);
+      setStunBannerText('تم شل حركة الكيان بموجة الرنين الفوق-صوتية (2.0s)');
+      setTimeout(() => {
+        setStunBannerText(null);
+      }, 2500);
+    }
+  }, [bossFightActive, inputEnabled, monsterHp, playCue, playerPosition.x, playerPosition.z, pulseCooldown]);
 
   const controls = usePlayerControls({
     enabled: inputEnabled,
     pauseEnabled: !paused,
     onInteract: handleInteract,
     onPause,
-    onAttack: OPENING_COMBAT_STUDY_ENABLED ? handleAttack : undefined,
-    onPunch: OPENING_COMBAT_STUDY_ENABLED ? handlePunch : undefined,
-    onKick: OPENING_COMBAT_STUDY_ENABLED ? handleKick : undefined,
-    onDodge: OPENING_COMBAT_STUDY_ENABLED ? handleDodge : undefined,
+    onAttack: isCombatActive ? handleAttack : undefined,
+    onPunch: isCombatActive ? handlePunch : undefined,
+    onKick: isCombatActive ? handleKick : undefined,
+    onDodge: isCombatActive ? handleDodge : undefined,
+    onResonancePulse: handleResonancePulse,
   });
+
+  // ── Stamina system (drain when sprinting, recover when resting) ──
+  useEffect(() => {
+    const id = setInterval(() => {
+      const isMoving = Boolean(
+        controls.inputRef.current?.forward ||
+        controls.inputRef.current?.backward ||
+        controls.inputRef.current?.left ||
+        controls.inputRef.current?.right
+      );
+      const isSprinting = Boolean(controls.inputRef.current?.sprint && isMoving);
+
+      if (isSprinting) {
+        setPlayerStamina((prev) => {
+          const next = Math.max(0, prev - 1.5);
+          if (next <= 0) {
+            controls.setSprint(false);
+          }
+          return next;
+        });
+      } else {
+        setPlayerStamina((prev) => Math.min(MAX_PLAYER_STAMINA, prev + 1.2));
+      }
+    }, 100);
+    staminaRecoveryRef.current = id;
+    return () => clearInterval(id);
+  }, [controls]);
 
   if (typeof window !== 'undefined') {
     (window as any).__11_11_DEBUG__ = {
@@ -542,17 +847,25 @@ export function GameWorld({
   }
 
   const interactionPrompt = useMemo(() => {
+    const distToSubstation = playerPosition.distanceTo(new Vector3(9.5, 0, 2.0));
+    if (distToSubstation < 1.8 && flags.openingMemoryRecovered && !substationOverridden) {
+      return 'تشغيل محطة تحويل الطاقة (Substation)';
+    }
     const interaction = OPENING_ROOM_INTERACTIONS.find(
       ({ id }) => id === nearestInteractionId,
     );
     return interaction?.prompt.replace(/^E\s*—\s*/, '') ?? null;
-  }, [nearestInteractionId]);
+  }, [flags.openingMemoryRecovered, nearestInteractionId, playerPosition, substationOverridden]);
 
   const interactionTarget = useMemo(() => {
+    const distToSubstation = playerPosition.distanceTo(new Vector3(9.5, 0, 2.0));
+    if (distToSubstation < 1.8 && flags.openingMemoryRecovered && !substationOverridden) {
+      return { x: 9.5, y: 1.2, z: 2.0 };
+    }
     const targetId = activeInteractionId ?? nearestInteractionId;
     return OPENING_ROOM_INTERACTIONS.find(({ id }) => id === targetId)
       ?.position ?? null;
-  }, [activeInteractionId, nearestInteractionId]);
+  }, [activeInteractionId, flags.openingMemoryRecovered, nearestInteractionId, playerPosition, substationOverridden]);
 
   const cameraConfig = useMemo<ThirdPersonCameraConfig>(() => {
     const padding = OPENING_ROOM_CONFIG.camera.collisionPadding;
@@ -576,8 +889,23 @@ export function GameWorld({
     };
   }, []);
 
+  const combatState: SectorCombatState = useMemo(() => ({
+    breachTriggered: breachStartedRef.current,
+    bossActive: bossFightActive && monsterHp > 0,
+    monsterHp,
+    maxMonsterHp: 1000,
+    monsterDefeated: monsterHp <= 0 && breachStartedRef.current,
+    substationOverridden,
+  }), [bossFightActive, monsterHp, substationOverridden]);
 
-  const stageCopy = PUZZLE_STAGE_COPY[puzzle.stage];
+  const activeSectorTask = useMemo(() => {
+    return getActiveSectorTask(flags, combatState);
+  }, [flags, combatState]);
+
+  const stageCopy = useMemo(() => ({
+    objective: activeSectorTask.objectiveAr,
+    progress: `${activeSectorTask.stageCode} // ${activeSectorTask.titleAr}`,
+  }), [activeSectorTask]);
   const dpr: [number, number] = quality === 'high'
     ? [1, 2]
     : quality === 'mobile'
@@ -650,9 +978,17 @@ export function GameWorld({
             onMonsterHpChange={(hp) => setMonsterHp(hp)}
             onMonsterAttack={handleMonsterAttack}
             onMonsterDefeated={handleMonsterDefeated}
+            onPhaseChange={handleMonsterPhaseChange}
+            onShockwave={handleShockwave}
+            onStaggerChange={handleStaggerChange}
+            onSlamWindup={handleSlamWindup}
             lastHitNonce={lastHitNonce}
             lastHitDamage={lastHitDamage}
+            stunNonce={stunNonce}
+            stunDuration={2.0}
+            combatStudyEnabled={true}
             capsuleOpen={capsuleOpen}
+            substationOverridden={substationOverridden}
           />
           <EchoPlayer
             playerRef={playerRef}
@@ -672,6 +1008,29 @@ export function GameWorld({
             onNearestInteractionChange={setNearestInteractionId}
             onFootstep={() => playCue('footstep', { volume: 0.18 })}
           />
+          <GhostTrail
+            active={Boolean(combatAction?.type === 'dodge' || playerRef.current?.userData.isInvulnerable || controls.inputRef.current.sprint)}
+            playerRef={playerRef}
+            surgeActive={perfectDodgeSurgeActive}
+          />
+          {capsuleOpen && (
+            <FloatingCompanion
+              playerPosition={playerPosition}
+              playerRef={playerRef}
+              focusedTarget={interactionTarget}
+              isAlert={bossFightActive && monsterHp > 0}
+              reducedMotion={motion === 'reduced'}
+              emotionOverride={
+                puzzle.stage === 'exitUnlocked'
+                  ? 'celebrating'
+                  : bossFightActive && monsterHp > 0
+                    ? 'alert'
+                    : activeInteractionId
+                      ? 'scanning'
+                      : null
+              }
+            />
+          )}
           <CombatEffects ref={combatEffectsRef} />
           {quality !== 'mobile' && (
             <EffectComposer multisampling={quality === 'high' ? 4 : 0}>
@@ -725,12 +1084,24 @@ export function GameWorld({
             setAwakeningHandoffActive(true);
           }
           playCue('capsuleRelease', { volume: 0.52 });
+          setMonologue({
+            id: 'echo-awakening',
+            textAr: 'أين أنا؟ نبضات قلبي بطيئة كأنني نمت لعقود… لا أحد هنا سوى أجهزة القياس المتجمدة.',
+            textEn: 'Where am I? My heartbeat is slow, as if I slept for decades... No one here but frozen telemetry.',
+            speaker: 'ECHO // الوعي المستعاد',
+          });
         }}
         onSkip={() => {
           markCinematicSeen();
           setCinematicActive(false);
           setCapsuleOpen(true);
           setAwakeningPhase('idle');
+          setMonologue({
+            id: 'echo-awakening',
+            textAr: 'أين أنا؟ نبضات قلبي بطيئة كأنني نمت لعقود… لا أحد هنا سوى أجهزة القياس المتجمدة.',
+            textEn: 'Where am I? My heartbeat is slow, as if I slept for decades... No one here but frozen telemetry.',
+            speaker: 'ECHO // الوعي المستعاد',
+          });
         }}
       />
 
@@ -764,6 +1135,21 @@ export function GameWorld({
         </div>
       )}
 
+      {/* Damage Vignette — blood-red flash on hit */}
+      {damageVignette && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            pointerEvents: 'none',
+            zIndex: 60,
+            background: 'radial-gradient(ellipse at center, transparent 38%, rgba(200,0,30,0.55) 100%)',
+            animation: 'damageVignetteFlash 0.55s ease-out forwards',
+          }}
+        />
+      )}
+
       <GameplayHUD
         prompt={inputEnabled ? interactionPrompt : null}
         objective={stageCopy.objective}
@@ -776,14 +1162,36 @@ export function GameWorld({
         onSprintToggle={controls.toggleSprint}
         onSprintHold={controls.setSprint}
         onJumpHold={controls.setJump}
-        onAttack={OPENING_COMBAT_STUDY_ENABLED ? handleAttack : undefined}
-        onPunch={OPENING_COMBAT_STUDY_ENABLED ? handlePunch : undefined}
-        onKick={OPENING_COMBAT_STUDY_ENABLED ? handleKick : undefined}
-        onDodge={OPENING_COMBAT_STUDY_ENABLED ? handleDodge : undefined}
+        onAttack={isCombatActive ? handleAttack : undefined}
+        onPunch={isCombatActive ? handlePunch : undefined}
+        onKick={isCombatActive ? handleKick : undefined}
+        onDodge={isCombatActive ? handleDodge : undefined}
+        onResonancePulse={handleResonancePulse}
+        pulseCooldown={pulseCooldown}
+        perfectDodgeSurgeActive={perfectDodgeSurgeActive}
+        stunBannerText={stunBannerText}
         hasWeapon={hasWeapon}
-        bossActive={OPENING_COMBAT_STUDY_ENABLED && bossFightActive}
+        bossActive={isCombatActive && monsterHp > 0}
         monsterHp={monsterHp}
         maxMonsterHp={1000}
+        isSprinting={controls.inputRef.current?.sprint ?? false}
+        playerHp={playerHp}
+        maxPlayerHp={MAX_PLAYER_HP}
+        playerStamina={playerStamina}
+        maxPlayerStamina={MAX_PLAYER_STAMINA}
+        comboCount={comboCount}
+        comboMultiplier={comboMultiplier}
+        echoEmotion={
+          monsterHp <= 0 && isCombatActive ? 'triumph'
+          : perfectDodgeSurgeActive ? 'surge'
+          : playerHp <= 60 && isCombatActive ? 'hurt'
+          : isCombatActive ? 'combat'
+          : 'calm'
+        }
+        monsterPhase={monsterPhase}
+        monsterStaggered={monsterStaggered}
+        slamWarning={slamWarning}
+        reducedMotion={motion === 'reduced'}
       />
 
       <NarrativeOverlay
@@ -800,6 +1208,19 @@ export function GameWorld({
             setMemoryBeatActive(true);
           }
         }}
+      />
+
+      <SubstationMinigame
+        isOpen={substationModalOpen}
+        onClose={() => setSubstationModalOpen(false)}
+        onSuccess={handleSubstationSuccess}
+        reducedMotion={motion === 'reduced'}
+      />
+
+      <EchoInternalMonologue
+        monologue={monologue}
+        onDismiss={() => setMonologue(null)}
+        reducedMotion={motion === 'reduced'}
       />
     </div>
   );

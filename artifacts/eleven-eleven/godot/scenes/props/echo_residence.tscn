@@ -1,0 +1,322 @@
+[gd_scene load_steps=32 format=3]
+
+[ext_resource type="Script" path="res://scripts/props/echo_residence.gd" id="1_echo_res"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interact"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(10.0, 0.2, 8.0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tatami"]
+albedo_color = Color(0.72, 0.68, 0.52, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_main"]
+size = Vector3(10.0, 3.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shoji_wall"]
+albedo_color = Color(0.88, 0.86, 0.82, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+size = Vector3(0.2, 3.2, 8.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_divider"]
+size = Vector3(4.0, 3.0, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood_trim"]
+albedo_color = Color(0.24, 0.16, 0.1, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_table"]
+size = Vector3(1.6, 0.4, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tv_body"]
+size = Vector3(0.9, 0.7, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv_casing"]
+albedo_color = Color(0.18, 0.18, 0.2, 1)
+roughness = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_tv_screen"]
+size = Vector2(0.65, 0.48)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv_screen"]
+albedo_color = Color(0.08, 0.1, 0.12, 1)
+roughness = 0.3
+emission_enabled = false
+emission = Color(0.6, 0.8, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_shelf"]
+size = Vector3(1.5, 0.1, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_photo_frame"]
+size = Vector3(0.3, 0.4, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gold_frame"]
+albedo_color = Color(0.65, 0.52, 0.22, 1)
+metallic = 0.4
+roughness = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_broken_frame"]
+albedo_color = Color(0.35, 0.28, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_fridge_body"]
+size = Vector3(0.8, 1.7, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fridge"]
+albedo_color = Color(0.85, 0.87, 0.88, 1)
+metallic = 0.2
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_fridge_door"]
+size = Vector3(0.8, 1.68, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_stove_body"]
+size = Vector3(0.85, 0.85, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stove"]
+albedo_color = Color(0.3, 0.32, 0.34, 1)
+metallic = 0.5
+roughness = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_flame"]
+top_radius = 0.1
+bottom_radius = 0.18
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blue_flame"]
+albedo_color = Color(0.1, 0.4, 1.0, 0.9)
+emission_enabled = true
+emission = Color(0.2, 0.6, 1.0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_futon"]
+size = Vector3(1.4, 0.2, 2.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_futon"]
+albedo_color = Color(0.8, 0.82, 0.85, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_dust"]
+size = Vector3(9.5, 0.02, 7.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dust"]
+transparency = 1
+albedo_color = Color(0.5, 0.48, 0.42, 0.4)
+roughness = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor_col"]
+size = Vector3(10.0, 0.2, 8.0)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_interact"]
+radius = 1.5
+
+[node name="EchoResidence" type="Node3D"]
+script = ExtResource("1_echo_res")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_tatami")
+
+[node name="FloorStatic" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/FloorStatic"]
+shape = SubResource("BoxShape3D_floor_col")
+
+[node name="DustLayer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0)
+mesh = SubResource("BoxMesh_dust")
+surface_material_override/0 = SubResource("StandardMaterial3D_dust")
+
+[node name="BackWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -4.0)
+mesh = SubResource("BoxMesh_wall_main")
+surface_material_override/0 = SubResource("StandardMaterial3D_shoji_wall")
+
+[node name="LeftWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0, 1.6, 0)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_shoji_wall")
+
+[node name="RightWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 1.6, 0)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("StandardMaterial3D_shoji_wall")
+
+[node name="DividerWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0.5)
+mesh = SubResource("BoxMesh_divider")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood_trim")
+
+[node name="LivingRoom" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
+
+[node name="ChabudaiTable" type="MeshInstance3D" parent="LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_table")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood_trim")
+
+[node name="TVUnit" type="Node3D" parent="LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -2.0)
+
+[node name="TVBody" type="MeshInstance3D" parent="LivingRoom/TVUnit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("BoxMesh_tv_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_tv_casing")
+
+[node name="TVScreen" type="MeshInstance3D" parent="LivingRoom/TVUnit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.31)
+mesh = SubResource("QuadMesh_tv_screen")
+surface_material_override/0 = SubResource("StandardMaterial3D_tv_screen")
+
+[node name="TVLight" type="OmniLight3D" parent="LivingRoom/TVUnit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.6)
+visible = false
+light_color = Color(0.6, 0.8, 1, 1)
+light_energy = 1.5
+omni_range = 4.0
+
+[node name="TVInteractable" type="Area3D" parent="LivingRoom/TVUnit"]
+script = ExtResource("2_interact")
+verb = 0
+prompt_target_name = "CRT Television"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoom/TVUnit/TVInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="AltarShelf" type="MeshInstance3D" parent="LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 1.4, -2.2)
+mesh = SubResource("BoxMesh_shelf")
+surface_material_override/0 = SubResource("StandardMaterial3D_wood_trim")
+
+[node name="FatherPhoto" type="Node3D" parent="LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 1.65, -2.2)
+
+[node name="PhotoMesh" type="MeshInstance3D" parent="LivingRoom/FatherPhoto"]
+mesh = SubResource("BoxMesh_photo_frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_gold_frame")
+
+[node name="FatherPhotoInteractable" type="Area3D" parent="LivingRoom/FatherPhoto"]
+script = ExtResource("2_interact")
+verb = 4
+prompt_target_name = "Father's Photo"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoom/FatherPhoto/FatherPhotoInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="MotherPhotoRestored" type="Node3D" parent="LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.65, -2.2)
+visible = false
+
+[node name="RestoredFrameMesh" type="MeshInstance3D" parent="LivingRoom/MotherPhotoRestored"]
+mesh = SubResource("BoxMesh_photo_frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_gold_frame")
+
+[node name="MotherPhotoBroken" type="Node3D" parent="LivingRoom"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.6, 0.25, 0.8)
+
+[node name="BrokenFrameMesh" type="MeshInstance3D" parent="LivingRoom/MotherPhotoBroken"]
+transform = Transform3D(1, 0, 0, 0, 0.0871557, -0.996195, 0, 0.996195, 0.0871557, 0, 0, 0)
+mesh = SubResource("BoxMesh_photo_frame")
+surface_material_override/0 = SubResource("StandardMaterial3D_broken_frame")
+
+[node name="MotherPhotoInteractable" type="Area3D" parent="LivingRoom/MotherPhotoBroken"]
+script = ExtResource("2_interact")
+verb = 4
+prompt_target_name = "Shattered Photo Frame"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoom/MotherPhotoBroken/MotherPhotoInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="Kitchenette" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -1.5)
+
+[node name="Refrigerator" type="Node3D" parent="Kitchenette"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.85, -1.8)
+
+[node name="FridgeBody" type="MeshInstance3D" parent="Kitchenette/Refrigerator"]
+mesh = SubResource("BoxMesh_fridge_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_fridge")
+
+[node name="FridgeDoor" type="MeshInstance3D" parent="Kitchenette/Refrigerator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+mesh = SubResource("BoxMesh_fridge_door")
+surface_material_override/0 = SubResource("StandardMaterial3D_fridge")
+
+[node name="FridgeLight" type="OmniLight3D" parent="Kitchenette/Refrigerator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+visible = false
+light_color = Color(1, 0.96, 0.85, 1)
+light_energy = 1.2
+omni_range = 2.5
+
+[node name="FridgeInteractable" type="Area3D" parent="Kitchenette/Refrigerator"]
+script = ExtResource("2_interact")
+verb = 5
+prompt_target_name = "Refrigerator"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchenette/Refrigerator/FridgeInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="GasStove" type="Node3D" parent="Kitchenette"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.45, -1.8)
+
+[node name="StoveBody" type="MeshInstance3D" parent="Kitchenette/GasStove"]
+mesh = SubResource("BoxMesh_stove_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_stove")
+
+[node name="StoveFlame" type="MeshInstance3D" parent="Kitchenette/GasStove"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 0)
+visible = false
+mesh = SubResource("CylinderMesh_flame")
+surface_material_override/0 = SubResource("StandardMaterial3D_blue_flame")
+
+[node name="StoveLight" type="OmniLight3D" parent="Kitchenette/GasStove"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+visible = false
+light_color = Color(0.2, 0.6, 1.0, 1)
+light_energy = 1.8
+omni_range = 2.0
+
+[node name="StoveInteractable" type="Area3D" parent="Kitchenette/GasStove"]
+script = ExtResource("2_interact")
+verb = 10
+prompt_target_name = "Gas Stove"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchenette/GasStove/StoveInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="Bedroom" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.0)
+
+[node name="TatamiFuton" type="MeshInstance3D" parent="Bedroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_futon")
+surface_material_override/0 = SubResource("StandardMaterial3D_futon")
+
+[node name="BedInteractable" type="Area3D" parent="Bedroom/TatamiFuton"]
+script = ExtResource("2_interact")
+verb = 9
+prompt_target_name = "Tatami Futon"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bedroom/TatamiFuton/BedInteractable"]
+shape = SubResource("SphereShape3D_interact")
+
+[node name="SunlightBeam" type="SpotLight3D" parent="Bedroom"]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 2.0, 2.8, -1.0)
+visible = false
+light_color = Color(1.0, 0.88, 0.65, 1)
+light_energy = 2.5
+spot_range = 8.0
+spot_angle = 35.0
+
+[node name="CleaningTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_interact")
+verb = 8
+prompt_target_name = "Tidy Neglected House"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CleaningTrigger"]
+shape = SubResource("SphereShape3D_interact")

@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/vehicles/rideable_vehicle.gd" id="1_vehicle"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interact"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_scooter_col"]
+size = Vector3(0.65, 1.2, 1.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_scooter_body"]
+size = Vector3(0.55, 0.55, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scooter_body"]
+albedo_color = Color(0.85, 0.22, 0.18, 1)
+metallic = 0.4
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_front_fairing"]
+size = Vector3(0.48, 0.85, 0.45)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_moped_wheel"]
+top_radius = 0.22
+bottom_radius = 0.22
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tire"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_seat"]
+size = Vector3(0.36, 0.16, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seat"]
+albedo_color = Color(0.15, 0.14, 0.13, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_headlight_lens"]
+size = Vector3(0.2, 0.16, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_headlight"]
+albedo_color = Color(1, 0.95, 0.85, 1)
+emission_enabled = true
+emission = Color(1, 0.95, 0.85, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_interact"]
+radius = 2.4
+
+[node name="KasumiMoped" type="CharacterBody3D"]
+script = ExtResource("1_vehicle")
+vehicle_type = 1
+vehicle_name = "Kasumi 50cc Scooter // カスミ原付"
+max_speed = 14.5
+acceleration = 12.0
+turn_speed = 2.6
+brake_deceleration = 16.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_scooter_col")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+mesh = SubResource("BoxMesh_scooter_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_scooter_body")
+
+[node name="FrontFairing" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.65)
+mesh = SubResource("BoxMesh_front_fairing")
+surface_material_override/0 = SubResource("StandardMaterial3D_scooter_body")
+
+[node name="Seat" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0.22)
+mesh = SubResource("BoxMesh_seat")
+surface_material_override/0 = SubResource("StandardMaterial3D_seat")
+
+[node name="FrontWheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.25, -0.7)
+mesh = SubResource("CylinderMesh_moped_wheel")
+surface_material_override/0 = SubResource("StandardMaterial3D_tire")
+
+[node name="RearWheel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.25, 0.65)
+mesh = SubResource("CylinderMesh_moped_wheel")
+surface_material_override/0 = SubResource("StandardMaterial3D_tire")
+
+[node name="HeadlightMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, -0.88)
+mesh = SubResource("BoxMesh_headlight_lens")
+surface_material_override/0 = SubResource("StandardMaterial3D_headlight")
+
+[node name="Headlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.95, -0.92)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 3.5
+spot_range = 22.0
+spot_angle = 32.0
+
+[node name="VehicleInteractable" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+script = ExtResource("2_interact")
+verb = 7
+prompt_target_name = "Kasumi 50cc Scooter"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleInteractable"]
+shape = SubResource("SphereShape3D_interact")

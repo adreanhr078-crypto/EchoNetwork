@@ -1,0 +1,368 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/gameplay_hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/mobile_touch_controls.tscn" id="2_touch_ui"]
+[ext_resource type="PackedScene" path="res://scenes/ui/terminal_hack_puzzle.tscn" id="3_hack_ui"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_overlay.tscn" id="4_dialogue_ui"]
+[ext_resource type="PackedScene" path="res://scenes/ui/system_window.tscn" id="5_sys_window"]
+[ext_resource type="PackedScene" path="res://scenes/ui/interaction_prompt_hud.tscn" id="6_prompt_ui"]
+
+
+[node name="GameplayHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="VitalsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 350.0
+offset_bottom = 120.0
+
+[node name="PlayerName" type="Label" parent="VitalsContainer"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "SUBJECT EX-011 // ECHO"
+
+[node name="PlayerHPBar" type="ProgressBar" parent="VitalsContainer"]
+modulate = Color(0.15, 0.9, 0.6, 1)
+layout_mode = 0
+offset_top = 26.0
+offset_right = 280.0
+offset_bottom = 44.0
+max_value = 200.0
+value = 200.0
+show_percentage = false
+
+[node name="PlayerStaminaBar" type="ProgressBar" parent="VitalsContainer"]
+modulate = Color(0, 0.8, 1, 1)
+layout_mode = 0
+offset_top = 48.0
+offset_right = 220.0
+offset_bottom = 58.0
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="QuestContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 100.0
+offset_right = 380.0
+offset_bottom = 190.0
+
+[node name="Header" type="Label" parent="QuestContainer"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.3, 1, 0.8, 1)
+theme_override_font_sizes/font_size = 11
+text = "◈ DIRECTIVE // SECTOR 11 ESCAPE"
+
+[node name="QuestTitle" type="Label" parent="QuestContainer"]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 340.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "01. Neutralize Threat: Specimen EX-000"
+
+[node name="QuestDesc" type="Label" parent="QuestContainer"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 340.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 0.85)
+theme_override_font_sizes/font_size = 11
+text = "Cold Weapon defense required. Eliminate biological threat."
+autowrap_mode = 2
+
+[node name="MobileTouchControls" parent="." instance=ExtResource("2_touch_ui")]
+
+[node name="ComboContainer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -60.0
+offset_right = -30.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ComboLabel" type="Label" parent="ComboContainer"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.95, 0.8, 1)
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="ComboBadge" type="Label" parent="ComboContainer"]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 180.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0.3, 1, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "✦ CHAIN ×2"
+
+[node name="BossContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="BossName" type="Label" parent="BossContainer"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.9, 0.92, 0.96, 1)
+theme_override_font_sizes/font_size = 12
+text = "SPECIMEN EX-000 // ABERRANT RESIDUAL"
+horizontal_alignment = 1
+
+[node name="BossHPBar" type="ProgressBar" parent="BossContainer"]
+modulate = Color(0.2, 0.8, 1, 1)
+layout_mode = 0
+offset_top = 22.0
+offset_right = 600.0
+offset_bottom = 36.0
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="Phase2Banner" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 65.0
+offset_right = 160.0
+offset_bottom = 95.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Phase2Banner"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.3, 1)
+theme_override_font_sizes/font_size = 13
+text = "⚠ PHASE II // HYPER-AGITATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaggerBanner" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 100.0
+offset_right = 140.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="StaggerBanner"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "✦ KINETIC STAGGER // 2x DMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlamWarningBanner" type="Panel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 135.0
+offset_right = 180.0
+offset_bottom = 168.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SlamWarningBanner"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.1, 0.25, 1)
+theme_override_font_sizes/font_size = 14
+text = "⚡ DANGER // LEAPING SLAM // EVADE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntroBanner" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLetterbox" type="ColorRect" parent="IntroBanner"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.88)
+
+[node name="BottomLetterbox" type="ColorRect" parent="IntroBanner"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.88)
+
+[node name="TitleCard" type="Control" parent="IntroBanner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = 120.0
+offset_right = 350.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="IntroBanner/TitleCard"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
+theme_override_font_sizes/font_size = 28
+text = "ABERRANT SPECIMEN EX-000"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="IntroBanner/TitleCard"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "SECTOR 11 CONTAINMENT BREACH // THREAT LEVEL: S"
+horizontal_alignment = 1
+
+[node name="VictoryBanner" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLetterbox" type="ColorRect" parent="VictoryBanner"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+color = Color(0.01, 0.02, 0.03, 0.92)
+
+[node name="BottomLetterbox" type="ColorRect" parent="VictoryBanner"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.01, 0.02, 0.03, 0.92)
+
+[node name="TitleCard" type="Control" parent="VictoryBanner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -60.0
+offset_right = 400.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VictoryBanner/TitleCard"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "TARGET NEUTRALIZED"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VictoryBanner/TitleCard"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9, 0.94, 1, 0.9)
+theme_override_font_sizes/font_size = 15
+text = "SECTOR 11 CONTAINMENT RESTORED // SPECIMEN DISSOLVED"
+horizontal_alignment = 1
+
+[node name="TerminalHackPuzzle" parent="." instance=ExtResource("3_hack_ui")]
+visible = false
+
+[node name="DialogueOverlay" parent="." instance=ExtResource("4_dialogue_ui")]
+visible = false
+
+[node name="SystemWindow" parent="." instance=ExtResource("5_sys_window")]
+visible = false
+
+[node name="InteractionPromptHUD" parent="." instance=ExtResource("6_prompt_ui")]
+visible = false
+
+
+

@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/environment/blast_gate.gd" id="1_gate"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_frame_pillar"]
+size = Vector3(1.2, 7.0, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+albedo_color = Color(0.04, 0.05, 0.08, 1)
+metallic = 0.92
+roughness = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_frame_top"]
+size = Vector3(9.2, 1.4, 1.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(7.2, 6.5, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_door"]
+albedo_color = Color(0.08, 0.1, 0.14, 1)
+metallic = 0.88
+roughness = 0.35
+emission_enabled = true
+emission = Color(0, 0.75, 0.9, 1)
+emission_energy_multiplier = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door"]
+size = Vector3(7.2, 6.5, 0.8)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_steam"]
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.5
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.3
+scale_max = 0.8
+color = Color(0.85, 0.95, 1, 0.35)
+
+[sub_resource type="SphereMesh" id="SphereMesh_steam"]
+radius = 0.2
+height = 0.4
+
+[node name="BlastGate" type="Node3D"]
+script = ExtResource("1_gate")
+
+[node name="DoorFrame" type="Node3D" parent="."]
+
+[node name="LeftPillar" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 3.5, 0)
+mesh = SubResource("BoxMesh_frame_pillar")
+surface_material_override/0 = SubResource("StandardMaterial3D_frame")
+
+[node name="RightPillar" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 3.5, 0)
+mesh = SubResource("BoxMesh_frame_pillar")
+surface_material_override/0 = SubResource("StandardMaterial3D_frame")
+
+[node name="TopBeam" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.8, 0)
+mesh = SubResource("BoxMesh_frame_top")
+surface_material_override/0 = SubResource("StandardMaterial3D_frame")
+
+[node name="SlidingDoor" type="MeshInstance3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+mesh = SubResource("BoxMesh_door")
+surface_material_override/0 = SubResource("StandardMaterial3D_door")
+
+[node name="IndicatorLight" type="OmniLight3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2, 0.9)
+light_color = Color(1, 0.15, 0.1, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="GateCollider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GateCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+shape = SubResource("BoxShape3D_door")
+
+[node name="SteamExhaust" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4, 0.4)
+emitting = false
+amount = 24
+lifetime = 1.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_steam")
+draw_pass_1 = SubResource("SphereMesh_steam")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/cinematics/kinga_torture_sequence.gd" id="1_seq_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/dr_kinga.tscn" id="2_kinga"]
+[ext_resource type="PackedScene" path="res://scenes/props/restraint_chair.tscn" id="3_chair"]
+[ext_resource type="PackedScene" path="res://scenes/props/hospital_bed.tscn" id="4_bed"]
+[ext_resource type="Script" path="res://scripts/audio/procedural_cinematic_audio.gd" id="5_audio"]
+[ext_resource type="PackedScene" path="res://scenes/cinematics/cine_camera_director.tscn" id="6_cam_director"]
+[ext_resource type="Script" path="res://scripts/effects/volumetric_fog_controller.gd" id="7_fog_controller"]
+[ext_resource type="PackedScene" path="res://scenes/effects/dust_motes_particles.tscn" id="8_dust_motes"]
+[ext_resource type="PackedScene" path="res://scenes/effects/void_dark_matter.tscn" id="9_dark_matter"]
+[ext_resource type="PackedScene" path="res://scenes/props/hospital_egress_hatch.tscn" id="10_hatch"]
+
+[node name="KingaTortureSequence" type="Node3D"]
+script = ExtResource("1_seq_script")
+
+[node name="ProceduralAudio" type="Node" parent="."]
+script = ExtResource("5_audio")
+
+[node name="CineCameraDirector" parent="." instance=ExtResource("6_cam_director")]
+
+[node name="VolumetricFogController" type="Node" parent="."]
+script = ExtResource("7_fog_controller")
+
+[node name="VoidDarkMatter" parent="." instance=ExtResource("9_dark_matter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="DrKinga" parent="." instance=ExtResource("2_kinga")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2.8)
+
+[node name="RestraintChair" parent="." instance=ExtResource("3_chair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="HospitalBed" parent="." instance=ExtResource("4_bed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+visible = false
+
+[node name="DustMotesParticles" parent="HospitalBed" instance=ExtResource("8_dust_motes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="HospitalEgressHatch" parent="HospitalBed" instance=ExtResource("10_hatch")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.8, 0, 0)
+
+[node name="LabLighting" type="Node3D" parent="."]
+
+[node name="SurgicalSlamLight" type="OmniLight3D" parent="LabLighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, 0)
+light_color = Color(0.9, 0.95, 1, 1)
+light_energy = 3.5
+omni_range = 10.0
+
+[node name="CrimsonAlertLight" type="OmniLight3D" parent="LabLighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3.0, -2.5)
+light_color = Color(1, 0.1, 0.2, 1)
+light_energy = 2.8
+omni_range = 8.0
+
+[node name="AbyssLighting" type="Node3D" parent="."]
+visible = false
+
+[node name="DeepVoidLight" type="OmniLight3D" parent="AbyssLighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+light_color = Color(0.02, 0.15, 0.35, 1)
+light_energy = 4.0
+omni_range = 25.0
+
+[node name="HospitalLighting" type="Node3D" parent="."]
+visible = false
+
+[node name="MorningWindowLight" type="DirectionalLight3D" parent="HospitalLighting"]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 15, 6, 4)
+light_color = Color(1, 0.96, 0.9, 1)
+light_energy = 2.2
+light_volumetric_fog_energy = 2.8
+
+[node name="HospitalAmbientLight" type="OmniLight3D" parent="HospitalLighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 3.5, 0)
+light_color = Color(0.85, 0.92, 1, 1)
+light_energy = 1.6
+omni_range = 12.0

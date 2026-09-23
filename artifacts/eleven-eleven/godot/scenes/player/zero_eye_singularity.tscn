@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/zero_eye_singularity.gd" id="1_singularity"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_flare"]
+direction = Vector3(0, 0.2, 1)
+spread = 15.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.2
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.02
+scale_max = 0.06
+color = Color(0.1, 0.9, 1, 0.85)
+
+[sub_resource type="SphereMesh" id="SphereMesh_particle"]
+radius = 0.02
+height = 0.04
+
+[node name="ZeroEyeSingularity" type="Node3D"]
+script = ExtResource("1_singularity")
+
+[node name="EyeLight" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.94, 1, 1)
+light_energy = 2.8
+omni_range = 1.4
+
+[node name="EyeFlareParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.45
+process_material = SubResource("ParticleProcessMaterial_flare")
+draw_pass_1 = SubResource("SphereMesh_particle")

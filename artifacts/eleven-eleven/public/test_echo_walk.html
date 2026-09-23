@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/node_modules/three/build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader.js": "/node_modules/three/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+  <style>body { margin: 0; background: #222; }</style>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#1a2430');
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 1.2, 3.2);
+    camera.lookAt(0, 0.9, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(800, 800);
+    document.body.appendChild(renderer.domElement);
+
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 2.0);
+    scene.add(hemiLight);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    dirLight.position.set(2, 4, 3);
+    scene.add(dirLight);
+
+    const loader = new GLTFLoader();
+    loader.load('/assets/characters/echo.glb', (gltf) => {
+      const model = gltf.scene;
+      scene.add(model);
+
+      const mixer = new THREE.AnimationMixer(model);
+      const walk = gltf.animations.find(a => a.name.includes('walk'));
+      if (walk) {
+        const action = mixer.clipAction(walk);
+        action.play();
+      }
+      mixer.update(0.35); // 0.35s into walk
+      renderer.render(scene, camera);
+      window.__READY__ = true;
+    });
+  </script>
+</body>
+</html>

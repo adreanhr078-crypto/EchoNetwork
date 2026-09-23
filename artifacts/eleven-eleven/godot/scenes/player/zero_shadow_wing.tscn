@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/zero_shadow_wing.gd" id="1_wing"]
+[ext_resource type="Shader" path="res://shaders/shadow_flame.gdshader" id="2_flame_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wing"]
+render_priority = 0
+shader = ExtResource("2_flame_shader")
+shader_parameter/dark_core_color = Color(0.005, 0.01, 0.02, 1)
+shader_parameter/flame_rim_color = Color(0, 0.95, 1, 1)
+shader_parameter/shadow_purple_color = Color(0.3, 0.05, 0.55, 1)
+shader_parameter/flame_speed = 3.5
+shader_parameter/flame_intensity = 3.2
+shader_parameter/rim_sharpness = 2.8
+
+[sub_resource type="PrismMesh" id="PrismMesh_primary"]
+material = SubResource("ShaderMaterial_wing")
+left_to_right = 0.2
+size = Vector3(0.3, 1.8, 0.08)
+
+[sub_resource type="PrismMesh" id="PrismMesh_secondary"]
+material = SubResource("ShaderMaterial_wing")
+left_to_right = 0.3
+size = Vector3(0.24, 1.3, 0.06)
+
+[sub_resource type="PrismMesh" id="PrismMesh_tertiary"]
+material = SubResource("ShaderMaterial_wing")
+left_to_right = 0.4
+size = Vector3(0.18, 0.9, 0.05)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_smoke"]
+direction = Vector3(0.5, 0.8, 0.2)
+spread = 28.0
+initial_velocity_min = 0.6
+initial_velocity_max = 1.4
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.08
+scale_max = 0.25
+color = Color(0.08, 0.02, 0.15, 0.8)
+
+[sub_resource type="SphereMesh" id="SphereMesh_particle"]
+radius = 0.06
+height = 0.12
+
+[node name="ZeroShadowWing" type="Node3D"]
+script = ExtResource("1_wing")
+
+[node name="WingRoot" type="Node3D" parent="."]
+
+[node name="PrimaryBlade" type="MeshInstance3D" parent="WingRoot"]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.65, 0.8, 0)
+mesh = SubResource("PrismMesh_primary")
+
+[node name="SecondaryBlade" type="MeshInstance3D" parent="WingRoot"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0.55, 0.4, 0.05)
+mesh = SubResource("PrismMesh_secondary")
+
+[node name="TertiaryBlade" type="MeshInstance3D" parent="WingRoot"]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0.45, 0.1, 0.08)
+mesh = SubResource("PrismMesh_tertiary")
+
+[node name="WingGlowLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.1)
+light_color = Color(0.15, 0.75, 1, 1)
+light_energy = 3.2
+omni_range = 4.0
+
+[node name="ShadowMistParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.6, 0)
+emitting = false
+amount = 24
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_smoke")
+draw_pass_1 = SubResource("SphereMesh_particle")

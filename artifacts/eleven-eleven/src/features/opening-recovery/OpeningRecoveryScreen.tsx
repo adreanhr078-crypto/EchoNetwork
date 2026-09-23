@@ -174,10 +174,9 @@ export default function OpeningRecoveryScreen() {
       return;
     }
     if (
-      status === 'receipt'
+      (status === 'receipt' || status === 'break')
       && transitionFinished
       && storyState?.openingCoverPuzzleCompleted === true
-      && entitlements.accessibleScreens.includes('play')
     ) {
       navigate('play');
     }
@@ -354,6 +353,7 @@ export default function OpeningRecoveryScreen() {
               );
               setTransitionFinished(true);
               setStatus('receipt');
+              navigate('play');
             }}
         />
       )}

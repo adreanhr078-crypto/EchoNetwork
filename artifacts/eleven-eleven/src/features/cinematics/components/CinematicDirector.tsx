@@ -86,13 +86,16 @@ export function CinematicDirector({
           poster={sequence.fallbackImageUrl}
           playsInline
           muted={!audioEnabled}
-          controls
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
           onEnded={onComplete}
           onError={() => { setFailed(true); setIsPlaying(false); }}
           style={{
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            pointerEvents: 'none',
           }}
         />
       )}
@@ -123,19 +126,33 @@ export function CinematicDirector({
           className="cinematic-skip-button"
           style={{
             position: 'absolute',
-            bottom: 'env(safe-area-inset-bottom, 24px)',
-            right: 'env(safe-area-inset-right, 24px)',
-            padding: '12px 24px',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            color: '#fff',
-            border: '1px solid rgba(255,255,255,0.2)',
-            borderRadius: '4px',
-            fontFamily: 'monospace',
+            top: 'max(1.2rem, env(safe-area-inset-top, 1.2rem))',
+            right: locale === 'ar' ? 'auto' : 'max(1.5rem, env(safe-area-inset-right, 1.5rem))',
+            left: locale === 'ar' ? 'max(1.5rem, env(safe-area-inset-left, 1.5rem))' : 'auto',
+            minHeight: '44px',
+            padding: '0.5rem 1.25rem',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            borderRadius: '9999px',
+            border: '1px solid rgba(244, 211, 140, 0.45)',
+            color: '#fdfaf3',
+            fontFamily: 'var(--gds-font-ui, system-ui, sans-serif)',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            letterSpacing: '0.05em',
+            backgroundColor: 'rgba(12, 16, 24, 0.72)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(244, 211, 140, 0.12)',
             cursor: 'pointer',
-            backdropFilter: 'blur(4px)',
+            zIndex: 100,
+            transition: 'all 220ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+            userSelect: 'none',
           }}
         >
-          {locale === 'ar' ? 'تجاوز المشهد' : 'Skip cinematic'}
+          {locale === 'ar' ? 'تجاوز المشهد ❯❯' : 'Skip ❯❯'}
         </button>
       )}
     </div>

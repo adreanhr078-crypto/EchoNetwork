@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/node_modules/three/build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader.js": "/node_modules/three/examples/jsm/loaders/GLTFLoader.js"
+      }
+    }
+  </script>
+  <style>body { margin: 0; background: #16202c; }</style>
+</head>
+<body>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 800 / 400, 0.1, 100);
+    camera.position.set(0, 1.2, -3.5); // looking from -Z towards +Z
+    camera.lookAt(0, 0.8, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(800, 400);
+    document.body.appendChild(renderer.domElement);
+
+    const light = new THREE.DirectionalLight(0xffffff, 3.0);
+    light.position.set(0, 3, -3);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+
+    const loader = new GLTFLoader();
+    loader.load('/assets/props/sector11-wake-capsule.glb', (gltf) => {
+      const m1 = gltf.scene;
+      m1.position.x = -1.2;
+      scene.add(m1);
+
+      loader.load('/assets/props/sector11-wake-capsule.glb', (g2) => {
+        const m2 = g2.scene;
+        m2.position.x = 1.2;
+        m2.rotation.y = Math.PI;
+        scene.add(m2);
+
+        renderer.render(scene, camera);
+        window.__READY__ = true;
+      });
+    });
+  </script>
+</body>
+</html>

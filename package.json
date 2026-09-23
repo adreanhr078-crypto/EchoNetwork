@@ -43,6 +43,8 @@
     "godot:smoke": "npx tsx tools/godot/run-godot.ts -- smoke",
     "godot:test": "npx tsx --test tools/godot/run-godot.test.ts",
     "godot:typecheck": "tsc --noEmit --module esnext --moduleResolution bundler --target es2022 --types node --skipLibCheck tools/godot/run-godot.ts tools/godot/run-godot.test.ts tools/environment-setup/tool-resolution.ts tools/environment-setup/check-environment.ts",
+    "godot:run": "C:\\Tools\\Godot-4.7.2-stable\\Godot_v4.7.2-stable_win64.exe --path artifacts/eleven-eleven/godot",
+    "godot:test-combat": "C:\\Tools\\Godot-4.7.2-stable\\Godot_v4.7.2-stable_win64_console.exe --headless --path artifacts/eleven-eleven/godot -s res://scripts/test_combat_headless.gd",
     "canva:create": "npx tsx tools/canva/run-canva.ts --",
     "comfyui:generate": "npx tsx tools/stable-diffusion/run-comfyui.ts --",
     "tts:generate": "npx tsx tools/ai-audio/run-tts.ts --"

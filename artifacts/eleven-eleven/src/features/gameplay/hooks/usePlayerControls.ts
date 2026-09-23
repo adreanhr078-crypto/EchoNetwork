@@ -32,6 +32,7 @@ export interface PlayerControlsApi {
   triggerPunch: () => void;
   triggerKick: () => void;
   triggerDodge: () => void;
+  triggerResonancePulse: () => void;
   resetInput: () => void;
 }
 
@@ -44,6 +45,7 @@ interface UsePlayerControlsOptions {
   onPunch?: () => void;
   onKick?: () => void;
   onDodge?: () => void;
+  onResonancePulse?: () => void;
 }
 
 const INITIAL_CONTROLS: PlayerControlsSnapshot = {
@@ -86,6 +88,7 @@ export function usePlayerControls({
   onPunch,
   onKick,
   onDodge,
+  onResonancePulse,
 }: UsePlayerControlsOptions): PlayerControlsApi {
   const inputRef = useRef<PlayerControlsSnapshot>({
     ...INITIAL_CONTROLS,
@@ -133,6 +136,11 @@ export function usePlayerControls({
     if (onDodge) onDodge();
   }, [enabled, onDodge]);
 
+  const triggerResonancePulse = useCallback(() => {
+    if (!enabled) return;
+    onResonancePulse?.();
+  }, [enabled, onResonancePulse]);
+
   useEffect(() => {
     if (!enabled) resetInput();
   }, [enabled, resetInput]);
@@ -163,6 +171,10 @@ export function usePlayerControls({
       }
       if (event.code === 'KeyE' && !event.repeat) {
         onInteract();
+        return;
+      }
+      if (event.code === 'KeyQ' && !event.repeat) {
+        triggerResonancePulse();
         return;
       }
       if ((event.code === 'KeyF' || event.code === 'KeyJ' || event.code === 'KeyZ') && !event.repeat) {
@@ -229,7 +241,7 @@ export function usePlayerControls({
         handleVisibilityChange,
       );
     };
-  }, [enabled, onAttack, onDodge, onInteract, onKick, onPause, onPunch, pauseEnabled, resetInput, triggerDodge, triggerKick, triggerPunch]);
+  }, [enabled, onAttack, onDodge, onInteract, onKick, onPause, onPunch, pauseEnabled, resetInput, triggerDodge, triggerKick, triggerPunch, triggerResonancePulse]);
 
   return {
     inputRef,
@@ -240,6 +252,7 @@ export function usePlayerControls({
     triggerPunch,
     triggerKick,
     triggerDodge,
+    triggerResonancePulse,
     resetInput,
   };
 }

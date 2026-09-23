@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/props/server_rack.glb" id="1_server_model"]
+
+[node name="ServerRack" type="Node3D"]
+
+[node name="server_rack" parent="." instance=ExtResource("1_server_model")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)

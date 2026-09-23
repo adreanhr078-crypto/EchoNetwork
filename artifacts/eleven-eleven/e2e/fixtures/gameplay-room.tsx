@@ -7,9 +7,11 @@ import { useGameStore } from '../../src/stores/gameStore';
 
 // Direct-room mode is the stable movement fixture. `?cinematic` preserves the
 // first-entry movie so the in-engine awakening handoff can be audited separately.
-const includeCinematic = new URLSearchParams(window.location.search).has('cinematic');
-const includeTutorial = new URLSearchParams(window.location.search).has('tutorial');
-const reducedMotion = new URLSearchParams(window.location.search).has('reduced');
+const fixtureParams = new URLSearchParams(window.location.search);
+const includeCinematic = fixtureParams.has('cinematic');
+const includeTutorial = fixtureParams.has('tutorial');
+const reducedMotion = fixtureParams.has('reduced');
+const mobileQuality = fixtureParams.has('mobile');
 useGameStore.getState().actions.setNarrativeFlag('opening_room_cinematic_seen', !includeCinematic);
 useGameStore.getState().actions.setNarrativeFlag('opening_room_controls_seen', !includeTutorial);
 
@@ -18,7 +20,7 @@ function Fixture() {
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <GameWorld
         paused={false}
-        quality="high"
+        quality={mobileQuality ? 'mobile' : 'high'}
         motion={reducedMotion ? 'reduced' : 'full'}
         onPause={() => {}}
         onRoomComplete={() => {
