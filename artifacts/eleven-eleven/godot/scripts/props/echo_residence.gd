@@ -19,9 +19,12 @@ const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinemat
 const PlayerInventory = preload("res://scripts/systems/player_inventory.gd")
 const PlayerNeeds = preload("res://scripts/systems/player_needs.gd")
 const GameClock = preload("res://scripts/systems/game_clock.gd")
+const WardrobeDressingSystem = preload("res://scripts/systems/wardrobe_dressing_system.gd")
 
 @export var address: String = "Minato-Kasumi 2-Chome 7-1"
 @export var residence_name: String = "Kasumi // Echo's Childhood Home"
+
+var wardrobe_system: WardrobeDressingSystem = null
 
 var house_state: HouseState = HouseState.NEGLECTED
 var photo_father_inspected: bool = false
@@ -407,3 +410,11 @@ func deserialize(data: Dictionary) -> void:
 	fridge_milk_stock = int(data.get("fridge_milk_stock", 2))
 
 	_apply_visual_states()
+
+func get_wardrobe_system() -> WardrobeDressingSystem:
+	if not wardrobe_system:
+		wardrobe_system = WardrobeDressingSystem.new()
+		wardrobe_system.name = "WardrobeDressingSystem"
+		add_child(wardrobe_system)
+	return wardrobe_system
+

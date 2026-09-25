@@ -71,6 +71,8 @@ var households: Dictionary = {
 }
 
 func is_resident_at_home(household_id: String, current_hour: int) -> bool:
+	if household_id == "HOUSE_SATO_01":
+		household_id = "HOUSE_001"
 	if not households.has(household_id):
 		return false
 	var h = households[household_id]
@@ -94,6 +96,8 @@ func is_resident_at_home(household_id: String, current_hour: int) -> bool:
 			return true
 
 func ring_doorbell(household_id: String, current_hour: int = 17, interactor: Node = null) -> Dictionary:
+	if household_id == "HOUSE_SATO_01":
+		household_id = "HOUSE_001"
 	if not households.has(household_id):
 		return {"success": false, "response": "... (Unoccupied dwelling.)"}
 
@@ -122,7 +126,9 @@ func ring_doorbell(household_id: String, current_hour: int = 17, interactor: Nod
 
 		match household_id:
 			"HOUSE_001":
-				if count == 1:
+				if current_hour >= 22 or current_hour < 6:
+					response = "Who is it at this ungodly hour?! The streets aren't safe at night, boy, go home!"
+				elif count == 1:
 					response = "Hello? Can I help you? ...Oh, are you an outpatient from the hospital down the road?"
 
 				elif count == 2:

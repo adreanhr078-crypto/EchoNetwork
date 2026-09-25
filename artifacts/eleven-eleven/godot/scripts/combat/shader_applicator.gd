@@ -38,12 +38,12 @@ static func _recursive_apply(node: Node, shader: Shader, albedo_col: Color, rim_
 		if mi.mesh:
 			for surface_index in mi.mesh.get_surface_count():
 				var source_material := mi.get_active_material(surface_index)
-				var mat := _make_stylized_material(source_material, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader)
+				var mat := _make_stylized_material(source_material, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, mi.name)
 				mi.set_surface_override_material(surface_index, mat)
 	for child in node.get_children():
 		_recursive_apply(child, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader)
 
-static func _make_stylized_material(source_material: Material, shader: Shader, albedo_tint: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader) -> ShaderMaterial:
+static func _make_stylized_material(source_material: Material, shader: Shader, albedo_tint: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, mesh_name: String = "") -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = shader
 	mat.set_shader_parameter("albedo_color", albedo_tint)
@@ -64,6 +64,13 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 		if source.emission_enabled:
 			mat.set_shader_parameter("emissive_color", source.emission)
 			mat.set_shader_parameter("emissive_intensity", source.emission_energy_multiplier)
+	mat.set_shader_parameter("use_sss", true)
+	mat.set_shader_parameter("sss_color", Color(0.96, 0.45, 0.40, 1.0))
+	mat.set_shader_parameter("sss_intensity", 0.70)
+	if mesh_name.to_lower().contains("hair"):
+		mat.set_shader_parameter("is_hair", true)
+		mat.set_shader_parameter("hair_specular_color", Color(1.0, 0.96, 0.88, 1.0))
+		mat.set_shader_parameter("hair_specular_power", 42.0)
 	if outline_shader:
 		var outline_mat := ShaderMaterial.new()
 		outline_mat.shader = outline_shader

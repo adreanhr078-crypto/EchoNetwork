@@ -6,6 +6,7 @@ const OutlineShader = preload("res://shaders/anime_outline.gdshader")
 const GameClockScript = preload("res://scripts/systems/game_clock.gd")
 const WeatherSystemScript = preload("res://scripts/systems/weather_system.gd")
 const WorldStreamerScript = preload("res://scripts/systems/world_streamer.gd")
+const CinematicPostProcessorScript = preload("res://scripts/effects/cinematic_post_processor.gd")
 
 @onready var player: CharacterBody3D = $EchoPlayer if has_node("EchoPlayer") else null
 @onready var boss: CharacterBody3D = $SpecimenEX000 if has_node("SpecimenEX000") else null
@@ -16,11 +17,16 @@ const WorldStreamerScript = preload("res://scripts/systems/world_streamer.gd")
 
 var weather_system: WeatherSystemScript = null
 var world_streamer: WorldStreamerScript = null
+var post_processor: Node = null
 var game_clock = GameClockScript.new()
 var is_intro_playing: bool = false
 var _active_hack_terminal: Node = null
 
 func _ready() -> void:
+	post_processor = CinematicPostProcessorScript.new()
+	post_processor.name = "CinematicPostProcessor"
+	add_child(post_processor)
+
 	# Start in Echo's vulnerable escape phase; the specimen fight is a later encounter.
 	_set_specimen_encounter_active(false)
 	if player and player.has_method("set_combat_available"):

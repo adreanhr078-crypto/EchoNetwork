@@ -1,0 +1,70 @@
+{
+  "source": {
+    "preset:walk": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\rokoko-walk-run-source\\fbx\\02-walkforward.fbx",
+    "preset:run": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\rokoko-walk-run-source\\fbx\\05-running-treadmill.fbx"
+  },
+  "clips": {
+    "preset:walk": {
+      "source_fbx": "02-walkforward.fbx",
+      "frames": 34,
+      "seconds": 1.1333333333333333,
+      "cadence_steps_per_min": 105.88235294117648,
+      "min_floor_clearance_m": 0.001809922754764557,
+      "max_floor_clearance_m": 0.001810084581375122,
+      "stance_speed_samples": 42,
+      "stance_speed_median_m_s": 0.9585,
+      "stance_speed_mean_m_s": 0.9918,
+      "stride_step_m": 0.5431,
+      "cycle_travel_m": 1.0863,
+      "authored_natural_speed_m_s": 0.9585,
+      "godot_target_speed_m_s": 1.55,
+      "speed_scale_synchronized": 1.6171,
+      "unscaled_world_slide_m_s": 0.5915,
+      "unscaled_slide_percent": 38.16,
+      "synchronized_world_slide_m_s": 0.0,
+      "all_knees_hinge_forward": true,
+      "knee_forward_bend_range_m": [
+        0.0385,
+        0.2281
+      ],
+      "all_elbows_hinge_naturally": true,
+      "elbow_flexion_range_deg": [
+        6.8,
+        28.1
+      ],
+      "loop_seam_joint_max_error_m": 0.0,
+      "loop_seam_velocity_max_error_m_s": 0.1731
+    },
+    "preset:run": {
+      "source_fbx": "05-running-treadmill.fbx",
+      "frames": 20,
+      "seconds": 0.6666666666666666,
+      "cadence_steps_per_min": 180.0,
+      "min_floor_clearance_m": 0.0018099766969680788,
+      "max_floor_clearance_m": 0.00925200492143631,
+      "stance_speed_samples": 24,
+      "stance_speed_median_m_s": 1.5345,
+      "stance_speed_mean_m_s": 1.4945,
+      "stride_step_m": 0.5115,
+      "cycle_travel_m": 1.023,
+      "authored_natural_speed_m_s": 1.5345,
+      "godot_target_speed_m_s": 5.8,
+      "speed_scale_synchronized": 3.7797,
+      "unscaled_world_slide_m_s": 4.2655,
+      "unscaled_slide_percent": 73.54,
+      "synchronized_world_slide_m_s": 0.0,
+      "all_knees_hinge_forward": true,
+      "knee_forward_bend_range_m": [
+        0.0629,
+        0.2811
+      ],
+      "all_elbows_hinge_naturally": true,
+      "elbow_flexion_range_deg": [
+        83.4,
+        121.8
+      ],
+      "loop_seam_joint_max_error_m": 0.0,
+      "loop_seam_velocity_max_error_m_s": 0.4624
+    }
+  }
+}

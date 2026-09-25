@@ -8,6 +8,9 @@ var yen_balance: int = 1000
 func get_yen() -> int:
 	return yen_balance
 
+func get_balance() -> int:
+	return yen_balance
+
 func has_funds(amount: int) -> bool:
 	return yen_balance >= amount
 
@@ -24,6 +27,9 @@ func add_yen(amount: int) -> void:
 	if amount > 0:
 		yen_balance += amount
 		emit_signal("yen_changed", yen_balance, amount)
+
+func earn_yen(amount: int) -> void:
+	add_yen(amount)
 
 func serialize() -> Dictionary:
 	return {"yen": yen_balance}

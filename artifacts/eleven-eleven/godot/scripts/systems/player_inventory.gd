@@ -104,6 +104,69 @@ const ITEM_DEFINITIONS := {
 		"hunger_restore": 20.0,
 		"energy_restore": 30.0,
 		"thirst_restore": 0.0
+	},
+	"dark_neural_fragment": {
+		"name": "Dark Neural Fragment // 暗黒神経の破片",
+		"desc": "Crystallized neural residue from Dr. Kinga's illicit stasis experiments.",
+		"category": "lore_artifact",
+		"price": 2500,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"astral_resonance_shard": {
+		"name": "Astral Resonance Shard // 星屑の残照",
+		"desc": "Pristine dimensional crystal forged by high-resonance awakening. Can be exchanged for rare fates.",
+		"category": "currency",
+		"price": 0,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"capsule_golden_tanuki": {
+		"name": "Golden Tanuki Lucky Mascot // 金の狸",
+		"desc": "Ultra-rare gold-plated tanuki figurine from the Kasumi gacha machine.",
+		"category": "collectible",
+		"price": 3000,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"capsule_mini_katana": {
+		"name": "Miniature Shadow Katana Figurine // ミニ刀",
+		"desc": "Detailed die-cast miniature katana with a crimson scabbard.",
+		"category": "collectible",
+		"price": 1200,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"capsule_crystal_bell": {
+		"name": "Mount Kasumi Crystal Wind Bell // 風鈴",
+		"desc": "Hand-blown glass chime that rings with a crisp coastal melody.",
+		"category": "collectible",
+		"price": 800,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"capsule_sakura_badge": {
+		"name": "Minato Academy Enamel Pin // 桜の校章",
+		"desc": "Official polished brass and sakura enamel pin of Minato High School.",
+		"category": "collectible",
+		"price": 600,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
+	},
+	"capsule_milk_cap": {
+		"name": "Retro Strawberry Milk Bottle Cap // 苺牛乳キャップ",
+		"desc": "Collectible paper milk bottle cap with a retro seal.",
+		"category": "collectible",
+		"price": 250,
+		"hunger_restore": 0.0,
+		"energy_restore": 0.0,
+		"thirst_restore": 0.0
 	}
 }
 

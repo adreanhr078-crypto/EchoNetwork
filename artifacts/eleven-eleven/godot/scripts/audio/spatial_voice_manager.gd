@@ -67,6 +67,34 @@ const VOICE_CATALOG: Dictionary = {
 		"vocal_id": "kiero",
 		"category": "narrative",
 		"volume_db": 0.5
+	},
+	"visceral_strike": {
+		"text_ja": "「これで終わりだ！」",
+		"text_en": "\"This ends now!\"",
+		"vocal_id": "kiero",
+		"category": "combat",
+		"volume_db": 3.0
+	},
+	"idle_breeze": {
+		"text_ja": "「潮風が…冷たくなってきた」",
+		"text_en": "\"The sea breeze is growing colder...\"",
+		"vocal_id": "osoi",
+		"category": "idle",
+		"volume_db": -2.5
+	},
+	"idle_sword": {
+		"text_ja": "「刃に曇りはない」",
+		"text_en": "\"My blade remains unclouded.\"",
+		"vocal_id": "haa",
+		"category": "idle",
+		"volume_db": -2.0
+	},
+	"idle_memory": {
+		"text_ja": "「雪…今どこにいるの？」",
+		"text_en": "\"Yuki... where are you now?\"",
+		"vocal_id": "mieta",
+		"category": "idle",
+		"volume_db": -2.0
 	}
 }
 
@@ -123,6 +151,12 @@ func play_voice(voice_id: String, pos: Vector3 = Vector3.ZERO) -> Dictionary:
 		stream = ProceduralCinematicAudio.create_japanese_vocal(entry["vocal_id"])
 		_cached_audio_streams[voice_id] = stream
 
+	if not voice_player_3d:
+		voice_player_3d = AudioStreamPlayer3D.new()
+		voice_player_3d.unit_size = 3.5
+		voice_player_3d.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+		add_child(voice_player_3d)
+
 	if pos != Vector3.ZERO:
 		voice_player_3d.position = pos
 	else:
@@ -130,7 +164,8 @@ func play_voice(voice_id: String, pos: Vector3 = Vector3.ZERO) -> Dictionary:
 
 	voice_player_3d.volume_db = entry["volume_db"]
 	voice_player_3d.stream = stream
-	voice_player_3d.play()
+	if voice_player_3d.is_inside_tree():
+		voice_player_3d.play()
 
 	emit_signal("voice_played", voice_id, entry["text_ja"], entry["text_en"])
 	return {

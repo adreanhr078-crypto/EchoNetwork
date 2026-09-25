@@ -18,6 +18,11 @@ extends CanvasLayer
 @onready var intro_title: Label = $IntroBanner/Title if has_node("IntroBanner/Title") else null
 @onready var intro_subtitle: Label = $IntroBanner/Subtitle if has_node("IntroBanner/Subtitle") else null
 
+const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+
+var ghost_hp_bar: ProgressBar = null
+var ghost_tween: Tween = null
+
 func show_boss_intro(title: String, subtitle: String, duration: float = 3.0) -> void:
 	if intro_banner:
 		if intro_title:
@@ -32,15 +37,61 @@ func show_boss_intro(title: String, subtitle: String, duration: float = 3.0) -> 
 		tween.tween_property(intro_banner, "modulate:a", 0.0, 0.4)
 		tween.tween_callback(func(): intro_banner.visible = false)
 
-func update_player_hp(current: float, max_val: float) -> void:
+func _setup_ghost_hp_bar(max_val: float) -> void:
+	if ghost_hp_bar != null:
+		return
+	if not player_hp_bar:
+		player_hp_bar = find_child("PlayerHPBar", true, false) as ProgressBar
 	if player_hp_bar:
+		ghost_hp_bar = player_hp_bar.find_child("GhostHPBar", true, false) as ProgressBar
+		if not ghost_hp_bar:
+			ghost_hp_bar = ProgressBar.new()
+			ghost_hp_bar.name = "GhostHPBar"
+			ghost_hp_bar.show_percentage = false
+			ghost_hp_bar.modulate = Color(1.0, 0.42, 0.42, 0.85)
+			ghost_hp_bar.max_value = max_val
+			ghost_hp_bar.value = player_hp_bar.value
+			player_hp_bar.add_child(ghost_hp_bar)
+			ghost_hp_bar.set_anchors_preset(Control.PRESET_FULL_RECT)
+			player_hp_bar.move_child(ghost_hp_bar, 0)
+
+func update_player_hp(current: float, max_val: float) -> void:
+	if not player_hp_bar:
+		player_hp_bar = find_child("PlayerHPBar", true, false) as ProgressBar
+	if player_hp_bar:
+		_setup_ghost_hp_bar(max_val)
+		var old_val: float = player_hp_bar.value
 		player_hp_bar.max_value = max_val
 		player_hp_bar.value = current
+		if ghost_hp_bar:
+			ghost_hp_bar.max_value = max_val
+			if current < old_val:
+				# Damage taken: ghost bar holds briefly then catches up
+				if ghost_tween and ghost_tween.is_valid():
+					ghost_tween.kill()
+				var tree = get_tree() if is_inside_tree() else null
+				if tree:
+					ghost_tween = tree.create_tween()
+					ghost_tween.tween_interval(0.22)
+					ghost_tween.tween_property(ghost_hp_bar, "value", current, 0.45).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+				else:
+					ghost_hp_bar.value = current
+			else:
+				ghost_hp_bar.value = current
 
 func update_player_stamina(current: float, max_val: float) -> void:
+	if not player_stamina_bar:
+		player_stamina_bar = find_child("PlayerStaminaBar", true, false) as ProgressBar
 	if player_stamina_bar:
 		player_stamina_bar.max_value = max_val
 		player_stamina_bar.value = current
+		var ratio: float = current / maxf(1.0, max_val)
+		if ratio < 0.25 and ratio > 0.0:
+			player_stamina_bar.modulate = Color(1.0, 0.65, 0.2, 1.0)
+		elif ratio <= 0.0:
+			player_stamina_bar.modulate = Color(1.0, 0.25, 0.25, 1.0)
+		else:
+			player_stamina_bar.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func update_combo(count: int, multiplier: int) -> void:
 	if combo_container:
@@ -162,6 +213,14 @@ func complete_directive(next_title: String, next_desc: String) -> void:
 	set_directive(next_title, next_desc)
 	if system_window and system_window.has_method("show_quest_update") and completed_title != "":
 		system_window.show_quest_update(completed_title, next_title)
+	if is_inside_tree():
+		var fanfare := AudioStreamPlayer.new()
+		fanfare.name = "QuestFanfare"
+		add_child(fanfare)
+		fanfare.stream = ProceduralCinematicAudio.create_quest_complete_fanfare()
+		fanfare.volume_db = -3.0
+		fanfare.play()
+		fanfare.finished.connect(func(): if is_instance_valid(fanfare): fanfare.queue_free())
 	if quest_container:
 		quest_container.modulate = Color(0.2, 1.0, 0.5, 1.0)
 		var tree = get_tree() if is_inside_tree() else null
@@ -224,5 +283,58 @@ func hide_interaction_prompt() -> void:
 		interaction_prompt = find_child("InteractionPromptHUD", true, false)
 	if interaction_prompt and interaction_prompt.has_method("hide_prompt"):
 		interaction_prompt.hide_prompt()
+
+const LootNotificationFeedScript = preload("res://scripts/ui/loot_notification_feed.gd")
+const CompassRadarBarScript = preload("res://scripts/ui/compass_radar_bar.gd")
+
+var _loot_feed: LootNotificationFeedScript = null
+var loot_feed: LootNotificationFeedScript:
+	get:
+		if not _loot_feed:
+			_loot_feed = find_child("LootNotificationFeed", true, false) as LootNotificationFeedScript
+			if not _loot_feed and is_inside_tree():
+				_loot_feed = LootNotificationFeedScript.new()
+				_loot_feed.name = "LootNotificationFeed"
+				add_child(_loot_feed)
+			elif not _loot_feed:
+				_loot_feed = LootNotificationFeedScript.new()
+				_loot_feed.name = "LootNotificationFeed"
+		return _loot_feed
+	set(val):
+		_loot_feed = val
+
+var _compass_bar: CompassRadarBarScript = null
+var compass_bar: CompassRadarBarScript:
+	get:
+		if not _compass_bar:
+			_compass_bar = find_child("CompassRadarBar", true, false) as CompassRadarBarScript
+			if not _compass_bar and is_inside_tree():
+				_compass_bar = CompassRadarBarScript.new()
+				_compass_bar.name = "CompassRadarBar"
+				add_child(_compass_bar)
+				_compass_bar.set_anchors_preset(Control.PRESET_CENTER_TOP)
+				_compass_bar.offset_top = 16.0
+				_compass_bar.offset_left = -230.0
+				_compass_bar.offset_right = 230.0
+				_compass_bar.offset_bottom = 50.0
+			elif not _compass_bar:
+				_compass_bar = CompassRadarBarScript.new()
+				_compass_bar.name = "CompassRadarBar"
+		return _compass_bar
+	set(val):
+		_compass_bar = val
+
+func show_loot_toast(item_name: String, amount: int = 1, rarity: String = "COMMON", category: String = "ITEM") -> Dictionary:
+	return loot_feed.show_loot(item_name, amount, rarity, category)
+
+func update_compass(cam_yaw: float, player_pos: Vector3) -> void:
+	compass_bar.update_compass(cam_yaw, player_pos)
+
+func add_compass_marker(id: String, world_pos: Vector3, label: String, type: String = "QUEST") -> void:
+	compass_bar.add_marker(id, world_pos, label, type)
+
+func remove_compass_marker(id: String) -> void:
+	compass_bar.remove_marker(id)
+
 
 

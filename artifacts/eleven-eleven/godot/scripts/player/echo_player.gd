@@ -12,6 +12,13 @@ signal iai_executed(damage: int)
 signal shadow_step_executed(from_pos: Vector3, to_pos: Vector3)
 signal nearby_interactable_changed(interactable: Node)
 signal opening_recovery_completed()
+signal perfect_deflect_triggered(attacker: Node)
+signal visceral_strike_executed(target: Node, damage: int)
+signal combat_roll_executed(direction: Vector3)
+signal hard_landing_executed(impact_speed: float)
+signal idle_bark_triggered(bark_id: String, text_ja: String)
+signal team_swapped(previous_slot: int, new_slot: int, character_data: Dictionary)
+signal ultimate_burst_fired(slot: int, character_name: String, damage: int)
 
 const ImpactSpawner = preload("res://scripts/combat/impact_spawner.gd")
 const GhostTrailSpawner = preload("res://scripts/player/ghost_trail_spawner.gd")
@@ -20,20 +27,34 @@ const PlayerInventory = preload("res://scripts/systems/player_inventory.gd")
 const PlayerNeeds = preload("res://scripts/systems/player_needs.gd")
 const LocomotionAnimController = preload("res://scripts/player/locomotion_anim_controller.gd")
 const SpatialVoiceManagerScript = preload("res://scripts/audio/spatial_voice_manager.gd")
+const EchoFacialControllerScript = preload("res://scripts/player/echo_facial_controller.gd")
+const EchoFootstepSystemScript = preload("res://scripts/player/echo_footstep_system.gd")
+const PlayerTraversalController = preload("res://scripts/player/player_traversal_controller.gd")
+const VisceralCombatControllerScript = preload("res://scripts/combat/visceral_combat_controller.gd")
+const TeamSwapControllerScript = preload("res://scripts/systems/team_swap_controller.gd")
 
 var wallet: EconomyManager = EconomyManager.new()
 var inventory: PlayerInventory = PlayerInventory.new()
 var needs: PlayerNeeds = PlayerNeeds.new()
 var locomotion_controller: LocomotionAnimController = LocomotionAnimController.new()
 var spatial_voice_manager: SpatialVoiceManagerScript = null
+var visceral_combat: VisceralCombatControllerScript = null
+var team_swap: TeamSwapControllerScript = null
 var nearby_interactables: Array = []
+
+var idle_motionless_timer: float = 0.0
+const IDLE_BARK_INTERVAL: float = 12.0
+var combat_activity_timer: float = 0.0
+const COMBAT_STANCE_DURATION: float = 6.0
+var _last_airborne_velocity_y: float = 0.0
 
 const MAX_HP: float = 200.0
 const MAX_STAMINA: float = 100.0
-const WALK_SPEED: float = 2.6
+const WALK_SPEED: float = 1.55
 const SPRINT_SPEED: float = 5.8
-const AUTHORED_WALK_SPEED: float = 1.94
-const AUTHORED_RUN_SPEED: float = 6.4
+const AUTHORED_WALK_SPEED: float = 1.0111
+const AUTHORED_RUN_SPEED: float = 1.7484
+const DEFLECT_WINDOW: float = 0.15
 const JUMP_VELOCITY: float = 5.4
 const DODGE_SPEED: float = 9.8
 const GRAVITY: float = 14.0
@@ -49,6 +70,49 @@ var is_dodging: bool = false
 var dodge_timer: float = 0.0
 var dodge_direction: Vector3 = Vector3.ZERO
 var perfect_dodge_surge: bool = false
+
+var deflect_window_timer: float = 0.0
+var _facial_controller: Node = null
+var facial_controller: Node:
+	get:
+		if not _facial_controller:
+			_facial_controller = find_child("EchoFacialController", true, false)
+			if not _facial_controller and is_inside_tree():
+				_facial_controller = EchoFacialControllerScript.new()
+				_facial_controller.name = "EchoFacialController"
+				add_child(_facial_controller)
+		return _facial_controller
+	set(val):
+		_facial_controller = val
+
+var _footstep_system: Node = null
+var footstep_system: Node:
+	get:
+		if not _footstep_system:
+			_footstep_system = find_child("EchoFootstepSystem", true, false)
+			if not _footstep_system and is_inside_tree():
+				_footstep_system = EchoFootstepSystemScript.new()
+				_footstep_system.name = "EchoFootstepSystem"
+				add_child(_footstep_system)
+		return _footstep_system
+	set(val):
+		_footstep_system = val
+
+var _traversal_controller: PlayerTraversalController = null
+var traversal: PlayerTraversalController:
+	get:
+		if not _traversal_controller:
+			_traversal_controller = find_child("PlayerTraversalController", true, false) as PlayerTraversalController
+			if not _traversal_controller and is_inside_tree():
+				_traversal_controller = PlayerTraversalController.new()
+				_traversal_controller.name = "PlayerTraversalController"
+				add_child(_traversal_controller)
+			elif not _traversal_controller:
+				_traversal_controller = PlayerTraversalController.new()
+				_traversal_controller.name = "PlayerTraversalController"
+		return _traversal_controller
+	set(val):
+		_traversal_controller = val
 
 var combo_count: int = 0
 var combo_multiplier: int = 1
@@ -110,6 +174,24 @@ func _ready() -> void:
 	emit_signal("hp_changed", hp, MAX_HP)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
+	facial_controller = find_child("EchoFacialController", true, false)
+	if not facial_controller:
+		facial_controller = EchoFacialControllerScript.new()
+		facial_controller.name = "EchoFacialController"
+		add_child(facial_controller)
+
+	footstep_system = find_child("EchoFootstepSystem", true, false)
+	if not footstep_system:
+		footstep_system = EchoFootstepSystemScript.new()
+		footstep_system.name = "EchoFootstepSystem"
+		add_child(footstep_system)
+
+	visceral_combat = find_child("VisceralCombatController", true, false)
+	if not visceral_combat:
+		visceral_combat = VisceralCombatControllerScript.new()
+		visceral_combat.name = "VisceralCombatController"
+		add_child(visceral_combat)
+
 	# Strict Narrative Mandate: Zero's Eye and Shadow Wing are strictly dormant at start
 	set_zero_eye_active(false)
 	dismiss_zero_wing()
@@ -130,6 +212,9 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 			"preset_walk": ["WALK", "preset:walk", "preset:biped:walk.001", "preset_biped_walk_001"],
 			"preset_run": ["RUN", "preset:run", "preset:biped:run.001", "preset_biped_run_001"],
 			"preset_biped_idle_001": ["preset_idle", "IDLE", "preset:idle", "preset:biped:idle.001"],
+			"preset_biped_fight_idle_001": ["Fight_Idle", "preset_fight_idle", "preset:fight_idle", "IDLE", "preset_biped_idle_001"],
+			"preset_biped_roll_001": ["Run_To_Rolling", "preset_roll", "preset:roll", "preset_biped_run_001"],
+			"preset_biped_hard_landing_001": ["Hard_Landing", "preset_hard_landing", "preset:hard_landing", "IDLE", "preset_biped_idle_001"],
 			"preset_biped_walk_001": ["preset_walk", "WALK", "preset:walk", "preset:biped:walk.001"],
 			"preset_biped_run_001": ["preset_run", "RUN", "preset:run", "preset:biped:run.001"],
 			"preset_biped_interact_001": ["INTERACT"],
@@ -145,8 +230,18 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		return
 	if current_anim == resolved_anim and animation_player.is_playing():
 		return
+	var previous_anim := current_anim
+	var gait_phase := -1.0
+	if animation_player.is_playing() and previous_anim in ["preset_walk", "preset_run"] and resolved_anim in ["preset_walk", "preset_run"]:
+		var previous_length := animation_player.get_animation(previous_anim).length
+		if previous_length > 0.0:
+			gait_phase = fposmod(animation_player.current_animation_position / previous_length, 1.0)
 	current_anim = resolved_anim
 	animation_player.play(resolved_anim, blend_time)
+	# Both locomotion takes start on the same contact. Preserve that contact
+	# when changing pace instead of restarting on an unrelated foot.
+	if gait_phase >= 0.0:
+		animation_player.seek(gait_phase * animation_player.get_animation(resolved_anim).length)
 
 func _play_opening_recovery() -> void:
 	if not animation_player:
@@ -207,8 +302,54 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 		move_and_slide()
 		return
-	# Add Gravity
+
+	# Handle Genshin Traversal: Climbing & Swimming
+	if traversal.is_climbing() or traversal.is_swimming():
+		var cam_basis = Basis()
+		if player_camera:
+			cam_basis = player_camera.global_transform.basis
+		elif get_viewport() and get_viewport().get_camera_3d():
+			cam_basis = get_viewport().get_camera_3d().global_transform.basis
+
+		var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		if mobile_input_vector.length() > 0.05:
+			input_dir = mobile_input_vector
+
+		var is_sprint_active: bool = Input.is_action_pressed("sprint")
+		var trav_res: Dictionary = traversal.update_traversal_physics(
+			delta,
+			velocity,
+			input_dir,
+			cam_basis,
+			global_position,
+			is_sprint_active,
+			stamina
+		)
+		velocity = trav_res["velocity"]
+		if trav_res["snap_position_y"] != -999.0:
+			global_position.y = lerpf(global_position.y, trav_res["snap_position_y"], 12.0 * delta)
+		if trav_res["face_direction"] != Vector3.ZERO and visual_root:
+			var target_yaw: float = atan2(trav_res["face_direction"].x, trav_res["face_direction"].z) + MODEL_FORWARD_YAW_OFFSET
+			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_yaw, 14.0 * delta)
+		if trav_res["stamina_drain"] > 0.0:
+			stamina = maxf(0.0, stamina - trav_res["stamina_drain"])
+			emit_signal("stamina_changed", stamina, MAX_STAMINA)
+
+		# Wall jump handling
+		if traversal.is_climbing() and Input.is_action_just_pressed("jump"):
+			var jump_res = traversal.climb_jump(stamina)
+			if jump_res["success"]:
+				stamina -= jump_res["stamina_cost"]
+				emit_signal("stamina_changed", stamina, MAX_STAMINA)
+				velocity = jump_res["impulse"]
+				traversal.stop_climbing()
+
+		move_and_slide()
+		return
+
+	# Add Gravity & Track Airborne Velocity
 	if not is_on_floor():
+		_last_airborne_velocity_y = velocity.y
 		velocity.y -= GRAVITY * delta
 
 	# Handle Dodge Physics & I-Frames
@@ -232,6 +373,8 @@ func _physics_process(delta: float) -> void:
 	if is_charging_iai:
 		update_iai_charge(delta)
 
+	deflect_window_timer = maxf(0.0, deflect_window_timer - delta)
+
 	# Handle Combo Reset Window (2.5s)
 	if combo_count > 0:
 		combo_reset_timer -= delta
@@ -239,6 +382,8 @@ func _physics_process(delta: float) -> void:
 			combo_count = 0
 			combo_multiplier = 1
 			emit_signal("combo_changed", combo_count, combo_multiplier)
+			if facial_controller and not is_charging_iai:
+				facial_controller.set_combat_focus(0.0, 0.3)
 
 	# Handle Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -308,7 +453,13 @@ func _physics_process(delta: float) -> void:
 	if is_attacking and not locomotion_controller.root_motion_active:
 		is_attacking = false
 
-	if loco_data["root_velocity"].length() > 0.1:
+	combat_activity_timer = maxf(0.0, combat_activity_timer - delta)
+	locomotion_controller.set_combat_stance(combat_activity_timer > 0.0 or not is_sheathed)
+
+	if loco_data.get("is_hard_landing", false):
+		velocity.x = move_toward(velocity.x, 0.0, 32.0 * delta)
+		velocity.z = move_toward(velocity.z, 0.0, 32.0 * delta)
+	elif loco_data["root_velocity"].length() > 0.1:
 		velocity.x = loco_data["root_velocity"].x
 		velocity.z = loco_data["root_velocity"].z
 	elif loco_data["is_skid"]:
@@ -333,6 +484,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor() and not grounded_before_move:
 		_landing_recoil = minf(0.18, landing_speed * 0.025 + 0.04)
+		if absf(_last_airborne_velocity_y) > 8.5:
+			locomotion_controller.trigger_hard_landing(absf(_last_airborne_velocity_y))
+			emit_signal("hard_landing_executed", absf(_last_airborne_velocity_y))
+			if is_inside_tree():
+				var land_audio = AudioStreamPlayer.new()
+				add_child(land_audio)
+				land_audio.stream = ProceduralCinematicAudio.create_hard_landing_sfx()
+				land_audio.play()
+				land_audio.finished.connect(func(): land_audio.queue_free())
+			if player_camera:
+				ImpactSpawner.trigger_screen_shake(player_camera, 0.28, 0.35)
 	if is_on_floor():
 		_last_safe_ground_position = global_position
 		_landing_recoil = move_toward(_landing_recoil, 0.0, 2.0 * delta)
@@ -341,7 +503,14 @@ func _physics_process(delta: float) -> void:
 			var actual_speed: float = Vector2(velocity.x, velocity.z).length()
 			var clip: String = "IDLE"
 			var target_blend_time: float = 0.22
-			if loco_data.get("is_skid", false):
+			if loco_data.get("is_hard_landing", false):
+				clip = "preset_biped_hard_landing_001"
+				target_blend_time = 0.08
+				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.24, minf(1.0, 16.0 * delta))
+			elif loco_data.get("is_rolling", false):
+				clip = "preset_biped_roll_001"
+				target_blend_time = 0.1
+			elif loco_data.get("is_skid", false):
 				clip = "IDLE"
 				target_blend_time = 0.12
 				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.08, minf(1.0, 14.0 * delta))
@@ -352,15 +521,34 @@ func _physics_process(delta: float) -> void:
 				else:
 					clip = "WALK"
 					target_blend_time = 0.25
+			else:
+				if combat_activity_timer > 0.0 or not is_sheathed:
+					clip = "preset_biped_fight_idle_001"
+					target_blend_time = 0.2
+				else:
+					clip = "IDLE"
+					target_blend_time = 0.25
+
 			play_anim(clip, target_blend_time)
 			if animation_player:
 				var ref_speed: float = AUTHORED_RUN_SPEED if clip == "RUN" else AUTHORED_WALK_SPEED
-				animation_player.speed_scale = clampf(actual_speed / ref_speed, 0.4, 1.6) if clip != "IDLE" else 1.0
+				animation_player.speed_scale = clampf(actual_speed / ref_speed, 0.4, 3.5) if (clip in ["WALK", "RUN"]) else 1.0
+
+			# Handle Character Soul Idle Barks (Genshin Idle System)
+			if actual_speed < 0.1 and not is_attacking and not is_dodging and combat_activity_timer <= 0.0 and not loco_data.get("is_hard_landing", false):
+				idle_motionless_timer += delta
+				if idle_motionless_timer >= IDLE_BARK_INTERVAL:
+					idle_motionless_timer = 0.0
+					trigger_idle_bark()
+			else:
+				idle_motionless_timer = 0.0
 	else:
 		# Keep the authored jump through its airborne phase; ledge falls use a
 		# stable pose until a separate playable fall cycle is authored.
 		if current_anim != "preset_jump" or not animation_player or not animation_player.is_playing():
 			play_anim("IDLE", 0.14)
+			if animation_player:
+				animation_player.speed_scale = 1.0
 		visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.1 if velocity.y > 0.0 else 0.14, minf(1.0, 8.0 * delta))
 		if global_position.y < _last_safe_ground_position.y - 7.0:
 			global_position = _last_safe_ground_position + Vector3.UP * 0.08
@@ -406,6 +594,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("interact") and not event.is_echo():
 		interact_with_nearest()
+		return
+	if event.is_action_pressed("guard") or (event is InputEventKey and event.pressed and (event.keycode == KEY_F or event.keycode == KEY_K)):
+		trigger_deflect_attempt()
+		return
+
+func trigger_deflect_attempt() -> void:
+	if not combat_available:
+		return
+	if is_sheathed:
+		unsheath_weapon()
+	deflect_window_timer = DEFLECT_WINDOW
+	if facial_controller:
+		facial_controller.set_combat_focus(1.0, 0.08)
 
 func start_iai_charge() -> void:
 	if not combat_available:
@@ -414,6 +615,8 @@ func start_iai_charge() -> void:
 		unsheath_weapon()
 	is_charging_iai = true
 	iai_charge = 0.0
+	if facial_controller:
+		facial_controller.set_combat_focus(1.0, 0.12)
 	var katana = find_child("KatanaBlade", true, false)
 	if katana:
 		var glow = katana.find_child("BladeGlowLight", true, false) as OmniLight3D
@@ -504,6 +707,7 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 						register_hit_landed(iai_dmg)
 						var hit_pos: Vector3 = (start_pos + child.position) * 0.5 + Vector3(0, 1.0, 0)
 						ImpactSpawner.spawn_katana_sparks(parent, hit_pos, Vector3.UP, true)
+						ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3(0, 0.4, 0), iai_dmg, true)
 						if player_camera:
 							ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.35)
 						trigger_hit_stop(0.09)
@@ -692,6 +896,10 @@ func perform_attack() -> void:
 					# Spawn impact sparks & ground slash decal
 					var hit_pos: Vector3 = (global_position + child.global_position) * 0.5 + Vector3(0, 1.0, 0) if is_inside_tree() else position + Vector3(0, 1.0, -1.0)
 					ImpactSpawner.spawn_katana_sparks(parent, hit_pos, Vector3.UP, current_step == 3)
+					var is_crit_hit: bool = current_step == 3 or perfect_dodge_surge or combo_multiplier >= 2
+					ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3(0, 0.35, 0), eff_dmg, is_crit_hit)
+					if facial_controller:
+						facial_controller.set_combat_focus(1.0, 0.12)
 					if current_step == 3 and player_camera:
 						ImpactSpawner.trigger_screen_shake(player_camera, 0.15, 0.22)
 
@@ -739,6 +947,8 @@ func start_dodge() -> void:
 	stamina = max(0.0, stamina - 20.0)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
+	combat_activity_timer = COMBAT_STANCE_DURATION
+
 	# AAA dodge voice — whispered Japanese perception line
 	if spatial_voice_manager:
 		var vpos: Vector3 = global_position if is_inside_tree() else position
@@ -753,6 +963,19 @@ func start_dodge() -> void:
 		dodge_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	else:
 		dodge_direction = -transform.basis.z
+
+	var horiz_speed: float = Vector2(velocity.x, velocity.z).length()
+	var is_sprint_active: bool = Input.is_action_pressed("sprint")
+	if horiz_speed > 2.8 or is_sprint_active:
+		# Trigger Combat Roll (Mixamo Run_To_Rolling)
+		locomotion_controller.trigger_roll(dodge_direction)
+		emit_signal("combat_roll_executed", dodge_direction)
+		if is_inside_tree():
+			var roll_audio = AudioStreamPlayer.new()
+			add_child(roll_audio)
+			roll_audio.stream = ProceduralCinematicAudio.create_combat_roll_sfx()
+			roll_audio.play()
+			roll_audio.finished.connect(func(): roll_audio.queue_free())
 
 func sheath_weapon() -> void:
 	var katana = find_child("KatanaBlade", true, false) as Node3D
@@ -804,7 +1027,10 @@ func register_hit_landed(base_damage: int) -> void:
 
 	emit_signal("attack_hit", effective_damage, is_crit)
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float, attacker: Node = null) -> void:
+	if deflect_window_timer > 0.0:
+		trigger_perfect_deflect(attacker)
+		return
 	if is_invulnerable:
 		trigger_perfect_dodge()
 		return
@@ -814,6 +1040,41 @@ func take_damage(amount: float) -> void:
 	combo_multiplier = 1
 	emit_signal("combo_changed", combo_count, combo_multiplier)
 	emit_signal("hp_changed", hp, MAX_HP)
+	if facial_controller:
+		facial_controller.trigger_damage_grimace(0.9, 0.38)
+
+func trigger_perfect_deflect(attacker: Node = null) -> void:
+	deflect_window_timer = 0.0
+	perfect_dodge_surge = true
+	stamina = min(MAX_STAMINA, stamina + 30.0)
+	emit_signal("stamina_changed", stamina, MAX_STAMINA)
+	emit_signal("perfect_deflect_triggered", attacker)
+
+	var hit_pos: Vector3 = global_position + Vector3(0, 1.1, 0) - visual_root.global_transform.basis.z * 0.7 if is_inside_tree() else position + Vector3(0, 1.1, -0.7)
+	var parent := get_parent()
+	if parent:
+		ImpactSpawner.spawn_deflect_burst(parent, hit_pos)
+		if player_camera:
+			ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.25)
+
+		var tree := get_tree() if is_inside_tree() else null
+		if tree:
+			var parry_audio := AudioStreamPlayer.new()
+			add_child(parry_audio)
+			parry_audio.stream = ProceduralCinematicAudio.create_katana_parry_clash()
+			parry_audio.play()
+			parry_audio.finished.connect(func(): parry_audio.queue_free())
+
+	if attacker:
+		if attacker.has_method("apply_counter_stagger"):
+			attacker.apply_counter_stagger()
+		elif "is_staggered" in attacker and "stagger_timer" in attacker:
+			attacker.is_staggered = true
+			attacker.stagger_timer = 2.5
+			if attacker.has_signal("stagger_changed"):
+				attacker.emit_signal("stagger_changed", true)
+
+	trigger_hit_stop(0.08)
 
 func trigger_perfect_dodge() -> void:
 	perfect_dodge_surge = true
@@ -909,3 +1170,132 @@ func restore_thirst(amount: float) -> void:
 func restore_energy(amount: float) -> void:
 	if needs:
 		needs.restore_energy(amount)
+
+func get_traversal() -> PlayerTraversalController:
+	return traversal
+
+func is_climbing() -> bool:
+	return traversal.is_climbing()
+
+func is_swimming() -> bool:
+	return traversal.is_swimming()
+
+func start_climbing(normal: Vector3, contact_point: Vector3) -> bool:
+	return traversal.start_climbing(normal, contact_point)
+
+func stop_climbing() -> void:
+	traversal.stop_climbing()
+
+func climb_jump() -> bool:
+	var jump_res = traversal.climb_jump(stamina)
+	if jump_res.get("success", false):
+		stamina = maxf(0.0, stamina - jump_res["stamina_cost"])
+		emit_signal("stamina_changed", stamina, MAX_STAMINA)
+		velocity = jump_res["impulse"]
+		traversal.stop_climbing()
+		return true
+	return false
+
+func enter_water(surface_y: float) -> void:
+	var player_pos: Vector3 = global_position if is_inside_tree() else position
+	traversal.enter_water(surface_y, player_pos)
+
+func exit_water() -> void:
+	traversal.exit_water()
+
+func get_spatial_voice_manager() -> SpatialVoiceManagerScript:
+	if not spatial_voice_manager:
+		spatial_voice_manager = find_child("SpatialVoiceManager", true, false)
+		if not spatial_voice_manager and is_inside_tree():
+			spatial_voice_manager = SpatialVoiceManagerScript.new()
+			spatial_voice_manager.name = "SpatialVoiceManager"
+			add_child(spatial_voice_manager)
+		elif not spatial_voice_manager:
+			spatial_voice_manager = SpatialVoiceManagerScript.new()
+	return spatial_voice_manager
+
+func trigger_idle_bark() -> void:
+	var svm = get_spatial_voice_manager()
+	var barks = ["idle_breeze", "idle_sword", "idle_memory"]
+	var chosen_bark: String = barks[randi() % barks.size()]
+	var text_ja: String = ""
+	if svm:
+		var vpos = global_position if is_inside_tree() else position
+		svm.play_voice(chosen_bark, vpos)
+		var catalog_entry: Dictionary = svm.VOICE_CATALOG.get(chosen_bark, {})
+		text_ja = catalog_entry.get("text_ja", "")
+	emit_signal("idle_bark_triggered", chosen_bark, text_ja)
+
+func get_visceral_combat() -> VisceralCombatControllerScript:
+	if not visceral_combat:
+		visceral_combat = find_child("VisceralCombatController", true, false)
+		if not visceral_combat and is_inside_tree():
+			visceral_combat = VisceralCombatControllerScript.new()
+			visceral_combat.name = "VisceralCombatController"
+			add_child(visceral_combat)
+		elif not visceral_combat:
+			visceral_combat = VisceralCombatControllerScript.new()
+			visceral_combat.name = "VisceralCombatController"
+	return visceral_combat
+
+func can_execute_visceral(target: Node) -> bool:
+	var vc = get_visceral_combat()
+	if not vc:
+		return false
+	return vc.can_execute(self, target)
+
+func execute_visceral_strike(target: Node, cine_camera_director: CineCameraDirector = null) -> Dictionary:
+	var vc = get_visceral_combat()
+	if not vc:
+		return {"success": false, "reason": "no_visceral_controller"}
+	combat_activity_timer = COMBAT_STANCE_DURATION
+	if is_sheathed:
+		unsheath_weapon()
+	var res = vc.execute_visceral_strike(self, target, cine_camera_director)
+	if res.get("success", false):
+		emit_signal("visceral_strike_executed", target, res.get("damage", 0))
+	return res
+
+func get_team_swap() -> TeamSwapControllerScript:
+	if not team_swap:
+		team_swap = find_child("TeamSwapController", true, false)
+		if not team_swap and is_inside_tree():
+			team_swap = TeamSwapControllerScript.new()
+			team_swap.name = "TeamSwapController"
+			add_child(team_swap)
+		elif not team_swap:
+			team_swap = TeamSwapControllerScript.new()
+			team_swap.name = "TeamSwapController"
+	return team_swap
+
+func swap_team_member(slot: int, cine_camera_director: CineCameraDirector = null) -> Dictionary:
+	var ts = get_team_swap()
+	if not ts:
+		return {"success": false, "reason": "no_team_swap_controller"}
+	var res = ts.swap_to_slot(slot, self, cine_camera_director)
+	if res.get("success", false):
+		emit_signal("team_swapped", res["previous_slot"], res["new_slot"], res["character"])
+	return res
+
+func add_burst_energy(amount: float) -> void:
+	var ts = get_team_swap()
+	if ts:
+		ts.add_burst_energy(amount)
+
+func can_use_burst() -> bool:
+	var ts = get_team_swap()
+	if not ts:
+		return false
+	return ts.can_execute_burst()
+
+func execute_team_burst(target: Node = null, cine_camera_director: CineCameraDirector = null) -> Dictionary:
+	var ts = get_team_swap()
+	if not ts:
+		return {"success": false, "reason": "no_team_swap_controller"}
+	var res = ts.execute_ultimate_burst(self, target, cine_camera_director)
+	if res.get("success", false):
+		emit_signal("ultimate_burst_fired", res["slot"], res["character"], res["damage"])
+	return res
+
+
+

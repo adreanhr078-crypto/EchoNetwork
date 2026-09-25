@@ -5,6 +5,7 @@ signal trauma_applied(amount: float)
 signal fov_punched(target_fov: float)
 signal dutch_tilt_changed(degrees: float)
 signal bullet_time_triggered(scale: float, duration: float)
+signal combat_finisher_triggered(impact_point: Vector3)
 
 @export var camera_path: NodePath
 var active_camera: Camera3D
@@ -19,6 +20,10 @@ var max_roll: float = deg_to_rad(6.5)
 var max_offset: Vector3 = Vector3(0.35, 0.35, 0.25)
 var noise_time: float = 0.0
 var noise_frequency: float = 28.0
+
+# Directional Trauma Shake (recoil along impact axis)
+var directional_trauma_vector: Vector3 = Vector3.ZERO
+var directional_trauma_decay: float = 7.5
 
 # Dynamic Dutch Tilt & FOV
 var base_fov: float = 70.0
@@ -71,10 +76,34 @@ func _process(delta: float) -> void:
 		active_camera.v_offset = lerp(active_camera.v_offset, 0.0, 10.0 * delta)
 		active_camera.rotation.z = lerp(active_camera.rotation.z, deg_to_rad(current_dutch_tilt), 12.0 * delta)
 
+	# Handle Directional Trauma Decay & Offset
+	if directional_trauma_vector.length() > 0.001:
+		directional_trauma_vector = directional_trauma_vector.move_toward(Vector3.ZERO, directional_trauma_decay * delta)
+		active_camera.h_offset += directional_trauma_vector.x
+		active_camera.v_offset += directional_trauma_vector.y
+		active_camera.rotation.z += directional_trauma_vector.x * 0.15
+		active_camera.rotation.x -= directional_trauma_vector.z * 0.12
+
 ## Apply trauma (0.0 to 1.0) with exponential decay
 func apply_trauma(amount: float) -> void:
 	trauma = clamp(trauma + amount, 0.0, 1.0)
 	emit_signal("trauma_applied", trauma)
+
+## Apply directional trauma opposing attack angle
+func apply_directional_trauma(recoil_direction: Vector3, intensity: float = 0.6) -> void:
+	apply_trauma(intensity * 0.65)
+	var dir = recoil_direction.normalized() if recoil_direction.length() > 0.01 else Vector3.BACK
+	directional_trauma_vector += Vector3(dir.x, dir.y, dir.z) * intensity * 0.45
+
+## Cinematic Preset: Dynamic Combat Finisher Zoom & Stagger Strike
+func preset_combat_finisher(impact_point: Vector3 = Vector3.ZERO, striker_forward: Vector3 = Vector3.BACK) -> void:
+	emit_signal("combat_finisher_triggered", impact_point)
+	apply_trauma(0.85)
+	var lateral_sign: float = -1.0 if randf() > 0.5 else 1.0
+	apply_directional_trauma(striker_forward * 0.6 + Vector3.RIGHT * lateral_sign * 0.4, 0.8)
+	punch_fov(48.0, 0.04, 0.42)
+	set_dutch_tilt(5.5 * lateral_sign, 0.2)
+	trigger_bullet_time(0.12, 0.35)
 
 ## Rapid FOV punch with smooth recovery
 func punch_fov(target_fov: float, punch_in_time: float = 0.08, restore_time: float = 0.45) -> void:

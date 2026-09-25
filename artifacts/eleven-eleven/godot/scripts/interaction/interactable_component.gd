@@ -12,7 +12,9 @@ enum InteractionVerb {
 	RIDE,
 	CLEAN,
 	REST,
-	IGNITE
+	IGNITE,
+	PRAY,
+	READ
 }
 
 signal interaction_requested(interactor: Node3D)
@@ -48,6 +50,8 @@ func get_verb_string() -> String:
 		InteractionVerb.CLEAN: return "CLEAN"
 		InteractionVerb.REST: return "REST / SLEEP"
 		InteractionVerb.IGNITE: return "IGNITE"
+		InteractionVerb.PRAY: return "PRAY / OFFERING"
+		InteractionVerb.READ: return "READ NOTICE"
 		_: return "INTERACT"
 
 

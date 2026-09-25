@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3]
+[gd_scene load_steps=44 format=3]
 
 [ext_resource type="Script" path="res://scripts/environment/minato_kasumi_alleyway.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/props/hospital_sliding_doors.tscn" id="2_doors"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" path="res://scenes/vehicles/moped.tscn" id="10_moped"]
 [ext_resource type="PackedScene" path="res://scenes/vehicles/skateboard.tscn" id="11_skate"]
 [ext_resource type="PackedScene" path="res://scenes/vehicles/kei_car.tscn" id="12_car"]
+[ext_resource type="Shader" path="res://shaders/anime_water.gdshader" id="13_water_shader"]
+[ext_resource type="Script" path="res://scripts/props/coastal_overlook_point.gd" id="14_overlook"]
+[ext_resource type="Script" path="res://scripts/props/town_notice_board.gd" id="15_notice"]
+[ext_resource type="Script" path="res://scripts/props/roadside_shrine.gd" id="16_shrine"]
 
 
 [sub_resource type="BoxMesh" id="BoxMesh_hospital_floor"]
@@ -86,11 +90,39 @@ roughness = 0.9
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ocean"]
 size = Vector2(120.0, 80.0)
+subdivide_width = 64
+subdivide_depth = 48
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocean"]
-albedo_color = Color(0.03, 0.12, 0.18, 1)
-metallic = 0.3
-roughness = 0.15
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocean"]
+render_priority = 0
+shader = ExtResource("13_water_shader")
+shader_parameter/shallow_color = Color(0.08, 0.76, 0.92, 0.85)
+shader_parameter/deep_color = Color(0.02, 0.08, 0.24, 0.98)
+shader_parameter/sky_reflection_color = Color(0.42, 0.72, 1.0, 1.0)
+shader_parameter/depth_distance = 9.0
+shader_parameter/wave_dir_1 = Vector2(0.85, 0.52)
+shader_parameter/wave_dir_2 = Vector2(-0.35, 0.93)
+shader_parameter/wave_amplitude_1 = 0.24
+shader_parameter/wave_amplitude_2 = 0.14
+shader_parameter/wave_frequency_1 = 0.16
+shader_parameter/wave_frequency_2 = 0.28
+shader_parameter/wave_speed_1 = 1.15
+shader_parameter/wave_speed_2 = 1.55
+shader_parameter/wave_steepness = 0.42
+shader_parameter/foam_color = Color(0.94, 0.98, 1.0, 1.0)
+shader_parameter/foam_depth = 0.75
+shader_parameter/foam_scale = 22.0
+shader_parameter/foam_speed = 1.2
+shader_parameter/crest_foam_threshold = 0.58
+shader_parameter/roughness = 0.05
+shader_parameter/metallic = 0.15
+shader_parameter/fresnel_power = 3.2
+shader_parameter/specular_size = 0.75
+shader_parameter/specular_smoothness = 0.04
+shader_parameter/specular_shininess = 110.0
+shader_parameter/refraction_strength = 0.016
+shader_parameter/caustic_intensity = 0.45
+
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pole"]
 top_radius = 0.12
@@ -259,7 +291,7 @@ shape = SubResource("BoxShape3D_wall_col")
 [node name="OceanSurface" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2, 45)
 mesh = SubResource("PlaneMesh_ocean")
-surface_material_override/0 = SubResource("StandardMaterial3D_ocean")
+surface_material_override/0 = SubResource("ShaderMaterial_ocean")
 
 [node name="UtilityPole" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.2)
@@ -472,4 +504,16 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 39.5, 0.15
 
 [node name="KeiCar" parent="Vehicles" instance=ExtResource("12_car")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0, 0.2, 1.5)
+
+[node name="CoastalOverlookPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, 0.2, 5.0)
+script = ExtResource("14_overlook")
+
+[node name="TownNoticeBoard" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0, 0.2, -3.2)
+script = ExtResource("15_notice")
+
+[node name="RoadsideShrine" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.2, -4.2)
+script = ExtResource("16_shrine")
 

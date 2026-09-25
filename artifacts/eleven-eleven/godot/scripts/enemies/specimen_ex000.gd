@@ -138,15 +138,36 @@ func execute_ground_slam() -> void:
 			ImpactSpawner.trigger_screen_shake(cam, 0.22, 0.32)
 		var dist: float = global_position.distance_to(target_player.global_position) if is_inside_tree() else position.distance_to(target_player.position)
 		if dist <= 4.2:
-			target_player.take_damage(30.0)
+			target_player.take_damage(30.0, self)
 
 func claw_attack() -> void:
 	if target_player and target_player.has_method("take_damage"):
 		var dist: float = global_position.distance_to(target_player.global_position)
 		if dist <= 2.6:
-			target_player.take_damage(25.0)
+			target_player.take_damage(25.0, self)
 
-func take_damage(amount: float) -> void:
+func apply_counter_stagger() -> void:
+	is_slam_windup = false
+	emit_signal("slam_warning", false)
+	is_staggered = true
+	stagger_timer = 2.8
+	emit_signal("stagger_changed", true)
+
+func take_damage(amount: float, hit_source_pos: Vector3 = Vector3.ZERO) -> void:
+	# Directional hit flinch & recoil
+	if hit_source_pos != Vector3.ZERO:
+		var diff: Vector3 = (global_position if is_inside_tree() else position) - hit_source_pos
+		diff.y = 0.0
+		if diff.length() > 0.01:
+			var recoil_dir := diff.normalized()
+			velocity += recoil_dir * clampf(amount * 0.05, 0.8, 5.0)
+		if visual_root:
+			visual_root.rotation.z = randf_range(-0.12, 0.12)
+			var tree := get_tree() if is_inside_tree() else null
+			if tree:
+				var tween := tree.create_tween()
+				tween.tween_property(visual_root, "rotation:z", 0.0, 0.16)
+
 	# Kinetic counter trigger during slam windup
 	if is_slam_windup:
 		is_slam_windup = false

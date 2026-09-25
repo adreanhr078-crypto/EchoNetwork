@@ -12,11 +12,14 @@ var second: float = 0.0
 var time_scale: float = 60.0 # 1 real second = 60 game seconds = 1 game minute
 
 func set_time(new_hour: int, new_minute: int, new_day: int = 1) -> void:
+	var prev_hour = hour
 	day = new_day
 	hour = clampi(new_hour, 0, 23)
 	minute = clampi(new_minute, 0, 59)
 	second = 0.0
 	emit_signal("minute_ticked", hour, minute)
+	if hour != prev_hour:
+		emit_signal("hour_ticked", hour)
 
 func advance_time(delta_game_minutes: float) -> void:
 	var total_sec = (hour * 3600) + (minute * 60) + second + (delta_game_minutes * 60.0)

@@ -1,0 +1,126 @@
+{
+  "foot_vertex_counts": {
+    "Left": 1650,
+    "Right": 1709
+  },
+  "preset:walk": {
+    "duration_s": 1.1333333333333333,
+    "shoe_sole_m_min_max": {
+      "Left": [
+        0.001682,
+        0.049551
+      ],
+      "Right": [
+        0.00181,
+        0.050958
+      ]
+    },
+    "both_feet_above_2cm_frames": 0,
+    "stance_speed_samples": 35,
+    "stance_speed_m_s_median": 1.0111,
+    "stance_speed_m_s_mean": 1.05,
+    "godot_target_speed_m_s": 1.55,
+    "speed_scale_synchronized": 1.5329,
+    "unscaled_world_slide_m_s": 0.5389,
+    "unscaled_slide_percent": 34.77,
+    "synchronized_world_slide_m_s": 0.0,
+    "all_knees_hinge_forward": true,
+    "knee_forward_bend_m_min_max": [
+      0.0385,
+      0.2281
+    ],
+    "all_elbows_hinge_naturally": true,
+    "elbow_flexion_deg_min_max": [
+      6.8,
+      28.3
+    ],
+    "hand_fore_aft_range_m": {
+      "Left": 0.4552,
+      "Right": 0.4365
+    },
+    "loop_joint_max_error_m": 0.0,
+    "loop_velocity_max_error_m_s": 0.1731,
+    "initial_shoe_clearance_m": {
+      "Left": 0.00181,
+      "Right": 0.028192
+    }
+  },
+  "preset:run": {
+    "duration_s": 0.6666666666666666,
+    "shoe_sole_m_min_max": {
+      "Left": [
+        0.001902,
+        0.157278
+      ],
+      "Right": [
+        0.00181,
+        0.125795
+      ]
+    },
+    "both_feet_above_2cm_frames": 2,
+    "stance_speed_samples": 19,
+    "stance_speed_m_s_median": 1.7484,
+    "stance_speed_m_s_mean": 1.6208,
+    "godot_target_speed_m_s": 5.8,
+    "speed_scale_synchronized": 3.3173,
+    "unscaled_world_slide_m_s": 4.0516,
+    "unscaled_slide_percent": 69.85,
+    "synchronized_world_slide_m_s": 0.0,
+    "all_knees_hinge_forward": true,
+    "knee_forward_bend_m_min_max": [
+      0.0445,
+      0.2811
+    ],
+    "all_elbows_hinge_naturally": true,
+    "elbow_flexion_deg_min_max": [
+      83.9,
+      121.8
+    ],
+    "hand_fore_aft_range_m": {
+      "Left": 0.352,
+      "Right": 0.3922
+    },
+    "loop_joint_max_error_m": 0.0,
+    "loop_velocity_max_error_m_s": 0.4624,
+    "initial_shoe_clearance_m": {
+      "Left": 0.121604,
+      "Right": 0.006138
+    }
+  },
+  "glb": {
+    "size_bytes": 5300444,
+    "mesh_count": 1,
+    "skin_count": 1,
+    "animations": [
+      {
+        "name": "preset:idle",
+        "channels": 66
+      },
+      {
+        "name": "preset:fall",
+        "channels": 66
+      },
+      {
+        "name": "preset:jump",
+        "channels": 66
+      },
+      {
+        "name": "preset:turn",
+        "channels": 66
+      },
+      {
+        "name": "preset:wakeup",
+        "channels": 66
+      },
+      {
+        "name": "preset:walk",
+        "channels": 66
+      },
+      {
+        "name": "preset:run",
+        "channels": 66
+      }
+    ],
+    "preset_wakeup_preserved": true
+  }
+}
