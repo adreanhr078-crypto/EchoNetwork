@@ -2,12 +2,14 @@ extends Control
 
 signal system_window_opened(type)
 signal system_window_closed(type)
+signal solo_leveling_choice_made(choice_id: String)
 
 enum WindowType {
 	NOTIFICATION,
 	QUEST_COMPLETED,
 	LEVEL_UP,
-	REWARD
+	REWARD,
+	SOLO_LEVELING_GLITCH
 }
 
 var current_type: WindowType = WindowType.NOTIFICATION
@@ -170,3 +172,47 @@ func show_reward_window(item_name: String = "SHADOW KATANA // نصل ملوك ا
 			"EFFECT: SHADOW TRAILS & VOID SLICE ACTIVE"
 		]
 	)
+
+func show_solo_leveling_glitch_prompt(on_choice_callback: Callable = Callable()) -> void:
+	current_type = WindowType.SOLO_LEVELING_GLITCH
+	visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_ensure_nodes()
+	if header_lbl:
+		header_lbl.text = "SYSTEM // UNREGISTERED SINGULARITY DETECTED [ERROR 11:11]"
+		header_lbl.modulate = Color(1.0, 0.15, 0.25)
+	if title_lbl:
+		title_lbl.text = "لقد تعديت حدودك // LIMIT EXCEEDED"
+		title_lbl.modulate = Color(1.0, 0.9, 0.95)
+	if desc_lbl:
+		desc_lbl.text = "توقف كل شيء في المحاكاة العصبية.\nيصل النظام إلى نقطة الانهيار... ما هي أمنيتك؟"
+		desc_lbl.modulate = Color(0.9, 0.7, 0.75)
+	if stats_box:
+		for c in stats_box.get_children():
+			c.queue_free()
+		var btn1 := Button.new()
+		btn1.text = "✦ [ الانتقام والخروج من النظام مهما كان الثمن ]"
+		btn1.modulate = Color(1.0, 0.2, 0.35)
+		btn1.custom_minimum_size.y = 44
+		stats_box.add_child(btn1)
+		var btn2 := Button.new()
+		btn2.text = "✦ [ نعم... لا أهتم بما سيحدث ]"
+		btn2.modulate = Color(0.7, 0.75, 0.85)
+		btn2.custom_minimum_size.y = 36
+		stats_box.add_child(btn2)
+		btn1.pressed.connect(func():
+			visible = false
+			emit_signal("solo_leveling_choice_made", "REVENGE_AT_ALL_COSTS")
+			if on_choice_callback.is_valid():
+				on_choice_callback.call("REVENGE_AT_ALL_COSTS")
+		)
+		btn2.pressed.connect(func():
+			visible = false
+			emit_signal("solo_leveling_choice_made", "ACCEPT_DONT_CARE")
+			if on_choice_callback.is_valid():
+				on_choice_callback.call("ACCEPT_DONT_CARE")
+		)
+	if confirm_btn:
+		confirm_btn.visible = false
+	emit_signal("system_window_opened", current_type)
+

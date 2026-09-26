@@ -62,3 +62,13 @@ static func spawn_number(parent: Node, world_pos: Vector3, damage: int, is_crit:
 		if is_instance_valid(label):
 			label.queue_free()
 	)
+
+static func spawn_damage_number(target_node: Node, damage: float, is_crit: bool = false, is_deflect: bool = false) -> void:
+	if not is_instance_valid(target_node):
+		return
+	var parent: Node = target_node.get_parent()
+	if not is_instance_valid(parent):
+		return
+	var world_pos: Vector3 = target_node.global_position if (target_node is Node3D and target_node.is_inside_tree()) else (target_node.position if target_node is Node3D else Vector3.ZERO)
+	world_pos.y += 1.4
+	spawn_number(parent, world_pos, int(damage), is_crit, is_deflect)

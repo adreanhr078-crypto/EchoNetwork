@@ -1,0 +1,20 @@
+{
+  "task_id": "f813d9b6-e061-4fd9-8b38-6ec23f1dee63",
+  "type": "animate_retarget",
+  "status": "success",
+  "input": {
+    "animation": "preset:fall",
+    "out_format": "glb",
+    "animate_in_place": true,
+    "original_model_id": "07e308f1-91ea-44a4-b811-85b3d9ec60a2"
+  },
+  "output_fields": [
+    "model_url"
+  ],
+  "credits_consumed": 10,
+  "created_at": "2026-09-23T07:00:06.666699Z",
+  "completed_at": "2026-09-23T07:00:30.767866Z",
+  "files": [
+    "model.glb"
+  ]
+}

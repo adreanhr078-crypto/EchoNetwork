@@ -3,50 +3,95 @@ extends Node
 
 ## Combat Impact FX & Decal System (Sparks, Slashes, Crater Decals & Screen Shake)
 
+static func spawn_impact_burst(parent: Node, hit_pos: Vector3, is_heavy: bool = false) -> void:
+	if not is_instance_valid(parent):
+		return
+	spawn_katana_sparks(parent, hit_pos, Vector3.UP, is_heavy)
+
 static func spawn_katana_sparks(parent: Node, hit_pos: Vector3, hit_normal: Vector3 = Vector3.UP, is_heavy: bool = false) -> void:
-	if not parent:
+	if not is_instance_valid(parent):
 		return
 
-	# 1. High-frequency anime spark burst
+	# 1. High-frequency anime spark burst (Dual Mana: Violet & Crimson / Gold)
 	var particles := GPUParticles3D.new()
 	particles.name = "KatanaSparks"
 	particles.position = hit_pos
 	particles.emitting = true
 	particles.one_shot = true
-	particles.amount = 36 if is_heavy else 20
+	particles.amount = 40 if is_heavy else 24
 	particles.lifetime = 0.35
 	particles.explosiveness = 0.95
 
 	var p_mat := ParticleProcessMaterial.new()
 	p_mat.direction = hit_normal + Vector3(randf_range(-0.4, 0.4), randf_range(0.2, 0.8), randf_range(-0.4, 0.4))
 	p_mat.spread = 45.0
-	p_mat.initial_velocity_min = 4.0
-	p_mat.initial_velocity_max = 9.0 if is_heavy else 6.5
+	p_mat.initial_velocity_min = 4.5
+	p_mat.initial_velocity_max = 10.0 if is_heavy else 7.0
 	p_mat.gravity = Vector3(0, -12.0, 0)
 	p_mat.scale_min = 0.04
-	p_mat.scale_max = 0.12 if is_heavy else 0.08
-	p_mat.color = Color(0.0, 0.95, 1.0, 1.0) if not is_heavy else Color(1.0, 0.9, 0.4, 1.0)
+	p_mat.scale_max = 0.14 if is_heavy else 0.09
+	p_mat.color = Color(0.85, 0.2, 0.95, 1.0) if not is_heavy else Color(1.0, 0.22, 0.15, 1.0)
 	particles.process_material = p_mat
 
 	var draw_mesh := BoxMesh.new()
-	draw_mesh.size = Vector3(0.03, 0.03, 0.1)
+	draw_mesh.size = Vector3(0.03, 0.03, 0.12)
 	var mesh_mat := StandardMaterial3D.new()
 	mesh_mat.shading_mode = StandardMaterial3D.SHADING_MODE_UNSHADED
-	mesh_mat.albedo_color = Color(0.8, 1.0, 1.0, 1.0)
+	mesh_mat.albedo_color = Color(1.0, 0.7, 0.9, 1.0) if not is_heavy else Color(1.0, 0.85, 0.5, 1.0)
 	draw_mesh.material = mesh_mat
 	particles.draw_pass_1 = draw_mesh
-
 	parent.add_child(particles)
 
-	# 2. Ground Slash Decal
+	# 2. Sumi-e Black Ink Slash Bursts (Obsidian Void Splash)
+	var ink_particles := GPUParticles3D.new()
+	ink_particles.name = "SumiInkSparks"
+	ink_particles.position = hit_pos
+	ink_particles.emitting = true
+	ink_particles.one_shot = true
+	ink_particles.amount = 20 if is_heavy else 12
+	ink_particles.lifetime = 0.45
+	ink_particles.explosiveness = 0.92
+
+	var ink_p_mat := ParticleProcessMaterial.new()
+	ink_p_mat.direction = -hit_normal + Vector3(randf_range(-0.6, 0.6), randf_range(-0.2, 0.5), randf_range(-0.6, 0.6))
+	ink_p_mat.spread = 60.0
+	ink_p_mat.initial_velocity_min = 2.0
+	ink_p_mat.initial_velocity_max = 5.5 if is_heavy else 4.0
+	ink_p_mat.gravity = Vector3(0, -9.8, 0)
+	ink_p_mat.scale_min = 0.05
+	ink_p_mat.scale_max = 0.16 if is_heavy else 0.11
+	ink_p_mat.color = Color(0.05, 0.02, 0.08, 0.95)
+	ink_particles.process_material = ink_p_mat
+
+	var ink_mesh := SphereMesh.new()
+	ink_mesh.radius = 0.04
+	ink_mesh.height = 0.08
+	var ink_mat := StandardMaterial3D.new()
+	ink_mat.shading_mode = StandardMaterial3D.SHADING_MODE_UNSHADED
+	ink_mat.albedo_color = Color(0.06, 0.02, 0.1, 0.95)
+	ink_mesh.material = ink_mat
+	ink_particles.draw_pass_1 = ink_mesh
+	parent.add_child(ink_particles)
+
+	# 3. Ground Slash Decal (Obsidian & Void Violet)
 	var decal := Decal.new()
 	decal.name = "KatanaSlashDecal"
 	decal.position = Vector3(hit_pos.x, 0.02, hit_pos.z)
-	decal.size = Vector3(0.2, 0.8, 1.4) if not is_heavy else Vector3(0.35, 1.0, 2.2)
+	decal.size = Vector3(0.2, 0.8, 1.4) if not is_heavy else Vector3(0.35, 1.0, 2.4)
 	decal.rotation.y = randf_range(0, PI)
-	decal.modulate = Color(0.0, 0.92, 1.0, 0.85)
-
+	decal.modulate = Color(0.65, 0.15, 0.9, 0.85) if not is_heavy else Color(0.95, 0.18, 0.22, 0.9)
 	parent.add_child(decal)
+
+	# 4. Visceral 3D Punchy Audio Crunch
+	if parent.is_inside_tree():
+		var audio := AudioStreamPlayer3D.new()
+		audio.position = hit_pos
+		audio.max_distance = 25.0
+		audio.bus = "Master"
+		audio.stream = ProceduralCinematicAudio.create_visceral_katana_hit_sfx(is_heavy)
+		parent.add_child(audio)
+		audio.play()
+		audio.finished.connect(func(): if is_instance_valid(audio): audio.queue_free())
 
 	# Auto-clean via tween
 	var tree = parent.get_tree() if parent.is_inside_tree() else null
@@ -56,6 +101,7 @@ static func spawn_katana_sparks(parent: Node, hit_pos: Vector3, hit_normal: Vect
 		tween.tween_callback(func():
 			if is_instance_valid(decal): decal.queue_free()
 			if is_instance_valid(particles): particles.queue_free()
+			if is_instance_valid(ink_particles): ink_particles.queue_free()
 		)
 
 static func spawn_boss_slam_crater(parent: Node, slam_pos: Vector3) -> void:

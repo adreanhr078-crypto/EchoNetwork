@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/procedural_secondary_motion.gd" id="4_secondary_motion"]
 
@@ -45,6 +45,15 @@ emission_enabled = true
 emission = Color(0, 0.94, 1, 1)
 emission_energy_multiplier = 4.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_tassel"]
+size = Vector3(0.012, 0.16, 0.004)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tassel"]
+albedo_color = Color(0.95, 0.15, 0.25, 1)
+emission_enabled = true
+emission = Color(0.95, 0.15, 0.25, 1)
+emission_energy_multiplier = 1.2
+
 [node name="KatanaBlade" type="Node3D"]
 
 [node name="Handle" type="MeshInstance3D" parent="."]
@@ -79,7 +88,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 script = ExtResource("4_secondary_motion")
 
 [node name="TasselRibbon" type="MeshInstance3D" parent="TasselRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14, 0)
-mesh = SubResource("BoxMesh_blade")
-surface_material_override/0 = SubResource("StandardMaterial3D_blade")
-
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0)
+mesh = SubResource("BoxMesh_tassel")
+surface_material_override/0 = SubResource("StandardMaterial3D_tassel")

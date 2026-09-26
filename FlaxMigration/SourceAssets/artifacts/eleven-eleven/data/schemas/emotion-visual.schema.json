@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eleven-eleven.local/schemas/emotion-visual.schema.json",
+  "title": "11:11 Emotion Visual System",
+  "type": "object",
+  "required": ["schemaVersion", "response", "base", "channels"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "response": {
+      "type": "object",
+      "required": [
+        "curveExponent",
+        "neutralBias",
+        "transitionMs",
+        "significantDelta"
+      ],
+      "properties": {
+        "curveExponent": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        },
+        "neutralBias": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        },
+        "transitionMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "significantDelta": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "base": {
+      "$ref": "#/$defs/target"
+    },
+    "channels": {
+      "type": "object",
+      "required": [
+        "humanity",
+        "trust",
+        "fear",
+        "anger",
+        "sadness",
+        "corruption"
+      ],
+      "properties": {
+        "humanity": { "$ref": "#/$defs/channel" },
+        "trust": { "$ref": "#/$defs/channel" },
+        "fear": { "$ref": "#/$defs/channel" },
+        "anger": { "$ref": "#/$defs/channel" },
+        "sadness": { "$ref": "#/$defs/channel" },
+        "corruption": { "$ref": "#/$defs/channel" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "palette": {
+      "type": "object",
+      "required": ["primary", "secondary", "ambient"],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "secondary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "ambient": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "atmosphere": {
+      "type": "object",
+      "required": [
+        "darkness",
+        "warmth",
+        "haze",
+        "particleEnergy",
+        "pulse"
+      ],
+      "properties": {
+        "darkness": { "$ref": "#/$defs/unit" },
+        "warmth": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "haze": { "$ref": "#/$defs/unit" },
+        "particleEnergy": { "$ref": "#/$defs/unit" },
+        "pulse": { "$ref": "#/$defs/unit" }
+      },
+      "additionalProperties": false
+    },
+    "grading": {
+      "type": "object",
+      "required": [
+        "brightness",
+        "contrast",
+        "saturation",
+        "vignette",
+        "bloom"
+      ],
+      "properties": {
+        "brightness": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 1.5
+        },
+        "contrast": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2
+        },
+        "saturation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "vignette": { "$ref": "#/$defs/unit" },
+        "bloom": { "$ref": "#/$defs/unit" }
+      },
+      "additionalProperties": false
+    },
+    "glitch": {
+      "type": "object",
+      "required": [
+        "intensity",
+        "frequency",
+        "chromaticShiftPx",
+        "displacementPx",
+        "scanlines",
+        "noise"
+      ],
+      "properties": {
+        "intensity": { "$ref": "#/$defs/unit" },
+        "frequency": { "$ref": "#/$defs/unit" },
+        "chromaticShiftPx": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "displacementPx": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 16
+        },
+        "scanlines": { "$ref": "#/$defs/unit" },
+        "noise": { "$ref": "#/$defs/unit" }
+      },
+      "additionalProperties": false
+    },
+    "cinematic": {
+      "type": "object",
+      "required": [
+        "cameraDrift",
+        "cameraShake",
+        "focusBreathing",
+        "transitionDistortion",
+        "memoryBloom",
+        "framePulse"
+      ],
+      "properties": {
+        "cameraDrift": { "$ref": "#/$defs/unit" },
+        "cameraShake": { "$ref": "#/$defs/unit" },
+        "focusBreathing": { "$ref": "#/$defs/unit" },
+        "transitionDistortion": { "$ref": "#/$defs/unit" },
+        "memoryBloom": { "$ref": "#/$defs/unit" },
+        "framePulse": { "$ref": "#/$defs/unit" }
+      },
+      "additionalProperties": false
+    },
+    "sound": {
+      "type": "object",
+      "required": [
+        "tension",
+        "warmth",
+        "isolation",
+        "distortion",
+        "heartbeat",
+        "reverb",
+        "lowPassHz"
+      ],
+      "properties": {
+        "tension": { "$ref": "#/$defs/unit" },
+        "warmth": { "$ref": "#/$defs/unit" },
+        "isolation": { "$ref": "#/$defs/unit" },
+        "distortion": { "$ref": "#/$defs/unit" },
+        "heartbeat": { "$ref": "#/$defs/unit" },
+        "reverb": { "$ref": "#/$defs/unit" },
+        "lowPassHz": {
+          "type": "number",
+          "minimum": 200,
+          "maximum": 20000
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "palette",
+        "atmosphere",
+        "grading",
+        "glitch",
+        "cinematic",
+        "sound"
+      ],
+      "properties": {
+        "palette": { "$ref": "#/$defs/palette" },
+        "atmosphere": { "$ref": "#/$defs/atmosphere" },
+        "grading": { "$ref": "#/$defs/grading" },
+        "glitch": { "$ref": "#/$defs/glitch" },
+        "cinematic": { "$ref": "#/$defs/cinematic" },
+        "sound": { "$ref": "#/$defs/sound" }
+      },
+      "additionalProperties": false
+    },
+    "channel": {
+      "type": "object",
+      "required": [
+        "activationThreshold",
+        "influence",
+        "palette",
+        "atmosphere",
+        "grading",
+        "glitch",
+        "cinematic",
+        "sound"
+      ],
+      "properties": {
+        "activationThreshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.95
+        },
+        "influence": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 4
+        },
+        "palette": { "$ref": "#/$defs/palette" },
+        "atmosphere": { "$ref": "#/$defs/atmosphere" },
+        "grading": { "$ref": "#/$defs/grading" },
+        "glitch": { "$ref": "#/$defs/glitch" },
+        "cinematic": { "$ref": "#/$defs/cinematic" },
+        "sound": { "$ref": "#/$defs/sound" }
+      },
+      "additionalProperties": false
+    },
+    "unit": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

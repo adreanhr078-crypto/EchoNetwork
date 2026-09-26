@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm --prefix artifacts/eleven-eleven ci && npm --prefix artifacts/eleven-eleven run check",
+  "outputDirectory": "artifacts/eleven-eleven/dist",
+  "installCommand": "npm install openai @vercel/node",
+  "rewrites": []
+}

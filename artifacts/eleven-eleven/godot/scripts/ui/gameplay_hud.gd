@@ -336,5 +336,33 @@ func add_compass_marker(id: String, world_pos: Vector3, label: String, type: Str
 func remove_compass_marker(id: String) -> void:
 	compass_bar.remove_marker(id)
 
+const TutorialToastSystemScript = preload("res://scripts/ui/tutorial_toast_system.gd")
+
+var _tutorial_toast: TutorialToastSystemScript = null
+var tutorial_toast: TutorialToastSystemScript:
+	get:
+		if not _tutorial_toast:
+			_tutorial_toast = find_child("TutorialToastSystem", true, false) as TutorialToastSystemScript
+			if not _tutorial_toast and is_inside_tree():
+				_tutorial_toast = TutorialToastSystemScript.new()
+				_tutorial_toast.name = "TutorialToastSystem"
+				add_child(_tutorial_toast)
+			elif not _tutorial_toast:
+				_tutorial_toast = TutorialToastSystemScript.new()
+				_tutorial_toast.name = "TutorialToastSystem"
+		return _tutorial_toast
+	set(val):
+		_tutorial_toast = val
+
+func show_tutorial_toast(toast_id: String, keycap: String, title: String, description: String, timeout: float = 5.0) -> void:
+	tutorial_toast.show_toast(toast_id, keycap, title, description, timeout)
+
+func complete_tutorial_action(toast_id: String) -> void:
+	tutorial_toast.complete_action(toast_id)
+
+func notify_in_game_dialogue(speaker: String, text: String, color: Color = Color.WHITE) -> void:
+	if has_method("start_dialogue"):
+		start_dialogue([{"speaker": speaker, "speaker_color": color, "text": text}])
+
 
 

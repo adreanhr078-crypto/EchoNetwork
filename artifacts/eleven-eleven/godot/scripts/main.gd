@@ -7,6 +7,7 @@ const GameClockScript = preload("res://scripts/systems/game_clock.gd")
 const WeatherSystemScript = preload("res://scripts/systems/weather_system.gd")
 const WorldStreamerScript = preload("res://scripts/systems/world_streamer.gd")
 const CinematicPostProcessorScript = preload("res://scripts/effects/cinematic_post_processor.gd")
+const PrologueOrchestratorScript = preload("res://scripts/cinematics/prologue_orchestrator.gd")
 
 @onready var player: CharacterBody3D = $EchoPlayer if has_node("EchoPlayer") else null
 @onready var boss: CharacterBody3D = $SpecimenEX000 if has_node("SpecimenEX000") else null
@@ -27,14 +28,15 @@ func _ready() -> void:
 	post_processor.name = "CinematicPostProcessor"
 	add_child(post_processor)
 
-	# Start in Echo's vulnerable escape phase; the specimen fight is a later encounter.
+	# Initialize Master Prologue Sequence
 	_set_specimen_encounter_active(false)
-	if player and player.has_method("set_combat_available"):
-		player.set_combat_available(false)
-	if hud and hud.has_method("set_directive"):
-		hud.set_directive("SYSTEM // NEURAL REBOOT", "Motor control is returning. Hold position while the link stabilizes.")
 	if hud and hud.has_node("BossContainer"):
 		hud.get_node("BossContainer").visible = false
+
+	var prologue := PrologueOrchestratorScript.new()
+	prologue.name = "PrologueOrchestrator"
+	add_child(prologue)
+	prologue.initialize(self, player, hud)
 
 	# 1. Connect Player Signals to HUD
 	if player and hud:
@@ -126,6 +128,7 @@ func _ready() -> void:
 	var existing_alleyway = find_child("MinatoKasumiAlleyway", true, false)
 	if existing_alleyway:
 		world_streamer.set_existing_zone(WorldStreamerScript.Zone.MINATO_KASUMI_STREET, existing_alleyway)
+		existing_alleyway.visible = false
 	add_child(world_streamer)
 	if player:
 		world_streamer.set_player(player)
@@ -152,36 +155,15 @@ func _on_opening_recovery_completed() -> void:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
 
 func apply_stylized_shaders() -> void:
-	# Echo Player: Signal Cyan anime rim + dark anime outlines
+	# Echo Player: Anime Toon Cel Shading + Ink Outlines (Preserves rich PBR uniform textures)
 	if player and player.has_node("ModelRoot"):
 		var model_root := player.get_node("ModelRoot")
-		if model_root.find_child("EchoCandidateV3", true, false) or model_root.find_child("EchoOpeningUniform", true, false):
-			# Preserve imported PBR textures for both canon-timeline outfit variants and add ink edges.
-			ShaderApplicator.apply_outline(model_root, OutlineShader, 1.0)
-		else:
-			ShaderApplicator.apply_cel_shader(
-				model_root,
-				CelShader,
-				Color(0.78, 0.8, 0.9, 1.0),
-				Color(0.0, 0.94, 1.0, 1.0), # Signal Cyan Rim
-				Color(0.4, 0.44, 0.58, 1.0),
-				3.2,
-				0.48,
-				OutlineShader
-			)
+		ShaderApplicator.apply_outline(model_root, OutlineShader, 1.25)
 
-	# Boss Monster: Threat Crimson anime rim + menacing dark outlines
+	# Boss Monster: Threat Anime Toon Cel Shading + Menacing Dark Outlines
 	if boss and boss.has_node("ModelRoot"):
-		ShaderApplicator.apply_cel_shader(
-			boss.get_node("ModelRoot"),
-			CelShader,
-			Color(0.85, 0.85, 0.9, 1.0),
-			Color(1.0, 0.15, 0.25, 1.0), # Signal Crimson Rim
-			Color(0.18, 0.08, 0.12, 1.0),
-			2.5,
-			1.4,
-			OutlineShader
-		)
+		var boss_root := boss.get_node("ModelRoot")
+		ShaderApplicator.apply_outline(boss_root, OutlineShader, 1.45)
 
 func play_boss_intro() -> void:
 	if not intro_camera or not player:
@@ -266,6 +248,11 @@ func _on_victory_sheathed() -> void:
 	if hud and hud.has_method("complete_directive"):
 		hud.complete_directive("02. Override Primary Blast Gate", "Locate Substation Terminal to access encrypted records on 'Project Zeo'.")
 
+	# Trigger Solo Leveling Glitch Reality Stop Prompt
+	var prologue = find_child("PrologueOrchestrator", true, false)
+	if prologue and prologue.has_method("trigger_solo_leveling_glitch"):
+		prologue.trigger_solo_leveling_glitch()
+
 	# Unlock and open Primary Blast Gate
 	var blast_gate = find_child("PrimaryBlastGate", true, false)
 	if blast_gate and blast_gate.has_method("open_gate"):
@@ -309,6 +296,9 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 	if terminal and terminal.has_method("complete_hack"):
 		terminal.complete_hack()
 	if terminal.name == "SectorTerminal":
+		var prologue = find_child("PrologueOrchestrator", true, false)
+		if prologue and prologue.has_method("on_terminal_puzzle_solved"):
+			prologue.on_terminal_puzzle_solved(terminal)
 		var gate = find_child("PrimaryBlastGate", true, false)
 		var breach_cine = find_child("BlastGateBreachCinematic", true, false)
 		if breach_cine and player and gate:

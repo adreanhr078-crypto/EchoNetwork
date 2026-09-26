@@ -724,6 +724,57 @@ static func create_katana_parry_clash() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
+## Synthesizes razor-sharp anime Katana swing whoosh (air-slicing aerodynamic curve)
+static func create_katana_whoosh_sfx(pitch_factor: float = 1.0) -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var duration: float = 0.16
+	var total_samples: int = int(sample_rate * duration)
+	var samples := PackedFloat32Array()
+	samples.resize(total_samples)
+
+	for i in range(total_samples):
+		var t: float = float(i) / float(sample_rate)
+		var norm_t: float = t / duration
+		var bell_env: float = sin(PI * norm_t)
+		bell_env = bell_env * bell_env # smooth bell curve
+
+		# Frequency sweep from high edge whistle down to body resonance
+		var sweep_freq: float = (1600.0 * (1.0 - norm_t * 0.65) + 320.0) * pitch_factor
+		var blade_whistle: float = sin(TAU * sweep_freq * t) * 0.35
+		var airy_noise: float = randf_range(-0.65, 0.65) * (0.3 + 0.7 * bell_env)
+		
+		samples[i] = (blade_whistle + airy_noise) * bell_env * 0.7
+
+	return generate_wav(samples, sample_rate)
+
+## Synthesizes visceral Katana impact hit with punchy 58Hz sub-bass crunch (Genshin / Sekiro style)
+static func create_visceral_katana_hit_sfx(is_heavy: bool = false) -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var duration: float = 0.26 if not is_heavy else 0.34
+	var total_samples: int = int(sample_rate * duration)
+	var samples := PackedFloat32Array()
+	samples.resize(total_samples)
+
+	for i in range(total_samples):
+		var t: float = float(i) / float(sample_rate)
+		var env_punch: float = exp(-t * (18.0 if not is_heavy else 14.0))
+		var env_metal: float = exp(-t * 26.0)
+
+		# 58Hz / 44Hz punchy sub-bass transient
+		var sub_bass: float = sin(TAU * (58.0 if not is_heavy else 44.0) * t) * env_punch * 0.85
+		# Steel slicing bite transient
+		var steel_bite: float = sin(TAU * (2200.0 if not is_heavy else 1750.0) * t) * env_metal * 0.4
+		var flesh_crunch: float = randf_range(-0.7, 0.7) * env_punch * 0.55
+
+		# Heavy hit adds extra low rumble
+		var sub_rumble: float = 0.0
+		if is_heavy:
+			sub_rumble = sin(TAU * 32.0 * t) * env_punch * 0.4
+
+		samples[i] = (sub_bass + steel_bite + flesh_crunch + sub_rumble) * 0.85
+
+	return generate_wav(samples, sample_rate)
+
 ## Synthesizes surface-aware footstep audio (concrete, metal, wood, water)
 static func create_footstep(surface: String = "concrete", is_run: bool = false) -> AudioStreamWAV:
 	var sample_rate: int = 22050

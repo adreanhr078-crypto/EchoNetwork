@@ -32,6 +32,10 @@ const EchoFootstepSystemScript = preload("res://scripts/player/echo_footstep_sys
 const PlayerTraversalController = preload("res://scripts/player/player_traversal_controller.gd")
 const VisceralCombatControllerScript = preload("res://scripts/combat/visceral_combat_controller.gd")
 const TeamSwapControllerScript = preload("res://scripts/systems/team_swap_controller.gd")
+const ContactShadowBlob = preload("res://scripts/effects/contact_shadow_blob.gd")
+const ShadowWaveProjectile = preload("res://scripts/combat/shadow_wave_projectile.gd")
+const MixamoAnimationBridgeScript = preload("res://scripts/player/mixamo_animation_bridge.gd")
+const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
 
 var wallet: EconomyManager = EconomyManager.new()
 var inventory: PlayerInventory = PlayerInventory.new()
@@ -149,6 +153,10 @@ var _last_safe_ground_position: Vector3 = Vector3.ZERO
 var _suppress_attack_until_release: bool = false
 
 func _ready() -> void:
+	floor_snap_length = 0.45
+	floor_stop_on_slope = true
+	floor_max_angle = deg_to_rad(45.0)
+	floor_constant_speed = true
 	_last_safe_ground_position = global_position
 	if not locomotion_controller.is_inside_tree():
 		add_child(locomotion_controller)
@@ -164,6 +172,7 @@ func _ready() -> void:
 	player_camera = find_child("Camera3D", true, false) as Camera3D
 	camera_boom = find_child("CameraBoom", true, false) as SpringArm3D
 	if animation_player:
+		MixamoAnimationBridgeScript.inject_animations(animation_player)
 		for anim_name in animation_player.get_animation_list():
 			var anim: Animation = animation_player.get_animation(anim_name)
 			var loops := anim_name in ["IDLE", "WALK", "RUN", "preset_idle", "preset_walk", "preset_run", "preset_biped_idle_001", "preset_biped_walk_001", "preset_biped_run_001", "preset:idle", "preset:walk", "preset:run", "preset:biped:idle.001", "preset:biped:walk.001", "preset:biped:run.001"]
@@ -196,6 +205,13 @@ func _ready() -> void:
 	set_zero_eye_active(false)
 	dismiss_zero_wing()
 
+	# Grounding: Add stylized contact shadow blob for Intel UHD compatibility
+	var shadow_blob := ContactShadowBlob.new()
+	shadow_blob.name = "ContactShadowBlob"
+	add_child(shadow_blob)
+
+	call_deferred("_setup_weapon_attachment")
+
 func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 	if not animation_player:
 		animation_player = find_child("AnimationPlayer", true, false)
@@ -220,6 +236,11 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 			"preset_biped_interact_001": ["INTERACT"],
 			"preset_biped_wakeup_001": ["preset_wakeup", "WAKEUP"],
 			"preset_biped_standup_001": ["STANDUP"],
+			"ATTACK_1": ["preset_biped_slash_001", "preset_slash", "Great Sword Slash", "Sword And Shield Attack", "Great_Sword_Slash", "preset_biped_attack_001", "preset_biped_fight_idle_001", "IDLE"],
+			"ATTACK_2": ["preset_biped_attack_001", "Melee_Attack_Downward", "Melee Attack Downward", "preset_slash_2", "Great Sword Slash", "preset_biped_slash_001", "preset_biped_fight_idle_001"],
+			"ATTACK_3": ["Flip Kick", "Flip_Kick", "preset_biped_kick_001", "Great Sword Slash", "Backflip", "Melee_Attack_Downward", "preset_biped_roll_001", "preset_biped_fight_idle_001"],
+			"FALL": ["preset_fall", "preset_biped_fall_001", "Jump_To_Hang", "IDLE", "preset_biped_idle_001"],
+			"LAUGH": ["preset_biped_laugh_001", "preset_biped_fight_idle_001", "IDLE"],
 		}
 		var candidates: Array = candidate_aliases.get(anim_name, [])
 		for candidate in candidates:
@@ -277,12 +298,7 @@ func _play_opening_recovery() -> void:
 	finish_opening_recovery()
 
 func _align_recovery_feet_to_floor() -> void:
-	if not _recovery_skeleton or _recovery_left_toe < 0 or _recovery_right_toe < 0:
-		return
-	var left_foot := _recovery_skeleton.global_transform * _recovery_skeleton.get_bone_global_pose(_recovery_left_toe)
-	var right_foot := _recovery_skeleton.global_transform * _recovery_skeleton.get_bone_global_pose(_recovery_right_toe)
-	var lowest_foot_y := minf(left_foot.origin.y, right_foot.origin.y)
-	visual_root.position.y += global_position.y + 0.015 - lowest_foot_y
+	visual_root.position.y = 0.0
 
 func finish_opening_recovery() -> void:
 	if not opening_recovery_active:
@@ -291,7 +307,7 @@ func finish_opening_recovery() -> void:
 		_opening_tween.kill()
 	visual_root.position.y = 0.0
 	visual_root.rotation.x = 0.0
-	visual_root.rotation.y = PI * 0.5
+	visual_root.rotation.y = 0.0
 	visual_root.rotation.z = 0.0
 	opening_recovery_active = false
 	play_anim("IDLE", 0.18)
@@ -443,6 +459,9 @@ func _physics_process(delta: float) -> void:
 	if is_sprinting:
 		stamina = max(0.0, stamina - 12.0 * delta)
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
+		# Handle Sprint Slide Input (C or Ctrl)
+		if (Input.is_action_just_pressed("crouch") or Input.is_physical_key_pressed(KEY_C) or Input.is_physical_key_pressed(KEY_CTRL)) and is_on_floor() and not is_sliding:
+			perform_slide()
 	else:
 		stamina = min(MAX_STAMINA, stamina + 18.0 * delta)
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
@@ -546,12 +565,12 @@ func _physics_process(delta: float) -> void:
 		# Keep the authored jump through its airborne phase; ledge falls use a
 		# stable pose until a separate playable fall cycle is authored.
 		if current_anim != "preset_jump" or not animation_player or not animation_player.is_playing():
-			play_anim("IDLE", 0.14)
+			play_anim("FALL", 0.14)
 			if animation_player:
 				animation_player.speed_scale = 1.0
-		visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.1 if velocity.y > 0.0 else 0.14, minf(1.0, 8.0 * delta))
-		if global_position.y < _last_safe_ground_position.y - 7.0:
-			global_position = _last_safe_ground_position + Vector3.UP * 0.08
+		visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.12 if velocity.y > 0.0 else 0.16, minf(1.0, 9.0 * delta))
+		if global_position.y < _last_safe_ground_position.y - 3.0:
+			global_position = _last_safe_ground_position + Vector3.UP * 0.12
 			velocity = Vector3.ZERO
 
 func perform_jump() -> void:
@@ -560,6 +579,11 @@ func perform_jump() -> void:
 		play_anim("preset_jump", 0.12)
 		if animation_player:
 			animation_player.speed_scale = 2.5
+		var tree := get_tree() if is_inside_tree() else null
+		if tree and get_parent():
+			var hud = get_parent().find_child("GameplayHUD", true, false)
+			if hud and hud.has_method("complete_tutorial_action"):
+				hud.complete_tutorial_action("TOAST_JUMP")
 
 func set_mobile_input_vector(vec: Vector2) -> void:
 	mobile_input_vector = vec
@@ -598,6 +622,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("guard") or (event is InputEventKey and event.pressed and (event.keycode == KEY_F or event.keycode == KEY_K)):
 		trigger_deflect_attempt()
 		return
+	if event is InputEventKey and event.pressed and event.keycode == KEY_V:
+		toggle_void_sight()
+		return
+
+var is_void_sight_active: bool = false
+
+func toggle_void_sight() -> void:
+	is_void_sight_active = not is_void_sight_active
+	set_zero_eye_active(is_void_sight_active, 999.0 if is_void_sight_active else 0.0)
+	var hud_node = get_tree().root.find_child("GameplayHUD", true, false) if is_inside_tree() else null
+	if hud_node and hud_node.has_method("set_directive"):
+		if is_void_sight_active:
+			hud_node.set_directive("VOID SIGHT // رصد طاقة الفراغ", "العين القرمزية الميكانيكية واليسرى البنفسجية مفعلتان — كشف الذكريات والطاقة الخفية.")
+		else:
+			hud_node.set_directive("STANDARD SIGHT // الرؤية العادية", "تم تعطيل رصد طاقة الفراغ.")
 
 func trigger_deflect_attempt() -> void:
 	if not combat_available:
@@ -671,6 +710,12 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 		if is_shadow_katana_equipped:
 			set_zero_eye_active(true, 2.2)
 
+		# Spawn Solo Leveling Sumi Ink Shadow Wave Projectile
+		if parent:
+			var wave = ShadowWaveProjectile.new()
+			wave.position = global_position + Vector3(0, 1.0, 0)
+			wave.direction = dash_dir
+			parent.add_child(wave)
 
 		# Instant Blink Dash forward
 		position += dash_dir * dash_dist
@@ -726,6 +771,15 @@ func equip_shadow_katana() -> void:
 	if standard_katana:
 		standard_katana.visible = false
 	if shadow_katana:
+		if _hand_weapon_socket and shadow_katana.get_parent() != _hand_weapon_socket:
+			shadow_katana.owner = null
+			shadow_katana.get_parent().remove_child(shadow_katana)
+			_hand_weapon_socket.add_child(shadow_katana)
+			var s: float = 1.0 / 1.81
+			shadow_katana.transform = Transform3D(
+				Basis(Vector3(1, 0, 0), deg_to_rad(-90)).scaled(Vector3.ONE * s),
+				Vector3(0.01, 0.04, 0.06)
+			)
 		shadow_katana.visible = true
 	is_shadow_katana_equipped = true
 	set_combat_available(true)
@@ -841,6 +895,21 @@ func perform_attack() -> void:
 	var forward_dir: Vector3 = visual_root.transform.basis.x if visual_root else -transform.basis.z
 	locomotion_controller.trigger_combo_root_motion(current_step, forward_dir)
 
+	# Play Authored Character Attack Animation on Skeleton & Trigger Wing on Finisher
+	var anim_clip := "ATTACK_1"
+	if current_step == 2:
+		anim_clip = "ATTACK_2"
+	elif current_step == 3:
+		anim_clip = "ATTACK_3"
+		manifest_zero_wing()
+		var tree = get_tree() if is_inside_tree() else null
+		if tree:
+			tree.create_timer(4.5).timeout.connect(func():
+				if combat_activity_timer <= 0.5:
+					dismiss_zero_wing()
+			)
+	play_anim(anim_clip, 0.08)
+
 	# AAA Japanese combat voice — step-matched anime action yell
 	if spatial_voice_manager:
 		var voice_id: String = "attack_haa"
@@ -850,6 +919,15 @@ func perform_attack() -> void:
 			voice_id = "attack_kiero"
 		var vpos: Vector3 = global_position if is_inside_tree() else position
 		spatial_voice_manager.play_voice(voice_id, vpos)
+
+	# Razor-sharp Katana swing whoosh audio
+	if is_inside_tree():
+		var whoosh_audio := AudioStreamPlayer.new()
+		whoosh_audio.bus = "Master"
+		whoosh_audio.stream = ProceduralCinematicAudio.create_katana_whoosh_sfx(1.0 + float(current_step) * 0.15)
+		add_child(whoosh_audio)
+		whoosh_audio.play()
+		whoosh_audio.finished.connect(func(): if is_instance_valid(whoosh_audio): whoosh_audio.queue_free())
 
 	# Flash Katana Slash Arc Ribbon Mesh with step-based angle
 	var slash_arc = find_child("SlashArc", true, false)
@@ -977,34 +1055,118 @@ func start_dodge() -> void:
 			roll_audio.play()
 			roll_audio.finished.connect(func(): roll_audio.queue_free())
 
-func sheath_weapon() -> void:
-	var katana = find_child("KatanaBlade", true, false) as Node3D
-	if not katana:
-		emit_signal("weapon_sheathed")
+var _hand_weapon_socket: BoneAttachment3D = null
+var _hip_weapon_socket: BoneAttachment3D = null
+var _hip_weapon_mesh: Node3D = null
+var is_sliding: bool = false
+
+func _setup_weapon_attachment() -> void:
+	var skeleton = find_child("Skeleton3D", true, false) as Skeleton3D
+	if not skeleton:
 		return
-	is_sheathed = true
-	var tree = get_tree() if is_inside_tree() else null
-	if tree:
-		var tween = tree.create_tween()
-		tween.tween_property(katana, "transform", KATANA_SHEATHED_TRANSFORM, 0.85).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		tween.tween_callback(func():
-			var glow = katana.find_child("BladeGlowLight", true, false) as OmniLight3D
-			if glow:
-				glow.light_energy = 5.0
-				var glow_tween = tree.create_tween()
-				glow_tween.tween_property(glow, "light_energy", 1.2, 0.4)
-			emit_signal("weapon_sheathed")
+	var hand_bone = "tripo__0_Right_Limb_2"
+	if skeleton.find_bone(hand_bone) == -1:
+		return
+
+	var s: float = 1.0 / 1.81
+
+	_hand_weapon_socket = skeleton.get_node_or_null("RightHandWeaponSocket") as BoneAttachment3D
+	if not _hand_weapon_socket:
+		_hand_weapon_socket = BoneAttachment3D.new()
+		_hand_weapon_socket.name = "RightHandWeaponSocket"
+		_hand_weapon_socket.bone_name = hand_bone
+		skeleton.add_child(_hand_weapon_socket)
+
+	var katana = find_child("KatanaBlade", true, false) as Node3D
+	if katana and katana.get_parent() != _hand_weapon_socket:
+		katana.owner = null
+		katana.get_parent().remove_child(katana)
+		_hand_weapon_socket.add_child(katana)
+		katana.transform = Transform3D(
+			Basis(Vector3(1, 0, 0), deg_to_rad(-90)).scaled(Vector3.ONE * s),
+			Vector3(0.01, 0.04, 0.06)
 		)
-	else:
-		katana.transform = KATANA_SHEATHED_TRANSFORM
-		emit_signal("weapon_sheathed")
+
+	# Build or locate hip scabbard socket attached to pelvis bone
+	var pelvis_bone = "tripo__Spine_0"
+	if skeleton.find_bone(pelvis_bone) != -1:
+		_hip_weapon_socket = skeleton.get_node_or_null("HipWeaponSocket") as BoneAttachment3D
+		if not _hip_weapon_socket:
+			_hip_weapon_socket = BoneAttachment3D.new()
+			_hip_weapon_socket.name = "HipWeaponSocket"
+			_hip_weapon_socket.bone_name = pelvis_bone
+			skeleton.add_child(_hip_weapon_socket)
+
+		if not _hip_weapon_mesh:
+			var scabbard_scene = load("res://scenes/player/katana_blade.tscn")
+			if scabbard_scene:
+				_hip_weapon_mesh = scabbard_scene.instantiate()
+				_hip_weapon_mesh.name = "KatanaHipScabbard"
+				var hip_basis := Basis.from_euler(Vector3(deg_to_rad(-35), deg_to_rad(15), deg_to_rad(10))).scaled(Vector3.ONE * s)
+				_hip_weapon_mesh.transform = Transform3D(hip_basis, Vector3(-0.16, -0.04, 0.05))
+				_hip_weapon_socket.add_child(_hip_weapon_mesh)
+				_hip_weapon_mesh.visible = is_sheathed
+				if katana:
+					katana.visible = not is_sheathed
+
+func sheath_weapon() -> void:
+	is_sheathed = true
+	var katana = find_child("KatanaBlade", true, false) as Node3D
+	if katana:
+		katana.visible = false
+	if _hip_weapon_mesh:
+		_hip_weapon_mesh.visible = true
+	emit_signal("weapon_sheathed")
 
 func unsheath_weapon() -> void:
-	var katana = find_child("KatanaBlade", true, false) as Node3D
-	if not katana:
-		return
 	is_sheathed = false
-	katana.transform = KATANA_READY_TRANSFORM
+	var katana = find_child("KatanaBlade", true, false) as Node3D
+	if katana:
+		katana.visible = true
+	if _hip_weapon_mesh:
+		_hip_weapon_mesh.visible = false
+
+func perform_slide() -> void:
+	if is_sliding or stamina < 10.0:
+		return
+	is_sliding = true
+	stamina = max(0.0, stamina - 10.0)
+	emit_signal("stamina_changed", stamina, MAX_STAMINA)
+
+	var move_forward = -visual_root.global_transform.basis.z if visual_root else -transform.basis.z
+	move_forward.y = 0.0
+	velocity += move_forward.normalized() * 5.8
+
+	if locomotion_controller and locomotion_controller.has_method("trigger_running_slide"):
+		locomotion_controller.trigger_running_slide()
+
+	# Lower camera boom dynamically during slide
+	if camera_boom:
+		var cam_tween = create_tween()
+		cam_tween.tween_property(camera_boom, "position:y", 0.95, 0.18)
+		cam_tween.tween_interval(0.35)
+		cam_tween.tween_property(camera_boom, "position:y", 1.4, 0.22)
+
+	# Lower collision capsule to slide under half-opened gates
+	var col = find_child("CollisionShape3D", true, false) as CollisionShape3D
+	if col and col.shape is CapsuleShape3D:
+		col.shape.height = 0.85
+		col.position.y = 0.42
+
+	# Complete HUD tutorial action if active
+	var tree = get_tree() if is_inside_tree() else null
+	if tree:
+		var hud = get_parent().find_child("GameplayHUD", true, false) if get_parent() else null
+		if hud and hud.has_method("complete_tutorial_action"):
+			hud.complete_tutorial_action("TOAST_SLIDE")
+		tree.create_timer(0.75).timeout.connect(func():
+			is_sliding = false
+			if col and col.shape is CapsuleShape3D:
+				col.shape.height = 1.8
+				col.position.y = 0.9
+		)
+	else:
+		is_sliding = false
 
 func register_hit_landed(base_damage: int) -> void:
 	combo_count += 1

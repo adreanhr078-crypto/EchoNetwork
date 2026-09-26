@@ -9,19 +9,20 @@ signal shockwave_triggered(center: Vector3, radius: float)
 signal boss_defeated()
 
 const MAX_HP: float = 1000.0
-const PHASE2_THRESHOLD: float = 350.0
+const PHASE2_THRESHOLD: float = 500.0
 
 var hp: float = MAX_HP
 var phase: int = 1
 var is_staggered: bool = false
 var stagger_timer: float = 0.0
 
-var attack_cooldown: float = 2.0
+var attack_cooldown: float = 1.8
 var attack_count: int = 0
 var is_slam_windup: bool = false
 var slam_windup_timer: float = 0.0
 var shockwave_timer: float = 0.0
 var shockwave_radius: float = 0.5
+var _stride_time: float = 0.0
 
 @export var target_player: Node3D
 
@@ -58,24 +59,26 @@ func _physics_process(delta: float) -> void:
 		if stagger_timer <= 0.0:
 			is_staggered = false
 			emit_signal("stagger_changed", false)
+		move_and_slide()
 		return
 
-	# Handle Slam Windup (0.55s telegraph)
+	# Handle Slam Windup (0.55s telegraph with leap)
 	if is_slam_windup:
 		slam_windup_timer -= delta
 		if telegraph_ring:
 			telegraph_ring.visible = true
 			var t_prog = 1.0 - (slam_windup_timer / 0.55)
-			telegraph_ring.scale = Vector3(0.5 + t_prog * 3.8, 1.0, 0.5 + t_prog * 3.8)
+			telegraph_ring.scale = Vector3(0.5 + t_prog * 4.5, 1.0, 0.5 + t_prog * 4.5)
 		if slam_windup_timer <= 0.0:
 			execute_ground_slam()
+		move_and_slide()
 		return
 
 	# Handle Expanding Shockwave
 	if shockwave_timer > 0.0:
 		shockwave_timer -= delta
 		var progress: float = 1.0 - (shockwave_timer / 0.75)
-		shockwave_radius = 0.5 + progress * 3.8
+		shockwave_radius = 0.5 + progress * 4.5
 		if telegraph_ring:
 			telegraph_ring.visible = true
 			telegraph_ring.scale = Vector3(shockwave_radius, 1.0, shockwave_radius)
@@ -93,19 +96,27 @@ func _physics_process(delta: float) -> void:
 		# Rotate to face player
 		if dist > 0.1:
 			var target_yaw: float = atan2(diff.x, diff.z)
-			rotation.y = lerp_angle(rotation.y, target_yaw, 8.0 * delta)
+			rotation.y = lerp_angle(rotation.y, target_yaw, 9.0 * delta)
 
-		var move_speed: float = 2.2 if phase == 2 else 1.4
-		if dist > 2.2 and dist < 15.0:
+		var move_speed: float = 4.8 if phase == 2 else 3.4
+		if dist > 2.2 and dist < 25.0:
 			velocity.x = (diff.normalized().x) * move_speed
 			velocity.z = (diff.normalized().z) * move_speed
+			# Procedural run bobbing
+			_stride_time += delta * (14.0 if phase == 2 else 9.0)
+			if visual_root:
+				visual_root.position.y = 1.16 + sin(_stride_time) * 0.06
+				visual_root.rotation.z = cos(_stride_time * 0.5) * 0.05
 		else:
-			velocity.x = move_toward(velocity.x, 0, 4.0 * delta)
-			velocity.z = move_toward(velocity.z, 0, 4.0 * delta)
+			velocity.x = move_toward(velocity.x, 0, 6.0 * delta)
+			velocity.z = move_toward(velocity.z, 0, 6.0 * delta)
+			if visual_root:
+				visual_root.position.y = move_toward(visual_root.position.y, 1.16, 2.0 * delta)
+				visual_root.rotation.z = move_toward(visual_root.rotation.z, 0.0, 4.0 * delta)
 
 		attack_cooldown -= delta
-		if dist <= 3.2 and attack_cooldown <= 0.0:
-			attack_cooldown = 1.8 if phase == 2 else 2.5
+		if dist <= 3.6 and attack_cooldown <= 0.0:
+			attack_cooldown = 1.4 if phase == 2 else 2.0
 			attack_count += 1
 			if phase == 2 and attack_count % 2 == 1:
 				start_slam_windup()
@@ -117,6 +128,7 @@ func _physics_process(delta: float) -> void:
 func start_slam_windup() -> void:
 	is_slam_windup = true
 	slam_windup_timer = 0.55
+	velocity.y = 5.5
 	emit_signal("slam_warning", true)
 
 const ImpactSpawner = preload("res://scripts/combat/impact_spawner.gd")
@@ -167,6 +179,14 @@ func take_damage(amount: float, hit_source_pos: Vector3 = Vector3.ZERO) -> void:
 			if tree:
 				var tween := tree.create_tween()
 				tween.tween_property(visual_root, "rotation:z", 0.0, 0.16)
+
+	var spawner = load("res://scripts/combat/damage_number_spawner.gd")
+	if spawner:
+		spawner.spawn_damage_number(self, amount, amount > 60.0)
+
+	var impact_spawner_ref = load("res://scripts/combat/impact_spawner.gd")
+	if impact_spawner_ref and is_inside_tree() and get_parent():
+		impact_spawner_ref.spawn_impact_burst(get_parent(), global_position, amount > 60.0)
 
 	# Kinetic counter trigger during slam windup
 	if is_slam_windup:

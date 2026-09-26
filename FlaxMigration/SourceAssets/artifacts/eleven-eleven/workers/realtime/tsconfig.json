@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "worker-configuration.d.ts",
+    "../../src/domain/echo-network/**/*.ts"
+  ],
+  "exclude": ["../../node_modules", "../../dist"],
+  "compilerOptions": {
+    "lib": ["es2022"],
+    "types": ["@cloudflare/workers-types"],
+    "jsx": "preserve",
+    "noEmit": true
+  }
+}

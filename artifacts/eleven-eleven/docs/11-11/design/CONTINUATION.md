@@ -1888,3 +1888,68 @@ from measured failures; maintain this record after each accepted change.
 
 - Next Exact Action:
   - Execute Phase 1 of the Master Roadmap: Replace primitive block meshes with authored Japanese town modular kits and import Mixamo root-motion blend spaces.
+
+## CP-20260925-01 — Master Architectural, Visual & Narrative Alignment & Execution
+
+- Full Strategic Alignment & Master Plan Formulation:
+  - Completed exhaustive diagnostic audit of all visual, kinetic, and architectural flaws in `MASTER_ARCHITECTURAL_AND_VISUAL_ELEVATION_PLAN.md`.
+  - Resolved root causes: enabled true stepped cel shading on `EchoOpeningUniform` (bypassing raw PBR fallback), added face normal flattening, and integrated contact shadow blobs for Intel UHD OpenGL compatibility.
+  - Aligned 100% with Owner on narrative canon: Dr. Kinga torture QTE -> Ocean abyss & Zero contract plunge -> Hysterical laugh awakening -> Subject 010 duel -> Solo Leveling reality glitch choice -> Nocturnal rainy hospital wake -> Minato Kasumi town.
+- Intel UHD NPR Shading & Atmospheric Flooded Lab:
+  - Created `artifacts/eleven-eleven/godot/shaders/flooded_lab_floor.gdshader` with procedural water ripples and neon reflections without heavy Forward+ SSR.
+  - Upgraded `ShaderApplicator` to support `BaseMaterial3D` (covering both StandardMaterial3D and ORMMaterial3D) with face normal flattening and hair angel ring.
+  - Created `ContactShadowBlob` (`artifacts/eleven-eleven/godot/scripts/effects/contact_shadow_blob.gd`) grounding characters with soft radial shadow meshes.
+  - Transformed hospital ward (`hospital_interior.gd`) into dark nocturnal rainy atmosphere with moonlight blue window fill and green ECG monitor glow.
+- Kinetic Combat & Solo Leveling Mechanics:
+  - Wired true skeleton attack animations (`ATTACK_1`, `ATTACK_2`, `ATTACK_3`, `FALL`, `LAUGH`) in `echo_player.gd`.
+  - Created `ShadowWaveProjectile` (`artifacts/eleven-eleven/godot/scripts/combat/shadow_wave_projectile.gd`) for charged Katana release.
+  - Integrated dynamic Single Wing awakening on left shoulder during heavy finisher.
+  - Added Void / Singularity Sight toggle on `KEY_V`.
+  - Added `SOLO_LEVELING_GLITCH` choice prompt in `system_window.gd` with volcanic red veins and interactive choices: `[الانتقام والخروج من النظام مهما كان الثمن]`.
+  - Created `PrologueOrchestrator` (`artifacts/eleven-eleven/godot/scripts/cinematics/prologue_orchestrator.gd`) choreographing the entire prologue flow.
+- Verification Matrix:
+  - Godot Engine 4.7.2 Headless: PASS (compile and run cleanly, exit code 0).
+  - Vitest Test Suite: 628/628 PASS across 118 test suites (100% OK).
+  - Desktop Live Process: Godot executable running in `--rendering-method gl_compatibility` mode on active desktop session.
+- Limitations:
+  - Intel UHD hardware requires `gl_compatibility` rendering; custom NPR shaders replace Forward+ compute passes.
+- Worker Status:
+  - Active and verified.
+- Next Exact Action:
+  - Continue implementing Phase 2 and 3 assets: integrate Subject 010 bespoke mesh and wire Kasumi's umbrella rainy dialogue encounter in Minato Kasumi alleyways.
+
+## CP-20260925-02 — Dynamic Mixamo Retargeting, Visceral Katana Crunch & Sector 11 Atmospheric Strobes
+
+- Authored Mixamo FBX Dynamic Retargeting Bridge (`scripts/player/mixamo_animation_bridge.gd`):
+  - Engineered 22-bone mathematical retargeter mapping standard Mixamo humanoid bones (`Hips`, `Spine`, `Spine1`, `Spine2`, `Neck`, `Head`, `LeftShoulder/Arm/ForeArm/Hand`, `RightShoulder/Arm/ForeArm/Hand`, `LeftUpLeg/Leg/Foot/Toe`, `RightUpLeg/Leg/Foot/Toe`) to Echo's Tripo skeleton rig.
+  - Dynamically extracts model-relative skeleton prefixes (`EchoOpeningUniformRig/Skeleton3D`), eliminating all NodePath resolution warnings.
+  - Injected full suite of authored combat & locomotion animations directly into Echo's `AnimationPlayer`:
+    - `ATTACK_1`: `Great_Sword_Slash.fbx` (crisp horizontal weapon cleave).
+    - `ATTACK_2`: `Standing Melee Attack Downward.fbx` (rising vertical slash).
+    - `ATTACK_3`: `Flip Kick.fbx` (acrobatic anime backflip kick finisher accompanied by dynamic single left wing awakening).
+    - `DODGE_ROLL`: `Stand To Roll.fbx` / `Run_To_Rolling.fbx` (low-profile combat evasion with i-frames).
+    - `WALL_RUN`: `Wall Run.fbx` (horizontal wall sprint for Minato Kasumi rooftops).
+    - `CLIMB`: `Climbing_Up_Wall.fbx` (vertical traversal).
+    - `BACKFLIP`: `Backflip.fbx` (perfect dodge retreat).
+    - `HARD_LANDING`: `Hard_Landing.fbx` (athletic ground recovery).
+- Visceral Melee Acoustics & Hit-Stop Audio Crunch (`scripts/audio/procedural_cinematic_audio.gd`):
+  - Synthesized aerodynamic Katana whoosh (`create_katana_whoosh_sfx`): high-speed frequency sweep from 1920Hz down to 320Hz with bell-curve noise envelope for razor-sharp swings.
+  - Synthesized visceral Katana impact crunch (`create_visceral_katana_hit_sfx`): bone-crunching 58Hz sub-bass transient punch blended with 2200Hz steel bite and wet flesh impact crunch for Sekiro / Genshin level tactile satisfaction.
+- Sumi-e Black Ink & Dual-Mana Impact VFX (`scripts/combat/impact_spawner.gd`):
+  - Added `SumiInkSparks`: obsidian black ink droplets (`Color(0.05, 0.02, 0.08)`) bursting outwards on impact.
+  - Upgraded spark particles to dual-mana styling: violet celestial energy for standard strikes and crimson gold for heavy finishers.
+  - Attached spatial 3D audio playback at impact location with distance attenuation.
+- Atmospheric Emergency Warning Strobes (`scripts/effects/emergency_warning_strobe.gd`, `scenes/environment/sector11_facility.tscn`):
+  - Engineered industrial beacon component pulsing crimson light (`Color(0.96, 0.12, 0.18)`) with sharp cubic sine flash waveforms and rotating beacon housing.
+  - Placed warning strobes in Sector 11 main chamber, primary blast gate, and substation extension, reflecting off the flooded ripple floor shader.
+- Verification Matrix:
+  - Godot Headless Test Suite: **ALL 112/112 AAA GATES PASSED (100% OK)**, exit code 0.
+  - Vitest Unit Test Suite: **628/628 tests PASS across 118 test suites (100% OK)**.
+  - Godot Compilation: Clean exit code 0, zero track resolution warnings.
+- Limitations:
+  - Compatibility mode (`gl_compatibility`) enforced for Intel UHD hardware.
+- Worker Status:
+  - Active and verified.
+- Next Exact Action:
+  - Wire Kasumi's rainy umbrella encounter and Minato Kasumi nocturnal exploration handoff from the hospital window egress.
+

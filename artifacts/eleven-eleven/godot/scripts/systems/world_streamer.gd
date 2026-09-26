@@ -123,8 +123,11 @@ func _begin_transition(from_zone: Zone, to_zone: Zone) -> void:
 func _swap_zone(from_zone: Zone, to_zone: Zone) -> void:
 	var parent = get_parent()
 
-	# Remove old zone node if it was dynamically instantiated
-	if _active_zone_node and is_instance_valid(_active_zone_node) and not _existing_zone_nodes.values().has(_active_zone_node):
+	# Remove old zone node if it was dynamically instantiated, or hide if pre-existing
+	var old_existing: Node = _existing_zone_nodes.get(from_zone) as Node
+	if old_existing and is_instance_valid(old_existing) and old_existing is Node3D:
+		old_existing.visible = false
+	elif _active_zone_node and is_instance_valid(_active_zone_node) and not _existing_zone_nodes.values().has(_active_zone_node):
 		_active_zone_node.queue_free()
 		_active_zone_node = null
 
@@ -132,6 +135,8 @@ func _swap_zone(from_zone: Zone, to_zone: Zone) -> void:
 	var existing: Node = _existing_zone_nodes.get(to_zone) as Node
 	if existing and is_instance_valid(existing):
 		_active_zone_node = existing
+		if existing is Node3D:
+			existing.visible = true
 	else:
 		var packed: PackedScene = _preloaded_scenes.get(to_zone)
 		if packed:

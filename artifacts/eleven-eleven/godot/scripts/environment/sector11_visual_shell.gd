@@ -28,6 +28,10 @@ func _ready() -> void:
 	_build_service_conduits()
 	_build_sector_signage()
 	_build_floor_inlays()
+	_build_corridor_1_architecture()
+	_build_generator_hall_architecture()
+	_build_chimera_arena_architecture()
+	_build_kinga_lab_architecture()
 
 func _make_materials() -> void:
 	_shell_material = _material(Color(0.06, 0.08, 0.12), 0.75, 0.15)
@@ -248,3 +252,201 @@ func _material(color: Color, roughness: float, metallic: float, emission: Color 
 		material.emission = emission
 		material.emission_energy_multiplier = emission_energy
 	return material
+
+func _build_corridor_1_architecture() -> void:
+	var corr_center_z := -39.0
+	var corr_length := 42.0 # z from -18.0 to -60.0
+	var corr_width := 18.0
+	var corr_h := 6.5
+
+	# West wall
+	_add_box("Corridor1_WestWall", Vector3(0.8, corr_h, corr_length), Vector3(-corr_width * 0.5, corr_h * 0.5, corr_center_z), _shell_material)
+
+	# East wall (split around Side Vault opening at z = -42, opening width 8m from -38 to -46)
+	_add_box("Corridor1_EastWall_North", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -25.0), _shell_material)
+	_add_box("Corridor1_EastWall_South", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -53.0), _shell_material)
+	_add_box("Corridor1_EastWall_Lintel", Vector3(0.8, 2.5, 8.0), Vector3(corr_width * 0.5, corr_h - 1.25, -42.0), _rib_material)
+
+	# Ceiling
+	_add_box("Corridor1_Ceiling", Vector3(corr_width, 0.6, corr_length), Vector3(0.0, corr_h, corr_center_z), _shell_material)
+
+	# Structural ribs
+	for z in [-24.0, -30.0, -36.0, -48.0, -54.0]:
+		_add_box("CorridorRib_L", Vector3(0.35, corr_h - 0.4, 0.45), Vector3(-corr_width * 0.5 + 0.2, (corr_h - 0.4) * 0.5, z), _rib_material)
+		_add_box("CorridorRib_R", Vector3(0.35, corr_h - 0.4, 0.45), Vector3(corr_width * 0.5 - 0.2, (corr_h - 0.4) * 0.5, z), _rib_material)
+		_add_box("CorridorBeam", Vector3(corr_width - 0.5, 0.3, 0.5), Vector3(0.0, corr_h - 0.4, z), _rib_material)
+
+	# Overhead conduits
+	for side in [-1.0, 1.0]:
+		var pipe := CylinderMesh.new()
+		pipe.top_radius = 0.1
+		pipe.bottom_radius = 0.1
+		pipe.height = corr_length - 2.0
+		var pipe_node := MeshInstance3D.new()
+		pipe_node.name = "CorridorPipe"
+		pipe_node.mesh = pipe
+		pipe_node.material_override = _rib_material
+		pipe_node.position = Vector3(side * (corr_width * 0.5 - 1.5), corr_h - 0.8, corr_center_z)
+		pipe_node.rotation.x = PI * 0.5
+		add_child(pipe_node)
+
+	# Decontamination Signage
+	var deco_sign := Label3D.new()
+	deco_sign.name = "DeconLabel"
+	deco_sign.text = "CORRIDOR 01 // DECONTAMINATION & FILTER AIRLOCK"
+	deco_sign.font_size = 26
+	deco_sign.pixel_size = 0.004
+	deco_sign.modulate = Color(1.0, 0.72, 0.2, 1.0)
+	deco_sign.outline_size = 6
+	deco_sign.outline_modulate = Color(0.15, 0.08, 0.01, 1.0)
+	deco_sign.position = Vector3(0.0, corr_h - 1.2, -20.0)
+	add_child(deco_sign)
+
+	# Side Vault 1 (Power Vault) Architecture
+	var v_center_x := 24.0
+	var v_center_z := -42.0
+	var v_w := 18.0
+	var v_len := 20.0
+	var v_h := 6.0
+	_add_box("Vault1_NorthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z + v_len * 0.5), _shell_material)
+	_add_box("Vault1_SouthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z - v_len * 0.5), _shell_material)
+	_add_box("Vault1_EastWall", Vector3(0.8, v_h, v_len), Vector3(v_center_x + v_w * 0.5, v_h * 0.5, v_center_z), _shell_material)
+	_add_box("Vault1_Ceiling", Vector3(v_w, 0.6, v_len), Vector3(v_center_x, v_h, v_center_z), _shell_material)
+
+func _build_generator_hall_architecture() -> void:
+	var gen_center_z := -80.0
+	var gen_length := 40.0 # z from -60.0 to -100.0
+	var gen_width := 44.0  # x from -22.0 to +22.0
+	var gen_h := 7.5
+
+	# South Wall (z = -60, with central blast gate portal width 8m)
+	_add_box("Gen_SouthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -60.0), _shell_material)
+	_add_box("Gen_SouthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -60.0), _shell_material)
+	_add_box("Gen_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, gen_h - 1.25, -60.0), _rib_material)
+
+	# North Wall (z = -100, with central blast gate portal width 8m)
+	_add_box("Gen_NorthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -100.0), _shell_material)
+	_add_box("Gen_NorthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -100.0), _shell_material)
+	_add_box("Gen_NorthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, gen_h - 1.25, -100.0), _rib_material)
+
+	# East Wall
+	_add_box("Gen_EastWall", Vector3(0.8, gen_h, gen_length), Vector3(gen_width * 0.5, gen_h * 0.5, gen_center_z), _shell_material)
+
+	# West Wall (split around Dissection Lab opening at z = -82, width 8m)
+	_add_box("Gen_WestWall_South", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -69.0), _shell_material)
+	_add_box("Gen_WestWall_North", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -93.0), _shell_material)
+	_add_box("Gen_WestWall_Lintel", Vector3(0.8, 2.5, 8.0), Vector3(-gen_width * 0.5, gen_h - 1.25, -82.0), _rib_material)
+
+	# Ceiling
+	_add_box("Gen_Ceiling", Vector3(gen_width, 0.6, gen_length), Vector3(0.0, gen_h, gen_center_z), _shell_material)
+
+	# Heavy structural cross-trusses
+	for z in [-68.0, -76.0, -84.0, -92.0]:
+		_add_box("GenTruss", Vector3(gen_width - 1.0, 0.5, 0.7), Vector3(0.0, gen_h - 0.5, z), _rib_material)
+		_add_box("GenPillar_L", Vector3(0.6, gen_h, 0.6), Vector3(-gen_width * 0.5 + 0.35, gen_h * 0.5, z), _rib_material)
+		_add_box("GenPillar_R", Vector3(0.6, gen_h, 0.6), Vector3(gen_width * 0.5 - 0.35, gen_h * 0.5, z), _rib_material)
+
+	# Generator Signage
+	var gen_label := Label3D.new()
+	gen_label.name = "GeneratorRoomSign"
+	gen_label.text = "ROOM 02 // SUBSTATION GENERATOR GRID\nCAUTION: HIGH VOLTAGE PLASMA FLUID"
+	gen_label.font_size = 28
+	gen_label.pixel_size = 0.004
+	gen_label.modulate = Color(0.2, 0.9, 1.0, 1.0)
+	gen_label.outline_size = 6
+	gen_label.outline_modulate = Color(0.02, 0.12, 0.22, 1.0)
+	gen_label.position = Vector3(0.0, gen_h - 1.4, -62.0)
+	add_child(gen_label)
+
+	# Side Chamber 2 (Dissection Lab) Architecture
+	var d_center_x := -24.0
+	var d_center_z := -82.0
+	var d_w := 18.0
+	var d_len := 20.0
+	var d_h := 6.0
+	_add_box("Dissect_NorthWall", Vector3(d_w, d_h, 0.8), Vector3(d_center_x, d_h * 0.5, d_center_z + d_len * 0.5), _shell_material)
+	_add_box("Dissect_SouthWall", Vector3(d_w, d_h, 0.8), Vector3(d_center_x, d_h * 0.5, d_center_z - d_len * 0.5), _shell_material)
+	_add_box("Dissect_WestWall", Vector3(0.8, d_h, d_len), Vector3(d_center_x - d_w * 0.5, d_h * 0.5, d_center_z), _shell_material)
+	_add_box("Dissect_Ceiling", Vector3(d_w, 0.6, d_len), Vector3(d_center_x, d_h, d_center_z), _shell_material)
+
+func _build_chimera_arena_architecture() -> void:
+	var arena_center_z := -122.5
+	var arena_length := 45.0 # z from -100.0 to -145.0
+	var arena_width := 22.0  # x from -11.0 to +11.0
+	var arena_h := 7.5
+
+	# South entrance wall (z = -100)
+	_add_box("Arena_SouthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -100.0), _shell_material)
+	_add_box("Arena_SouthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -100.0), _shell_material)
+	_add_box("Arena_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, arena_h - 1.25, -100.0), _rib_material)
+
+	# North exit wall (z = -145)
+	_add_box("Arena_NorthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -145.0), _shell_material)
+	_add_box("Arena_NorthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -145.0), _shell_material)
+	_add_box("Arena_NorthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, arena_h - 1.25, -145.0), _rib_material)
+
+	# Enclosing West and East containment bulkheads
+	_add_box("Arena_WestWall", Vector3(0.8, arena_h, arena_length), Vector3(-arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
+	_add_box("Arena_EastWall", Vector3(0.8, arena_h, arena_length), Vector3(arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
+
+	# Ceiling
+	_add_box("Arena_Ceiling", Vector3(arena_width, 0.6, arena_length), Vector3(0.0, arena_h, arena_center_z), _shell_material)
+
+	# Heavy reinforced shock bulkheads
+	for z in [-110.0, -118.0, -126.0, -134.0]:
+		_add_box("ArenaRib_L", Vector3(0.5, arena_h, 0.7), Vector3(-arena_width * 0.5 + 0.3, arena_h * 0.5, z), _rib_material)
+		_add_box("ArenaRib_R", Vector3(0.5, arena_h, 0.7), Vector3(arena_width * 0.5 - 0.3, arena_h * 0.5, z), _rib_material)
+		_add_box("ArenaTruss", Vector3(arena_width - 0.8, 0.4, 0.7), Vector3(0.0, arena_h - 0.5, z), _rib_material)
+
+	# Warning banner
+	var warn_sign := Label3D.new()
+	warn_sign.name = "ChimeraArenaSign"
+	warn_sign.text = "CRITICAL CONTAINMENT // SPECIMEN EX-000\nMAXIMUM LETHALITY PROTOCOL ACTIVE"
+	warn_sign.font_size = 28
+	warn_sign.pixel_size = 0.004
+	warn_sign.modulate = Color(1.0, 0.22, 0.25, 1.0)
+	warn_sign.outline_size = 8
+	warn_sign.outline_modulate = Color(0.25, 0.02, 0.04, 1.0)
+	warn_sign.position = Vector3(0.0, arena_h - 1.3, -102.0)
+	add_child(warn_sign)
+
+func _build_kinga_lab_architecture() -> void:
+	var lab_center_z := -168.25
+	var lab_length := 46.5 # z from -145.0 to -191.5
+	var lab_width := 36.0  # x from -18.0 to +18.0
+	var lab_h := 8.5
+
+	# South entrance wall (z = -145)
+	_add_box("Lab_SouthWall_L", Vector3(14.0, lab_h, 0.8), Vector3(-11.0, lab_h * 0.5, -145.0), _shell_material)
+	_add_box("Lab_SouthWall_R", Vector3(14.0, lab_h, 0.8), Vector3(11.0, lab_h * 0.5, -145.0), _shell_material)
+	_add_box("Lab_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, lab_h - 1.25, -145.0), _rib_material)
+
+	# Reinforced North Back Wall (z = -191.5)
+	_add_box("Lab_NorthBackWall", Vector3(lab_width, lab_h, 0.8), Vector3(0.0, lab_h * 0.5, -191.5), _shell_material)
+
+	# West Wall
+	_add_box("Lab_WestWall", Vector3(0.8, lab_h, lab_length), Vector3(-lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
+
+	# East Wall (Completely blocks out the Japanese town exterior!)
+	_add_box("Lab_EastWall", Vector3(0.8, lab_h, lab_length), Vector3(lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
+
+	# Ceiling
+	_add_box("Lab_Ceiling", Vector3(lab_width, 0.6, lab_length), Vector3(0.0, lab_h, lab_center_z), _shell_material)
+
+	# Architectural neural observation bay & trusses
+	for z in [-155.0, -165.0, -175.0, -185.0]:
+		_add_box("LabPillar_L", Vector3(0.6, lab_h, 0.6), Vector3(-lab_width * 0.5 + 0.35, lab_h * 0.5, z), _rib_material)
+		_add_box("LabPillar_R", Vector3(0.6, lab_h, 0.6), Vector3(lab_width * 0.5 - 0.35, lab_h * 0.5, z), _rib_material)
+		_add_box("LabCrossTruss", Vector3(lab_width - 1.0, 0.45, 0.6), Vector3(0.0, lab_h - 0.6, z), _rib_material)
+
+	# Neuro-Lab Signage & Billboards
+	var kinga_sign := Label3D.new()
+	kinga_sign.name = "KingaLabSign"
+	kinga_sign.text = "LABORATORY 04 // NEURAL ARCHITECTURE DIVISION\nDR. KINGA — CHIEF NEUROLOGICAL DIRECTIVE"
+	kinga_sign.font_size = 30
+	kinga_sign.pixel_size = 0.0042
+	kinga_sign.modulate = Color(0.9, 0.35, 1.0, 1.0)
+	kinga_sign.outline_size = 8
+	kinga_sign.outline_modulate = Color(0.2, 0.02, 0.28, 1.0)
+	kinga_sign.position = Vector3(0.0, lab_h - 1.4, -147.0)
+	add_child(kinga_sign)

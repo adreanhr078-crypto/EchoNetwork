@@ -1,0 +1,41 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "project.zip",
+    "android",
+    "artifacts/mockup-sandbox",
+    "artifacts/11-11-teaser",
+    "artifacts/11-11-full-app",
+    "artifacts/api-server",
+    "lib/integrations-openai-ai-server",
+    "lib/integrations-openai-ai-react",
+    "lib/api-client-react",
+    "lib/api-zod",
+    "lib/db",
+    "tools/project-doctor/index.ts",
+    "www",
+    "attached_assets"
+  ],
+  "references": [
+    {
+      "path": "./lib/db"
+    },
+    {
+      "path": "./lib/api-client-react"
+    },
+    {
+      "path": "./lib/api-zod"
+    },
+    {
+      "path": "./lib/integrations-openai-ai-server"
+    },
+    {
+      "path": "./lib/integrations-openai-ai-react"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/sector11_security_droid.gd" id="1_droid_script"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_droid"]
+radius = 0.55
+
+[sub_resource type="SphereMesh" id="SphereMesh_body"]
+radius = 0.45
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+albedo_color = Color(0.06, 0.07, 0.1, 1)
+metallic = 0.9
+roughness = 0.25
+
+[sub_resource type="TorusMesh" id="TorusMesh_ring"]
+inner_radius = 0.48
+outer_radius = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ring"]
+albedo_color = Color(0, 0.85, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.9, 1, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_beam"]
+top_radius = 0.02
+bottom_radius = 0.08
+height = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beam"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0.1, 0.15, 0.6)
+emission_enabled = true
+emission = Color(1, 0.1, 0.15, 1)
+emission_energy_multiplier = 4.0
+
+[node name="Sector11SecurityDroid" type="CharacterBody3D"]
+script = ExtResource("1_droid_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_droid")
+
+[node name="ModelRoot" type="Node3D" parent="."]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="ModelRoot"]
+mesh = SubResource("SphereMesh_body")
+surface_material_override/0 = SubResource("StandardMaterial3D_body")
+
+[node name="RingMesh" type="MeshInstance3D" parent="ModelRoot"]
+mesh = SubResource("TorusMesh_ring")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="ScannerLight" type="OmniLight3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
+light_color = Color(0, 0.9, 1, 1)
+light_energy = 2.2
+omni_range = 4.0
+
+[node name="TelegraphBeam" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2.8)
+visible = false
+mesh = SubResource("CylinderMesh_beam")
+surface_material_override/0 = SubResource("StandardMaterial3D_beam")

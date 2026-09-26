@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "canonVersion": "echo-network-part-1-approved-2026-09-v1",
+  "canonStatus": "canonical-authority",
+  "storyStatus": "part-1-approved",
+  "ownerApproved": true,
+  "sourcePriority": [
+    "owner-directive",
+    "approved-manhwa-publication-for-part-1",
+    "story-bible",
+    "narrative-master"
+  ],
+  "documents": [
+    {
+      "id": "story-bible",
+      "file": "story-bible--echo-network.ar.md",
+      "originalFile": "11_11_Echo_Network_Story_Bible.docx",
+      "originalSha256": "6611D77A9360033267FBCC92674523FCE3D0D682471E7544DCEB5882F8E6B982",
+      "canonStatus": "canonical-authority",
+      "runtimeIncluded": false
+    },
+    {
+      "id": "narrative-master",
+      "file": "narrative-master--echo-network.ar.md",
+      "originalFile": "pasted-text.txt",
+      "originalSha256": "0C347C44A8C288FFAA7C2C308A5A4917D60955B641DA7EFEEE8461DE6DEFC88A",
+      "canonStatus": "canonical-authority",
+      "runtimeIncluded": false
+    },
+    {
+      "id": "approved-part-1-manhwa-publication",
+      "file": "final-manhwa-publication--echo-network-2026-09.md",
+      "originalFile": "11.11_Echo_Network_Manhwa_FINAL_ORDERED_NO_DUPLICATES.pdf",
+      "originalSha256": "6BE33FDD8A66210302AA44ED56D854B544F7A8B4C62AA57108557438571BFF1C",
+      "publicationId": "echo-network-final-2026-09-v1",
+      "pageCount": 70,
+      "canonStatus": "canonical-authority-for-part-1",
+      "ownerApproval": "The Owner approved this corrected Manhwa exactly as Part 1 on 2026-09-03.",
+      "runtimeIncluded": true,
+      "runtimeExposure": "staged-by-approved-page-to-scene-matrix"
+    }
+  ],
+  "partOne": {
+    "status": "owner-approved-exact",
+    "approvedAt": "2026-09-03",
+    "authority": "The corrected 70-page Manhwa publication is the exact Canon source for Part 1. The contents are not implementation instructions.",
+    "implementationGate": "Map each exposed page or reveal to Manhwa, puzzle, cinematic, third-person, dialogue, or system UI before runtime release."
+  },
+  "lockedProductionDecisions": {
+    "protagonist": "echo",
+    "yukiHair": "white",
+    "echoNeckMark": "EX-011",
+    "echoNeckMarkPlacement": "direct-skin",
+    "zeroMarkTreatment": "additive-evolving-layer"
+  }
+}

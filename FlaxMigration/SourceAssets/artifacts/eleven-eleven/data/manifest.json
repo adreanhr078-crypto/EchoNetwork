@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "canon-echo-network-evolving-v1",
+  "defaultLocale": "ar",
+  "supportedLocales": ["ar", "en"],
+  "capacity": {
+    "puzzles": 2000,
+    "memories": 5000,
+    "chapters": 50,
+    "dialogues": 10000,
+    "endings": 100,
+    "cinematics": 500,
+    "assets": 20000
+  },
+  "collections": {
+    "chapters": "chapters/index.json",
+    "puzzles": "puzzles/index.json",
+    "memories": "memories/index.json",
+    "dialogues": "dialogues/index.json",
+    "endings": "endings/index.json",
+    "cinematics": "cinematics/index.json",
+    "assets": "assets/index.json"
+  }
+}

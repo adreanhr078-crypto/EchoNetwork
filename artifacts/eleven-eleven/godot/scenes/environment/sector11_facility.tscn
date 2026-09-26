@@ -1,28 +1,76 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=42 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/environment/blast_gate.tscn" id="1_gate"]
 [ext_resource type="PackedScene" path="res://scenes/environment/substation_terminal.tscn" id="2_sub_terminal"]
 [ext_resource type="PackedScene" path="res://scenes/props/server_rack.tscn" id="3_server_rack"]
 [ext_resource type="PackedScene" path="res://scenes/environment/substation_terminal.tscn" id="4_wake_terminal"]
+[ext_resource type="Shader" path="res://shaders/flooded_lab_floor.gdshader" id="5_flooded_shader"]
+[ext_resource type="Script" path="res://scripts/effects/emergency_warning_strobe.gd" id="6_strobe_script"]
+[ext_resource type="PackedScene" path="res://scenes/props/energy_power_conduit.tscn" id="7_conduit"]
+[ext_resource type="PackedScene" path="res://scenes/props/breakable_supply_crate.tscn" id="8_crate"]
+[ext_resource type="PackedScene" path="res://scenes/props/burst_steam_pipe.tscn" id="9_pipe"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/sector11_security_droid.tscn" id="10_droid"]
+[ext_resource type="Script" path="res://scripts/props/interactive_treasure_chest.gd" id="11_chest_script"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_catwalk"]
+render_priority = 0
+shader = ExtResource("5_flooded_shader")
+shader_parameter/floor_color = Color(0.035, 0.045, 0.065, 1)
+shader_parameter/water_tint = Color(0, 0.42, 0.58, 1)
+shader_parameter/neon_reflection_color = Color(0, 0.85, 1, 1)
+shader_parameter/emergency_red_tint = Color(0.95, 0.12, 0.22, 1)
+shader_parameter/emergency_pulse_speed = 1.8
+shader_parameter/roughness = 0.06
+shader_parameter/metallic = 0.4
+shader_parameter/specular = 0.9
+shader_parameter/fresnel_power = 3.6
+shader_parameter/ripple_speed = 1.2
+shader_parameter/ripple_scale = 22.0
+shader_parameter/ripple_intensity = 0.28
 
 [sub_resource type="BoxMesh" id="BoxMesh_catwalk"]
 size = Vector3(48, 0.4, 48)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_catwalk"]
-albedo_color = Color(0.09, 0.12, 0.18, 1)
-metallic = 0.0
-roughness = 0.42
-clearcoat_enabled = true
-clearcoat = 0.05
-clearcoat_roughness = 0.3
+[sub_resource type="BoxShape3D" id="BoxShape3D_catwalk"]
+size = Vector3(48, 0.4, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_corridor_1"]
+size = Vector3(18, 0.4, 44)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_corridor_1"]
+size = Vector3(18, 0.4, 44)
+
+[sub_resource type="BoxMesh" id="BoxMesh_side_vault"]
+size = Vector3(18, 0.4, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_side_vault"]
+size = Vector3(18, 0.4, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_generator_hall"]
+size = Vector3(44, 0.4, 42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_generator_hall"]
+size = Vector3(44, 0.4, 42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_chimera_trench"]
+size = Vector3(22, 0.4, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chimera_trench"]
+size = Vector3(22, 0.4, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kinga_lab"]
+size = Vector3(36, 0.4, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kinga_lab"]
+size = Vector3(36, 0.4, 48)
 
 [sub_resource type="BoxMesh" id="BoxMesh_conduit"]
 size = Vector3(48, 0.05, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_conduit"]
-albedo_color = Color(0.0, 0.28, 0.34, 1)
+albedo_color = Color(0, 0.28, 0.34, 1)
 emission_enabled = true
-emission = Color(0.0, 0.38, 0.48, 1)
+emission = Color(0, 0.38, 0.48, 1)
 emission_energy_multiplier = 0.85
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pipe"]
@@ -35,119 +83,326 @@ albedo_color = Color(0.16, 0.2, 0.27, 1)
 metallic = 0.65
 roughness = 0.45
 
-[sub_resource type="BoxMesh" id="BoxMesh_terminal"]
-size = Vector3(1.4, 2.2, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_main_wall_z"]
+size = Vector3(1, 6, 48)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_terminal"]
-albedo_color = Color(0.02, 0.03, 0.05, 1)
-metallic = 0.8
-roughness = 0.4
+[sub_resource type="BoxShape3D" id="BoxShape3D_main_wall_x"]
+size = Vector3(48, 6, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_screen"]
-size = Vector2(1.1, 0.8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_funnel_wall"]
+size = Vector3(15, 6, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_screen"]
-albedo_color = Color(0.01, 0.045, 0.065, 1)
-emission_enabled = true
-emission = Color(0.0, 0.22, 0.3, 1)
-emission_energy_multiplier = 0.55
+[sub_resource type="BoxShape3D" id="BoxShape3D_corridor_wall_z"]
+size = Vector3(1, 6, 44)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_steam"]
-direction = Vector3(0, 1, 0)
-spread = 25.0
-initial_velocity_min = 0.8
-initial_velocity_max = 1.6
-gravity = Vector3(0, 0.2, 0)
-scale_min = 0.2
-scale_max = 0.6
-color = Color(0.8, 0.95, 1, 0.25)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gen_wall_z"]
+size = Vector3(1, 6, 42)
 
-[sub_resource type="SphereMesh" id="SphereMesh_particle"]
-radius = 0.15
-height = 0.3
+[sub_resource type="BoxShape3D" id="BoxShape3D_gen_wall_x"]
+size = Vector3(44, 6, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_sub_catwalk"]
-size = Vector3(18, 0.4, 24)
+[sub_resource type="BoxShape3D" id="BoxShape3D_trench_wall_z"]
+size = Vector3(1, 6, 48)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sub_catwalk"]
-size = Vector3(18, 0.4, 24)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lab_wall_z"]
+size = Vector3(1, 6, 48)
 
-[sub_resource type="BoxMesh" id="BoxMesh_server_rack"]
-size = Vector3(1.2, 3.8, 2.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lab_wall_back"]
+size = Vector3(36, 6, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_server"]
-albedo_color = Color(0.02, 0.025, 0.04, 1)
-metallic = 0.85
-roughness = 0.35
-emission_enabled = true
-emission = Color(0, 0.85, 1, 1)
-emission_energy_multiplier = 0.25
+[sub_resource type="BoxShape3D" id="BoxShape3D_slide_bar"]
+size = Vector3(18, 2, 1)
 
 [node name="Sector11Facility" type="Node3D"]
 
-[node name="CatwalkFloor" type="MeshInstance3D" parent="."]
+[node name="Room1_CryoChamber" type="Node3D" parent="."]
+
+[node name="CatwalkFloor" type="MeshInstance3D" parent="Room1_CryoChamber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 mesh = SubResource("BoxMesh_catwalk")
-surface_material_override/0 = SubResource("StandardMaterial3D_catwalk")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
 
-[node name="CyanConduitLeft" type="MeshInstance3D" parent="."]
+[node name="CatwalkFloorBody" type="StaticBody3D" parent="Room1_CryoChamber"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room1_CryoChamber/CatwalkFloorBody"]
+shape = SubResource("BoxShape3D_catwalk")
+
+[node name="CyanConduitLeft" type="MeshInstance3D" parent="Room1_CryoChamber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -8)
 mesh = SubResource("BoxMesh_conduit")
 surface_material_override/0 = SubResource("StandardMaterial3D_conduit")
 
-[node name="CyanConduitRight" type="MeshInstance3D" parent="."]
+[node name="CyanConduitRight" type="MeshInstance3D" parent="Room1_CryoChamber"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 8)
 mesh = SubResource("BoxMesh_conduit")
 surface_material_override/0 = SubResource("StandardMaterial3D_conduit")
 
-[node name="CryoPipeNorth" type="MeshInstance3D" parent="."]
+[node name="CryoPipeNorth" type="MeshInstance3D" parent="Room1_CryoChamber"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -7.5, 5.8, 0)
 mesh = SubResource("CylinderMesh_pipe")
 surface_material_override/0 = SubResource("StandardMaterial3D_pipe")
 
-[node name="CryoPipeSouth" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.5, 5.8, 0)
-mesh = SubResource("CylinderMesh_pipe")
-surface_material_override/0 = SubResource("StandardMaterial3D_pipe")
-
-[node name="CryoSteamParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 6.0, 0)
-amount = 16
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_steam")
-draw_pass_1 = SubResource("SphereMesh_particle")
-
-[node name="SectorTerminal" parent="." instance=ExtResource("4_wake_terminal")]
+[node name="SectorTerminal" parent="Room1_CryoChamber" instance=ExtResource("4_wake_terminal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0, 2.4)
+
+[node name="EnergyPowerConduit_A" parent="Room1_CryoChamber" instance=ExtResource("7_conduit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -4.0)
+conduit_id = "conduit_a"
+
+[node name="SupplyCrate_A1" parent="Room1_CryoChamber" instance=ExtResource("8_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 0, -6.0)
+
+[node name="SupplyCrate_A2" parent="Room1_CryoChamber" instance=ExtResource("8_crate")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.0, 0, 4.0)
+
+[node name="EmergencyStrobeChamber" type="OmniLight3D" parent="Room1_CryoChamber"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5.2, -4)
+script = ExtResource("6_strobe_script")
 
 [node name="PrimaryBlastGate" parent="." instance=ExtResource("1_gate")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
 
-[node name="SubstationExtension" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33)
+[node name="Corridor1_Decontamination" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -39)
 
-[node name="CorridorFloor" type="MeshInstance3D" parent="SubstationExtension"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -3)
-mesh = SubResource("BoxMesh_sub_catwalk")
-surface_material_override/0 = SubResource("StandardMaterial3D_catwalk")
+[node name="CorridorFloor" type="MeshInstance3D" parent="Corridor1_Decontamination"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_corridor_1")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
 
-[node name="CorridorFloorBody" type="StaticBody3D" parent="SubstationExtension"]
-position = Vector3(0, -0.2, -3)
+[node name="CorridorFloorBody" type="StaticBody3D" parent="Corridor1_Decontamination"]
+position = Vector3(0, -0.2, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubstationExtension/CorridorFloorBody"]
-shape = SubResource("BoxShape3D_sub_catwalk")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Corridor1_Decontamination/CorridorFloorBody"]
+shape = SubResource("BoxShape3D_corridor_1")
 
-[node name="ServerRackLeft" parent="SubstationExtension" instance=ExtResource("3_server_rack")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2, 0, -5)
+[node name="SecurityDroid_1" parent="Corridor1_Decontamination" instance=ExtResource("10_droid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0)
 
-[node name="ServerRackRight" parent="SubstationExtension" instance=ExtResource("3_server_rack")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.2, 0, -5)
+[node name="BurstSteamPipe_1" parent="Corridor1_Decontamination" instance=ExtResource("9_pipe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.6, 0, 6.0)
 
-[node name="SubstationLight" type="OmniLight3D" parent="SubstationExtension"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5)
+[node name="SupplyCrate_C1" parent="Corridor1_Decontamination" instance=ExtResource("8_crate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 2.0)
+
+[node name="EmergencyStrobeCorridor" type="OmniLight3D" parent="Corridor1_Decontamination"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 0)
+script = ExtResource("6_strobe_script")
+
+[node name="HalfOpenSlideBarrier" type="StaticBody3D" parent="Corridor1_Decontamination"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Corridor1_Decontamination/HalfOpenSlideBarrier"]
+shape = SubResource("BoxShape3D_slide_bar")
+
+[node name="SideChamber1_PowerVault" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -42)
+
+[node name="VaultFloor" type="MeshInstance3D" parent="SideChamber1_PowerVault"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_side_vault")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
+
+[node name="VaultFloorBody" type="StaticBody3D" parent="SideChamber1_PowerVault"]
+position = Vector3(0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SideChamber1_PowerVault/VaultFloorBody"]
+shape = SubResource("BoxShape3D_side_vault")
+
+[node name="ExquisiteChest" type="Node3D" parent="SideChamber1_PowerVault"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -6)
+script = ExtResource("11_chest_script")
+chest_id = "VaultChest_01"
+rarity = 1
+custom_yen = 150
+
+[node name="ServerRackLeft" parent="SideChamber1_PowerVault" instance=ExtResource("3_server_rack")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="ServerRackRight" parent="SideChamber1_PowerVault" instance=ExtResource("3_server_rack")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="MainframeTerminal" parent="SideChamber1_PowerVault" instance=ExtResource("2_sub_terminal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="VaultLight" type="OmniLight3D" parent="SideChamber1_PowerVault"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 light_color = Color(0, 0.85, 1, 1)
 light_energy = 2.0
 omni_range = 14.0
 
-[node name="MainframeTerminal" parent="SubstationExtension" instance=ExtResource("2_sub_terminal")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+[node name="SubstationPowerGate" parent="." instance=ExtResource("1_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="Room2_GeneratorHall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+
+[node name="GenFloor" type="MeshInstance3D" parent="Room2_GeneratorHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_generator_hall")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
+
+[node name="GenFloorBody" type="StaticBody3D" parent="Room2_GeneratorHall"]
+position = Vector3(0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room2_GeneratorHall/GenFloorBody"]
+shape = SubResource("BoxShape3D_generator_hall")
+
+[node name="EnergyPowerConduit_B" parent="Room2_GeneratorHall" instance=ExtResource("7_conduit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0, 0, 2.0)
+conduit_id = "conduit_b"
+
+[node name="EnergyPowerConduit_C" parent="Room2_GeneratorHall" instance=ExtResource("7_conduit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0, 0, -2.0)
+conduit_id = "conduit_c"
+
+[node name="SecurityDroid_2" parent="Room2_GeneratorHall" instance=ExtResource("10_droid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0, 0, 6.0)
+
+[node name="SecurityDroid_3" parent="Room2_GeneratorHall" instance=ExtResource("10_droid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0, 0, -6.0)
+
+[node name="BurstSteamPipe_2" parent="Room2_GeneratorHall" instance=ExtResource("9_pipe")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 20.0, 0, 4.0)
+
+[node name="GeneratorHallLight" type="OmniLight3D" parent="Room2_GeneratorHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+light_color = Color(0, 0.9, 1, 1)
+light_energy = 3.0
+omni_range = 22.0
+
+[node name="EmergencyStrobeGen" type="OmniLight3D" parent="Room2_GeneratorHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+script = ExtResource("6_strobe_script")
+
+[node name="SideChamber2_DissectionLab" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -82)
+
+[node name="LabFloor2" type="MeshInstance3D" parent="SideChamber2_DissectionLab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_side_vault")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
+
+[node name="LabFloorBody2" type="StaticBody3D" parent="SideChamber2_DissectionLab"]
+position = Vector3(0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SideChamber2_DissectionLab/LabFloorBody2"]
+shape = SubResource("BoxShape3D_side_vault")
+
+[node name="PreciousChest" type="Node3D" parent="SideChamber2_DissectionLab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+script = ExtResource("11_chest_script")
+chest_id = "DissectionChest_02"
+rarity = 2
+custom_yen = 300
+
+[node name="QuarantineGate" parent="." instance=ExtResource("1_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
+
+[node name="Room3_ChimeraTrench" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -122.5)
+
+[node name="TrenchFloor" type="MeshInstance3D" parent="Room3_ChimeraTrench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_chimera_trench")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
+
+[node name="TrenchFloorBody" type="StaticBody3D" parent="Room3_ChimeraTrench"]
+position = Vector3(0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room3_ChimeraTrench/TrenchFloorBody"]
+shape = SubResource("BoxShape3D_chimera_trench")
+
+[node name="TrenchStrobe1" type="OmniLight3D" parent="Room3_ChimeraTrench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 5.0, -10)
+script = ExtResource("6_strobe_script")
+
+[node name="TrenchStrobe2" type="OmniLight3D" parent="Room3_ChimeraTrench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5.0, 10)
+script = ExtResource("6_strobe_script")
+
+[node name="ExecutiveAirlock" parent="." instance=ExtResource("1_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -145)
+
+[node name="Room4_KingaNeuroLab" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -167.5)
+
+[node name="LabFloor" type="MeshInstance3D" parent="Room4_KingaNeuroLab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_kinga_lab")
+surface_material_override/0 = SubResource("ShaderMaterial_catwalk")
+
+[node name="LabFloorBody" type="StaticBody3D" parent="Room4_KingaNeuroLab"]
+position = Vector3(0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room4_KingaNeuroLab/LabFloorBody"]
+shape = SubResource("BoxShape3D_kinga_lab")
+
+[node name="LabOverheadLight" type="OmniLight3D" parent="Room4_KingaNeuroLab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8, 0)
+light_color = Color(0.95, 0.15, 0.25, 1)
+light_energy = 3.2
+omni_range = 24.0
+
+[node name="EmergencyStrobeLab" type="OmniLight3D" parent="Room4_KingaNeuroLab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, 8)
+script = ExtResource("6_strobe_script")
+
+[node name="InvisibleSafetyWalls" type="StaticBody3D" parent="."]
+
+[node name="WallLeft_R1" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 3.0, 0)
+shape = SubResource("BoxShape3D_main_wall_z")
+
+[node name="WallRight_R1" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3.0, 0)
+shape = SubResource("BoxShape3D_main_wall_z")
+
+[node name="WallSouth_R1" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 24)
+shape = SubResource("BoxShape3D_main_wall_x")
+
+[node name="FunnelLeft_R1" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 3.0, -18)
+shape = SubResource("BoxShape3D_funnel_wall")
+
+[node name="FunnelRight_R1" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 3.0, -18)
+shape = SubResource("BoxShape3D_funnel_wall")
+
+[node name="CorridorWallLeft" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.0, -39)
+shape = SubResource("BoxShape3D_corridor_wall_z")
+
+[node name="CorridorWallRight" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.0, -39)
+shape = SubResource("BoxShape3D_corridor_wall_z")
+
+[node name="GenWallLeft" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 3.0, -80)
+shape = SubResource("BoxShape3D_gen_wall_z")
+
+[node name="GenWallRight" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 3.0, -80)
+shape = SubResource("BoxShape3D_gen_wall_z")
+
+[node name="TrenchWallLeft" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3.0, -122.5)
+shape = SubResource("BoxShape3D_trench_wall_z")
+
+[node name="TrenchWallRight" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3.0, -122.5)
+shape = SubResource("BoxShape3D_trench_wall_z")
+
+[node name="LabWallLeft" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 3.0, -167.5)
+shape = SubResource("BoxShape3D_lab_wall_z")
+
+[node name="LabWallRight" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3.0, -167.5)
+shape = SubResource("BoxShape3D_lab_wall_z")
+
+[node name="LabWallBack" type="CollisionShape3D" parent="InvisibleSafetyWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, -191.5)
+shape = SubResource("BoxShape3D_lab_wall_back")

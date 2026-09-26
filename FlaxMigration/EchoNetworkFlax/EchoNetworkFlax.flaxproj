@@ -1,0 +1,15 @@
+{
+	"Name": "EchoNetworkFlax",
+	"Version": "1.0",
+	"Company": "Echo Network",
+	"Copyright": "Copyright (c) 2026 Echo Network. All rights reserved.",
+	"GameTarget": "EchoNetworkFlaxTarget",
+	"EditorTarget": "EchoNetworkFlaxEditorTarget",
+	"References": [
+		{
+			"Name": "$(EnginePath)/Flax.flaxproj"
+		}
+	],
+	"DefaultScene": "",
+	"MinEngineVersion": "1.0"
+}

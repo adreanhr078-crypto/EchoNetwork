@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eleven-eleven.local/schemas/cinematic-episode.schema.json",
+  "title": "11:11 Cinematic Episodes",
+  "type": "object",
+  "required": ["schemaVersion", "items"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/episode" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "required": ["ar", "en"],
+      "properties": {
+        "ar": { "type": "string" },
+        "en": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "point": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "frame": {
+      "type": "object",
+      "required": ["focus", "zoom", "rotation"],
+      "properties": {
+        "focus": { "$ref": "#/$defs/point" },
+        "zoom": { "type": "number", "minimum": 0.25, "maximum": 4 },
+        "rotation": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "additionalProperties": false
+    },
+    "background": {
+      "type": "object",
+      "required": [
+        "id",
+        "assetId",
+        "depth",
+        "focalPoint",
+        "opacity",
+        "blendMode"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "assetId": { "type": "string", "pattern": "^asset_.+" },
+        "depth": { "type": "number" },
+        "focalPoint": { "$ref": "#/$defs/point" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "blendMode": {
+          "enum": ["normal", "screen", "multiply", "add"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "cameraCue": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "atMs",
+        "durationMs",
+        "movement",
+        "from",
+        "to",
+        "easing"
+      ],
+      "properties": {
+        "kind": { "const": "camera" },
+        "id": { "type": "string", "pattern": "^cue_.+" },
+        "atMs": { "type": "integer", "minimum": 0 },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "movement": {
+          "enum": ["cut", "pan", "push", "pull", "track", "shake", "focus"]
+        },
+        "from": { "$ref": "#/$defs/frame" },
+        "to": { "$ref": "#/$defs/frame" },
+        "easing": {
+          "enum": ["linear", "easeIn", "easeOut", "easeInOut", "cinematic"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "characterCue": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "atMs",
+        "durationMs",
+        "characterId",
+        "action"
+      ],
+      "properties": {
+        "kind": { "const": "character" },
+        "id": { "type": "string", "pattern": "^cue_.+" },
+        "atMs": { "type": "integer", "minimum": 0 },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "characterId": { "type": "string", "pattern": "^character_.+" },
+        "action": {
+          "enum": ["enter", "exit", "move", "pose", "expression"]
+        },
+        "expressionId": { "type": "string", "pattern": "^expression_.+" },
+        "poseAssetId": { "type": "string", "pattern": "^asset_.+" },
+        "position": { "$ref": "#/$defs/point" },
+        "scale": { "type": "number", "exclusiveMinimum": 0, "maximum": 4 },
+        "layer": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "dialogueCue": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "atMs",
+        "durationMs",
+        "speakerId",
+        "voice",
+        "subtitles"
+      ],
+      "properties": {
+        "kind": { "const": "dialogue" },
+        "id": { "type": "string", "pattern": "^cue_.+" },
+        "atMs": { "type": "integer", "minimum": 0 },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "speakerId": { "type": "string", "pattern": "^character_.+" },
+        "voice": {
+          "type": "object",
+          "required": ["locale", "assetId", "gain"],
+          "properties": {
+            "locale": { "const": "ja-JP" },
+            "assetId": { "type": "string", "pattern": "^asset_.+" },
+            "gain": { "type": "number", "minimum": 0, "maximum": 2 }
+          },
+          "additionalProperties": false
+        },
+        "subtitles": {
+          "type": "object",
+          "required": ["ar"],
+          "properties": {
+            "ar": { "type": "string", "minLength": 1 },
+            "en": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "expressionId": { "type": "string", "pattern": "^expression_.+" }
+      },
+      "additionalProperties": false
+    },
+    "audioCue": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "atMs",
+        "durationMs",
+        "channel",
+        "action",
+        "gain",
+        "loop",
+        "duckForVoice"
+      ],
+      "properties": {
+        "kind": { "const": "audio" },
+        "id": { "type": "string", "pattern": "^cue_.+" },
+        "atMs": { "type": "integer", "minimum": 0 },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "channel": { "enum": ["music", "ambience", "sfx"] },
+        "action": { "enum": ["play", "stop", "fadeIn", "fadeOut"] },
+        "assetId": { "type": "string", "pattern": "^asset_.+" },
+        "gain": { "type": "number", "minimum": 0, "maximum": 2 },
+        "loop": { "type": "boolean" },
+        "duckForVoice": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "effectCue": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "atMs",
+        "durationMs",
+        "effect",
+        "intensity"
+      ],
+      "properties": {
+        "kind": { "const": "effect" },
+        "id": { "type": "string", "pattern": "^cue_.+" },
+        "atMs": { "type": "integer", "minimum": 0 },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "effect": {
+          "enum": [
+            "memoryFlash",
+            "desaturate",
+            "chromaticShift",
+            "glitch",
+            "vignette",
+            "fadeToBlack"
+          ]
+        },
+        "intensity": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "cue": {
+      "oneOf": [
+        { "$ref": "#/$defs/cameraCue" },
+        { "$ref": "#/$defs/characterCue" },
+        { "$ref": "#/$defs/dialogueCue" },
+        { "$ref": "#/$defs/audioCue" },
+        { "$ref": "#/$defs/effectCue" }
+      ]
+    },
+    "branch": {
+      "type": "object",
+      "required": ["id", "conditions", "nextSceneId"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/condition"
+          }
+        },
+        "nextSceneId": { "type": "string", "pattern": "^scene_.+" }
+      },
+      "additionalProperties": false
+    },
+    "choice": {
+      "type": "object",
+      "required": ["id", "text", "conditions", "effects"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "text": { "$ref": "#/$defs/localizedText" },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/condition"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/effect"
+          }
+        },
+        "nextSceneId": { "type": "string", "pattern": "^scene_.+" }
+      },
+      "additionalProperties": false
+    },
+    "choicePoint": {
+      "type": "object",
+      "required": ["decisionId", "prompt", "choices"],
+      "properties": {
+        "decisionId": { "type": "string", "minLength": 1 },
+        "prompt": { "$ref": "#/$defs/localizedText" },
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/choice" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "scene": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "advanceMode",
+        "durationMs",
+        "allowSkip",
+        "conditions",
+        "backgroundLayers",
+        "timeline",
+        "branches",
+        "completionEffects"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^scene_.+" },
+        "type": {
+          "enum": [
+            "opening",
+            "dialogue",
+            "action",
+            "flashback",
+            "choice",
+            "transition",
+            "ending"
+          ]
+        },
+        "advanceMode": {
+          "enum": ["timeline", "voice", "input", "choice"]
+        },
+        "durationMs": { "type": "integer", "minimum": 1 },
+        "allowSkip": { "type": "boolean" },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/condition"
+          }
+        },
+        "backgroundLayers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/background" }
+        },
+        "timeline": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/cue" }
+        },
+        "branches": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/branch" }
+        },
+        "choice": { "$ref": "#/$defs/choicePoint" },
+        "memoryId": { "type": "string", "pattern": "^memory_.+" },
+        "completionEffects": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/effect"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "episode": {
+      "type": "object",
+      "required": [
+        "id",
+        "chapterId",
+        "episodeNumber",
+        "title",
+        "description",
+        "entrySceneId",
+        "defaultVoiceLocale",
+        "defaultSubtitleLocale",
+        "unlockConditions",
+        "scenes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^episode_.+" },
+        "chapterId": { "type": "string", "pattern": "^chapter_[0-9]+$" },
+        "episodeNumber": { "type": "integer", "minimum": 1 },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "description": { "$ref": "#/$defs/localizedText" },
+        "entrySceneId": { "type": "string", "pattern": "^scene_.+" },
+        "defaultVoiceLocale": { "const": "ja-JP" },
+        "defaultSubtitleLocale": { "enum": ["ar", "en"] },
+        "unlockConditions": {
+          "type": "array",
+          "items": {
+            "$ref": "narrative-content.schema.json#/$defs/condition"
+          }
+        },
+        "scenes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/scene" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

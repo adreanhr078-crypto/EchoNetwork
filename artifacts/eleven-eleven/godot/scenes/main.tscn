@@ -37,7 +37,7 @@ volumetric_fog_density = 0.0018
 volumetric_fog_albedo = Color(0.24, 0.18, 0.38, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
-size = Vector3(50, 1, 50)
+size = Vector3(160, 2, 300)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_color = Color(0.03, 0.04, 0.06, 1)
@@ -49,7 +49,7 @@ clearcoat_roughness = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
 material = SubResource("StandardMaterial3D_floor")
-size = Vector3(50, 1, 50)
+size = Vector3(160, 2, 300)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_main")
@@ -96,7 +96,7 @@ light_energy = 0.75
 omni_range = 3.2
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -100)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_floor")
@@ -112,7 +112,7 @@ transform = Transform3D(0.623538, 0, 0.36, 0, 0.72, 0, -0.36, 0, 0.623538, -2.5,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="SpecimenEX000" parent="." instance=ExtResource("3_boss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -125)
 visible = false
 process_mode = 4
 
@@ -133,9 +133,9 @@ transform = Transform3D(0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5
 [node name="GameplayHUD" parent="." instance=ExtResource("6_hud")]
  
 [node name="KingaTortureSequence" parent="." instance=ExtResource("8_torture_seq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -168)
 
 [node name="RealityGlitchOverlay" parent="." instance=ExtResource("9_glitch")]
 
 [node name="MinatoKasumiAlleyway" parent="." instance=ExtResource("10_alleyway")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -55)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -170)

@@ -1,0 +1,49 @@
+{
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\blender\\intermediate\\sector11-capsule-v2\\tripo-retopo-source.glb",
+  "output": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\blender\\intermediate\\sector11-capsule-v2\\sector11-wake-capsule-v2.raw.glb",
+  "removedPresentationParts": [
+    "tripo_part_0",
+    "tripo_part_1",
+    "tripo_part_29",
+    "tripo_part_32",
+    "tripo_part_42",
+    "tripo_part_61",
+    "tripo_part_8",
+    "tripo_part_9"
+  ],
+  "sourceShellTriangles": 92015,
+  "runtimeTriangles": 70570,
+  "runtimeMeshes": 7,
+  "materials": [
+    "M_Capsule_DoorSignal",
+    "M_Capsule_Glass",
+    "M_Capsule_Graphite",
+    "M_Capsule_Interior",
+    "M_Capsule_Rubber",
+    "M_Capsule_Signal",
+    "M_Capsule_Steel"
+  ],
+  "animation": {
+    "name": "CAPSULE_OPEN",
+    "frames": [
+      1,
+      42
+    ],
+    "fps": 24
+  },
+  "originalBounds": {
+    "min": [
+      -0.1020577996969223,
+      -0.1695115715265274,
+      0.0
+    ],
+    "max": [
+      0.48968249559402466,
+      0.33626484870910645,
+      0.9324771165847778
+    ]
+  },
+  "normalizationScale": 3.0027546523126207,
+  "targetHeightMeters": 2.8,
+  "signalTreatment": "integrated emissive shell details and one restrained door strip"
+}

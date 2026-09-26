@@ -1,0 +1,19 @@
+﻿IMPORTANT MIGRATION SAFETY RULE
+
+The existing Godot implementation is the authoritative rollback/reference build.
+
+DO NOT:
+- Delete project.godot
+- Delete .gd scripts
+- Delete .tscn scenes
+- Delete .tres resources
+- Delete imported original assets
+- Replace the current Godot project directly
+
+Flax migration must remain isolated under:
+
+FlaxMigration/
+
+until the migrated build has been validated.
+
+Generated automatically by Echo Network Flax migration setup.

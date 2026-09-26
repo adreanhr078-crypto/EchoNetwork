@@ -18,13 +18,13 @@ func _ready() -> void:
 	_build_signage()
 
 func _make_materials() -> void:
-	_floor_material = _material(Color(0.47, 0.53, 0.59), 0.62, 0.08)
-	_wall_material = _material(Color(0.68, 0.73, 0.77), 0.84, 0.02)
-	_trim_material = _material(Color(0.18, 0.29, 0.37), 0.48, 0.5)
-	_window_material = _material(Color(0.48, 0.65, 0.78), 0.3, 0.05, Color(0.35, 0.52, 0.72), 0.8)
-	_screen_material = _material(Color(0.015, 0.04, 0.06), 0.35, 0.18, Color(0.0, 0.38, 0.48), 0.75)
-	_metal_material = _material(Color(0.42, 0.49, 0.53), 0.34, 0.72)
-	_curtain_material = _material(Color(0.73, 0.78, 0.77), 0.92, 0.0)
+	_floor_material = _material(Color(0.08, 0.11, 0.16), 0.22, 0.45)
+	_wall_material = _material(Color(0.14, 0.18, 0.24), 0.75, 0.02)
+	_trim_material = _material(Color(0.06, 0.09, 0.14), 0.45, 0.5)
+	_window_material = _material(Color(0.12, 0.22, 0.38), 0.15, 0.05, Color(0.2, 0.35, 0.6), 1.2)
+	_screen_material = _material(Color(0.01, 0.02, 0.04), 0.35, 0.18, Color(0.0, 0.85, 0.45), 0.85)
+	_metal_material = _material(Color(0.2, 0.24, 0.28), 0.34, 0.72)
+	_curtain_material = _material(Color(0.15, 0.18, 0.22), 0.92, 0.0)
 
 func _build_room() -> void:
 	_add_box("PolishedHospitalFloor", Vector3(16.0, 0.3, 18.0), Vector3(0, -0.18, -2.0), _floor_material, true)
@@ -39,18 +39,18 @@ func _build_room() -> void:
 	_add_box("WardHeadwall", Vector3(8.5, 1.25, 0.22), Vector3(-2.2, 2.45, -10.72), _trim_material)
 	_add_box("WardHandrail", Vector3(15.6, 0.12, 0.12), Vector3(0, 1.12, -10.72), _metal_material)
 	var window_light := OmniLight3D.new()
-	window_light.name = "SoftMorningWindowFill"
+	window_light.name = "MoonlightRainWindowFill"
 	window_light.position = Vector3(-6.6, 3.1, -2.0)
-	window_light.light_color = Color(0.87, 0.87, 0.78)
-	window_light.light_energy = 2.8
-	window_light.omni_range = 13.0
+	window_light.light_color = Color(0.22, 0.38, 0.68) # Moody nocturnal moonlight
+	window_light.light_energy = 2.2
+	window_light.omni_range = 14.0
 	add_child(window_light)
 	var ceiling_light := OmniLight3D.new()
-	ceiling_light.name = "WardAmbientLight"
+	ceiling_light.name = "WardDimNocturnalLight"
 	ceiling_light.position = Vector3(0, 4.2, -4.0)
-	ceiling_light.light_color = Color(0.82, 0.9, 1.0)
-	ceiling_light.light_energy = 2.0
-	ceiling_light.omni_range = 12.0
+	ceiling_light.light_color = Color(0.15, 0.25, 0.42) # Dim eerie ambient
+	ceiling_light.light_energy = 0.55
+	ceiling_light.omni_range = 10.0
 	add_child(ceiling_light)
 	_add_box("CeilingDiffuser", Vector3(2.5, 0.08, 1.2), Vector3(0, 4.72, -4.0), _window_material)
 

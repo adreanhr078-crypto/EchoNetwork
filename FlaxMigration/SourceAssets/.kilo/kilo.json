@@ -1,0 +1,92 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "snapshot": false,
+  "mcp": {
+    "airbyte-agent-mcp": {
+      "type": "remote",
+      "url": "https://mcp.airbyte.ai/mcp",
+      "enabled": false
+    },
+    "airbyte-knowledge-mcp": {
+      "type": "remote",
+      "url": "https://airbyte.mcp.kapa.ai",
+      "enabled": false
+    },
+    "astronomer-docs-mcp": {
+      "type": "remote",
+      "url": "https://www.astronomer.io/docs/_mcp/server",
+      "enabled": false
+    },
+    "awslabs-kinesis-mcp-server": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.kinesis-mcp-server==0.1.2"
+      ],
+      "environment": {
+        "AWS_PROFILE": "1",
+        "AWS_REGION": "1",
+        "KINESIS-READONLY": "true"
+      },
+      "enabled": false
+    },
+    "amazon-keyspaces-mcp": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.amazon-keyspaces-mcp-server==0.0.14"
+      ],
+      "environment": {
+        "AWS_PROFILE": "1",
+        "AWS_REGION": "1",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
+    },
+    "aws-redshift-mcp": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.redshift-mcp-server==0.0.25"
+      ],
+      "environment": {
+        "AWS_PROFILE": "1",
+        "AWS_REGION": "1",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
+    },
+    "cloudflare-docs-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote@latest",
+        "https://docs.mcp.cloudflare.com/mcp"
+      ],
+      "enabled": true
+    },
+    "cloudflare-bindings-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote@latest",
+        "https://bindings.mcp.cloudflare.com/mcp"
+      ],
+      "enabled": true
+    },
+    "playwright-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated",
+        "--headless",
+        "--browser=chromium"
+      ],
+      "enabled": true
+    }
+  }
+}

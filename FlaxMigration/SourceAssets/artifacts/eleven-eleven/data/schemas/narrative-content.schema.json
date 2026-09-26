@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eleven-eleven.local/schemas/narrative-content.schema.json",
+  "title": "11.11 Narrative Content",
+  "type": "object",
+  "required": ["schemaVersion", "items"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "required": ["ar", "en"],
+      "properties": {
+        "ar": { "type": "string" },
+        "en": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "condition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "conditions"],
+          "properties": {
+            "kind": { "const": "all" },
+            "conditions": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/condition" }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "conditions"],
+          "properties": {
+            "kind": { "const": "any" },
+            "conditions": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/condition" }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "condition"],
+          "properties": {
+            "kind": { "const": "not" },
+            "condition": { "$ref": "#/$defs/condition" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "stat", "value"],
+          "properties": {
+            "kind": { "enum": ["statAtLeast", "statAtMost"] },
+            "stat": {
+              "enum": [
+                "humanity",
+                "trust",
+                "fear",
+                "anger",
+                "sadness",
+                "corruption",
+                "memoriesRecovered"
+              ]
+            },
+            "value": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "flag", "value"],
+          "properties": {
+            "kind": { "const": "flagIs" },
+            "flag": { "type": "string" },
+            "value": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "decisionId"],
+          "properties": {
+            "kind": { "const": "decisionMade" },
+            "decisionId": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "decisionId", "choiceId"],
+          "properties": {
+            "kind": { "const": "choiceIs" },
+            "decisionId": { "type": "string" },
+            "choiceId": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "stat", "amount"],
+          "properties": {
+            "kind": { "const": "adjustStat" },
+            "stat": {
+              "enum": [
+                "humanity",
+                "trust",
+                "fear",
+                "anger",
+                "sadness",
+                "corruption",
+                "memoriesRecovered"
+              ]
+            },
+            "amount": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "flag", "value"],
+          "properties": {
+            "kind": { "const": "setFlag" },
+            "flag": { "type": "string" },
+            "value": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "decisionId", "choiceId"],
+          "properties": {
+            "kind": { "const": "recordChoice" },
+            "decisionId": { "type": "string" },
+            "choiceId": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

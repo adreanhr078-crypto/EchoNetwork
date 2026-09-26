@@ -40,6 +40,9 @@ uniform float hair_specular_shift : hint_range(-0.5, 0.5) = 0.04;
 uniform float hair_specular_power : hint_range(8.0, 128.0) = 42.0;
 uniform float hair_specular_width : hint_range(0.01, 0.4) = 0.08;
 
+group_uniforms FaceShading;
+uniform bool is_face = false;
+
 group_uniforms RimLighting;
 uniform vec4 rim_color : source_color = vec4(0.0, 0.94, 1.0, 1.0); // Signal Cyan
 uniform float rim_power : hint_range(1.0, 8.0) = 3.6;
@@ -78,10 +81,12 @@ void light() {
 	float shadow_term = clamp(half_lambert * ATTENUATION, 0.0, 1.0);
 	
 	// 2-Band Stepped Cel Diffuse
-	float band_1 = smoothstep(cel_split_1 - cel_smoothness, cel_split_1 + cel_smoothness, shadow_term);
-	float band_2 = smoothstep(cel_split_2 - cel_smoothness, cel_split_2 + cel_smoothness, shadow_term);
+	float s1 = is_face ? (cel_split_1 * 0.45) : cel_split_1;
+	float s2 = is_face ? (cel_split_2 * 0.35) : cel_split_2;
+	float band_1 = smoothstep(s1 - cel_smoothness, s1 + cel_smoothness, shadow_term);
+	float band_2 = smoothstep(s2 - cel_smoothness, s2 + cel_smoothness, shadow_term);
 	
-	vec3 shade_tier_2 = shadow_color.rgb * 0.72;
+	vec3 shade_tier_2 = shadow_color.rgb * (is_face ? 0.88 : 0.72);
 	vec3 shade_tier_1 = shadow_color.rgb;
 	vec3 lit_color = vec3(1.0);
 	

@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "response": {
+    "curveExponent": 1.35,
+    "neutralBias": 0.45,
+    "transitionMs": 900,
+    "significantDelta": 0.04
+  },
+  "base": {
+    "palette": {
+      "primary": "#9fb3c8",
+      "secondary": "#60758d",
+      "ambient": "#08101b"
+    },
+    "atmosphere": {
+      "darkness": 0.72,
+      "warmth": -0.15,
+      "haze": 0.2,
+      "particleEnergy": 0.18,
+      "pulse": 0.12
+    },
+    "grading": {
+      "brightness": 0.92,
+      "contrast": 1.08,
+      "saturation": 0.82,
+      "vignette": 0.46,
+      "bloom": 0.16
+    },
+    "glitch": {
+      "intensity": 0.03,
+      "frequency": 0.03,
+      "chromaticShiftPx": 0.15,
+      "displacementPx": 0.2,
+      "scanlines": 0.06,
+      "noise": 0.04
+    },
+    "cinematic": {
+      "cameraDrift": 0.08,
+      "cameraShake": 0.01,
+      "focusBreathing": 0.08,
+      "transitionDistortion": 0.03,
+      "memoryBloom": 0.08,
+      "framePulse": 0.04
+    },
+    "sound": {
+      "tension": 0.16,
+      "warmth": 0.16,
+      "isolation": 0.3,
+      "distortion": 0.02,
+      "heartbeat": 0.02,
+      "reverb": 0.28,
+      "lowPassHz": 14000
+    }
+  },
+  "channels": {
+    "humanity": {
+      "activationThreshold": 0.12,
+      "influence": 1,
+      "palette": {
+        "primary": "#ffd6a0",
+        "secondary": "#ff9f76",
+        "ambient": "#351b18"
+      },
+      "atmosphere": {
+        "darkness": 0.45,
+        "warmth": 0.8,
+        "haze": 0.18,
+        "particleEnergy": 0.42,
+        "pulse": 0.25
+      },
+      "grading": {
+        "brightness": 1.08,
+        "contrast": 1,
+        "saturation": 1.08,
+        "vignette": 0.2,
+        "bloom": 0.45
+      },
+      "glitch": {
+        "intensity": 0,
+        "frequency": 0,
+        "chromaticShiftPx": 0,
+        "displacementPx": 0,
+        "scanlines": 0.02,
+        "noise": 0.01
+      },
+      "cinematic": {
+        "cameraDrift": 0.12,
+        "cameraShake": 0,
+        "focusBreathing": 0.15,
+        "transitionDistortion": 0,
+        "memoryBloom": 0.55,
+        "framePulse": 0.16
+      },
+      "sound": {
+        "tension": 0.05,
+        "warmth": 0.9,
+        "isolation": 0.05,
+        "distortion": 0,
+        "heartbeat": 0.05,
+        "reverb": 0.18,
+        "lowPassHz": 18000
+      }
+    },
+    "trust": {
+      "activationThreshold": 0.1,
+      "influence": 0.95,
+      "palette": {
+        "primary": "#6ee7ff",
+        "secondary": "#79bfff",
+        "ambient": "#082a3a"
+      },
+      "atmosphere": {
+        "darkness": 0.52,
+        "warmth": 0.12,
+        "haze": 0.14,
+        "particleEnergy": 0.32,
+        "pulse": 0.18
+      },
+      "grading": {
+        "brightness": 1.04,
+        "contrast": 1.02,
+        "saturation": 1,
+        "vignette": 0.24,
+        "bloom": 0.38
+      },
+      "glitch": {
+        "intensity": 0.01,
+        "frequency": 0.01,
+        "chromaticShiftPx": 0,
+        "displacementPx": 0,
+        "scanlines": 0.04,
+        "noise": 0.01
+      },
+      "cinematic": {
+        "cameraDrift": 0.1,
+        "cameraShake": 0,
+        "focusBreathing": 0.12,
+        "transitionDistortion": 0.01,
+        "memoryBloom": 0.4,
+        "framePulse": 0.12
+      },
+      "sound": {
+        "tension": 0.08,
+        "warmth": 0.58,
+        "isolation": 0.04,
+        "distortion": 0,
+        "heartbeat": 0.03,
+        "reverb": 0.14,
+        "lowPassHz": 17500
+      }
+    },
+    "fear": {
+      "activationThreshold": 0.18,
+      "influence": 1,
+      "palette": {
+        "primary": "#8092ff",
+        "secondary": "#53d7f4",
+        "ambient": "#0b1235"
+      },
+      "atmosphere": {
+        "darkness": 0.86,
+        "warmth": -0.8,
+        "haze": 0.56,
+        "particleEnergy": 0.38,
+        "pulse": 0.68
+      },
+      "grading": {
+        "brightness": 0.78,
+        "contrast": 1.25,
+        "saturation": 0.62,
+        "vignette": 0.78,
+        "bloom": 0.15
+      },
+      "glitch": {
+        "intensity": 0.28,
+        "frequency": 0.38,
+        "chromaticShiftPx": 1.2,
+        "displacementPx": 1.8,
+        "scanlines": 0.25,
+        "noise": 0.32
+      },
+      "cinematic": {
+        "cameraDrift": 0.36,
+        "cameraShake": 0.28,
+        "focusBreathing": 0.68,
+        "transitionDistortion": 0.24,
+        "memoryBloom": 0.1,
+        "framePulse": 0.62
+      },
+      "sound": {
+        "tension": 0.88,
+        "warmth": 0.04,
+        "isolation": 0.68,
+        "distortion": 0.18,
+        "heartbeat": 0.78,
+        "reverb": 0.58,
+        "lowPassHz": 6200
+      }
+    },
+    "anger": {
+      "activationThreshold": 0.12,
+      "influence": 1.12,
+      "palette": {
+        "primary": "#ff4655",
+        "secondary": "#ff7a45",
+        "ambient": "#3b070d"
+      },
+      "atmosphere": {
+        "darkness": 0.75,
+        "warmth": 0.5,
+        "haze": 0.28,
+        "particleEnergy": 0.92,
+        "pulse": 0.9
+      },
+      "grading": {
+        "brightness": 0.92,
+        "contrast": 1.42,
+        "saturation": 1.25,
+        "vignette": 0.68,
+        "bloom": 0.42
+      },
+      "glitch": {
+        "intensity": 0.62,
+        "frequency": 0.72,
+        "chromaticShiftPx": 3.4,
+        "displacementPx": 6,
+        "scanlines": 0.35,
+        "noise": 0.48
+      },
+      "cinematic": {
+        "cameraDrift": 0.2,
+        "cameraShake": 0.86,
+        "focusBreathing": 0.32,
+        "transitionDistortion": 0.72,
+        "memoryBloom": 0.18,
+        "framePulse": 0.88
+      },
+      "sound": {
+        "tension": 0.96,
+        "warmth": 0.22,
+        "isolation": 0.28,
+        "distortion": 0.62,
+        "heartbeat": 0.88,
+        "reverb": 0.18,
+        "lowPassHz": 9000
+      }
+    },
+    "sadness": {
+      "activationThreshold": 0.16,
+      "influence": 0.9,
+      "palette": {
+        "primary": "#6d92b8",
+        "secondary": "#8999b8",
+        "ambient": "#0a1524"
+      },
+      "atmosphere": {
+        "darkness": 0.88,
+        "warmth": -0.58,
+        "haze": 0.72,
+        "particleEnergy": 0.08,
+        "pulse": 0.08
+      },
+      "grading": {
+        "brightness": 0.72,
+        "contrast": 0.92,
+        "saturation": 0.4,
+        "vignette": 0.74,
+        "bloom": 0.1
+      },
+      "glitch": {
+        "intensity": 0.08,
+        "frequency": 0.06,
+        "chromaticShiftPx": 0.3,
+        "displacementPx": 0.4,
+        "scanlines": 0.08,
+        "noise": 0.12
+      },
+      "cinematic": {
+        "cameraDrift": 0.42,
+        "cameraShake": 0.02,
+        "focusBreathing": 0.22,
+        "transitionDistortion": 0.08,
+        "memoryBloom": 0.28,
+        "framePulse": 0.05
+      },
+      "sound": {
+        "tension": 0.28,
+        "warmth": 0.05,
+        "isolation": 0.94,
+        "distortion": 0.04,
+        "heartbeat": 0.06,
+        "reverb": 0.88,
+        "lowPassHz": 4800
+      }
+    },
+    "corruption": {
+      "activationThreshold": 0.08,
+      "influence": 1.25,
+      "palette": {
+        "primary": "#d14fff",
+        "secondary": "#ff2b47",
+        "ambient": "#28082f"
+      },
+      "atmosphere": {
+        "darkness": 0.94,
+        "warmth": -0.2,
+        "haze": 0.62,
+        "particleEnergy": 0.82,
+        "pulse": 0.76
+      },
+      "grading": {
+        "brightness": 0.82,
+        "contrast": 1.58,
+        "saturation": 1.3,
+        "vignette": 0.9,
+        "bloom": 0.5
+      },
+      "glitch": {
+        "intensity": 1,
+        "frequency": 1,
+        "chromaticShiftPx": 7,
+        "displacementPx": 14,
+        "scanlines": 0.82,
+        "noise": 0.92
+      },
+      "cinematic": {
+        "cameraDrift": 0.62,
+        "cameraShake": 0.72,
+        "focusBreathing": 0.76,
+        "transitionDistortion": 1,
+        "memoryBloom": 0.7,
+        "framePulse": 0.74
+      },
+      "sound": {
+        "tension": 1,
+        "warmth": 0,
+        "isolation": 0.82,
+        "distortion": 1,
+        "heartbeat": 0.72,
+        "reverb": 0.68,
+        "lowPassHz": 2200
+      }
+    }
+  }
+}
