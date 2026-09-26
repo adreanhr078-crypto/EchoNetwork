@@ -22,6 +22,7 @@ var post_processor: Node = null
 var game_clock = GameClockScript.new()
 var is_intro_playing: bool = false
 var _active_hack_terminal: Node = null
+var _archive_dialogue_pending: bool = false
 
 func _ready() -> void:
 	post_processor = CinematicPostProcessorScript.new()
@@ -37,6 +38,8 @@ func _ready() -> void:
 	prologue.name = "PrologueOrchestrator"
 	add_child(prologue)
 	prologue.initialize(self, player, hud)
+	if player and player.has_method("set_combat_available"):
+		player.set_combat_available(false)
 
 	# 1. Connect Player Signals to HUD
 	if player and hud:
@@ -93,6 +96,7 @@ func _ready() -> void:
 			touch_ui.iai_charge_released.connect(player.execute_iai_slash)
 			touch_ui.dodge_tapped.connect(player.start_dodge)
 			touch_ui.jump_tapped.connect(player.perform_jump)
+			touch_ui.camera_swiped.connect(player.apply_camera_look)
 			if touch_ui.has_signal("use_tapped"):
 				touch_ui.use_tapped.connect(player.interact_with_nearest)
 			touch_ui.lock_on_tapped.connect(player.toggle_lock_on)
@@ -144,8 +148,9 @@ func _ready() -> void:
 func _on_opening_recovery_completed() -> void:
 	if opening_cinematic and opening_cinematic.has_method("finish"):
 		opening_cinematic.finish()
-	if hud and hud.has_method("set_directive"):
-		hud.set_directive("01. Find a way out of Sector 11", "Recovery is unstable. Follow the signal and find a route out.")
+	var prologue = find_child("PrologueOrchestrator", true, false)
+	if prologue and prologue.has_method("start_prologue"):
+		prologue.start_prologue()
 	if hud and hud.has_method("start_dialogue"):
 		hud.start_dialogue([
 			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0, 1.0), "text": "Where... is this?"},
@@ -155,15 +160,33 @@ func _on_opening_recovery_completed() -> void:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
 
 func apply_stylized_shaders() -> void:
-	# Echo Player: Anime Toon Cel Shading + Ink Outlines (Preserves rich PBR uniform textures)
+	# Echo Player: Full Genshin-tier Anime Cel Shading + SSS + Hair Highlight + Ink Outlines
 	if player and player.has_node("ModelRoot"):
 		var model_root := player.get_node("ModelRoot")
-		ShaderApplicator.apply_outline(model_root, OutlineShader, 1.25)
+		ShaderApplicator.apply_cel_shader(
+			model_root,
+			CelShader,
+			Color(1.0, 1.0, 1.0, 1.0),
+			Color(0.0, 0.94, 1.0, 1.0),
+			Color(0.42, 0.45, 0.58, 1.0),
+			3.2,
+			0.75,
+			OutlineShader
+		)
 
-	# Boss Monster: Threat Anime Toon Cel Shading + Menacing Dark Outlines
+	# Boss Monster: Threat Anime Toon Cel Shading + Crimson Abyss Rim + Dark Outlines
 	if boss and boss.has_node("ModelRoot"):
 		var boss_root := boss.get_node("ModelRoot")
-		ShaderApplicator.apply_outline(boss_root, OutlineShader, 1.45)
+		ShaderApplicator.apply_cel_shader(
+			boss_root,
+			CelShader,
+			Color(0.9, 0.85, 0.95, 1.0),
+			Color(1.0, 0.1, 0.25, 1.0),
+			Color(0.2, 0.15, 0.3, 1.0),
+			2.8,
+			0.9,
+			OutlineShader
+		)
 
 func play_boss_intro() -> void:
 	if not intro_camera or not player:
@@ -246,18 +269,7 @@ func _on_victory_sheathed() -> void:
 	if hud and hud.has_method("show_victory_banner"):
 		hud.show_victory_banner("TARGET NEUTRALIZED", "SECTOR 11 CONTAINMENT RESTORED // SPECIMEN DISSOLVED", 4.0)
 	if hud and hud.has_method("complete_directive"):
-		hud.complete_directive("02. Override Primary Blast Gate", "Locate Substation Terminal to access encrypted records on 'Project Zeo'.")
-
-	# Trigger Solo Leveling Glitch Reality Stop Prompt
-	var prologue = find_child("PrologueOrchestrator", true, false)
-	if prologue and prologue.has_method("trigger_solo_leveling_glitch"):
-		prologue.trigger_solo_leveling_glitch()
-
-	# Unlock and open Primary Blast Gate
-	var blast_gate = find_child("PrimaryBlastGate", true, false)
-	if blast_gate and blast_gate.has_method("open_gate"):
-		blast_gate.unlock_gate()
-		blast_gate.open_gate()
+		hud.complete_directive("03. Defeat Aberrant Specimen EX-000", "Proceed through Executive Airlock into Chief Scientist Dr. Kinga's Neuro-Lab.")
 
 	_setup_substation_events()
 
@@ -306,8 +318,6 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 		elif gate:
 			gate.unlock_gate()
 			gate.open_gate()
-		if hud and hud.has_method("complete_directive"):
-			hud.complete_directive("02. Cross the blast gate", "The signal continues through the open passage. Find its source.")
 		_active_hack_terminal = null
 		return
 
@@ -316,6 +326,7 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 
 	# Keep early story text focused on the wake signal and the escape route.
 	if hud and hud.has_method("start_dialogue"):
+		_archive_dialogue_pending = true
 		hud.start_dialogue([
 			{"speaker": "ECHO", "speaker_color": Color(0.0, 0.94, 1.0, 1.0), "text": "This record is broken. I don't remember coming here."},
 			{"speaker": "FLOATING POD", "speaker_color": Color(1.0, 0.75, 0.2, 1.0), "text": "The wake signal continues deeper into Sector 11. The exit route is still unverified."}
@@ -323,7 +334,8 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 	_active_hack_terminal = null
 
 func _on_dialogue_finished() -> void:
-	if hud and hud.has_method("complete_directive"):
+	if _archive_dialogue_pending and hud and hud.has_method("complete_directive"):
+		_archive_dialogue_pending = false
 		hud.complete_directive("Continue deeper into Sector 11", "The signal leads onward. Stay alert; the System is still withholding information.")
 
 func trigger_kinga_encounter() -> void:

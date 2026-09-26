@@ -19,9 +19,10 @@ func play(subject: Node3D) -> void:
 		return
 	_subject = subject
 	_is_playing = true
-	_camera_boom.rotation.y = PI + 0.45
-	_camera_boom.spring_length = 1.9
-	_player_camera.fov = 56.0
+	# Keep the first frame inside the authored chamber instead of facing the void beyond it.
+	_camera_boom.rotation.y = TAU - 0.35
+	_camera_boom.spring_length = 3.0
+	_player_camera.fov = 65.0
 	_guide_pod = _subject.get_parent().get_node_or_null("FloatingPod") if _subject.get_parent() else null
 	if _guide_pod:
 		_original_pod_offset = _guide_pod.get("float_offset")

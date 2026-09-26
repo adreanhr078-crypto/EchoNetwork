@@ -81,7 +81,7 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 20
 text = "USE"
 
 [node name="AttackBtn" type="Button" parent="ActionCluster"]
@@ -144,7 +144,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 20
 text = "⬆ JUMP"
 
 [node name="LockOnBtn" type="Button" parent="ActionCluster"]
@@ -178,7 +178,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.85, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 19
 text = "📡 SCAN"
 
 [connection signal="button_down" from="ActionCluster/AttackBtn" to="." method="_on_attack_btn_down"]

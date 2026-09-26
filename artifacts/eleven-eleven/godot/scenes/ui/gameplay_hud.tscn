@@ -28,6 +28,7 @@ corner_radius_bottom_left = 4
 script = ExtResource("1_hud")
 
 [node name="VitalsContainer" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 32.0
@@ -80,12 +81,13 @@ theme_override_styles/background = SubResource("StyleBoxFlat_hud_bar")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hud_bar")
 
 [node name="QuestContainer" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1528.0
+offset_left = 1468.0
 offset_top = 86.0
 offset_right = 1888.0
-offset_bottom = 204.0
+offset_bottom = 232.0
 mouse_filter = 2
 
 [node name="Plate" type="Panel" parent="QuestContainer"]
@@ -103,31 +105,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hud_plate")
 [node name="Header" type="Label" parent="QuestContainer"]
 layout_mode = 0
 offset_left = 10.0
-offset_right = 350.0
-offset_bottom = 18.0
+offset_right = 410.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0.3, 1, 0.8, 1)
-theme_override_font_sizes/font_size = 11
+theme_override_font_sizes/font_size = 15
 text = "◈ 11.11 // SYSTEM LINK"
 
 [node name="QuestTitle" type="Label" parent="QuestContainer"]
 layout_mode = 0
-offset_top = 18.0
+offset_top = 26.0
 offset_left = 10.0
-offset_right = 350.0
-offset_bottom = 40.0
+offset_right = 410.0
+offset_bottom = 54.0
 theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
-theme_override_font_sizes/font_size = 16
-text = "01. Find a way out of Sector 11"
+theme_override_font_sizes/font_size = 20
+text = ""
 
 [node name="QuestDesc" type="Label" parent="QuestContainer"]
 layout_mode = 0
-offset_top = 40.0
+offset_top = 60.0
 offset_left = 10.0
-offset_right = 350.0
-offset_bottom = 106.0
-theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 0.85)
-theme_override_font_sizes/font_size = 13
-text = "Recovery is unstable. Follow the signal and find a route out."
+offset_right = 410.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.85, 0.9, 0.97, 1)
+theme_override_font_sizes/font_size = 18
+text = ""
 autowrap_mode = 2
 
 [node name="MobileTouchControls" parent="." instance=ExtResource("2_touch_ui")]

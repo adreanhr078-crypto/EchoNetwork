@@ -18,9 +18,9 @@ func _ready() -> void:
 	name = "TutorialToastSystem"
 	set_anchors_preset(Control.PRESET_CENTER_TOP)
 	offset_top = 48.0
-	offset_left = -260.0
-	offset_right = 260.0
-	offset_bottom = 118.0
+	offset_left = -320.0
+	offset_right = 320.0
+	offset_bottom = 138.0
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_build_ui()
 	visible = false
@@ -57,7 +57,7 @@ func _build_ui() -> void:
 	keycap_label.name = "Keycap"
 	keycap_label.text = "[ SPACE ]"
 	keycap_label.add_theme_color_override("font_color", Color(0.0, 0.95, 1.0))
-	keycap_label.add_theme_font_size_override("font_size", 16)
+	keycap_label.add_theme_font_size_override("font_size", 20)
 	hbox.add_child(keycap_label)
 
 	var sep := VSeparator.new()
@@ -71,14 +71,14 @@ func _build_ui() -> void:
 	title_label.name = "Title"
 	title_label.text = "RUNNING SLIDE"
 	title_label.add_theme_color_override("font_color", Color(1.0, 1.0, 1.0))
-	title_label.add_theme_font_size_override("font_size", 13)
+	title_label.add_theme_font_size_override("font_size", 19)
 	vbox.add_child(title_label)
 
 	desc_label = Label.new()
 	desc_label.name = "Description"
 	desc_label.text = "Sprint and press [C] to slide under low obstacles"
 	desc_label.add_theme_color_override("font_color", Color(0.75, 0.82, 0.9))
-	desc_label.add_theme_font_size_override("font_size", 11)
+	desc_label.add_theme_font_size_override("font_size", 16)
 	vbox.add_child(desc_label)
 
 func show_toast(toast_id: String, keycap: String, title: String, description: String, timeout: float = 5.0) -> void:

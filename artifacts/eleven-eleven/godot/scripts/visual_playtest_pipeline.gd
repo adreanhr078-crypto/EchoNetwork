@@ -42,6 +42,7 @@ func _init() -> void:
 	test_cam.current = true
 	test_cam.fov = 65.0
 	vp.add_child(test_cam)
+	await process_frame
 
 	# -------------------------------------------------------------
 	# STAGE 0: ROOM 1 (Cryo Chamber & Awakening)

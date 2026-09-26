@@ -9,6 +9,8 @@ signal root_motion_started(step: int, distance: float)
 signal root_motion_finished(step: int)
 signal roll_started(direction: Vector3)
 signal roll_finished()
+signal slide_started(direction: Vector3)
+signal slide_finished()
 signal hard_landing_started(impact_velocity: float)
 signal hard_landing_finished()
 signal combat_stance_changed(is_combat: bool)
@@ -22,6 +24,7 @@ enum LocomotionState {
 	SKID_STOP,
 	ATTACK_ROOT_MOTION,
 	ROLLING,
+	SLIDING,
 	HARD_LANDING
 }
 
@@ -40,6 +43,12 @@ var roll_timer: float = 0.0
 var roll_direction: Vector3 = Vector3.ZERO
 const ROLL_DURATION: float = 0.45
 const ROLL_SPEED: float = 7.5
+
+var is_sliding: bool = false
+var slide_timer: float = 0.0
+var slide_direction: Vector3 = Vector3.ZERO
+const SLIDE_DURATION: float = 0.65
+const SLIDE_SPEED: float = 8.5
 
 var is_hard_landing: bool = false
 var hard_landing_timer: float = 0.0
@@ -87,10 +96,24 @@ func trigger_roll(direction: Vector3) -> void:
 	current_state = LocomotionState.ROLLING
 	emit_signal("roll_started", roll_direction)
 
+func trigger_running_slide(direction: Vector3 = Vector3.ZERO) -> void:
+	cancel_root_motion()
+	is_skidding = false
+	is_rolling = false
+	is_hard_landing = false
+	is_sliding = true
+	slide_timer = SLIDE_DURATION
+	var d = direction.normalized() if direction.length() > 0.01 else (roll_direction if roll_direction.length() > 0.01 else Vector3.FORWARD)
+	d.y = 0.0
+	slide_direction = d.normalized()
+	current_state = LocomotionState.SLIDING
+	emit_signal("slide_started", slide_direction)
+
 func trigger_hard_landing(impact_velocity: float) -> void:
 	cancel_root_motion()
 	is_skidding = false
 	is_rolling = false
+	is_sliding = false
 	is_hard_landing = true
 	hard_landing_timer = HARD_LANDING_DURATION
 	current_state = LocomotionState.HARD_LANDING
@@ -102,9 +125,28 @@ func set_combat_stance(active: bool) -> void:
 		emit_signal("combat_stance_changed", active)
 
 func is_action_locked() -> bool:
-	return is_hard_landing or is_rolling
+	return is_hard_landing or is_rolling or is_sliding
 
 func update(delta: float, input_vec: Vector2, speed: float, sprint_requested: bool, _attacking: bool) -> Dictionary:
+	# Update Running Slide State
+	if is_sliding:
+		slide_timer -= delta
+		if slide_timer <= 0.0:
+			is_sliding = false
+			emit_signal("slide_finished")
+		else:
+			var slide_speed_cur: float = SLIDE_SPEED * clampf(slide_timer / SLIDE_DURATION + 0.15, 0.35, 1.0)
+			return {
+				"state": LocomotionState.SLIDING,
+				"root_velocity": slide_direction * slide_speed_cur,
+				"is_skid": false,
+				"is_rolling": false,
+				"is_sliding": true,
+				"is_hard_landing": false,
+				"blend": blend_pos,
+				"anim_name": "preset_biped_roll_001"
+			}
+
 	# Update Hard Landing Recovery State
 	if is_hard_landing:
 		hard_landing_timer -= delta

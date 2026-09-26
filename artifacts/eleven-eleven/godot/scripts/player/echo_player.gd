@@ -74,6 +74,10 @@ var is_dodging: bool = false
 var dodge_timer: float = 0.0
 var dodge_direction: Vector3 = Vector3.ZERO
 var perfect_dodge_surge: bool = false
+var jump_buffer_timer: float = 0.0
+const JUMP_BUFFER_DURATION: float = 0.15
+var coyote_timer: float = 0.0
+const COYOTE_DURATION: float = 0.12
 
 var deflect_window_timer: float = 0.0
 var _facial_controller: Node = null
@@ -145,7 +149,7 @@ var camera_boom: SpringArm3D = null
 var current_anim: String = ""
 var is_locked_on: bool = false
 var lock_target: Node3D = null
-var combat_available: bool = true
+var combat_available: bool = false
 var opening_recovery_active: bool = false
 var _opening_tween: Tween = null
 var _landing_recoil: float = 0.0
@@ -210,7 +214,8 @@ func _ready() -> void:
 	shadow_blob.name = "ContactShadowBlob"
 	add_child(shadow_blob)
 
-	call_deferred("_setup_weapon_attachment")
+	_setup_weapon_attachment()
+	set_combat_available(false)
 
 func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 	if not animation_player:
@@ -229,7 +234,11 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 			"preset_run": ["RUN", "preset:run", "preset:biped:run.001", "preset_biped_run_001"],
 			"preset_biped_idle_001": ["preset_idle", "IDLE", "preset:idle", "preset:biped:idle.001"],
 			"preset_biped_fight_idle_001": ["Fight_Idle", "preset_fight_idle", "preset:fight_idle", "IDLE", "preset_biped_idle_001"],
-			"preset_biped_roll_001": ["Run_To_Rolling", "preset_roll", "preset:roll", "preset_biped_run_001"],
+			"preset_biped_roll_001": ["Run_To_Rolling", "Stand To Roll", "preset_roll", "preset:roll", "preset_biped_run_001"],
+			"DODGE_ROLL": ["Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll", "preset_biped_run_001"],
+			"ROLL": ["Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll"],
+			"SLIDE": ["preset_biped_roll_001", "Run_To_Rolling", "preset_biped_run_001"],
+			"preset_roll": ["preset_biped_roll_001", "Run_To_Rolling", "Stand To Roll"],
 			"preset_biped_hard_landing_001": ["Hard_Landing", "preset_hard_landing", "preset:hard_landing", "IDLE", "preset_biped_idle_001"],
 			"preset_biped_walk_001": ["preset_walk", "WALK", "preset:walk", "preset:biped:walk.001"],
 			"preset_biped_run_001": ["preset_run", "RUN", "preset:run", "preset:biped:run.001"],
@@ -363,10 +372,19 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	# Add Gravity & Track Airborne Velocity
-	if not is_on_floor():
+	# Add Gravity & Track Airborne Velocity & Coyote Time
+	if is_on_floor():
+		coyote_timer = COYOTE_DURATION
+	else:
 		_last_airborne_velocity_y = velocity.y
 		velocity.y -= GRAVITY * delta
+		coyote_timer = maxf(0.0, coyote_timer - delta)
+
+	# Jump Buffer Countdown
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer = JUMP_BUFFER_DURATION
+	else:
+		jump_buffer_timer = maxf(0.0, jump_buffer_timer - delta)
 
 	# Handle Dodge Physics & I-Frames
 	if is_dodging:
@@ -379,6 +397,7 @@ func _physics_process(delta: float) -> void:
 			var parent = get_parent()
 			if parent:
 				GhostTrailSpawner.spawn_ghost(parent, visual_root, 0.28, Color(0.0, 0.94, 1.0, 0.65))
+		play_anim("preset_biped_roll_001", 0.08)
 		if dodge_timer <= 0.0:
 			is_dodging = false
 			is_invulnerable = false
@@ -401,12 +420,14 @@ func _physics_process(delta: float) -> void:
 			if facial_controller and not is_charging_iai:
 				facial_controller.set_combat_focus(0.0, 0.3)
 
-	# Handle Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Handle Jump with Buffering & Coyote Time
+	if jump_buffer_timer > 0.0 and (is_on_floor() or coyote_timer > 0.0) and not is_sliding:
+		jump_buffer_timer = 0.0
+		coyote_timer = 0.0
 		perform_jump()
 
-	# Handle Dodge Input & Attack Canceling (Dodge Cancel)
-	if Input.is_action_just_pressed("dodge") and stamina >= 15.0:
+	# Handle Dodge Input & Attack Canceling (Dodge Cancel / Exploration Roll)
+	if (Input.is_action_just_pressed("dodge") or (InputMap.has_action("sprint") and Input.is_action_just_pressed("sprint") and velocity.length() < 0.2)) and stamina >= 15.0 and not is_dodging and not is_sliding:
 		is_attacking = false
 		start_dodge()
 		return
@@ -460,7 +481,7 @@ func _physics_process(delta: float) -> void:
 		stamina = max(0.0, stamina - 12.0 * delta)
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
 		# Handle Sprint Slide Input (C or Ctrl)
-		if (Input.is_action_just_pressed("crouch") or Input.is_physical_key_pressed(KEY_C) or Input.is_physical_key_pressed(KEY_CTRL)) and is_on_floor() and not is_sliding:
+		if ((InputMap.has_action("crouch") and Input.is_action_just_pressed("crouch")) or Input.is_physical_key_pressed(KEY_C) or Input.is_physical_key_pressed(KEY_CTRL)) and is_on_floor() and not is_sliding:
 			perform_slide()
 	else:
 		stamina = min(MAX_STAMINA, stamina + 18.0 * delta)
@@ -526,7 +547,11 @@ func _physics_process(delta: float) -> void:
 				clip = "preset_biped_hard_landing_001"
 				target_blend_time = 0.08
 				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.24, minf(1.0, 16.0 * delta))
-			elif loco_data.get("is_rolling", false):
+			elif loco_data.get("is_sliding", false) or is_sliding:
+				clip = "preset_biped_roll_001"
+				target_blend_time = 0.1
+				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.35, minf(1.0, 18.0 * delta))
+			elif loco_data.get("is_rolling", false) or is_dodging:
 				clip = "preset_biped_roll_001"
 				target_blend_time = 0.1
 			elif loco_data.get("is_skid", false):
@@ -574,8 +599,9 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector3.ZERO
 
 func perform_jump() -> void:
-	if is_on_floor():
+	if is_on_floor() or coyote_timer > 0.0:
 		velocity.y = JUMP_VELOCITY
+		coyote_timer = 0.0
 		play_anim("preset_jump", 0.12)
 		if animation_player:
 			animation_player.speed_scale = 2.5
@@ -592,7 +618,12 @@ func set_combat_available(available: bool) -> void:
 	combat_available = available
 	var standard_katana = find_child("KatanaBlade", true, false) as Node3D
 	if standard_katana:
-		standard_katana.visible = available and not is_shadow_katana_equipped
+		standard_katana.visible = available and not is_shadow_katana_equipped and not is_sheathed
+	var shadow_katana = find_child("ShadowKatana", true, false) as Node3D
+	if shadow_katana:
+		shadow_katana.visible = available and is_shadow_katana_equipped and not is_sheathed
+	if _hip_weapon_mesh:
+		_hip_weapon_mesh.visible = available and is_sheathed
 	var touch_ui = get_tree().root.find_child("MobileTouchControls", true, false) if is_inside_tree() else null
 	if touch_ui and touch_ui.has_method("set_combat_available"):
 		touch_ui.set_combat_available(available)
@@ -604,8 +635,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if opening_recovery_active:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and camera_boom:
-		camera_boom.rotation.y -= event.relative.x * mouse_look_sensitivity
-		camera_boom.rotation.x = clampf(camera_boom.rotation.x - event.relative.y * mouse_look_sensitivity, -0.3, 0.8)
+		apply_camera_look(event.relative)
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		var root := get_tree().root
@@ -619,7 +649,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not event.is_echo():
 		interact_with_nearest()
 		return
-	if event.is_action_pressed("guard") or (event is InputEventKey and event.pressed and (event.keycode == KEY_F or event.keycode == KEY_K)):
+	if combat_available and ((InputMap.has_action("guard") and event.is_action_pressed("guard")) or (event is InputEventKey and event.pressed and (event.keycode == KEY_F or event.keycode == KEY_K))):
 		trigger_deflect_attempt()
 		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_V:
@@ -628,7 +658,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 var is_void_sight_active: bool = false
 
+func apply_camera_look(relative: Vector2) -> void:
+	if opening_recovery_active or not camera_boom:
+		return
+	camera_boom.rotation.y -= relative.x * mouse_look_sensitivity
+	camera_boom.rotation.x = clampf(camera_boom.rotation.x - relative.y * mouse_look_sensitivity, -0.3, 0.8)
+
 func toggle_void_sight() -> void:
+	if not combat_available:
+		return
 	is_void_sight_active = not is_void_sight_active
 	set_zero_eye_active(is_void_sight_active, 999.0 if is_void_sight_active else 0.0)
 	var hud_node = get_tree().root.find_child("GameplayHUD", true, false) if is_inside_tree() else null
@@ -648,9 +686,9 @@ func trigger_deflect_attempt() -> void:
 		facial_controller.set_combat_focus(1.0, 0.08)
 
 func start_iai_charge() -> void:
-	if not combat_available:
+	if opening_recovery_active:
 		return
-	if is_sheathed:
+	if not combat_available or is_sheathed:
 		unsheath_weapon()
 	is_charging_iai = true
 	iai_charge = 0.0
@@ -675,10 +713,12 @@ func update_iai_charge(delta: float) -> void:
 				glow.light_energy = 5.5
 
 func execute_iai_slash(charge_ratio: float = -1.0) -> void:
-	if not combat_available:
+	if opening_recovery_active:
 		is_charging_iai = false
 		iai_charge = 0.0
 		return
+	if not combat_available or is_sheathed:
+		unsheath_weapon()
 	var eff_ratio: float = charge_ratio if charge_ratio >= 0.0 else iai_charge
 	is_charging_iai = false
 	iai_charge = 0.0
@@ -713,7 +753,8 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 		# Spawn Solo Leveling Sumi Ink Shadow Wave Projectile
 		if parent:
 			var wave = ShadowWaveProjectile.new()
-			wave.position = global_position + Vector3(0, 1.0, 0)
+			var base_pos: Vector3 = global_position if is_inside_tree() else position
+			wave.position = base_pos + Vector3(0, 1.0, 0)
 			wave.direction = dash_dir
 			parent.add_child(wave)
 
@@ -755,7 +796,7 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 						ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3(0, 0.4, 0), iai_dmg, true)
 						if player_camera:
 							ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.35)
-						trigger_hit_stop(0.09)
+						trigger_hit_stop(0.16)
 						emit_signal("iai_executed", iai_dmg)
 						break
 	else:
@@ -766,6 +807,8 @@ var is_shadow_katana_equipped: bool = false
 var contract_with_zero_sealed: bool = false
 
 func equip_shadow_katana() -> void:
+	is_shadow_katana_equipped = true
+	set_combat_available(true)
 	var standard_katana = find_child("KatanaBlade", true, false)
 	var shadow_katana = find_child("ShadowKatana", true, false)
 	if standard_katana:
@@ -775,14 +818,12 @@ func equip_shadow_katana() -> void:
 			shadow_katana.owner = null
 			shadow_katana.get_parent().remove_child(shadow_katana)
 			_hand_weapon_socket.add_child(shadow_katana)
-			var s: float = 1.0 / 1.81
-			shadow_katana.transform = Transform3D(
-				Basis(Vector3(1, 0, 0), deg_to_rad(-90)).scaled(Vector3.ONE * s),
-				Vector3(0.01, 0.04, 0.06)
-			)
-		shadow_katana.visible = true
-	is_shadow_katana_equipped = true
-	set_combat_available(true)
+		var s: float = 1.0 / 1.81
+		shadow_katana.transform = Transform3D(
+			Basis.IDENTITY.scaled(Vector3.ONE * s),
+			Vector3(-0.017, 0.075, -0.002)
+		)
+		shadow_katana.visible = not is_sheathed
 	# Strict narrative constraint: Shadow Katana equip does NOT manifest Zero's eye or wing.
 	# Zero's Singularity and Monarch Wing appear strictly after the Zero Pact is forged.
 
@@ -883,10 +924,11 @@ const KATANA_READY_TRANSFORM := Transform3D(Basis(Vector3(0.965926, -0.258819, 0
 const KATANA_SHEATHED_TRANSFORM := Transform3D(Basis(Vector3(0.866, 0, -0.5), Vector3(0, 1, 0), Vector3(0.5, 0, 0.866)), Vector3(-0.28, 0.62, 0.08))
 
 func perform_attack() -> void:
-	if not combat_available:
+	if opening_recovery_active:
 		return
-	if is_sheathed:
+	if not combat_available or is_sheathed:
 		unsheath_weapon()
+	combat_available = true
 	is_attacking = true
 	var current_step: int = combo_step
 	combo_step = 1 if combo_step >= 3 else combo_step + 1
@@ -957,13 +999,13 @@ func perform_attack() -> void:
 				var dist: float = diff.length()
 				if dist <= 4.5:
 					var base_dmg: int = 35
-					var hit_stop_dur: float = 0.05
+					var hit_stop_dur: float = 0.04
 					if current_step == 2:
 						base_dmg = 48
 						hit_stop_dur = 0.06
 					elif current_step == 3:
 						base_dmg = 70
-						hit_stop_dur = 0.08
+						hit_stop_dur = 0.10
 
 					var eff_dmg: int = base_dmg * combo_multiplier
 					if perfect_dodge_surge:
@@ -994,8 +1036,6 @@ func trigger_hit_stop(duration: float = 0.06) -> void:
 		)
 
 func toggle_lock_on(target: Node3D = null) -> void:
-	if not combat_available:
-		return
 	if is_locked_on and lock_target and lock_target.has_method("set_targeted"):
 		lock_target.set_targeted(false)
 
@@ -1016,16 +1056,18 @@ func toggle_lock_on(target: Node3D = null) -> void:
 		lock_target = null
 
 func start_dodge() -> void:
-	if is_sheathed:
+	if is_sheathed and combat_activity_timer > 0.0 and combat_available:
 		unsheath_weapon()
-	locomotion_controller.cancel_root_motion()
+	if locomotion_controller:
+		locomotion_controller.cancel_root_motion()
 	is_dodging = true
 	is_invulnerable = true
-	dodge_timer = 0.45
-	stamina = max(0.0, stamina - 20.0)
+	dodge_timer = 0.35
+	stamina = max(0.0, stamina - 15.0)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
-	combat_activity_timer = COMBAT_STANCE_DURATION
+	if combat_available:
+		combat_activity_timer = COMBAT_STANCE_DURATION
 
 	# AAA dodge voice — whispered Japanese perception line
 	if spatial_voice_manager:
@@ -1042,18 +1084,17 @@ func start_dodge() -> void:
 	else:
 		dodge_direction = -transform.basis.z
 
-	var horiz_speed: float = Vector2(velocity.x, velocity.z).length()
-	var is_sprint_active: bool = Input.is_action_pressed("sprint")
-	if horiz_speed > 2.8 or is_sprint_active:
-		# Trigger Combat Roll (Mixamo Run_To_Rolling)
+	# Trigger roll animation immediately
+	play_anim("preset_biped_roll_001", 0.08)
+	if locomotion_controller:
 		locomotion_controller.trigger_roll(dodge_direction)
-		emit_signal("combat_roll_executed", dodge_direction)
-		if is_inside_tree():
-			var roll_audio = AudioStreamPlayer.new()
-			add_child(roll_audio)
-			roll_audio.stream = ProceduralCinematicAudio.create_combat_roll_sfx()
-			roll_audio.play()
-			roll_audio.finished.connect(func(): roll_audio.queue_free())
+	emit_signal("combat_roll_executed", dodge_direction)
+	if is_inside_tree():
+		var roll_audio = AudioStreamPlayer.new()
+		add_child(roll_audio)
+		roll_audio.stream = ProceduralCinematicAudio.create_combat_roll_sfx()
+		roll_audio.play()
+		roll_audio.finished.connect(func(): roll_audio.queue_free())
 
 var _hand_weapon_socket: BoneAttachment3D = null
 var _hip_weapon_socket: BoneAttachment3D = null
@@ -1077,15 +1118,28 @@ func _setup_weapon_attachment() -> void:
 		_hand_weapon_socket.bone_name = hand_bone
 		skeleton.add_child(_hand_weapon_socket)
 
+	var socket_transform := Transform3D(
+		Basis.IDENTITY.scaled(Vector3.ONE * s),
+		Vector3(-0.017, 0.075, -0.002)
+	)
+
 	var katana = find_child("KatanaBlade", true, false) as Node3D
 	if katana and katana.get_parent() != _hand_weapon_socket:
 		katana.owner = null
 		katana.get_parent().remove_child(katana)
 		_hand_weapon_socket.add_child(katana)
-		katana.transform = Transform3D(
-			Basis(Vector3(1, 0, 0), deg_to_rad(-90)).scaled(Vector3.ONE * s),
-			Vector3(0.01, 0.04, 0.06)
-		)
+	if katana:
+		katana.transform = socket_transform
+		katana.visible = combat_available and not is_shadow_katana_equipped and not is_sheathed
+
+	var shadow_katana = find_child("ShadowKatana", true, false) as Node3D
+	if shadow_katana and shadow_katana.get_parent() != _hand_weapon_socket:
+		shadow_katana.owner = null
+		shadow_katana.get_parent().remove_child(shadow_katana)
+		_hand_weapon_socket.add_child(shadow_katana)
+	if shadow_katana:
+		shadow_katana.transform = socket_transform
+		shadow_katana.visible = combat_available and is_shadow_katana_equipped and not is_sheathed
 
 	# Build or locate hip scabbard socket attached to pelvis bone
 	var pelvis_bone = "tripo__Spine_0"
@@ -1105,24 +1159,29 @@ func _setup_weapon_attachment() -> void:
 				var hip_basis := Basis.from_euler(Vector3(deg_to_rad(-35), deg_to_rad(15), deg_to_rad(10))).scaled(Vector3.ONE * s)
 				_hip_weapon_mesh.transform = Transform3D(hip_basis, Vector3(-0.16, -0.04, 0.05))
 				_hip_weapon_socket.add_child(_hip_weapon_mesh)
-				_hip_weapon_mesh.visible = is_sheathed
-				if katana:
-					katana.visible = not is_sheathed
+				_hip_weapon_mesh.visible = combat_available and is_sheathed
 
 func sheath_weapon() -> void:
 	is_sheathed = true
 	var katana = find_child("KatanaBlade", true, false) as Node3D
 	if katana:
 		katana.visible = false
+	var shadow_katana = find_child("ShadowKatana", true, false) as Node3D
+	if shadow_katana:
+		shadow_katana.visible = false
 	if _hip_weapon_mesh:
-		_hip_weapon_mesh.visible = true
+		_hip_weapon_mesh.visible = combat_available
 	emit_signal("weapon_sheathed")
 
 func unsheath_weapon() -> void:
+	combat_available = true
 	is_sheathed = false
 	var katana = find_child("KatanaBlade", true, false) as Node3D
 	if katana:
-		katana.visible = true
+		katana.visible = not is_shadow_katana_equipped
+	var shadow_katana = find_child("ShadowKatana", true, false) as Node3D
+	if shadow_katana:
+		shadow_katana.visible = is_shadow_katana_equipped
 	if _hip_weapon_mesh:
 		_hip_weapon_mesh.visible = false
 
@@ -1135,33 +1194,38 @@ func perform_slide() -> void:
 
 	var move_forward = -visual_root.global_transform.basis.z if visual_root else -transform.basis.z
 	move_forward.y = 0.0
-	velocity += move_forward.normalized() * 5.8
+	if move_forward.length() < 0.1:
+		move_forward = -transform.basis.z
+		move_forward.y = 0.0
+	velocity += move_forward.normalized() * 6.5
 
 	if locomotion_controller and locomotion_controller.has_method("trigger_running_slide"):
-		locomotion_controller.trigger_running_slide()
+		locomotion_controller.trigger_running_slide(move_forward)
+
+	play_anim("preset_biped_roll_001", 0.1)
 
 	# Lower camera boom dynamically during slide
 	if camera_boom:
 		var cam_tween = create_tween()
-		cam_tween.tween_property(camera_boom, "position:y", 0.95, 0.18)
+		cam_tween.tween_property(camera_boom, "position:y", 0.92, 0.18)
 		cam_tween.tween_interval(0.35)
 		cam_tween.tween_property(camera_boom, "position:y", 1.4, 0.22)
 
-	# Lower collision capsule to slide under half-opened gates
+	# Lower collision capsule to slide under half-opened gates (0.75m height)
 	var col = find_child("CollisionShape3D", true, false) as CollisionShape3D
 	if col and col.shape is CapsuleShape3D:
-		col.shape.height = 0.85
-		col.position.y = 0.42
+		col.shape.height = 0.75
+		col.position.y = 0.38
 
-	# Complete HUD tutorial action if active
+	# Slide duration timer before restoring capsule and state
 	var tree = get_tree() if is_inside_tree() else null
 	if tree:
 		var hud = get_parent().find_child("GameplayHUD", true, false) if get_parent() else null
 		if hud and hud.has_method("complete_tutorial_action"):
 			hud.complete_tutorial_action("TOAST_SLIDE")
-		tree.create_timer(0.75).timeout.connect(func():
+		tree.create_timer(0.65).timeout.connect(func():
 			is_sliding = false
-			if col and col.shape is CapsuleShape3D:
+			if col and is_instance_valid(col) and col.shape is CapsuleShape3D:
 				col.shape.height = 1.8
 				col.position.y = 0.9
 		)
@@ -1458,6 +1522,4 @@ func execute_team_burst(target: Node = null, cine_camera_director: CineCameraDir
 	if res.get("success", false):
 		emit_signal("ultimate_burst_fired", res["slot"], res["character"], res["damage"])
 	return res
-
-
 

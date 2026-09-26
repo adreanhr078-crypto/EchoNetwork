@@ -165,6 +165,7 @@ func show_victory_banner(title: String = "TARGET NEUTRALIZED", subtitle: String 
 
 var current_directive_title: String = ""
 var current_directive_desc: String = ""
+var directive_active: bool = false
 var follow_player: Node3D = null
 
 func set_player(target: Node3D) -> void:
@@ -179,7 +180,7 @@ func _process(delta: float) -> void:
 	var major_system_window: bool = false
 	if system_window and system_window.has_method("blocks_quest_tracker"):
 		major_system_window = bool(system_window.call("blocks_quest_tracker"))
-	quest_container.visible = not overlay_open and not major_system_window
+	quest_container.visible = directive_active and not overlay_open and not major_system_window
 	if not quest_container.visible:
 		return
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
@@ -190,6 +191,7 @@ func _process(delta: float) -> void:
 	)
 	quest_container.position = quest_container.position.lerp(target_position, minf(1.0, delta * 14.0))
 func set_directive(title: String, desc: String) -> void:
+	directive_active = true
 	current_directive_title = title
 	current_directive_desc = desc
 	if not quest_title:
@@ -363,6 +365,5 @@ func complete_tutorial_action(toast_id: String) -> void:
 func notify_in_game_dialogue(speaker: String, text: String, color: Color = Color.WHITE) -> void:
 	if has_method("start_dialogue"):
 		start_dialogue([{"speaker": speaker, "speaker_color": color, "text": text}])
-
 
 

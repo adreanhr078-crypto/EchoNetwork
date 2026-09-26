@@ -41,6 +41,8 @@ var kinga_actor: DrKinga = null
 var conduit_a_energized: bool = false
 var conduit_b_energized: bool = false
 var conduit_c_energized: bool = false
+var wake_terminal_solved: bool = false
+var room_gate_open: bool = false
 
 # Traversal & Combat triggers
 var corridor_droid_defeated: bool = false
@@ -49,6 +51,14 @@ var specimen_encounter_triggered: bool = false
 var kinga_encounter_triggered: bool = false
 var struggle_presses: int = 0
 const REQUIRED_STRUGGLES: int = 4
+
+func set_zone_active(zone_name: String, active: bool) -> void:
+	if not main_root:
+		return
+	var zone = main_root.find_child(zone_name, true, false)
+	if zone:
+		zone.visible = active
+		zone.process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
 
 func initialize(root_node: Node3D, player_node: EchoPlayer, hud_node: GameplayHUD) -> void:
 	main_root = root_node
@@ -60,7 +70,7 @@ func initialize(root_node: Node3D, player_node: EchoPlayer, hud_node: GameplayHU
 		kinga_actor = main_root.find_child("DrKinga", true, false) as DrKinga
 
 	_setup_dungeon_listeners()
-	call_deferred("start_prologue")
+	# Main starts the first objective only after Echo's recovery has finished.
 
 func _setup_dungeon_listeners() -> void:
 	if not main_root:
@@ -88,24 +98,33 @@ func start_prologue() -> void:
 	current_step = Step.STAGE_0_AWAKENING
 	emit_signal("prologue_step_changed", "STAGE_0_AWAKENING")
 
+	# Compartmentalize: Isolate Room 1; dormantly hide and disable future zones
+	set_zone_active("Corridor1_Decontamination", false)
+	set_zone_active("SideChamber1_PowerVault", false)
+	set_zone_active("Room2_GeneratorHall", false)
+	set_zone_active("SideChamber2_DissectionLab", false)
+	set_zone_active("Room3_ChimeraTrench", false)
+	set_zone_active("Room4_KingaNeuroLab", false)
+
 	if player:
-		player.set_combat_available(true)
+		player.set_combat_available(false)
 		if player.has_method("sheath_weapon"):
 			player.sheath_weapon()
 
 	if hud:
 		if hud.has_method("show_tutorial_toast"):
+			var touch_mode: bool = DisplayServer.is_touchscreen_available() or OS.get_name() in ["Android", "iOS"]
 			hud.show_tutorial_toast(
 				"TOAST_MOVE",
-				"WASD / SPACE",
-				"EXPLORATION CONTROLS",
-				"Move with [WASD], jump with [SPACE], sprint with [SHIFT]",
+				"TOUCH" if touch_mode else "WASD / E",
+				"التحرك والتفاعل",
+				"حرّك Echo بالمقبض، ثم اضغط تفاعل قرب محطة الإشارة." if touch_mode else "تحرك نحو محطة الإشارة واضغط E للتفاعل.",
 				6.0
 			)
 		if hud.has_method("set_directive"):
 			hud.set_directive(
-				"SECTOR 11 // CRYO CHAMBER AWAKENING",
-				"حطّم صناديق الإمداد واضرب موصل الطاقة [E / LMB] لتنشيط محطة القطاع."
+				"SECTOR 11 // إشارة الاستيقاظ",
+				"اقترب من محطة الإشارة وتفاعل معها لمعرفة طريق الخروج من الغرفة."
 			)
 
 func _physics_process(_delta: float) -> void:
@@ -113,6 +132,12 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	var pz: float = player.global_position.z
+
+	# Stage 0 -> 1: Threshold crossing at Gate 1 (pz <= -18.5)
+	if current_step == Step.STAGE_0_AWAKENING and room_gate_open:
+		if pz <= -18.5:
+			current_step = Step.STAGE_1_DECONTAMINATION
+			emit_signal("prologue_step_changed", "STAGE_1_DECONTAMINATION")
 
 	# Stage 1: Slide barrier tutorial trigger
 	if current_step == Step.STAGE_1_DECONTAMINATION and not slide_toast_shown:
@@ -144,19 +169,8 @@ func _on_conduit_energized(conduit_node: Node) -> void:
 
 	if cid == "conduit_a":
 		conduit_a_energized = true
-		if hud and hud.has_method("set_directive"):
-			hud.set_directive(
-				"SECTOR 11 // CONDUIT A ENERGIZED",
-				"تم تفعيل موصل الطاقة! اخترق محطة القطاع [SectorTerminal] لفتح البوابة الرئيسية."
-			)
-		if hud and hud.has_method("show_tutorial_toast"):
-			hud.show_tutorial_toast(
-				"TOAST_TERMINAL",
-				"E",
-				"SECTOR TERMINAL",
-				"Interact with Sector Terminal to align resonance frequency",
-				5.0
-			)
+		if not room_gate_open:
+			_open_primary_blast_gate()
 
 	elif cid == "conduit_b":
 		conduit_b_energized = true
@@ -167,17 +181,26 @@ func _on_conduit_energized(conduit_node: Node) -> void:
 		_check_generator_hall_completion()
 
 func on_terminal_puzzle_solved(terminal_node: Node) -> void:
-	if current_step == Step.STAGE_0_AWAKENING:
+	wake_terminal_solved = true
+	if current_step == Step.STAGE_0_AWAKENING and not room_gate_open:
 		_open_primary_blast_gate()
 
 func _open_primary_blast_gate() -> void:
-	var gate = main_root.find_child("PrimaryBlastGate", true, false) if main_root else null
-	if gate and gate.has_method("open_gate"):
-		gate.unlock_gate()
-		gate.open_gate()
+	room_gate_open = true
+	var gate1 = main_root.find_child("PrimaryBlastGate", true, false) if main_root else null
+	if gate1 and gate1.has_method("open_gate"):
+		gate1.unlock_gate()
+		gate1.open_gate()
 
-	current_step = Step.STAGE_1_DECONTAMINATION
-	emit_signal("prologue_step_changed", "STAGE_1_DECONTAMINATION")
+	# Reveal & activate Stage 1 (Corridor 1)
+	set_zone_active("Corridor1_Decontamination", true)
+	set_zone_active("SideChamber1_PowerVault", true)
+	for droid in main_root.find_children("*", "Sector11SecurityDroid", true, false):
+		if droid.get_parent() and "Corridor1" in droid.get_parent().name:
+			droid.visible = true
+			droid.process_mode = Node.PROCESS_MODE_INHERIT
+
+	# current_step stays STAGE_0_AWAKENING until the player physically passes through Gate 1 into Corridor 1
 
 	if hud:
 		if hud.has_method("show_tutorial_toast"):
@@ -185,13 +208,13 @@ func _open_primary_blast_gate() -> void:
 				"TOAST_GATE1",
 				"GATE OPENED",
 				"PRIMARY BLAST GATE",
-				"Proceed through the blast gate into Decontamination Corridor",
+				"Primary blast gate opened. Enter Decontamination Corridor 01.",
 				5.0
 			)
 		if hud.has_method("set_directive"):
 			hud.set_directive(
-				"SECTOR 11 // DECONTAMINATION ROUTE",
-				"تجاوز العوائق بالزحلقة واقضِ على درونات الحراسة للوصول إلى غرفة المولد."
+				"SECTOR 11 // ممر التطهير 01",
+				"تم فتح البوابة الرئيسية. تقدم داخل ممر التطهير وتفادَ أنظمة الأمان."
 			)
 
 func _on_security_droid_defeated(droid_node: Node) -> void:
@@ -202,6 +225,14 @@ func _on_security_droid_defeated(droid_node: Node) -> void:
 		if gate2 and gate2.has_method("open_gate"):
 			gate2.unlock_gate()
 			gate2.open_gate()
+
+		# Reveal & activate Stage 2 (Generator Hall)
+		set_zone_active("Room2_GeneratorHall", true)
+		set_zone_active("SideChamber2_DissectionLab", true)
+		for droid in main_root.find_children("*", "Sector11SecurityDroid", true, false):
+			if droid.get_parent() and "Room2" in droid.get_parent().name:
+				droid.visible = true
+				droid.process_mode = Node.PROCESS_MODE_INHERIT
 
 		current_step = Step.STAGE_2_GENERATOR_HALL
 		emit_signal("prologue_step_changed", "STAGE_2_GENERATOR_HALL")
@@ -228,6 +259,9 @@ func _check_generator_hall_completion() -> void:
 		if gate3 and gate3.has_method("open_gate"):
 			gate3.unlock_gate()
 			gate3.open_gate()
+
+		# Reveal & activate Stage 3 (Chimera Arena)
+		set_zone_active("Room3_ChimeraTrench", true)
 
 		current_step = Step.STAGE_3_CHIMERA_TRENCH
 		emit_signal("prologue_step_changed", "STAGE_3_CHIMERA_TRENCH")
@@ -271,6 +305,12 @@ func _on_specimen_defeated() -> void:
 	if gate4 and gate4.has_method("open_gate"):
 		gate4.unlock_gate()
 		gate4.open_gate()
+
+	# Reveal & activate Stage 4 (Dr. Kinga Neuro-Lab)
+	set_zone_active("Room4_KingaNeuroLab", true)
+	if kinga_actor:
+		kinga_actor.visible = true
+		kinga_actor.process_mode = Node.PROCESS_MODE_INHERIT
 
 	if player and player.has_method("unlock_shadow_step"):
 		player.unlock_shadow_step()

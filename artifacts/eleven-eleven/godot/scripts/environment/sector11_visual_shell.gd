@@ -51,6 +51,13 @@ func _build_boundaries() -> void:
 	_add_boundary("WestContainmentWall", Vector3(0.8, ROOM_HEIGHT, ROOM_LENGTH), Vector3(-ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, ROOM_CENTER_Z))
 	_add_boundary("EastContainmentWall", Vector3(0.8, ROOM_HEIGHT, ROOM_LENGTH), Vector3(ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, ROOM_CENTER_Z))
 	_add_boundary("CeilingShell", Vector3(ROOM_WIDTH, 0.6, ROOM_LENGTH), Vector3(0.0, ROOM_HEIGHT, ROOM_CENTER_Z), false)
+	# Hermetic South Rear Wall for Room 1
+	_add_collidable_box("SouthContainmentWall", Vector3(ROOM_WIDTH, ROOM_HEIGHT, 0.8), Vector3(0.0, ROOM_HEIGHT * 0.5, 7.0), _shell_material)
+	# Hermetic North Bulkhead enclosing Primary Blast Gate (z = -18.0)
+	# Leaves aperture exactly for the 7.2m sliding door between x = -3.6 and x = +3.6
+	_add_collidable_box("Gate1_Bulkhead_West", Vector3(5.4, ROOM_HEIGHT, 0.8), Vector3(-6.3, ROOM_HEIGHT * 0.5, -18.0), _shell_material)
+	_add_collidable_box("Gate1_Bulkhead_East", Vector3(5.4, ROOM_HEIGHT, 0.8), Vector3(6.3, ROOM_HEIGHT * 0.5, -18.0), _shell_material)
+	_add_collidable_box("Gate1_Bulkhead_Lintel", Vector3(7.2, 0.7, 0.8), Vector3(0.0, ROOM_HEIGHT - 0.35, -18.0), _rib_material)
 
 func _add_boundary(node_name: String, size: Vector3, at: Vector3, collidable: bool = true) -> void:
 	var body := StaticBody3D.new()
@@ -231,6 +238,28 @@ func _build_floor_inlays() -> void:
 			_add_box("MaintenanceDeckPanel", Vector3(2.6, 0.028, 1.15), Vector3(x, 0.018, z - 2.2), _floor_panel_material)
 			_add_box("DeckPanelSeam", Vector3(0.045, 0.02, 0.92), Vector3(x + side * 1.18, 0.036, z - 2.2), _floor_joint_material)
 
+func _add_collidable_box(node_name: String, size: Vector3, at: Vector3, material: Material) -> void:
+	var body := StaticBody3D.new()
+	body.name = node_name + "_Body"
+	body.position = at
+	add_child(body)
+
+	var mesh := BoxMesh.new()
+	mesh.size = size
+	var visual := MeshInstance3D.new()
+	visual.name = "Surface"
+	visual.mesh = mesh
+	visual.material_override = material
+	visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	body.add_child(visual)
+
+	var shape := BoxShape3D.new()
+	shape.size = size
+	var collision := CollisionShape3D.new()
+	collision.name = "Collider"
+	collision.shape = shape
+	body.add_child(collision)
+
 func _add_box(node_name: String, size: Vector3, at: Vector3, material: Material) -> void:
 	var mesh := BoxMesh.new()
 	mesh.size = size
@@ -260,11 +289,11 @@ func _build_corridor_1_architecture() -> void:
 	var corr_h := 6.5
 
 	# West wall
-	_add_box("Corridor1_WestWall", Vector3(0.8, corr_h, corr_length), Vector3(-corr_width * 0.5, corr_h * 0.5, corr_center_z), _shell_material)
+	_add_collidable_box("Corridor1_WestWall", Vector3(0.8, corr_h, corr_length), Vector3(-corr_width * 0.5, corr_h * 0.5, corr_center_z), _shell_material)
 
 	# East wall (split around Side Vault opening at z = -42, opening width 8m from -38 to -46)
-	_add_box("Corridor1_EastWall_North", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -25.0), _shell_material)
-	_add_box("Corridor1_EastWall_South", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -53.0), _shell_material)
+	_add_collidable_box("Corridor1_EastWall_North", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -25.0), _shell_material)
+	_add_collidable_box("Corridor1_EastWall_South", Vector3(0.8, corr_h, 14.0), Vector3(corr_width * 0.5, corr_h * 0.5, -53.0), _shell_material)
 	_add_box("Corridor1_EastWall_Lintel", Vector3(0.8, 2.5, 8.0), Vector3(corr_width * 0.5, corr_h - 1.25, -42.0), _rib_material)
 
 	# Ceiling
@@ -308,9 +337,9 @@ func _build_corridor_1_architecture() -> void:
 	var v_w := 18.0
 	var v_len := 20.0
 	var v_h := 6.0
-	_add_box("Vault1_NorthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z + v_len * 0.5), _shell_material)
-	_add_box("Vault1_SouthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z - v_len * 0.5), _shell_material)
-	_add_box("Vault1_EastWall", Vector3(0.8, v_h, v_len), Vector3(v_center_x + v_w * 0.5, v_h * 0.5, v_center_z), _shell_material)
+	_add_collidable_box("Vault1_NorthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z + v_len * 0.5), _shell_material)
+	_add_collidable_box("Vault1_SouthWall", Vector3(v_w, v_h, 0.8), Vector3(v_center_x, v_h * 0.5, v_center_z - v_len * 0.5), _shell_material)
+	_add_collidable_box("Vault1_EastWall", Vector3(0.8, v_h, v_len), Vector3(v_center_x + v_w * 0.5, v_h * 0.5, v_center_z), _shell_material)
 	_add_box("Vault1_Ceiling", Vector3(v_w, 0.6, v_len), Vector3(v_center_x, v_h, v_center_z), _shell_material)
 
 func _build_generator_hall_architecture() -> void:
@@ -320,21 +349,21 @@ func _build_generator_hall_architecture() -> void:
 	var gen_h := 7.5
 
 	# South Wall (z = -60, with central blast gate portal width 8m)
-	_add_box("Gen_SouthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -60.0), _shell_material)
-	_add_box("Gen_SouthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -60.0), _shell_material)
+	_add_collidable_box("Gen_SouthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -60.0), _shell_material)
+	_add_collidable_box("Gen_SouthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -60.0), _shell_material)
 	_add_box("Gen_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, gen_h - 1.25, -60.0), _rib_material)
 
 	# North Wall (z = -100, with central blast gate portal width 8m)
-	_add_box("Gen_NorthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -100.0), _shell_material)
-	_add_box("Gen_NorthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -100.0), _shell_material)
+	_add_collidable_box("Gen_NorthWall_L", Vector3(18.0, gen_h, 0.8), Vector3(-13.0, gen_h * 0.5, -100.0), _shell_material)
+	_add_collidable_box("Gen_NorthWall_R", Vector3(18.0, gen_h, 0.8), Vector3(13.0, gen_h * 0.5, -100.0), _shell_material)
 	_add_box("Gen_NorthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, gen_h - 1.25, -100.0), _rib_material)
 
 	# East Wall
-	_add_box("Gen_EastWall", Vector3(0.8, gen_h, gen_length), Vector3(gen_width * 0.5, gen_h * 0.5, gen_center_z), _shell_material)
+	_add_collidable_box("Gen_EastWall", Vector3(0.8, gen_h, gen_length), Vector3(gen_width * 0.5, gen_h * 0.5, gen_center_z), _shell_material)
 
 	# West Wall (split around Dissection Lab opening at z = -82, width 8m)
-	_add_box("Gen_WestWall_South", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -69.0), _shell_material)
-	_add_box("Gen_WestWall_North", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -93.0), _shell_material)
+	_add_collidable_box("Gen_WestWall_South", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -69.0), _shell_material)
+	_add_collidable_box("Gen_WestWall_North", Vector3(0.8, gen_h, 14.0), Vector3(-gen_width * 0.5, gen_h * 0.5, -93.0), _shell_material)
 	_add_box("Gen_WestWall_Lintel", Vector3(0.8, 2.5, 8.0), Vector3(-gen_width * 0.5, gen_h - 1.25, -82.0), _rib_material)
 
 	# Ceiling
@@ -376,18 +405,18 @@ func _build_chimera_arena_architecture() -> void:
 	var arena_h := 7.5
 
 	# South entrance wall (z = -100)
-	_add_box("Arena_SouthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -100.0), _shell_material)
-	_add_box("Arena_SouthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -100.0), _shell_material)
+	_add_collidable_box("Arena_SouthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -100.0), _shell_material)
+	_add_collidable_box("Arena_SouthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -100.0), _shell_material)
 	_add_box("Arena_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, arena_h - 1.25, -100.0), _rib_material)
 
 	# North exit wall (z = -145)
-	_add_box("Arena_NorthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -145.0), _shell_material)
-	_add_box("Arena_NorthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -145.0), _shell_material)
+	_add_collidable_box("Arena_NorthWall_L", Vector3(7.0, arena_h, 0.8), Vector3(-7.5, arena_h * 0.5, -145.0), _shell_material)
+	_add_collidable_box("Arena_NorthWall_R", Vector3(7.0, arena_h, 0.8), Vector3(7.5, arena_h * 0.5, -145.0), _shell_material)
 	_add_box("Arena_NorthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, arena_h - 1.25, -145.0), _rib_material)
 
 	# Enclosing West and East containment bulkheads
-	_add_box("Arena_WestWall", Vector3(0.8, arena_h, arena_length), Vector3(-arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
-	_add_box("Arena_EastWall", Vector3(0.8, arena_h, arena_length), Vector3(arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
+	_add_collidable_box("Arena_WestWall", Vector3(0.8, arena_h, arena_length), Vector3(-arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
+	_add_collidable_box("Arena_EastWall", Vector3(0.8, arena_h, arena_length), Vector3(arena_width * 0.5, arena_h * 0.5, arena_center_z), _shell_material)
 
 	# Ceiling
 	_add_box("Arena_Ceiling", Vector3(arena_width, 0.6, arena_length), Vector3(0.0, arena_h, arena_center_z), _shell_material)
@@ -417,18 +446,18 @@ func _build_kinga_lab_architecture() -> void:
 	var lab_h := 8.5
 
 	# South entrance wall (z = -145)
-	_add_box("Lab_SouthWall_L", Vector3(14.0, lab_h, 0.8), Vector3(-11.0, lab_h * 0.5, -145.0), _shell_material)
-	_add_box("Lab_SouthWall_R", Vector3(14.0, lab_h, 0.8), Vector3(11.0, lab_h * 0.5, -145.0), _shell_material)
+	_add_collidable_box("Lab_SouthWall_L", Vector3(14.0, lab_h, 0.8), Vector3(-11.0, lab_h * 0.5, -145.0), _shell_material)
+	_add_collidable_box("Lab_SouthWall_R", Vector3(14.0, lab_h, 0.8), Vector3(11.0, lab_h * 0.5, -145.0), _shell_material)
 	_add_box("Lab_SouthWall_Lintel", Vector3(8.0, 2.5, 0.8), Vector3(0.0, lab_h - 1.25, -145.0), _rib_material)
 
 	# Reinforced North Back Wall (z = -191.5)
-	_add_box("Lab_NorthBackWall", Vector3(lab_width, lab_h, 0.8), Vector3(0.0, lab_h * 0.5, -191.5), _shell_material)
+	_add_collidable_box("Lab_NorthBackWall", Vector3(lab_width, lab_h, 0.8), Vector3(0.0, lab_h * 0.5, -191.5), _shell_material)
 
 	# West Wall
-	_add_box("Lab_WestWall", Vector3(0.8, lab_h, lab_length), Vector3(-lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
+	_add_collidable_box("Lab_WestWall", Vector3(0.8, lab_h, lab_length), Vector3(-lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
 
 	# East Wall (Completely blocks out the Japanese town exterior!)
-	_add_box("Lab_EastWall", Vector3(0.8, lab_h, lab_length), Vector3(lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
+	_add_collidable_box("Lab_EastWall", Vector3(0.8, lab_h, lab_length), Vector3(lab_width * 0.5, lab_h * 0.5, lab_center_z), _shell_material)
 
 	# Ceiling
 	_add_box("Lab_Ceiling", Vector3(lab_width, 0.6, lab_length), Vector3(0.0, lab_h, lab_center_z), _shell_material)

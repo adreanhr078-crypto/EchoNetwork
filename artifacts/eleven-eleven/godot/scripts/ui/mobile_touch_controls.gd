@@ -25,6 +25,7 @@ const IAI_FULL_CHARGE_TIME: float = 1.0
 @onready var attack_btn: Button = $ActionCluster/AttackBtn if has_node("ActionCluster/AttackBtn") else null
 @onready var charge_bar: ProgressBar = $ActionCluster/AttackBtn/ChargeBar if has_node("ActionCluster/AttackBtn/ChargeBar") else null
 @onready var lock_on_btn: Button = $ActionCluster/LockOnBtn if has_node("ActionCluster/LockOnBtn") else null
+@onready var dodge_btn: Button = $ActionCluster/DodgeBtn if has_node("ActionCluster/DodgeBtn") else null
 @onready var use_btn: Button = $ActionCluster/UseBtn if has_node("ActionCluster/UseBtn") else null
 
 var is_joystick_active: bool = false
@@ -52,6 +53,8 @@ func set_combat_available(available: bool) -> void:
 		attack_btn.visible = available
 	if lock_on_btn:
 		lock_on_btn.visible = available
+	if dodge_btn:
+		dodge_btn.visible = available
 	if use_btn:
 		use_btn.visible = not available
 
@@ -125,7 +128,9 @@ func _update_joystick(touch_pos: Vector2) -> void:
 func _is_point_on_actions(pos: Vector2) -> bool:
 	var actions: Control = get_node_or_null("ActionCluster")
 	if actions:
-		return actions.get_global_rect().has_point(pos)
+		for button in actions.get_children():
+			if button is Button and button.visible and button.get_global_rect().has_point(pos):
+				return true
 	return false
 
 # UI Button Connectors

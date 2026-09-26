@@ -39,6 +39,15 @@ func _update_visuals() -> void:
 	if spark_particles:
 		spark_particles.emitting = is_energized
 
+func get_interaction_prompt() -> String:
+	return "شحن موصل الطاقة [E]" if not is_energized else "الموصل مشحون"
+
+func interact(player: Node = null) -> void:
+	if is_energized or is_locked:
+		return
+	var src_pos: Vector3 = player.global_position if (player and player.is_inside_tree()) else global_position
+	energize(src_pos)
+
 func take_damage(amount: float = 1.0, hit_source_pos: Vector3 = Vector3.ZERO) -> void:
 	if is_energized or is_locked:
 		return
