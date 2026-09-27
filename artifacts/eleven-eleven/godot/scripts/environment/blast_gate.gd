@@ -1,5 +1,7 @@
 extends Node3D
 
+const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+
 signal gate_unlocked
 signal gate_opened
 signal gate_closed
@@ -15,6 +17,7 @@ enum GateState {
 @export var state: GateState = GateState.LOCKED
 @export var slide_distance: float = 6.5
 @export var open_duration: float = 2.4
+@export var keep_collision_when_open: bool = false
 
 @onready var door_panel: MeshInstance3D = $DoorFrame/SlidingDoor if has_node("DoorFrame/SlidingDoor") else null
 @onready var collision_shape: CollisionShape3D = $GateCollider/CollisionShape3D if has_node("GateCollider/CollisionShape3D") else null
@@ -69,6 +72,14 @@ func open_gate() -> void:
 		return
 	state = GateState.OPENING
 	_update_visual_state()
+	var gate_audio := AudioStreamPlayer3D.new()
+	gate_audio.name = "GateOpeningCue"
+	gate_audio.volume_db = -13.0
+	gate_audio.max_distance = 25.0
+	add_child(gate_audio)
+	gate_audio.stream = ProceduralCinematicAudio.create_system_gate_release_sfx()
+	gate_audio.finished.connect(gate_audio.queue_free)
+	gate_audio.play()
 
 	var steam = steam_particles if steam_particles else find_child("SteamExhaust", true, false) as GPUParticles3D
 	if steam:
@@ -76,7 +87,7 @@ func open_gate() -> void:
 
 	var door = get_door_panel()
 	var col = get_collision_shape()
-	if col:
+	if col and not keep_collision_when_open:
 		col.disabled = true
 
 	var tree = get_tree() if is_inside_tree() else null

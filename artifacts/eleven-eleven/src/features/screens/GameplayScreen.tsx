@@ -8,6 +8,7 @@ import { usePlayerProgressionStore } from '../player-progression/playerProgressi
 import type { AuthoritativeStoryState } from '../../domain/story/storyState';
 import { GameButton, GameModal } from '../../ui/design-system';
 import { GameWorld } from '../gameplay/components/GameWorld';
+import { GodotOpeningRoom } from '../gameplay/components/GodotOpeningRoom';
 import {
   GameplayErrorBoundary,
 } from '../gameplay/components/GameplayErrorBoundary';
@@ -23,6 +24,7 @@ export default function GameplayScreen() {
   const motion = useUiPreferencesStore(
     (preferences) => preferences.motion,
   );
+  const audioEnabled = useUiPreferencesStore((preferences) => preferences.audioEnabled);
   const locale = useUiPreferencesStore(
     (preferences) => preferences.locale,
   );
@@ -32,15 +34,15 @@ export default function GameplayScreen() {
   const requestManhwaReader = useShellStore(
     (shell) => shell.requestManhwaReader,
   );
-  const [roomComplete, setRoomComplete] = useState(false);
+  const [useWebRoom, setUseWebRoom] = useState(false);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
 
-  const handleRoomComplete = useCallback((storyState: AuthoritativeStoryState) => {
+  const handleRoomComplete = useCallback((storyState: AuthoritativeStoryState, awarded = true) => {
     usePlayerProgressionStore.getState().actions.hydrateStoryState(storyState);
     useGameStore.getState().actions.syncAuthoritativeStoryState(storyState);
-    setRoomComplete(true);
-    setShowCompletionModal(true);
+    setShowCompletionModal(awarded);
   }, []);
+  const fallbackToWebRoom = useCallback(() => setUseWebRoom(true), []);
 
   useEffect(() => {
     const game = useGameStore.getState();
@@ -59,19 +61,25 @@ export default function GameplayScreen() {
 
   return (
     <GameplayErrorBoundary onExit={goBack}>
-      <GameWorld
+      {useWebRoom ? <GameWorld
         paused={paused}
         quality={quality}
         motion={motion}
         onPause={openPause}
         onRoomComplete={handleRoomComplete}
-      />
+      /> : <GodotOpeningRoom
+        locale={locale}
+        muted={!audioEnabled}
+        reducedMotion={motion === 'reduced'}
+        onFallback={fallbackToWebRoom}
+        onRoomComplete={handleRoomComplete}
+      />}
       {showCompletionModal && (
         <GameModal
           open={showCompletionModal}
           onClose={() => setShowCompletionModal(false)}
           eyebrow="11:11 // AWAKENING CLEAR"
-          title={locale === 'ar' ? 'اكتملت الغرفة الافتتاحية // تم تحييد الطافر' : 'Opening Room Complete // Anomaly Neutralized'}
+          title={locale === 'ar' ? 'اكتملت الغرفة الافتتاحية' : 'Opening Room Complete'}
           description={
             locale === 'ar'
               ? 'تم فك تشفير الإشارة الأولى واعتماد تقدم Echo بنجاح. أصبحت صفحات المانهوا مفتوحة في الأرشيف.'
@@ -102,8 +110,8 @@ export default function GameplayScreen() {
         >
           <div style={{ padding: '8px 0', fontSize: '14px', color: '#cbd5e1', lineHeight: '1.6' }}>
             {locale === 'ar'
-              ? 'تهانينا! تم تحييد وحش الغرفة بنجاح وتجهيز سيف الكاتانا. يمكنك الآن استكمال الاستكشاف الحر وتجربة الكومبو القتالي أو الانتقال لقراءة أول فصل من المانهوا.'
-              : 'Congratulations! The specimen has been neutralized. You can now freely explore the chamber, test martial arts combos, or proceed to the Manhwa reader.'}
+              ? 'استعدت أثر البداية وفتحت الطريق إلى ما وراء البوابة. يمكنك العودة إلى الغرفة أو قراءة الصفحات التي أتاحها الخادم.'
+              : 'You recovered the first trace and opened the threshold. You can return to the room or read the pages unlocked by the server.'}
           </div>
         </GameModal>
       )}

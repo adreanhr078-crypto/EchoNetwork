@@ -1247,6 +1247,23 @@ static func create_door_creak_open_sfx() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
+## Restrained hydraulic lock and low motor for the first System gate.
+static func create_system_gate_release_sfx() -> AudioStreamWAV:
+	var sample_rate: int = 22050
+	var duration: float = 0.8
+	var count: int = int(sample_rate * duration)
+	var samples := PackedFloat32Array()
+	samples.resize(count)
+	for i in range(count):
+		var t: float = float(i) / float(sample_rate)
+		var progress: float = t / duration
+		var envelope: float = minf(1.0, t * 24.0) * pow(1.0 - progress, 1.6)
+		var latch: float = sin(TAU * 620.0 * t) * exp(-t * 55.0) * 0.16
+		var motor: float = sin(TAU * (82.0 - 35.0 * progress) * t) * 0.34
+		var texture: float = sin(TAU * 137.0 * t) * sin(TAU * 1139.0 * t) * 0.08
+		samples[i] = clampf((motor + texture) * envelope + latch, -1.0, 1.0)
+	return generate_wav(samples, sample_rate)
+
 ## Synthesizes medical prescription pill bottle rattle and medicine tablet consumption
 static func create_pill_bottle_rattle() -> AudioStreamWAV:
 	var sample_rate: int = 22050
@@ -1626,7 +1643,6 @@ static func create_spring_hair_swish_sfx() -> AudioStream:
 		var tone: float = sin(TAU * 320.0 * t) * env * 0.15
 		samples[i] = clampf(swish + tone, -1.0, 1.0)
 	return generate_wav(samples, sample_rate)
-
 
 
 

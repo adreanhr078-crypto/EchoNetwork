@@ -58,6 +58,7 @@ Thumbs.db
 # The active app is nested under artifacts/, so the root .tmp rule alone does
 # not cover this path.
 artifacts/eleven-eleven/.tmp/
+artifacts/eleven-eleven/public/godot/opening/
 
 # Blender autosaves and deterministic intermediate media outputs.
 *.blend1

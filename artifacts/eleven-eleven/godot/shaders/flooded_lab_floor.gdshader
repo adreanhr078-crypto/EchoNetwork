@@ -53,5 +53,5 @@ void fragment() {
 	METALLIC = metallic;
 	ROUGHNESS = roughness + (1.0 - (ripple_height * 0.5 + 0.5)) * 0.04;
 	SPECULAR = specular;
-	EMISSION = final_neon * fresnel * 0.65;
+	EMISSION = final_neon * fresnel * 0.25;
 }

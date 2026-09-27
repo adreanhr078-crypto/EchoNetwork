@@ -35,7 +35,7 @@ const SeawallRadioPlayer = preload("res://scripts/props/seawall_radio_player.gd"
 var game_clock: GameClock = GameClock.new()
 var household_manager: HouseholdManager = HouseholdManager.new()
 var weather_cycle: DynamicWeatherCycle = null
-var dialogue_engine: DynamicAIDialogueEngine = DynamicAIDialogueEngine.new()
+var dialogue_engine: DynamicAIDialogueEngine = null
 var rogue_awakener: RogueAwakener = null
 var puddle_reflection_controller: AsphaltPuddleReflectionController = null
 var focus_puller: CinematicFocusPuller = null
@@ -443,7 +443,6 @@ func get_seawall_radio() -> SeawallRadioPlayer:
 			seawall_radio.position = Vector3(4.2, 0.2, 5.2)
 			add_child(seawall_radio)
 	return seawall_radio
-
 
 
 

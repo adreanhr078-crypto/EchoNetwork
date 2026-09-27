@@ -10,8 +10,9 @@ import { ArrowLeft, ArrowRight, RotateCcw, ShieldCheck, Sparkles } from 'lucide-
 import { useShellStore, useUiPreferencesStore } from '../../app/shell/shellStore';
 import { usePlayerProgressionStore } from '../player-progression/playerProgressionStore';
 import { useGameStore } from '../../stores/gameStore';
-import { completeOpeningRecovery, PlayerProgressionApiError } from '../../infrastructure/player-progression/playerProgressionApi';
+import { completeOpeningRecovery, fetchAuthoritativeStoryState, PlayerProgressionApiError } from '../../infrastructure/player-progression/playerProgressionApi';
 import { OPENING_COVER_PUZZLE_ID } from '../../domain/opening/openingProgress';
+import { hasConfirmedOpeningCoverReceipt, openingResumeDestination } from '../../domain/opening/openingHandoff';
 import { GameButton, GlassPanel } from '../../ui/design-system';
 import { ScreenBreakRuntime } from './ScreenBreakRuntime';
 import './opening-recovery.css';
@@ -166,8 +167,7 @@ export default function OpeningRecoveryScreen() {
   useEffect(() => {
     if (
       status === 'idle'
-      && storyState?.openingCoverPuzzleCompleted === true
-      && storyState.openingRoomCompleted === false
+      && openingResumeDestination(storyState) !== 'cover'
     ) {
       setTransitionFinished(true);
       setStatus('receipt');
@@ -176,7 +176,7 @@ export default function OpeningRecoveryScreen() {
     if (
       (status === 'receipt' || status === 'break')
       && transitionFinished
-      && storyState?.openingCoverPuzzleCompleted === true
+      && openingResumeDestination(storyState) !== 'cover'
     ) {
       navigate('play');
     }
@@ -306,7 +306,7 @@ export default function OpeningRecoveryScreen() {
     setStatus('verifying');
     try {
       const response = await completeOpeningRecovery(order);
-      if (response.storyState.openingCoverPuzzleCompleted !== true) {
+      if (response.storyState.openingCoverPuzzleCompleted !== true || !hasConfirmedOpeningCoverReceipt(response)) {
         throw new Error('Opening recovery was not confirmed');
       }
       hydrateStoryState(response.storyState);
@@ -314,6 +314,24 @@ export default function OpeningRecoveryScreen() {
       setHasSubmitted(true);
       setStatus('break');
     } catch (error) {
+      // The POST may have reached the server even if its response was lost.
+      // Reconcile with a read-only authoritative snapshot before offering a retry.
+      const mayHaveCommitted = !(error instanceof PlayerProgressionApiError)
+        || error.status >= 500;
+      if (mayHaveCommitted) {
+        try {
+          const confirmedState = await fetchAuthoritativeStoryState();
+          if (openingResumeDestination(confirmedState) !== 'cover') {
+            hydrateStoryState(confirmedState);
+            syncAuthoritativeStoryState(confirmedState);
+            setHasSubmitted(true);
+            setStatus('break');
+            return;
+          }
+        } catch {
+          // Preserve the arranged cover; the user can retry when online.
+        }
+      }
       setFailureKind(error instanceof PlayerProgressionApiError && error.code === 'opening_solution_not_verified'
         ? 'alignment'
         : error instanceof PlayerProgressionApiError && (error.status === 401 || error.status === 403)

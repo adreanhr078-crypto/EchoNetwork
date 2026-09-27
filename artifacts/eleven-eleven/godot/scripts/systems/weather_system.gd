@@ -53,13 +53,13 @@ func _ready() -> void:
 	_rain_player = AudioStreamPlayer.new()
 	_rain_player.name = "RainAmbientPlayer"
 	_rain_player.volume_db = -80.0  # Start silent
-	_rain_player.bus = "Ambient"
+	_rain_player.bus = "Ambient" if AudioServer.get_bus_index("Ambient") >= 0 else "Master"
 	add_child(_rain_player)
 
 	_ocean_player = AudioStreamPlayer.new()
 	_ocean_player.name = "OceanAmbientPlayer"
 	_ocean_player.volume_db = -80.0  # Start silent
-	_ocean_player.bus = "Ambient"
+	_ocean_player.bus = "Ambient" if AudioServer.get_bus_index("Ambient") >= 0 else "Master"
 	add_child(_ocean_player)
 
 	# Generate and assign looping audio

@@ -15,6 +15,8 @@ signal lock_on_tapped()
 signal scan_tapped()
 signal camera_swiped(relative: Vector2)
 signal use_tapped()
+signal mute_tapped()
+signal motion_tapped()
 
 const JOYSTICK_MAX_RADIUS: float = 75.0
 const IAI_CHARGE_THRESHOLD: float = 0.35
@@ -27,6 +29,7 @@ const IAI_FULL_CHARGE_TIME: float = 1.0
 @onready var lock_on_btn: Button = $ActionCluster/LockOnBtn if has_node("ActionCluster/LockOnBtn") else null
 @onready var dodge_btn: Button = $ActionCluster/DodgeBtn if has_node("ActionCluster/DodgeBtn") else null
 @onready var use_btn: Button = $ActionCluster/UseBtn if has_node("ActionCluster/UseBtn") else null
+@onready var sprint_btn: Button = $ActionCluster/SprintBtn if has_node("ActionCluster/SprintBtn") else null
 
 var is_joystick_active: bool = false
 var joystick_touch_index: int = -1
@@ -38,15 +41,29 @@ var last_camera_pos: Vector2 = Vector2.ZERO
 
 var is_attack_held: bool = false
 var attack_hold_timer: float = 0.0
+var _platform_touch_enabled: bool = false
 
 func _ready() -> void:
 	var platform_name: String = OS.get_name()
-	visible = platform_name == "Android" or platform_name == "iOS" or (platform_name == "Web" and DisplayServer.is_touchscreen_available())
+	_platform_touch_enabled = platform_name == "Android" or platform_name == "iOS" or (platform_name == "Web" and DisplayServer.is_touchscreen_available())
+	visible = _platform_touch_enabled
 	set_combat_available(false)
 	if charge_bar:
 		charge_bar.visible = false
 	if use_btn:
 		use_btn.visible = true
+
+func set_interaction_blocked(blocked: bool) -> void:
+	visible = _platform_touch_enabled and not blocked
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or (what == NOTIFICATION_VISIBILITY_CHANGED and is_inside_tree() and not is_visible_in_tree()):
+		is_joystick_active = false
+		joystick_touch_index = -1
+		camera_touch_index = -1
+		current_joystick_vector = Vector2.ZERO
+		emit_signal("joystick_moved", Vector2.ZERO)
+		emit_signal("sprint_changed", false)
 
 func set_combat_available(available: bool) -> void:
 	if attack_btn:
@@ -70,6 +87,8 @@ func _process(delta: float) -> void:
 			emit_signal("iai_charge_started")
 
 func _input(event: InputEvent) -> void:
+	if not is_visible_in_tree():
+		return
 	if event is InputEventScreenTouch:
 		_handle_screen_touch(event)
 	elif event is InputEventScreenDrag:
@@ -152,9 +171,11 @@ func _on_attack_btn_up() -> void:
 
 func _on_dodge_btn_down() -> void:
 	emit_signal("dodge_tapped")
+
+func _on_sprint_btn_down() -> void:
 	emit_signal("sprint_changed", true)
 
-func _on_dodge_btn_up() -> void:
+func _on_sprint_btn_up() -> void:
 	emit_signal("sprint_changed", false)
 
 func _on_jump_btn_pressed() -> void:
@@ -168,3 +189,9 @@ func _on_scan_btn_pressed() -> void:
 
 func _on_use_btn_pressed() -> void:
 	emit_signal("use_tapped")
+
+func _on_mute_btn_pressed() -> void:
+	emit_signal("mute_tapped")
+
+func _on_motion_btn_pressed() -> void:
+	emit_signal("motion_tapped")

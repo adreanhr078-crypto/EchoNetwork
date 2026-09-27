@@ -58,10 +58,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = -210.0
-offset_right = 280.0
-offset_bottom = 210.0
+offset_left = -445.0
+offset_top = -260.0
+offset_right = 445.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
@@ -71,11 +71,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -38.0
-offset_top = 8.0
-offset_right = -10.0
-offset_bottom = 36.0
+offset_left = -72.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 72.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 27
 text = "✕"
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
@@ -83,39 +84,41 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 20.0
-offset_right = -24.0
-offset_bottom = -20.0
+offset_left = 42.0
+offset_top = 36.0
+offset_right = -42.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 24
 
 [node name="Title" type="Label" parent="Panel/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 30
 text = "SECTOR 11 // SIGNAL ALIGNMENT"
 horizontal_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="Panel/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
-theme_override_font_sizes/font_size = 13
-text = "Match the recovered trace: 111.0 MHz · 45° · Channel 7"
+theme_override_font_sizes/font_size = 24
+text = "راجع أثر الإشارة على شاشة المحطة // TRACE ON TERMINAL"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="FreqRow" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="Panel/VBox/FreqRow"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "FREQUENCY:"
 
 [node name="FreqSlider" type="HSlider" parent="Panel/VBox/FreqRow"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 50.0
@@ -124,10 +127,10 @@ step = 0.5
 value = 80.0
 
 [node name="FreqVal" type="Label" parent="Panel/VBox/FreqRow"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "80.0 MHz"
 horizontal_alignment = 2
 
@@ -136,12 +139,13 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="Panel/VBox/PhaseRow"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "PHASE SHIFT:"
 
 [node name="PhaseSlider" type="HSlider" parent="Panel/VBox/PhaseRow"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.0
@@ -150,10 +154,10 @@ step = 1.0
 value = 0.0
 
 [node name="PhaseVal" type="Label" parent="Panel/VBox/PhaseRow"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "0°"
 horizontal_alignment = 2
 
@@ -162,12 +166,13 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="Panel/VBox/HarmonicRow"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "HARMONIC:"
 
 [node name="HarmonicSlider" type="HSlider" parent="Panel/VBox/HarmonicRow"]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -176,15 +181,15 @@ step = 1.0
 value = 1.0
 
 [node name="HarmonicVal" type="Label" parent="Panel/VBox/HarmonicRow"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 text = "CH-1"
 horizontal_alignment = 2
 
 [node name="SyncProgressBar" type="ProgressBar" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_progress")
 value = 15.0
@@ -192,9 +197,9 @@ show_percentage = true
 
 [node name="ProceedBtn" type="Button" parent="Panel/VBox"]
 visible = false
-custom_minimum_size = Vector2(0, 42)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.94, 1, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "EXTRACT CLASSIFIED DATA"
+text = "متابعة // CONTINUE"

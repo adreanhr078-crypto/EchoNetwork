@@ -8,6 +8,7 @@
     "node": ">=22.12"
   },
   "scripts": {
+    "build:godot-web-opening": "node tools/build-godot-opening-web.mjs",
     "dev": "node ./tools/dev-full-stack.mjs",
     "dev:web": "vite --config vite.config.ts --host 0.0.0.0 --strictPort",
     "dev:api": "wrangler pages dev public --port 8788 --log-level warn --show-interactive-dev-session=false",

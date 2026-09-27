@@ -15,6 +15,7 @@ const PrologueOrchestratorScript = preload("res://scripts/cinematics/prologue_or
 @onready var hud: CanvasLayer = $GameplayHUD if has_node("GameplayHUD") else null
 @onready var intro_camera: Camera3D = $IntroCamera if has_node("IntroCamera") else null
 @onready var opening_cinematic: Node = $OpeningAwakeningCinematic if has_node("OpeningAwakeningCinematic") else null
+@onready var opening_web_handoff: Node = $OpeningWebHandoff if has_node("OpeningWebHandoff") else null
 
 var weather_system: WeatherSystemScript = null
 var world_streamer: WorldStreamerScript = null
@@ -22,9 +23,50 @@ var post_processor: Node = null
 var game_clock = GameClockScript.new()
 var is_intro_playing: bool = false
 var _active_hack_terminal: Node = null
+var _pending_wake_terminal: Node = null
 var _archive_dialogue_pending: bool = false
+var _evidence_memory_pending: bool = false
+var _boundary_memory_pending: bool = false
+var audio_muted: bool = false
+var reduced_motion: bool = false
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M:
+		set_audio_muted(not audio_muted)
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
+		set_reduced_motion(not reduced_motion)
+
+func set_audio_muted(muted: bool) -> void:
+	audio_muted = muted
+	AudioServer.set_bus_mute(0, muted)
+	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
+	var mute_button = touch_ui.find_child("MuteBtn", true, false) as Button if touch_ui else null
+	if mute_button:
+		mute_button.text = "MUTED" if muted else "SOUND"
+	if hud and hud.has_method("show_tutorial_toast"):
+		hud.show_tutorial_toast("TOAST_AUDIO", "M", "الصوت مكتوم" if muted else "الصوت يعمل", "يمكن تغيير الصوت في أي وقت.", 2.5)
+
+func set_reduced_motion(enabled: bool) -> void:
+	reduced_motion = enabled
+	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
+	var motion_button = touch_ui.find_child("MotionBtn", true, false) as Button if touch_ui else null
+	if motion_button:
+		motion_button.text = "STILL" if enabled else "MOTION"
+	if enabled:
+		if opening_cinematic and opening_cinematic.has_method("finish"):
+			opening_cinematic.finish()
+		var breach = find_child("BlastGateBreachCinematic", true, false)
+		if breach and breach.has_method("finish"):
+			breach.finish()
+	if hud and hud.has_method("show_tutorial_toast"):
+		hud.show_tutorial_toast("TOAST_MOTION", "R", "حركة أقل" if enabled else "الحركة المعتادة", "يمكن تغيير حركة الكاميرا في أي وقت.", 2.5)
 
 func _ready() -> void:
+	audio_muted = AudioServer.is_bus_mute(0)
+	var touch_ui_initial = hud.find_child("MobileTouchControls", true, false) if hud else null
+	var mute_button_initial = touch_ui_initial.find_child("MuteBtn", true, false) as Button if touch_ui_initial else null
+	if mute_button_initial:
+		mute_button_initial.text = "MUTED" if audio_muted else "SOUND"
 	post_processor = CinematicPostProcessorScript.new()
 	post_processor.name = "CinematicPostProcessor"
 	add_child(post_processor)
@@ -97,9 +139,14 @@ func _ready() -> void:
 			touch_ui.dodge_tapped.connect(player.start_dodge)
 			touch_ui.jump_tapped.connect(player.perform_jump)
 			touch_ui.camera_swiped.connect(player.apply_camera_look)
+			touch_ui.sprint_changed.connect(func(active: bool):
+				player.mobile_sprint_active = active
+			)
 			if touch_ui.has_signal("use_tapped"):
 				touch_ui.use_tapped.connect(player.interact_with_nearest)
 			touch_ui.lock_on_tapped.connect(player.toggle_lock_on)
+			touch_ui.mute_tapped.connect(func(): set_audio_muted(not audio_muted))
+			touch_ui.motion_tapped.connect(func(): set_reduced_motion(not reduced_motion))
 			if companion and companion.has_method("trigger_scan"):
 				touch_ui.scan_tapped.connect(companion.trigger_scan)
 
@@ -118,27 +165,26 @@ func _ready() -> void:
 
 	# 8. Boss content remains staged until the story earns the encounter.
 
-	# 9. Initialize AAA WeatherSystem (street-only, clock-driven)
-	weather_system = WeatherSystemScript.new()
-	weather_system.name = "WeatherSystem"
-	add_child(weather_system)
-	weather_system.connect_to_clock(game_clock)
-	# Start inactive; WorldStreamer activates it when street zone is loaded
-	weather_system.set_street_zone_active(false)
-
-	# 10. Initialize AAA WorldStreamer (preloads both zones on boot)
-	world_streamer = WorldStreamerScript.new()
-	world_streamer.name = "WorldStreamer"
-	var existing_alleyway = find_child("MinatoKasumiAlleyway", true, false)
-	if existing_alleyway:
-		world_streamer.set_existing_zone(WorldStreamerScript.Zone.MINATO_KASUMI_STREET, existing_alleyway)
-		existing_alleyway.visible = false
-	add_child(world_streamer)
-	if player:
-		world_streamer.set_player(player)
-	if player and player.has_node("SpatialVoiceManager"):
-		world_streamer.set_voice_manager(player.get_node("SpatialVoiceManager"))
-	world_streamer.set_weather_system(weather_system)
+	# The Web opening package contains only the first room. Future zones remain
+	# native-only until their own authored export and story gate exist.
+	if not OS.has_feature("web"):
+		weather_system = WeatherSystemScript.new()
+		weather_system.name = "WeatherSystem"
+		add_child(weather_system)
+		weather_system.connect_to_clock(game_clock)
+		weather_system.set_street_zone_active(false)
+		world_streamer = WorldStreamerScript.new()
+		world_streamer.name = "WorldStreamer"
+		var existing_alleyway = find_child("MinatoKasumiAlleyway", true, false)
+		if existing_alleyway:
+			world_streamer.set_existing_zone(WorldStreamerScript.Zone.MINATO_KASUMI_STREET, existing_alleyway)
+			existing_alleyway.visible = false
+		add_child(world_streamer)
+		if player:
+			world_streamer.set_player(player)
+		if player and player.has_node("SpatialVoiceManager"):
+			world_streamer.set_voice_manager(player.get_node("SpatialVoiceManager"))
+		world_streamer.set_weather_system(weather_system)
 
 	# 11. Start game clock running
 	set_process(true)
@@ -146,6 +192,8 @@ func _ready() -> void:
 		opening_cinematic.play(player)
 
 func _on_opening_recovery_completed() -> void:
+	report_opening_milestone("wake_completed")
+	report_opening_milestone("room_entered")
 	if opening_cinematic and opening_cinematic.has_method("finish"):
 		opening_cinematic.finish()
 	var prologue = find_child("PrologueOrchestrator", true, false)
@@ -171,7 +219,9 @@ func apply_stylized_shaders() -> void:
 			Color(0.42, 0.45, 0.58, 1.0),
 			3.2,
 			0.75,
-			OutlineShader
+			OutlineShader,
+			0.58,
+			0.35
 		)
 
 	# Boss Monster: Threat Anime Toon Cel Shading + Crimson Abyss Rim + Dark Outlines
@@ -274,6 +324,10 @@ func _on_victory_sheathed() -> void:
 	_setup_substation_events()
 
 func _setup_substation_events() -> void:
+	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
+		var evidence = find_child(evidence_name, true, false)
+		if evidence and evidence.has_signal("evidence_inspected"):
+			evidence.evidence_inspected.connect(_on_opening_evidence_inspected)
 	var wake_terminal = find_child("SectorTerminal", true, false)
 	var terminal = find_child("MainframeTerminal", true, false)
 	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
@@ -290,6 +344,8 @@ func _setup_substation_events() -> void:
 
 	if puzzle and not puzzle.puzzle_completed.is_connected(_on_terminal_puzzle_solved):
 		puzzle.puzzle_completed.connect(_on_terminal_puzzle_solved)
+	if puzzle and not puzzle.puzzle_closed.is_connected(_on_terminal_puzzle_closed):
+		puzzle.puzzle_closed.connect(_on_terminal_puzzle_closed)
 
 	if dialogue:
 		if not dialogue.dialogue_completed.is_connected(_on_dialogue_finished):
@@ -298,8 +354,56 @@ func _setup_substation_events() -> void:
 func _on_terminal_accessed(terminal: Node) -> void:
 	_active_hack_terminal = terminal
 	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
-	if puzzle and puzzle.has_method("open_puzzle"):
-		puzzle.open_puzzle()
+	if puzzle and hud.has_method("open_terminal_puzzle"):
+		player.control_locked = true
+		hud.open_terminal_puzzle()
+
+func _on_terminal_puzzle_closed() -> void:
+	if player:
+		player.control_locked = false
+	if hud and hud.has_method("restore_touch_controls"):
+		hud.restore_touch_controls()
+	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
+	if OS.get_name() not in ["Android", "iOS"] and not (dialogue and dialogue.visible):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if _pending_wake_terminal:
+		var terminal: Node = _pending_wake_terminal
+		_pending_wake_terminal = null
+		var prologue = find_child("PrologueOrchestrator", true, false)
+		if prologue and prologue.has_method("on_terminal_puzzle_solved"):
+			report_opening_milestone("terminal_aligned")
+			prologue.on_terminal_puzzle_solved(terminal)
+	_active_hack_terminal = null
+
+func report_opening_milestone(milestone_id: String) -> void:
+	if opening_web_handoff:
+		opening_web_handoff.report_milestone(milestone_id)
+
+func _on_opening_evidence_inspected(evidence_id: String) -> void:
+	var prologue = find_child("PrologueOrchestrator", true, false)
+	if prologue and prologue.has_method("on_opening_evidence_inspected"):
+		prologue.on_opening_evidence_inspected(evidence_id)
+	if evidence_id == "clock":
+		report_opening_milestone("clock_inspected")
+	elif evidence_id == "photo":
+		report_opening_milestone("photo_inspected")
+		_evidence_memory_pending = true
+		if hud and hud.has_method("start_dialogue"):
+			hud.start_dialogue([
+			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0), "text": "11:11. When you're afraid, count to eleven... Someone said that to me. I wasn't alone."}
+		])
+
+func play_opening_boundary_memory() -> void:
+	if _boundary_memory_pending or opening_web_handoff.reported_milestones.has("memory_scene_completed"):
+		return
+	_boundary_memory_pending = true
+	var glitch = find_child("RealityGlitchOverlay", true, false)
+	if glitch and not reduced_motion and glitch.has_method("pulse_glitch"):
+		glitch.pulse_glitch(0.22, 0.28)
+	if hud and hud.has_method("start_dialogue"):
+		hud.start_dialogue([
+			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0), "text": "The signal ends at this door. The voice in that photograph... why does it feel familiar?"}
+		])
 
 func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 	var terminal: Node = _active_hack_terminal
@@ -308,16 +412,7 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 	if terminal and terminal.has_method("complete_hack"):
 		terminal.complete_hack()
 	if terminal.name == "SectorTerminal":
-		var prologue = find_child("PrologueOrchestrator", true, false)
-		if prologue and prologue.has_method("on_terminal_puzzle_solved"):
-			prologue.on_terminal_puzzle_solved(terminal)
-		var gate = find_child("PrimaryBlastGate", true, false)
-		var breach_cine = find_child("BlastGateBreachCinematic", true, false)
-		if breach_cine and player and gate:
-			breach_cine.play(player, gate)
-		elif gate:
-			gate.unlock_gate()
-			gate.open_gate()
+		_pending_wake_terminal = terminal
 		_active_hack_terminal = null
 		return
 
@@ -334,6 +429,15 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 	_active_hack_terminal = null
 
 func _on_dialogue_finished() -> void:
+	if _evidence_memory_pending:
+		_evidence_memory_pending = false
+		report_opening_milestone("memory_recovered")
+		var prologue = find_child("PrologueOrchestrator", true, false)
+		if prologue and prologue.has_method("on_opening_memory_recovered"):
+			prologue.on_opening_memory_recovered()
+	if _boundary_memory_pending:
+		_boundary_memory_pending = false
+		report_opening_milestone("memory_scene_completed")
 	if _archive_dialogue_pending and hud and hud.has_method("complete_directive"):
 		_archive_dialogue_pending = false
 		hud.complete_directive("Continue deeper into Sector 11", "The signal leads onward. Stay alert; the System is still withholding information.")

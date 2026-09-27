@@ -1293,3 +1293,43 @@
   0%   { transform: translateX(-50%) scale(0.97); box-shadow: 0 0 16px rgba(255, 0, 68, 0.45); }
   100% { transform: translateX(-50%) scale(1.03); box-shadow: 0 0 36px rgba(255, 0, 68, 0.85); }
 }
+.godot-opening-room {
+  position: relative;
+  width: 100%;
+  height: min(100dvh, 100svh);
+  min-height: 320px;
+  background: #050913;
+  overflow: hidden;
+}
+
+.godot-opening-room__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.godot-opening-room__status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  color: #e4f4ff;
+  background: rgba(3, 7, 19, .88);
+  text-align: center;
+  z-index: 2;
+}
+
+.godot-opening-room__status button {
+  min-width: 11rem;
+  min-height: 44px;
+  border: 1px solid #80c6dc;
+  border-radius: .55rem;
+  background: #102533;
+  color: #effaff;
+  cursor: pointer;
+}

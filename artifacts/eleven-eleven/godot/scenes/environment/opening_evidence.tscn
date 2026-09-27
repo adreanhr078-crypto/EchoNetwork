@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/environment/opening_evidence.gd" id="1_evidence"]
+[ext_resource type="Script" path="res://scripts/interaction/interactable_component.gd" id="2_interaction"]
+
+[sub_resource type="CylinderMesh" id="ClockDisc"]
+top_radius = 0.62
+bottom_radius = 0.62
+height = 0.08
+
+[sub_resource type="BoxMesh" id="ClockHands"]
+size = Vector3(0.035, 0.018, 0.39)
+
+[sub_resource type="BoxMesh" id="PhotoFrame"]
+size = Vector3(0.86, 0.055, 0.62)
+
+[sub_resource type="PlaneMesh" id="PhotoTrace"]
+size = Vector2(0.64, 0.44)
+
+[sub_resource type="StandardMaterial3D" id="EvidenceMetal"]
+albedo_color = Color(0.13, 0.17, 0.22, 1)
+metallic = 0.7
+roughness = 0.34
+
+[sub_resource type="SphereShape3D" id="EvidenceArea"]
+radius = 1.35
+
+[node name="OpeningEvidence" type="Node3D"]
+script = ExtResource("1_evidence")
+
+[node name="ClockFace" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.93, 0)
+mesh = SubResource("ClockDisc")
+surface_material_override/0 = SubResource("EvidenceMetal")
+
+[node name="ClockHands" type="MeshInstance3D" parent="."]
+position = Vector3(0.06, 0.99, 0.08)
+rotation = Vector3(0, 0.18, 0)
+mesh = SubResource("ClockHands")
+
+[node name="PhotoFrame" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.93, 0)
+mesh = SubResource("PhotoFrame")
+surface_material_override/0 = SubResource("EvidenceMetal")
+
+[node name="PhotoTrace" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.963, 0)
+mesh = SubResource("PhotoTrace")
+
+[node name="EvidenceLabel" type="Label3D" parent="."]
+position = Vector3(0, 1.28, 0)
+text = "11:11"
+font_size = 34
+pixel_size = 0.003
+modulate = Color(0.67, 0.85, 0.91, 1)
+billboard = 1
+
+[node name="InteractionArea" type="Area3D" parent="."]
+script = ExtResource("2_interaction")
+verb = 4
+prompt_target_name = "11:11 CLOCK"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+position = Vector3(0, 0.85, 0)
+shape = SubResource("EvidenceArea")

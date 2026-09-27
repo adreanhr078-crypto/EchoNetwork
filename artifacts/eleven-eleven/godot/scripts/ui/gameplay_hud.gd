@@ -174,9 +174,14 @@ func set_player(target: Node3D) -> void:
 		system_window.set_player(target)
 
 func _process(delta: float) -> void:
+	if _compass_bar and follow_player:
+		var boom := follow_player.find_child("CameraBoom", true, false) as Node3D
+		_compass_bar.update_compass(boom.global_rotation.y if boom else follow_player.global_rotation.y, follow_player.global_position)
 	if not quest_container:
 		return
 	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
+	if _compass_bar:
+		_compass_bar.visible = not overlay_open and _compass_bar.get_marker_count() > 0
 	var major_system_window: bool = false
 	if system_window and system_window.has_method("blocks_quest_tracker"):
 		major_system_window = bool(system_window.call("blocks_quest_tracker"))
@@ -235,6 +240,8 @@ func complete_directive(next_title: String, next_desc: String) -> void:
 
 func open_terminal_puzzle() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if mobile_controls and mobile_controls.has_method("set_interaction_blocked"):
+		mobile_controls.set_interaction_blocked(true)
 	if not terminal_puzzle:
 		terminal_puzzle = find_child("TerminalHackPuzzle", true, false)
 	if terminal_puzzle and terminal_puzzle.has_method("open_puzzle"):
@@ -245,6 +252,10 @@ func close_terminal_puzzle() -> void:
 		terminal_puzzle = find_child("TerminalHackPuzzle", true, false)
 	if terminal_puzzle and terminal_puzzle.has_method("close_puzzle"):
 		terminal_puzzle.close_puzzle()
+
+func restore_touch_controls() -> void:
+	if mobile_controls and mobile_controls.has_method("set_interaction_blocked"):
+		mobile_controls.set_interaction_blocked(false)
 
 func start_dialogue(lines: Array = []) -> void:
 	if not dialogue_overlay:
@@ -316,9 +327,9 @@ var compass_bar: CompassRadarBarScript:
 				add_child(_compass_bar)
 				_compass_bar.set_anchors_preset(Control.PRESET_CENTER_TOP)
 				_compass_bar.offset_top = 16.0
-				_compass_bar.offset_left = -230.0
-				_compass_bar.offset_right = 230.0
-				_compass_bar.offset_bottom = 50.0
+				_compass_bar.offset_left = -275.0
+				_compass_bar.offset_right = 275.0
+				_compass_bar.offset_bottom = 70.0
 			elif not _compass_bar:
 				_compass_bar = CompassRadarBarScript.new()
 				_compass_bar.name = "CompassRadarBar"
@@ -365,5 +376,3 @@ func complete_tutorial_action(toast_id: String) -> void:
 func notify_in_game_dialogue(speaker: String, text: String, color: Color = Color.WHITE) -> void:
 	if has_method("start_dialogue"):
 		start_dialogue([{"speaker": speaker, "speaker_color": color, "text": text}])
-
-

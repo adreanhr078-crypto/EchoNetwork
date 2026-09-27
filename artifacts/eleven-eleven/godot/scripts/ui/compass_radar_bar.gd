@@ -11,8 +11,8 @@ signal marker_pinged(id: String, distance: float)
 
 const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
 
-const BAR_WIDTH: float = 460.0
-const BAR_HEIGHT: float = 34.0
+const BAR_WIDTH: float = 550.0
+const BAR_HEIGHT: float = 54.0
 const FOV_ANGLE_RAD: float = deg_to_rad(110.0)
 
 const CARDINALS: Array = [
@@ -114,7 +114,7 @@ func _draw() -> void:
 			var x_pos = center_x + (diff / (FOV_ANGLE_RAD * 0.5)) * half_w * 0.92
 			var alpha: float = 1.0 - pow(absf(diff) / (FOV_ANGLE_RAD * 0.5), 2.0)
 			var col = Color(0.0, 0.94, 1.0, alpha) if card["major"] else Color(0.7, 0.78, 0.85, alpha * 0.7)
-			var font_size = 14 if card["major"] else 11
+			var font_size = 20 if card["major"] else 16
 			draw_string(default_font, Vector2(x_pos - 6, center_y + 4), card["text"], HORIZONTAL_ALIGNMENT_CENTER, -1, font_size, col)
 			draw_line(Vector2(x_pos, size.y - 6), Vector2(x_pos, size.y - 2), col, 1.0)
 
@@ -143,4 +143,4 @@ func _draw() -> void:
 
 			# Distance text beneath pin
 			var dist_text = str(int(dist)) + "m"
-			draw_string(default_font, Vector2(x_pos - 12, size.y - 2), dist_text, HORIZONTAL_ALIGNMENT_CENTER, -1, 9, Color(0.9, 0.95, 1.0, alpha * 0.85))
+			draw_string(default_font, Vector2(x_pos - 16, size.y - 3), dist_text, HORIZONTAL_ALIGNMENT_CENTER, -1, 16, Color(0.9, 0.95, 1.0, alpha * 0.9))

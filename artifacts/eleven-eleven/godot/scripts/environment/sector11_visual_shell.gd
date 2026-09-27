@@ -28,6 +28,8 @@ func _ready() -> void:
 	_build_service_conduits()
 	_build_sector_signage()
 	_build_floor_inlays()
+	if OS.has_feature("web"):
+		return
 	_build_corridor_1_architecture()
 	_build_generator_hall_architecture()
 	_build_chimera_arena_architecture()

@@ -14,6 +14,8 @@ uniform bool use_normal_texture = false;
 uniform float normal_depth : hint_range(0.0, 2.0) = 1.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.35;
 uniform float metallic : hint_range(0.0, 1.0) = 0.05;
+uniform float albedo_gamma : hint_range(0.5, 1.0) = 1.0;
+uniform float ambient_lift : hint_range(0.0, 0.5) = 0.0;
 
 group_uniforms CelShading;
 uniform vec4 shadow_color : source_color = vec4(0.38, 0.42, 0.56, 1.0); // Anime cool blue shadow
@@ -55,7 +57,7 @@ uniform float emissive_intensity : hint_range(0.0, 10.0) = 0.0;
 
 void fragment() {
 	vec4 tex = texture(albedo_texture, UV);
-	ALBEDO = albedo_color.rgb * tex.rgb;
+	ALBEDO = pow(albedo_color.rgb * tex.rgb, vec3(albedo_gamma));
 	ROUGHNESS = roughness;
 	METALLIC = metallic;
 	
@@ -69,7 +71,7 @@ void fragment() {
 	float fresnel = 1.0 - NdotV;
 	float rim = smoothstep(1.0 - (1.0 / rim_power), 1.0 - (1.0 / rim_power) + rim_smoothness, fresnel);
 	
-	EMISSION = (emissive_color.rgb * emissive_intensity) + (rim_color.rgb * rim * rim_intensity);
+	EMISSION = ALBEDO * ambient_lift + vec3(0.09, 0.085, 0.105) * ambient_lift + (emissive_color.rgb * emissive_intensity) + (rim_color.rgb * rim * rim_intensity);
 }
 
 void light() {

@@ -129,6 +129,8 @@ var combo_reset_timer: float = 0.0
 var is_charging_iai: bool = false
 var iai_charge: float = 0.0
 var mobile_input_vector: Vector2 = Vector2.ZERO
+var mobile_sprint_active: bool = false
+var control_locked: bool = false
 var ghost_trail_timer: float = 0.0
 
 var _visual_root: Node3D = null
@@ -176,7 +178,8 @@ func _ready() -> void:
 	player_camera = find_child("Camera3D", true, false) as Camera3D
 	camera_boom = find_child("CameraBoom", true, false) as SpringArm3D
 	if animation_player:
-		MixamoAnimationBridgeScript.inject_animations(animation_player)
+		if not OS.has_feature("web"):
+			MixamoAnimationBridgeScript.inject_animations(animation_player)
 		for anim_name in animation_player.get_animation_list():
 			var anim: Animation = animation_player.get_animation(anim_name)
 			var loops := anim_name in ["IDLE", "WALK", "RUN", "preset_idle", "preset_walk", "preset_run", "preset_biped_idle_001", "preset_biped_walk_001", "preset_biped_run_001", "preset:idle", "preset:walk", "preset:run", "preset:biped:idle.001", "preset:biped:walk.001", "preset:biped:run.001"]
@@ -307,7 +310,14 @@ func _play_opening_recovery() -> void:
 	finish_opening_recovery()
 
 func _align_recovery_feet_to_floor() -> void:
-	visual_root.position.y = 0.0
+	if not animation_player or not animation_player.is_playing():
+		visual_root.position.y = 0.0
+		return
+	var clip: Animation = animation_player.get_animation(animation_player.current_animation)
+	var phase: float = animation_player.current_animation_position / maxf(clip.length, 0.01)
+	# The authored prone pose keeps the skeleton pelvis at standing height.
+	# Lower the model while prone, then return it to its locomotion origin as Echo rises.
+	visual_root.position.y = lerpf(-0.58, 0.0, smoothstep(0.60, 0.85, phase))
 
 func finish_opening_recovery() -> void:
 	if not opening_recovery_active:
@@ -327,6 +337,11 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 		move_and_slide()
 		return
+	if control_locked:
+		velocity.x = move_toward(velocity.x, 0.0, 20.0 * delta)
+		velocity.z = move_toward(velocity.z, 0.0, 20.0 * delta)
+		move_and_slide()
+		return
 
 	# Handle Genshin Traversal: Climbing & Swimming
 	if traversal.is_climbing() or traversal.is_swimming():
@@ -340,7 +355,7 @@ func _physics_process(delta: float) -> void:
 		if mobile_input_vector.length() > 0.05:
 			input_dir = mobile_input_vector
 
-		var is_sprint_active: bool = Input.is_action_pressed("sprint")
+		var is_sprint_active: bool = Input.is_action_pressed("sprint") or mobile_sprint_active
 		var trav_res: Dictionary = traversal.update_traversal_physics(
 			delta,
 			velocity,
@@ -451,7 +466,7 @@ func _physics_process(delta: float) -> void:
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, lock_yaw, 10.0 * delta)
 
 	# Dynamic FOV Warping
-	var is_sprinting: bool = Input.is_action_pressed("sprint") and stamina > 5.0
+	var is_sprinting: bool = (Input.is_action_pressed("sprint") or mobile_sprint_active) and stamina > 5.0
 	if player_camera:
 		var target_fov: float = 82.0 if is_sprinting else 75.0
 		player_camera.fov = lerp(player_camera.fov, target_fov, 6.0 * delta)
@@ -599,6 +614,8 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector3.ZERO
 
 func perform_jump() -> void:
+	if opening_recovery_active or control_locked:
+		return
 	if is_on_floor() or coyote_timer > 0.0:
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0.0
@@ -629,6 +646,8 @@ func set_combat_available(available: bool) -> void:
 		touch_ui.set_combat_available(available)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if control_locked:
+		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		return
@@ -659,7 +678,7 @@ func _unhandled_input(event: InputEvent) -> void:
 var is_void_sight_active: bool = false
 
 func apply_camera_look(relative: Vector2) -> void:
-	if opening_recovery_active or not camera_boom:
+	if opening_recovery_active or control_locked or not camera_boom:
 		return
 	camera_boom.rotation.y -= relative.x * mouse_look_sensitivity
 	camera_boom.rotation.x = clampf(camera_boom.rotation.x - relative.y * mouse_look_sensitivity, -0.3, 0.8)
@@ -1345,7 +1364,7 @@ func get_nearest_interactable() -> Node:
 	return nearest
 
 func interact_with_nearest() -> Dictionary:
-	if opening_recovery_active:
+	if opening_recovery_active or control_locked:
 		return {"success": false, "reason": "opening_recovery"}
 	var target = get_nearest_interactable()
 	if not target:
@@ -1522,4 +1541,3 @@ func execute_team_burst(target: Node = null, cine_camera_director: CineCameraDir
 	if res.get("success", false):
 		emit_signal("ultimate_burst_fired", res["slot"], res["character"], res["damage"])
 	return res
-

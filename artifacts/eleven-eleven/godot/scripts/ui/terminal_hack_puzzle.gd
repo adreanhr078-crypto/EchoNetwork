@@ -13,6 +13,7 @@ var harmonic_val: float = 1.0
 var harmonic_target: float = 7.0
 
 var is_solved: bool = false
+var has_started: bool = false
 
 @onready var freq_slider: Slider = $Panel/VBox/FreqRow/FreqSlider if has_node("Panel/VBox/FreqRow/FreqSlider") else null
 @onready var phase_slider: Slider = $Panel/VBox/PhaseRow/PhaseSlider if has_node("Panel/VBox/PhaseRow/PhaseSlider") else null
@@ -61,12 +62,12 @@ func _ready() -> void:
 
 func open_puzzle() -> void:
 	_ensure_nodes()
-	is_solved = false
 	visible = true
-	freq_val = 80.0
-	phase_val = 0.0
-
-	harmonic_val = 1.0
+	if not has_started:
+		has_started = true
+		freq_val = 80.0
+		phase_val = 0.0
+		harmonic_val = 1.0
 	if freq_slider: freq_slider.value = freq_val
 	if phase_slider: phase_slider.value = phase_val
 	if harmonic_slider: harmonic_slider.value = harmonic_val
@@ -101,6 +102,8 @@ func _update_ui() -> void:
 	var accuracy = clamp(1.0 - (freq_diff * 0.4 + phase_diff * 0.3 + harm_diff * 0.3), 0.0, 1.0)
 	if progress_bar:
 		progress_bar.value = accuracy * 100.0
+	if status_lbl and not is_solved:
+		status_lbl.text = "راجع أثر الإشارة على شاشة المحطة // TRACE ON TERMINAL"
 
 	if not is_solved and abs(freq_val - freq_target) <= 2.0 and abs(phase_val - phase_target) <= 5.0 and int(harmonic_val) == int(harmonic_target):
 		_solve_puzzle()

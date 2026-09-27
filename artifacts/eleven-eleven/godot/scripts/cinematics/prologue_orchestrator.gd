@@ -1,6 +1,8 @@
 class_name PrologueOrchestrator
 extends Node
 
+const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+
 ## 11.11 Master Prologue Orchestrator
 ## Seamlessly choreographs the definitive 5-zone Genshin-tier dungeon progression:
 ## Stage 0: Room 1 Cryo Chamber (Exploration, Crates, Conduit A & Sector Terminal Hack)
@@ -43,6 +45,10 @@ var conduit_b_energized: bool = false
 var conduit_c_energized: bool = false
 var wake_terminal_solved: bool = false
 var room_gate_open: bool = false
+var gate_reveal_seen: bool = false
+var clock_inspected: bool = false
+var photo_inspected: bool = false
+var opening_memory_recovered: bool = false
 
 # Traversal & Combat triggers
 var corridor_droid_defeated: bool = false
@@ -77,6 +83,15 @@ func _setup_dungeon_listeners() -> void:
 		return
 
 	# 1. Listen for Power Conduits
+	var photograph = main_root.find_child("OpeningPhotograph", true, false)
+	if photograph and photograph.has_node("InteractionArea"):
+		photograph.get_node("InteractionArea").is_enabled = false
+	var terminal = main_root.find_child("SectorTerminal", true, false)
+	if terminal and terminal.has_node("InteractionArea"):
+		terminal.get_node("InteractionArea").is_enabled = false
+	var wake_conduit = main_root.find_child("EnergyPowerConduit_A", true, false)
+	if wake_conduit and wake_conduit.has_node("InteractionArea"):
+		wake_conduit.get_node("InteractionArea").is_enabled = false
 	for conduit in main_root.find_children("*", "EnergyPowerConduit", true, false):
 		if conduit and conduit.has_signal("conduit_energized"):
 			conduit.conduit_energized.connect(_on_conduit_energized)
@@ -97,6 +112,7 @@ func _setup_dungeon_listeners() -> void:
 func start_prologue() -> void:
 	current_step = Step.STAGE_0_AWAKENING
 	emit_signal("prologue_step_changed", "STAGE_0_AWAKENING")
+	_play_wake_signal()
 
 	# Compartmentalize: Isolate Room 1; dormantly hide and disable future zones
 	set_zone_active("Corridor1_Decontamination", false)
@@ -113,31 +129,51 @@ func start_prologue() -> void:
 
 	if hud:
 		if hud.has_method("show_tutorial_toast"):
-			var touch_mode: bool = DisplayServer.is_touchscreen_available() or OS.get_name() in ["Android", "iOS"]
+			var touch_ui = hud.find_child("MobileTouchControls", true, false)
+			var touch_mode: bool = touch_ui != null and touch_ui.visible
 			hud.show_tutorial_toast(
 				"TOAST_MOVE",
 				"TOUCH" if touch_mode else "WASD / E",
 				"التحرك والتفاعل",
-				"حرّك Echo بالمقبض، ثم اضغط تفاعل قرب محطة الإشارة." if touch_mode else "تحرك نحو محطة الإشارة واضغط E للتفاعل.",
+				"حرّك Echo بالمقبض، ثم افحص الساعة المتوقفة." if touch_mode else "تحرك نحو الساعة المتوقفة واضغط E لفحصها.",
 				6.0
 			)
 		if hud.has_method("set_directive"):
 			hud.set_directive(
-				"SECTOR 11 // إشارة الاستيقاظ",
-				"اقترب من محطة الإشارة وتفاعل معها لمعرفة طريق الخروج من الغرفة."
+				"SECTOR 11 // أثر الاستيقاظ 0/4",
+				"افحص الساعة المتوقفة، ثم اتبع الأثر الشخصي في الغرفة."
 			)
+	_update_room_markers()
+
+func _play_wake_signal() -> void:
+	var capsule := main_root.find_child("Sector11Capsule", true, false) as Node3D if main_root else null
+	if not capsule:
+		return
+	var cue := AudioStreamPlayer3D.new()
+	cue.name = "WakeSignalCue"
+	cue.volume_db = -18.0
+	cue.max_distance = 9.0
+	capsule.add_child(cue)
+	cue.stream = ProceduralCinematicAudio.create_heart_monitor_beep()
+	cue.finished.connect(cue.queue_free)
+	cue.play()
 
 func _physics_process(_delta: float) -> void:
 	if not player or not is_inside_tree():
 		return
 
 	var pz: float = player.global_position.z
+	if current_step == Step.STAGE_0_AWAKENING and room_gate_open and not gate_reveal_seen and pz <= -14.5:
+		gate_reveal_seen = true
+		if main_root and main_root.has_method("report_opening_milestone"):
+			main_root.report_opening_milestone("chapter_boundary_seen")
+		if main_root and main_root.has_method("play_opening_boundary_memory"):
+			main_root.play_opening_boundary_memory()
+		if hud and hud.has_method("show_tutorial_toast"):
+			hud.show_tutorial_toast("TOAST_CHAPTER_END", "11.11", "نهاية الافتتاح", "خلف العتبة أثر لم تُكشف هويته بعد. يتبع...", 7.0)
 
 	# Stage 0 -> 1: Threshold crossing at Gate 1 (pz <= -18.5)
-	if current_step == Step.STAGE_0_AWAKENING and room_gate_open:
-		if pz <= -18.5:
-			current_step = Step.STAGE_1_DECONTAMINATION
-			emit_signal("prologue_step_changed", "STAGE_1_DECONTAMINATION")
+	# The approved opening ends at Gate 1. Later stages stay dormant until a new phase is accepted.
 
 	# Stage 1: Slide barrier tutorial trigger
 	if current_step == Step.STAGE_1_DECONTAMINATION and not slide_toast_shown:
@@ -169,8 +205,10 @@ func _on_conduit_energized(conduit_node: Node) -> void:
 
 	if cid == "conduit_a":
 		conduit_a_energized = true
-		if not room_gate_open:
-			_open_primary_blast_gate()
+		if main_root and main_root.has_method("report_opening_milestone"):
+			main_root.report_opening_milestone("conduit_energized")
+		_check_room_gate()
+		_update_room_markers()
 
 	elif cid == "conduit_b":
 		conduit_b_energized = true
@@ -181,40 +219,122 @@ func _on_conduit_energized(conduit_node: Node) -> void:
 		_check_generator_hall_completion()
 
 func on_terminal_puzzle_solved(terminal_node: Node) -> void:
+	if terminal_node == null or terminal_node.name != "SectorTerminal":
+		return
 	wake_terminal_solved = true
-	if current_step == Step.STAGE_0_AWAKENING and not room_gate_open:
+	_check_room_gate()
+	_update_room_markers()
+
+func on_opening_evidence_inspected(evidence_id: String) -> void:
+	if evidence_id == "clock" and not clock_inspected:
+		clock_inspected = true
+		var photograph = main_root.find_child("OpeningPhotograph", true, false)
+		if photograph and photograph.has_node("InteractionArea"):
+			photograph.get_node("InteractionArea").is_enabled = true
+	elif evidence_id == "photo" and clock_inspected and not photo_inspected:
+		photo_inspected = true
+	_update_room_markers()
+
+func on_opening_memory_recovered() -> void:
+	if not clock_inspected or not photo_inspected or opening_memory_recovered:
+		return
+	opening_memory_recovered = true
+	for target_name in ["SectorTerminal", "EnergyPowerConduit_A"]:
+		var target = main_root.find_child(target_name, true, false)
+		if target and target.has_node("InteractionArea"):
+			target.get_node("InteractionArea").is_enabled = true
+	if hud and hud.has_method("set_directive"):
+		hud.set_directive("SECTOR 11 // طريق الخروج 2/4", "استعدت أثر الصوت. فعّل المحطة وموصل الطاقة لفتح البوابة.")
+	_update_room_markers()
+
+func _check_room_gate() -> void:
+	if current_step == Step.STAGE_0_AWAKENING and opening_memory_recovered and wake_terminal_solved and conduit_a_energized and not room_gate_open:
+		if main_root and main_root.has_method("report_opening_milestone"):
+			main_root.report_opening_milestone("puzzle_solved")
 		_open_primary_blast_gate()
+	elif hud and current_step == Step.STAGE_0_AWAKENING and opening_memory_recovered and not room_gate_open and hud.has_method("set_directive"):
+		if wake_terminal_solved:
+			hud.set_directive("SECTOR 11 // طريق الخروج 3/4", "اتبع علامة موصل الطاقة، واقترب منه لإعادة تشغيل البوابة.")
+		elif conduit_a_energized:
+			hud.set_directive("SECTOR 11 // طريق الخروج 3/4", "الطاقة عادت. اتبع علامة المحطة لاستعادة أثر الاستيقاظ.")
+
+func _update_room_markers() -> void:
+	if not hud or not main_root:
+		return
+	if hud.has_method("remove_compass_marker"):
+		hud.remove_compass_marker("opening_clock")
+		hud.remove_compass_marker("opening_photo")
+		hud.remove_compass_marker("wake_terminal")
+		hud.remove_compass_marker("power_conduit")
+		hud.remove_compass_marker("room_gate")
+	if not hud.has_method("add_compass_marker"):
+		return
+	var target_name := ""
+	var marker_id := ""
+	var label := ""
+	if not clock_inspected:
+		target_name = "OpeningClock"
+		marker_id = "opening_clock"
+		label = "11:11"
+	elif not photo_inspected:
+		target_name = "OpeningPhotograph"
+		marker_id = "opening_photo"
+		label = "الأثر الشخصي"
+	elif not opening_memory_recovered:
+		return
+	elif room_gate_open:
+		target_name = "PrimaryBlastGate"
+		marker_id = "room_gate"
+		label = "البوابة"
+	elif not wake_terminal_solved and not conduit_a_energized:
+		target_name = "SectorTerminal"
+		marker_id = "wake_terminal"
+		label = "المحطة"
+	elif not wake_terminal_solved:
+		target_name = "SectorTerminal"
+		marker_id = "wake_terminal"
+		label = "المحطة"
+	else:
+		target_name = "EnergyPowerConduit_A"
+		marker_id = "power_conduit"
+		label = "موصل الطاقة"
+	var target := main_root.find_child(target_name, true, false) as Node3D
+	if target:
+		hud.add_compass_marker(marker_id, target.global_position, label)
 
 func _open_primary_blast_gate() -> void:
 	room_gate_open = true
+	if main_root and main_root.has_method("report_opening_milestone"):
+		main_root.report_opening_milestone("door_unlocked")
+		main_root.report_opening_milestone("gate_revealed")
 	var gate1 = main_root.find_child("PrimaryBlastGate", true, false) if main_root else null
-	if gate1 and gate1.has_method("open_gate"):
+	if gate1:
+		gate1.keep_collision_when_open = true
+	# Show a narrow view beyond the threshold without activating later gameplay.
+	var corridor = main_root.find_child("Corridor1_Decontamination", true, false) if main_root else null
+	if corridor:
+		corridor.visible = true
+		corridor.process_mode = Node.PROCESS_MODE_DISABLED
+	var breach = main_root.find_child("BlastGateBreachCinematic", true, false) if main_root else null
+	if breach and player and gate1 and not main_root.get("reduced_motion"):
+		breach.play(player, gate1)
+	elif gate1 and gate1.has_method("open_gate"):
 		gate1.unlock_gate()
 		gate1.open_gate()
-
-	# Reveal & activate Stage 1 (Corridor 1)
-	set_zone_active("Corridor1_Decontamination", true)
-	set_zone_active("SideChamber1_PowerVault", true)
-	for droid in main_root.find_children("*", "Sector11SecurityDroid", true, false):
-		if droid.get_parent() and "Corridor1" in droid.get_parent().name:
-			droid.visible = true
-			droid.process_mode = Node.PROCESS_MODE_INHERIT
-
-	# current_step stays STAGE_0_AWAKENING until the player physically passes through Gate 1 into Corridor 1
 
 	if hud:
 		if hud.has_method("show_tutorial_toast"):
 			hud.show_tutorial_toast(
 				"TOAST_GATE1",
-				"GATE OPENED",
-				"PRIMARY BLAST GATE",
-				"Primary blast gate opened. Enter Decontamination Corridor 01.",
+				"SIGNAL RESTORED",
+				"البوابة الرئيسية",
+				"انفتحت البوابة. ما وراءها ينتظر في الفصل التالي.",
 				5.0
 			)
 		if hud.has_method("set_directive"):
 			hud.set_directive(
-				"SECTOR 11 // ممر التطهير 01",
-				"تم فتح البوابة الرئيسية. تقدم داخل ممر التطهير وتفادَ أنظمة الأمان."
+				"SECTOR 11 // طريق الخروج 2/2",
+				"اقترب من البوابة، وانظر إلى اللمحة التي كشفتها في الجانب الآخر."
 			)
 
 func _on_security_droid_defeated(droid_node: Node) -> void:

@@ -8,10 +8,10 @@ extends RefCounted
 ## - Rim lighting highlights for distinct silhouette separation
 ## - GPU hardware-skinned inverted hull ink outlines (CULL_FRONT + grow)
 
-static func apply_cel_shader(root_node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float = 3.2, rim_int: float = 0.85, outline_shader: Shader = null) -> void:
+static func apply_cel_shader(root_node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float = 3.2, rim_int: float = 0.85, outline_shader: Shader = null, albedo_gamma: float = 1.0, ambient_lift: float = 0.0) -> void:
 	if not root_node or not shader:
 		return
-	_recursive_apply(root_node, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader)
+	_recursive_apply(root_node, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, albedo_gamma, ambient_lift)
 
 static func apply_outline(root_node: Node, _outline_shader: Shader = null, outline_width: float = 1.35) -> void:
 	if not root_node:
@@ -49,18 +49,18 @@ static func _recursive_outline(node: Node, outline_width: float) -> void:
 	for child in node.get_children():
 		_recursive_outline(child, outline_width)
 
-static func _recursive_apply(node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader) -> void:
+static func _recursive_apply(node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, albedo_gamma: float, ambient_lift: float) -> void:
 	if node is MeshInstance3D:
 		var mi: MeshInstance3D = node as MeshInstance3D
 		if mi.mesh:
 			for surface_index in mi.mesh.get_surface_count():
 				var source_material := mi.get_active_material(surface_index)
-				var mat := _make_stylized_material(source_material, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, mi.name)
+				var mat := _make_stylized_material(source_material, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, mi.name, albedo_gamma, ambient_lift)
 				mi.set_surface_override_material(surface_index, mat)
 	for child in node.get_children():
-		_recursive_apply(child, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader)
+		_recursive_apply(child, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, albedo_gamma, ambient_lift)
 
-static func _make_stylized_material(source_material: Material, shader: Shader, albedo_tint: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, mesh_name: String = "") -> ShaderMaterial:
+static func _make_stylized_material(source_material: Material, shader: Shader, albedo_tint: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, mesh_name: String = "", albedo_gamma: float = 1.0, ambient_lift: float = 0.0) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = shader
 	mat.set_shader_parameter("albedo_color", albedo_tint)
@@ -68,6 +68,8 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	mat.set_shader_parameter("shadow_color", shadow_col)
 	mat.set_shader_parameter("rim_power", rim_pow)
 	mat.set_shader_parameter("rim_intensity", rim_int)
+	mat.set_shader_parameter("albedo_gamma", albedo_gamma)
+	mat.set_shader_parameter("ambient_lift", ambient_lift)
 	if source_material is BaseMaterial3D:
 		var source := source_material as BaseMaterial3D
 		var final_albedo := albedo_tint

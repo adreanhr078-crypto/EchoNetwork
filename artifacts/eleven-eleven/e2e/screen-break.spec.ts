@@ -37,7 +37,7 @@ test('missing media remains recoverable and never completes automatically', asyn
   await retry.click();
   await expect(retry).toBeVisible();
   await expect(page.getByLabel('Completions')).toHaveText('0');
-  await page.getByRole('button', { name: 'Skip cinematic' }).click();
+  await page.getByRole('button', { name: /Skip/ }).click();
   await expect(page.getByLabel('Completions')).toHaveText('1');
 });
 

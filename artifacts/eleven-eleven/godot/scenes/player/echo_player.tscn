@@ -34,10 +34,18 @@ transform = Transform3D(1.81, 0, 0, 0, 1.81, 0, 0, 0, 1.81, 0, 0, 0)
 
 [node name="EchoFaceFill" type="OmniLight3D" parent="ModelRoot"]
 position = Vector3(0, 1.15, -0.55)
-light_color = Color(0.78, 0.86, 1, 1)
-light_energy = 1.35
+light_color = Color(0.92, 0.78, 0.72, 1)
+light_energy = 2.6
 omni_range = 3.6
 omni_attenuation = 1.35
+shadow_enabled = false
+
+[node name="EchoShoulderFill" type="OmniLight3D" parent="ModelRoot"]
+position = Vector3(0, 1.45, 0.72)
+light_color = Color(0.78, 0.77, 0.9, 1)
+light_energy = 0.85
+omni_range = 2.5
+omni_attenuation = 1.5
 shadow_enabled = false
 
 [node name="KatanaBlade" parent="ModelRoot" instance=ExtResource("3_katana")]
@@ -73,5 +81,3 @@ script = ExtResource("9_facial_ctrl")
 
 [node name="EchoFootstepSystem" type="Node3D" parent="."]
 script = ExtResource("10_footstep")
-
-
