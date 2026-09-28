@@ -1,5 +1,20 @@
 # Repository Agent Instructions
 
+## Owner navigation rule — 2026-09-28
+
+Preserve the existing project map and folder layout. Begin navigation with
+`PROJECT_MAP.ar.md` and the compact current-work card at
+`artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md`.
+Read the latest relevant checkpoint from `CONTINUATION.md`, not the entire
+historical log on every request. Mandatory instructions and product/Canon
+sources below still apply; read only relevant implementation files afterward.
+Search within the affected system first and expand only when evidence requires
+it. Put new files in the existing runtime, tests, production-source, evidence or
+documentation folders. Update the map when adding a new entry point or system;
+update the current-work card after meaningful delivery with actual evidence,
+remaining work and the next action. Keep one current card, not dated duplicates.
+Never reduce context by deleting unique assets, Canon, reports or required rules.
+
 ## Current Owner mandate and continuation (2026-09-19)
 
 Read `artifacts/eleven-eleven/docs/11-11/design/OWNER_PRODUCTION_MANDATE.md`

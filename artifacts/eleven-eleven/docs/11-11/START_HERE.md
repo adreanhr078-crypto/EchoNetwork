@@ -1,5 +1,14 @@
 # START HERE: 11.11 Echo Network Architecture & Context
 
+## Compact navigation — 2026-09-28
+
+Use the repository's `PROJECT_MAP.ar.md` and
+[current-work card](../internal/production/CURRENT_WORK.ar.md) to locate the
+active files and latest delivery. Read the latest relevant continuation
+checkpoint before opening older history. Preserve mandatory rules, product
+memory and relevant Canon reads. Keep new files in the existing system folders;
+update the map for new entry points and the card after meaningful delivery.
+
 ## Current continuation — 2026-09-19
 
 ### Owner update — 2026-09-23
