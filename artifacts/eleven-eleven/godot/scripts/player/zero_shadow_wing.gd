@@ -37,7 +37,7 @@ func manifest_wing(intensity: float = 1.0) -> void:
 		wing_mesh.scale = Vector3.ZERO
 		var tree = get_tree() if is_inside_tree() else null
 		if tree:
-			var tween = tree.create_tween()
+			var tween = create_tween()
 			tween.tween_property(wing_mesh, "scale", base_scale * intensity, 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		else:
 			wing_mesh.scale = base_scale * intensity
@@ -55,7 +55,7 @@ func dismiss_wing() -> void:
 	if wing_mesh:
 		var tree = get_tree() if is_inside_tree() else null
 		if tree:
-			var tween = tree.create_tween()
+			var tween = create_tween()
 			tween.tween_property(wing_mesh, "scale", Vector3.ZERO, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 			tween.tween_callback(func(): visible = false)
 		else:

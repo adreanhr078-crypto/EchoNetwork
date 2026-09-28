@@ -232,7 +232,10 @@ func _ready() -> void:
 		mute_button_initial.text = "MUTED" if audio_muted else "SOUND"
 	post_processor = CinematicPostProcessorScript.new()
 	post_processor.name = "CinematicPostProcessor"
+	post_processor.bounded_opening = native_session_enabled
 	add_child(post_processor)
+	if native_session_enabled:
+		_configure_native_opening_surfaces()
 
 	# Initialize Master Prologue Sequence
 	_set_specimen_encounter_active(false)
@@ -382,21 +385,39 @@ func _on_opening_recovery_completed() -> void:
 	if player:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
 
+func _configure_native_opening_surfaces() -> void:
+	var floor_mesh := get_node_or_null("Sector11Facility/Room1_CryoChamber/CatwalkFloor") as MeshInstance3D
+	if floor_mesh:
+		var source := floor_mesh.get_active_material(0) as ShaderMaterial
+		if source:
+			var floor_material := source.duplicate() as ShaderMaterial
+			floor_material.set_shader_parameter("floor_color", Color(0.18, 0.21, 0.25))
+			floor_material.set_shader_parameter("water_tint", Color(0.15, 0.17, 0.2))
+			floor_material.set_shader_parameter("neon_reflection_color", Color(0.06, 0.1, 0.12))
+			floor_material.set_shader_parameter("emergency_pulse_speed", 0.0)
+			floor_material.set_shader_parameter("roughness", 0.58)
+			floor_material.set_shader_parameter("metallic", 0.12)
+			floor_material.set_shader_parameter("specular", 0.3)
+			floor_mesh.set_surface_override_material(0, floor_material)
+	if player:
+		var face_fill := player.get_node_or_null("ModelRoot/EchoFaceFill") as OmniLight3D
+		if face_fill: face_fill.light_energy = 1.2
+
 func apply_stylized_shaders() -> void:
-	# Echo Player: Full Genshin-tier Anime Cel Shading + SSS + Hair Highlight + Ink Outlines
+	# Keep Echo's authored texture values and a restrained neutral silhouette rim.
 	if player and player.has_node("ModelRoot"):
 		var model_root := player.get_node("ModelRoot")
 		ShaderApplicator.apply_cel_shader(
 			model_root,
 			CelShader,
 			Color(1.0, 1.0, 1.0, 1.0),
-			Color(0.0, 0.94, 1.0, 1.0),
+			Color(0.75, 0.8, 0.86, 1.0),
 			Color(0.42, 0.45, 0.58, 1.0),
 			3.2,
-			0.75,
+			0.18,
 			OutlineShader,
-			0.58,
-			0.35
+			0.85,
+			0.12
 		)
 
 	# Boss Monster: Threat Anime Toon Cel Shading + Crimson Abyss Rim + Dark Outlines

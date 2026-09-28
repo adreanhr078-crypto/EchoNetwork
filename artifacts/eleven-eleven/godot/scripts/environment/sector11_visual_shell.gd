@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var opening_only := false
+
 const ROOM_WIDTH := 18.0
 const ROOM_HEIGHT := 7.2
 const ROOM_LENGTH := 42.0
@@ -28,7 +30,7 @@ func _ready() -> void:
 	_build_service_conduits()
 	_build_sector_signage()
 	_build_floor_inlays()
-	if OS.has_feature("web"):
+	if opening_only or OS.has_feature("web"):
 		return
 	_build_corridor_1_architecture()
 	_build_generator_hall_architecture()
@@ -48,6 +50,12 @@ func _make_materials() -> void:
 	_observation_glass_material = _material(Color(0.02, 0.08, 0.14, 0.75), 0.12, 0.35, Color(0.0, 0.22, 0.32), 0.45)
 	_observation_glass_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	_observation_glass_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	if opening_only:
+		_cyan_material.emission_energy_multiplier = 0.35
+		_violet_material.emission_energy_multiplier = 0.3
+		_lamp_material.emission_energy_multiplier = 0.8
+		_floor_panel_material.metallic = 0.2
+		_floor_panel_material.roughness = 0.48
 
 func _build_boundaries() -> void:
 	_add_boundary("WestContainmentWall", Vector3(0.8, ROOM_HEIGHT, ROOM_LENGTH), Vector3(-ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, ROOM_CENTER_Z))
@@ -140,6 +148,8 @@ func _build_ceiling_lights() -> void:
 	var tile_positions := [2.5, -2.5, -7.5, -12.5, -17.5, -22.5, -27.5, -32.5]
 	for index in range(tile_positions.size()):
 		var z: float = tile_positions[index]
+		if opening_only and z < -18.0:
+			continue
 		var tile := CEILING_TILE.instantiate() as Node3D
 		tile.name = "CeilingLightCassette_%02d" % (index + 1)
 		tile.position = Vector3(0.0, ROOM_HEIGHT - 0.39, z)
@@ -150,6 +160,9 @@ func _build_ceiling_lights() -> void:
 			light.position = Vector3(0.0, ROOM_HEIGHT - 1.35, z + 2.5)
 			light.light_color = Color(0.72, 0.83, 1.0)
 			light.light_energy = 3.6
+			if opening_only:
+				light.light_color = Color(0.78, 0.83, 0.9)
+				light.light_energy = 1.2
 			light.omni_range = 12.0
 			light.shadow_enabled = false
 			add_child(light)
@@ -190,6 +203,8 @@ func _build_sector_signage() -> void:
 	label.position = Vector3(ROOM_WIDTH * 0.5 - 0.25, ROOM_HEIGHT - 0.55, -8.0)
 	label.rotation.y = -PI * 0.5
 	add_child(label)
+	if opening_only:
+		return
 
 	# Holographic Billboard 1 (West Wall): STILL HUMAN?
 	_add_box("HoloPlate_West", Vector3(0.08, 3.4, 4.8), Vector3(-ROOM_WIDTH * 0.5 + 0.15, 3.8, 1.0), _violet_material)

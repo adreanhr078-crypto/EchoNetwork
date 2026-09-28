@@ -1,8 +1,8 @@
 class_name ShaderApplicator
 extends RefCounted
 
-## 11.11 Production Anime Cel Shading & Ink Outline Applicator
-## Enforces Genshin-tier anime aesthetic in Compatibility (GLES3/OpenGL) mode:
+## Toon materials and engine-skinned ink outlines.
+## Material preservation is verified separately from artistic acceptance.
 ## - Preserves high-resolution authored PBR albedo textures
 ## - Native DIFFUSE_TOON + SPECULAR_TOON lighting ramps
 ## - Rim lighting highlights for distinct silhouette separation
@@ -99,9 +99,13 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	elif lower_name.contains("face") or lower_name.contains("head") or lower_name.contains("eye") or lower_name.contains("skin"):
 		mat.set_shader_parameter("is_face", true)
 	if outline_shader:
-		var outline_mat := ShaderMaterial.new()
-		outline_mat.shader = outline_shader
-		outline_mat.set_shader_parameter("outline_color", Color(0.05, 0.06, 0.08, 1.0))
-		outline_mat.set_shader_parameter("outline_width", 2.2)
+		# A custom POSITION outline covered the animated torso/head in GLES3.
+		# Built-in growth keeps the outline on Godot's skinned mesh path.
+		var outline_mat := StandardMaterial3D.new()
+		outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
+		outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		outline_mat.albedo_color = Color(0.05, 0.06, 0.08, 1.0)
+		outline_mat.grow = true
+		outline_mat.grow_amount = 0.0012
 		mat.next_pass = outline_mat
 	return mat

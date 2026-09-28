@@ -17,6 +17,7 @@
 - فحوص المشروع: `artifacts/eleven-eleven/tools/project-doctor/`.
 - بناء افتتاح Windows وAndroid التجريبي: `artifacts/eleven-eleven/tools/build-godot-native.ps1`؛ متطلبات البناء وحدود القبول في `docs/internal/production/NATIVE_BUILD_AND_BATCH2_2026-09-28.ar.md` داخل التطبيق.
 - الأدلة والتدقيق: `artifacts/eleven-eleven/audits/`؛ تقارير الإنتاج في `docs/internal/production/`.
+- مراجعة صورة الافتتاح وإصلاحات الدفعة الثالثة: `artifacts/eleven-eleven/docs/internal/production/OPENING_VISUAL_BATCH3_2026-09-28.ar.md`؛ دراسة الإضاءة المولدة وسجلها في `art/production/opening-lighting-study/` داخل التطبيق، وهي مرجع فني خارج تشغيل اللعبة.
 
 ## أرشيف التجارب
 

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/opening_web_room.tscn" id="1_room"]
+[ext_resource type="PackedScene" path="res://scenes/environment/sector11_visual_shell.tscn" id="2_shell"]
 
 [node name="Main" instance=ExtResource("1_room")]
 native_session_enabled = true
+
+[node name="Sector11OpeningShell" parent="." instance=ExtResource("2_shell")]
+opening_only = true

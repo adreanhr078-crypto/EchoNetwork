@@ -278,6 +278,9 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		animation_player.seek(gait_phase * animation_player.get_animation(resolved_anim).length)
 
 func _play_opening_recovery() -> void:
+	# Restore/skip can finish the recovery before this deferred call executes.
+	if not opening_recovery_active:
+		return
 	if not animation_player:
 		opening_recovery_active = false
 		emit_signal("opening_recovery_completed")
@@ -293,6 +296,9 @@ func _play_opening_recovery() -> void:
 		play_anim(recovery_clip, 0.0)
 		while opening_recovery_active and is_inside_tree() and animation_player.is_playing() and animation_player.current_animation == recovery_clip:
 			await get_tree().process_frame
+			# Never apply the prone offset to the newly playing idle after skip.
+			if not is_inside_tree() or not opening_recovery_active:
+				return
 			_align_recovery_feet_to_floor()
 		if not is_inside_tree() or not opening_recovery_active:
 			return
@@ -311,6 +317,8 @@ func _play_opening_recovery() -> void:
 	finish_opening_recovery()
 
 func _align_recovery_feet_to_floor() -> void:
+	if not opening_recovery_active:
+		return
 	if not animation_player or not animation_player.is_playing():
 		visual_root.position.y = 0.0
 		return

@@ -95,13 +95,14 @@ void light() {
 	vec3 cel_tone = mix(shade_tier_2, shade_tier_1, band_2);
 	cel_tone = mix(cel_tone, lit_color, band_1);
 	
-	vec3 diffuse_result = ALBEDO * LIGHT_COLOR * cel_tone;
+	// Quantization must not remove light distance and occlusion attenuation.
+	vec3 diffuse_result = ALBEDO * LIGHT_COLOR * cel_tone * ATTENUATION;
 	
 	// Subsurface Scattering (Warm Peach Terminator Line Tint)
 	if (use_sss) {
 		float terminator_dist = abs(shadow_term - cel_split_1);
 		float sss_factor = smoothstep(sss_width, 0.0, terminator_dist);
-		vec3 sss_rim = sss_color.rgb * sss_factor * sss_intensity * LIGHT_COLOR;
+		vec3 sss_rim = sss_color.rgb * sss_factor * sss_intensity * LIGHT_COLOR * ATTENUATION;
 		diffuse_result += sss_rim * ALBEDO;
 	}
 	
