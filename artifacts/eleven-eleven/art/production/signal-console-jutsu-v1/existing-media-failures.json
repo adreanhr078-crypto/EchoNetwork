@@ -1,0 +1,96 @@
+[
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/characters/echo.glb",
+    "failures": [
+      "Khronos validator warnings: 3",
+      "File size 22774444 exceeds 6291456 bytes."
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/characters/echo.runtime.glb",
+    "failures": [
+      "Khronos validator warnings: 3"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/characters/echo_tripo_native.glb",
+    "failures": [
+      "Khronos validator warnings: 2",
+      "File size 24042504 exceeds 6291456 bytes.",
+      "Triangles 92622 exceed 80000."
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/characters/kinga_scientist.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/cinematics/references/canon_page_006_experiment.png",
+    "failures": [
+      "File size 5375751 exceeds 2726298 bytes."
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/cinematics/references/canon_page_007_transfer.png",
+    "failures": [
+      "File size 6441434 exceeds 2726298 bytes."
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/cinematics/references/canon_page_008_awakening.png",
+    "failures": [
+      "File size 7535235 exceeds 2726298 bytes."
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/hospital_bed.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/restraint_chair.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/sector11-wake-capsule.glb",
+    "failures": [
+      "Khronos validator warnings: 2"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/server_rack.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/tripo_monster.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  },
+  {
+    "asset": "artifacts/eleven-eleven/public/assets/props/tripo_monster_v2.glb",
+    "failures": [
+      "Khronos validator warnings: 1"
+    ],
+    "unchanged": true
+  }
+]

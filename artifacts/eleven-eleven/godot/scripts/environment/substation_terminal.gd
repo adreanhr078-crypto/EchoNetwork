@@ -6,6 +6,16 @@ signal terminal_hacked_complete
 @export var is_hacked: bool = false
 var player_in_range: bool = false
 var presentation_language := "ar"
+var reduced_motion := false
+
+func set_reduced_motion(enabled: bool) -> void:
+	reduced_motion = enabled
+	var animation := find_child("AnimationPlayer", true, false) as AnimationPlayer
+	if enabled and animation and animation.has_animation("Console_Acknowledge"):
+		animation.play("Console_Acknowledge")
+		animation.seek(0.0, true)
+		animation.advance(0.0)
+		animation.stop(true)
 
 func set_presentation_language(language: String) -> void:
 	presentation_language = language
@@ -30,7 +40,8 @@ func _update_visuals() -> void:
 	var readout := get_node_or_null("ScreenReadout") as Label3D
 	if readout:
 		readout.text = ("الإشارة مستقرة" if is_hacked else "أثر الإشارة") if presentation_language == "ar" else ("SIGNAL ALIGNED" if is_hacked else "SIGNAL TRACE")
-		readout.text += "\n111 MHz · 45°\n" + ("القناة 7" if presentation_language == "ar" else "CHANNEL 7")
+		# Keep the measured signal values in reading order inside Arabic text.
+		readout.text += "\n\u2066111 MHz · 45°\u2069\n" + ("القناة 7" if presentation_language == "ar" else "CHANNEL 7")
 	if not terminal_light:
 		terminal_light = find_child("TerminalLight", true, false) as OmniLight3D
 
@@ -58,6 +69,7 @@ func interact() -> void:
 	emit_signal("terminal_accessed")
 
 func complete_hack() -> void:
+	var animate_confirmation := not is_hacked and not reduced_motion
 	is_hacked = true
 	player_in_range = false
 	var area = $InteractionArea if has_node("InteractionArea") else null
@@ -66,4 +78,8 @@ func complete_hack() -> void:
 	if area:
 		area.set("is_enabled", false)
 	_update_visuals()
+	if animate_confirmation:
+		var animation := find_child("AnimationPlayer", true, false) as AnimationPlayer
+		if animation and animation.has_animation("Console_Acknowledge"):
+			animation.play("Console_Acknowledge")
 	emit_signal("terminal_hacked_complete")

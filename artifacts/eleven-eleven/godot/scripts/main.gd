@@ -252,6 +252,9 @@ func set_audio_muted(muted: bool) -> void:
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	var terminal = find_child("SectorTerminal", true, false)
+	if terminal and terminal.has_method("set_reduced_motion"):
+		terminal.set_reduced_motion(enabled)
 	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
 	if dialogue:
 		dialogue.reduced_motion = enabled
