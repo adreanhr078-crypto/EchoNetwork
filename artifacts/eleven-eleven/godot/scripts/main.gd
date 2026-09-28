@@ -9,12 +9,15 @@ const WorldStreamerScript = preload("res://scripts/systems/world_streamer.gd")
 const CinematicPostProcessorScript = preload("res://scripts/effects/cinematic_post_processor.gd")
 const PrologueOrchestratorScript = preload("res://scripts/cinematics/prologue_orchestrator.gd")
 const SaveManagerScript = preload("res://scripts/systems/save_manager.gd")
+const NativePauseMenuScript = preload("res://scripts/ui/native_pause_menu.gd")
 
 @export var native_session_enabled := false
 var native_checkpoint_path := SaveManagerScript.OPENING_SAVE_PATH
 var native_preferences_path := "user://presentation_v1.cfg"
 var _restoring_native_session := false
 var _checkpoint_queued := false
+var presentation_language := "ar"
+var native_pause_menu: Node = null
 
 func queue_native_checkpoint() -> void:
 	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session or _checkpoint_queued:
@@ -45,8 +48,13 @@ func _flush_native_checkpoint() -> void:
 	_checkpoint_queued = false
 	if not is_inside_tree() or not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
 		return
-	if not SaveManagerScript.save_opening_checkpoint(capture_native_checkpoint(), native_checkpoint_path):
+	if not save_native_checkpoint_now():
 		push_warning("Local opening checkpoint could not be saved; prior checkpoint retained.")
+
+func save_native_checkpoint_now() -> bool:
+	if not is_inside_tree() or not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
+		return false
+	return SaveManagerScript.save_opening_checkpoint(capture_native_checkpoint(), native_checkpoint_path)
 
 func restore_native_checkpoint(raw: Dictionary) -> bool:
 	if OS.has_feature("web"):
@@ -131,6 +139,7 @@ func _save_native_preferences() -> void:
 	var preferences := ConfigFile.new()
 	preferences.set_value("presentation", "muted", audio_muted)
 	preferences.set_value("presentation", "reduced_motion", reduced_motion)
+	preferences.set_value("presentation", "language", presentation_language)
 	if preferences.save(native_preferences_path) != OK:
 		push_warning("Presentation preferences could not be saved.")
 
@@ -141,11 +150,16 @@ func _load_native_preferences() -> void:
 	_restoring_native_session = true
 	var muted: Variant = preferences.get_value("presentation", "muted", false)
 	var motion: Variant = preferences.get_value("presentation", "reduced_motion", false)
+	var language: Variant = preferences.get_value("presentation", "language", "ar")
+	if language is String and language in ["ar", "en"]:
+		presentation_language = language
 	if muted is bool:
 		set_audio_muted(muted)
 	if motion is bool:
 		set_reduced_motion(motion)
 	_restoring_native_session = false
+	if native_pause_menu:
+		native_pause_menu.refresh_labels()
 
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
@@ -153,6 +167,8 @@ func _notification(what: int) -> void:
 			player.mobile_input_vector = Vector2.ZERO
 			player.mobile_sprint_active = false
 		_flush_native_checkpoint()
+		if what != NOTIFICATION_WM_CLOSE_REQUEST and native_pause_menu:
+			native_pause_menu.set_session_paused(true)
 
 @onready var player: CharacterBody3D = $EchoPlayer if has_node("EchoPlayer") else null
 @onready var boss: CharacterBody3D = $SpecimenEX000 if has_node("SpecimenEX000") else null
@@ -277,6 +293,7 @@ func _ready() -> void:
 	if hud and player:
 		var touch_ui = hud.find_child("MobileTouchControls", true, false)
 		if touch_ui:
+			player.touch_input_enabled = touch_ui._platform_touch_enabled
 			touch_ui.joystick_moved.connect(func(v: Vector2):
 				player.set("mobile_input_vector", v)
 			)
@@ -336,6 +353,9 @@ func _ready() -> void:
 	# 11. Start game clock running
 	set_process(true)
 	if native_session_enabled and not OS.has_feature("web"):
+		native_pause_menu = NativePauseMenuScript.new()
+		native_pause_menu.name = "NativePauseMenu"
+		add_child(native_pause_menu)
 		_load_native_preferences()
 		var checkpoint := SaveManagerScript.load_opening_checkpoint(native_checkpoint_path)
 		if not checkpoint.is_empty() and checkpoint.milestones.wake:

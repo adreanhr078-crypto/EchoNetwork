@@ -42,11 +42,15 @@ var last_camera_pos: Vector2 = Vector2.ZERO
 var is_attack_held: bool = false
 var attack_hold_timer: float = 0.0
 var _platform_touch_enabled: bool = false
+var _action_touches: Dictionary = {}
 
 func _ready() -> void:
 	var platform_name: String = OS.get_name()
 	_platform_touch_enabled = platform_name == "Android" or platform_name == "iOS" or (platform_name == "Web" and DisplayServer.is_touchscreen_available())
 	visible = _platform_touch_enabled
+	if _platform_touch_enabled:
+		for button in find_children("*", "Button", true, false):
+			button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_combat_available(false)
 	if charge_bar:
 		charge_bar.visible = false
@@ -58,12 +62,26 @@ func set_interaction_blocked(blocked: bool) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or (what == NOTIFICATION_VISIBILITY_CHANGED and is_inside_tree() and not is_visible_in_tree()):
-		is_joystick_active = false
-		joystick_touch_index = -1
-		camera_touch_index = -1
-		current_joystick_vector = Vector2.ZERO
-		emit_signal("joystick_moved", Vector2.ZERO)
-		emit_signal("sprint_changed", false)
+		reset_input()
+
+func reset_input() -> void:
+	is_joystick_active = false
+	joystick_touch_index = -1
+	camera_touch_index = -1
+	current_joystick_vector = Vector2.ZERO
+	is_attack_held = false
+	attack_hold_timer = 0.0
+	for button in _action_touches.values():
+		if is_instance_valid(button):
+			button.modulate = Color.WHITE
+	_action_touches.clear()
+	if charge_bar:
+		charge_bar.visible = false
+		charge_bar.value = 0.0
+	if joystick_stick:
+		joystick_stick.position = Vector2.ZERO
+	emit_signal("joystick_moved", Vector2.ZERO)
+	emit_signal("sprint_changed", false)
 
 func set_combat_available(available: bool) -> void:
 	if attack_btn:
@@ -95,10 +113,22 @@ func _input(event: InputEvent) -> void:
 		_handle_screen_drag(event)
 
 func _handle_screen_touch(event: InputEventScreenTouch) -> void:
+	if event.canceled:
+		reset_input()
+		return
 	var screen_width: float = get_viewport_rect().size.x
 	var is_left_half: bool = event.position.x < screen_width * 0.5
 
 	if event.pressed:
+		# Each action owns its finger; standard mouse emulation only covers one.
+		var action := _action_at(event.position)
+		if action:
+			if _action_touches.values().has(action):
+				return
+			_action_touches[event.index] = action
+			action.modulate = Color(0.6, 0.95, 1.0)
+			action.button_down.emit()
+			return
 		# 1. Left Half Touch -> Activate Joystick
 		if is_left_half and not is_joystick_active:
 			is_joystick_active = true
@@ -113,6 +143,14 @@ func _handle_screen_touch(event: InputEventScreenTouch) -> void:
 			camera_touch_index = event.index
 			last_camera_pos = event.position
 	else:
+		if _action_touches.has(event.index):
+			var action: Button = _action_touches[event.index]
+			_action_touches.erase(event.index)
+			action.modulate = Color.WHITE
+			action.button_up.emit()
+			if action.is_visible_in_tree() and action.get_global_rect().has_point(event.position) and not event.canceled:
+				action.pressed.emit()
+			return
 		# Touch Released
 		if event.index == joystick_touch_index:
 			is_joystick_active = false
@@ -145,12 +183,13 @@ func _update_joystick(touch_pos: Vector2) -> void:
 	emit_signal("joystick_moved", current_joystick_vector)
 
 func _is_point_on_actions(pos: Vector2) -> bool:
-	var actions: Control = get_node_or_null("ActionCluster")
-	if actions:
-		for button in actions.get_children():
-			if button is Button and button.visible and button.get_global_rect().has_point(pos):
-				return true
-	return false
+	return _action_at(pos) != null
+
+func _action_at(pos: Vector2) -> Button:
+	for button in find_children("*", "Button", true, false):
+		if button.is_visible_in_tree() and not button.disabled and button.get_global_rect().has_point(pos):
+			return button
+	return null
 
 # UI Button Connectors
 func _on_attack_btn_down() -> void:

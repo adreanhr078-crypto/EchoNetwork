@@ -15,6 +15,7 @@
 - اللعبة ثلاثية الأبعاد: `artifacts/eleven-eleven/godot/`؛ المشاهد في `scenes/`، الشيفرة في `scripts/`، الأصول في `assets/`، اختبارات Godot في `tests/`.
 - واجهة الويب والخدمات القائمة: `artifacts/eleven-eleven/src/` و`functions/` و`workers/`. وجود افتتاح Godot مرشح لا يعني قبول الانتقال إليه في الويب.
 - فحوص المشروع: `artifacts/eleven-eleven/tools/project-doctor/`.
+- بناء افتتاح Windows وAndroid التجريبي: `artifacts/eleven-eleven/tools/build-godot-native.ps1`؛ متطلبات البناء وحدود القبول في `docs/internal/production/NATIVE_BUILD_AND_BATCH2_2026-09-28.ar.md` داخل التطبيق.
 - الأدلة والتدقيق: `artifacts/eleven-eleven/audits/`؛ تقارير الإنتاج في `docs/internal/production/`.
 
 ## أرشيف التجارب

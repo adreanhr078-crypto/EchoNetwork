@@ -129,6 +129,7 @@ var combo_reset_timer: float = 0.0
 var is_charging_iai: bool = false
 var iai_charge: float = 0.0
 var mobile_input_vector: Vector2 = Vector2.ZERO
+var touch_input_enabled := false
 var mobile_sprint_active: bool = false
 var control_locked: bool = false
 var ghost_trail_timer: float = 0.0
@@ -656,7 +657,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and camera_boom:
 		apply_camera_look(event.relative)
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+	if not touch_input_enabled and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		var root := get_tree().root
 		var dialogue := root.find_child("DialogueOverlay", true, false) as Control
 		var puzzle := root.find_child("TerminalHackPuzzle", true, false) as Control
