@@ -174,12 +174,12 @@ func set_player(target: Node3D) -> void:
 		system_window.set_player(target)
 
 func _process(delta: float) -> void:
-	if _compass_bar and follow_player:
+	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
+	if _compass_bar and follow_player and not overlay_open:
 		var boom := follow_player.find_child("CameraBoom", true, false) as Node3D
 		_compass_bar.update_compass(boom.global_rotation.y if boom else follow_player.global_rotation.y, follow_player.global_position)
 	if not quest_container:
 		return
-	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
 	if _compass_bar:
 		_compass_bar.visible = not overlay_open and _compass_bar.get_marker_count() > 0
 	var major_system_window: bool = false

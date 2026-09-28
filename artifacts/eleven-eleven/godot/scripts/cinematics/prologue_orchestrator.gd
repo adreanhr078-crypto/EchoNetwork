@@ -50,6 +50,35 @@ var clock_inspected: bool = false
 var photo_inspected: bool = false
 var opening_memory_recovered: bool = false
 
+func _text(ar: String, en: String) -> String:
+	return main_root.opening_text(ar, en) if main_root else ar
+
+func refresh_opening_objective() -> void:
+	if not hud or current_step != Step.STAGE_0_AWAKENING:
+		return
+	var title := _text("أثر الاستيقاظ · 0/4", "Wake trace · 0/4")
+	var description := _text("افحص الساعة المتوقفة، ثم اتبع الأثر الشخصي في الغرفة.", "Inspect the stopped clock, then follow the personal trace in the room.")
+	if clock_inspected:
+		title = _text("الأثر الشخصي · 1/4", "Personal trace · 1/4")
+		description = _text("اتبع علامة الصورة لاستعادة أثر الصوت.", "Follow the photograph marker to recover the voice trace.")
+	if opening_memory_recovered:
+		title = _text("استعادة الإشارة · 2/4", "Restore the signal · 2/4")
+		description = _text("فعّل المحطة وموصل الطاقة، بأي ترتيب، لفتح البوابة.", "Activate the terminal and power conduit, in either order, to open the gate.")
+	if wake_terminal_solved and not conduit_a_energized:
+		title = _text("إعادة الطاقة · 3/4", "Restore power · 3/4")
+		description = _text("الإشارة استقرت. اتبع علامة موصل الطاقة واقترب لتفعيله.", "Signal aligned. Follow the power conduit marker and approach to activate it.")
+	elif conduit_a_energized and not wake_terminal_solved:
+		title = _text("محاذاة الإشارة · 3/4", "Align the signal · 3/4")
+		description = _text("الطاقة عادت. افحص المحطة وطابق أثر الإشارة على شاشتها.", "Power restored. Inspect the terminal and match the trace on its screen.")
+	if room_gate_open:
+		title = _text("العتبة المفتوحة · 4/4", "Open threshold · 4/4")
+		description = _text("اقترب من البوابة لترى ما كشفت عنه.", "Approach the gate to see what it revealed.")
+	if main_root and main_root.opening_web_handoff.reported_milestones.has("memory_scene_completed"):
+		title = _text("نهاية الافتتاح", "Opening complete")
+		description = _text("حُفظ أثر الغرفة. يتبع...", "Room trace saved. To be continued...")
+	hud.set_directive(title, description)
+	_update_room_markers()
+
 # Traversal & Combat triggers
 var corridor_droid_defeated: bool = false
 var slide_toast_shown: bool = false
@@ -136,16 +165,11 @@ func start_prologue(play_wake_cue: bool = true) -> void:
 			hud.show_tutorial_toast(
 				"TOAST_MOVE",
 				"TOUCH" if touch_mode else "WASD / E",
-				"التحرك والتفاعل",
-				"حرّك Echo بالمقبض، ثم افحص الساعة المتوقفة." if touch_mode else "تحرك نحو الساعة المتوقفة واضغط E لفحصها.",
+				_text("التحرك والتفاعل", "Move and inspect"),
+				_text("حرّك إيكو بالمقبض، ثم افحص الساعة المتوقفة.", "Move Echo with the stick, then inspect the stopped clock.") if touch_mode else _text("تحرك نحو الساعة المتوقفة واضغط E لفحصها.", "Move to the stopped clock and press E to inspect it."),
 				6.0
 			)
-		if hud.has_method("set_directive"):
-			hud.set_directive(
-				"SECTOR 11 // أثر الاستيقاظ 0/4",
-				"افحص الساعة المتوقفة، ثم اتبع الأثر الشخصي في الغرفة."
-			)
-	_update_room_markers()
+	refresh_opening_objective()
 
 func _play_wake_signal() -> void:
 	var capsule := main_root.find_child("Sector11Capsule", true, false) as Node3D if main_root else null
@@ -157,6 +181,8 @@ func _play_wake_signal() -> void:
 	cue.max_distance = 9.0
 	capsule.add_child(cue)
 	cue.stream = ProceduralCinematicAudio.create_heart_monitor_beep()
+	cue.tree_exiting.connect(cue.stop)
+	cue.tree_exiting.connect(cue.set.bind("stream", null))
 	cue.finished.connect(cue.queue_free)
 	cue.play()
 
@@ -172,7 +198,7 @@ func _physics_process(_delta: float) -> void:
 		if main_root and main_root.has_method("play_opening_boundary_memory"):
 			main_root.play_opening_boundary_memory()
 		if hud and hud.has_method("show_tutorial_toast"):
-			hud.show_tutorial_toast("TOAST_CHAPTER_END", "11.11", "نهاية الافتتاح", "خلف العتبة أثر لم تُكشف هويته بعد. يتبع...", 7.0)
+			hud.show_tutorial_toast("TOAST_CHAPTER_END", "11.11", _text("نهاية الافتتاح", "End of opening"), _text("خلف العتبة أثر لم تُكشف هويته بعد. يتبع...", "An unidentified trace waits beyond the threshold. To be continued..."), 7.0)
 
 	# Stage 0 -> 1: Threshold crossing at Gate 1 (pz <= -18.5)
 	# The approved opening ends at Gate 1. Later stages stay dormant until a new phase is accepted.
@@ -235,7 +261,7 @@ func on_opening_evidence_inspected(evidence_id: String) -> void:
 			photograph.get_node("InteractionArea").is_enabled = true
 	elif evidence_id == "photo" and clock_inspected and not photo_inspected:
 		photo_inspected = true
-	_update_room_markers()
+	refresh_opening_objective()
 
 func on_opening_memory_recovered() -> void:
 	if not clock_inspected or not photo_inspected or opening_memory_recovered:
@@ -247,30 +273,18 @@ func on_opening_memory_recovered() -> void:
 			if target_name == "EnergyPowerConduit_A":
 				target.is_locked = false
 			target.get_node("InteractionArea").is_enabled = true
-	if hud and hud.has_method("set_directive"):
-		hud.set_directive("SECTOR 11 // طريق الخروج 2/4", "استعدت أثر الصوت. فعّل المحطة وموصل الطاقة لفتح البوابة.")
-	_update_room_markers()
+	refresh_opening_objective()
 
 func _check_room_gate() -> void:
 	if current_step == Step.STAGE_0_AWAKENING and opening_memory_recovered and wake_terminal_solved and conduit_a_energized and not room_gate_open:
 		if main_root and main_root.has_method("report_opening_milestone"):
 			main_root.report_opening_milestone("puzzle_solved")
 		_open_primary_blast_gate()
-	elif hud and current_step == Step.STAGE_0_AWAKENING and opening_memory_recovered and not room_gate_open and hud.has_method("set_directive"):
-		if wake_terminal_solved:
-			hud.set_directive("SECTOR 11 // طريق الخروج 3/4", "اتبع علامة موصل الطاقة، واقترب منه لإعادة تشغيل البوابة.")
-		elif conduit_a_energized:
-			hud.set_directive("SECTOR 11 // طريق الخروج 3/4", "الطاقة عادت. اتبع علامة المحطة لاستعادة أثر الاستيقاظ.")
+	refresh_opening_objective()
 
 func _update_room_markers() -> void:
 	if not hud or not main_root:
 		return
-	if hud.has_method("remove_compass_marker"):
-		hud.remove_compass_marker("opening_clock")
-		hud.remove_compass_marker("opening_photo")
-		hud.remove_compass_marker("wake_terminal")
-		hud.remove_compass_marker("power_conduit")
-		hud.remove_compass_marker("room_gate")
 	if not hud.has_method("add_compass_marker"):
 		return
 	var target_name := ""
@@ -283,26 +297,30 @@ func _update_room_markers() -> void:
 	elif not photo_inspected:
 		target_name = "OpeningPhotograph"
 		marker_id = "opening_photo"
-		label = "الأثر الشخصي"
+		label = _text("الأثر الشخصي", "Personal trace")
 	elif not opening_memory_recovered:
+		for id in ["opening_clock", "opening_photo", "wake_terminal", "power_conduit", "room_gate"]:
+			hud.remove_compass_marker(id)
 		return
 	elif room_gate_open:
 		target_name = "PrimaryBlastGate"
 		marker_id = "room_gate"
-		label = "البوابة"
+		label = _text("البوابة", "Gate")
 	elif not wake_terminal_solved and not conduit_a_energized:
 		target_name = "SectorTerminal"
 		marker_id = "wake_terminal"
-		label = "المحطة"
+		label = _text("المحطة", "Terminal")
 	elif not wake_terminal_solved:
 		target_name = "SectorTerminal"
 		marker_id = "wake_terminal"
-		label = "المحطة"
+		label = _text("المحطة", "Terminal")
 	else:
 		target_name = "EnergyPowerConduit_A"
 		marker_id = "power_conduit"
-		label = "موصل الطاقة"
+		label = _text("موصل الطاقة", "Power conduit")
 	var target := main_root.find_child(target_name, true, false) as Node3D
+	for id in ["opening_clock", "opening_photo", "wake_terminal", "power_conduit", "room_gate"]:
+		if id != marker_id: hud.remove_compass_marker(id)
 	if target:
 		hud.add_compass_marker(marker_id, target.global_position, label)
 
@@ -330,16 +348,12 @@ func _open_primary_blast_gate() -> void:
 		if hud.has_method("show_tutorial_toast"):
 			hud.show_tutorial_toast(
 				"TOAST_GATE1",
-				"SIGNAL RESTORED",
-				"البوابة الرئيسية",
-				"انفتحت البوابة. ما وراءها ينتظر في الفصل التالي.",
+				"11.11",
+				_text("البوابة الرئيسية", "Main gate"),
+				_text("انفتحت البوابة. ما وراءها ينتظر في الفصل التالي.", "The gate is open. Beyond it awaits the next chapter."),
 				5.0
 			)
-		if hud.has_method("set_directive"):
-			hud.set_directive(
-				"SECTOR 11 // طريق الخروج 2/2",
-				"اقترب من البوابة، وانظر إلى اللمحة التي كشفتها في الجانب الآخر."
-			)
+	refresh_opening_objective()
 
 func _on_security_droid_defeated(droid_node: Node) -> void:
 	if current_step == Step.STAGE_1_DECONTAMINATION:

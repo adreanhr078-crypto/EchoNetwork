@@ -7,6 +7,13 @@ const InteractableComponent = preload("res://scripts/interaction/interactable_co
 @onready var prompt_label: Label = $PromptPanel/PromptLabel if has_node("PromptPanel/PromptLabel") else null
 
 var current_interactable: Node = null
+var presentation_language := "ar"
+var touch_mode := false
+
+func set_presentation_language(language: String) -> void:
+	presentation_language = language
+	layout_direction = Control.LAYOUT_DIRECTION_RTL if language == "ar" else Control.LAYOUT_DIRECTION_LTR
+	if visible and is_instance_valid(current_interactable): show_prompt(current_interactable)
 
 func _ready() -> void:
 	visible = false
@@ -19,7 +26,11 @@ func show_prompt(interactable: Node) -> void:
 		prompt_label = find_child("PromptLabel", true, false) as Label
 	
 	if prompt_label and interactable:
-		prompt_label.text = interactable.get_full_prompt()
+		var verb: String = interactable.get_verb_string()
+		if presentation_language == "ar":
+			verb = "افحص" if interactable.verb == InteractableComponent.InteractionVerb.INSPECT else "تفاعل"
+		var key := ("المس" if presentation_language == "ar" else "Tap") if touch_mode else "E"
+		prompt_label.text = "[%s] %s · %s" % [key, verb, interactable.prompt_target_name]
 	
 	visible = true
 

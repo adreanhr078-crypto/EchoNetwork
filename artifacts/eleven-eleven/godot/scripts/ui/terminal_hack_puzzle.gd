@@ -14,6 +14,17 @@ var harmonic_target: float = 7.0
 
 var is_solved: bool = false
 var has_started: bool = false
+var presentation_language := "ar"
+
+func set_presentation_language(language: String) -> void:
+	presentation_language = language
+	var arabic := language == "ar"
+	$Panel.layout_direction = Control.LAYOUT_DIRECTION_RTL if arabic else Control.LAYOUT_DIRECTION_LTR
+	$Panel/VBox/FreqRow/Label.text = "التردد:" if arabic else "Frequency:"
+	$Panel/VBox/PhaseRow/Label.text = "الطور:" if arabic else "Phase:"
+	$Panel/VBox/HarmonicRow/Label.text = "القناة:" if arabic else "Channel:"
+	$Panel/VBox/ProceedBtn.text = "متابعة" if arabic else "Continue"
+	_update_ui()
 
 @onready var freq_slider: Slider = $Panel/VBox/FreqRow/FreqSlider if has_node("Panel/VBox/FreqRow/FreqSlider") else null
 @onready var phase_slider: Slider = $Panel/VBox/PhaseRow/PhaseSlider if has_node("Panel/VBox/PhaseRow/PhaseSlider") else null
@@ -71,7 +82,7 @@ func open_puzzle() -> void:
 	if freq_slider: freq_slider.value = freq_val
 	if phase_slider: phase_slider.value = phase_val
 	if harmonic_slider: harmonic_slider.value = harmonic_val
-	if proceed_btn: proceed_btn.visible = false
+	if proceed_btn: proceed_btn.visible = is_solved
 	_update_ui()
 
 func close_puzzle() -> void:
@@ -103,15 +114,19 @@ func _update_ui() -> void:
 	if progress_bar:
 		progress_bar.value = accuracy * 100.0
 	if status_lbl and not is_solved:
-		status_lbl.text = "راجع أثر الإشارة على شاشة المحطة // TRACE ON TERMINAL"
+		status_lbl.text = "طابق أثر شاشة المحطة: 111 MHz · 45° · القناة 7" if presentation_language == "ar" else "Match the terminal trace: 111 MHz · 45° · channel 7"
+	if status_lbl and is_solved:
+		status_lbl.text = "استقرت الإشارة · الوصول متاح" if presentation_language == "ar" else "Signal aligned · access granted"
 
-	if not is_solved and abs(freq_val - freq_target) <= 2.0 and abs(phase_val - phase_target) <= 5.0 and int(harmonic_val) == int(harmonic_target):
+	# Formatting a hidden restored panel must not consume its completion event.
+	# Publish the solve only after a real terminal interaction opens the panel.
+	if visible and not is_solved and abs(freq_val - freq_target) <= 2.0 and abs(phase_val - phase_target) <= 5.0 and int(harmonic_val) == int(harmonic_target):
 		_solve_puzzle()
 
 func _solve_puzzle() -> void:
 	is_solved = true
 	if status_lbl:
-		status_lbl.text = ">>> SIGNAL ALIGNED // ACCESS GRANTED <<<"
+		status_lbl.text = "استقرت الإشارة · الوصول متاح" if presentation_language == "ar" else "Signal aligned · access granted"
 		status_lbl.modulate = Color(0.1, 1.0, 0.4, 1.0)
 	if progress_bar:
 		progress_bar.value = 100.0

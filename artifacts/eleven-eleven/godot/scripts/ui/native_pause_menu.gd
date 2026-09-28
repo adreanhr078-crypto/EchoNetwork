@@ -62,7 +62,7 @@ func _ready() -> void:
 	resume_button = _button("", func(): set_session_paused(false))
 	mute_button = _button("", func(): main.set_audio_muted(not main.audio_muted); refresh_labels())
 	motion_button = _button("", func(): main.set_reduced_motion(not main.reduced_motion); refresh_labels())
-	language_button = _button("", func(): main.presentation_language = "en" if main.presentation_language == "ar" else "ar"; main._save_native_preferences(); refresh_labels())
+	language_button = _button("", func(): main.set_presentation_language("en" if main.presentation_language == "ar" else "ar"))
 	for button in [resume_button, mute_button, motion_button, language_button]:
 		column.add_child(button)
 	get_viewport().size_changed.connect(_layout)
@@ -94,7 +94,7 @@ func refresh_labels() -> void:
 	resume_button.text = "متابعة الرحلة" if arabic else "Continue"
 	mute_button.text = ("الصوت: مكتوم" if main.audio_muted else "الصوت: يعمل") if arabic else ("Sound: muted" if main.audio_muted else "Sound: on")
 	motion_button.text = ("حركة الكاميرا: أقل" if main.reduced_motion else "حركة الكاميرا: معتادة") if arabic else ("Camera motion: reduced" if main.reduced_motion else "Camera motion: standard")
-	language_button.text = "لغة القائمة: العربية / English" if arabic else "Menu language: English / العربية"
+	language_button.text = "لغة اللعب: العربية / English" if arabic else "Game language: English / العربية"
 	status.text = ("توقف الوقت. حُفظ تقدم الغرفة." if _save_succeeded else "توقف الوقت. تعذر الحفظ. يمكنك متابعة اللعب.") if arabic else ("Time is paused. Room progress saved." if _save_succeeded else "Time is paused. Save failed. You can continue playing.")
 	_layout.call_deferred()
 
@@ -110,7 +110,7 @@ func set_session_paused(paused: bool) -> void:
 			touch.set_interaction_blocked(true)
 		main.player.mobile_input_vector = Vector2.ZERO
 		main.player.mobile_sprint_active = false
-		for action in ["move_forward", "move_back", "move_left", "move_right", "sprint", "attack"]:
+		for action in ["move_forward", "move_backward", "move_left", "move_right", "sprint", "jump", "interact", "attack_light"]:
 			if InputMap.has_action(action):
 				Input.action_release(action)
 		_save_succeeded = main.save_native_checkpoint_now()
@@ -123,6 +123,8 @@ func set_session_paused(paused: bool) -> void:
 	if paused:
 		resume_button.grab_focus()
 	else:
+		Input.action_release("attack_light")
+		main.player._suppress_attack_until_release = true
 		var touch = main.hud.find_child("MobileTouchControls", true, false)
 		if touch:
 			touch.set_interaction_blocked(not _touch_was_visible)

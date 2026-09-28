@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode cull_back;
 
-// ── 11.11 World-Class Anime Cel Shader (Genshin Impact / ZZZ Standard) ─────────
+// 11.11 stepped anime lighting; artistic acceptance is a separate review.
 // Features: 2-band stepped cel shading, warm peach/rose Subsurface Scattering (SSS)
 // terminator line, Kajiya-Kay anisotropic hair specular highlight ("Angel Ring"),
 // dynamic backlight-boosted anime rim glow, and Forward+ light integration.
@@ -44,6 +44,9 @@ uniform float hair_specular_width : hint_range(0.01, 0.4) = 0.08;
 
 group_uniforms FaceShading;
 uniform bool is_face = false;
+uniform bool limit_skin_highlights = false;
+uniform float skin_light_scale : hint_range(0.1, 1.0) = 1.0;
+varying float skin_mask;
 
 group_uniforms RimLighting;
 uniform vec4 rim_color : source_color = vec4(0.0, 0.94, 1.0, 1.0); // Signal Cyan
@@ -58,6 +61,11 @@ uniform float emissive_intensity : hint_range(0.0, 10.0) = 0.0;
 void fragment() {
 	vec4 tex = texture(albedo_texture, UV);
 	ALBEDO = pow(albedo_color.rgb * tex.rgb, vec3(albedo_gamma));
+	// Echo's existing atlas contains warm skin, neutral white shirt and dark
+	// cloth. Use both brightness and chroma, keeping the shirt out of this mask.
+	skin_mask = limit_skin_highlights ? smoothstep(0.24, 0.45, tex.r)
+		* smoothstep(0.035, 0.10, tex.r - tex.b)
+		* smoothstep(0.015, 0.06, tex.r - tex.g) : 0.0;
 	ROUGHNESS = roughness;
 	METALLIC = metallic;
 	
@@ -125,6 +133,6 @@ void light() {
 		specular_result += hair_specular_color.rgb * LIGHT_COLOR * hair_band * 2.0 * ATTENUATION;
 	}
 	
-	DIFFUSE_LIGHT += diffuse_result;
-	SPECULAR_LIGHT += specular_result;
+	DIFFUSE_LIGHT += diffuse_result * mix(1.0, skin_light_scale, skin_mask);
+	SPECULAR_LIGHT += specular_result * mix(1.0, 0.08, skin_mask);
 }

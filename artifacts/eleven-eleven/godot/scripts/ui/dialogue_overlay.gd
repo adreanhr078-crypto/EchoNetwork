@@ -36,6 +36,8 @@ var is_typing: bool = false
 var full_text: String = ""
 var displayed_chars: int = 0
 var typing_timer: float = 0.0
+var presentation_language := "ar"
+var continue_button: Button
 
 @onready var speaker_lbl: Label = $DialogBox/VBox/SpeakerBadge/SpeakerLabel if has_node("DialogBox/VBox/SpeakerBadge/SpeakerLabel") else null
 @onready var text_lbl: Label = $DialogBox/VBox/TextLabel if has_node("DialogBox/VBox/TextLabel") else null
@@ -43,6 +45,53 @@ var typing_timer: float = 0.0
 
 func _ready() -> void:
 	visible = false
+	continue_button = Button.new()
+	continue_button.name = "ContinueButton"
+	$DialogBox.add_child(continue_button)
+	continue_button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	continue_button.offset_left = -220
+	continue_button.offset_right = -24
+	continue_button.offset_top = -60
+	continue_button.offset_bottom = -12
+	continue_button.add_theme_font_size_override("font_size", 22)
+	continue_button.pressed.connect(advance_dialogue)
+	get_viewport().size_changed.connect(_layout)
+	_layout()
+	set_presentation_language(presentation_language)
+
+func _layout() -> void:
+	var screen := get_viewport().get_visible_rect().size
+	var box := $DialogBox as Panel
+	box.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	box.size = Vector2(minf(960.0, screen.x - 48.0), minf(230.0, screen.y * 0.45))
+	box.position = Vector2((screen.x - box.size.x) * 0.5, screen.y - box.size.y - 24.0)
+	$DialogBox/VBox.offset_bottom = -68
+	if text_lbl: text_lbl.add_theme_font_size_override("font_size", 24)
+	if speaker_lbl: speaker_lbl.add_theme_font_size_override("font_size", 18)
+	if continue_prompt: continue_prompt.hide()
+
+func set_presentation_language(language: String) -> void:
+	presentation_language = "en" if language == "en" else "ar"
+	layout_direction = Control.LAYOUT_DIRECTION_RTL if presentation_language == "ar" else Control.LAYOUT_DIRECTION_LTR
+	if continue_button: continue_button.text = "متابعة" if presentation_language == "ar" else "Continue"
+	if is_active:
+		_apply_line_text()
+
+func _apply_line_text() -> void:
+	var line: Dictionary = dialogue_lines[current_line_index]
+	full_text = line.get("text_" + presentation_language, line.get("text", ""))
+	if speaker_lbl:
+		speaker_lbl.text = line.get("speaker_" + presentation_language, line.get("speaker", "UNKNOWN"))
+		speaker_lbl.modulate = line.get("speaker_color", Color.WHITE)
+	if text_lbl:
+		# Shape the complete Arabic line once; reveal characters without slicing
+		# and reshaping the text every frame.
+		text_lbl.text = full_text
+		text_lbl.visible_characters = -1 if not is_typing else mini(displayed_chars, full_text.length())
+
+func finish_typing() -> void:
+	is_typing = false
+	if text_lbl: text_lbl.visible_characters = -1
 
 func start_dialogue(custom_lines: Array = []) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -51,6 +100,8 @@ func start_dialogue(custom_lines: Array = []) -> void:
 	current_line_index = -1
 	is_active = true
 	visible = true
+	_layout()
+	if continue_button: continue_button.grab_focus()
 	emit_signal("dialogue_started")
 	advance_dialogue()
 
@@ -59,36 +110,37 @@ func _process(delta: float) -> void:
 		return
 	if is_typing:
 		typing_timer += delta
+		if reduced_motion:
+			finish_typing()
+			return
 		if typing_timer >= typewriter_speed:
-			typing_timer = 0.0
-			displayed_chars += 1
+			displayed_chars += int(typing_timer / maxf(typewriter_speed, 0.001))
+			typing_timer = fmod(typing_timer, maxf(typewriter_speed, 0.001))
 			if text_lbl:
-				text_lbl.text = full_text.substr(0, displayed_chars)
+				text_lbl.visible_characters = displayed_chars
 			if displayed_chars >= full_text.length():
-				is_typing = false
-				if continue_prompt:
-					continue_prompt.visible = true
+				finish_typing()
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if not is_active: return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		advance_dialogue()
+		accept_event()
 	elif event is InputEventScreenTouch and event.pressed:
 		advance_dialogue()
+		accept_event()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_SPACE):
 		advance_dialogue()
+		get_viewport().set_input_as_handled()
 
 func advance_dialogue() -> void:
 	if is_typing:
 		# Instant finish line
-		is_typing = false
-		if text_lbl:
-			text_lbl.text = full_text
-		if continue_prompt:
-			continue_prompt.visible = true
+		finish_typing()
 		return
 
 	current_line_index += 1
@@ -97,8 +149,8 @@ func advance_dialogue() -> void:
 		return
 
 	var line = dialogue_lines[current_line_index]
-	full_text = line.get("text", "")
 	displayed_chars = 0
+	typing_timer = 0.0
 	is_typing = not reduced_motion
 	if continue_prompt:
 		continue_prompt.visible = false
@@ -108,18 +160,13 @@ func advance_dialogue() -> void:
 	if not text_lbl:
 		text_lbl = find_child("TextLabel", true, false) as Label
 
-	if speaker_lbl:
-		speaker_lbl.text = line.get("speaker", "UNKNOWN")
-		speaker_lbl.modulate = line.get("speaker_color", Color.WHITE)
-
-	if text_lbl:
-		text_lbl.text = full_text if reduced_motion else ""
-	if continue_prompt and reduced_motion:
-		continue_prompt.visible = true
+	_apply_line_text()
 
 	emit_signal("line_displayed", current_line_index, line)
 
 func close_dialogue() -> void:
+	if not is_active: return
 	is_active = false
+	is_typing = false
 	visible = false
 	emit_signal("dialogue_completed")

@@ -1,6 +1,8 @@
 class_name EchoPlayer
 extends CharacterBody3D
 
+const OpeningWakeContacts = preload("res://scripts/player/opening_wake_contacts.gd")
+
 signal hp_changed(current_hp: float, max_hp: float)
 signal stamina_changed(current_stamina: float, max_stamina: float)
 signal combo_changed(combo_count: int, combo_multiplier: int)
@@ -178,6 +180,8 @@ func _ready() -> void:
 		_recovery_right_toe = _recovery_skeleton.find_bone("tripo__1_Right_Limb_3")
 	player_camera = find_child("Camera3D", true, false) as Camera3D
 	camera_boom = find_child("CameraBoom", true, false) as SpringArm3D
+	if camera_boom:
+		camera_boom.add_excluded_object(get_rid())
 	if animation_player:
 		if not OS.has_feature("web"):
 			MixamoAnimationBridgeScript.inject_animations(animation_player)
@@ -324,9 +328,12 @@ func _align_recovery_feet_to_floor() -> void:
 		return
 	var clip: Animation = animation_player.get_animation(animation_player.current_animation)
 	var phase: float = animation_player.current_animation_position / maxf(clip.length, 0.01)
-	# The authored prone pose keeps the skeleton pelvis at standing height.
-	# Lower the model while prone, then return it to its locomotion origin as Echo rises.
-	visual_root.position.y = lerpf(-0.58, 0.0, smoothstep(0.60, 0.85, phase))
+	# Bake contact from the deformed V13 body, including hands/knees while rising.
+	# A guessed prone offset sank the kneeling pose and floated the early roll.
+	if visual_root.find_child("EchoOpeningUniformBody", true, false) and animation_player.current_animation.to_lower().contains("wakeup"):
+		visual_root.position.y = OpeningWakeContacts.offset(phase)
+	else:
+		visual_root.position.y = lerpf(-0.58, 0.0, smoothstep(0.60, 0.85, phase))
 
 func finish_opening_recovery() -> void:
 	if not opening_recovery_active:
@@ -481,9 +488,9 @@ func _physics_process(delta: float) -> void:
 		player_camera.fov = lerp(player_camera.fov, target_fov, 6.0 * delta)
 
 	# Attack & Iai Charge Input (Keyboard/Mouse)
-	if Input.is_action_just_pressed("attack_light") and not _suppress_attack_until_release:
+	if combat_available and Input.is_action_just_pressed("attack_light") and not _suppress_attack_until_release:
 		start_iai_charge()
-	if Input.is_action_just_released("attack_light") and not _suppress_attack_until_release:
+	if combat_available and Input.is_action_just_released("attack_light") and not _suppress_attack_until_release:
 		execute_iai_slash()
 	if not Input.is_action_pressed("attack_light"):
 		_suppress_attack_until_release = false
@@ -714,9 +721,9 @@ func trigger_deflect_attempt() -> void:
 		facial_controller.set_combat_focus(1.0, 0.08)
 
 func start_iai_charge() -> void:
-	if opening_recovery_active:
+	if opening_recovery_active or control_locked or not combat_available:
 		return
-	if not combat_available or is_sheathed:
+	if is_sheathed:
 		unsheath_weapon()
 	is_charging_iai = true
 	iai_charge = 0.0
@@ -741,11 +748,11 @@ func update_iai_charge(delta: float) -> void:
 				glow.light_energy = 5.5
 
 func execute_iai_slash(charge_ratio: float = -1.0) -> void:
-	if opening_recovery_active:
+	if opening_recovery_active or control_locked or not combat_available:
 		is_charging_iai = false
 		iai_charge = 0.0
 		return
-	if not combat_available or is_sheathed:
+	if is_sheathed:
 		unsheath_weapon()
 	var eff_ratio: float = charge_ratio if charge_ratio >= 0.0 else iai_charge
 	is_charging_iai = false
@@ -952,11 +959,10 @@ const KATANA_READY_TRANSFORM := Transform3D(Basis(Vector3(0.965926, -0.258819, 0
 const KATANA_SHEATHED_TRANSFORM := Transform3D(Basis(Vector3(0.866, 0, -0.5), Vector3(0, 1, 0), Vector3(0.5, 0, 0.866)), Vector3(-0.28, 0.62, 0.08))
 
 func perform_attack() -> void:
-	if opening_recovery_active:
+	if opening_recovery_active or control_locked or not combat_available:
 		return
-	if not combat_available or is_sheathed:
+	if is_sheathed:
 		unsheath_weapon()
-	combat_available = true
 	is_attacking = true
 	var current_step: int = combo_step
 	combo_step = 1 if combo_step >= 3 else combo_step + 1
@@ -1202,7 +1208,8 @@ func sheath_weapon() -> void:
 	emit_signal("weapon_sheathed")
 
 func unsheath_weapon() -> void:
-	combat_available = true
+	if not combat_available:
+		return
 	is_sheathed = false
 	var katana = find_child("KatanaBlade", true, false) as Node3D
 	if katana:

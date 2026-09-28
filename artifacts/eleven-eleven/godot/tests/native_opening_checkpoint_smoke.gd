@@ -55,6 +55,18 @@ func _run() -> void:
 	if not _check(player.get_nearest_interactable() == conduit.get_node("InteractionArea"), "player cannot find conduit in proximity"): return
 	player.interact_with_nearest()
 	if not _check(prologue.conduit_a_energized, "player interaction did not power conduit"): return
+	# A save made while the aligned terminal is awaiting acknowledgment must
+	# reopen normally; language formatting must not swallow the solve signal.
+	checkpoint.milestones.conduit = false
+	checkpoint.terminal = {"frequency": 111.0, "phase": 45.0, "harmonic": 7.0}
+	main.restore_native_checkpoint(checkpoint)
+	var puzzle = main.hud.find_child("TerminalHackPuzzle", true, false)
+	main.set_presentation_language("en")
+	if not _check(not puzzle.is_solved and not prologue.wake_terminal_solved, "hidden formatting solved restored terminal"): return
+	main._on_terminal_accessed(main.find_child("SectorTerminal", true, false))
+	if not _check(puzzle.is_solved and puzzle.proceed_btn.visible and not prologue.wake_terminal_solved, "aligned restored modal cannot be acknowledged"): return
+	puzzle.proceed_btn.pressed.emit()
+	if not _check(prologue.wake_terminal_solved and not prologue.room_gate_open, "restored terminal acknowledgment lost or opened gate early"): return
 	checkpoint.milestones.terminal = true
 	checkpoint.milestones.conduit = true
 	checkpoint.milestones.ending = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/echo_player.gd" id="1_player"]
 [ext_resource type="PackedScene" path="res://assets/characters/echo_opening_uniform_v13.glb" id="2_echo_model"]
@@ -14,6 +14,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_camera"]
+radius = 0.18
 
 [node name="EchoPlayer" type="CharacterBody3D"]
 floor_stop_on_slope = true
@@ -72,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0,
 collision_mask = 1
 margin = 0.22
 spring_length = 3.0
+shape = SubResource("SphereShape3D_camera")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBoom"]
 current = true

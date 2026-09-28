@@ -73,10 +73,7 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	if source_material is BaseMaterial3D:
 		var source := source_material as BaseMaterial3D
 		var final_albedo := albedo_tint
-		if source.albedo_texture != null:
-			final_albedo = albedo_tint
-		else:
-			final_albedo = albedo_tint * source.albedo_color
+		final_albedo = albedo_tint * source.albedo_color
 		mat.set_shader_parameter("albedo_color", final_albedo)
 		mat.set_shader_parameter("albedo_texture", source.albedo_texture)
 		mat.set_shader_parameter("roughness", source.roughness)
@@ -88,16 +85,22 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 		if source.emission_enabled:
 			mat.set_shader_parameter("emissive_color", source.emission)
 			mat.set_shader_parameter("emissive_intensity", source.emission_energy_multiplier)
-	mat.set_shader_parameter("use_sss", true)
+	# Clothing and equipment do not scatter light like skin. The imported Echo
+	# uses one atlas, so its warm skin texels get a separate light response.
+	mat.set_shader_parameter("use_sss", false)
 	mat.set_shader_parameter("sss_color", Color(0.96, 0.45, 0.40, 1.0))
 	mat.set_shader_parameter("sss_intensity", 0.70)
 	var lower_name := mesh_name.to_lower()
+	if lower_name.begins_with("echoopeninguniform"):
+		mat.set_shader_parameter("limit_skin_highlights", true)
+		mat.set_shader_parameter("skin_light_scale", 0.38)
 	if lower_name.contains("hair"):
 		mat.set_shader_parameter("is_hair", true)
 		mat.set_shader_parameter("hair_specular_color", Color(1.0, 0.96, 0.88, 1.0))
 		mat.set_shader_parameter("hair_specular_power", 42.0)
 	elif lower_name.contains("face") or lower_name.contains("head") or lower_name.contains("eye") or lower_name.contains("skin"):
 		mat.set_shader_parameter("is_face", true)
+		mat.set_shader_parameter("use_sss", true)
 	if outline_shader:
 		# A custom POSITION outline covered the animated torso/head in GLES3.
 		# Built-in growth keeps the outline on Godot's skinned mesh path.

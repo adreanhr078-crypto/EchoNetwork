@@ -14,6 +14,7 @@ foreach ($taskPlatform in $taskPlatforms) {
 if ($taskPlatforms -contains 'Android') {
     # Godot's template references an optional themed icon XML it doesn't ship.
     # Use the existing adaptive icon as a valid fallback; never change app identity.
+    Add-Type -AssemblyName System.IO.Compression
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $taskApk = Join-Path $taskOutput 'EchoNetwork-debug.apk'
     $taskZip = [IO.Compression.ZipFile]::Open($taskApk, [IO.Compression.ZipArchiveMode]::Update)

@@ -19,6 +19,48 @@ var _checkpoint_queued := false
 var presentation_language := "ar"
 var native_pause_menu: Node = null
 
+func opening_text(ar: String, en: String) -> String:
+	return ar if presentation_language == "ar" else en
+
+func opening_line(ar: String, en: String, guide: bool = false) -> Dictionary:
+	return {"speaker_ar": "مرافق الإشارة" if guide else "إيكو", "speaker_en": "SIGNAL COMPANION" if guide else "ECHO", "text_ar": ar, "text_en": en, "speaker_color": Color(0.0, 0.78, 0.92) if guide else Color(0.72, 0.82, 1.0)}
+
+func set_presentation_language(language: String) -> void:
+	if language not in ["ar", "en"]:
+		return
+	presentation_language = language
+	_save_native_preferences()
+	refresh_opening_language()
+
+func refresh_opening_language() -> void:
+	if not hud:
+		return
+	if hud.quest_container:
+		hud.quest_container.layout_direction = Control.LAYOUT_DIRECTION_RTL if presentation_language == "ar" else Control.LAYOUT_DIRECTION_LTR
+		for label in [hud.quest_title, hud.quest_desc]:
+			if label: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
+	for node_name in ["DialogueOverlay", "TerminalHackPuzzle", "InteractionPromptHUD"]:
+		var surface = hud.find_child(node_name, true, false)
+		if surface and surface.has_method("set_presentation_language"):
+			surface.set_presentation_language(presentation_language)
+	var touch_ui = hud.find_child("MobileTouchControls", true, false)
+	var prompt = hud.find_child("InteractionPromptHUD", true, false)
+	if prompt:
+		prompt.touch_mode = touch_ui != null and touch_ui._platform_touch_enabled
+	for pair in [["OpeningClock", "الساعة المتوقفة", "Stopped clock"], ["OpeningPhotograph", "الأثر الشخصي", "Personal trace"], ["SectorTerminal", "محطة الإشارة", "Signal terminal"], ["EnergyPowerConduit_A", "موصل الطاقة", "Power conduit"]]:
+		var target = find_child(pair[0], true, false)
+		if target and target.has_node("InteractionArea"):
+			target.get_node("InteractionArea").prompt_target_name = opening_text(pair[1], pair[2])
+		if target and target.has_method("set_presentation_language"):
+			target.set_presentation_language(presentation_language)
+	var prologue = get_node_or_null("PrologueOrchestrator")
+	if prologue and not player.opening_recovery_active:
+		prologue.refresh_opening_objective()
+	if prompt and prompt.visible and is_instance_valid(prompt.current_interactable):
+		prompt.show_prompt(prompt.current_interactable)
+	if native_pause_menu:
+		native_pause_menu.refresh_labels()
+
 func queue_native_checkpoint() -> void:
 	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session or _checkpoint_queued:
 		return
@@ -131,6 +173,7 @@ func restore_native_checkpoint(raw: Dictionary) -> bool:
 		hud.set_directive("SECTOR 11 // نهاية الافتتاح", "تم حفظ أثر الغرفة. الطريق التالي لم يُفتح بعد.")
 	prologue._update_room_markers()
 	_restoring_native_session = false
+	refresh_opening_language()
 	return true
 
 func _save_native_preferences() -> void:
@@ -158,8 +201,7 @@ func _load_native_preferences() -> void:
 	if motion is bool:
 		set_reduced_motion(motion)
 	_restoring_native_session = false
-	if native_pause_menu:
-		native_pause_menu.refresh_labels()
+	refresh_opening_language()
 
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
@@ -206,10 +248,14 @@ func set_audio_muted(muted: bool) -> void:
 	if mute_button:
 		mute_button.text = "MUTED" if muted else "SOUND"
 	if hud and hud.has_method("show_tutorial_toast"):
-		hud.show_tutorial_toast("TOAST_AUDIO", "M", "الصوت مكتوم" if muted else "الصوت يعمل", "يمكن تغيير الصوت في أي وقت.", 2.5)
+		hud.show_tutorial_toast("TOAST_AUDIO", "M", opening_text("الصوت مكتوم", "Sound muted") if muted else opening_text("الصوت يعمل", "Sound on"), opening_text("يمكن تغيير الصوت في أي وقت.", "Sound can be changed at any time."), 2.5)
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
+	if dialogue:
+		dialogue.reduced_motion = enabled
+		if enabled and dialogue.is_active: dialogue.finish_typing()
 	_save_native_preferences()
 	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var motion_button = touch_ui.find_child("MotionBtn", true, false) as Button if touch_ui else null
@@ -222,7 +268,7 @@ func set_reduced_motion(enabled: bool) -> void:
 		if breach and breach.has_method("finish"):
 			breach.finish()
 	if hud and hud.has_method("show_tutorial_toast"):
-		hud.show_tutorial_toast("TOAST_MOTION", "R", "حركة أقل" if enabled else "الحركة المعتادة", "يمكن تغيير حركة الكاميرا في أي وقت.", 2.5)
+		hud.show_tutorial_toast("TOAST_MOTION", "R", opening_text("حركة أقل", "Reduced motion") if enabled else opening_text("الحركة المعتادة", "Standard motion"), opening_text("يمكن تغيير حركة الكاميرا في أي وقت.", "Camera motion can be changed at any time."), 2.5)
 
 func _ready() -> void:
 	audio_muted = AudioServer.is_bus_mute(0)
@@ -298,7 +344,7 @@ func _ready() -> void:
 		if touch_ui:
 			player.touch_input_enabled = touch_ui._platform_touch_enabled
 			touch_ui.joystick_moved.connect(func(v: Vector2):
-				player.set("mobile_input_vector", v)
+				player.set("mobile_input_vector", Vector2.ZERO if player.control_locked else v)
 			)
 			touch_ui.attack_tapped.connect(player.perform_attack)
 			touch_ui.iai_charge_started.connect(player.start_iai_charge)
@@ -307,7 +353,7 @@ func _ready() -> void:
 			touch_ui.jump_tapped.connect(player.perform_jump)
 			touch_ui.camera_swiped.connect(player.apply_camera_look)
 			touch_ui.sprint_changed.connect(func(active: bool):
-				player.mobile_sprint_active = active
+				player.mobile_sprint_active = active and not player.control_locked
 			)
 			if touch_ui.has_signal("use_tapped"):
 				touch_ui.use_tapped.connect(player.interact_with_nearest)
@@ -329,6 +375,7 @@ func _ready() -> void:
 	# 7. Apply Anime Cel Shader Aesthetics
 	apply_stylized_shaders()
 	_setup_substation_events()
+	refresh_opening_language()
 
 	# 8. Boss content remains staged until the story earns the encounter.
 
@@ -379,13 +426,17 @@ func _on_opening_recovery_completed() -> void:
 		prologue.start_prologue()
 	if hud and hud.has_method("start_dialogue"):
 		hud.start_dialogue([
-			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0, 1.0), "text": "Where... is this?"},
-			{"speaker": "FLOATING POD", "speaker_color": Color(0.0, 0.78, 0.92, 1.0), "text": "Neural link stable. I will interpret System prompts and flag anything you cannot yet identify. Find the nearby signal terminal."}
+			opening_line("أين... أنا؟", "Where... is this?"),
+			opening_line("الاتصال مستقر. سأساعدك على قراءة إشارات النظام. افحص الساعة المتوقفة أولاً.", "Link stable. I will help interpret System signals. Inspect the stopped clock first.", true)
 		])
 	if player:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
 
 func _configure_native_opening_surfaces() -> void:
+	var terminal_fill := get_node_or_null("Sector11TerminalFocus") as OmniLight3D
+	if terminal_fill:
+		terminal_fill.position.z = 3.5
+		terminal_fill.light_energy = 0.5
 	var floor_mesh := get_node_or_null("Sector11Facility/Room1_CryoChamber/CatwalkFloor") as MeshInstance3D
 	if floor_mesh:
 		var source := floor_mesh.get_active_material(0) as ShaderMaterial
@@ -401,7 +452,9 @@ func _configure_native_opening_surfaces() -> void:
 			floor_mesh.set_surface_override_material(0, floor_material)
 	if player:
 		var face_fill := player.get_node_or_null("ModelRoot/EchoFaceFill") as OmniLight3D
-		if face_fill: face_fill.light_energy = 1.2
+		if face_fill: face_fill.light_energy = 0.35
+		var shoulder_fill := player.get_node_or_null("ModelRoot/EchoShoulderFill") as OmniLight3D
+		if shoulder_fill: shoulder_fill.light_energy = 0.18
 
 func apply_stylized_shaders() -> void:
 	# Keep Echo's authored texture values and a restrained neutral silhouette rim.
@@ -544,6 +597,8 @@ func _setup_substation_events() -> void:
 		puzzle.puzzle_closed.connect(_on_terminal_puzzle_closed)
 
 	if dialogue:
+		if not dialogue.dialogue_started.is_connected(_on_opening_dialogue_started):
+			dialogue.dialogue_started.connect(_on_opening_dialogue_started)
 		if not dialogue.dialogue_completed.is_connected(_on_dialogue_finished):
 			dialogue.dialogue_completed.connect(_on_dialogue_finished)
 
@@ -588,7 +643,7 @@ func _on_opening_evidence_inspected(evidence_id: String) -> void:
 		_evidence_memory_pending = true
 		if hud and hud.has_method("start_dialogue"):
 			hud.start_dialogue([
-			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0), "text": "11:11. When you're afraid, count to eleven... Someone said that to me. I wasn't alone."}
+			opening_line("11:11. عندما تخاف، عدّ إلى أحد عشر... أحدهم قال لي ذلك. لم أكن وحدي.", "11:11. When you're afraid, count to eleven... Someone said that to me. I wasn't alone.")
 		])
 
 func play_opening_boundary_memory() -> void:
@@ -600,7 +655,7 @@ func play_opening_boundary_memory() -> void:
 		glitch.pulse_glitch(0.22, 0.28)
 	if hud and hud.has_method("start_dialogue"):
 		hud.start_dialogue([
-			{"speaker": "ECHO", "speaker_color": Color(0.72, 0.82, 1.0), "text": "The signal ends at this door. The voice in that photograph... why does it feel familiar?"}
+			opening_line("تنتهي الإشارة عند هذا الباب. الصوت المرتبط بالصورة... لماذا يبدو مألوفاً؟", "The signal ends at this door. The voice in that photograph... why does it feel familiar?")
 		])
 
 func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
@@ -626,7 +681,31 @@ func _on_terminal_puzzle_solved(lore_data: Dictionary) -> void:
 		])
 	_active_hack_terminal = null
 
+func _on_opening_dialogue_started() -> void:
+	for action in ["move_forward", "move_backward", "move_left", "move_right", "sprint", "jump", "interact", "attack_light"]:
+		if InputMap.has_action(action): Input.action_release(action)
+	if player:
+		player.control_locked = true
+		player.mobile_input_vector = Vector2.ZERO
+		player.mobile_sprint_active = false
+		player.velocity = Vector3.ZERO
+	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
+	if touch_ui:
+		touch_ui.reset_input()
+		touch_ui.set_interaction_blocked(true)
+	if hud: hud.hide_interaction_prompt()
+
 func _on_dialogue_finished() -> void:
+	for action in ["jump", "interact", "attack_light"]:
+		if InputMap.has_action(action): Input.action_release(action)
+	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
+	if player:
+		player.control_locked = puzzle != null and puzzle.visible
+		player._suppress_attack_until_release = true
+	if not (puzzle and puzzle.visible):
+		if hud: hud.restore_touch_controls()
+		if player and not player.touch_input_enabled:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if _evidence_memory_pending:
 		_evidence_memory_pending = false
 		report_opening_milestone("memory_recovered")
@@ -636,6 +715,7 @@ func _on_dialogue_finished() -> void:
 	if _boundary_memory_pending:
 		_boundary_memory_pending = false
 		report_opening_milestone("memory_scene_completed")
+		get_node("PrologueOrchestrator").refresh_opening_objective()
 	if _archive_dialogue_pending and hud and hud.has_method("complete_directive"):
 		_archive_dialogue_pending = false
 		hud.complete_directive("Continue deeper into Sector 11", "The signal leads onward. Stay alert; the System is still withholding information.")

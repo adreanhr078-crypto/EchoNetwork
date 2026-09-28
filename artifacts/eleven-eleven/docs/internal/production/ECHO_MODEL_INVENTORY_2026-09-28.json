@@ -1,0 +1,132 @@
+{
+  "inspectedAt": "2026-09-28T14:31:53.899Z",
+  "status": "STRUCTURE_ONLY_VISUAL_REVIEW_REQUIRED",
+  "models": [
+    {
+      "file": "godot/assets/characters/echo_opening_uniform_v13.glb",
+      "bytes": 6029796,
+      "triangles": 72507,
+      "meshes": [
+        "EchoOpeningUniformMesh"
+      ],
+      "joints": [
+        22
+      ],
+      "clips": [
+        "preset:idle",
+        "preset:fall",
+        "preset:jump",
+        "preset:turn",
+        "preset:wakeup",
+        "preset:walk",
+        "preset:run"
+      ],
+      "images": [
+        {
+          "name": "NormalGL_9e2a6155-317b-47e3-9bf6-90b4163c40aa",
+          "format": "jpeg",
+          "width": 4096,
+          "height": 4096,
+          "encodedBytes": 401764
+        },
+        {
+          "name": "Color_9e2a6155-317b-47e3-9bf6-90b4163c40aa",
+          "format": "jpeg",
+          "width": 4096,
+          "height": 4096,
+          "encodedBytes": 701212
+        },
+        {
+          "name": "ORM_9e2a6155-317b-47e3-9bf6-90b4163c40aa",
+          "format": "jpeg",
+          "width": 4096,
+          "height": 4096,
+          "encodedBytes": 673279
+        }
+      ]
+    },
+    {
+      "file": "godot/assets/characters/echo_tripo_native.glb",
+      "bytes": 24042504,
+      "triangles": 92622,
+      "meshes": [
+        "tripo_mesh_5faf31c2-0abc-4c25-abc9-bb90530143a2"
+      ],
+      "joints": [
+        41
+      ],
+      "clips": [
+        "preset:biped:idle.001",
+        "preset:biped:run.001",
+        "preset:biped:look_around.001",
+        "preset:biped:walk.001"
+      ],
+      "images": [
+        {
+          "name": "tripo_node_58194715-d599-418d-b9d6-debb38273e61_Normal_Bake",
+          "format": "jpeg",
+          "width": 2048,
+          "height": 2048,
+          "encodedBytes": 1169937
+        },
+        {
+          "name": "tripo_node_58194715-d599-418d-b9d6-debb38273e61_BaseColor",
+          "format": "jpeg",
+          "width": 8192,
+          "height": 8192,
+          "encodedBytes": 4332817
+        },
+        {
+          "name": "Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_metallic-Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_roughness",
+          "format": "png",
+          "width": 4096,
+          "height": 4096,
+          "encodedBytes": 13588063
+        }
+      ]
+    },
+    {
+      "file": "godot/assets/characters/echo_candidate_v3.glb",
+      "bytes": 22774424,
+      "triangles": 75001,
+      "meshes": [
+        "tripo_mesh_5faf31c2-0abc-4c25-abc9-bb90530143a2",
+        "Plane"
+      ],
+      "joints": [
+        41
+      ],
+      "clips": [
+        "IDLE",
+        "INTERACT",
+        "RUN",
+        "STANDUP",
+        "WAKEUP",
+        "WALK"
+      ],
+      "images": [
+        {
+          "name": "tripo_node_58194715-d599-418d-b9d6-debb38273e61_Normal_Bake",
+          "format": "jpeg",
+          "width": 2048,
+          "height": 2048,
+          "encodedBytes": 1169937
+        },
+        {
+          "name": "tripo_node_58194715-d599-418d-b9d6-debb38273e61_BaseColor",
+          "format": "jpeg",
+          "width": 8192,
+          "height": 8192,
+          "encodedBytes": 4332817
+        },
+        {
+          "name": "Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_metallic-Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_roughness",
+          "format": "png",
+          "width": 4096,
+          "height": 4096,
+          "encodedBytes": 13588063
+        }
+      ]
+    }
+  ]
+}

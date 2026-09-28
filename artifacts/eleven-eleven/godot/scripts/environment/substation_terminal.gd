@@ -5,6 +5,11 @@ signal terminal_hacked_complete
 
 @export var is_hacked: bool = false
 var player_in_range: bool = false
+var presentation_language := "ar"
+
+func set_presentation_language(language: String) -> void:
+	presentation_language = language
+	_update_visuals()
 
 @onready var screen_mesh: MeshInstance3D = $TerminalScreen if has_node("TerminalScreen") else null
 @onready var terminal_light: OmniLight3D = $TerminalLight if has_node("TerminalLight") else null
@@ -22,6 +27,10 @@ func _on_interaction_executed(_interactor: Node3D, _verb: int) -> void:
 	interact()
 
 func _update_visuals() -> void:
+	var readout := get_node_or_null("ScreenReadout") as Label3D
+	if readout:
+		readout.text = ("الإشارة مستقرة" if is_hacked else "أثر الإشارة") if presentation_language == "ar" else ("SIGNAL ALIGNED" if is_hacked else "SIGNAL TRACE")
+		readout.text += "\n111 MHz · 45°\n" + ("القناة 7" if presentation_language == "ar" else "CHANNEL 7")
 	if not terminal_light:
 		terminal_light = find_child("TerminalLight", true, false) as OmniLight3D
 

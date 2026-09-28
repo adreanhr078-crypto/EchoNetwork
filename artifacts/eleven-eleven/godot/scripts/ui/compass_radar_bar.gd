@@ -88,8 +88,10 @@ func update_compass(cam_yaw: float, player_pos: Vector3) -> void:
 				var audio = AudioStreamPlayer.new()
 				add_child(audio)
 				audio.stream = ProceduralCinematicAudio.create_compass_ping_sfx()
+				audio.tree_exiting.connect(audio.stop)
+				audio.tree_exiting.connect(audio.set.bind("stream", null))
 				audio.play()
-				audio.finished.connect(func(): audio.queue_free())
+				audio.finished.connect(audio.queue_free)
 		elif dist > 8.0:
 			pinged_markers[id] = false
 
