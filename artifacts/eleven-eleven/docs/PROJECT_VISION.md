@@ -4,6 +4,16 @@ Status: **OWNER APPROVED**
 Version: **1.0**  
 Approved: **2026-08-28**
 
+## Owner update — 2026-09-28
+
+The Owner returned the 3D work to Godot and requested sequential story missions,
+parkour, survival and the Manhwa system journey before the outside world.
+Blender through Higgsfield is deferred until after functional work; Flow footage
+is a reference, not proof of an editable 3D conversion capability. Production
+status and the eight functional batches plus the deferred art batch are recorded
+in `internal/production/GODOT_SYSTEM_EXECUTION_2026-09-28.ar.md`. These directions
+do not mark the opening slice or phone performance accepted.
+
 ## Owner update — 2026-09-23
 
 The Owner directly instructed the team to use the existing Godot 4.7 project

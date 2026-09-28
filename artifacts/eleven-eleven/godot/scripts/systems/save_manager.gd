@@ -2,6 +2,56 @@ class_name SaveManager
 extends RefCounted
 
 const DEFAULT_SAVE_PATH := "user://minato_phase2_save.json"
+const OPENING_SAVE_PATH := "user://system_opening_v1.json"
+const OPENING_SCHEMA := "echo-opening-local-v1"
+
+# Native solo-story state only. Never contains account rewards or server receipts.
+static func validate_opening_checkpoint(raw: Variant) -> Dictionary:
+	if not raw is Dictionary or raw.get("schema") != OPENING_SCHEMA:
+		return {}
+	var milestones: Variant = raw.get("milestones")
+	var terminal: Variant = raw.get("terminal")
+	if not milestones is Dictionary or not terminal is Dictionary:
+		return {}
+	var clean := {"schema": OPENING_SCHEMA, "milestones": {}, "terminal": {}}
+	for key in ["wake", "clock", "photo", "memory", "terminal", "conduit", "ending"]:
+		if not milestones.get(key) is bool:
+			return {}
+		clean.milestones[key] = milestones[key]
+	var state: Dictionary = clean.milestones
+	if (state.clock and not state.wake) or (state.photo and not state.clock) or (state.memory and not state.photo):
+		return {}
+	if ((state.terminal or state.conduit) and not state.memory) or (state.ending and not (state.terminal and state.conduit)):
+		return {}
+	for key in ["frequency", "phase", "harmonic"]:
+		var value: Variant = terminal.get(key)
+		if not (value is float or value is int) or not is_finite(float(value)):
+			return {}
+		var minimum := 50.0 if key == "frequency" else (1.0 if key == "harmonic" else 0.0)
+		var maximum := 150.0 if key == "frequency" else (10.0 if key == "harmonic" else 180.0)
+		if float(value) < minimum or float(value) > maximum:
+			return {}
+		clean.terminal[key] = float(value)
+	return clean
+
+static func save_opening_checkpoint(data: Dictionary, path: String = OPENING_SAVE_PATH) -> bool:
+	var clean := validate_opening_checkpoint(data)
+	if clean.is_empty():
+		return false
+	var temporary := path + ".tmp"
+	if not save_to_file(clean, temporary):
+		return false
+	# A corrupt primary must not replace the last valid recovery checkpoint.
+	if FileAccess.file_exists(path) and not validate_opening_checkpoint(load_from_file(path)).is_empty():
+		if DirAccess.copy_absolute(path, path + ".bak") != OK:
+			return false
+	return DirAccess.rename_absolute(temporary, path) == OK
+
+static func load_opening_checkpoint(path: String = OPENING_SAVE_PATH) -> Dictionary:
+	var primary := validate_opening_checkpoint(load_from_file(path))
+	if not primary.is_empty():
+		return primary
+	return validate_opening_checkpoint(load_from_file(path + ".bak"))
 
 static func create_save_dictionary(player: Node = null, clock: RefCounted = null, household_mgr: RefCounted = null, npcs: Array = []) -> Dictionary:
 	var save_dict = {

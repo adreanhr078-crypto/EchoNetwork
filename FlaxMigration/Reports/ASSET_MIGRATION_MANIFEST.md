@@ -1,5 +1,7 @@
 # Echo Network — Asset Migration Manifest
 
+> Historical staging report. On 2026-09-28, 880 byte-identical mirror files were removed while preserving their canonical originals. See `../README.md` and the cleanup manifest before reconstructing this archived import package. The completeness claim below describes the earlier snapshot.
+
 This document catalogs all 3D assets, textures, animations, and audio staged for Flax Engine ingestion, specifying their origin, destination, and Flax import configurations.
 
 ---

@@ -91,6 +91,7 @@ func _setup_dungeon_listeners() -> void:
 		terminal.get_node("InteractionArea").is_enabled = false
 	var wake_conduit = main_root.find_child("EnergyPowerConduit_A", true, false)
 	if wake_conduit and wake_conduit.has_node("InteractionArea"):
+		wake_conduit.is_locked = true
 		wake_conduit.get_node("InteractionArea").is_enabled = false
 	for conduit in main_root.find_children("*", "EnergyPowerConduit", true, false):
 		if conduit and conduit.has_signal("conduit_energized"):
@@ -109,10 +110,11 @@ func _setup_dungeon_listeners() -> void:
 	if kinga_actor and kinga_actor.has_signal("kinga_defeated"):
 		kinga_actor.kinga_defeated.connect(_on_kinga_defeated)
 
-func start_prologue() -> void:
+func start_prologue(play_wake_cue: bool = true) -> void:
 	current_step = Step.STAGE_0_AWAKENING
 	emit_signal("prologue_step_changed", "STAGE_0_AWAKENING")
-	_play_wake_signal()
+	if play_wake_cue:
+		_play_wake_signal()
 
 	# Compartmentalize: Isolate Room 1; dormantly hide and disable future zones
 	set_zone_active("Corridor1_Decontamination", false)
@@ -242,6 +244,8 @@ func on_opening_memory_recovered() -> void:
 	for target_name in ["SectorTerminal", "EnergyPowerConduit_A"]:
 		var target = main_root.find_child(target_name, true, false)
 		if target and target.has_node("InteractionArea"):
+			if target_name == "EnergyPowerConduit_A":
+				target.is_locked = false
 			target.get_node("InteractionArea").is_enabled = true
 	if hud and hud.has_method("set_directive"):
 		hud.set_directive("SECTOR 11 // طريق الخروج 2/4", "استعدت أثر الصوت. فعّل المحطة وموصل الطاقة لفتح البوابة.")

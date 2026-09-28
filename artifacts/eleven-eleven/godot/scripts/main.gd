@@ -8,6 +8,151 @@ const WeatherSystemScript = preload("res://scripts/systems/weather_system.gd")
 const WorldStreamerScript = preload("res://scripts/systems/world_streamer.gd")
 const CinematicPostProcessorScript = preload("res://scripts/effects/cinematic_post_processor.gd")
 const PrologueOrchestratorScript = preload("res://scripts/cinematics/prologue_orchestrator.gd")
+const SaveManagerScript = preload("res://scripts/systems/save_manager.gd")
+
+@export var native_session_enabled := false
+var native_checkpoint_path := SaveManagerScript.OPENING_SAVE_PATH
+var native_preferences_path := "user://presentation_v1.cfg"
+var _restoring_native_session := false
+var _checkpoint_queued := false
+
+func queue_native_checkpoint() -> void:
+	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session or _checkpoint_queued:
+		return
+	_checkpoint_queued = true
+	_flush_native_checkpoint.call_deferred()
+
+func capture_native_checkpoint() -> Dictionary:
+	var prologue = get_node_or_null("PrologueOrchestrator")
+	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
+	if not prologue or not player or not puzzle:
+		return {}
+	return {
+		"schema": SaveManagerScript.OPENING_SCHEMA,
+		"milestones": {
+			"wake": not player.opening_recovery_active,
+			"clock": prologue.clock_inspected,
+			"photo": prologue.photo_inspected,
+			"memory": prologue.opening_memory_recovered,
+			"terminal": prologue.wake_terminal_solved,
+			"conduit": prologue.conduit_a_energized,
+			"ending": opening_web_handoff.reported_milestones.has("memory_scene_completed"),
+		},
+		"terminal": {"frequency": puzzle.freq_val, "phase": puzzle.phase_val, "harmonic": puzzle.harmonic_val},
+	}
+
+func _flush_native_checkpoint() -> void:
+	_checkpoint_queued = false
+	if not is_inside_tree() or not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
+		return
+	if not SaveManagerScript.save_opening_checkpoint(capture_native_checkpoint(), native_checkpoint_path):
+		push_warning("Local opening checkpoint could not be saved; prior checkpoint retained.")
+
+func restore_native_checkpoint(raw: Dictionary) -> bool:
+	if OS.has_feature("web"):
+		return false
+	var clean := SaveManagerScript.validate_opening_checkpoint(raw)
+	var prologue = get_node_or_null("PrologueOrchestrator")
+	if clean.is_empty() or not clean.milestones.wake or not prologue or not player:
+		return false
+	_restoring_native_session = true
+	player.finish_opening_recovery()
+	if opening_cinematic:
+		opening_cinematic.finish()
+	prologue.start_prologue(false)
+	var state: Dictionary = clean.milestones
+	prologue.clock_inspected = state.clock
+	prologue.photo_inspected = state.photo
+	prologue.opening_memory_recovered = state.memory
+	prologue.wake_terminal_solved = state.terminal
+	prologue.conduit_a_energized = state.conduit
+	# Replay unfinished memory by allowing the photograph to be inspected again.
+	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
+		var evidence = find_child(evidence_name, true, false)
+		var completed: bool = state.clock if evidence_name == "OpeningClock" else state.memory
+		evidence.inspected = completed
+		evidence.get_node("InteractionArea").is_enabled = not completed and (evidence_name == "OpeningClock" or state.clock)
+	var terminal = find_child("SectorTerminal", true, false)
+	terminal.is_hacked = state.terminal
+	terminal._update_visuals()
+	terminal.get_node("InteractionArea").is_enabled = state.memory and not state.terminal
+	var conduit = find_child("EnergyPowerConduit_A", true, false)
+	conduit.is_energized = state.conduit
+	conduit.is_locked = not state.memory
+	conduit._update_visuals()
+	conduit.get_node("InteractionArea").is_enabled = state.memory and not state.conduit
+	var puzzle = hud.find_child("TerminalHackPuzzle", true, false)
+	puzzle.has_started = true
+	puzzle.freq_val = clean.terminal.frequency
+	puzzle.phase_val = clean.terminal.phase
+	puzzle.harmonic_val = clean.terminal.harmonic
+	puzzle.is_solved = state.terminal
+	# Restore at an authored safe ground anchor, not arbitrary serialized transforms.
+	player.global_position = Vector3(0, 0, 4)
+	player.velocity = Vector3.ZERO
+	player.control_locked = false
+	player.set_combat_available(false)
+	if state.memory:
+		hud.set_directive("SECTOR 11 // طريق الخروج", "فعّل المحطة وموصل الطاقة لفتح البوابة.")
+	elif state.clock:
+		hud.set_directive("SECTOR 11 // الأثر الشخصي", "اتبع أثر الصورة لاستعادة الصوت.")
+	# Reconstruct local telemetry without emitting server-visible completion events.
+	opening_web_handoff.reported_milestones.clear()
+	for pair in [[true, "wake_completed"], [true, "room_entered"], [state.clock, "clock_inspected"], [state.photo, "photo_inspected"], [state.memory, "memory_recovered"], [state.terminal, "terminal_aligned"], [state.conduit, "conduit_energized"]]:
+		if pair[0]:
+			opening_web_handoff.reported_milestones.append(pair[1])
+	if state.terminal and state.conduit:
+		# Opening the restored gate must not replay a camera sweep or sound.
+		prologue.room_gate_open = true
+		var gate = find_child("PrimaryBlastGate", true, false)
+		gate.keep_collision_when_open = true
+		gate.state = gate.GateState.OPENED
+		gate.get_door_panel().position.y = gate.initial_door_y + gate.slide_distance
+		gate._update_visual_state()
+		var corridor = find_child("Corridor1_Decontamination", true, false)
+		if corridor:
+			corridor.visible = true
+			corridor.process_mode = Node.PROCESS_MODE_DISABLED
+		for event in ["puzzle_solved", "door_unlocked", "gate_revealed"]:
+			opening_web_handoff.reported_milestones.append(event)
+		hud.set_directive("SECTOR 11 // البوابة", "اقترب من البوابة لاستكمال أثر الاستيقاظ.")
+	if state.ending:
+		prologue.gate_reveal_seen = true
+		opening_web_handoff.reported_milestones.append("chapter_boundary_seen")
+		opening_web_handoff.reported_milestones.append("memory_scene_completed")
+		hud.set_directive("SECTOR 11 // نهاية الافتتاح", "تم حفظ أثر الغرفة. الطريق التالي لم يُفتح بعد.")
+	prologue._update_room_markers()
+	_restoring_native_session = false
+	return true
+
+func _save_native_preferences() -> void:
+	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
+		return
+	var preferences := ConfigFile.new()
+	preferences.set_value("presentation", "muted", audio_muted)
+	preferences.set_value("presentation", "reduced_motion", reduced_motion)
+	if preferences.save(native_preferences_path) != OK:
+		push_warning("Presentation preferences could not be saved.")
+
+func _load_native_preferences() -> void:
+	var preferences := ConfigFile.new()
+	if preferences.load(native_preferences_path) != OK:
+		return
+	_restoring_native_session = true
+	var muted: Variant = preferences.get_value("presentation", "muted", false)
+	var motion: Variant = preferences.get_value("presentation", "reduced_motion", false)
+	if muted is bool:
+		set_audio_muted(muted)
+	if motion is bool:
+		set_reduced_motion(motion)
+	_restoring_native_session = false
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
+		if player:
+			player.mobile_input_vector = Vector2.ZERO
+			player.mobile_sprint_active = false
+		_flush_native_checkpoint()
 
 @onready var player: CharacterBody3D = $EchoPlayer if has_node("EchoPlayer") else null
 @onready var boss: CharacterBody3D = $SpecimenEX000 if has_node("SpecimenEX000") else null
@@ -39,6 +184,7 @@ func _input(event: InputEvent) -> void:
 func set_audio_muted(muted: bool) -> void:
 	audio_muted = muted
 	AudioServer.set_bus_mute(0, muted)
+	_save_native_preferences()
 	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var mute_button = touch_ui.find_child("MuteBtn", true, false) as Button if touch_ui else null
 	if mute_button:
@@ -48,6 +194,7 @@ func set_audio_muted(muted: bool) -> void:
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	_save_native_preferences()
 	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var motion_button = touch_ui.find_child("MotionBtn", true, false) as Button if touch_ui else null
 	if motion_button:
@@ -167,7 +314,7 @@ func _ready() -> void:
 
 	# The Web opening package contains only the first room. Future zones remain
 	# native-only until their own authored export and story gate exist.
-	if not OS.has_feature("web"):
+	if not OS.has_feature("web") and not native_session_enabled:
 		weather_system = WeatherSystemScript.new()
 		weather_system.name = "WeatherSystem"
 		add_child(weather_system)
@@ -188,10 +335,18 @@ func _ready() -> void:
 
 	# 11. Start game clock running
 	set_process(true)
-	if player and opening_cinematic and player.get("opening_recovery_active"):
+	if native_session_enabled and not OS.has_feature("web"):
+		_load_native_preferences()
+		var checkpoint := SaveManagerScript.load_opening_checkpoint(native_checkpoint_path)
+		if not checkpoint.is_empty() and checkpoint.milestones.wake:
+			restore_native_checkpoint(checkpoint)
+			return
+	if player and opening_cinematic and player.get("opening_recovery_active") and not reduced_motion:
 		opening_cinematic.play(player)
 
 func _on_opening_recovery_completed() -> void:
+	if _restoring_native_session:
+		return
 	report_opening_milestone("wake_completed")
 	report_opening_milestone("room_entered")
 	if opening_cinematic and opening_cinematic.has_method("finish"):
@@ -359,6 +514,7 @@ func _on_terminal_accessed(terminal: Node) -> void:
 		hud.open_terminal_puzzle()
 
 func _on_terminal_puzzle_closed() -> void:
+	queue_native_checkpoint()
 	if player:
 		player.control_locked = false
 	if hud and hud.has_method("restore_touch_controls"):
@@ -378,6 +534,7 @@ func _on_terminal_puzzle_closed() -> void:
 func report_opening_milestone(milestone_id: String) -> void:
 	if opening_web_handoff:
 		opening_web_handoff.report_milestone(milestone_id)
+	queue_native_checkpoint()
 
 func _on_opening_evidence_inspected(evidence_id: String) -> void:
 	var prologue = find_child("PrologueOrchestrator", true, false)

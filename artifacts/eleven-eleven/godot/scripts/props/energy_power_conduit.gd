@@ -23,6 +23,9 @@ func _ready() -> void:
 	_update_visuals()
 
 func _update_visuals() -> void:
+	var interaction = get_node_or_null("InteractionArea")
+	if interaction:
+		interaction.is_enabled = not is_energized and not is_locked
 	if not core_light:
 		core_light = find_child("CoreLight", true, false) as OmniLight3D
 	if not spark_particles:
@@ -47,6 +50,10 @@ func interact(player: Node = null) -> void:
 		return
 	var src_pos: Vector3 = player.global_position if (player and player.is_inside_tree()) else global_position
 	energize(src_pos)
+
+func on_interacted(interactor: Node3D, _verb: int) -> Dictionary:
+	interact(interactor)
+	return {"energized": is_energized}
 
 func take_damage(amount: float = 1.0, hit_source_pos: Vector3 = Vector3.ZERO) -> void:
 	if is_energized or is_locked:

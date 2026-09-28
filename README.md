@@ -1,114 +1,37 @@
-# 11.11 — رحلة الذاكرة
+# EchoNetwork / 11.11
 
-**11.11** is a cinematic psychological interactive experience built as a web application. It combines puzzle-solving, narrative progression, and an evolving AI companion named Echo.
+لعبة بهوية Echo: رعب نفسي وغموض هادئ، ومهام متسلسلة تستند إلى المانهوا.
+Godot هو مسار التطوير المعتمد للعبة ثلاثية الأبعاد. واجهة الويب وخدمات الحساب القائمة في المشروع محفوظة.
 
-## Tech Stack
+## خريطة سريعة
 
-- **Frontend:** React 19 + TypeScript
-- **State Management:** Zustand
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Routing:** Wouter
-- **Build Tool:** Vite 6
-- **Mobile:** Capacitor (Android)
+ابدأ بـ [خريطة المشروع](PROJECT_MAP.ar.md)، ثم [نقطة الدخول](artifacts/eleven-eleven/docs/11-11/START_HERE.md) و[سجل الاستمرار](artifacts/eleven-eleven/docs/11-11/design/CONTINUATION.md).
 
-## Project Structure
+| المسار | المحتوى |
+| --- | --- |
+| `artifacts/eleven-eleven/godot/` | مشاهد Godot والشخصيات والتحريك والاختبارات |
+| `artifacts/eleven-eleven/src/` | واجهة الويب ومنطق التطبيق |
+| `artifacts/eleven-eleven/functions/` و`workers/` | خدمات المشروع |
+| `artifacts/eleven-eleven/docs/` | الكانون والرؤية وخطط الإنتاج |
+| `artifacts/eleven-eleven/audits/` | العيوب وأدلة الاختبار |
+| `FlaxMigration/` | أرشيف تجربة نقل قديمة؛ انظر README داخله |
 
-```
-artifacts/eleven-eleven/
-├── src/
-│   ├── core/                    # Game systems
-│   │   ├── narrativeEngine.ts       # 4-act story progression
-│   │   ├── memoryShardsSystem.ts    # 219 memory shards timeline
-│   │   ├── echoCharacterSystem.ts   # Living character animation
-│   │   ├── echoPuzzleExpansion.ts   # Expanded puzzle arcs (220-1000)
-│   │   ├── echoEvolutionSystem.ts   # Echo transformation engine
-│   │   ├── echoImmersiveSystem.ts   # Voice + memory persistence
-│   │   └── ...
-│   ├── stores/
-│   │   └── gameStore.ts             # Central Zustand state (single source of truth)
-│   ├── components/                  # UI components
-│   ├── styles/
-│   │   └── eleven-theme.css
-│   ├── App.tsx
-│   └── main.tsx
-├── android/                        # Capacitor Android project
-├── tools/project-doctor/           # Diagnostic scripts
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── capacitor.config.ts
-├── build-android.bat                # Windows Android build
-├── build-android.sh                 # Linux/macOS Android build
-└── ANDROID_SETUP_INSTRUCTIONS.md
-```
+## تشغيل الويب وفحوصه
 
-## How to Run Locally
+من `artifacts/eleven-eleven/`:
 
-```bash
-cd artifacts/eleven-eleven
+```text
 npm install
 npm run dev
+npm run agent:preflight
+npm run agent:postflight
 ```
 
-Then open `http://localhost:5173` in your browser.
+## تشغيل Godot
 
-## Build for Web
+افتح `artifacts/eleven-eleven/godot/project.godot` في Godot 4.7.2.
+نسخة افتتاح الويب مرشح يحتاج قبولاً كاملاً قبل تفعيله؛ لا تُستنتج جودة الهاتف أو اكتمال القصة من نجاح الاختبارات الآلية.
 
-```bash
-cd artifacts/eleven-eleven
-npm run build
-npm run serve
-```
+## حفظ المشروع
 
-## Android Build
-
-### Prerequisites
-- Java JDK 17+
-- Android Studio
-- Android SDK
-
-### Debug APK
-
-```bash
-cd artifacts/eleven-eleven
-./build-android.bat debug     # Windows
-./build-android.sh debug      # Linux/macOS
-```
-
-Output: `android/app/build/outputs/apk/debug/app-debug.apk`
-
-### Release AAB (Google Play)
-
-1. Generate a keystore:
-```bash
-keytool -genkey -v -keystore your-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias yourkeyalias
-```
-
-2. Copy `android/keystore.properties.example` to `android/keystore.properties` and fill in your values.
-
-3. Build:
-```bash
-cd artifacts/eleven-eleven
-./build-android.bat release     # Windows
-./build-android.sh release      # Linux/macOS
-```
-
-Output: `android/app/build/outputs/bundle/release/app-release.aab`
-
-## Game Systems
-
-- **219 original puzzles** across 4 entities (Echo, Watcher, Signal, Architect)
-- **781 generated puzzles** across 5 narrative arcs (Prelude, Fracture, Architect, Signal, Final)
-- **1000 total puzzles**
-- **4 endings** influenced by trust, memory, flower growth, and player choices
-- **24 achievements** tracking milestones
-- **219 memory shards** unlocking story fragments
-- **Flower growth system** with 5 stages (seed → sprout → bloom → flourish → completed)
-- **Real-time clock** affecting world stability and Echo's behavior
-- **Echo AI** with dynamic dialogue, personality evolution, and emotional states
-
-## Notes
-
-- The main application is in `artifacts/eleven-eleven/`.
-- A legacy standalone prototype exists in `artifacts/11-11-full-app/` and is not used by the main build.
+الكانون والأصول الفريدة والتقارير محفوظة. يوثق سجل تنظيف 2026-09-28 إزالة نسخ أرشيفية متطابقة فقط، مع الأصل المحفوظ وبصمته ونسخة احتياطية.
