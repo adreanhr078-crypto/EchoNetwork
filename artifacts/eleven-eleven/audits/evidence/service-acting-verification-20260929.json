@@ -1,0 +1,184 @@
+{
+  "baselineMedia": "CP-02: 13 existing web-asset failures/80. Library unchanged; not rerun in CP-03.",
+  "runtime": "Godot 4.7.2 stable",
+  "contact": {
+    "maxWristTargetErrorMeters": 4.9151248E-07,
+    "samples": 144,
+    "fingerGripAcceptance": "UNVERIFIED",
+    "allowedMeters": 0.04
+  },
+  "scopedIntegration": "VERIFIED",
+  "apiAgentAccess": {
+    "generationSubmitted": false,
+    "httpCode": 403
+  },
+  "native": {
+    "phonePlay": "UNVERIFIED",
+    "apkSha256": "9ab71a33e8665bed55c1b192a5edc3bd9578d30902a672220ef5d9531e0f2c3c",
+    "apkBytes": 83159825,
+    "pckBytes": 56573060,
+    "packagedBoot": "Console wrapper, default and preview, 180 frames; engine header required and errors rejected"
+  },
+  "images": [
+    {
+      "sha256": "03b69d95843b9f1c8109787df8cf526b44022f601294c6ef7ed68ab51c1e8bf2",
+      "file": "service-closed-ar-1280x720.png"
+    },
+    {
+      "sha256": "155ef45cf901d90cc15f7de91eb9b5eba4289457f71e891ff842076dfa692bc2",
+      "file": "service-closed-ar-1920x1080.png"
+    },
+    {
+      "sha256": "a8ccfa221b186f327730df4f5e5ad5f1091cb07bc72a835c17f429106c1186b1",
+      "file": "service-closed-ar-2408x1080.png"
+    },
+    {
+      "sha256": "76ec37d864d0d937248e5a795f86e2b344f20b021615fcccd65cbfaf4d8821d3",
+      "file": "service-closed-en-1280x720.png"
+    },
+    {
+      "sha256": "e1515762fe4838dd243da3060f747c9eabe6ba4f4623e5f5a8112090b1446e27",
+      "file": "service-closed-en-1920x1080.png"
+    },
+    {
+      "sha256": "280b337ada7031abaea9aa2ba88e02f5bf8079b589ef9df00a657f848d7a40c3",
+      "file": "service-closed-en-2408x1080.png"
+    },
+    {
+      "sha256": "90eed6e1a76a911e5a0c9aaa3ba47cd7d1925a033efcabbfff9a4fb084f1594e",
+      "file": "service-open-ar-1280x720.png"
+    },
+    {
+      "sha256": "8087d345a24686539eb29215c3359c9d75893922f0762de51c58917c07d57fcc",
+      "file": "service-open-ar-1920x1080.png"
+    },
+    {
+      "sha256": "03c16ea62c6a330839007385c28bbd7297752c323ea53dbc74a920cfacfa936e",
+      "file": "service-open-ar-2408x1080.png"
+    },
+    {
+      "sha256": "014e6b08ced36a68f47e741cfb14538808b5fbe136fbddc8677248dbd1d76782",
+      "file": "service-opening-ar-1280x720.png"
+    },
+    {
+      "sha256": "c9981b0c010370ce6a84a57fca48f481c5e43cf74cb990c18a95f60f3674a81f",
+      "file": "service-opening-ar-1920x1080.png"
+    },
+    {
+      "sha256": "d569c21ce7e463b1cb0d5172e999bb1af74b4e5eceb1147d2c11b028553f609a",
+      "file": "service-opening-ar-2408x1080.png"
+    }
+  ],
+  "checks": [
+    {
+      "log": "acting-preflight.log",
+      "status": "PASS",
+      "sha256": "f421414370d8a9f03b578f44613ea955764150d2c268c71dc66144304b99362f"
+    },
+    {
+      "log": "acting-env.log",
+      "status": "PASS",
+      "sha256": "b0212f8135f7b35f2be6f81ffd3e31d4870607dab312691e0ef7255bff3ddb40"
+    },
+    {
+      "log": "acting-postflight-final.log",
+      "status": "PASS",
+      "sha256": "6ec8863e5ec9df209a30de1caff4636b33f933ac6b2b17a4c7e1f733c3a9cd4c"
+    },
+    {
+      "log": "acting-service-normal-final.log",
+      "status": "PASS",
+      "sha256": "064f1637aa7f6d30225e492f03a2c9140e93491426a547400a06ccf32b628aec"
+    },
+    {
+      "log": "acting-service-skip-final.log",
+      "status": "PASS",
+      "sha256": "e43d274098c2576a712b3c3f650c5782522c65e66c7f89b151365a1fe18d5eb1"
+    },
+    {
+      "log": "acting-service-reduced-final.log",
+      "status": "PASS",
+      "sha256": "e43d274098c2576a712b3c3f650c5782522c65e66c7f89b151365a1fe18d5eb1"
+    },
+    {
+      "log": "acting-service-change-final.log",
+      "status": "PASS",
+      "sha256": "e43d274098c2576a712b3c3f650c5782522c65e66c7f89b151365a1fe18d5eb1"
+    },
+    {
+      "log": "acting-route-default-final.log",
+      "status": "PASS",
+      "sha256": "a3736d0b98567afd725f20126725214d409c9aa0caf22f6dbfaf1fdb93f6c4ff"
+    },
+    {
+      "log": "acting-route-maintenance-final.log",
+      "status": "PASS",
+      "sha256": "e00418380a14713e75c83579becc3ddae78fb2f4a81ea84c1d78117cb3941391"
+    },
+    {
+      "log": "acting-native_pause_touch_smoke-final.log",
+      "status": "PASS",
+      "sha256": "ce2fc25127c47b204544d1bda34812595f0daa696122cd7e83d0894482305bf4"
+    },
+    {
+      "log": "acting-maintenance_checkpoint_smoke-final.log",
+      "status": "PASS",
+      "sha256": "25ca8faa759985a906974e8fe33091d5d3074dd5ad816d481cdfed49ec5f3c95"
+    },
+    {
+      "log": "acting-footstep_lifetime_smoke-final.log",
+      "status": "PASS",
+      "sha256": "32ef0435eef051f92cd803fb3316a5b01782527d2b7e5725dd6faf8fd2040409"
+    },
+    {
+      "log": "acting-capture-1280-final.log",
+      "status": "PASS",
+      "sha256": "d3f95317fe09c8137318188f502a6d463d0f6d8af5e205ca8107e7f08d1a4c79"
+    },
+    {
+      "log": "acting-capture-1920-final.log",
+      "status": "PASS",
+      "sha256": "d052ef2e259edf697ea95360a409246b0da3ba7d299ab1303a187c652b2aa276"
+    },
+    {
+      "log": "acting-capture-2408-final.log",
+      "status": "PASS",
+      "sha256": "fe6e582ac691eca9bd3431f392dd797bbe4e503c20cce1a2299c940dd0000ec7"
+    },
+    {
+      "log": "acting-native-build-final.log",
+      "status": "PASS",
+      "sha256": "625407b28658f6446530e2a6925434182e94a0096e1006ab347ed0d1e625f239"
+    },
+    {
+      "log": "acting-pack-default-final.log",
+      "status": "PASS",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "log": "acting-pack-preview-final.log",
+      "status": "PASS",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "notVerified": [
+    "Genshin-level quality",
+    "final finger/palm acting",
+    "foot IK and final locomotion quality",
+    "human 5-8 minute benchmark",
+    "physical phone and 20-minute performance",
+    "five-player study",
+    "auditory approval",
+    "full iframe handoff",
+    "hospital journey"
+  ],
+  "checkpoint": "CP-20260929-03",
+  "baseCommit": "ea9c2c52d874fc81bf2c9b8460f74f301f7e3450",
+  "scope": "Bounded original-rig wrist contact, native service timing, floor-light readability and lifecycle",
+  "phaseAcceptance": "PARTIAL",
+  "rejectedEvidence": [
+    "First capture without explicit resolution failed viewport size guard",
+    "First hand-target mapping missed by 15cm; corrected and rechecked",
+    "Empty GUI-output boot logs were not accepted; console wrapper rerun required"
+  ]
+}

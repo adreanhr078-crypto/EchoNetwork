@@ -47,6 +47,7 @@
 - `godot/scripts/systems/system_journey_preview.gd`: مراحل الصيانة وحفظ الاستراحة المستقل.
 - `godot/scripts/environment/maintenance_service_override.gd`: تفاعل تنفيس الضغط عبر اللاعب؛ الحركة والتصادم في `maintenance_vertical.gd`.
 - `godot/scripts/cinematics/maintenance_service_cinematic.gd`: لقطة داخل الغرفة الفعلية مع تخطي واستعادة التحكم، باستخدام Phantom Camera.
+- `godot/scripts/player/service_hand_contact.gd`: تماس معصمي إيكو مع عجلة الصيانة على الهيكل الأصلي باستخدام TwoBoneIK3D؛ لا سلطة له على فتح الباب.
 - `godot/addons/phantom_camera/`: مكتبة كاميرا MIT مثبتة بإصدار محدد؛ مستثناة من البحث المعتاد. سجل النسخة في `art/production/maintenance-jutsu-v1/camera-library.json`.
 - `godot/scripts/boot.gd`: خيار مراجعة النسخة الأصلية `--maintenance-preview` بعد فاصل معاملات المستخدم؛ يفتح النموذج المتصل، والافتتاح الافتراضي محدود.
 - `art/production/maintenance-jutsu-v1/` و`art/production/echo-parkour-v1/`: مصادر الغرفة والتحريك القابلة للتحرير؛ أصول التشغيل في `godot/assets/`.

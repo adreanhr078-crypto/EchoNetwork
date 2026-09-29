@@ -81,10 +81,10 @@ func _process(delta: float) -> void:
 	if main.reduced_motion:
 		finish()
 		return
-	if _elapsed >= 2.25 and not _returning:
+	if _elapsed >= 2.85 and not _returning:
 		_returning = true
 		_return_shot.priority = 30
-	if _elapsed >= 2.65: finish()
+	if _elapsed >= 3.25: finish()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if active and _elapsed > 0.15 and event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_SPACE,KEY_E]:
@@ -94,6 +94,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func finish() -> void:
 	if not active: return
 	active = false
+	if is_instance_valid(room): room.end_service_contact()
 	if is_instance_valid(_previous_camera) and not _previous_camera.is_queued_for_deletion(): _previous_camera.make_current()
 	if is_instance_valid(_host): _host.process_mode = Node.PROCESS_MODE_DISABLED
 	if is_instance_valid(_skip): _skip.visible = false

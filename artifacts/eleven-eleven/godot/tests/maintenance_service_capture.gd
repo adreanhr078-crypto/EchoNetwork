@@ -7,6 +7,7 @@ func _run() -> void:
 	var args := OS.get_cmdline_user_args()
 	root.content_scale_size = Vector2i(int(args[0]),int(args[1])) if args.size() == 2 else Vector2i(1920,1080)
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
+	root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_IGNORE
 	var main = load("res://scenes/system_journey_preview.tscn").instantiate()
 	main.native_checkpoint_path = "user://service_capture_opening.json"
 	main.native_preferences_path = "user://service_capture.cfg"
@@ -50,7 +51,7 @@ func _run() -> void:
 	for i in range(64): await physics_frame
 	await RenderingServer.frame_post_draw
 	if not _save("opening-ar"): return
-	for i in range(100): await physics_frame
+	for i in range(180): await physics_frame
 	await RenderingServer.frame_post_draw
 	if not _save("open-ar"): return
 	if not director.room.service_open:
@@ -69,7 +70,7 @@ func _run() -> void:
 func _save(state: String) -> bool:
 	var capture := root.get_texture().get_image()
 	if capture == null or capture.is_empty() or capture.get_size() != root.content_scale_size:
-		push_error("Service capture missing or has incorrect viewport dimensions")
+		push_error("Service capture missing or has incorrect viewport dimensions: requested %s actual %s" % [root.content_scale_size,capture.get_size() if capture else Vector2i.ZERO])
 		quit(1)
 		return false
 	var path := ProjectSettings.globalize_path("res://../audits/evidence/service-%s-%dx%d.png" % [state,capture.get_width(),capture.get_height()])

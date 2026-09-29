@@ -5,6 +5,8 @@ signal service_opened
 signal service_release_started
 const OVERRIDE = preload("res://scripts/environment/maintenance_service_override.gd")
 const RELEASE_SOUND = preload("res://assets/audio/maintenance_service_release_v1.ogg")
+const HAND_CONTACT = preload("res://scripts/player/service_hand_contact.gd")
+var hand_contact: Node3D
 var service_allowed := false
 var service_open := false
 var service_opening := false
@@ -86,10 +88,10 @@ func _ready() -> void:
 	_release_audio.max_distance = 12
 	add_child(_release_audio)
 	var destination_light := OmniLight3D.new()
-	destination_light.position = Vector3(0,7.25,-11.9)
+	destination_light.position = Vector3(0,6.8,-11.5)
 	destination_light.light_color = Color(0.8,0.9,1)
-	destination_light.light_energy = 0.8
-	destination_light.omni_range = 4
+	destination_light.light_energy = 1.25
+	destination_light.omni_range = 5
 	add_child(destination_light)
 
 func set_language(language: String) -> void:
@@ -105,12 +107,16 @@ func request_service_release(interactor: Node3D) -> Dictionary:
 	service_opening = true
 	_disable_interaction()
 	service_release_started.emit()
+	hand_contact = HAND_CONTACT.new()
+	add_child(hand_contact)
+	if not hand_contact.begin(interactor,self): hand_contact.stop()
 	_release_audio.play()
 	_service_tween = create_tween()
 	if not _motion_reduced:
 		_valve_tween = create_tween()
-		_valve_tween.tween_property(_valve,"rotation:z",_closed_valve.z + TAU,0.65).set_trans(Tween.TRANS_SINE)
-	_service_tween.tween_interval(0.65)
+		_valve_tween.tween_interval(0.65)
+		_valve_tween.tween_property(_valve,"rotation:z",_closed_valve.z + PI*0.18,0.6).set_trans(Tween.TRANS_SINE)
+	_service_tween.tween_interval(1.25)
 	_service_tween.tween_property(_gate,"position:y",_closed_gate.y+2.1,1.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_service_tween.tween_callback(func():
 		_gate_collider.set_deferred("disabled",true)
@@ -121,6 +127,7 @@ func request_service_release(interactor: Node3D) -> Dictionary:
 	return {"released":true}
 
 func restore_service_open() -> void:
+	end_service_contact()
 	if _service_tween: _service_tween.kill()
 	if _valve_tween: _valve_tween.kill()
 	service_opening = false
@@ -130,6 +137,9 @@ func restore_service_open() -> void:
 	_gate_collider.set_deferred("disabled",true)
 	_release_audio.stop()
 	_disable_interaction()
+
+func end_service_contact() -> void:
+	if is_instance_valid(hand_contact): hand_contact.stop()
 
 func _disable_interaction() -> void:
 	service_interaction.is_enabled = false

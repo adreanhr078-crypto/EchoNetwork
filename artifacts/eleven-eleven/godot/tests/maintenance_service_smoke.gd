@@ -63,6 +63,8 @@ func _run() -> void:
 	var cinematic = director.service_cinematic
 	var player_camera = player.find_child("Camera3D",true,false)
 	if not _check(cinematic.active == (not main.reduced_motion), "cinematic ignored reduced motion"): return
+	if "--normal" in args:
+		if not _check(room.hand_contact.active, "service gesture failed: " + room.hand_contact.start_result): return
 	if "--skip" in args:
 		cinematic._skip.pressed.emit()
 		if not _check(not cinematic.active and not player.control_locked and not room.service_open and room.service_opening and root.get_camera_3d() == player_camera, "skip changed gate authority or retained control/camera"): return
@@ -71,23 +73,54 @@ func _run() -> void:
 	var gate_pose: Vector3 = room._gate.position
 	var paused_camera = root.get_camera_3d()
 	var paused_camera_pose: Transform3D = paused_camera.global_transform
+	var paused_gesture_time: float = room.hand_contact.elapsed
 	await create_timer(0.12).timeout
 	if not _check(room._gate.position == gate_pose and director.stage == 5, "pause advanced the gate or task"): return
 	if not _check(paused_camera.global_transform.is_equal_approx(paused_camera_pose), "pause advanced the cinematic camera"): return
+	if not _check(is_equal_approx(room.hand_contact.elapsed,paused_gesture_time), "pause advanced hand gesture"): return
 	if "--normal" not in args:
 		main.set_reduced_motion(true)
 		if not _check(room._valve.rotation == room._closed_valve and not cinematic.active and not player.control_locked, "reduced motion did not end the camera insert and wheel rotation"): return
 	main.set_audio_muted(true)
 	if not _check(AudioServer.is_bus_mute(0), "provider cue bypassed mute"): return
 	main.native_pause_menu.set_session_paused(false)
-	for i in range(160): await physics_frame
+	for i in range(220): await physics_frame
 	if not _check(room.service_open and director.stage == 6 and room._gate_collider.disabled, "release never cleared the barrier"): return
 	if not _check(not cinematic.active and not player.control_locked and root.get_camera_3d() == player_camera, "normal insert retained camera or controls"): return
+	if "--normal" in args:
+		print("HAND_CONTACT samples=",room.hand_contact.contact_sample_count," max_m=",room.hand_contact.max_contact_error)
+		if not _check(room.hand_contact.contact_sample_count >= 20 and room.hand_contact.max_contact_error < 0.04, "service wrists do not reach wheel rim"): return
+	if not _check(not room.hand_contact.active and room.hand_contact._solvers.is_empty(), "service retained skeleton modifiers"): return
 	if not _check(not player.test_move(from,Vector3(0,0,-1)), "cleared panel still blocks the capsule"): return
 	_write(6)
 	director._restore()
 	if not _check(room.service_open and not room._release_audio.playing and director.stage == 6, "resume replayed audio or closed the door"): return
 	if not _check(not player.contract_with_zero_sealed and not player.combat_available, "service task enabled powers"): return
+	# Negative staged fixture: presentation may never pull the capsule through a wall.
+	player.control_locked = true
+	var anchor: Vector3 = room.to_global(Vector3(1.25,5.4,-12.18))
+	player.global_position = anchor + Vector3(0.8,0,0)
+	var blocker := StaticBody3D.new()
+	var blocker_shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(0.1,2,0.8)
+	blocker_shape.shape = box
+	blocker.add_child(blocker_shape)
+	root.add_child(blocker)
+	blocker.global_position = anchor + Vector3(0.4,1,0)
+	await physics_frame
+	var blocked_gesture = room.HAND_CONTACT.new()
+	room.add_child(blocked_gesture)
+	var initial_pose: Transform3D = player.global_transform
+	if not _check(not blocked_gesture.begin(player,room) and blocked_gesture.start_result == "alignment_blocked" and blocked_gesture._solvers.is_empty() and player.global_transform == initial_pose, "blocked gesture moved player or created IK"): return
+	blocked_gesture.queue_free()
+	blocker.queue_free()
+	player.global_position = anchor + Vector3(2,0,0)
+	var distant_gesture = room.HAND_CONTACT.new()
+	room.add_child(distant_gesture)
+	if not _check(not distant_gesture.begin(player,room) and distant_gesture.start_result == "alignment_too_far", "gesture accepted distant alignment"): return
+	distant_gesture.queue_free()
+	player.control_locked = false
 	main.queue_free()
 	for i in range(4): await process_frame
 	await create_timer(0.12).timeout
