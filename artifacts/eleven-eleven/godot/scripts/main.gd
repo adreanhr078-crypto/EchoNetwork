@@ -12,6 +12,7 @@ const SaveManagerScript = preload("res://scripts/systems/save_manager.gd")
 const NativePauseMenuScript = preload("res://scripts/ui/native_pause_menu.gd")
 
 @export var native_session_enabled := false
+@export var maintenance_preview_enabled := false
 var native_checkpoint_path := SaveManagerScript.OPENING_SAVE_PATH
 var native_preferences_path := "user://presentation_v1.cfg"
 var _restoring_native_session := false
@@ -60,6 +61,9 @@ func refresh_opening_language() -> void:
 		prompt.show_prompt(prompt.current_interactable)
 	if native_pause_menu:
 		native_pause_menu.refresh_labels()
+	var journey := get_node_or_null("SystemJourneyPreview")
+	if journey and journey.room:
+		journey.refresh_objective()
 
 func queue_native_checkpoint() -> void:
 	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session or _checkpoint_queued:
@@ -252,6 +256,7 @@ func set_audio_muted(muted: bool) -> void:
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	if companion: companion.reduced_motion = enabled
 	var terminal = find_child("SectorTerminal", true, false)
 	if terminal and terminal.has_method("set_reduced_motion"):
 		terminal.set_reduced_motion(enabled)
@@ -274,6 +279,11 @@ func set_reduced_motion(enabled: bool) -> void:
 		hud.show_tutorial_toast("TOAST_MOTION", "R", opening_text("حركة أقل", "Reduced motion") if enabled else opening_text("الحركة المعتادة", "Standard motion"), opening_text("يمكن تغيير حركة الكاميرا في أي وقت.", "Camera motion can be changed at any time."), 2.5)
 
 func _ready() -> void:
+	if maintenance_preview_enabled and native_session_enabled and not OS.has_feature("web"):
+		var journey := Node.new()
+		journey.set_script(load("res://scripts/systems/system_journey_preview.gd"))
+		journey.name = "SystemJourneyPreview"
+		add_child(journey)
 	audio_muted = AudioServer.is_bus_mute(0)
 	var touch_ui_initial = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var mute_button_initial = touch_ui_initial.find_child("MuteBtn", true, false) as Button if touch_ui_initial else null
@@ -352,8 +362,8 @@ func _ready() -> void:
 			touch_ui.attack_tapped.connect(player.perform_attack)
 			touch_ui.iai_charge_started.connect(player.start_iai_charge)
 			touch_ui.iai_charge_released.connect(player.execute_iai_slash)
-			touch_ui.dodge_tapped.connect(player.start_dodge)
-			touch_ui.jump_tapped.connect(player.perform_jump)
+			touch_ui.dodge_tapped.connect(player.request_dodge)
+			touch_ui.jump_tapped.connect(player.request_jump)
 			touch_ui.camera_swiped.connect(player.apply_camera_look)
 			touch_ui.sprint_changed.connect(func(active: bool):
 				player.mobile_sprint_active = active and not player.control_locked

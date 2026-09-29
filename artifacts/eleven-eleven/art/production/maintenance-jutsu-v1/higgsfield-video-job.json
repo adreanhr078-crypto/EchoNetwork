@@ -1,0 +1,22 @@
+{
+  "priceSource": "https://open.higgsfield.ai/models/kling-video/v3.0/4k/text-to-video/api-reference",
+  "submittedAt": "2026-09-28T18:46:50.7367668Z",
+  "requestId": "3d70bff9-25a7-4164-b5cb-8a702ae40dc8",
+  "status": "completed",
+  "purpose": "Maintenance shutter motion and sound reference; not interactive character animation",
+  "listedRateUsdPerSecond": 0.231,
+  "input": {
+    "prompt": "Original anime game cinematic reference, no characters, no text. A quiet graphite maintenance shaft with ivory ceramic climbing grips, a narrow upper service platform and sparse cyan route lights. Static shoulder-height camera facing the climb wall. A small overhead service shutter opens slowly, dust falls in one soft shaft of neutral light. Psychological mystery, measured exposure, no neon bloom, no horror creature or magical effects. Sound: a single metallic latch, soft motor movement, distant ventilation, then silence. No music, no speech.",
+    "duration": 3,
+    "aspect_ratio": "16:9",
+    "multi_shots": false,
+    "cfg_scale": 0.5,
+    "sound": "on"
+  },
+  "estimatedUsd": 0.693,
+  "model": "kling-video/v3.0/4k/text-to-video",
+  "actualChargeUsd": null,
+  "outputFile": "shutter-reference-v1.mp4",
+  "outputBytes": 292265,
+  "outputSha256": "A4143E170E885B82AA76AA2510B1D110A95B94B624E5DCAA4F89B9A33E0CEFFE"
+}

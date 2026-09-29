@@ -6,13 +6,21 @@ Approved: **2026-08-28**
 
 ## Owner update — 2026-09-28
 
-The Owner returned the 3D work to Godot and requested sequential story missions,
-parkour, survival and the Manhwa system journey before the outside world.
-Blender through Higgsfield is deferred until after functional work; Flow footage
-is a reference, not proof of an editable 3D conversion capability. Production
-status and the eight functional batches plus the deferred art batch are recorded
-in `internal/production/GODOT_SYSTEM_EXECUTION_2026-09-28.ar.md`. These directions
-do not mark the opening slice or phone performance accepted.
+The Owner returned the 3D work to Godot and approved the continuation plan in
+`internal/production/ECHO_SYSTEM_TO_HOSPITAL_PLAN_2026-09-28.ar.md`.
+Target chapter length is 90–120 minutes, with Japanese anime voice performance,
+Arabic/English subtitles, sequential missions and broad explicitly climbable
+surfaces with limited assist. Human survival precedes the Zero contract;
+supernatural powers follow it. This chapter ends at hospital awakening and a
+short bedside interaction. Outside-world production stays later.
+
+The later Owner instruction supersedes deferring all Blender/Higgsfield art:
+art, sound and animation enter each batch, with batch 9 for final review.
+Interactive scenes run in Godot; generated video supports references, memories
+and fixed transitions. Video-to-editable-3D and paid-key Jutsu support remain
+unverified capabilities. First delivery is a bounded maintenance traversal
+segment before mass room production. Existing opening and device gates remain
+open; an opt-in prototype does not mark the current phase accepted.
 
 ## Owner update — 2026-09-23
 

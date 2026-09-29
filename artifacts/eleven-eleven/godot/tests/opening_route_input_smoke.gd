@@ -6,17 +6,20 @@ var main: Node
 var player: CharacterBody3D
 var dialogue: Control
 var touch: Control
+var maintenance := false
 
 func _init() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
+	maintenance = "maintenance" in OS.get_cmdline_user_args()
 	for terminal_first in [true, false]:
 		_clear()
-		main = load("res://scenes/opening_native_room.tscn").instantiate()
+		main = load("res://scenes/system_journey_preview.tscn" if maintenance else "res://scenes/opening_native_room.tscn").instantiate()
 		main.native_checkpoint_path = SAVE
 		main.native_preferences_path = PREFS
 		root.add_child(main)
+		if maintenance: main.get_node("SystemJourneyPreview").checkpoint_path = "user://maintenance_route_smoke.json"
 		await process_frame
 		main.set_audio_muted(true)
 		main.set_reduced_motion(true)
@@ -75,7 +78,9 @@ func _run() -> void:
 		if not _check(dialogue.is_active and prologue.gate_reveal_seen, "gate threshold missing ending dialogue"): return
 		await _continue_dialogue()
 		if not _check(main.opening_web_handoff.reported_milestones.has("memory_scene_completed") and not player.combat_available, "ending not completed or combat activated"): return
-		if terminal_first:
+		if maintenance:
+			if not await _maintenance_route(): return
+		if terminal_first and not maintenance:
 			if not await _walk(Vector3(0, 0, -7)): return
 			if not await _walk(Vector3(-7.7, 0, -7)): return
 			player.camera_boom.rotation.y = -PI / 2
@@ -122,8 +127,49 @@ func _continue_dialogue() -> void:
 		await process_frame
 
 func _clear() -> void:
-	for path in [SAVE, SAVE + ".bak", SAVE + ".tmp", PREFS]:
+	for path in [SAVE, SAVE + ".bak", SAVE + ".tmp", PREFS, "user://maintenance_route_smoke.json", "user://maintenance_route_smoke.json.bak", "user://maintenance_route_smoke.json.tmp"]:
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
+
+func _maintenance_route() -> bool:
+	for i in range(6): await physics_frame
+	var director = main.get_node("SystemJourneyPreview")
+	if not _check(director.room != null and player.surface_traversal_enabled, "opening did not connect to maintenance"): return false
+	if not await _walk(Vector3(0, 0, -23.1)): return false
+	if not _check(director.stage == 1, "maintenance entry mission not reached"): return false
+	if not await _climb_and_mantle(): return false
+	if not _check(director.stage == 2, "first mantle did not advance mission"): return false
+	if not await _walk(Vector3(2.1, 3.4, -25)): return false
+	touch.jump_tapped.emit()
+	if not await _walk(Vector3(4, 3.4, -25)): return false
+	if not _check(director.stage == 3, "physical gap crossing did not advance mission"): return false
+	if not await _walk(Vector3(4, 3.4, -26.5)): return false
+	if not await _climb_and_mantle(): return false
+	if not _check(director.stage == 4, "second mantle did not advance mission"): return false
+	if not await _walk(Vector3(3.25, 5.4, -29.5)): return false
+	touch.jump_tapped.emit()
+	if not await _walk(Vector3(2.3, 5.4, -30.25)): return false
+	if not _check(director.stage == 5 and not player.contract_with_zero_sealed, "upper access failed or Zero leaked"): return false
+	main.set_presentation_language("en")
+	if not _check(main.hud.quest_title.text == "Service access reached", "journey language was overwritten by opening objective"): return false
+	main.set_presentation_language("ar")
+	if not _check(director._read(director.checkpoint_path) == 5, "journey checkpoint was not saved"): return false
+	print("PASS connected maintenance route: opening -> two climbs/mantles -> gap -> upper exit, touch signals and independent save")
+	return true
+
+func _climb_and_mantle() -> bool:
+	touch.joystick_moved.emit(Vector2(0,-1))
+	touch.jump_tapped.emit()
+	for i in range(180):
+		await physics_frame
+		if player.surface_motor.hanging: break
+	if not _check(player.surface_motor.hanging, "route failed to hang at authored ledge"): return false
+	touch.jump_tapped.emit()
+	for i in range(140):
+		await physics_frame
+		if not player.traversal.is_climbing(): break
+	touch.joystick_moved.emit(Vector2.ZERO)
+	for i in range(16): await physics_frame
+	return _check(player.is_on_floor(), "route mantle did not land")
 
 func _check(condition: bool, message: String) -> bool:
 	if not condition:

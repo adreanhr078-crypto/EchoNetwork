@@ -1,6 +1,8 @@
 class_name MixamoAnimationBridge
 extends RefCounted
 
+const AUTHORED_TRAVERSAL = preload("res://assets/animations/echo_parkour_v1.res")
+
 ## MixamoAnimationBridge
 ## Dynamically loads authored Mixamo FBX animations, retargets their humanoid tracks
 ## to Echo's Tripo skeleton bones, and registers them into Echo's AnimationPlayer.
@@ -17,8 +19,8 @@ const BONE_MAP: Dictionary = {
 	"mixamorig_RightForeArm": "tripo__0_Right_Limb_1",
 	"mixamorig_RightHand": "tripo__0_Right_Limb_2",
 	"mixamorig_LeftShoulder": "tripo__Spine_3",
-	"mixamorig_LeftArm": "tripo__0_Left_Limb_0",
-	"mixamorig_LeftForeArm": "tripo__0_Left_Limb_1",
+	"mixamorig_LeftArm": "tripo__Spine_4",
+	"mixamorig_LeftForeArm": "tripo__0_Left_Limb_0",
 	"mixamorig_LeftHand": "tripo__0_Left_Limb_1",
 	"mixamorig_LeftUpLeg": "tripo__1_Left_Limb_0",
 	"mixamorig_LeftLeg": "tripo__1_Left_Limb_1",
@@ -60,6 +62,18 @@ static func inject_animations(ap: AnimationPlayer) -> void:
 			if sample_track.contains(":"):
 				skel_prefix = sample_track.split(":")[0]
 				break
+	# These clips are baked on Echo's own rest rig, rather than transferred
+	# as raw quaternions from a different skeleton. Keep the original model.
+	var authored := AUTHORED_TRAVERSAL as AnimationLibrary
+	if authored:
+		for name in authored.get_animation_list():
+			if lib.has_animation(name): continue
+			var clip := authored.get_animation(name).duplicate(true) as Animation
+			for track in range(clip.get_track_count()):
+				var path := String(clip.track_get_path(track))
+				if path.contains(":"):
+					clip.track_set_path(track, NodePath(skel_prefix + ":" + path.get_slice(":", 1)))
+			lib.add_animation(name, clip)
 
 	for anim_name in ANIM_DEFS:
 		if lib.has_animation(anim_name):
@@ -78,7 +92,7 @@ static func inject_animations(ap: AnimationPlayer) -> void:
 				var fbx_ap = inst.find_child("AnimationPlayer", true, false) as AnimationPlayer
 				if fbx_ap and fbx_ap.get_animation_list().size() > 0:
 					var src_anim: Animation = fbx_ap.get_animation(fbx_ap.get_animation_list()[0])
-					retargeted_anim = _retarget_animation(src_anim, skel_prefix)
+					retargeted_anim = _retarget_animation(src_anim, skel_prefix, anim_name == "CLIMB")
 					if retargeted_anim:
 						_cached_anims[anim_name] = retargeted_anim
 				inst.free()
@@ -88,7 +102,7 @@ static func inject_animations(ap: AnimationPlayer) -> void:
 		if retargeted_anim:
 			lib.add_animation(anim_name, retargeted_anim)
 
-static func _retarget_animation(src: Animation, skel_prefix: String = "EchoOpeningUniformRig/Skeleton3D") -> Animation:
+static func _retarget_animation(src: Animation, skel_prefix: String = "EchoOpeningUniformRig/Skeleton3D", rotation_only: bool = false) -> Animation:
 	if not src:
 		return null
 
@@ -97,6 +111,11 @@ static func _retarget_animation(src: Animation, skel_prefix: String = "EchoOpeni
 	retargeted.loop_mode = Animation.LOOP_NONE
 
 	for i in range(src.get_track_count()):
+		# Traversal motion belongs to the swept player capsule. Imported FBX
+		# translations use another rig's lengths/root offset and lift Echo away
+		# from the actual wall. Keep the target rest lengths for this clip.
+		if rotation_only and src.track_get_type(i) != Animation.TYPE_ROTATION_3D:
+			continue
 		var path_str: String = String(src.track_get_path(i))
 		for mix_bone in BONE_MAP:
 			if path_str.ends_with(":" + mix_bone):

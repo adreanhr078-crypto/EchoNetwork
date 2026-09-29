@@ -42,8 +42,13 @@
 
 - `godot/scripts/player/echo_player.gd`: حركة Echo والتحريك وربط التحكم.
 - `godot/scripts/player/player_traversal_controller.gd`: أساس التسلق والسباحة؛ وجوده لا يثبت قابلية التسلق للاعب.
+- `godot/scenes/system_journey_preview.tscn`: نموذج صيانة اختياري متصل بنهاية الافتتاح؛ ليس قبولاً للرحلة الكاملة.
+- `godot/scripts/player/surface_traversal_motor.gd`: تسلق وتعلق وصعود حافة بفحص كبسولة اللاعب.
+- `godot/scripts/systems/system_journey_preview.gd`: مراحل الصيانة وحفظ الاستراحة المستقل.
+- `art/production/maintenance-jutsu-v1/` و`art/production/echo-parkour-v1/`: مصادر الغرفة والتحريك القابلة للتحرير؛ أصول التشغيل في `godot/assets/`.
+- `docs/internal/production/JUTSU_MAINTENANCE_2026-09-29.ar.md`: أحدث تنفيذ ودليل وحدود معيار الجودة.
 - `godot/scripts/main.gd`: تدفق الغرفة والحوارات والحدود الحالية.
-- `docs/internal/production/JUTSU_SIGNAL_CONSOLE_2026-09-28.ar.md`: آخر دمج فني مثبت.
+- `docs/internal/production/JUTSU_SIGNAL_CONSOLE_2026-09-28.ar.md`: دمج محطة الافتتاح المثبت سابقاً.
 - `docs/internal/production/OPENING_PLAYABILITY_2026-09-28.ar.md`: عيوب اللعب وأدلتها.
 - `docs/internal/production/GODOT_SYSTEM_EXECUTION_2026-09-28.ar.md`: سجل الدفعات السابق؛ توجيهات المالك اللاحقة تُوثّق قبل تحديثه.
 

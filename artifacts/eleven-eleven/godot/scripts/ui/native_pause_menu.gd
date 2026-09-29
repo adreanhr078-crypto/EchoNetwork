@@ -110,6 +110,7 @@ func set_session_paused(paused: bool) -> void:
 			touch.set_interaction_blocked(true)
 		main.player.mobile_input_vector = Vector2.ZERO
 		main.player.mobile_sprint_active = false
+		main.player.clear_traversal_input()
 		for action in ["move_forward", "move_backward", "move_left", "move_right", "sprint", "jump", "interact", "attack_light"]:
 			if InputMap.has_action(action):
 				Input.action_release(action)

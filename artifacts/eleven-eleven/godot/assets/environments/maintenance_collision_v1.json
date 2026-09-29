@@ -1,0 +1,145 @@
+{
+  "schema": "echo-maintenance-collision-v1",
+  "bodies": [
+    {
+      "name": "COLL_EntryFloor",
+      "position": [
+        0.0,
+        -0.15000000596046448,
+        -2.0
+      ],
+      "size": [
+        8.0,
+        0.30000001192092896,
+        8.0
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_CLIMB_FirstWall",
+      "position": [
+        0.0,
+        1.7000000476837158,
+        -6.0
+      ],
+      "size": [
+        5.0,
+        3.4000000953674316,
+        0.5
+      ],
+      "climbable": true
+    },
+    {
+      "name": "COLL_UpperRest",
+      "position": [
+        0.0,
+        3.200000047683716,
+        -7.0
+      ],
+      "size": [
+        5.0,
+        0.4000000059604645,
+        2.4000000953674316
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_GapLanding",
+      "position": [
+        4.0,
+        3.200000047683716,
+        -7.0
+      ],
+      "size": [
+        2.0,
+        0.4000000059604645,
+        2.4000000953674316
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_CLIMB_SecondWall",
+      "position": [
+        4.0,
+        4.400000095367432,
+        -9.399999618530273
+      ],
+      "size": [
+        2.0,
+        2.0,
+        0.5
+      ],
+      "climbable": true
+    },
+    {
+      "name": "COLL_FinalRest",
+      "position": [
+        4.0,
+        5.199999809265137,
+        -10.699999809265137
+      ],
+      "size": [
+        2.0,
+        0.4000000059604645,
+        2.200000047683716
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_ExitDeck",
+      "position": [
+        0.0,
+        5.199999809265137,
+        -12.300000190734863
+      ],
+      "size": [
+        6.0,
+        0.4000000059604645,
+        1.2000000476837158
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_LeftBoundary",
+      "position": [
+        -4.400000095367432,
+        4.0,
+        -7.0
+      ],
+      "size": [
+        0.4000000059604645,
+        8.0,
+        15.0
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_RightBoundary",
+      "position": [
+        5.400000095367432,
+        4.0,
+        -7.0
+      ],
+      "size": [
+        0.4000000059604645,
+        8.0,
+        15.0
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_FarBoundary",
+      "position": [
+        0.5,
+        4.0,
+        -14.5
+      ],
+      "size": [
+        10.0,
+        8.0,
+        0.4000000059604645
+      ],
+      "climbable": false
+    }
+  ]
+}

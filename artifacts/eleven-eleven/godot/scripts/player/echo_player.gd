@@ -2,6 +2,28 @@ class_name EchoPlayer
 extends CharacterBody3D
 
 const OpeningWakeContacts = preload("res://scripts/player/opening_wake_contacts.gd")
+const SurfaceTraversalMotor = preload("res://scripts/player/surface_traversal_motor.gd")
+@export var surface_traversal_enabled := false
+var surface_motor = SurfaceTraversalMotor.new()
+var _requested_traversal_jump := false
+var _requested_traversal_drop := false
+
+func request_jump() -> void:
+	if opening_recovery_active or control_locked: return
+	jump_buffer_timer = JUMP_BUFFER_DURATION
+	_requested_traversal_jump = true
+
+func clear_traversal_input() -> void:
+	_requested_traversal_jump = false
+	_requested_traversal_drop = false
+	jump_buffer_timer = 0.0
+
+func request_dodge() -> void:
+	if opening_recovery_active or control_locked: return
+	if surface_traversal_enabled and traversal.is_climbing():
+		_requested_traversal_drop = true
+	else:
+		start_dodge()
 
 signal hp_changed(current_hp: float, max_hp: float)
 signal stamina_changed(current_stamina: float, max_stamina: float)
@@ -350,16 +372,27 @@ func finish_opening_recovery() -> void:
 
 func _physics_process(delta: float) -> void:
 	if opening_recovery_active:
+		clear_traversal_input()
 		velocity = Vector3.ZERO
 		move_and_slide()
 		return
 	if control_locked:
+		clear_traversal_input()
 		velocity.x = move_toward(velocity.x, 0.0, 20.0 * delta)
 		velocity.z = move_toward(velocity.z, 0.0, 20.0 * delta)
 		move_and_slide()
 		return
 
-	# Handle Genshin Traversal: Climbing & Swimming
+	var requested_jump := _requested_traversal_jump or Input.is_action_just_pressed("jump")
+	var requested_drop := _requested_traversal_drop or Input.is_action_just_pressed("dodge")
+	_requested_traversal_jump = false
+	_requested_traversal_drop = false
+	if surface_traversal_enabled:
+		var surface_input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		if mobile_input_vector.length() > 0.05: surface_input = mobile_input_vector
+		if surface_motor.tick(self, delta, surface_input, requested_jump, requested_drop):
+			return
+	# Existing traversal compatibility path.
 	if traversal.is_climbing() or traversal.is_swimming():
 		var cam_basis = Basis()
 		if player_camera:

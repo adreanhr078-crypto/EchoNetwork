@@ -1,0 +1,17 @@
+{
+  "source": "echo_opening_uniform_v13.glb",
+  "rig": "EchoOpeningUniformRig",
+  "fps": 24,
+  "clips": [
+    "PARKOUR_HANG",
+    "PARKOUR_CLIMB",
+    "PARKOUR_MANTLE"
+  ],
+  "frames": [
+    1,
+    25
+  ],
+  "method": "IK authored and visually baked on original rest rig; requires Godot contact/visual acceptance",
+  "bytes": 6058348,
+  "originalSourceModified": false
+}

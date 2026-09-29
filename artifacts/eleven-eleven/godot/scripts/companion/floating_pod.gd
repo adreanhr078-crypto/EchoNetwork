@@ -10,6 +10,7 @@ signal tactical_scan_completed(target: Node3D)
 var float_offset: Vector3 = Vector3(0.45, 1.8, 0.25)
 var current_time: float = 0.0
 var scan_cooldown: float = 0.0
+var reduced_motion := false
 
 @onready var searchlight: SpotLight3D = $Searchlight if has_node("Searchlight") else null
 
@@ -26,15 +27,15 @@ func _set_guide_shadow_casting(node: Node) -> void:
 
 func _process(delta: float) -> void:
 	current_time += delta
-	if has_node("OuterHalo"):
+	if not reduced_motion and has_node("OuterHalo"):
 		$OuterHalo.rotate_object_local(Vector3.FORWARD, delta * 0.7)
-	if has_node("InnerHalo"):
+	if not reduced_motion and has_node("InnerHalo"):
 		$InnerHalo.rotate_object_local(Vector3.UP, delta * 1.1)
 
 	# Follow Player with Spring Damped Lerp
 	if follow_target:
 		var target_pos: Vector3 = follow_target.global_position + follow_target.global_transform.basis * float_offset
-		target_pos.y += sin(current_time * 3.5) * 0.06 # Subtle ominous hover bobbing
+		if not reduced_motion: target_pos.y += sin(current_time * 3.5) * 0.06
 		global_position = global_position.lerp(target_pos, 10.0 * delta)
 
 		# Aim tactical spotlight towards enemy or facing direction
