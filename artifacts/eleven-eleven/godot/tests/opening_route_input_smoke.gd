@@ -150,10 +150,19 @@ func _maintenance_route() -> bool:
 	if not await _walk(Vector3(2.3, 5.4, -30.25)): return false
 	if not _check(director.stage == 5 and not player.contract_with_zero_sealed, "upper access failed or Zero leaked"): return false
 	main.set_presentation_language("en")
-	if not _check(main.hud.quest_title.text == "Service access reached", "journey language was overwritten by opening objective"): return false
+	if not _check(main.hud.quest_title.text == "Release service access", "journey language was overwritten by opening objective"): return false
 	main.set_presentation_language("ar")
 	if not _check(director._read(director.checkpoint_path) == 5, "journey checkpoint was not saved"): return false
-	print("PASS connected maintenance route: opening -> two climbs/mantles -> gap -> upper exit, touch signals and independent save")
+	if not await _walk(Vector3(1.25,5.4,-30.1)): return false
+	if not _check(player.get_nearest_interactable() == director.room.service_interaction, "pressure wheel not reachable via proximity"): return false
+	touch.use_tapped.emit()
+	if not _check(director.room.service_opening and director.stage == 5 and player.get_nearest_interactable() == null, "service interaction repeated or advanced before barrier clearance"): return false
+	for i in range(180): await physics_frame
+	if not _check(director.stage == 6 and director.room.service_open, "service release did not lift barrier"): return false
+	if not await _walk(Vector3(0,5.4,-30.1)): return false
+	if not await _walk(Vector3(0,5.4,-31.6)): return false
+	if not _check(director.stage == 7 and director._read(director.checkpoint_path) == 7, "physical vestibule entry was not saved"): return false
+	print("PASS connected maintenance route: actual opening -> two climbs/mantles -> gap -> pressure release -> vestibule, touch signals and independent save")
 	return true
 
 func _climb_and_mantle() -> bool:
@@ -163,12 +172,15 @@ func _climb_and_mantle() -> bool:
 		await physics_frame
 		if player.surface_motor.hanging: break
 	if not _check(player.surface_motor.hanging, "route failed to hang at authored ledge"): return false
+	await process_frame
+	if not _check(touch.dodge_btn.visible and touch.dodge_btn.text == "أفلت", "touch drop is hidden before Zero's contract"): return false
 	touch.jump_tapped.emit()
 	for i in range(140):
 		await physics_frame
 		if not player.traversal.is_climbing(): break
 	touch.joystick_moved.emit(Vector2.ZERO)
 	for i in range(16): await physics_frame
+	if not _check(not touch.dodge_btn.visible, "wall release exposes combat dodge on the floor"): return false
 	return _check(player.is_on_floor(), "route mantle did not land")
 
 func _check(condition: bool, message: String) -> bool:

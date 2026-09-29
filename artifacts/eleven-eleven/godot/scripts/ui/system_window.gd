@@ -115,20 +115,21 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 		panel.modulate.a = 0.0
 		var tree = get_tree() if is_inside_tree() else null
 		if tree:
-			_popup_tween = tree.create_tween().set_parallel(true)
+			_popup_tween = create_tween().set_parallel(true)
 			_popup_tween.tween_property(panel, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 			_popup_tween.tween_property(panel, "modulate:a", 1.0, 0.18)
 
 			if auto_close_delay > 0.0:
-				tree.create_timer(auto_close_delay).timeout.connect(func():
-					if visible and generation == _window_generation:
-						close_window()
-				)
+				tree.create_timer(auto_close_delay).timeout.connect(_close_if_generation.bind(generation))
 		else:
 			panel.scale = Vector2.ONE
 			panel.modulate.a = 1.0
 
 	emit_signal("system_window_opened", current_type)
+
+func _close_if_generation(generation: int) -> void:
+	if visible and generation == _window_generation:
+		close_window()
 
 func show_quest_update(completed_title: String, next_title: String) -> void:
 	show_system_window(
@@ -215,4 +216,3 @@ func show_solo_leveling_glitch_prompt(on_choice_callback: Callable = Callable())
 	if confirm_btn:
 		confirm_btn.visible = false
 	emit_signal("system_window_opened", current_type)
-

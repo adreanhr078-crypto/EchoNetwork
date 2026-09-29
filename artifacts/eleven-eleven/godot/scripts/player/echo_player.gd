@@ -596,7 +596,7 @@ func _physics_process(delta: float) -> void:
 				add_child(land_audio)
 				land_audio.stream = ProceduralCinematicAudio.create_hard_landing_sfx()
 				land_audio.play()
-				land_audio.finished.connect(func(): land_audio.queue_free())
+				land_audio.finished.connect(land_audio.queue_free)
 			if player_camera:
 				ImpactSpawner.trigger_screen_shake(player_camera, 0.28, 0.35)
 	if is_on_floor():

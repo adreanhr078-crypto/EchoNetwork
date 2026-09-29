@@ -1,8 +1,7 @@
 class_name MobileTouchControls
 extends Control
 
-## AAA Mobile Touch HUD for Godot 4.7
-## Features dynamic virtual joystick, gesture camera look, and Genshin-style action cluster.
+## Touch input and localized action controls. Device acceptance is measured separately.
 
 signal joystick_moved(vector: Vector2)
 signal attack_tapped()
@@ -43,6 +42,27 @@ var is_attack_held: bool = false
 var attack_hold_timer: float = 0.0
 var _platform_touch_enabled: bool = false
 var _action_touches: Dictionary = {}
+var _combat_available := false
+var _traversal_active := false
+var _language := "ar"
+
+func refresh_labels(language: String, muted: bool, reduced: bool) -> void:
+	_language = language
+	var arabic := language == "ar"
+	var labels := {
+		"UseBtn": "تفاعل" if arabic else "USE",
+		"SprintBtn": "اركض" if arabic else "RUN",
+		"JumpBtn": "اقفز" if arabic else "JUMP",
+		"ScanBtn": "افحص" if arabic else "SCAN",
+		"DodgeBtn": ("أفلت" if _traversal_active else "راوغ") if arabic else ("DROP" if _traversal_active else "DODGE"),
+		"AttackBtn": "هجوم" if arabic else "ATK",
+		"LockOnBtn": "هدف" if arabic else "LOCK",
+		"MuteBtn": ("مكتوم" if muted else "صوت") if arabic else ("MUTED" if muted else "SOUND"),
+		"MotionBtn": ("أقل" if reduced else "حركة") if arabic else ("REDUCED" if reduced else "MOTION")
+	}
+	for node_name in labels:
+		var button = find_child(node_name,true,false) as Button
+		if button: button.text = labels[node_name]
 
 func _ready() -> void:
 	var platform_name: String = OS.get_name()
@@ -84,14 +104,21 @@ func reset_input() -> void:
 	emit_signal("sprint_changed", false)
 
 func set_combat_available(available: bool) -> void:
+	_combat_available = available
 	if attack_btn:
 		attack_btn.visible = available
 	if lock_on_btn:
 		lock_on_btn.visible = available
 	if dodge_btn:
-		dodge_btn.visible = available
+		dodge_btn.visible = available or _traversal_active
 	if use_btn:
 		use_btn.visible = not available
+
+func set_traversal_active(active: bool) -> void:
+	_traversal_active = active
+	if dodge_btn:
+		dodge_btn.visible = _combat_available or active
+		dodge_btn.text = ("أفلت" if active else "راوغ") if _language == "ar" else ("DROP" if active else "DODGE")
 
 func _process(delta: float) -> void:
 	# Handle Attack Button Charging (Charged Iai Slash)

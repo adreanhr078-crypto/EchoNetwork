@@ -1,0 +1,14 @@
+{
+  "runtimeGainDb": -18,
+  "filters": "highpass=80,lowpass=8000,fade-in=.06,fade-out=2.7/.3,limiter=.75",
+  "codec": "Vorbis",
+  "source": "service-cinematic-reference-v2.mp4",
+  "requestId": "d0d4b33f-1793-4984-b6e5-45187f20aead",
+  "loop": false,
+  "sha256": "1D4F5BA9E75016F93AA44F83E630A203BE5CB91058B8B52AD5A81770956AEB29",
+  "output": "godot/assets/audio/maintenance_service_release_v1.ogg",
+  "structuralAcceptance": "PASS runtime service activation, mute, pause and silent restore; service-smoke four modes and connected route",
+  "sampleRate": 24000,
+  "auditoryAcceptance": "UNVERIFIED",
+  "channels": 1
+}

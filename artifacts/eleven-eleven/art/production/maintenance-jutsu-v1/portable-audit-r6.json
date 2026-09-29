@@ -1,0 +1,32 @@
+{
+  "source": "scene-r6.blend",
+  "cloudRevision": 6,
+  "triangles": 16352,
+  "meshes": [
+    "Maintenance_Static_Graphite_structural_steel",
+    "Maintenance_Static_Ivory_grip_ceramic",
+    "Maintenance_Static_Deep_service_void",
+    "Maintenance_Static_Route_cyan",
+    "Maintenance_Static_Warning_amber",
+    "ServiceSignalRotor",
+    "Maintenance_Static_lowpoly",
+    "ServiceAccess_InnerPanel",
+    "ServiceAccess_PanelSeam",
+    "ServiceAccess_PanelSeam.001",
+    "ServiceAccess_PanelSeam.002",
+    "ServiceAccess_CenterSeam",
+    "ServiceAccess_CenterSeam.001",
+    "ServiceValve_Handwheel",
+    "ServiceValve_Spoke",
+    "ServiceValve_Spoke.001",
+    "ServiceValve_Spoke.002"
+  ],
+  "collisionBodies": 13,
+  "bytes": 1742816,
+  "animation": "Maintenance_Signal_Cycle",
+  "characterAnimation": false,
+  "dynamicRoots": [
+    "ServiceGateRoot",
+    "ServiceValveRoot"
+  ]
+}

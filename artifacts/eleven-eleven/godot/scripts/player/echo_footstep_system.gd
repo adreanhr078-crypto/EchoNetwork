@@ -150,6 +150,5 @@ func _spawn_step_vfx(surface_type: String, foot_pos: Vector3) -> void:
 
 	var tree := parent.get_tree()
 	if tree:
-		tree.create_timer(0.35).timeout.connect(func():
-			if is_instance_valid(vfx): vfx.queue_free()
-		)
+		# Bound receiver disconnects when the room frees its puff before timeout.
+		tree.create_timer(0.35).timeout.connect(vfx.queue_free)

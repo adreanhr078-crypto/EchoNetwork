@@ -6,6 +6,8 @@ const ROOM_WIDTH := 18.0
 const ROOM_HEIGHT := 7.2
 const ROOM_LENGTH := 42.0
 const ROOM_CENTER_Z := -14.0
+const OPENING_LENGTH := 25.4
+const OPENING_CENTER_Z := -5.5
 const OBSERVATION_MODULE: PackedScene = preload("res://assets/environment/sector11_observation_module_v1.glb")
 const SERVICE_MODULE: PackedScene = preload("res://assets/environment/sector11_service_module_v1.glb")
 const CEILING_TILE: PackedScene = preload("res://assets/environment/sector11_ceiling_tile_v1.glb")
@@ -58,9 +60,11 @@ func _make_materials() -> void:
 		_floor_panel_material.roughness = 0.48
 
 func _build_boundaries() -> void:
-	_add_boundary("WestContainmentWall", Vector3(0.8, ROOM_HEIGHT, ROOM_LENGTH), Vector3(-ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, ROOM_CENTER_Z))
-	_add_boundary("EastContainmentWall", Vector3(0.8, ROOM_HEIGHT, ROOM_LENGTH), Vector3(ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, ROOM_CENTER_Z))
-	_add_boundary("CeilingShell", Vector3(ROOM_WIDTH, 0.6, ROOM_LENGTH), Vector3(0.0, ROOM_HEIGHT, ROOM_CENTER_Z), false)
+	var length := OPENING_LENGTH if opening_only else ROOM_LENGTH
+	var center_z := OPENING_CENTER_Z if opening_only else ROOM_CENTER_Z
+	_add_boundary("WestContainmentWall", Vector3(0.8, ROOM_HEIGHT, length), Vector3(-ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, center_z))
+	_add_boundary("EastContainmentWall", Vector3(0.8, ROOM_HEIGHT, length), Vector3(ROOM_WIDTH * 0.5, ROOM_HEIGHT * 0.5, center_z))
+	_add_boundary("CeilingShell", Vector3(ROOM_WIDTH, 0.6, length), Vector3(0.0, ROOM_HEIGHT, center_z), false)
 	# Hermetic South Rear Wall for Room 1
 	_add_collidable_box("SouthContainmentWall", Vector3(ROOM_WIDTH, ROOM_HEIGHT, 0.8), Vector3(0.0, ROOM_HEIGHT * 0.5, 7.0), _shell_material)
 	# Hermetic North Bulkhead enclosing Primary Blast Gate (z = -18.0)
@@ -92,6 +96,8 @@ func _add_boundary(node_name: String, size: Vector3, at: Vector3, collidable: bo
 func _build_structural_ribs() -> void:
 	for index in range(9):
 		var z := 5.0 - float(index) * 5.0
+		if opening_only and z < -18.0:
+			continue
 		for side in [-1.0, 1.0]:
 			_add_box("ContainmentRib", Vector3(0.42, ROOM_HEIGHT - 0.5, 0.55), Vector3(side * (ROOM_WIDTH * 0.5 - 0.22), (ROOM_HEIGHT - 0.5) * 0.5, z), _rib_material)
 		_add_box("CeilingCrossBeam", Vector3(ROOM_WIDTH - 0.7, 0.38, 0.6), Vector3(0.0, ROOM_HEIGHT - 0.6, z), _rib_material)
@@ -101,6 +107,8 @@ func _build_wall_panels() -> void:
 	var bay_positions := [2.0, -6.0, -15.0, -25.0, -34.0]
 	for index in range(bay_positions.size()):
 		var z: float = bay_positions[index]
+		if opening_only and z < -18.0:
+			continue
 		for side in [-1.0, 1.0]:
 			var is_observation: bool = side > 0.0 and index in [1, 3]
 			var module_scene: PackedScene = OBSERVATION_MODULE if is_observation else SERVICE_MODULE
@@ -176,19 +184,21 @@ func _build_ceiling_lights() -> void:
 			add_child(warm_beacon)
 
 func _build_service_conduits() -> void:
+	var length := OPENING_LENGTH if opening_only else ROOM_LENGTH
+	var center_z := OPENING_CENTER_Z if opening_only else ROOM_CENTER_Z
 	for side in [-1.0, 1.0]:
 		var pipe := CylinderMesh.new()
 		pipe.top_radius = 0.12
 		pipe.bottom_radius = 0.12
-		pipe.height = ROOM_LENGTH - 2.0
+		pipe.height = length - 2.0
 		var pipe_node := MeshInstance3D.new()
 		pipe_node.name = "MainCoolantConduit"
 		pipe_node.mesh = pipe
 		pipe_node.material_override = _rib_material
-		pipe_node.position = Vector3(side * (ROOM_WIDTH * 0.5 - 2.4), ROOM_HEIGHT - 1.0, ROOM_CENTER_Z)
+		pipe_node.position = Vector3(side * (ROOM_WIDTH * 0.5 - 2.4), ROOM_HEIGHT - 1.0, center_z)
 		pipe_node.rotation.x = PI * 0.5
 		add_child(pipe_node)
-		_add_box("SignalRail", Vector3(0.1, 0.08, ROOM_LENGTH - 1.5), Vector3(side * (ROOM_WIDTH * 0.5 - 0.85), 0.15, ROOM_CENTER_Z), _cyan_material)
+		_add_box("SignalRail", Vector3(0.1, 0.08, length - 1.5), Vector3(side * (ROOM_WIDTH * 0.5 - 0.85), 0.15, center_z), _cyan_material)
 
 func _build_sector_signage() -> void:
 	# Sector identification
@@ -249,6 +259,8 @@ func _build_sector_signage() -> void:
 func _build_floor_inlays() -> void:
 	for index in range(8):
 		var z := 1.0 - float(index) * 5.0
+		if opening_only and z < -18.0:
+			continue
 		_add_box("DeckExpansionJoint", Vector3(18.0, 0.018, 0.045), Vector3(0.0, 0.014, z), _floor_joint_material)
 		for side in [-1.0, 1.0]:
 			var x: float = side * 6.3

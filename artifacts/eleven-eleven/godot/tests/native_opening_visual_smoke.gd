@@ -18,6 +18,10 @@ func _run() -> void:
 		var shell = main.get_node("Sector11OpeningShell")
 		if not _check(shell.opening_only and shell.has_node("SouthContainmentWall_Body/Collider") and shell.has_node("Gate1_Bulkhead_West_Body/Collider"), "native opening lacks authored containment"): return
 		if not _check(shell.find_children("Corridor1*", "", true, false).is_empty() and shell.find_children("Kinga*", "", true, false).is_empty(), "opening built later architecture"): return
+		var ceiling = shell.get_node("CeilingShell/Surface")
+		if not _check(is_equal_approx(ceiling.mesh.size.z,shell.OPENING_LENGTH) and is_equal_approx(shell.get_node("CeilingShell").position.z,shell.OPENING_CENTER_Z), "opening roof overlaps the upper maintenance camera"): return
+		for beam in shell.find_children("CeilingCrossBeam*", "MeshInstance3D", true, false) + shell.find_children("ServiceTruss*", "MeshInstance3D", true, false):
+			if not _check(beam.position.z >= -18, "opening beam intrudes into maintenance"): return
 		print("STRUCTURE meshes=", shell.find_children("*", "MeshInstance3D", true, false).size())
 		var env: Environment = main.get_node("WorldEnvironment").environment
 		if not _check(env.tonemap_exposure < 1.0 and env.glow_intensity < 0.3 and not env.ssr_enabled and not env.volumetric_fog_enabled and main.post_processor.current_sky_mat == null, "overworld presentation overwrote quiet opening"): return

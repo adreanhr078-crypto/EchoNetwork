@@ -45,6 +45,10 @@
 - `godot/scenes/system_journey_preview.tscn`: نموذج صيانة اختياري متصل بنهاية الافتتاح؛ ليس قبولاً للرحلة الكاملة.
 - `godot/scripts/player/surface_traversal_motor.gd`: تسلق وتعلق وصعود حافة بفحص كبسولة اللاعب.
 - `godot/scripts/systems/system_journey_preview.gd`: مراحل الصيانة وحفظ الاستراحة المستقل.
+- `godot/scripts/environment/maintenance_service_override.gd`: تفاعل تنفيس الضغط عبر اللاعب؛ الحركة والتصادم في `maintenance_vertical.gd`.
+- `godot/scripts/cinematics/maintenance_service_cinematic.gd`: لقطة داخل الغرفة الفعلية مع تخطي واستعادة التحكم، باستخدام Phantom Camera.
+- `godot/addons/phantom_camera/`: مكتبة كاميرا MIT مثبتة بإصدار محدد؛ مستثناة من البحث المعتاد. سجل النسخة في `art/production/maintenance-jutsu-v1/camera-library.json`.
+- `godot/scripts/boot.gd`: خيار مراجعة النسخة الأصلية `--maintenance-preview` بعد فاصل معاملات المستخدم؛ يفتح النموذج المتصل، والافتتاح الافتراضي محدود.
 - `art/production/maintenance-jutsu-v1/` و`art/production/echo-parkour-v1/`: مصادر الغرفة والتحريك القابلة للتحرير؛ أصول التشغيل في `godot/assets/`.
 - `docs/internal/production/JUTSU_MAINTENANCE_2026-09-29.ar.md`: أحدث تنفيذ ودليل وحدود معيار الجودة.
 - `godot/scripts/main.gd`: تدفق الغرفة والحوارات والحدود الحالية.

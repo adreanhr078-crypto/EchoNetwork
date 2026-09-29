@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "input": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\environments\\maintenance_jutsu_v1.glb",
+  "sha256": "57611de4eb82d9e8d132c7f776dafe393818cfc1b958d27d0b3105c464f27b21",
+  "bytes": 1742816,
+  "assetVersion": "2.0",
+  "metrics": {
+    "triangles": 16352,
+    "vertices": 32184,
+    "meshes": 17,
+    "primitives": 17,
+    "materials": 6,
+    "textures": 2,
+    "animations": 1,
+    "maxJointsPerSkin": 0
+  },
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "issues": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 8,
+    "hints": 0,
+    "messages": [
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/0/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/3/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/4/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/8/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/9/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/10/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/11/primitives/0/attributes/TEXCOORD_0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/meshes/12/primitives/0/attributes/TEXCOORD_0"
+      }
+    ]
+  },
+  "failures": []
+}

@@ -45,6 +45,7 @@ func refresh_opening_language() -> void:
 		if surface and surface.has_method("set_presentation_language"):
 			surface.set_presentation_language(presentation_language)
 	var touch_ui = hud.find_child("MobileTouchControls", true, false)
+	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
 	var prompt = hud.find_child("InteractionPromptHUD", true, false)
 	if prompt:
 		prompt.touch_mode = touch_ui != null and touch_ui._platform_touch_enabled
@@ -248,14 +249,18 @@ func set_audio_muted(muted: bool) -> void:
 	AudioServer.set_bus_mute(0, muted)
 	_save_native_preferences()
 	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
-	var mute_button = touch_ui.find_child("MuteBtn", true, false) as Button if touch_ui else null
-	if mute_button:
-		mute_button.text = "MUTED" if muted else "SOUND"
+	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
 	if hud and hud.has_method("show_tutorial_toast"):
 		hud.show_tutorial_toast("TOAST_AUDIO", "M", opening_text("الصوت مكتوم", "Sound muted") if muted else opening_text("الصوت يعمل", "Sound on"), opening_text("يمكن تغيير الصوت في أي وقت.", "Sound can be changed at any time."), 2.5)
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	var touch_ui = hud.find_child("MobileTouchControls",true,false) if hud else null
+	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
+	var journey := get_node_or_null("SystemJourneyPreview")
+	if journey and journey.room:
+		journey.room.set_reduced_motion(enabled)
+		if enabled and journey.service_cinematic: journey.service_cinematic.finish()
 	if companion: companion.reduced_motion = enabled
 	var terminal = find_child("SectorTerminal", true, false)
 	if terminal and terminal.has_method("set_reduced_motion"):
@@ -265,10 +270,6 @@ func set_reduced_motion(enabled: bool) -> void:
 		dialogue.reduced_motion = enabled
 		if enabled and dialogue.is_active: dialogue.finish_typing()
 	_save_native_preferences()
-	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
-	var motion_button = touch_ui.find_child("MotionBtn", true, false) as Button if touch_ui else null
-	if motion_button:
-		motion_button.text = "STILL" if enabled else "MOTION"
 	if enabled:
 		if opening_cinematic and opening_cinematic.has_method("finish"):
 			opening_cinematic.finish()
@@ -278,12 +279,12 @@ func set_reduced_motion(enabled: bool) -> void:
 	if hud and hud.has_method("show_tutorial_toast"):
 		hud.show_tutorial_toast("TOAST_MOTION", "R", opening_text("حركة أقل", "Reduced motion") if enabled else opening_text("الحركة المعتادة", "Standard motion"), opening_text("يمكن تغيير حركة الكاميرا في أي وقت.", "Camera motion can be changed at any time."), 2.5)
 
+func _on_nearby_interactable_changed(target: Node) -> void:
+	if not is_instance_valid(player) or not is_instance_valid(hud) or is_queued_for_deletion() or player.opening_recovery_active: return
+	if is_instance_valid(target): hud.show_interaction_prompt(target)
+	else: hud.hide_interaction_prompt()
+
 func _ready() -> void:
-	if maintenance_preview_enabled and native_session_enabled and not OS.has_feature("web"):
-		var journey := Node.new()
-		journey.set_script(load("res://scripts/systems/system_journey_preview.gd"))
-		journey.name = "SystemJourneyPreview"
-		add_child(journey)
 	audio_muted = AudioServer.is_bus_mute(0)
 	var touch_ui_initial = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var mute_button_initial = touch_ui_initial.find_child("MuteBtn", true, false) as Button if touch_ui_initial else null
@@ -319,14 +320,7 @@ func _ready() -> void:
 		if player.has_signal("combo_changed"):
 			player.combo_changed.connect(hud.update_combo)
 		if player.has_signal("nearby_interactable_changed"):
-			player.nearby_interactable_changed.connect(func(target: Node):
-				if player.get("opening_recovery_active"):
-					return
-				if target:
-					hud.show_interaction_prompt(target)
-				else:
-					hud.hide_interaction_prompt()
-			)
+			player.nearby_interactable_changed.connect(_on_nearby_interactable_changed)
 		if player.has_signal("opening_recovery_completed"):
 			player.opening_recovery_completed.connect(_on_opening_recovery_completed)
 

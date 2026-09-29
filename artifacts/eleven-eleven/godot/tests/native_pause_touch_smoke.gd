@@ -24,6 +24,8 @@ func _run() -> void:
 	var menu = main.native_pause_menu
 	touch._platform_touch_enabled = true
 	touch.set_interaction_blocked(false)
+	main.refresh_opening_language()
+	if not _check(touch.use_btn.text == "تفاعل" and touch.sprint_btn.text == "اركض", "touch labels ignore Arabic"): return
 	touch.use_tapped.connect(func(): uses += 1)
 	var size: Vector2 = root.get_visible_rect().size
 	_touch(touch, 0, Vector2(120, size.y * 0.6), true)
@@ -46,6 +48,7 @@ func _run() -> void:
 	if not _check(player.global_position == position and menu.resume_button.has_focus(), "pause did not freeze world or focus resume"): return
 	menu.language_button.pressed.emit()
 	if not _check(main.presentation_language == "en" and menu.resume_button.text == "Continue" and menu.status.text.begins_with("Time"), "menu localization incomplete"): return
+	if not _check(touch.use_btn.text == "USE" and touch.sprint_btn.text == "RUN", "touch labels ignore language changes"): return
 	menu.resume_button.pressed.emit()
 	if not _check(not paused and touch.visible and touch.current_joystick_vector == Vector2.ZERO, "resume retained input or hid touch"): return
 	# Pause during a terminal modal must restore its existing lock/visibility.

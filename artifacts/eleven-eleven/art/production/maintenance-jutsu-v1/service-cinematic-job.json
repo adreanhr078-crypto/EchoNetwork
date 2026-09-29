@@ -1,0 +1,24 @@
+{
+  "listedRateUsdPerSecond": 0.231,
+  "purpose": "Image-conditioned service-shot and sound reference; no character rig or editable 3D conversion",
+  "model": "kling-video/v3.0/4k/image-to-video",
+  "sound": "on",
+  "cfg_scale": 0.5,
+  "reference": {
+    "revision": 7,
+    "artifactId": "5ba76e26cccf8b9ba25e7ff082834284",
+    "projectId": "27988e39-a0cb-4115-868f-f13a4ade5a1d"
+  },
+  "actualChargeUsd": null,
+  "estimatedUsd": 0.693,
+  "prompt": "Use this exact original maintenance-room image as the architecture reference. A three-second anime-game cinematic insert: very slow measured camera drift towards the amber pressure-relief wheel and graphite service door, tiny dust motes and subdued cyan guide strips. Preserve door proportions, wheel placement, wall panels and restrained exposure. No characters, no creatures, no magic, no letters, no logos, no music, no speech. Sound: quiet pressure release, one metallic latch, a brief subdued motor lift, then ventilation. The door opens upward behind its header casing. Psychological mystery and calm tension. No sudden shake, no scene change.",
+  "priceSource": "https://open.higgsfield.ai/models/kling-video/v3.0/4k/image-to-video/api-reference",
+  "requestId": "d0d4b33f-1793-4984-b6e5-45187f20aead",
+  "multiShots": false,
+  "status": "completed",
+  "duration": 3,
+  "submittedAt": "2026-09-29T11:33:10.0492167Z",
+  "outputFile": "service-cinematic-reference-v2.mp4",
+  "outputBytes": 3342560,
+  "outputSha256": "06E8A8D70131680E5FF10322132A1395C03DA341FCA677FF10A7696576384A15"
+}
