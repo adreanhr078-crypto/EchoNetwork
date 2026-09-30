@@ -4,6 +4,10 @@ Status: **OWNER APPROVED**
 Version: **1.0**  
 Approved: **2026-08-28**
 
+## Owner update — 2026-09-30
+
+The revised [eight-gate production plan](internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md) supersedes earlier batch ordering. Painted-texture soft-shaded anime art, assisted ledge catches, human survival before the contract, short attacks and one timed shadow ability after it, fast safe retries, continuous interactive Kenja scenes, combined dash/sprint mobile control and parkour-driven System memory discoveries are Owner-approved. Preserve and reuse the existing Sol-arranged animations and completed inventory. Character, controls and measured phone performance precede broad room production. These are production requirements, not accepted runtime features; the chapter still ends at hospital awakening with Japanese performance and Arabic/English subtitles.
+
 ## Owner update — 2026-09-28
 
 The Owner returned the 3D work to Godot and approved the continuation plan in

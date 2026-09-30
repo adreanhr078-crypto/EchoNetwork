@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "status": "authoring_contract_not_runtime_content",
+  "canon_source": "docs/internal/narrative/current/ar/story-bible--echo-network.ar.md",
+  "published_manhwa_source": "echo-network-final-2026-09-v1",
+  "page_mapping_status": "exact_page_to_reveal_review_pending",
+  "voice_language": "ja",
+  "subtitle_languages": [
+    "ar",
+    "en"
+  ],
+  "closing_boundary": "hospital_control_restored",
+  "beats": [
+    {
+      "id": "opening",
+      "minutes": 8,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "assemble_break_awaken_open_gate",
+      "primary_interaction": "assemble_trace_interact",
+      "scene_mode": "godot_interactive",
+      "video_role": "optional_screen_memory",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "exit_monitoring",
+      "minutes": 5,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "expose_false_exit_route",
+      "primary_interaction": "inspect_compare_unlock",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "vertical_maintenance",
+      "minutes": 8,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "climb_cross_release_lift",
+      "primary_interaction": "climb_jump_mantle_operate",
+      "scene_mode": "godot_interactive",
+      "video_role": "optional_memory_insert",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "security_barrier",
+      "minutes": 8,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "observe_detector_evade",
+      "primary_interaction": "stealth_route_choice",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "subject_wing",
+      "minutes": 7,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "escape_subject_close_barrier",
+      "primary_interaction": "evade_use_environment",
+      "scene_mode": "godot_interactive",
+      "video_role": "short_memory_only",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "تجربة الخلود"
+    },
+    {
+      "id": "participant_archive",
+      "minutes": 10,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "recover_witness_record",
+      "primary_interaction": "explore_reconstruct_use_record",
+      "scene_mode": "godot_interactive",
+      "video_role": "recorded_memory",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "تجربة الخلود"
+    },
+    {
+      "id": "power_core",
+      "minutes": 10,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "restore_two_power_routes",
+      "primary_interaction": "route_choice_platforming",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "containment_chase",
+      "minutes": 8,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "distract_escape_guard",
+      "primary_interaction": "vertical_chase",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرحلة الأولى: داخل النظام"
+    },
+    {
+      "id": "mirror",
+      "minutes": 8,
+      "phase_before": "human",
+      "phase_after": "human",
+      "quest": "inspect_personal_trace",
+      "primary_interaction": "look_move_approach",
+      "scene_mode": "godot_interactive",
+      "video_role": "optional_reflection_study",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "المرآة وEcho المستقبلي"
+    },
+    {
+      "id": "kinga_dream_drowning",
+      "minutes": 14,
+      "phase_before": "human",
+      "phase_after": "breakdown",
+      "quest": "resist_memory_drowning",
+      "primary_interaction": "look_resist_move_hold_memory",
+      "scene_mode": "godot_interactive",
+      "video_role": "memory_fragments_only",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "canon_section": "مواجهة Kenja"
+    },
+    {
+      "id": "zero_contract",
+      "minutes": 8,
+      "phase_before": "breakdown",
+      "phase_after": "contract",
+      "quest": "face_zero_accept_contract",
+      "primary_interaction": "approach_dialogue_choice",
+      "scene_mode": "godot_interactive",
+      "video_role": "visual_reference_only",
+      "save_point": true,
+      "full_zero_visible": true,
+      "zero_ability": false,
+      "canon_section": "عقد Zero والتحول"
+    },
+    {
+      "id": "revenge_wish",
+      "minutes": 10,
+      "phase_before": "contract",
+      "phase_after": "wish",
+      "quest": "break_free_revenge_request_exit",
+      "primary_interaction": "learn_one_power_fight_choose_exit",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": true,
+      "zero_ability": true,
+      "canon_section": "الانتقام والخروج"
+    },
+    {
+      "id": "hospital_awakening",
+      "minutes": 4,
+      "phase_before": "wish",
+      "phase_after": "hospital",
+      "quest": "wake_notice_ex011_regain_control",
+      "primary_interaction": "look_hands_sit_inspect_neck",
+      "scene_mode": "godot_interactive",
+      "video_role": "none",
+      "save_point": true,
+      "full_zero_visible": false,
+      "zero_ability": false,
+      "reveal": "EX-011 on the skin of Echo's neck with an anomalous system trace",
+      "canon_section": "المستشفى والعودة إلى العالم"
+    }
+  ],
+  "owner_decisions_20260930": {
+    "art": "painted_texture_soft_shaded_3d_anime_dark_echo_identity",
+    "parkour": "assisted_airborne_ledge_catch_with_path_drop_and_ledge_jump_control",
+    "before_contract": "survival_push_dodge_improvised_tool_escape_preferred",
+    "after_contract": "short_attacks_dodge_one_timed_shadow_ability",
+    "failure": "fast_nearest_safe_checkpoint_preserve_discoveries_repeated_failure_hint",
+    "cinematics": "continuous_look_move_resist_short_dialogue_choices",
+    "mobile": "combined_dash_sprint_separate_jump_context_interaction_abilities_after_contract",
+    "signature": "parkour_routes_reveal_different_system_memories"
+  },
+  "production_gates": [
+    {
+      "id": "G0",
+      "name": "canon_and_art_benchmark"
+    },
+    {
+      "id": "G1",
+      "name": "character_and_master_mocap_library"
+    },
+    {
+      "id": "G2",
+      "name": "controller_camera_mobile_performance"
+    },
+    {
+      "id": "G3",
+      "name": "golden_connected_opening_and_maintenance"
+    },
+    {
+      "id": "G4",
+      "name": "system_escape_rooms_and_chase"
+    },
+    {
+      "id": "G5",
+      "name": "kenja_dream_drowning"
+    },
+    {
+      "id": "G6",
+      "name": "zero_contract_revenge_wish_hospital"
+    },
+    {
+      "id": "G7",
+      "name": "full_chapter_acceptance"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-09-29",
+  "updatedAt": "2026-09-30",
   "ownerRevision20260928": {
     "runtime": "Godot; supersedes the temporary Unity cloud trial",
     "systemJourney": "Sequential missions, parkour, survival, Kinja experiments, Zero pact, revenge, wish and exit in approved Manhwa order",
@@ -98,7 +98,11 @@
       "survival"
     ],
     "combatUnlock": "human-survival-defense-before-zero; supernatural-abilities-after-despair-and-contract",
-    "realityHubs": ["hospital", "home", "school"],
+    "realityHubs": [
+      "hospital",
+      "home",
+      "school"
+    ],
     "systemWorldRole": "missions-dungeons-puzzles-threats-combat-memories",
     "manhwaRole": "memory-archive-flashbacks-other-viewpoints-clues-discoveries-recaps",
     "guideDirection": "original-separate-character-not-mini-echo",
@@ -257,5 +261,22 @@
     "productVision": "docs/PROJECT_VISION.md",
     "productMemory": "docs/project-memory.json",
     "canonManifest": "docs/internal/narrative/current/ar/manifest.json"
+  },
+  "ownerRevision20260930": {
+    "decisions": {
+      "art": "painted_texture_soft_shaded_3d_anime_dark_echo_identity",
+      "parkour": "assisted_airborne_ledge_catch_with_path_drop_and_ledge_jump_control",
+      "before_contract": "survival_push_dodge_improvised_tool_escape_preferred",
+      "after_contract": "short_attacks_dodge_one_timed_shadow_ability",
+      "failure": "fast_nearest_safe_checkpoint_preserve_discoveries_repeated_failure_hint",
+      "cinematics": "continuous_look_move_resist_short_dialogue_choices",
+      "mobile": "combined_dash_sprint_separate_jump_context_interaction_abilities_after_contract",
+      "signature": "parkour_routes_reveal_different_system_memories"
+    },
+    "plan": "docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md",
+    "checkpoint": "CP-20260930-01",
+    "gates": 8,
+    "sliceAccepted": false,
+    "animationReuse": "Reuse existing Sol-arranged Godot animation assets and completed inventory; preserve originals; canonical quality acceptance remains pending"
   }
 }

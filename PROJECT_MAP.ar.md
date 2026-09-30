@@ -1,5 +1,9 @@
 # خريطة المشروع — EchoNetwork / 11.11
 
+## آخر نقطة — CP-20260930-01
+
+خطة الرحلة المراجعة من ثماني بوابات وقرارات المالك ومعايير القبول: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`. سجل 20 بند جودة والأدلة في `artifacts/eleven-eleven/audits/evidence/quality-plan-review-20260930/`. استعمل مكتبة سول الحالية والجرد المكتمل؛ الشخصية والتحكم وأداء الهاتف قبل توسعة الغرف. هذه نقطة مراجعة وخطة، وليست اكتمال الفصل.
+
 ## ابدأ من هنا
 
 | المكان | دوره |
@@ -39,6 +43,8 @@
 ## مكتبة التحريك الدائمة
 
 خطة الفحص والإنتاج: `artifacts/eleven-eleven/docs/internal/production/MASTER_ANIMATION_LIBRARY_PLAN_2026-09-29.ar.md`. مصادر الحزم الأصلية في Downloads محمية؛ الوجهة المعتمدة للمشتقات المستقبلية `godot/Animations/` داخل التطبيق. لا توجد مكتبة canonical معتمدة بعد. ابدأ الخطة وبطاقة المتابعة قبل قراءة حزم التحريك.
+
+سجل العمل والفهارس غير المعتمدة: `artifacts/eleven-eleven/docs/internal/production/MASTER_ANIMATION_LIBRARY_EXECUTION_2026-09-29.ar.md` و`art/production/master-animation-library/manifests/` و`tools/animation-library/` داخل التطبيق. خطة الرحلة إلى المستشفى ومراجعة فيديو المالك: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`؛ عقد المحطات في `art/production/echo-to-hospital-v2/JourneyCatalog.json`، والتحقق في `tools/journey/validate_catalog.py`. كلها تخطيط/دليل إنتاج، ولا تضيف مشاهد تشغيل مكتملة.
 
 ## مراجع تنفيذ الافتتاح
 
