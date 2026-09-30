@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "approvals": 0,
+  "builds": [
+    {
+      "action_id": "walk_forward",
+      "source_id": "motus_mco:88",
+      "source_sha256": "d72ede82bef3da0a88a96c365049d70e89cbad7b212b768bea338fcac46a287d",
+      "target_sha256": "62db579a81296122f293fe0c5a6290ef0b06dfc430e31c9a1d7861cf3e1b6ef1",
+      "profile": "echo_source_contacts_v1_review",
+      "file": "art/production/master-animation-library/staging/retarget-v1/motus-walk-review.glb",
+      "sha256": "d6e3b67f826b31d10387c5795798a6106c3e3bc5176b28d27a7739151892af55",
+      "status": "technical_pilot_not_canonical",
+      "review": "audits/evidence/master-animation-foundation-20260930/verification.json"
+    }
+  ]
+}

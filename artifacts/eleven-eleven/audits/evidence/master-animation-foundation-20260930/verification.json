@@ -1,0 +1,207 @@
+{
+  "checkpoint": "CP-20260930-02",
+  "base_commit": "5a330de",
+  "source_original_zip_preserved": true,
+  "source_archive_sha256": "196f5c56f9ebad94aa186c877a00deef7cce32b6627560dca0c1a79236030ecd",
+  "unique_sources": 763,
+  "unique_inspected_takes": 765,
+  "repaired_role_interpretations": 358,
+  "semantic_proposals": 499,
+  "candidate_records": 831,
+  "canonical_approved": 0,
+  "runtime_reuse_assets": 31,
+  "existing_runtime_byte_matches": 30,
+  "joint_import_gate": "PASS",
+  "import_error_m": 1.18298942197725e-06,
+  "limb_relative_error": 2.12079493267047e-06,
+  "maximum_drift_in_detected_contact_intervals_m": 0.005914657519670098,
+  "generation_spend_this_checkpoint": 0,
+  "validation": {
+    "pipeline_regression_tests": "3 PASS",
+    "native_touch": "PASS, down-trigger reaches player buffer and does not repeat on release/second finger",
+    "opening_route": "PASS both orders",
+    "postflight": "PASS, 631 tests and build/doctor",
+    "native_exports": "PASS Windows and Android debug; APK aligned/signed by existing build tool; no export ERROR/WARNING"
+  },
+  "art_review": {
+    "status": "partial_not_canonical",
+    "observations": [
+      "Foot neutral pitch is preserved relative to source rest rather than copied absolute toe slope",
+      "Front/side/back reviewed; no backwards-knee pose observed in this pilot",
+      "Flat hands and facial expression limitations remain visible",
+      "Foot skin/sole contacts, clothing deformation and loop/controller transitions require separate approval",
+      "All nine forward-walk candidates still require comparison; one pilot is not a winner"
+    ]
+  },
+  "gate_status": {
+    "G0": "partial",
+    "G1": "in_progress",
+    "G2": "jump-response defect fixed; full gate not started/accepted"
+  },
+  "logs": [
+    {
+      "file": "contact-motus-walk.log",
+      "sha256": "b7235028fd3d964916e270bb76c67340b4ae53ac334ff185322e5579e04ce566"
+    },
+    {
+      "file": "contact-import-profile.log",
+      "sha256": "7e00af465ff2115dccab3a06564ee2e27728a71addfa95387e4f9bb7c8da4181"
+    },
+    {
+      "file": "contact-review-motus-walk-visual.log",
+      "sha256": "e3a3e10a7071f6a4761ab0ed92e076b5a280a8aee7c33f2bff4cbd073cb1e634"
+    },
+    {
+      "file": "native-touch-20260930.log",
+      "sha256": "cff9b4c904fbf9951de29f31307f7ffb217e83a5b427a808a151f333b156a2b7"
+    },
+    {
+      "file": "opening-route-20260930.log",
+      "sha256": "a3736d0b98567afd725f20126725214d409c9aa0caf22f6dbfaf1fdb93f6c4ff"
+    },
+    {
+      "file": "postflight-20260930.log",
+      "sha256": "942721d95cf09ed8521e75f355af4aee2ab32620b4ec4523da9710c50c528ed9"
+    },
+    {
+      "file": "native-build-20260930.log",
+      "sha256": "a6d63d769b136e14ea2fe15d41d67fb759f12bf3505319c6b573223b85878160"
+    },
+    {
+      "file": "windows-export.log",
+      "sha256": "d0c2a26bface4dfe51b506bc49570bda54f2e0e379cd16431d6e76ecd19fa409"
+    },
+    {
+      "file": "android-export.log",
+      "sha256": "8c39c7dafcb7bc2dd6ddb2800157928b83865103f3c596f2eeb6b9707882747e"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "back-000.png",
+      "sha256": "8cc7442f84156d5da3438bea84b7b636b20f001f39d02aac17d7736ac43184f9",
+      "bytes": 108109
+    },
+    {
+      "file": "back-009.png",
+      "sha256": "e73697049ae4e3405b17f06f2d81e3a17a968e81f621938c3da0fade6a208425",
+      "bytes": 104051
+    },
+    {
+      "file": "back-018.png",
+      "sha256": "fecdd9fb9995942fda7c79ec2bc8cd426cfc67e1b1036ee43eda9643b5f6d46f",
+      "bytes": 105369
+    },
+    {
+      "file": "back-028.png",
+      "sha256": "9ec260fa6c25c43ad28a077cae0db05339cc0f350f2a535cdb8874c18fd109cf",
+      "bytes": 100403
+    },
+    {
+      "file": "back-036.png",
+      "sha256": "40537d5eee10690c585207cb66d067e2b42fffc45ac2a2ad859c2fd1bd8a92f8",
+      "bytes": 106672
+    },
+    {
+      "file": "back.mp4",
+      "sha256": "479c2e885d74e9451df933fd316c7bb91a9e35b4661609393bdd391aced43439",
+      "bytes": 116903
+    },
+    {
+      "file": "canon-opening-contact.png",
+      "sha256": "84901ba03974bd2998b1386673f87fb8eda8315010416ddce3e67b550f9b091c",
+      "bytes": 2977809
+    },
+    {
+      "file": "front-000.png",
+      "sha256": "6b6f6b685e76c4b2cac4d98c2f9da81df1c2d32eee9e88e892cd675f1bf5bb21",
+      "bytes": 110858
+    },
+    {
+      "file": "front-009.png",
+      "sha256": "ca879c70eb0bc185a6fb0478ce6f831b1c04ba9510ee8afeb1308b578e748085",
+      "bytes": 110522
+    },
+    {
+      "file": "front-018.png",
+      "sha256": "737b5f9b65ef60c4972df81acbee23255a1843c26419a5f99e890a87f0314c10",
+      "bytes": 113794
+    },
+    {
+      "file": "front-028.png",
+      "sha256": "0cb7f39b6b7507cdd32f6cf4896b3c54075e421344038facf792fa350cba2ac3",
+      "bytes": 109661
+    },
+    {
+      "file": "front-036.png",
+      "sha256": "5849d8924dcf8dfbf6711484c4a9ab257fc48c213be056caffbea7bfe46ec508",
+      "bytes": 113108
+    },
+    {
+      "file": "front.mp4",
+      "sha256": "65d69f394f223344f8f90dac9167c4d59b0f8e968c9b53c33d6288434eb87e43",
+      "bytes": 150027
+    },
+    {
+      "file": "godot-contact-review.json",
+      "sha256": "955e9cd3a6d990c8a61b8276f5ab11c692b7941221c4e6635601dd6f574ab519",
+      "bytes": 12237
+    },
+    {
+      "file": "side-000.png",
+      "sha256": "376bbf5d334a6d571edbc902f3d3090ec289b8ee564ae43c249281d4ed1e143e",
+      "bytes": 87943
+    },
+    {
+      "file": "side-009.png",
+      "sha256": "ac709927c18ec74f0c41142338ad33190790047733996919d3c847136ae39a03",
+      "bytes": 98994
+    },
+    {
+      "file": "side-018.png",
+      "sha256": "291b46951184c7f3cebfed21fcef3f8bc1f92e32c46efbc046383d7e17836c32",
+      "bytes": 87555
+    },
+    {
+      "file": "side-028.png",
+      "sha256": "099eff482c8943da5dadbd479ed2a5daabc03e34992ab66735a694d84079e532",
+      "bytes": 100009
+    },
+    {
+      "file": "side-036.png",
+      "sha256": "77ef9c6eec5ead9ce0fe287a2c3e6c01cdb0eb1283d7e7cbd00ccc8a178ba57a",
+      "bytes": 88952
+    },
+    {
+      "file": "side.mp4",
+      "sha256": "65e10957b09d4811ec393b71aff74319f93d93eb074eb093fd6d4dbcf16bd5ac",
+      "bytes": 134233
+    }
+  ],
+  "tool_versions": {
+    "godot": "4.7.2.stable",
+    "blender": "5.2.2 LTS",
+    "review_renderer": "Compatibility on Intel UHD",
+    "native_export_profile": "Existing Windows Opening / Android Opening"
+  },
+  "native_packages": [
+    {
+      "file": "EchoNetwork.exe",
+      "bytes": 103035904,
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "scope": "Existing opening with touch fix, not the staged Echo character"
+    },
+    {
+      "file": "EchoNetwork.pck",
+      "bytes": 56573604,
+      "sha256": "df78976e86ceb55f444c49cda3bd61058f5391f59f9d54c8326d358abcd57fd2",
+      "scope": "Existing opening with touch fix, not the staged Echo character"
+    },
+    {
+      "file": "EchoNetwork-debug.apk",
+      "bytes": 83159825,
+      "sha256": "6966a1067d930dfad944fa48b0b710a842cd900d847e786537cebafffc14ee6b",
+      "scope": "Existing opening with touch fix, not the staged Echo character"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ const Saves = preload("res://scripts/systems/save_manager.gd")
 const SAVE = "user://pause_touch_smoke.json"
 const PREFS = "user://pause_touch_smoke.cfg"
 var uses := 0
+var jumps := 0
 
 func _init() -> void:
 	call_deferred("_run")
@@ -27,6 +28,7 @@ func _run() -> void:
 	main.refresh_opening_language()
 	if not _check(touch.use_btn.text == "تفاعل" and touch.sprint_btn.text == "اركض", "touch labels ignore Arabic"): return
 	touch.use_tapped.connect(func(): uses += 1)
+	touch.jump_tapped.connect(func(): jumps += 1)
 	var size: Vector2 = root.get_visible_rect().size
 	_touch(touch, 0, Vector2(120, size.y * 0.6), true)
 	_drag(touch, 0, Vector2(180, size.y * 0.6))
@@ -34,6 +36,15 @@ func _run() -> void:
 	_touch(touch, 2, touch.sprint_btn.get_global_rect().get_center(), true)
 	_touch(touch, 3, touch.use_btn.get_global_rect().get_center(), true)
 	_touch(touch, 3, touch.use_btn.get_global_rect().get_center(), false)
+	var jump = touch.find_child("JumpBtn", true, false) as Button
+	_touch(touch, 4, jump.get_global_rect().get_center(), true)
+	if not _check(jumps == 1, "held touch jump waits for release"): return
+	if not _check(player.jump_buffer_timer > 0.0, "touch press did not reach player jump request"): return
+	_touch(touch, 5, jump.get_global_rect().get_center(), true)
+	_touch(touch, 5, jump.get_global_rect().get_center(), false)
+	if not _check(jumps == 1, "second finger duplicated held jump"): return
+	_touch(touch, 4, Vector2.ZERO, false)
+	if not _check(jumps == 1, "jump repeats on touch release"): return
 	var boom = player.find_child("CameraBoom", true, false)
 	var yaw: float = boom.rotation.y
 	_drag(touch, 1, Vector2(size.x * 0.7 + 40, size.y * 0.25))
@@ -69,7 +80,7 @@ func _run() -> void:
 	await process_frame
 	for path in [SAVE, SAVE + ".bak", SAVE + ".tmp", PREFS]:
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
-	print("PASS native pause/touch: four fingers, freeze, input reset, localization, modal integrity, focus loss, save failure")
+	print("PASS native pause/touch: simultaneous input, jump on press without release/second-finger repeats, freeze, reset, localization, modal integrity, focus loss, save failure")
 	quit(0)
 
 func _touch(target: Node, index: int, pos: Vector2, pressed: bool) -> void:

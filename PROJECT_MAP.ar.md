@@ -1,8 +1,8 @@
 # خريطة المشروع — EchoNetwork / 11.11
 
-## آخر نقطة — CP-20260930-01
+## آخر نقطة — CP-20260930-02
 
-خطة الرحلة المراجعة من ثماني بوابات وقرارات المالك ومعايير القبول: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`. سجل 20 بند جودة والأدلة في `artifacts/eleven-eleven/audits/evidence/quality-plan-review-20260930/`. استعمل مكتبة سول الحالية والجرد المكتمل؛ الشخصية والتحكم وأداء الهاتف قبل توسعة الغرف. هذه نقطة مراجعة وخطة، وليست اكتمال الفصل.
+خطة الرحلة المراجعة من ثماني بوابات وقرارات المالك ومعايير القبول: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`. سجل 20 بند جودة والأدلة في `artifacts/eleven-eleven/audits/evidence/quality-plan-review-20260930/`. استعمل مكتبة سول الحالية والجرد المكتمل؛ الشخصية والتحكم وأداء الهاتف قبل توسعة الغرف. بدأ تنفيذG0/G1: أدوات mocap في tools/animation-library، مرجع الإنتاج ProductionBenchmark.json، سجل إعادة استخدام31 أصل حركة وstaging خارج التشغيل، وأدلة master-animation-foundation-20260930 داخل التطبيق. قفز اللمس أصلح؛ لم يُعتمد النموذج أو مكتبة canonical أو الفصل.
 
 ## ابدأ من هنا
 

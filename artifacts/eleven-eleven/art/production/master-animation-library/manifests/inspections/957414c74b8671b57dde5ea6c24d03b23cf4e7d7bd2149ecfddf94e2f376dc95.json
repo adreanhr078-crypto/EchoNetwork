@@ -1,0 +1,2571 @@
+{
+  "file_sha256": "957414c74b8671b57dde5ea6c24d03b23cf4e7d7bd2149ecfddf94e2f376dc95",
+  "status": "inspected",
+  "takes": [
+    {
+      "take_id": "957414c74b8671b57dde5ea6:0:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Crouch_Aim_To_Crouch|MIL2_M3_W2_Crouch_Aim_To_Crouch:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        29.0
+      ],
+      "sample_frames": 29,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 0.9333333333333333,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_0_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.00999999139457941,
+        "source_scale_max": 0.010000013746321201,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.10201258957386017,
+        "pose_fingerprint": "e3a96a0b232f65370c510439d9b125da60e6f2afe48c66b09208a7c44ffd96d0"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:1:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Crouch_To_Crouch_Aim|MIL2_M3_W2_Crouch_To_Crouch_Aim:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        31.0
+      ],
+      "sample_frames": 31,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 1.0,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_1_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999989531934261,
+        "source_scale_max": 0.010000011883676052,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.1020117774605751,
+        "pose_fingerprint": "d502333401e6588172bbb28dd8be9881d3ef2377ba343c63d4037fbf27863255"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:2:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Stand_Aim_Idle|MIL2_M3_W2_Stand_Aim_Idle:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        99.0
+      ],
+      "sample_frames": 99,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 3.2666666666666666,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_2_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999988600611687,
+        "source_scale_max": 0.010000013746321201,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.0,
+        "pose_fingerprint": "138d357dcf2085fab7d00edd742a641fc45d7d8986e5367bfa035571c2527825"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:3:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Stand_Aim_To_Relaxed|MIL2_M3_W2_Stand_Aim_To_Relaxed:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        53.0
+      ],
+      "sample_frames": 53,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 1.7333333333333334,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_3_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999990463256836,
+        "source_scale_max": 0.010000016540288925,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.18469302356243134,
+        "pose_fingerprint": "bd2904f7dd39e57d79ede3146fdd7aeb2e36bd9331dfaea5ee85ab8d3f20ea10"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:4:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Stand_Relaxed_Idle|MIL2_M3_W2_Stand_Relaxed_Idle:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        99.0
+      ],
+      "sample_frames": 99,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 3.2666666666666666,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_4_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999988600611687,
+        "source_scale_max": 0.010000014677643776,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 1.0073794243226075e-08,
+        "pose_fingerprint": "1ac12412e49cc86712b99cb85dbd5ddf37656913cd14232591834f0c48461a4e"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:5:4842890a",
+      "source_take": "Armature|MIL2_M3_W2_Stand_Relaxed_To_Aim|MIL2_M3_W2_Stand_Relaxed_To_Aim:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        29.0
+      ],
+      "sample_frames": 29,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 0.9333333333333333,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_5_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999989531934261,
+        "source_scale_max": 0.010000014677643776,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.18469354510307312,
+        "pose_fingerprint": "2e59792cc79ed52c528dee2c062e02787b649abf4a86a30681642e28ac506a1e"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:6:4842890a",
+      "source_take": "Armature|UE4 T|UE4 T:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        1.0
+      ],
+      "sample_frames": 1,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 0.0,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_6_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999995119869709,
+        "source_scale_max": 0.010000013746321201,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.0,
+        "pose_fingerprint": "0da4c18a81580640def18b02de58eb151b00159f42483e0beb9932007193b45d"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:7:4842890a",
+      "source_take": "Armature|W2_Stand_Aim_Holster|W2_Stand_Aim_Holster:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        87.0
+      ],
+      "sample_frames": 87,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 2.8666666666666667,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_7_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999990463256836,
+        "source_scale_max": 0.010000014677643776,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.21953555941581726,
+        "pose_fingerprint": "411f0900529b92082223a5c1ce62f1bd0003ada1a68da9934c2fc98286071e10"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:8:4842890a",
+      "source_take": "Armature|W2_Stand_Aim_Unholster|W2_Stand_Aim_Unholster:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        51.0
+      ],
+      "sample_frames": 51,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 1.6666666666666667,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_8_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999989531934261,
+        "source_scale_max": 0.01000001560896635,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.21953578293323517,
+        "pose_fingerprint": "d5b26a9d7a72d9eb32bb873ebcb1299fec86b0917eec520f464fc2b7f675afee"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:9:4842890a",
+      "source_take": "Armature|W2_Stand_Relaxed_Holster|W2_Stand_Relaxed_Holster:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        80.0
+      ],
+      "sample_frames": 80,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 2.6333333333333333,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_9_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999990463256836,
+        "source_scale_max": 0.01000001560896635,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.036488793790340424,
+        "pose_fingerprint": "bd34ef66859eb9753e2c494f7d72d851760f157a0abd5c5b5e15b55667dde520"
+      },
+      "approval_status": "unreviewed"
+    },
+    {
+      "take_id": "957414c74b8671b57dde5ea6:10:4842890a",
+      "source_take": "Armature|W2_Stand_Relaxed_Unholster|W2_Stand_Relaxed_Unholster:BaseAnimation",
+      "slot": "Slot",
+      "rig": "Armature",
+      "rig_hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "source_frame_range": [
+        1.0,
+        72.0
+      ],
+      "sample_frames": 72,
+      "fps": 30.0,
+      "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+      "duration_seconds": 2.3666666666666667,
+      "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\master-animation-library\\poses\\957414c74b8671b57dde5ea6_10_4842890a.npz",
+      "metrics": {
+        "finite": true,
+        "bone_count": 70,
+        "source_scale_min": 0.009999989531934261,
+        "source_scale_max": 0.010000014677643776,
+        "missing_roles": [],
+        "hips_net_horizontal_displacement_source_units": 0.03648873791098595,
+        "pose_fingerprint": "f2e66084e4137941e14e2c70160e683aed1e900b8f58d5f7e8038e35bb765cc8"
+      },
+      "approval_status": "unreviewed"
+    }
+  ],
+  "rigs": [
+    {
+      "name": "Armature",
+      "hash": "4842890aa695ea50286dab7af01452038ce25ee110a989a3c3eb3cc9788e691e",
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "world_matrix": [
+            [
+              0.009999999776482582,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.009999999776482582,
+              7.549789682315122e-10,
+              0.0
+            ],
+            [
+              0.0,
+              -7.549789682315122e-10,
+              0.009999999776482582,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 32.25212097167969,
+          "role": null
+        },
+        {
+          "name": "pelvis",
+          "parent": "root",
+          "world_matrix": [
+            [
+              -4.3711387287537207e-10,
+              0.0,
+              -0.009999999776482582,
+              1.388395185665817e-30
+            ],
+            [
+              -3.63480685336981e-05,
+              0.009999934583902359,
+              2.3282734247509485e-12,
+              0.010561595670878887
+            ],
+            [
+              0.009999934583902359,
+              3.6348072171676904e-05,
+              -4.3712133912521267e-10,
+              0.9675059914588928
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 9.705491065979004,
+          "role": "hips"
+        },
+        {
+          "name": "spine_01",
+          "parent": "pelvis",
+          "world_matrix": [
+            [
+              -4.457303415250635e-10,
+              4.440891999238953e-18,
+              -0.009999999776482582,
+              6.252776040807564e-15
+            ],
+            [
+              -0.0012814007932320237,
+              0.00991756096482277,
+              5.785538367830689e-11,
+              0.0016546042170375586
+            ],
+            [
+              0.00991756096482277,
+              0.0012814006768167019,
+              -4.4206613369901504e-10,
+              1.0755630731582642
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 19.25428581237793,
+          "role": null
+        },
+        {
+          "name": "spine_02",
+          "parent": "spine_01",
+          "world_matrix": [
+            [
+              -4.4535461429795475e-10,
+              -1.776356799695581e-17,
+              -0.009999999776482582,
+              -5.96602378610811e-10
+            ],
+            [
+              0.0011669513769447803,
+              0.009931678883731365,
+              -5.123127616579737e-11,
+              0.015165958553552628
+            ],
+            [
+              0.00993167795240879,
+              -0.0011669512605294585,
+              -4.4232223439522045e-10,
+              1.2676312923431396
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 13.413925170898438,
+          "role": null
+        },
+        {
+          "name": "spine_03",
+          "parent": "spine_02",
+          "world_matrix": [
+            [
+              -4.288410182518021e-10,
+              2.2204459996194763e-18,
+              -0.009999999776482582,
+              -5.965961058507219e-10
+            ],
+            [
+              0.00164717563893646,
+              0.009863409213721752,
+              -6.989818446268004e-11,
+              0.03498770296573639
+            ],
+            [
+              0.009863408282399178,
+              -0.0016471755225211382,
+              -4.2299372338128194e-10,
+              1.400297999382019
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 14.032059669494629,
+          "role": null
+        },
+        {
+          "name": "clavicle_l",
+          "parent": "spine_03",
+          "world_matrix": [
+            [
+              0.00881744921207428,
+              -0.004467732738703489,
+              0.0015139100141823292,
+              0.03781983256340027
+            ],
+            [
+              0.004403302446007729,
+              0.008946471847593784,
+              0.0007560253143310547,
+              0.027614524587988853
+            ],
+            [
+              -0.0016921873902902007,
+              -7.154105086115692e-10,
+              0.00985578540712595,
+              1.522011637687683
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.784868240356445,
+          "role": null
+        },
+        {
+          "name": "upperarm_l",
+          "parent": "clavicle_l",
+          "world_matrix": [
+            [
+              0.00644839508458972,
+              -0.0006804903387092054,
+              0.007612825371325016,
+              0.1770022213459015
+            ],
+            [
+              0.0007248587789945304,
+              0.009969842620193958,
+              0.00027719163335859776,
+              0.09712009131908417
+            ],
+            [
+              -0.0076087298803031445,
+              0.0003730783355422318,
+              0.0064782737754285336,
+              1.4953010082244873
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.4199857711792,
+          "role": null
+        },
+        {
+          "name": "lowerarm_l",
+          "parent": "upperarm_l",
+          "world_matrix": [
+            [
+              0.007184910122305155,
+              0.0022621266543865204,
+              0.006577220279723406,
+              0.37264618277549744
+            ],
+            [
+              -0.0042912522330880165,
+              0.008883731439709663,
+              0.001632321858778596,
+              0.11911216378211975
+            ],
+            [
+              -0.005473775323480368,
+              -0.0039952597580850124,
+              0.007353616412729025,
+              1.2644524574279785
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 20.487571716308594,
+          "role": null
+        },
+        {
+          "name": "hand_l",
+          "parent": "lowerarm_l",
+          "world_matrix": [
+            [
+              0.006874740123748779,
+              -0.006143580656498671,
+              0.0038722532335668802,
+              0.5664600729942322
+            ],
+            [
+              -0.004422161262482405,
+              0.0006880381843075156,
+              0.008942656219005585,
+              0.003354967338964343
+            ],
+            [
+              -0.0057604191824793816,
+              -0.00786021538078785,
+              -0.0022437828592956066,
+              1.1167964935302734
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 10.855591773986816,
+          "role": null
+        },
+        {
+          "name": "index_01_l",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.0038011919241398573,
+              -0.007290763780474663,
+              0.005691720638424158,
+              0.6304231286048889
+            ],
+            [
+              -0.0030985441990196705,
+              0.004794308450073004,
+              0.008210580796003342,
+              -0.06766246259212494
+            ],
+            [
+              -0.008714928291738033,
+              -0.0048846034333109856,
+              -0.00043666749843396246,
+              1.0381509065628052
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.287506580352783,
+          "role": null
+        },
+        {
+          "name": "index_02_l",
+          "parent": "index_01_l",
+          "world_matrix": [
+            [
+              0.0022513531148433685,
+              -0.007786604110151529,
+              0.005856635514646769,
+              0.6467207670211792
+            ],
+            [
+              -0.0019671544432640076,
+              0.005523902829736471,
+              0.00810041930526495,
+              -0.08094748854637146
+            ],
+            [
+              -0.009542626328766346,
+              -0.0029757798183709383,
+              -0.00028812052914872766,
+              1.0007857084274292
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.393768548965454,
+          "role": null
+        },
+        {
+          "name": "index_03_l",
+          "parent": "index_02_l",
+          "world_matrix": [
+            [
+              0.003402701811864972,
+              -0.007189575117081404,
+              0.006060660816729069,
+              0.6543613076210022
+            ],
+            [
+              -0.0029921121895313263,
+              0.0052824257872998714,
+              0.007946271449327469,
+              -0.08762359619140625
+            ],
+            [
+              -0.008914532139897346,
+              -0.004517296329140663,
+              -0.00035375033621676266,
+              0.9684001803398132
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.393768787384033,
+          "role": null
+        },
+        {
+          "name": "middle_01_l",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.004397902172058821,
+              -0.00821232795715332,
+              0.0036353932227939367,
+              0.6449003219604492
+            ],
+            [
+              -0.0026841030921787024,
+              0.002660983009263873,
+              0.009258226491510868,
+              -0.044793423265218735
+            ],
+            [
+              -0.008570532314479351,
+              -0.005047454498708248,
+              -0.001034000189974904,
+              1.034814476966858
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.64037561416626,
+          "role": null
+        },
+        {
+          "name": "middle_02_l",
+          "parent": "middle_01_l",
+          "world_matrix": [
+            [
+              0.002477857982739806,
+              -0.009084472432732582,
+              0.003366383258253336,
+              0.6653082370758057
+            ],
+            [
+              -0.002239965833723545,
+              0.00284339371137321,
+              0.009321891702711582,
+              -0.05724865943193436
+            ],
+            [
+              -0.009425641968846321,
+              -0.003063891315832734,
+              -0.0013303393498063087,
+              0.995043933391571
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.6488428115844727,
+          "role": null
+        },
+        {
+          "name": "middle_03_l",
+          "parent": "middle_02_l",
+          "world_matrix": [
+            [
+              0.005044876132160425,
+              -0.00805879570543766,
+              0.0030991907697170973,
+              0.6743496060371399
+            ],
+            [
+              -0.002192520070821047,
+              0.002276085549965501,
+              0.00948747992515564,
+              -0.06542191654443741
+            ],
+            [
+              -0.008351169526576996,
+              -0.0054658204317092896,
+              -0.0006186514510773122,
+              0.9606512188911438
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.648843765258789,
+          "role": null
+        },
+        {
+          "name": "pinky_01_l",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.005354574415832758,
+              -0.008432244881987572,
+              -0.0004751408123411238,
+              0.6402501463890076
+            ],
+            [
+              -0.000799700035713613,
+              -0.0010662730783224106,
+              0.00991077907383442,
+              0.0015905346954241395
+            ],
+            [
+              -0.00840767566114664,
+              -0.005268800538033247,
+              -0.0012452707160264254,
+              1.030174970626831
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.570991039276123,
+          "role": null
+        },
+        {
+          "name": "pinky_02_l",
+          "parent": "pinky_01_l",
+          "world_matrix": [
+            [
+              0.0036015971563756466,
+              -0.009320957586169243,
+              -0.00038499318179674447,
+              0.6593712568283081
+            ],
+            [
+              -0.0007638787501491606,
+              -0.000705961836501956,
+              0.009945758618414402,
+              -0.001265165046788752
+            ],
+            [
+              -0.009297579526901245,
+              -0.003552650101482868,
+              -0.0009662674856372178,
+              1.00015127658844
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 2.98563551902771,
+          "role": null
+        },
+        {
+          "name": "pinky_03_l",
+          "parent": "pinky_02_l",
+          "world_matrix": [
+            [
+              0.003450139192864299,
+              -0.009385637938976288,
+              -7.949523569550365e-05,
+              0.6701241731643677
+            ],
+            [
+              -0.0014459931990131736,
+              -0.0006151912966743112,
+              0.009875760413706303,
+              -0.0035458384081721306
+            ],
+            [
+              -0.009273922070860863,
+              -0.0033957776613533497,
+              -0.0015694067114964128,
+              0.9723920226097107
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 2.9856338500976562,
+          "role": null
+        },
+        {
+          "name": "ring_01_l",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.004552068188786507,
+              -0.00884493999183178,
+              0.0010225853184238076,
+              0.6457560658454895
+            ],
+            [
+              -0.0020155105739831924,
+              9.505773050477728e-05,
+              0.009794318117201328,
+              -0.02082505077123642
+            ],
+            [
+              -0.008672737516462803,
+              -0.004664544016122818,
+              -0.0017394372262060642,
+              1.0303928852081299
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.43017578125,
+          "role": null
+        },
+        {
+          "name": "ring_02_l",
+          "parent": "ring_01_l",
+          "world_matrix": [
+            [
+              0.0024213832803070545,
+              -0.009650412015616894,
+              0.001003204844892025,
+              0.6659225821495056
+            ],
+            [
+              -0.001653218176215887,
+              0.0006084793130867183,
+              0.009843607433140278,
+              -0.029754139482975006
+            ],
+            [
+              -0.009560531936585903,
+              -0.002549366559833288,
+              -0.0014480886748060584,
+              0.9919711947441101
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.4766652584075928,
+          "role": null
+        },
+        {
+          "name": "ring_03_l",
+          "parent": "ring_02_l",
+          "world_matrix": [
+            [
+              0.004456247203052044,
+              -0.008873915299773216,
+              0.0011813001474365592,
+              0.6743409633636475
+            ],
+            [
+              -0.0022580206859856844,
+              0.00016272424545604736,
+              0.009740371257066727,
+              -0.03550180047750473
+            ],
+            [
+              -0.008662747219204903,
+              -0.004607291892170906,
+              -0.0019312354270368814,
+              0.9587324261665344
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.476660966873169,
+          "role": null
+        },
+        {
+          "name": "thumb_01_l",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.0003345835139043629,
+              0.005834616255015135,
+              0.008114510215818882,
+              0.5747798681259155
+            ],
+            [
+              -0.008270048536360264,
+              0.0047205775044858456,
+              -0.0030532635282725096,
+              -0.03876430168747902
+            ],
+            [
+              -0.0056119803339242935,
+              -0.006608584430068731,
+              0.004983197897672653,
+              1.0763916969299316
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.8696706295013428,
+          "role": null
+        },
+        {
+          "name": "thumb_02_l",
+          "parent": "thumb_01_l",
+          "world_matrix": [
+            [
+              0.00043499216553755105,
+              0.005776108242571354,
+              0.00815152283757925,
+              0.5760745406150818
+            ],
+            [
+              -0.00612817844375968,
+              0.006598223466426134,
+              -0.004348431713879108,
+              -0.0707666352391243
+            ],
+            [
+              -0.00789025891572237,
+              -0.004806246608495712,
+              0.0038267187774181366,
+              1.0546751022338867
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.062167167663574,
+          "role": null
+        },
+        {
+          "name": "thumb_03_l",
+          "parent": "thumb_02_l",
+          "world_matrix": [
+            [
+              -0.0008822039235383272,
+              0.006073034834116697,
+              0.00789556372910738,
+              0.577841579914093
+            ],
+            [
+              -0.007364179007709026,
+              0.00493985041975975,
+              -0.0046224165707826614,
+              -0.09566028416156769
+            ],
+            [
+              -0.006707500666379929,
+              -0.006222228053957224,
+              0.004036494996398687,
+              1.0226235389709473
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.062167644500732,
+          "role": null
+        },
+        {
+          "name": "hand_l_wep",
+          "parent": "hand_l",
+          "world_matrix": [
+            [
+              0.006874739192426205,
+              -0.00614358251914382,
+              0.0038722511380910873,
+              0.6044896245002747
+            ],
+            [
+              -0.004422159865498543,
+              0.0006880373694002628,
+              0.00894265715032816,
+              -0.0374264232814312
+            ],
+            [
+              -0.005760421045124531,
+              -0.0078602135181427,
+              -0.002243783324956894,
+              1.0198912620544434
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 10.855594635009766,
+          "role": null
+        },
+        {
+          "name": "lowerarm_twist_01_l",
+          "parent": "lowerarm_l",
+          "world_matrix": [
+            [
+              0.007184908259660006,
+              0.0022621273528784513,
+              0.006577221676707268,
+              0.4732349216938019
+            ],
+            [
+              -0.004291253630071878,
+              0.008883731439709663,
+              0.0016323219751939178,
+              0.0590345673263073
+            ],
+            [
+              -0.005473775789141655,
+              -0.003995261155068874,
+              0.007353615015745163,
+              1.1878196001052856
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 20.487567901611328,
+          "role": null
+        },
+        {
+          "name": "upperarm_twist_01_l",
+          "parent": "upperarm_l",
+          "world_matrix": [
+            [
+              0.0064483946189284325,
+              -0.0006804900476709008,
+              0.007612825836986303,
+              0.18022648990154266
+            ],
+            [
+              0.000724858429748565,
+              0.009969841688871384,
+              0.0002771917206700891,
+              0.09748253971338272
+            ],
+            [
+              -0.007608730811625719,
+              0.00037307795719243586,
+              0.006478273309767246,
+              1.4914965629577637
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.41998291015625,
+          "role": null
+        },
+        {
+          "name": "clavicle_r",
+          "parent": "spine_03",
+          "world_matrix": [
+            [
+              0.008817450143396854,
+              -0.004467733204364777,
+              0.0015139140887185931,
+              -0.03782002255320549
+            ],
+            [
+              -0.004403303377330303,
+              -0.008946475572884083,
+              -0.000756021065171808,
+              0.027614574879407883
+            ],
+            [
+              0.0016921929782256484,
+              7.84481035687179e-10,
+              -0.009855793789029121,
+              1.5220129489898682
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.78479290008545,
+          "role": null
+        },
+        {
+          "name": "upperarm_r",
+          "parent": "clavicle_r",
+          "world_matrix": [
+            [
+              0.0064483932219445705,
+              -0.0006804898148402572,
+              0.007612828630954027,
+              -0.1770016849040985
+            ],
+            [
+              -0.0007248613401316106,
+              -0.009969845414161682,
+              -0.00027718752971850336,
+              0.09711979329586029
+            ],
+            [
+              0.0076087405905127525,
+              -0.000373077520634979,
+              -0.006478277500718832,
+              1.4953020811080933
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.420010566711426,
+          "role": null
+        },
+        {
+          "name": "lowerarm_r",
+          "parent": "upperarm_r",
+          "world_matrix": [
+            [
+              0.007184908259660006,
+              0.0022621266543865204,
+              0.006577223539352417,
+              -0.3726464807987213
+            ],
+            [
+              0.004291251767426729,
+              -0.008883735164999962,
+              -0.0016323168529197574,
+              0.11911199241876602
+            ],
+            [
+              0.005473783705383539,
+              0.00399526534602046,
+              -0.007353621069341898,
+              1.2644529342651367
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 20.48761749267578,
+          "role": null
+        },
+        {
+          "name": "hand_r",
+          "parent": "lowerarm_r",
+          "world_matrix": [
+            [
+              0.006874741055071354,
+              -0.00614358251914382,
+              0.0038722497411072254,
+              -0.5664610862731934
+            ],
+            [
+              0.0044221593998372555,
+              -0.000688037893269211,
+              -0.008942660875618458,
+              0.0033541664015501738
+            ],
+            [
+              0.0057604266330599785,
+              0.007860222831368446,
+              0.00224379007704556,
+              1.1167964935302734
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 13.625442504882812,
+          "role": null
+        },
+        {
+          "name": "index_01_r",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.003801199607551098,
+              -0.007290758192539215,
+              0.005691722501069307,
+              -0.6304211616516113
+            ],
+            [
+              0.0030985462944954634,
+              -0.00479431077837944,
+              -0.008210581727325916,
+              -0.06766258925199509
+            ],
+            [
+              0.008714932948350906,
+              0.0048846169374883175,
+              0.0004366690118331462,
+              1.0381499528884888
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.287696361541748,
+          "role": null
+        },
+        {
+          "name": "index_02_r",
+          "parent": "index_01_r",
+          "world_matrix": [
+            [
+              0.0022513498552143574,
+              -0.007786605041474104,
+              0.005856635514646769,
+              -0.6467207670211792
+            ],
+            [
+              0.0019671448972076178,
+              -0.005523907486349344,
+              -0.008100422099232674,
+              -0.08094803988933563
+            ],
+            [
+              0.00954263936728239,
+              0.00297577609308064,
+              0.00028812032542191446,
+              1.0007835626602173
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.3937973976135254,
+          "role": null
+        },
+        {
+          "name": "index_03_r",
+          "parent": "index_02_r",
+          "world_matrix": [
+            [
+              0.003402709262445569,
+              -0.007189571857452393,
+              0.006060659885406494,
+              -0.6543623805046082
+            ],
+            [
+              0.002992104273289442,
+              -0.00528242951259017,
+              -0.007946276105940342,
+              -0.08762478828430176
+            ],
+            [
+              0.008914541453123093,
+              0.004517303314059973,
+              0.00035374474828131497,
+              0.9683980941772461
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.3937971591949463,
+          "role": null
+        },
+        {
+          "name": "middle_01_r",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.004397893324494362,
+              -0.008212335407733917,
+              0.003635389031842351,
+              -0.6448996067047119
+            ],
+            [
+              0.0026840935461223125,
+              -0.002660987200215459,
+              -0.009258231148123741,
+              -0.04479372501373291
+            ],
+            [
+              0.008570549078285694,
+              0.0050474475137889385,
+              0.0010340013541281223,
+              1.0348148345947266
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.6405768394470215,
+          "role": null
+        },
+        {
+          "name": "middle_02_r",
+          "parent": "middle_01_r",
+          "world_matrix": [
+            [
+              0.00247787032276392,
+              -0.009084469638764858,
+              0.0033663844224065542,
+              -0.6653072834014893
+            ],
+            [
+              0.002239963272586465,
+              -0.002843395806849003,
+              -0.00932189542800188,
+              -0.05724919214844704
+            ],
+            [
+              0.009425649419426918,
+              0.0030639050528407097,
+              0.0013303393498063087,
+              0.9950419664382935
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.648902654647827,
+          "role": null
+        },
+        {
+          "name": "middle_03_r",
+          "parent": "middle_02_r",
+          "world_matrix": [
+            [
+              0.005044887773692608,
+              -0.008058790117502213,
+              0.0030991914682090282,
+              -0.6743490695953369
+            ],
+            [
+              0.0021925214678049088,
+              -0.002276086015626788,
+              -0.009487483650445938,
+              -0.06542263925075531
+            ],
+            [
+              0.00835117232054472,
+              0.005465837195515633,
+              0.0006186548271216452,
+              0.960648775100708
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.648902654647827,
+          "role": null
+        },
+        {
+          "name": "pinky_01_r",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.005354574881494045,
+              -0.008432244881987572,
+              -0.000475144071970135,
+              -0.6402490735054016
+            ],
+            [
+              0.0007996943895705044,
+              0.001066272146999836,
+              -0.009910782799124718,
+              0.0015897288685664535
+            ],
+            [
+              0.008407685905694962,
+              0.005268806591629982,
+              0.0012452718801796436,
+              1.0301740169525146
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.5710620880126953,
+          "role": null
+        },
+        {
+          "name": "pinky_02_r",
+          "parent": "pinky_01_r",
+          "world_matrix": [
+            [
+              0.0036016006488353014,
+              -0.009320957586169243,
+              -0.00038499583024531603,
+              -0.6593698859214783
+            ],
+            [
+              0.0007638718816451728,
+              0.0007059612544253469,
+              -0.0099457623437047,
+              -0.0012660619104281068
+            ],
+            [
+              0.009297589771449566,
+              0.003552657086402178,
+              0.0009662673692218959,
+              1.0001492500305176
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 2.985414505004883,
+          "role": null
+        },
+        {
+          "name": "pinky_03_r",
+          "parent": "pinky_02_r",
+          "world_matrix": [
+            [
+              0.0034501540940254927,
+              -0.00938563421368599,
+              -7.949516293592751e-05,
+              -0.6701251268386841
+            ],
+            [
+              0.0014459872618317604,
+              0.0006151902489364147,
+              -0.009875765070319176,
+              -0.003545972052961588
+            ],
+            [
+              0.009273928590118885,
+              0.0033957958221435547,
+              0.0015694076428189874,
+              0.9723932147026062
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 2.9854161739349365,
+          "role": null
+        },
+        {
+          "name": "ring_01_r",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.00455207284539938,
+              -0.008844939060509205,
+              0.0010225811274722219,
+              -0.645756185054779
+            ],
+            [
+              0.0020155049860477448,
+              -9.505669004283845e-05,
+              -0.009794322773814201,
+              -0.02082606963813305
+            ],
+            [
+              0.008672745898365974,
+              0.00466455053538084,
+              0.0017394388560205698,
+              1.0303905010223389
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.429875373840332,
+          "role": null
+        },
+        {
+          "name": "ring_02_r",
+          "parent": "ring_01_r",
+          "world_matrix": [
+            [
+              0.00242138491012156,
+              -0.009650412946939468,
+              0.0010032024001702666,
+              -0.6659221649169922
+            ],
+            [
+              0.0016532139852643013,
+              -0.0006084791384637356,
+              -0.009843612089753151,
+              -0.029754364863038063
+            ],
+            [
+              0.009560542181134224,
+              0.0025493684224784374,
+              0.0014480907702818513,
+              0.9919717907905579
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.4766652584075928,
+          "role": null
+        },
+        {
+          "name": "ring_03_r",
+          "parent": "ring_02_r",
+          "world_matrix": [
+            [
+              0.004456246271729469,
+              -0.00887391623109579,
+              0.0011812960729002953,
+              -0.6743412017822266
+            ],
+            [
+              0.002258015563711524,
+              -0.0001627244200790301,
+              -0.009740376845002174,
+              -0.03550205007195473
+            ],
+            [
+              0.008662758395075798,
+              0.004607292357832193,
+              0.0019312376389279962,
+              0.9587332606315613
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.4766602516174316,
+          "role": null
+        },
+        {
+          "name": "thumb_01_r",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.000334593205479905,
+              0.005834629293531179,
+              0.008114500902593136,
+              -0.5747805833816528
+            ],
+            [
+              0.00827004387974739,
+              -0.004720586817711592,
+              0.003053271910175681,
+              -0.03876521438360214
+            ],
+            [
+              0.005611992906779051,
+              0.006608578842133284,
+              -0.004983214195817709,
+              1.0763901472091675
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 3.869579315185547,
+          "role": null
+        },
+        {
+          "name": "thumb_02_r",
+          "parent": "thumb_01_r",
+          "world_matrix": [
+            [
+              0.0004349899245426059,
+              0.005776113364845514,
+              0.008151521906256676,
+              -0.5760742425918579
+            ],
+            [
+              0.006128173321485519,
+              -0.006598227191716433,
+              0.004348441958427429,
+              -0.07076717913150787
+            ],
+            [
+              0.00789027102291584,
+              0.004806250799447298,
+              -0.0038267194759100676,
+              1.054674506187439
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.062163352966309,
+          "role": null
+        },
+        {
+          "name": "thumb_03_r",
+          "parent": "thumb_02_r",
+          "world_matrix": [
+            [
+              -0.0008822009549476206,
+              0.006073039025068283,
+              0.007895562797784805,
+              -0.5778412222862244
+            ],
+            [
+              0.007364178076386452,
+              -0.004939854145050049,
+              0.004622421693056822,
+              -0.09566082805395126
+            ],
+            [
+              0.0067075090482831,
+              0.006222233641892672,
+              -0.004036501049995422,
+              1.0226229429244995
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 4.062164306640625,
+          "role": null
+        },
+        {
+          "name": "hand_r_wep",
+          "parent": "hand_r",
+          "world_matrix": [
+            [
+              0.0024430030025541782,
+              -0.009444046765565872,
+              -0.0022003897465765476,
+              -0.4432837963104248
+            ],
+            [
+              -0.00969638954848051,
+              -0.0024045947939157486,
+              -0.0004450142150744796,
+              0.10614835470914841
+            ],
+            [
+              -0.0001088254211936146,
+              0.002242301357910037,
+              -0.009744765236973763,
+              0.8897672891616821
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 13.625446319580078,
+          "role": null
+        },
+        {
+          "name": "lowerarm_twist_01_r",
+          "parent": "lowerarm_r",
+          "world_matrix": [
+            [
+              0.007184908725321293,
+              0.0006629517301917076,
+              0.006923696957528591,
+              -0.4732351303100586
+            ],
+            [
+              0.004291251767426729,
+              -0.008256559260189533,
+              -0.0036625738721340895,
+              0.05903424322605133
+            ],
+            [
+              0.005473783239722252,
+              0.005602667573839426,
+              -0.006216752342879772,
+              1.1878200769424438
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 20.48761558532715,
+          "role": null
+        },
+        {
+          "name": "upperarm_twist_01_r",
+          "parent": "upperarm_r",
+          "world_matrix": [
+            [
+              0.006448392290621996,
+              -0.003237383207306266,
+              0.006923697888851166,
+              -0.18022604286670685
+            ],
+            [
+              -0.0007248588372021914,
+              -0.009276863187551498,
+              -0.003662577597424388,
+              0.09748228639364243
+            ],
+            [
+              0.0076087419874966145,
+              0.0018599095055833459,
+              -0.006216750014573336,
+              1.4914978742599487
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 15.420008659362793,
+          "role": null
+        },
+        {
+          "name": "neck_01",
+          "parent": "spine_03",
+          "world_matrix": [
+            [
+              -4.696813493687557e-10,
+              -1.4210854397564648e-16,
+              -0.009999999776482582,
+              2.2737367036103438e-15
+            ],
+            [
+              -0.00242383754812181,
+              0.009701807051897049,
+              1.1458245463558114e-10,
+              0.058758292347192764
+            ],
+            [
+              0.0097018051892519,
+              0.0024238373152911663,
+              -4.556860444537847e-10,
+              1.564209222793579
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 9.290742874145508,
+          "role": null
+        },
+        {
+          "name": "head",
+          "parent": "neck_01",
+          "world_matrix": [
+            [
+              -4.3732231724824544e-10,
+              -8.881783998477905e-18,
+              -0.009999999776482582,
+              1.1368683518051719e-15
+            ],
+            [
+              0.0002306050155311823,
+              0.009997342713177204,
+              -9.345428077234263e-12,
+              0.0397893488407135
+            ],
+            [
+              0.00999734178185463,
+              -0.00023060487001203,
+              -4.3721634646054497e-10,
+              1.6551597118377686
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 9.290741920471191,
+          "role": "head"
+        },
+        {
+          "name": "thigh_l",
+          "parent": "pelvis",
+          "world_matrix": [
+            [
+              -0.001224289066158235,
+              -0.0014778454788029194,
+              -0.009814126417040825,
+              0.0900580957531929
+            ],
+            [
+              -0.0002985419414471835,
+              0.009889524430036545,
+              -0.0014519566902890801,
+              0.005300076678395271
+            ],
+            [
+              0.009920282289385796,
+              0.00011523134890012443,
+              -0.0012548835948109627,
+              0.9529984593391418
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 32.333133697509766,
+          "role": "left_thigh"
+        },
+        {
+          "name": "calf_l",
+          "parent": "thigh_l",
+          "world_matrix": [
+            [
+              -0.0007111054728738964,
+              -0.0006353152566589415,
+              -0.009954430162906647,
+              0.14217853546142578
+            ],
+            [
+              -0.0015601195627823472,
+              0.009863954968750477,
+              -0.000518091837875545,
+              0.0180096086114645
+            ],
+            [
+              0.009851922281086445,
+              0.0015161685878410935,
+              -0.0008005478885024786,
+              0.5306719541549683
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 30.336740493774414,
+          "role": "left_knee"
+        },
+        {
+          "name": "calf_twist_01_l",
+          "parent": "calf_l",
+          "world_matrix": [
+            [
+              -0.0007394015556201339,
+              -0.0007022646605037153,
+              -0.00994786899536848,
+              0.156739741563797
+            ],
+            [
+              -0.001712192315608263,
+              0.009835994802415371,
+              -0.0005671034450642765,
+              0.04995584115386009
+            ],
+            [
+              0.009824546054005623,
+              0.0016613348852843046,
+              -0.0008475161157548428,
+              0.32893627882003784
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 30.33673667907715,
+          "role": null
+        },
+        {
+          "name": "foot_l",
+          "parent": "calf_l",
+          "world_matrix": [
+            [
+              -0.000148261635331437,
+              -0.00045693846186622977,
+              -0.009988454170525074,
+              0.17076273262500763
+            ],
+            [
+              -0.00012794458598364145,
+              0.009988821111619473,
+              -0.0004550559679046273,
+              0.08072128146886826
+            ],
+            [
+              0.009998082183301449,
+              0.0001210499758599326,
+              -0.0001539420773042366,
+              0.13465720415115356
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 19.598834991455078,
+          "role": "left_foot"
+        },
+        {
+          "name": "ball_l",
+          "parent": "foot_l",
+          "world_matrix": [
+            [
+              0.0004631243064068258,
+              -0.00013384931662585586,
+              -0.009988373145461082,
+              0.17908704280853271
+            ],
+            [
+              -0.009979148395359516,
+              -0.00045622617471963167,
+              -0.00045658269664272666,
+              -0.0835709199309349
+            ],
+            [
+              -0.0004495848552323878,
+              0.009988690726459026,
+              -0.00015469906793441623,
+              0.02811994031071663
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 19.598834991455078,
+          "role": "left_toe"
+        },
+        {
+          "name": "thigh_twist_01_l",
+          "parent": "thigh_l",
+          "world_matrix": [
+            [
+              -0.0012228717096149921,
+              -0.0005422048852778971,
+              -0.00991012528538704,
+              0.1171078085899353
+            ],
+            [
+              -0.0003082705370616168,
+              0.009982324205338955,
+              -0.0005081156268715858,
+              0.011896129697561264
+            ],
+            [
+              0.009920159354805946,
+              0.0002433639601804316,
+              -0.0012374247889965773,
+              0.7338173985481262
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 32.3331413269043,
+          "role": null
+        },
+        {
+          "name": "thigh_r",
+          "parent": "pelvis",
+          "world_matrix": [
+            [
+              -0.001224289182573557,
+              -0.001477845129556954,
+              -0.009814128279685974,
+              -0.09005802869796753
+            ],
+            [
+              0.0002985414466820657,
+              -0.009889526292681694,
+              0.001451956806704402,
+              0.00530003197491169
+            ],
+            [
+              -0.009920282289385796,
+              -0.00011523090506670997,
+              0.00125488406047225,
+              0.9530003070831299
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 32.333251953125,
+          "role": "right_thigh"
+        },
+        {
+          "name": "calf_r",
+          "parent": "thigh_r",
+          "world_matrix": [
+            [
+              -0.0007111068116500974,
+              -0.0006353153730742633,
+              -0.009954431094229221,
+              -0.1421786993741989
+            ],
+            [
+              0.0015601194463670254,
+              -0.009863955900073051,
+              0.0005180923617444932,
+              0.018009526655077934
+            ],
+            [
+              -0.009851922281086445,
+              -0.001516168238595128,
+              0.0008005498093552887,
+              0.5306715965270996
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 30.336856842041016,
+          "role": "right_knee"
+        },
+        {
+          "name": "calf_twist_01_r",
+          "parent": "calf_r",
+          "world_matrix": [
+            [
+              -0.0007394116255454719,
+              -0.0007022310746833682,
+              -0.009947871789336205,
+              -0.15674002468585968
+            ],
+            [
+              0.0017121901037171483,
+              -0.00983599666506052,
+              0.000567069451790303,
+              0.049956064671278
+            ],
+            [
+              -0.009824545122683048,
+              -0.0016613347688689828,
+              0.0008475208887830377,
+              0.3289346992969513
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 30.336864471435547,
+          "role": null
+        },
+        {
+          "name": "foot_r",
+          "parent": "calf_r",
+          "world_matrix": [
+            [
+              -0.00014825872494839132,
+              -0.00045693886931985617,
+              -0.009988455101847649,
+              -0.17076289653778076
+            ],
+            [
+              0.00012794074427802116,
+              -0.009988822042942047,
+              0.00045505701564252377,
+              0.0807214304804802
+            ],
+            [
+              -0.009998082183301449,
+              -0.00012104665074730292,
+              0.000153939618030563,
+              0.1346556842327118
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 19.598766326904297,
+          "role": "right_foot"
+        },
+        {
+          "name": "ball_r",
+          "parent": "foot_r",
+          "world_matrix": [
+            [
+              0.00046311397454701364,
+              -0.00013384973863139749,
+              -0.009988374076783657,
+              -0.17908717691898346
+            ],
+            [
+              0.00997914932668209,
+              0.0004562278336379677,
+              0.0004565728304442018,
+              -0.08357017487287521
+            ],
+            [
+              0.0004495864559430629,
+              -0.009988690726459026,
+              0.00015469969366677105,
+              0.028118595480918884
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 19.598772048950195,
+          "role": "right_toe"
+        },
+        {
+          "name": "thigh_twist_01_r",
+          "parent": "thigh_r",
+          "world_matrix": [
+            [
+              -0.0012228605337440968,
+              -0.0005421718233264983,
+              -0.009910129941999912,
+              -0.11710774153470993
+            ],
+            [
+              0.0003082712064497173,
+              -0.009982327930629253,
+              0.0005080826813355088,
+              0.011895956471562386
+            ],
+            [
+              -0.009920161217451096,
+              -0.00024336941714864224,
+              0.0012374132638797164,
+              0.7338191866874695
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 32.333229064941406,
+          "role": null
+        },
+        {
+          "name": "ik_foot_root",
+          "parent": "root",
+          "world_matrix": [
+            [
+              0.009999999776482582,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.009999999776482582,
+              7.549789682315122e-10,
+              0.0
+            ],
+            [
+              0.0,
+              -7.549789682315122e-10,
+              0.009999999776482582,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 24.4229679107666,
+          "role": null
+        },
+        {
+          "name": "ik_foot_l",
+          "parent": "ik_foot_root",
+          "world_matrix": [
+            [
+              -0.00014849378203507513,
+              -0.0014603491872549057,
+              -0.009891679510474205,
+              0.17128415405750275
+            ],
+            [
+              -2.1905440007685684e-05,
+              0.00989279244095087,
+              -0.0014601850416511297,
+              0.03154730796813965
+            ],
+            [
+              0.009998871944844723,
+              -1.484099598769717e-08,
+              -0.00015010079368948936,
+              0.13517111539840698
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 24.4229679107666,
+          "role": null
+        },
+        {
+          "name": "ik_foot_r",
+          "parent": "ik_foot_root",
+          "world_matrix": [
+            [
+              -4.3268068111501634e-05,
+              -0.001859277137555182,
+              -0.009825539775192738,
+              -0.22807492315769196
+            ],
+            [
+              8.180691111192573e-06,
+              -0.009825634770095348,
+              0.0018592592095956206,
+              0.039291027933359146
+            ],
+            [
+              -0.009999916888773441,
+              4.333555292390656e-09,
+              4.4034517486579716e-05,
+              0.13512632250785828
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 24.4229679107666,
+          "role": null
+        },
+        {
+          "name": "ik_hand_root",
+          "parent": "root",
+          "world_matrix": [
+            [
+              0.009999999776482582,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.009999999776482582,
+              7.549789682315122e-10,
+              0.0
+            ],
+            [
+              0.0,
+              -7.549789682315122e-10,
+              0.009999999776482582,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 87.56354522705078,
+          "role": null
+        },
+        {
+          "name": "ik_hand_gun",
+          "parent": "ik_hand_root",
+          "world_matrix": [
+            [
+              0.006592765916138887,
+              -0.007346262224018574,
+              0.0016024626092985272,
+              -0.18732400238513947
+            ],
+            [
+              -0.007456825114786625,
+              -0.006114506628364325,
+              0.0026473801117390394,
+              0.08708624541759491
+            ],
+            [
+              -0.0009650096180848777,
+              -0.0029402843210846186,
+              -0.009509127587080002,
+              0.8509190082550049
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 39.688140869140625,
+          "role": null
+        },
+        {
+          "name": "ik_hand_l",
+          "parent": "ik_hand_gun",
+          "world_matrix": [
+            [
+              0.0025826150085777044,
+              -0.00829947367310524,
+              0.004944578744471073,
+              0.28451868891716003
+            ],
+            [
+              -0.005108942743390799,
+              0.003170627634972334,
+              0.00799036119133234,
+              -0.09505365043878555
+            ],
+            [
+              -0.00819932110607624,
+              -0.004589759279042482,
+              -0.003421299858018756,
+              0.9519403576850891
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 39.688140869140625,
+          "role": null
+        },
+        {
+          "name": "ik_hand_r",
+          "parent": "ik_hand_gun",
+          "world_matrix": [
+            [
+              0.0016674184007570148,
+              -0.0072905803099274635,
+              0.006638308987021446,
+              -0.3144698143005371
+            ],
+            [
+              0.0038833951111882925,
+              -0.005702807102352381,
+              -0.007238595746457577,
+              -0.13050973415374756
+            ],
+            [
+              0.0090630566701293,
+              0.0037848916836082935,
+              0.0018803223501890898,
+              0.9682541489601135
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "length": 39.688133239746094,
+          "role": null
+        }
+      ],
+      "object_matrix": [
+        [
+          0.009999999776482582,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          7.549789682315122e-10,
+          -0.009999999776482582,
+          0.0
+        ],
+        [
+          0.0,
+          0.009999999776482582,
+          7.549789682315122e-10,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "source_ids": [
+    "motus_mco:306!Motionbuilder/SK_Mannequin_WEPs_RiflePistol_05.fbx"
+  ],
+  "inspector_version": 2,
+  "role_interpretation_version": 2
+}

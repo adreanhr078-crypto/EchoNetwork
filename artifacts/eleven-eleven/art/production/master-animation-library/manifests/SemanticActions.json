@@ -1,0 +1,3852 @@
+{
+  "schema_version": 1,
+  "status": "proposals_not_final_classification",
+  "categories": [
+    "Locomotion",
+    "Jumping",
+    "Parkour",
+    "Climbing",
+    "Combat",
+    "Katana",
+    "UnarmedCombat",
+    "Dodges",
+    "HitReactions",
+    "Deaths",
+    "Interaction",
+    "Social",
+    "DailyLife",
+    "NPC",
+    "Cinematic",
+    "Weapons",
+    "CrouchStealth",
+    "Swimming",
+    "Miscellaneous"
+  ],
+  "actions": [
+    {
+      "action_id": "action_idle_to_fight_idle",
+      "candidate_ids": [
+        "4fa95935339380d11cc76ec4:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "air_guitar",
+      "candidate_ids": [
+        "8a19951a54ec23f9e5c174a3:0:fb7063fb",
+        "8a19951a54ec23f9e5c174a3:0:fb7063fb"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "animorph_transformation",
+      "candidate_ids": [
+        "67efb9394ffbbd095e87b849:0:8fe7d408"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "army_crawl",
+      "candidate_ids": [
+        "8916d31d248aa74ed0377eb6:0:7fa2c351",
+        "29d8c047fe8a6b3f61617d4b:0:1d84f0ce"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "asking_question",
+      "candidate_ids": [
+        "7927b43413a554e9b1a82df9:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "assault_rifle",
+      "candidate_ids": [
+        "a21bc42ed3e4fe848db3d085:0:acbc6ab1",
+        "c44b9955fb3e14666e823899:0:7756c5de",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706",
+        "2a725beb4a24ed52f09feb95:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "back_to_wall",
+      "candidate_ids": [
+        "afe02b199fab8672dfb4741a:0:7fe9b058",
+        "55d86c36a8d8b481ac6f9438:0:4ad944ce"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "backflip",
+      "candidate_ids": [
+        "bff563a744206e13b85c37b0:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "backflip_1",
+      "candidate_ids": [
+        "587ae34e09851b2960109dcf:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "ballet_tying_shoe",
+      "candidate_ids": [
+        "2c41d11e05270011833aef2f:0:e085aabf",
+        "354508b3fa5f8dda625c9cf0:0:c4a3d3ea"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "baseball_batter",
+      "candidate_ids": [
+        "b46168d77a690d4273104761:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "baseball_pitcher",
+      "candidate_ids": [
+        "442decd763ba305cf71db508:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "batman_fighting_takedown",
+      "candidate_ids": [
+        "533705c50ff0fda272d71554:0:21c9e728"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "batman_rise_up",
+      "candidate_ids": [
+        "a960797b127811fd120af6d0:0:40b780b8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "battle_taunts_with_sword",
+      "candidate_ids": [
+        "2a9e7eeff8471b797a471a53:0:06731e30"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "big_front_kick",
+      "candidate_ids": [
+        "a81be6cde9252a86b11c3482:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "black_smith_hammering",
+      "candidate_ids": [
+        "3cf47ab8a61ef6753fb860ee:0:5c4cfd94"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "boxing",
+      "candidate_ids": [
+        "0c188143bf63b5a5e497abf9:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "boxing_getting_knocked_out",
+      "candidate_ids": [
+        "0e1af59faf57eb2f52cdf5d9:0:98523f67"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "boxing_knockout_punch",
+      "candidate_ids": [
+        "cc2573a7ff95065c53d13032:0:14a94f07"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "braced_to_free_hang",
+      "candidate_ids": [
+        "4623a1fd693e3506912844f9:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "burst_through_door",
+      "candidate_ids": [
+        "05c896d789d4166786fc8d94:0:acbc6ab1",
+        "a3a82e6136fdb2042d4a1953:0:7756c5de",
+        "8a7ef7463793a1e00124afa6:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "butterfly_twirl",
+      "candidate_ids": [
+        "df5f9496b38f5af375aa433e:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "car_crash_victim01",
+      "candidate_ids": [
+        "038119cd53a8e31ae5a38b28:0:eb37d7c1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "car_crash_victim02",
+      "candidate_ids": [
+        "cac6b0f3ce2e393bcdde9ede:0:765326dd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "car_crash_victim04",
+      "candidate_ids": [
+        "464be96c5b5760c9068237c3:0:1c29aa5e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "car_crash_victime03",
+      "candidate_ids": [
+        "e2ef6223b2fad62ec2f59972:0:a52246b7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "carosel",
+      "candidate_ids": [
+        "a5b7599b4a1cca8ecaaab3df:0:b43b8e46",
+        "cd430e7aa1703386f6b18c37:0:1724272f",
+        "0a7a0f5bef03da28e9226b88:0:1e4d54cc",
+        "8de1df907fe715a4e209d73b:0:a7ae548d",
+        "641cdd18ae837bc2a493536f:0:a69b4a1f",
+        "53a2647356d2cbc32c3093d1:0:3768303b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "celebration",
+      "candidate_ids": [
+        "db6fd7ea558f2722c83e7fdf:0:80cbf3e9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "chapa_giratoria_2",
+      "candidate_ids": [
+        "90b7ffda937102c202f752f6:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "chef_cooking",
+      "candidate_ids": [
+        "7eaa8eaf944795b59d47f77f:0:acbc6ab1",
+        "cd0a0f365bf6a715376ea0b6:0:7756c5de",
+        "afa215467ae7fa2776c23d62:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "clap_sarcastic_clap",
+      "candidate_ids": [
+        "bdda2b801c329734b083ea2b:0:acbc6ab1",
+        "1828e7d2aede7ddc6eec88ff:0:7756c5de",
+        "619ef9109780c1b472a76d58:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "clap_slow_clap",
+      "candidate_ids": [
+        "e3c206f6dad1f50b47762070:0:acbc6ab1",
+        "298fcf384c0d8f9f0addee1c:0:7756c5de",
+        "86c57abd176979723ada2ba7:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "climb_ledge",
+      "candidate_ids": [
+        "36036518968c47857c982d56:0:3ecc9cb6",
+        "21a979b32e652cacfab9809e:0:6ebdbab5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "climb_stairs_down",
+      "candidate_ids": [
+        "77bce51f8bfc7211c7b04e09:0:cf8f31cf",
+        "49895b8f2a5757188e29f0bb:0:2119a1ba"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "climb_stairs_up",
+      "candidate_ids": [
+        "f456310b75cec6d2f6ce1f21:0:157f56a2",
+        "bfd4d8dc1d155159f077ea2b:0:83a3fba4"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "climbing_up_wall",
+      "candidate_ids": [
+        "d3d65d1bcebe90743c3f3cfa:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "clipboard_lever_computer",
+      "candidate_ids": [
+        "ea23bffcd08a80b2b3146449:0:acbc6ab1",
+        "7ae547f9f762e4ad446015e2:0:7756c5de",
+        "a9a4a4d72ceebf8f016eda6b:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "combat_heavy_sword_slashes",
+      "candidate_ids": [
+        "217f576e4f2556bc218a674f:0:761b9f25"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "combat_light_sword_slashes",
+      "candidate_ids": [
+        "b994c4acf18d5c683807997b:0:7c36355e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "combat_swing_heavy_greatsword",
+      "candidate_ids": [
+        "185dcbcb1e9a2e27f6f0a9a6:0:95c743dd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "contestant",
+      "candidate_ids": [
+        "f4153bf991f766eb47c21296:0:acbc6ab1",
+        "792756990e7382aa6427edb3:0:7756c5de",
+        "a0bbb40ba43d9b70e5f5d46e:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "convo_12_gesturing_up_c_center_loop",
+      "candidate_ids": [
+        "80c09926db94a84fc96874c3:0:a752606f",
+        "b6e911bf8e8bb5ac7d8541b0:0:d5b9b837",
+        "80c09926db94a84fc96874c3:0:a752606f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cradling_baby",
+      "candidate_ids": [
+        "264560bb54f119251e46c9fd:0:cd9188ad"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crawl_forward",
+      "candidate_ids": [
+        "63524ecefaf9af7bd4ed44b1:0:9cb55e9b",
+        "f05bbd511d80ff3c19c5dd4d:0:d6a93f38"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crawling_treadmill_mode",
+      "candidate_ids": [
+        "947bae9aecdee0dafb2e92d1:0:cf972e53"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_hit01",
+      "candidate_ids": [
+        "ada1edd0eb78a93961b69b12:0:bf27b97e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_hit02",
+      "candidate_ids": [
+        "46104b3b83c0fdcd8f58d64e:0:edbc93da"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_miss_ball01",
+      "candidate_ids": [
+        "3bbecf3a6e96b794c61b567d:0:d74c4058"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_miss_ball02",
+      "candidate_ids": [
+        "decfbb49cbe935684a70ecff:0:00ec771f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_pick_upand_throw",
+      "candidate_ids": [
+        "7c52d818c0522f5537407f15:0:2cb241fa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_pitch",
+      "candidate_ids": [
+        "921baf44bbf9a1a880137ddc:0:d65f92fa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "cricket_watching_celebration",
+      "candidate_ids": [
+        "9f387840c229b74fd60db1ee:0:9f8416d6"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_idle",
+      "candidate_ids": [
+        "6581d6d8fac153671a5c0055:0:1baa0350",
+        "109bd764c6595fbc67dc8811:0:c4bc2c47"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_rise_up",
+      "candidate_ids": [
+        "f27373aca412eb546493f4e7:0:7ca53861",
+        "d9bcc8c9302983d73aeebc84:0:92be1211"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_turn_left",
+      "candidate_ids": [
+        "bbaec9ed2bf53ee08b3eb428:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_walk_backward",
+      "candidate_ids": [
+        "2ce691009f3e34a4ef3b2ff4:0:2afb5a50",
+        "ea62933b8b971e2cac99b5b4:0:85f00454"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_walk_f",
+      "candidate_ids": [
+        "c92909231b72cdca31fcd2cf:0:fd47e298",
+        "371247176d4a48509a2e9ab3:0:5173144e",
+        "da721d408f9cdbc3bc155d0d:0:0e6df91c",
+        "b01dc4c789eedf3ec1e88847:0:292a4f64",
+        "ae3216898d4de5fd52b8dad4:0:5173144e",
+        "371247176d4a48509a2e9ab3:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_walk_forward",
+      "candidate_ids": [
+        "95639f6203e6a8950b8dc510:0:7f4afb8b",
+        "b19617527f1ba9945da03c5a:0:fe1f954a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crouch_walk_right",
+      "candidate_ids": [
+        "338bc6e61f11dfb0b16fff1e:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "crowd_seat_lap_hds_to_std_polite_clap_seat_1",
+      "candidate_ids": [
+        "f640387eb8c92d4080c7c977:0:a752606f",
+        "cc150e0aa9665b947b8de83d:0:cb668bf3",
+        "f640387eb8c92d4080c7c977:0:a752606f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dance01",
+      "candidate_ids": [
+        "36d6704a3c29728733f5d12e:0:68b5c05d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dance02_flappy_dance",
+      "candidate_ids": [
+        "afea5d6d20294566f48ecbc3:0:07de1fe1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing",
+      "candidate_ids": [
+        "ebe2d31000a2d4904f7ad900:0:34825c3c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing01",
+      "candidate_ids": [
+        "4542a3886f4db56176fef0fe:0:13617487"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing01_loop",
+      "candidate_ids": [
+        "5be8935386d1916d5425c1c6:0:3b9beb9d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing02",
+      "candidate_ids": [
+        "a50c54e0d7fc6324a726b02a:0:2e9249d8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing_marching",
+      "candidate_ids": [
+        "b5e533cbc3c47c329aeb88a2:0:ac70b0c2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancing_medium",
+      "candidate_ids": [
+        "180df05fb030cd90e3d9af0f:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dancingwith_drink",
+      "candidate_ids": [
+        "f29e6efd4a168b0f0769e766:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_catchand_cock_gun",
+      "candidate_ids": [
+        "09a51979af9d873e395b6794:0:df6701cc"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_draw_sword",
+      "candidate_ids": [
+        "fbd2fed1d9186742cbb12c66:0:813b5593"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_draw_sword_fight",
+      "candidate_ids": [
+        "0d869167775619048d83d9cb:0:48d07cfa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_drop_downand_shoot",
+      "candidate_ids": [
+        "e9908eda6c334f822d11847e:0:97d61afa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_enemy_waking_up",
+      "candidate_ids": [
+        "e2bc8d7135f8096bba74e0bf:0:c812c1f0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_executefrom_behind",
+      "candidate_ids": [
+        "ef3636542a49a16fa8d07a3f:0:e0107e5c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_firing_pistol",
+      "candidate_ids": [
+        "b6c3bddf5e770c36e7bdcade:0:2d432bb0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_firing_rifle",
+      "candidate_ids": [
+        "4dbf9e985f15bc06bdd44bf8:0:c0e345ff"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_grab_gun_from_high",
+      "candidate_ids": [
+        "95a95f5c7f1e6595bc8ea515:0:6d722bb9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "destiny_sitting_playing_cards",
+      "candidate_ids": [
+        "492a59bd74fc5090838d2d69:0:55f75287"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "direction_change_sharp",
+      "candidate_ids": [
+        "03dbf7d62dc71b8a95abbe9a:0:cde1548e",
+        "3b250de0fa9b5d5c24ed04f2:0:632ba4e3"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dive",
+      "candidate_ids": [
+        "8786b6a877c6404f967b93ba:0:c6cf8e93"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "diving_and_shooting",
+      "candidate_ids": [
+        "1ae417c9c396e089f121650c:0:48331ae3",
+        "55d7e0c28d20ed67bc2f574e:0:57d50b8b",
+        "a80c53fe01b28e4ae7d4c49b:0:1620467e",
+        "f289396d7d450e79296c9751:0:e40e93a3"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "diving_somersault",
+      "candidate_ids": [
+        "eddcf0dd896683cea54247a9:0:db720afd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "do_the_robot",
+      "candidate_ids": [
+        "7cab6498c4508ce3de2ad970:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "do_the_twist",
+      "candidate_ids": [
+        "555aef99bbdbd455dde25640:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "documentary_psst_to_camera",
+      "candidate_ids": [
+        "48dd57624769d361dc75d38f:0:acbc6ab1",
+        "b085263ae13844052e233b8a:0:7756c5de",
+        "8084b523570670a5caaffb3d:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "documentary_psst_to_camera2",
+      "candidate_ids": [
+        "b1dba75349bdb6196b7aad02:0:acbc6ab1",
+        "6b84c8129c0600978ddd76a9:0:7756c5de",
+        "376c7a5c2d2e7403e5b84e4a:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "double_leg_takedown_attacker",
+      "candidate_ids": [
+        "dd3f2dd0a8a37227b21af7a0:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "double_takes",
+      "candidate_ids": [
+        "fbffcdb9558c28cc0916c2bf:0:acbc6ab1",
+        "f5fad7eceb654d9eff5ed0cb:0:7756c5de",
+        "08a328f2b7c26ea408f5a304:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dr_strange_magic",
+      "candidate_ids": [
+        "3316e02332c52cbb1d3664fb:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "draw_sword_throw_away",
+      "candidate_ids": [
+        "2cf10f8f0ddfd4d13e53fb71:0:bcf02ddf"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "drinking_coffee_pulling_gun",
+      "candidate_ids": [
+        "bbe6cc5dad6d3918a015065f:0:2daa5dfa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "driving_formula1",
+      "candidate_ids": [
+        "d5ba872b597b9b74b82ba3ca:0:da5fee39"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "dyingon_battlefield",
+      "candidate_ids": [
+        "0dfb915050f0a30c77f39385:0:988d3e68"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "elden_ring_emote",
+      "candidate_ids": [
+        "a3dcfcd42c9b7f6ba703859a:0:c80cf685"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "emote_celebrate",
+      "candidate_ids": [
+        "735dc8a356d3a79520b20bb5:0:5e54a631"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "emote_jumpfor_joy",
+      "candidate_ids": [
+        "d4c8f2b5fbc967b2196228d9:0:5d9b70bd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "execution",
+      "candidate_ids": [
+        "62e0094926df08802d4397f1:0:2f5d8888",
+        "c6626589252ea7b30720c509:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "execution_killed",
+      "candidate_ids": [
+        "4bdc3f46fbf8897e3a600f26:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "explosion_dive_backward",
+      "candidate_ids": [
+        "e44d6d08889b4bdd5739fe82:0:c598dff5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "eye_movement_r_om",
+      "candidate_ids": [
+        "21190b90ff6859101954cf48:0:5aa5e2c4"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "face_body_rom",
+      "candidate_ids": [
+        "f128f135a5aa617334dfb1b2:0:e0c0fa44"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "face_mocap_rom",
+      "candidate_ids": [
+        "7157ccec39731720c16c3a1e:0:c1985f5f",
+        "801d065c6b6b974027dd4fa5:0:a46e4573"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "face_palms",
+      "candidate_ids": [
+        "451af02117b9a5ce9a570b36:0:acbc6ab1",
+        "576f3c9b932c2b16a8585761:0:7756c5de",
+        "f72b96b69eadf8fe349e7a8d:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "falling",
+      "candidate_ids": [
+        "76e944fea4bdd9b2da5f73ca:0:99db8864",
+        "bec8517dab48db23eca9a02a:0:ff0fb103"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "falling_bouncingoff_couch",
+      "candidate_ids": [
+        "84facf857d971239a843d55d:0:e5185a80"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fight",
+      "candidate_ids": [
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706",
+        "040bfe0fb32bda8adf0f3f52:0:acbc6ab1",
+        "37b96644c90420fbc7eb8e8f:0:acbc6ab1",
+        "0cf385d95b3fa9c928668cc4:0:7756c5de",
+        "1641c3bb8387da9f9c825c38:0:7756c5de",
+        "a651524ee2fe3dac3984b2df:0:0a1ab706",
+        "94a963947133d423a3dce164:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fight_getting_kickedin_balls",
+      "candidate_ids": [
+        "351e2f8c8da42fcbfe664e6a:0:8cc83c6a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fight_kickingin_balls",
+      "candidate_ids": [
+        "2765ef99915e123ef5dc2456:0:e98bc82c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fight_scene_person_a",
+      "candidate_ids": [
+        "2f66d3340d1812a40a1b05e4:0:00f407df"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fight_scene_person_b",
+      "candidate_ids": [
+        "64cc9f668c9dc2069e1c603f:0:894a0cc8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fighting_idle",
+      "candidate_ids": [
+        "095fc0c0d06c5fe3dde98382:0:07a0fe85",
+        "4d02415b749c82165dc2f1c3:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fireballs",
+      "candidate_ids": [
+        "9fb042eda9c4335f5e1407ac:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "firingand_loading_musket",
+      "candidate_ids": [
+        "bfe1794e6942acac610269bc:0:4c963ab1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fishing",
+      "candidate_ids": [
+        "df85fe0756dc8205dc37b63f:0:7c211822"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "fist_pumps",
+      "candidate_ids": [
+        "e486b07d539c86fd271e314f:0:acbc6ab1",
+        "6444a1459813dc01751b934e:0:7756c5de",
+        "259f438e54728167b16731a8:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flip_kick",
+      "candidate_ids": [
+        "ab1e93b0e3ad60c77ba9eb4c:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flirty",
+      "candidate_ids": [
+        "6264c2370cb16a02ae1d765b:0:acbc6ab1",
+        "f3a70c55c54f5044f12992c1:0:7756c5de",
+        "c4c1eeffeffb2f0603f39292:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flying_kick",
+      "candidate_ids": [
+        "e0c88b6663988a1d467484eb:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flying_knee_punch_combo",
+      "candidate_ids": [
+        "6ea368d7c1b960d864b2a943:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flying_plane_jet",
+      "candidate_ids": [
+        "962bcf6413fa8d79e282acd2:0:e6051b92"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "flying_shoulder_throw",
+      "candidate_ids": [
+        "cbd77f454b441ef200d4733e:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "foot_tapping",
+      "candidate_ids": [
+        "4ea5dfe48f15809bc9785e44:0:acbc6ab1",
+        "7c941a347ddbcafd45314daa:0:7756c5de",
+        "ade6ea42e0effdf3d859326f:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "football_quarterback",
+      "candidate_ids": [
+        "acc793ae53cade9f7a4cfae9:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "force_levitation_projectiles",
+      "candidate_ids": [
+        "26434fed1fdaa1d3eea76cd5:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "gentle_swaying_dancing",
+      "candidate_ids": [
+        "6ddae3874c96dccc0948dad1:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "get_up_wipe_bloodfrom_mouth",
+      "candidate_ids": [
+        "f8323f1450c9f4f2b7f94100:0:f336b63e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "giant_energy_blast",
+      "candidate_ids": [
+        "c238641cd5da3dd066ad634f:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "golf",
+      "candidate_ids": [
+        "b012ba63da61735ab6f2cf2d:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "golf_drive",
+      "candidate_ids": [
+        "6f822233c7573d5b8d01b6cb:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "grab_and_slam",
+      "candidate_ids": [
+        "fc4270710915796059de0998:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "great_sword_slash",
+      "candidate_ids": [
+        "2415f62fb2e176ab6986ce58:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "greeting_handshakes",
+      "candidate_ids": [
+        "a41a0cf8ea37b419ed08c9b4:0:5e043121"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "gun_fight_explosion",
+      "candidate_ids": [
+        "8c84783bb93e7488bb69e972:0:be79f683"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "gun_fight_shotin_arm_leg",
+      "candidate_ids": [
+        "79250660a058781312248648:0:224b758a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "gun_fu_john_wick",
+      "candidate_ids": [
+        "3d68a9e52a830d36a848aed6:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "gunplay",
+      "candidate_ids": [
+        "c2b9696b831ed4eab2a4e748:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "halo_elite_idle",
+      "candidate_ids": [
+        "c8d2bb2516eabde1c30518aa:0:f636bd6b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "halo_elite_walking",
+      "candidate_ids": [
+        "a07244e4eea9a65257bbb5a1:0:d0d7e5c2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "happy_dance",
+      "candidate_ids": [
+        "9cba064e360e9f8eac687457:0:acbc6ab1",
+        "084dfbff50e518825afb7200:0:7756c5de",
+        "6b0081aedb4454ae58739419:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "hard_landing",
+      "candidate_ids": [
+        "1e5dbcb588e10f4fe3615272:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "harry_potter_magic",
+      "candidate_ids": [
+        "e271bd275a04c078df02bb4a:0:6195f205"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "hawkeye_archery",
+      "candidate_ids": [
+        "c18d9a0873832c52af5c2e03:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "head_hit",
+      "candidate_ids": [
+        "a6bfa9e68aa32a9d3df4cc5e:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "head_tilts",
+      "candidate_ids": [
+        "3867cbbf2ca1e78035d94d8f:0:acbc6ab1",
+        "64336d83ccb0ca9652530ffa:0:7756c5de",
+        "02c619c0406d2d4010a0e002:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "heres_johnny",
+      "candidate_ids": [
+        "4ad6e219d5737f97d5763f64:0:639899c5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "hit_on_side_of_head",
+      "candidate_ids": [
+        "67de6c6c734625d5017b78ae:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "holding_rifle_idle",
+      "candidate_ids": [
+        "13f981cd4dab23e0e4b5b728:0:2097edc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "home_shopping_two_hosts",
+      "candidate_ids": [
+        "c3ebb6fe34f921d38fe60dbd:0:acbc6ab1",
+        "dca45e4c8573849d6632e153:0:7756c5de",
+        "869c4d9e2e280f8298b2c540:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "homelander_choking",
+      "candidate_ids": [
+        "96f423d80cdd845d3616458d:0:6735018d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "homelander_getting_choked",
+      "candidate_ids": [
+        "4441a5f7ebfd7121a2027df7:0:7ceb6dd2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "host",
+      "candidate_ids": [
+        "6bd12e08d3f6880403767671:0:acbc6ab1",
+        "01808214fb2d1faef1be0c31:0:7756c5de",
+        "982e62fea95cedf64c4f1d7c:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "hulk_transformation",
+      "candidate_ids": [
+        "5d931e0ebe9ac1c0afc9e054:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle",
+      "candidate_ids": [
+        "c718ea6b4b251a6ce55d4aba:0:f2090e4e",
+        "94566a78614c51fb60ce9089:0:b7bc7311",
+        "6746923e67b7609089e4c7ce:0:2c4eaf8f",
+        "3cf326a2751a0ec5663f8f60:0:039934ac"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_alert",
+      "candidate_ids": [
+        "54a990edf1dc5dec915e83b0:0:f7985446",
+        "b0e6ab658b9416e6f6f2a6d5:0:e46e8191"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_character_loading01",
+      "candidate_ids": [
+        "ef8b306d8b0e6c08280ddfb7:0:7990736e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_character_loading02",
+      "candidate_ids": [
+        "c0c197dcfa6c7913d701cefe:0:22e5843f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_conversation",
+      "candidate_ids": [
+        "ada2aeda7bf17a0cddf16a3a:0:422dc2b4"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_conversation_loop_2",
+      "candidate_ids": [
+        "4023177a612897dce35263f6:0:895d38aa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_fight_stance",
+      "candidate_ids": [
+        "8b0d55d315632ff29994d35b:0:e99a2941"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_looking_around",
+      "candidate_ids": [
+        "a634888348aacdb8b6d66fa2:0:68250568",
+        "43d6c21ec510760ed2d21e10:0:d589d839",
+        "a0fc8c2fe4dba0d8d33e6db7:0:5d02133e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_looking_around02",
+      "candidate_ids": [
+        "7b7ede00cb3ca291fb3804b7:0:4b75f192"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_neutral",
+      "candidate_ids": [
+        "9aba7450916f11fe752f2143:0:a0a2a7b3",
+        "350b31a07c4e6604449cc41c:0:5954ed3f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_pointing",
+      "candidate_ids": [
+        "558fe4662523cee4986497a5:0:6de10c06"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_relaxed_weight_shift",
+      "candidate_ids": [
+        "651dc7d38d0980dda5ea288f:0:105f1739",
+        "f24d385566da0389d97a0ebf:0:2de7342e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_to_push_up",
+      "candidate_ids": [
+        "597ee9abb730eee6441f2951:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_watching_something",
+      "candidate_ids": [
+        "89fb10d16a6103a3ee143c0f:0:84811c96"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_watching_something_loop",
+      "candidate_ids": [
+        "6fa1f4aaf770f67aaa2cf749:0:ae53b8f7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "idle_zero_gravity_float",
+      "candidate_ids": [
+        "e5f6b327701351fc11712d81:0:0cedcff2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "imohtep_walkand_scare",
+      "candidate_ids": [
+        "e10ad89bc07a765934d40b27:0:b6187a27"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "inflatable_tube_man_dance",
+      "candidate_ids": [
+        "72bb4b4e4b20bb0267f8c6ca:0:f6bc5c84"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "interogation_bad_cop",
+      "candidate_ids": [
+        "62b8a219b7933fbe660d00c5:0:acbc6ab1",
+        "8c804b4e6387e1dc035bba2f:0:7756c5de",
+        "d72ed991a162f9daaeba937f:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "interogation_good_cop",
+      "candidate_ids": [
+        "253905e87e4e907dbca0f348:0:acbc6ab1",
+        "5ba3a92a121f5318f4cd20ec:0:7756c5de",
+        "15bc6cccf1c09126cf62d380:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "interogation_suspect",
+      "candidate_ids": [
+        "ba106f4e9dd2f37c00186cf3:0:acbc6ab1",
+        "c295a8a0aa0507d4560579b5:0:7756c5de",
+        "90279390f9b25d89f2f598c1:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "iron_man_combat",
+      "candidate_ids": [
+        "b7e47877d89edce72eb70c3a:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "iron_man_flying",
+      "candidate_ids": [
+        "7f71547ccf5e4958ae1411ac:0:bb8f945b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "iron_man_suit_up",
+      "candidate_ids": [
+        "bf955afe6d8aa2114bc03ac6:0:b62f7abf"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jab_cross",
+      "candidate_ids": [
+        "83e2b34de2bb637f7eaa9e76:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jog_forward",
+      "candidate_ids": [
+        "92bf7cb4b88e3ee2a29be185:0:fd47e298",
+        "6a4c7eb12a54cc2503f2177c:0:5173144e",
+        "ff7e984e06715dbbd6c55b38:0:0e6df91c",
+        "c8cb87f87649575d714d1837:0:cdaca9af",
+        "652dab0d5e1028601449f30d:0:4d4315d7",
+        "78bac3241240718ef367f1df:0:6f3edb16",
+        "6a4c7eb12a54cc2503f2177c:0:5173144e",
+        "eb3cfdc44c182bb400f6a7b8:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "joggingin_place",
+      "candidate_ids": [
+        "a06c609dc28a5795b0a1e9b7:0:684d9ee1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "judge",
+      "candidate_ids": [
+        "86520aa3ff81895f1617f2c4:0:acbc6ab1",
+        "1d5609801c6a450ce3b47801:0:7756c5de",
+        "84bf0f30ace93879047db029:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "judges",
+      "candidate_ids": [
+        "a793a4122510164a55b1f7d7:0:acbc6ab1",
+        "91b6b7d80cff0cee1d3a7d37:0:7756c5de",
+        "bf7df5b31fdc0f8fe86a81e4:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "juggling",
+      "candidate_ids": [
+        "00b865207c6a540ea26b0db7:0:acbc6ab1",
+        "ef8f22dc19d53871f3e31fff:0:7756c5de",
+        "601736ef7f03e46d812f2b25:0:0a1ab706",
+        "6778a5b3cd5409eb9385f0cc:0:462b3b55"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump",
+      "candidate_ids": [
+        "9d041cb9e25c4d5708472580:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_1",
+      "candidate_ids": [
+        "6a96d1b4be8c7467391dd3ee:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_long_distance",
+      "candidate_ids": [
+        "51642050487de36401c157cd:0:ec3d8991",
+        "3a9e759054e96fc1aec55a10:0:a6798dfc"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_rope",
+      "candidate_ids": [
+        "9af041405ff00bcb482a1146:0:aa3b7221"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_running",
+      "candidate_ids": [
+        "26455e012944816dd0736931:0:830024e0",
+        "eeb6875bddad2ceeae8188e8:0:d2902cce"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_scare_exit_left",
+      "candidate_ids": [
+        "e599e5db72e4d7fd66dff62c:0:ceb4cf1d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_standing",
+      "candidate_ids": [
+        "25a7e45079219888fe986cfe:0:83df264e",
+        "16889c672f4e413747412de1:0:27bbbf62"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jump_to_hang",
+      "candidate_ids": [
+        "27aa6a2c9a1afef4fdbee0c7:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping",
+      "candidate_ids": [
+        "247f43869fb58ae7936bbc2a:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping_1",
+      "candidate_ids": [
+        "21f436f89d39719fce6473c8:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping_2",
+      "candidate_ids": [
+        "dd0da7246146e8d006782456:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping_jacks",
+      "candidate_ids": [
+        "47d55b36385ecdeccff3fc40:0:cacf10ff"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping_rom",
+      "candidate_ids": [
+        "fce3af40f3cf0da0c6bee278:0:ab07abe6"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "jumping_to_hanging",
+      "candidate_ids": [
+        "f25f75aefb0da6eaf2a10162:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "junkie_floatingin_space",
+      "candidate_ids": [
+        "77dd8ef9c046363b87f1113e:0:5fd8c78a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "junkie_injecting",
+      "candidate_ids": [
+        "62d76486734752a8697ca937:0:0a7e74b0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "junkie_landingon_couch",
+      "candidate_ids": [
+        "9a61d8d5437c795cd38fa4d1:0:5ebdcfca"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "kamekameya",
+      "candidate_ids": [
+        "e660b537e97d089b74f7cbb1:0:0d5ae7bd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "king_kong_fight",
+      "candidate_ids": [
+        "4e6d53819317fac0e4157d67:0:d9a31c3d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "knife_fight",
+      "candidate_ids": [
+        "46e126f8407e84cea105b05e:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "knock_out_loser",
+      "candidate_ids": [
+        "7446143643db8a6877792bcf:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "knock_out_winner",
+      "candidate_ids": [
+        "ea0be86b8df461072aa5db82:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "knockedinto_wall01",
+      "candidate_ids": [
+        "e2434b404a056999e5ba1580:0:b86a07be"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "knockedinto_wall02",
+      "candidate_ids": [
+        "0b3d106315f0b5fc72fa11d6:0:4067696c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "land_hard_roll",
+      "candidate_ids": [
+        "68d12c19372201c316d2d5b8:0:a940aa8f",
+        "135911a556657f538c9c73d8:0:bdbefb67"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "land_soft",
+      "candidate_ids": [
+        "6f5332add3ee6ecac366a89b:0:2b791c11",
+        "e16972c43b92d0c87ff0470f:0:c07fade9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "laser_eyes",
+      "candidate_ids": [
+        "d495f874dba43749ef8a4357:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "laughs",
+      "candidate_ids": [
+        "fc046d85f4e0b05d63906ac7:0:acbc6ab1",
+        "e16e9d4f7fb748619f6b7081:0:7756c5de",
+        "af847978c1145bf4e5d4416e:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "lawyer",
+      "candidate_ids": [
+        "59a1f861650d3ac6daf86265:0:acbc6ab1",
+        "0cb1cc3a792e5f8b0b7936c6:0:acbc6ab1",
+        "6d5a43c381f9e5922698477d:0:7756c5de",
+        "5137b74d84644df49e75d23e:0:7756c5de",
+        "c4bd888ebd2e9c20b1ba607e:0:0a1ab706",
+        "60dbc0a0e9b479a729cd40b4:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "lead_jab",
+      "candidate_ids": [
+        "25b697de2e246861841b187a:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "lead_jab_1",
+      "candidate_ids": [
+        "823cbf5302b7c228cab72f24:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "leaning_idle01",
+      "candidate_ids": [
+        "f7644b953fedc99aa574f7c6:0:6c546fa2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "leaning_idle02_smoking",
+      "candidate_ids": [
+        "19edae3e019a8a9ddb708693:0:be00114e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "left_cover_sneak",
+      "candidate_ids": [
+        "3e1779cd91fc600358b8ea54:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "leg_sweep",
+      "candidate_ids": [
+        "2d84c2c55cbc574ca7ba0a9e:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "light",
+      "candidate_ids": [
+        "f05db89eee1cf3efadabf7c0:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "loading_canon",
+      "candidate_ids": [
+        "e49cbbc29e6108f0606320b4:0:96a29bde"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "look_behind_lets_go",
+      "candidate_ids": [
+        "01ff3b38232c4eef94be4328:0:1b27fec8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "looking_touching_mirror_reflection",
+      "candidate_ids": [
+        "ab8ed12ec873b0252028cfdf:0:9b43f72d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "macarena_dance",
+      "candidate_ids": [
+        "e48706812088956575683507:0:5869c308"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic",
+      "candidate_ids": [
+        "6b8bc020cb84fadb8e212002:0:d0d6b73b",
+        "daa9e3f5f0d76091f2ed9d27:0:ef00f8f9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_conjure_throw_fireball",
+      "candidate_ids": [
+        "ef3d4a56032d9bfb9cd9d94d:0:66bbd9ff"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_explode",
+      "candidate_ids": [
+        "f0e7d81c41dce2b77e779636:0:bb6e4b24"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_explosion",
+      "candidate_ids": [
+        "003c580834708d456cb247d2:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_fireball",
+      "candidate_ids": [
+        "2129a25099dcac68dde2f3a9:0:6c15140c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_hand_fly_off",
+      "candidate_ids": [
+        "8d2366412d900c3785e20453:0:f8e44564"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_hand_fly_off2",
+      "candidate_ids": [
+        "e80688d6548eb214c7530741:0:ada9db2c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_shields",
+      "candidate_ids": [
+        "3357dc65e83a345d7541acd4:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "magic_snaps",
+      "candidate_ids": [
+        "266f69645c4799e3b976c5c0:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "male_sitting_pose",
+      "candidate_ids": [
+        "0cae4b601c18731cb0ad7c60:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "martelo_2",
+      "candidate_ids": [
+        "a2270a6ca98487b4f4f7be80:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "martial_arts_kata",
+      "candidate_ids": [
+        "4142bcf7f933ff37fee262bf:0:0367359a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "medium",
+      "candidate_ids": [
+        "7cee6eaae5d5a0325522b3e9:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "medium_hit_to_head",
+      "candidate_ids": [
+        "f4bd92cbff95dae0a2cb3f30:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_confused_travolta",
+      "candidate_ids": [
+        "4a3ff3e4ba53e78f4bf7fe63:0:c416678c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_cowboy_aaaah",
+      "candidate_ids": [
+        "2fffe5ce338dfe78862d333c:0:0d39cad4"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_letmein",
+      "candidate_ids": [
+        "cd42ef6d4f71efca2d3b6aa9:0:9a732561"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_shia_just_do_it",
+      "candidate_ids": [
+        "10d5609d01c6107fe3073cf8:0:381f7a20"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_shia_just_do_it_long",
+      "candidate_ids": [
+        "5dbe64c47cdd64a09eac317f:0:ff4e8a98"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_shia_just_do_it_short",
+      "candidate_ids": [
+        "4a045fa79b9dd0b6d2160ba0:0:7a06c9ca"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_shia_just_do_itv2",
+      "candidate_ids": [
+        "498af92dc7c766cdec2c6798:0:a2296865"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_spiderman3dance",
+      "candidate_ids": [
+        "884461f0e5109359d8c49c77:0:665af0d5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_tap_head",
+      "candidate_ids": [
+        "3f20e56f376a987315d95784:0:c49cd796"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "meme_this_is_sparta",
+      "candidate_ids": [
+        "02cecd809eb3fb472cfb12fa:0:7c3f9941"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "middle_fingers",
+      "candidate_ids": [
+        "331724f57b90a854f0d66883:0:acbc6ab1",
+        "860ba3ddd3013f4e13a816d7:0:7756c5de",
+        "31c3fac67406813bbe9999ce:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mma_kick",
+      "candidate_ids": [
+        "9fde12136115aec74b0e2bea:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "monster_attacking",
+      "candidate_ids": [
+        "53aee0047753acdbf80e0697:0:0a24391c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "monster_gettingoutof_suit",
+      "candidate_ids": [
+        "c2b7a869ed2c92513cf1976c:0:52667668"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "monster_shouting",
+      "candidate_ids": [
+        "895db2d36358dff1f2aef9e4:0:7f86f512"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "motus_man",
+      "candidate_ids": [
+        "7f7c5fc7491f1f2c23894940:0:b4b6ce07",
+        "7f7c5fc7491f1f2c23894940:0:b4b6ce07",
+        "17c7ec16ee89d91cee05019a:0:fb633940"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "motus_man_c_01a",
+      "candidate_ids": [
+        "e44750a5a8101a2ffcc4ea4f:0:9e839877"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mugging_scene_hero",
+      "candidate_ids": [
+        "233142c738a89c426a687b36:0:a4028384"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mugging_scene_mugger1",
+      "candidate_ids": [
+        "0f354f92efbb3e6b3cc78e7a:0:1d8ebff9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mugging_scene_mugger2",
+      "candidate_ids": [
+        "7d169622bae369ec67d585a9:0:98cee4ec"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mugging_scene_victim",
+      "candidate_ids": [
+        "7098b4c7808ff87abf8357d8:0:84655946"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_imhotep_cat_scare",
+      "candidate_ids": [
+        "040bc4c7979d434bdb5d6f35:0:f1a6aaad"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_imhotep_screams",
+      "candidate_ids": [
+        "6c718e8027f36021442059b0:0:d864c6ab"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_imhotep_screams2",
+      "candidate_ids": [
+        "3ca426b166768ca901a6d7b1:0:959344f9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_imhotep_soul_suck",
+      "candidate_ids": [
+        "5d1c89f2eed4fcf9c85e31e7:0:d38540ae"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_summoningthe_sands",
+      "candidate_ids": [
+        "3eeaba7f91b90c4f446204f6:0:e1ec7837"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_summonthe_rivers",
+      "candidate_ids": [
+        "c12a9683e32279149a0eddcc:0:32a533ad"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mummy_waking_up",
+      "candidate_ids": [
+        "358ac759ce79c93b15f956ee:0:5e152a27"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "music_playing_drums",
+      "candidate_ids": [
+        "bf11475723b9aea034d2ca54:0:a57883ac"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "music_playing_keyboard",
+      "candidate_ids": [
+        "b775d14b0ba01b441ccc9341:0:bc03815f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "music_playing_sax",
+      "candidate_ids": [
+        "fc166e8e5feff96b6842492c:0:75d228d1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "music_rapping",
+      "candidate_ids": [
+        "826b19bb06c7afac3c48a613:0:33cc0ad1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mutant_claws",
+      "candidate_ids": [
+        "10d01206de575f4005d8ba54:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mutant_punch",
+      "candidate_ids": [
+        "6ebe0c70b4dcc7ea722d7195:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mutant_walking",
+      "candidate_ids": [
+        "66a24510df2ea39b2a19d5f8:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "mutant_walking_1",
+      "candidate_ids": [
+        "a0bcfeca729b4c30d1942655:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "nature_documentary_gone_wrong",
+      "candidate_ids": [
+        "9126497c1257c8c01035c9da:0:acbc6ab1",
+        "92551718c89b59889b7a3442:0:7756c5de",
+        "4d7a152c0a61442e7a970a7c:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "ninja1_combat_forward_roll",
+      "candidate_ids": [
+        "69a1eea75b9ccb0e2560ac2f:0:a752606f",
+        "d12c5bbc05b5306ddddafe85:0:c87cabf2",
+        "69a1eea75b9ccb0e2560ac2f:0:a752606f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "ninja_rise",
+      "candidate_ids": [
+        "124eb7fba26ccb2aa39274c7:0:acbc6ab1",
+        "03cbd3feb7e6987bc89c5c54:0:7756c5de",
+        "c9af7bfe2682c54d4beadde6:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "npc_dancing_party",
+      "candidate_ids": [
+        "5ca636a1e5c837af63bb0670:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "office_desk_laptop",
+      "candidate_ids": [
+        "d069ec1347369c1d3c90be0f:0:a752606f",
+        "f0ac5d27ccf042101b731a88:0:54d3b1e7",
+        "d069ec1347369c1d3c90be0f:0:a752606f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "on_cell_phone",
+      "candidate_ids": [
+        "72a60204ec66bf127c0e7518:0:acbc6ab1",
+        "d51554b3641d8df2fcf55874:0:7756c5de",
+        "0942ca652a567e4ab16529e5:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "party_idle",
+      "candidate_ids": [
+        "94f2d52d251788957472b533:0:3a0097cf",
+        "bd76c2741a1ac606889d0e59:0:724f568a",
+        "6100964c406a7e3537d7eaf9:0:cf7e7e11"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pilot_wave",
+      "candidate_ids": [
+        "5b8f67fffc0a6b70747afec3:0:316d34aa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol",
+      "candidate_ids": [
+        "7bc516b060385ef6a94b08db:0:acbc6ab1",
+        "860744254923dc6a1d42eb96:0:acbc6ab1",
+        "ad48c7a9caa5c006a94bca58:0:7756c5de",
+        "60df9ca58482149a4891f5e0:0:7756c5de",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706",
+        "e7ba6cd2154130a61909d7d3:0:0a1ab706",
+        "ad56ff11380d294cf5d2bbad:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol_behind_cover",
+      "candidate_ids": [
+        "8015ea62d60f818b7a25100c:0:acbc6ab1",
+        "10683b13df509e5ccf3e70fa:0:7756c5de",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706",
+        "b9b3934afb2c2f908d85ac02:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol_fight",
+      "candidate_ids": [
+        "af600557cfbd2d80b3e82599:0:2f5d8888",
+        "1f7ad1a7a1185510e3ac7b29:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol_heavy",
+      "candidate_ids": [
+        "7fefd7a6386710f22417840d:0:07a0fe85",
+        "822240d2e4cebeba5bb04ecd:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol_light",
+      "candidate_ids": [
+        "685afcd1f0c27b3f4788c7e5:0:07a0fe85",
+        "8ea8dea366720d90a814dd7d:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pistol_medium",
+      "candidate_ids": [
+        "9b5a6e8945a519407cce06aa:0:07a0fe85",
+        "973c1eda1a8595968b0e9434:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "playing_drums",
+      "candidate_ids": [
+        "cc8ed8a55049c04c0d28db51:0:acbc6ab1",
+        "032275c2012c35473375c8e8:0:7756c5de",
+        "c75475928ac6d9a26e4350a1:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "playing_guitar",
+      "candidate_ids": [
+        "c9eccd3aa3c23086dd2d07c6:0:acbc6ab1",
+        "628c0f77b485d6e037f15498:0:7756c5de",
+        "8cbaad18540c6d69415ba007:0:0a1ab706",
+        "5d529eeddf122e72d7fd128f:0:0f6d7339"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "playing_piano",
+      "candidate_ids": [
+        "b7cf8f45486676c3bb74b1ac:0:acbc6ab1",
+        "5053780e4576d4fb0145d25c:0:7756c5de",
+        "7ad78c27186c1958b1f1db29:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "playing_saxophone",
+      "candidate_ids": [
+        "2d3f4733c01f9b867f52d0f7:0:acbc6ab1",
+        "f8ddfb64a1556cfe27f88b44:0:7756c5de",
+        "1f5b494ff52491ec7fe61cd0:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "playing_trumpet",
+      "candidate_ids": [
+        "bc7d9c430ab6abb2054c301b:0:acbc6ab1",
+        "4fbe24599bca050dcd195eab:0:7756c5de",
+        "448c7edac60db4b3784f29bc:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "pog_face",
+      "candidate_ids": [
+        "5febfbc80bf44928b65b05e3:0:5af13587"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "prayingfor_mercy",
+      "candidate_ids": [
+        "65aad75d5249d3667fe1392f:0:58dd4ab5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "punchingthe_ground",
+      "candidate_ids": [
+        "3d99e2a841e5609781d1db4e:0:64cc1012"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "random_the_ring_crawl",
+      "candidate_ids": [
+        "44ece1cf2348c72b15231ba1:0:7b04fc3a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rangeof_motion_test",
+      "candidate_ids": [
+        "6a273ad9635ed45cb1e50279:0:397bb574"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rapping",
+      "candidate_ids": [
+        "4f9c5f5d5a861649b781113b:0:c6b569ac"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "raptor_take1",
+      "candidate_ids": [
+        "1dcd2094963e5a17fd4eb494:0:d98012c0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "raptor_take2",
+      "candidate_ids": [
+        "b8bf9f0ecdc4ee2ada24cbdb:0:6d0d6e9e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "raptor_take3",
+      "candidate_ids": [
+        "7ba8b6b8f3992ee3eb126bcf:0:6dc434d2",
+        "75a4315991c67264f1e88fef:0:22141529"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rapunzel_letting_down_hair",
+      "candidate_ids": [
+        "01f5ca9ec1a691882c909d4d:0:68fc90b0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "regular_heavy_check",
+      "candidate_ids": [
+        "6c8179422bb8b3b9cfd76527:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "regular_light",
+      "candidate_ids": [
+        "fb2ab37c561a82bb921267ed:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "regular_medium",
+      "candidate_ids": [
+        "c10c1b988c15a64fc7285de3:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rescuing_dead_friend",
+      "candidate_ids": [
+        "066e65a4e8c2c94ba9a7f615:0:acbc6ab1",
+        "82343ed54f3e74cdc94e8ee5:0:7756c5de",
+        "3d371cd81c546ef28ac675fc:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rifle_fight",
+      "candidate_ids": [
+        "9e8a8805ad2f8810f6f21411:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rifle_heavy",
+      "candidate_ids": [
+        "4506ec52baf0bc8709c45f95:0:07a0fe85",
+        "70698ddf10c8445d2ae49b15:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rifle_light",
+      "candidate_ids": [
+        "5bd20f3d2bb8a20259b7d968:0:07a0fe85",
+        "0b64eb3d3cec886c0f2241fc:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rifle_medium",
+      "candidate_ids": [
+        "eff5b9533f5b8562955ed434:0:07a0fe85",
+        "0fa425ca1edec1c67d1320fe:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rise",
+      "candidate_ids": [
+        "ba8c742f5ec3c40a4bde92b7:0:a707ee17",
+        "b73fe8d6dbd46f6e90aae28b:0:a707ee17",
+        "072492522462bbc31c593ff6:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rise_04_smooth",
+      "candidate_ids": [
+        "19337e248fdd9acd20a52d86:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rise_05_smooth2",
+      "candidate_ids": [
+        "fd6405046df282de07e869fc:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "robbery_being_held_up",
+      "candidate_ids": [
+        "59ea93d776c770510a9f5c8c:0:ae551be8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "robbery_robbery01",
+      "candidate_ids": [
+        "6330cb121633d2766bb3577e:0:35d59686"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "robbery_robbery02",
+      "candidate_ids": [
+        "cb16cf733577c72cb2bb75f1:0:55ad7675"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "robbery_working_cash_register",
+      "candidate_ids": [
+        "b857720566fdf5f8b9e0f0ae:0:9364694d"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "roll_forward",
+      "candidate_ids": [
+        "9bca70cc5b5facc853b78ccf:0:b75ad4e3",
+        "3874c8a398e7bb8689783a3a:0:b55e6927"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rope_climb",
+      "candidate_ids": [
+        "b462290a26174560e67bb587:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "round_house_kick",
+      "candidate_ids": [
+        "5599f4c181e673a4d7f01df6:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rowing_slowly",
+      "candidate_ids": [
+        "e91533f449c0ccc7a8a90f32:0:bbed97f8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "rpg_launcher",
+      "candidate_ids": [
+        "5e352c0ca7b63da68f25750e:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_backward",
+      "candidate_ids": [
+        "1c21be3d8183b294c835e4d5:0:0fe1db7a",
+        "8daad2a2aa5a33e50f3de8b4:0:6dd19088"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_forward",
+      "candidate_ids": [
+        "c1ed64d6c975194967304af7:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_panic",
+      "candidate_ids": [
+        "4d89c1104d2157b8625189d9:0:0c22133f",
+        "9711b6f186ce2ea224b1d6ea:0:26aa51d9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_sprint",
+      "candidate_ids": [
+        "81d38ac30d58e4349d3e0b86:0:4b9bdd7f",
+        "b561dd7b5b6a4d0da1814114:0:500b2a72"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_strafe_left",
+      "candidate_ids": [
+        "e9706ea23b28a4bcc594496b:0:bf78f112",
+        "66544d6317b6beb344047943:0:47ec567e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_strafe_right",
+      "candidate_ids": [
+        "8347eff49b8858346896faf1:0:cfed6e02",
+        "2f516526d66a1584430f5396:0:0fd7ecef"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "run_to_rolling",
+      "candidate_ids": [
+        "14ec69673a35dd9e2b44b977:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "running_arc",
+      "candidate_ids": [
+        "baf8e86eb9c7aefafb7ef08d:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "running_on_all_fours",
+      "candidate_ids": [
+        "817c39128bee6a8f13ba9ce0:0:68d0bc5e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "running_right_turn",
+      "candidate_ids": [
+        "e7e9fb84ef1f0a2a55efb43f:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "running_slide",
+      "candidate_ids": [
+        "d5ce5c424f64f3ca9a5c819a:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "samurai_draw_sword",
+      "candidate_ids": [
+        "334dbe62515a36367133a247:0:65a39042"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sawzall",
+      "candidate_ids": [
+        "1cba949e0b7e0949dbf78d3b:0:bc358404"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "scrolling_phone",
+      "candidate_ids": [
+        "69456cff4ead5a3662e5aaef:0:44af038c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "seppuku",
+      "candidate_ids": [
+        "a4d6547249eecb3485adf719:0:ee216d37"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shadow_boxing",
+      "candidate_ids": [
+        "4ba23dee54fb5fdeaa7d2eba:0:a707ee17",
+        "4ba23dee54fb5fdeaa7d2eba:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shamwow_guy",
+      "candidate_ids": [
+        "84b0a030a957b74d61adcc70:0:acbc6ab1",
+        "a016476f92cf4dd5096bf568:0:7756c5de",
+        "c21815494ef0a826e88468fa:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shotgun_fight",
+      "candidate_ids": [
+        "43586c4355b0e417171ca317:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shotin_head",
+      "candidate_ids": [
+        "17a9d8938f86e3496c9fda44:0:3e1c7323"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shoulder_shimmy",
+      "candidate_ids": [
+        "9e2dbf8336b01047b5cdba04:0:acbc6ab1",
+        "bdd918d833c8bf7d3aaea850:0:7756c5de",
+        "70292d8f14cd8428b76abbf2:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "shrugging",
+      "candidate_ids": [
+        "734ab22de54d9b1dbf225d59:0:acbc6ab1",
+        "de36e71b5d3d74f1d44f32da:0:7756c5de",
+        "b2666fba562c309ca7c244fd:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sidestep_dodge",
+      "candidate_ids": [
+        "edf0d64547f155fe63cd78d2:0:ed7a45fd",
+        "605a78c51ecbdc376e7ddb51:0:e02ac821"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sillow_mill_l",
+      "candidate_ids": [
+        "881b4d8f32ef43afb6de6ec1:0:eeae3260"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "silly_dance_long_take",
+      "candidate_ids": [
+        "44a02882493a7ef72f2b377d:0:f285d140"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "silly_dance_short",
+      "candidate_ids": [
+        "ed58f7cfe294f8c38bfe78b9:0:347d3884"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "singer",
+      "candidate_ids": [
+        "fe47d27bf988d75c965fb9ed:0:acbc6ab1",
+        "9cfe837e5fefa68935cd8a37:0:7756c5de",
+        "d5c68c76b14239fe7574558c:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sit_down_use_laptop",
+      "candidate_ids": [
+        "ed62c86ade54e1d58c1a4579:0:acbc6ab1",
+        "a282e334d67ded69b3dd5488:0:7756c5de",
+        "ae8529b7012dbbb9076903e3:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitcom_camera_looks",
+      "candidate_ids": [
+        "2ae72b309d703cbc1c3f2d3e:0:acbc6ab1",
+        "f26004376bdb47f9fff1179a:0:7756c5de",
+        "e0d1bf45fc1783aac04618ed:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitcom_intro_shots",
+      "candidate_ids": [
+        "794d9abdc92aed852d8d7dfa:0:acbc6ab1",
+        "e0fec6dbf02df245e778831b:0:7756c5de",
+        "8d1bcc35ddad5c1390068354:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitting",
+      "candidate_ids": [
+        "ca1e98d8aa55184e1283da19:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitting_idle01",
+      "candidate_ids": [
+        "16f249671cf30c0adf21e78b:0:dd563984"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitting_idle02",
+      "candidate_ids": [
+        "43959fb15a2010f4b415402b:0:7cf12de5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sitting_talking_gossip",
+      "candidate_ids": [
+        "d688e8c7ba5dac3c9b5c31f2:0:acbc6ab1",
+        "68ca7b8216d1bb8ccf7693b1:0:7756c5de",
+        "22abe7ab20025a688aff1bb0:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sk_mannequin",
+      "candidate_ids": [
+        "d43c6133607c0600402a7d96:0:d6ec86f5",
+        "e3de2004d4b115f816494ddd:0:9125a29e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sk_mannequin_we_ps_rifle_pistol",
+      "candidate_ids": [
+        "957414c74b8671b57dde5ea6:0:4842890a",
+        "957414c74b8671b57dde5ea6:1:4842890a",
+        "957414c74b8671b57dde5ea6:2:4842890a",
+        "957414c74b8671b57dde5ea6:3:4842890a",
+        "957414c74b8671b57dde5ea6:4:4842890a",
+        "957414c74b8671b57dde5ea6:5:4842890a",
+        "957414c74b8671b57dde5ea6:6:4842890a",
+        "957414c74b8671b57dde5ea6:7:4842890a",
+        "957414c74b8671b57dde5ea6:8:4842890a",
+        "957414c74b8671b57dde5ea6:9:4842890a",
+        "957414c74b8671b57dde5ea6:10:4842890a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "skip_cycle",
+      "candidate_ids": [
+        "190eab0a3c127d18e85f0048:0:7e3bfa74"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_dance_150_bpm",
+      "candidate_ids": [
+        "f4837d13abb24488a21eaed4:0:17b37121"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_guitar_150_bpm",
+      "candidate_ids": [
+        "974b9f52f9e62b8afd387649:0:f2dff199"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_hammer",
+      "candidate_ids": [
+        "589a38afe98201cf70b4eb43:0:127c3827"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_hammer_150_bpm",
+      "candidate_ids": [
+        "b9426c5276bdae4414757e54:0:895cadda"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_hammer_150_bpm_wall",
+      "candidate_ids": [
+        "443d0e03e3d2af56e9956a12:0:9c4fa669"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_nail_gun1",
+      "candidate_ids": [
+        "42d41a91d0c09f34f2da1a5a:0:fa868f2f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smearballs_saw",
+      "candidate_ids": [
+        "b4335128445f3282d8925239:0:afbdb5e2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "smilesand_frownss",
+      "candidate_ids": [
+        "0a167fa33f528db6a8d12ae9:0:4814e269"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "soccer_passing",
+      "candidate_ids": [
+        "390f2b88c35ba1169402ec14:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "soccer_penalty_kick",
+      "candidate_ids": [
+        "d9c58808d28367dcbebe9351:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "something_behind_me_eating",
+      "candidate_ids": [
+        "7e19936fe9214b19fc13b8c3:0:acbc6ab1",
+        "35ef6bbf23b1808bbbfe0689:0:7756c5de",
+        "21a5c10f26fa87557a540df3:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "song_rick_astley",
+      "candidate_ids": [
+        "d56cfa5d8f8efd35b22ddde1:0:46e5725c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sports_fan_celebrating",
+      "candidate_ids": [
+        "e82592639b2aacbdb751c82a:0:377d04bb"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sports_no_no_no_yes_yes_yes",
+      "candidate_ids": [
+        "98590568b318ad358161c478:0:8b5407d3"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sports_playing_ping_pong",
+      "candidate_ids": [
+        "88c3055fdf79c67bb1117e68:0:83c0abfb"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stand_relaxed_fgt",
+      "candidate_ids": [
+        "4ab6b7c2336697cc098b0fc5:0:fd47e298",
+        "efec0e707380293bc825d948:0:0e6df91c",
+        "adecec28bce0a1a086fd3972:0:4190cc9f",
+        "8e78d36dcbb8070791d79f5b:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stand_relaxed_idle",
+      "candidate_ids": [
+        "d22eb6f0fc12e0b5d9f76ab5:0:5173144e",
+        "24a3530f5c63666dae742c6f:0:0e6df91c",
+        "6973fa3e6959aec695ba19d8:0:c48f69c4",
+        "d22eb6f0fc12e0b5d9f76ab5:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stand_relaxed_to_walk_f",
+      "candidate_ids": [
+        "3eac515916e5de326383c95e:0:fd47e298",
+        "f02b0d98797ddc1390ae7309:0:5173144e",
+        "f17ca36a4e2368028f6424e8:0:0e6df91c",
+        "8f0f1e6f2f40339145a47cfc:0:1c130600",
+        "f02b0d98797ddc1390ae7309:0:5173144e",
+        "8e0ca078e0b32fc10afab701:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stand_to_roll",
+      "candidate_ids": [
+        "a9f64e8c1c4d8cbe9f64ebde:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stand_up_comedian",
+      "candidate_ids": [
+        "0a814b309297e0bd5fac73b1:0:acbc6ab1",
+        "96b6c3dbbff551f83d755622:0:7756c5de",
+        "a34934912df6b60e61cc285e:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_aim_idle",
+      "candidate_ids": [
+        "7c770b7e4d8971350fbf7088:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_death_forward",
+      "candidate_ids": [
+        "ec514de6bf8b93f78991446d:0:bf075e31",
+        "bae39d0c0503ebab7dc18e49:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_death_left",
+      "candidate_ids": [
+        "cf91a7d41e4aad55df7096f8:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_equip_bow",
+      "candidate_ids": [
+        "1cfe3d0749431cfe338aed5d:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_idle",
+      "candidate_ids": [
+        "75667f458cf7c9dd7bed6aba:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_jump",
+      "candidate_ids": [
+        "34fa4178cfe703ccb9ff40f8:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_jump_running_to_run_forward",
+      "candidate_ids": [
+        "b01cc2c1a9666ee1379f3e08:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_melee_attack_downward",
+      "candidate_ids": [
+        "e927c80f6eafc55775698910:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_melee_attack_kick",
+      "candidate_ids": [
+        "7e2c50362f89f0e3c74ba00e:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_react_small_from_left",
+      "candidate_ids": [
+        "4aedd6184c7eddfc3807f740:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_run_left",
+      "candidate_ids": [
+        "ac891dae3a98cabc71a7b8cc:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_torch_run_forward",
+      "candidate_ids": [
+        "9675ef6c5d34f0727a08fbad:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "standing_walk_back",
+      "candidate_ids": [
+        "3ec7a17421190f3d2d4a1d95:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_blaster_fight",
+      "candidate_ids": [
+        "20cfe6a1fa4cbdb3fe927656:0:c74f08eb"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_boba_fett_idle",
+      "candidate_ids": [
+        "712830fb14843ae728e141dd:0:592c04be"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_force_choke_victim",
+      "candidate_ids": [
+        "a71460d603b60f2340ff7b1a:0:e02738ea"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_force_lightning",
+      "candidate_ids": [
+        "85c520d801bcfa7900afed4e:0:2e773ce2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_force_raise",
+      "candidate_ids": [
+        "4d002b2fb379123cc4fafac7:0:bd09fff1"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_force_slam",
+      "candidate_ids": [
+        "154968f3fd2d38f6debb3d76:0:8f8bcc20"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_hello_there",
+      "candidate_ids": [
+        "853f517dfdf2fd1e3b46a498:0:45494672"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_jedi_attack",
+      "candidate_ids": [
+        "09058bd2ba66d46ad16f8598:0:25edb264"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_light_saber_fight_force_slam02",
+      "candidate_ids": [
+        "e55cb769eee568de8bddd43e:0:eeb0b77b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaber_accident01",
+      "candidate_ids": [
+        "4905ab9dc8503cc2afb3d0fc:0:1c1b1baa"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaber_accident2",
+      "candidate_ids": [
+        "493f2bbfc3f7870db718de0a:0:7b80b584"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaber_fight_force_slam",
+      "candidate_ids": [
+        "a21071e949acca341f7dd7ee:0:aaed977c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaber_ignite",
+      "candidate_ids": [
+        "ef293887da5a25197d94f85b:0:6739fdb8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaber_moves",
+      "candidate_ids": [
+        "c69b2cb384a7316944f68ed1:0:ac6b5997"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_lightsaberand_force",
+      "candidate_ids": [
+        "587d009cf265acfaec632c58:0:c02e394f"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_missile_hit",
+      "candidate_ids": [
+        "3794929b6fb15634283401f0:0:dbad645c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_passing_check_point",
+      "candidate_ids": [
+        "d5a40d22a37edea13ed44dcf:0:4526b7e5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_passing_check_point_wookie",
+      "candidate_ids": [
+        "22cdf31a5153008ed0d11923:0:f2307a49"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_trooper_check_comms",
+      "candidate_ids": [
+        "408ced4534b1bf88f5981904:0:9c5736ea"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_trooper_checking_papers",
+      "candidate_ids": [
+        "ee32275cefe62da6c3c11c3b:0:649e7ae7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_trooper_guard_tower",
+      "candidate_ids": [
+        "49d3010bf621fc583b657e76:0:211547bc"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_trooper_idle",
+      "candidate_ids": [
+        "5c68dea9f1bd9fab44768425:0:017a4eec"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_trooper_patrol",
+      "candidate_ids": [
+        "2b239feef251abdd6d9f8895:0:738763a2"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_vader_force_choke",
+      "candidate_ids": [
+        "b3aef8252bcb3040d5b18f01:0:e1a1e5bf"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "star_wars_vader_iam_your_father",
+      "candidate_ids": [
+        "cb4e49b71dc0dcd54d81f00e:0:404e4665"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "start_sprint",
+      "candidate_ids": [
+        "c3d79dd1a342530ddefaf75b:0:095f69c4",
+        "2b896d5f965f4cdd2d337a9a:0:c2443523"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "step_forward",
+      "candidate_ids": [
+        "b54307e63dc012fc37cee6b0:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "step_forwardand_punch",
+      "candidate_ids": [
+        "cb1c1d6424cbc4b904a2b31d:0:d622c6e9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "step_over_obstacle",
+      "candidate_ids": [
+        "21f0fbc942ceb419fa01d7ba:0:9ef48952",
+        "4afff99e7e83550afd04a553:0:bd074946"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stomache_issue",
+      "candidate_ids": [
+        "4b996e730d8f51e7fd3b4ecc:0:acbc6ab1",
+        "1ca5e68a44d674930514da12:0:7756c5de",
+        "cbdc0acbdabebc2703dc8c0c:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stop_from_run",
+      "candidate_ids": [
+        "f4aca0d34c1396d4ce224a7a:0:14464165",
+        "28bdff8fc3e94099a9e2e7ea:0:7cc0591b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "stumble_recover",
+      "candidate_ids": [
+        "88657fd3f6cecfdf47a3511f:0:d360a681",
+        "31cf4aaf40005063c1eaf598:0:c7d43944"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "suit_half_off",
+      "candidate_ids": [
+        "b40d935a7c25a28fb488195f:0:2c32dfc8"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "super_hero_flying",
+      "candidate_ids": [
+        "e9ed5f2387bc574f2a4267aa:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "super_hero_landing_takeoff",
+      "candidate_ids": [
+        "bb03d43a3657cb842d6e86b9:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "superman_flying",
+      "candidate_ids": [
+        "1a8192a66bc8408a347ed9d1:0:8b631686"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "swimming",
+      "candidate_ids": [
+        "b483e8adff3dd6ff4737ed8f:0:4c8ed7ad",
+        "2683e92817caae284a0c4f84:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "swing_to_land",
+      "candidate_ids": [
+        "6f363a5893c383eb19465426:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "swinging",
+      "candidate_ids": [
+        "f1f518d0b1fa42f725bd5bfd:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "swinging_1",
+      "candidate_ids": [
+        "f23bee42e49503348d62beac:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "swinging_bat_menacingly",
+      "candidate_ids": [
+        "d89290eb450ab570e7760775:0:2b913125"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_and_shield_attack",
+      "candidate_ids": [
+        "8ec89e0c14d16944efba775b:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_and_shield_impact",
+      "candidate_ids": [
+        "0e8c383349c8a3b3b3eeb5f5:0:bf075e31"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_and_shield_jump",
+      "candidate_ids": [
+        "50bff3086e99b3751928101c:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_fight",
+      "candidate_ids": [
+        "3f11e6470ee34c2b697eb0b4:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_generic",
+      "candidate_ids": [
+        "0cb0c8af62f5f81893ba98d3:0:acbc6ab1",
+        "481faffe423649c1ff5b0f4a:0:7756c5de",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706",
+        "e6764d95f752772e01528706:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_idle_light",
+      "candidate_ids": [
+        "1cbe8b6b316f34a7a88f905f:0:07a0fe85"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_idle_medium",
+      "candidate_ids": [
+        "a22f50c017b16c46b24415f6:0:07a0fe85"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "sword_samurai",
+      "candidate_ids": [
+        "28c0b1a72999347b47c79a02:0:acbc6ab1",
+        "6c4c9fc6434ad497f2a4b6c3:0:7756c5de",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706",
+        "bd1fedbd341288114e3fb5ee:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "take",
+      "candidate_ids": [
+        "b8d8e811c2dbb8c30817d3dc:0:108f6d72"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "take_5",
+      "candidate_ids": [
+        "d32a4adcf00c28c5753472f6:0:0a3413ff"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "take_off_helmet",
+      "candidate_ids": [
+        "5f48b9fcb3e5d49505efa4f6:0:94cf2843"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "taking_a_group_photo",
+      "candidate_ids": [
+        "d7f77de16eb73419cba879f1:0:acbc6ab1",
+        "e4f9c8fe4238b90abec337d8:0:7756c5de",
+        "a7d4273aad550d1307cdc955:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "takingoff_suit2",
+      "candidate_ids": [
+        "d446512548422a3a9e83f45f:0:d062657c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "talking_head_intv",
+      "candidate_ids": [
+        "e969d1fb9d173bb5b064351c:0:acbc6ab1",
+        "8b9665530aabd92b0b7905fc:0:7756c5de",
+        "d9742f128f8db22e99101062:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "taunt_with_bat",
+      "candidate_ids": [
+        "2d723562918b672258cdaf0b:0:033cf5e3"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "taunting_getting_punched",
+      "candidate_ids": [
+        "4ef52f3a0335e50cfa48553c:0:13da998c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "taunting_getting_punched02",
+      "candidate_ids": [
+        "37068bfc1e276da6f4ce53d7:0:fa90e512"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "telekenisis",
+      "candidate_ids": [
+        "0757abde9519c975fbeb32ac:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "tennis",
+      "candidate_ids": [
+        "c5faf3d53846342719d3a77a:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "tight_rope_walk01",
+      "candidate_ids": [
+        "0e5de177ae8678a4d5703648:0:acbc6ab1",
+        "fc4a6f24b3eae1d13b471829:0:7756c5de",
+        "969562bd93e56a741ecbf29a:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "tightrope_falloff",
+      "candidate_ids": [
+        "86e1138f812feb74b0aec986:0:acbc6ab1",
+        "253dccd27b4c68336fc286a0:0:7756c5de",
+        "d4e1bb9d5738db9f8fa37a72:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "tiptoe_walk",
+      "candidate_ids": [
+        "97c706978aa85ac8cf897abf:0:214c2e6e",
+        "ad39a2d8d59f4cf0187342bf:0:1e24e6be"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "tonge_twister",
+      "candidate_ids": [
+        "5856cffd2dea57d1b2e03562:0:951c8cd9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "turn_180",
+      "candidate_ids": [
+        "a9b8780fa9d31ef94e570139:0:43a225f8",
+        "b28bd111449e32cd89955cbe:0:be70b582"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "turn_left",
+      "candidate_ids": [
+        "c750e1387c9968a9a1ef65de:0:dce57185",
+        "f07b0b563937a45885917631:0:1a7bf8cd"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "turn_right",
+      "candidate_ids": [
+        "7f3e5107f24942363b394a21:0:c49e357e",
+        "725ac6b16df6cc01eaa51cec:0:b50eefc6"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "turns",
+      "candidate_ids": [
+        "fb1cdf0a6fa759691efbd8fe:0:a707ee17"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "typing_using_mouse",
+      "candidate_ids": [
+        "c871e6d06605a305e0ac5cdb:0:acbc6ab1",
+        "fd10228febc0abd11670e288:0:7756c5de",
+        "32a2c05c06b795e424016b98:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "unarmed_idle",
+      "candidate_ids": [
+        "99f1e32d458dafbe5f106de8:0:13373cc7"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "undressing_suit",
+      "candidate_ids": [
+        "6fad2bc24ccb8557a0d59a5d:0:434739f5"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "vault_obstacle",
+      "candidate_ids": [
+        "72fb8ce43c1ec11ebc78c6bc:0:0a5c4634",
+        "5f8e7d41215f5c809c8ac38f:0:5c977ade"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_jog_aim_f_loop",
+      "candidate_ids": [
+        "fc4d24b1fbf8e16ff0ad2c86:0:b51fd2e0",
+        "4e40a964753930da5317d29f:0:1144c3c2",
+        "3c07c05a92bb85a4b3b27eb4:0:100fb21c",
+        "93de3eca70b8964de1b78690:0:7b49566a",
+        "f47a64999f3bcdd32bd68013:0:5988844a",
+        "fc4d24b1fbf8e16ff0ad2c86:0:b51fd2e0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_stand_aim_idle",
+      "candidate_ids": [
+        "8f04425978faf4cc05e918f0:0:1144c3c2",
+        "e5268fc60c79d621ec08c8f3:0:07f7b452",
+        "9afce2a3eacdfa0f903530ec:0:1ab532f9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_stand_aim_to_relaxed",
+      "candidate_ids": [
+        "30acedf20321db598e9e0da6:0:1144c3c2",
+        "86e2fade57bc1c4139843b4c:0:936ed5b9",
+        "3034922629a642420c2bcad4:0:5988844a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_stand_relaxed_idle",
+      "candidate_ids": [
+        "5e2761a86c712c12c14cd32a:0:1144c3c2",
+        "7bcf611d850cfd506f4c0adf:0:4426d902",
+        "d8652288f65910526b4f71aa:0:5988844a"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_walk_aim_f_loop",
+      "candidate_ids": [
+        "450398481d2b8bffd0dfe03d:0:b51fd2e0",
+        "fab7af72e2762b898e7e8add:0:1144c3c2",
+        "e8811d28360b4f94ed1fa772:0:100fb21c",
+        "f524f362cf2bbaf024783d90:0:ac2c0ad3",
+        "c899919e7848db2434296e91:0:5988844a",
+        "450398481d2b8bffd0dfe03d:0:b51fd2e0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "w2_walk_f_loop",
+      "candidate_ids": [
+        "4e068dee1046375176253841:0:2b671a95",
+        "5d53c50eb37345d5a622f734:0:727271be"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_backward",
+      "candidate_ids": [
+        "17f7684880b7770370c548bb:0:98084216",
+        "697f972fbe82b2572d833a8c:0:e77152eb"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_carrying_heavy",
+      "candidate_ids": [
+        "ab3eac30d9ad3d0105957133:0:197fd3dd",
+        "fde8a6d647687503cb558451:0:2c412c72"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_cautious",
+      "candidate_ids": [
+        "b32c35104519d09dd527a1a6:0:794c192b",
+        "aa843f732cb47cf24c15320c:0:b3b42af9"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_confident",
+      "candidate_ids": [
+        "bac3a090a0968f8379c78698:0:ab004ca1",
+        "ceee99aed6cb59e5dfe1d25c:0:ba038db6"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_forward",
+      "candidate_ids": [
+        "66105061f5b4c63566633b1d:0:bf075e31",
+        "afc11a44731623f9337b9fe5:0:13373cc7",
+        "d72ede82bef3da0a88a96c36:0:fd47e298",
+        "cca789212f4a334b9ec9309a:0:5173144e",
+        "e4a4c428a86cf14a22a49a9a:0:0e6df91c",
+        "ae7962e90ab0dbacc81ca22f:0:52c387c0",
+        "5e8a527e8be04a9f05cc6370:0:ed7559ff",
+        "0dbf3c20747d0c9dc7113211:0:5d4d0377",
+        "c9b8c54c96da31549cd1d04b:0:5173144e",
+        "cca789212f4a334b9ec9309a:0:5173144e"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_strafe_left",
+      "candidate_ids": [
+        "567f607b149588ba0ea9a9e4:0:c453887e",
+        "396bf1ccbc9686ff8ab38eba:0:667da3b4"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_strafe_right",
+      "candidate_ids": [
+        "b7de3651724bcc1140bee544:0:bc921b1e",
+        "fa17db3324644017e1a58e06:0:3d7c0f2b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "walk_tired",
+      "candidate_ids": [
+        "bb3a5ffc1757957186b5bacf:0:7ee72bb4",
+        "1e0500466ceef29a8204b093:0:26806709"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "wall_run",
+      "candidate_ids": [
+        "ed2a39e137742131a8f9a210:0:b0913491"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "wand_spells",
+      "candidate_ids": [
+        "ef6467b95f06e46c6246e32e:0:7756c5de"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "watch_over_city",
+      "candidate_ids": [
+        "e5e1d4af9a1c708516f6ae86:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "we_needa_medic",
+      "candidate_ids": [
+        "6520f7696fdd69ff9fc4969d:0:07850474"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "will_smith_slap_chris_rock",
+      "candidate_ids": [
+        "d788d1f4294b197eebbdf236:0:75b7064c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "will_smith_slap_will",
+      "candidate_ids": [
+        "fe8e0c22646c23f90d11f030:0:dce02c6b"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "witness",
+      "candidate_ids": [
+        "8cf1b6328f76d7d46b5b0c64:0:acbc6ab1",
+        "912ddf7b543544db0ff322e6:0:7756c5de",
+        "546458354ca60b2eced1a513:0:0a1ab706"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "wounded_chest_fight",
+      "candidate_ids": [
+        "817c4f5e3a42e453e275a5bd:0:86b1079c"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "wrestling_intro",
+      "candidate_ids": [
+        "12372fd3928a66480341f15e:0:361ca381"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_attack_walking",
+      "candidate_ids": [
+        "bafc35fe2471124db4adbd98:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_being_shot",
+      "candidate_ids": [
+        "7a220e14900fe6ca2e4eb044:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_chase_1_loop",
+      "candidate_ids": [
+        "8a1eb153ac4507f2d2e7f1a1:0:e264e1ef",
+        "6a16d041a915c4dd4e833151:0:78f68431",
+        "f1b74bf00c0592609645ef64:0:78d7f229",
+        "66fc38c9bd1d597d8434d223:0:07a0db17",
+        "368ed32d41eab16116f49605:0:1cf40de6",
+        "6a16d041a915c4dd4e833151:0:78f68431"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_clicker_walk",
+      "candidate_ids": [
+        "db931c44753f725ebc9784ab:0:3df25f35",
+        "92b6c29c5b2a615e75fecb08:0:eb11e2a0"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_feeding",
+      "candidate_ids": [
+        "cb800716df4aebd2b0721261:0:04ebb7cf"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_feeding_ground",
+      "candidate_ids": [
+        "f76ca1cec2c2a2a0cc186e6a:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_idle_restless",
+      "candidate_ids": [
+        "31358c79ba5f012a1dfa459a:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_idle_slow",
+      "candidate_ids": [
+        "018a9a31445bf8f1e3a9901b:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_transform",
+      "candidate_ids": [
+        "d8c20ef41dbc1c9a399cd26e:0:ab7c0cca"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_wake_up_transform",
+      "candidate_ids": [
+        "e8ff56be9ffe7a96d95f86e0:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_walk",
+      "candidate_ids": [
+        "cb673ee2345c60679efbe963:0:2f5d8888",
+        "57226c2634eb5b9244c843a7:0:fa3740a3"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    },
+    {
+      "action_id": "zombie_walk_02_slow",
+      "candidate_ids": [
+        "c9e43fbf6ae40105a3aac4eb:0:2f5d8888"
+      ],
+      "status": "needs_comparison_and_semantic_confirmation"
+    }
+  ]
+}

@@ -155,6 +155,8 @@ func _handle_screen_touch(event: InputEventScreenTouch) -> void:
 			_action_touches[event.index] = action
 			action.modulate = Color(0.6, 0.95, 1.0)
 			action.button_down.emit()
+			if action.action_mode == BaseButton.ACTION_MODE_BUTTON_PRESS:
+				action.pressed.emit()
 			return
 		# 1. Left Half Touch -> Activate Joystick
 		if is_left_half and not is_joystick_active:
@@ -175,7 +177,7 @@ func _handle_screen_touch(event: InputEventScreenTouch) -> void:
 			_action_touches.erase(event.index)
 			action.modulate = Color.WHITE
 			action.button_up.emit()
-			if action.is_visible_in_tree() and action.get_global_rect().has_point(event.position) and not event.canceled:
+			if action.action_mode == BaseButton.ACTION_MODE_BUTTON_RELEASE and action.is_visible_in_tree() and action.get_global_rect().has_point(event.position) and not event.canceled:
 				action.pressed.emit()
 			return
 		# Touch Released

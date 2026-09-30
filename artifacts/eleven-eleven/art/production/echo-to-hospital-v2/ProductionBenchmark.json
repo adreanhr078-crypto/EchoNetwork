@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "checkpoint": "CP-20260930-02",
+  "status": "G0_partial_G1_in_progress",
+  "plan": "docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md",
+  "art": {
+    "direction": "painted-texture soft-shaded 3D anime, dark Echo identity",
+    "palette": [
+      "obsidian",
+      "pale ivory",
+      "restrained crimson danger",
+      "violet memory",
+      "cyan guidance"
+    ],
+    "echo_source": "art/production/echo-master-character/prepared-v1/echo-master-review-lod.glb",
+    "source_is_final": false,
+    "source_limitations": [
+      "23-bone rig without independent fingers",
+      "No facial morphs",
+      "Clothes and foot skin need deformation review"
+    ],
+    "runtime_replacement": "Not integrated before motion and visual gates"
+  },
+  "references": [
+    {
+      "pdf_page": 1,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-001.webp",
+      "sha256": "4968d7cac3bcc7d29738c5cb3aec10754772b6981c4273ccbd1ee117ad6c4c64",
+      "role": "cover",
+      "review_note": "Future visual motif; do not instantiate full Zero in the human opening.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 2,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-002.webp",
+      "sha256": "50393aeaa1d67df998dac69d12db5196f6c5b52701d3fe60097c4f99f445e71f",
+      "role": "future_framing",
+      "review_note": "Framing/ruin atmosphere reference; returned-subject reveal stays later.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 3,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-003.webp",
+      "sha256": "2e85ffbc7a3bb0a913f0ba4c09ee15b7bde1e92f5bfd72587f0b9f4a1cd19032",
+      "role": "echo_human_reference",
+      "review_note": "Human black-haired school-uniform Echo; no supernatural eye glow. Outside-world event remains later.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 4,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-004.webp",
+      "sha256": "bd3e3cd75f8f75c2f56bbb96cd9be330cddd4d70d71a14d78746a6099517463d",
+      "role": "scientist_reference",
+      "review_note": "Scientist face/clothes reference; father identity must not be exposed in the opening.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 5,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-005.webp",
+      "sha256": "bb2d8616ab15a11a3c29536fd8e28c9c2ba0936ad5807988b1bfe4443f4d21f7",
+      "role": "laboratory_threshold",
+      "review_note": "Laboratory arrival and monitoring; only a brief indistinct Zero hint, no full body.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 6,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-006.webp",
+      "sha256": "214ae65dc825e6f636ca1827c1ff15d27b9de95074d13b20e99e78b23e9d4acc",
+      "role": "transfer_setup",
+      "review_note": "Echo, scientist, consciousness-transfer setup; retain first-entry mystery.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 7,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-007.webp",
+      "sha256": "08add40e6b003ecbe6197299a942b4d063767f329c41d3621ce50588cc8a93f6",
+      "role": "transfer_peak",
+      "review_note": "11:11 and experiment strain; short skippable opening direction, subdued-motion alternative.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 8,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-008.webp",
+      "sha256": "b46b536e9d8d11a8526bd67bedd408c69085a2c98bb9d9ba4559d7f832754dfd",
+      "role": "system_awakening",
+      "review_note": "Awakening posture, face/clothes and system atmosphere reference; identifier uses Owner EX-011 override.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    },
+    {
+      "pdf_page": 9,
+      "file": "public/manhwa/echo-network-final-2026-09-v1/page-009.webp",
+      "sha256": "082a9e430fa5b6ed4fd7e305bb6f18466d313c674d6d7ef0885531e7998f4e3f",
+      "role": "echo_reaction",
+      "review_note": "Echo body/face reaction reference; additional entity identity remains unresolved, not automatically the guide.",
+      "scope": "visual reference; no new runtime page exposure authorized by this record"
+    }
+  ],
+  "scope_limits": [
+    "First nine pages reviewed as visual/chronology references only",
+    "Full seventy-page reveal-to-gameplay mapping remains pending",
+    "No full Zero or supernatural ability before despair and contract",
+    "No new rewards/progression authority or runtime story exposure"
+  ],
+  "budgets": {
+    "phone": "Hot 40 Pro/G99, physical 8GB, landscape",
+    "target_fps": 30,
+    "performance_verified": false,
+    "phone_texture_target": 2048,
+    "character_triangle_target_phone": [
+      30000,
+      40000
+    ],
+    "desktop_character_triangle_target": [
+      60000,
+      80000
+    ],
+    "targets_status": "provisional until device measurement",
+    "contact_drift_goal_m": 0.02,
+    "sole_gap_goal_m": 0.01,
+    "limb_length_relative_error_goal": 0.005
+  },
+  "motion_review": {
+    "source": "Motus/MCO MOB1_Walk_F.fbx",
+    "status": "pilot_in_comparison_not_canonical",
+    "transport_and_joint_contacts": "offline mocap derivative; no new procedural animation",
+    "requires": [
+      "all nine forward-walk candidates compared",
+      "front/side/back review",
+      "mesh sole contacts and clothing deformation",
+      "loop and controller speed/transition validation"
+    ]
+  },
+  "missing_G0_acceptance": [
+    "Japanese voice pilot/listening review",
+    "Full canon reveal mapping",
+    "Physical-phone budget proof",
+    "Approved image/motion/sound benchmark"
+  ]
+}
