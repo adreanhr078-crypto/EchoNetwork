@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-12",
   "ownerApproved": true,
   "ownerDirective": "Build an original world-class hybrid anime game with quality over speed, using as many evidence-gated phases and professional tools as needed.",
   "currentPhase": "PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE",
@@ -64,7 +64,7 @@
     "chessRole": "echo-favorite-hobby-character-relationship-and-mastery-system",
     "puzzleCountPolicy": "story-and-mechanic-value-not-a-fixed-count",
     "graphicsPolicy": "auto-low-medium-high-ultra-with-player-override",
-    "enginePolicy": "three-r3f-current-runtime-godot-portable-candidate-unity-future-candidate-all-require-measured-greenlight",
+    "enginePolicy": "godot-owner-selected-g0-engine-unity-migration-cancelled-web-services-preserved",
     "economyPolicy": "fun-progression-and-integrity-before-store-or-random-pulls"
   },
   "provisionalUntilFinalManhwa": {
@@ -181,21 +181,26 @@
       "verifiedAt": "2026-08-29"
     },
     "unity": {
-      "status": "tooling-prepared-local-install-declined",
+      "status": "migration-cancelled-by-owner-files-retained-inactive",
       "target": "Unity 6.3 LTS 6000.3.23f1",
       "changeset": "09d2ecc7fb28",
       "officialPortableWindowsEditor": false,
       "resolverAndSafeCliPrepared": true,
-      "editorInstalled": false,
+      "editorInstalled": true,
       "activationVerified": false,
       "productionGreenlight": false,
-      "localInstallAuthorized": false,
-      "installerDownloadAuthorized": false,
-      "activeLocalAlternative": "portable-blender-plus-three-r3f-with-isolated-godot-comparison",
-      "constraint": "Do not download or install Unity on this machine without a new explicit Owner instruction. A supported Windows Editor requires official installation and activation."
+      "localInstallAuthorized": true,
+      "installerDownloadAuthorized": true,
+      "officialInstallerStaged": true,
+      "officialInstallerStagingPath": "C:/Tools/Unity-6000.3.23f1-Official/downloads/UnitySetup64-6000.3.23f1.exe",
+      "officialDownloadAssistantStaged": true,
+      "activeLocalAlternative": "Godot-G0-active",
+      "editorPath": "C:/Tools/Unity-6000.3.23f1-Official/Editor/Unity.exe",
+      "licenseStatus": "UNVERIFIED_NO_VALID_EDITOR_LICENSE",
+      "constraint": "Owner cancelled Unity migration and chose continued Godot development on 2026-09-12. Retain files as inactive history; do not spend further effort on Unity activation, migration or packaging."
     },
     "godot": {
-      "status": "verified-deferred-portable-candidate",
+      "status": "owner-selected-active-g0-engine",
       "version": "4.7.2.stable.official.ed1daf0bf",
       "distribution": "official-standard-windows-x86_64-zip",
       "portableRoot": "C:/Tools/Godot-4.7.2-stable",
@@ -209,12 +214,79 @@
       "runtimeIntegrationApproved": false,
       "productionGreenlight": false,
       "verifiedAt": "2026-08-29",
-      "constraint": "Use only isolated non-Canon technical proofs until the final Manhwa gate and a measured single-runtime engine decision."
+      "constraint": "Owner selected Godot for continued G0 development. Preserve approved Manhwa authority and require character, room, interaction, accessibility and performance quality gates before expansion."
     }
   },
   "sourceOfTruth": {
     "productVision": "docs/PROJECT_VISION.md",
     "productMemory": "docs/project-memory.json",
-    "canonManifest": "docs/internal/narrative/current/ar/manifest.json"
+    "canonManifest": "docs/internal/narrative/current/ar/manifest.json",
+    "masterBlueprint": "docs/PROJECT_MASTER_BLUEPRINT.md"
+  },
+  "ownerRequestedMasterBlueprint": {
+    "status": "planning-reference-created-2026-09-11",
+    "scope": "G0 vertical slice foundation only",
+    "futureWorldDirection": "After the Manhwa system arc, Echo enters an anime open-world simulation with school, vehicles, missions, and a later reveal that the exit was illusory.",
+    "engineDecision": "Owner cancelled Unity migration on 2026-09-12. Continue G0 in Godot 4.7.2 with Blender plus the highest-quality rights-cleared character source (Higgsfield, VRoid, or another validated source) and the approved Manhwa reference; keep web service authority intact.",
+    "psychologicalQualityContract": "Design for autonomy, competence, relatedness, curiosity, attachment, and meaningful consequence; never use coercive retention or fake urgency.",
+    "prohibitedDuringG0": [
+      "open-world production",
+      "large content roster",
+      "full combat system",
+      "economy, store, or paid random rewards",
+      "final Zero reveal",
+      "unvalidated generated assets as Canon or runtime"
+    ]
+  },
+  "g0Execution": {
+    "latestReview": "docs/11-11/G0_VISUAL_QUALITY_GATE_2026-09-12.md",
+    "latestReviewDecision": "Owner-video and Manhwa comparison rejects the current character as Echo and rejects visual lock. Higgsfield revision 5 supplies a stronger 12 x 24 metre corridor foundation and passes strict GLB/runtime structure, but Godot lighting/material finish, hero identity, face, hair and cloth remain FAIL.",
+    "continuationPoint": "ScreenBreak to First 3D Escape from opening-recovery-execution-audit",
+    "proofPath": "art/godot/technical-proofs/g0-vertical-slice",
+    "godotBackupPath": "art/unity/migration/source-backups/godot-g0-vertical-slice-2026-09-12",
+    "godotOriginalPreserved": true,
+    "unityMigrationManifest": "art/unity/migration-manifest.json",
+    "status": "g0-a-toolchain-pass-2026-09-11",
+    "verified": [
+      "godot-4.7.2-doctor",
+      "godot-import",
+      "headless-node-contract",
+      "third-person-controller-scaffold",
+      "camera-collision-interaction-objective-hud-scaffold",
+      "blender-authored-room-glb-structure",
+      "echo-motion-study-glb-structure-and-cyclic-leg-animation",
+      "higgsfield-room-revision-5-corridor-structure-and-strict-glb",
+      "godot-authored-assets-smoke",
+      "antigravity-static-g0-audit"
+    ],
+    "unverified": [
+      "visible-desktop-playtest",
+      "manhwa-approved-echo-identity-and-vroid-rights",
+      "performance-profile",
+      "reduced-motion-and-localization-checklist",
+      "flow-cinematic-shot"
+    ],
+    "qualityDecision": "Godot G0 resumed. Camera regression and the revision-5 corridor import pass, but the visible result does not match the owner videos or Manhwa. The current character is PROXY only. A higher-quality rights-cleared Echo base from Higgsfield, VRoid, or another validated source plus Blender face/hair/coat refinement and a new lighting/material pass are mandatory before cinematic generation; no AAA or full G0 pass.",
+    "assetEvidence": {
+      "godotRoom": "art/godot/technical-proofs/g0-vertical-slice/assets/g0-sector11-corridor-r5.glb (Higgsfield revision 5; 12 x 24 x 6.2 m; 113 source objects; Khronos 0 errors/0 warnings; Godot import/smoke PASS). Original g0-room.glb retained for rollback.",
+      "echoCandidate": "art/godot/technical-proofs/g0-vertical-slice/assets/echo-g0-motion-study.glb (strict GLB and cyclic motion PASS; identity and direct-skin identifier FAIL; rights unresolved). Old candidate retained for comparison only.",
+      "higgsfieldRoomStudy": "art/blender/intermediate/higgsfield-g0-sector11-r5.blend and higgsfield-g0-sector11-r5.glb; revision 5 adds corridor rhythm, containment tubes, utilities, wake platform, sealed-door axis and corrected delivery camera; strict GLB PASS. Local review renders remain pre-final.",
+      "provenanceRule": "Higgsfield and Flow outputs are visual/technical references only and never override the approved Manhwa canon",
+      "unityMigration": "art/unity/EchoNetwork-Unity (FBX bridge plus lossless GLB sources; structural validator PASS; Unity runtime UNVERIFIED)"
+    },
+  "continuityAudit": "docs/internal/production/ANTIGRAVITY_CHAT_AUDIT_2026-09-11.ar.md",
+  "antigravityAccess": "available-via-low-level-computer-use-window-1182146",
+  "antigravityAudit": {
+    "path": "docs/11-11/ANTIGRAVITY_G0_AUDIT_2026-09-11.md",
+    "status": "conditional-pass-static-only",
+    "blockersBeforeG0B": [
+      "springarm3d-camera-clipping",
+      "clamp-vs-collision-runtime-test",
+      "unicode-arabic-font-resource",
+      "final-manhwa-approved-echo-identity-and-vroid-rights",
+      "visible-playtest-and-performance-profile"
+    ]
+  },
+    "antigravityEvidenceRule": "Do not attribute a new task, asset, or result to Antigravity without a readable transcript or file evidence"
   }
 }

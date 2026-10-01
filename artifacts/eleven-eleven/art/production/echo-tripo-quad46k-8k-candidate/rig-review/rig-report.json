@@ -1,0 +1,131 @@
+{
+  "source": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\Echo_Tripo_Quad46K_8K_Rigged_Idle.glb",
+  "blend": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\Echo_Tripo_Quad46K_8K_Rigged_Idle.blend",
+  "mesh_count": 2,
+  "triangle_count": 92702,
+  "vertex_count": 67203,
+  "weighted_mesh_count": 1,
+  "armature_count": 1,
+  "bone_count": 41,
+  "actions": [
+    {
+      "name": "preset:biped:idle.001",
+      "frame_range": [
+        1.0,
+        369.0
+      ],
+      "slot_count": 1
+    }
+  ],
+  "sample_frames": [
+    1,
+    185,
+    369
+  ],
+  "bone_motion": {
+    "Armature": {
+      "bone_count": 41,
+      "changing_bone_count": 40,
+      "changing_bones": [
+        "Hip",
+        "Pelvis",
+        "L_Thigh",
+        "L_Calf",
+        "L_Foot",
+        "L_ToeBase",
+        "L_CalfTwist01",
+        "L_CalfTwist02",
+        "L_ThighTwist01",
+        "L_ThighTwist02",
+        "R_Thigh",
+        "R_ThighTwist01",
+        "R_ThighTwist02",
+        "R_Calf",
+        "R_Foot",
+        "R_ToeBase",
+        "R_CalfTwist01",
+        "R_CalfTwist02",
+        "Waist",
+        "Spine01",
+        "Spine02",
+        "NeckTwist01",
+        "NeckTwist02",
+        "Head",
+        "L_Clavicle",
+        "L_Upperarm",
+        "L_Forearm",
+        "L_ForearmTwist01",
+        "L_ForearmTwist02",
+        "L_Hand",
+        "L_UpperarmTwist01",
+        "L_UpperarmTwist02",
+        "R_Clavicle",
+        "R_Upperarm",
+        "R_UpperarmTwist01",
+        "R_UpperarmTwist02",
+        "R_Forearm",
+        "R_ForearmTwist01",
+        "R_ForearmTwist02",
+        "R_Hand"
+      ]
+    }
+  },
+  "bounds_by_frame": {
+    "1": {
+      "min": [
+        -0.951058,
+        -1.0,
+        -1.0
+      ],
+      "max": [
+        0.951058,
+        1.0,
+        1.0
+      ],
+      "dimensions": [
+        1.902116,
+        2.0,
+        2.0
+      ]
+    },
+    "185": {
+      "min": [
+        -0.951058,
+        -1.0,
+        -1.0
+      ],
+      "max": [
+        0.951058,
+        1.0,
+        1.0
+      ],
+      "dimensions": [
+        1.902116,
+        2.0,
+        2.0
+      ]
+    },
+    "369": {
+      "min": [
+        -0.951058,
+        -1.0,
+        -1.0
+      ],
+      "max": [
+        0.951058,
+        1.0,
+        1.0
+      ],
+      "dimensions": [
+        1.902116,
+        2.0,
+        2.0
+      ]
+    }
+  },
+  "image_sizes": [
+    "2048x2048",
+    "4096x4096",
+    "8192x8192"
+  ]
+}

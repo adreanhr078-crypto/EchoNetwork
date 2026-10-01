@@ -1,5 +1,10 @@
 # 11.11 Owner Product Vision and Production Charter
 
+> Latest Owner decision, 2026-09-12: continue G0 in Godot 4.7.2 and cancel
+> Unity migration. This supersedes historical engine-candidate decisions below.
+> Unity files remain inactive history. Preserve the approved Manhwa, VRoid/Blender
+> pipeline, existing web services and G0 quality gates; no open-world expansion.
+
 Status: **OWNER APPROVED**  
 Version: **1.0**  
 Approved: **2026-08-28**

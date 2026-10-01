@@ -1,0 +1,1069 @@
+{
+  "authenticated": true,
+  "credits": 46.0,
+  "plan": "plus",
+  "models": [
+    {
+      "job_type": "sam_3_3d",
+      "display_name": "3D Objects",
+      "label": "model"
+    },
+    {
+      "job_type": "sam_3_3d_body",
+      "display_name": "3D Body",
+      "label": "model"
+    },
+    {
+      "job_type": "tripo_3d",
+      "display_name": "Text to 3D",
+      "label": "model"
+    },
+    {
+      "job_type": "tripo_h3_1_image_to_3d",
+      "display_name": "Tripo H3.1 Image to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "face_limit": {
+          "anyOf": [
+            {
+              "maximum": 2000000,
+              "minimum": 1000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Target number of mesh faces. Leave unset for adaptive geometry.",
+          "title": "Face Limit"
+        },
+        "texture": {
+          "default": true,
+          "description": "Generate textures for the model.",
+          "title": "Texture",
+          "type": "boolean"
+        },
+        "pbr": {
+          "default": true,
+          "description": "Generate PBR materials. Enabling PBR also enables textures.",
+          "title": "Pbr",
+          "type": "boolean"
+        },
+        "texture_seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Random seed for texture generation.",
+          "title": "Texture Seed"
+        },
+        "texture_quality": {
+          "default": "standard",
+          "description": "Texture detail level.",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard"
+            },
+            {
+              "const": "detailed",
+              "title": "Detailed"
+            }
+          ],
+          "title": "Texture Quality"
+        },
+        "geometry_quality": {
+          "default": "standard",
+          "description": "Geometry detail level.",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard"
+            },
+            {
+              "const": "detailed",
+              "title": "Detailed"
+            }
+          ],
+          "title": "Geometry Quality"
+        },
+        "quad": {
+          "default": false,
+          "description": "Generate a quad mesh.",
+          "title": "Quad",
+          "type": "boolean"
+        },
+        "texture_alignment": {
+          "default": "original_image",
+          "description": "Align textures to the source image or generated geometry.",
+          "oneOf": [
+            {
+              "const": "original_image",
+              "title": "Original Image"
+            },
+            {
+              "const": "geometry",
+              "title": "Geometry"
+            }
+          ],
+          "title": "Texture Alignment"
+        },
+        "auto_size": {
+          "default": false,
+          "description": "Scale the model to real-world dimensions.",
+          "title": "Auto Size",
+          "type": "boolean"
+        },
+        "orientation": {
+          "default": "default",
+          "description": "Keep the default orientation or align it to the source image.",
+          "oneOf": [
+            {
+              "const": "default",
+              "title": "Default"
+            },
+            {
+              "const": "align_image",
+              "title": "Align Image"
+            }
+          ],
+          "title": "Orientation"
+        },
+        "image_references": {
+          "description": "Source image of the subject to reconstruct in 3D.",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "title": "Image References",
+          "type": "array"
+        }
+      }
+    },
+    {
+      "job_type": "tripo_h3_1_multiview_to_3d",
+      "display_name": "Tripo H3.1 Multiview to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "face_limit": {
+          "anyOf": [
+            {
+              "maximum": 2000000,
+              "minimum": 1000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Target number of mesh faces. Leave unset for adaptive geometry.",
+          "title": "Face Limit"
+        },
+        "texture": {
+          "default": true,
+          "description": "Generate textures for the model.",
+          "title": "Texture",
+          "type": "boolean"
+        },
+        "pbr": {
+          "default": true,
+          "description": "Generate PBR materials. Enabling PBR also enables textures.",
+          "title": "Pbr",
+          "type": "boolean"
+        },
+        "texture_seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Random seed for texture generation.",
+          "title": "Texture Seed"
+        },
+        "texture_quality": {
+          "default": "standard",
+          "description": "Texture detail level.",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard"
+            },
+            {
+              "const": "detailed",
+              "title": "Detailed"
+            }
+          ],
+          "title": "Texture Quality"
+        },
+        "geometry_quality": {
+          "default": "standard",
+          "description": "Geometry detail level.",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard"
+            },
+            {
+              "const": "detailed",
+              "title": "Detailed"
+            }
+          ],
+          "title": "Geometry Quality"
+        },
+        "quad": {
+          "default": false,
+          "description": "Generate a quad mesh.",
+          "title": "Quad",
+          "type": "boolean"
+        },
+        "texture_alignment": {
+          "default": "original_image",
+          "description": "Align textures to the source image or generated geometry.",
+          "oneOf": [
+            {
+              "const": "original_image",
+              "title": "Original Image"
+            },
+            {
+              "const": "geometry",
+              "title": "Geometry"
+            }
+          ],
+          "title": "Texture Alignment"
+        },
+        "auto_size": {
+          "default": false,
+          "description": "Scale the model to real-world dimensions.",
+          "title": "Auto Size",
+          "type": "boolean"
+        },
+        "orientation": {
+          "default": "default",
+          "description": "Keep the default orientation or align it to the source image.",
+          "oneOf": [
+            {
+              "const": "default",
+              "title": "Default"
+            },
+            {
+              "const": "align_image",
+              "title": "Align Image"
+            }
+          ],
+          "title": "Orientation"
+        },
+        "image_references": {
+          "description": "2-4 views ordered as front, left, back, right.",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 4,
+          "minItems": 2,
+          "title": "Image References",
+          "type": "array"
+        }
+      }
+    },
+    {
+      "job_type": "hunyuan3d_v3_image_to_3d",
+      "display_name": "Hunyuan3D v3 Image to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "image_references": {
+          "description": "1-4 views ordered as front, back, left, right.",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Image References",
+          "type": "array"
+        },
+        "enable_pbr": {
+          "default": false,
+          "description": "Generate PBR material maps.",
+          "title": "Enable Pbr",
+          "type": "boolean"
+        },
+        "face_count": {
+          "default": 500000,
+          "description": "Target mesh face count.",
+          "maximum": 1500000,
+          "minimum": 40000,
+          "title": "Face Count",
+          "type": "integer"
+        },
+        "generate_type": {
+          "default": "Normal",
+          "description": "Normal textured, LowPoly reduced, or Geometry-only generation.",
+          "oneOf": [
+            {
+              "const": "Normal",
+              "title": "Normal"
+            },
+            {
+              "const": "LowPoly",
+              "title": "Low Poly"
+            },
+            {
+              "const": "Geometry",
+              "title": "Geometry"
+            }
+          ],
+          "title": "Generate Type"
+        },
+        "polygon_type": {
+          "default": "triangle",
+          "description": "LowPoly topology. Quadrilateral requires generate_type=LowPoly.",
+          "oneOf": [
+            {
+              "const": "triangle",
+              "title": "Triangle"
+            },
+            {
+              "const": "quadrilateral",
+              "title": "Quadrilateral"
+            }
+          ],
+          "title": "Polygon Type"
+        }
+      }
+    },
+    {
+      "job_type": "meshy_v6_text_to_3d",
+      "display_name": "Meshy 6 Text to 3D",
+      "label": "model"
+    },
+    {
+      "job_type": "hunyuan3d_v3_1_text_to_3d",
+      "display_name": "Hunyuan 3D v3.1 Text to 3D",
+      "label": "model"
+    },
+    {
+      "job_type": "image_to_3d",
+      "display_name": "Image to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "image_references": {
+          "description": "Source image of the subject to reconstruct in 3D (exactly one).",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "title": "Image References",
+          "type": "array"
+        },
+        "should_texture": {
+          "default": false,
+          "description": "Generate a textured mesh.",
+          "title": "Should Texture",
+          "type": "boolean"
+        },
+        "should_remesh": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Remesh the generated geometry.",
+          "title": "Should Remesh"
+        },
+        "texture_prompt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Text prompt guiding texture generation (requires should_texture).",
+          "title": "Texture Prompt"
+        },
+        "texture_image_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference image URL for texture (requires should_texture).",
+          "title": "Texture Image Url"
+        },
+        "target_polycount": {
+          "anyOf": [
+            {
+              "maximum": 300000,
+              "minimum": 100,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Target polygon count (100-300000).",
+          "title": "Target Polycount"
+        },
+        "topology": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "quad",
+                  "title": "Quad"
+                },
+                {
+                  "const": "triangle",
+                  "title": "Triangle"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Mesh topology: 'quad' for smooth/editable surfaces, 'triangle' for detailed geometry.",
+          "title": "Topology"
+        },
+        "symmetry_mode": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "off",
+                  "title": "Off"
+                },
+                {
+                  "const": "auto",
+                  "title": "Auto"
+                },
+                {
+                  "const": "on",
+                  "title": "On"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Symmetry enforcement during reconstruction.",
+          "title": "Symmetry Mode"
+        },
+        "enable_pbr": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Generate PBR texture maps (requires should_texture).",
+          "title": "Enable Pbr"
+        },
+        "pose_mode": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "a-pose",
+                  "title": "A-Pose"
+                },
+                {
+                  "const": "t-pose",
+                  "title": "T-Pose"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Canonical pose for the reconstructed model.",
+          "title": "Pose Mode"
+        },
+        "enable_rigging": {
+          "default": false,
+          "description": "Generate a rig / skeleton for the mesh.",
+          "title": "Enable Rigging",
+          "type": "boolean"
+        },
+        "rigging_height_meters": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Real-world height in meters used for rigging.",
+          "title": "Rigging Height Meters"
+        },
+        "enable_animation": {
+          "default": false,
+          "description": "Apply an animation clip (requires enable_rigging).",
+          "title": "Enable Animation",
+          "type": "boolean"
+        },
+        "animation_action_id": {
+          "anyOf": [
+            {
+              "maximum": 696,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Animation clip id (0-696); required when enable_animation=true.",
+          "title": "Animation Action Id"
+        },
+        "enable_safety_checker": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Run the input safety checker.",
+          "title": "Enable Safety Checker"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Random seed for reproducibility.",
+          "title": "Seed"
+        },
+        "folder_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Destination folder id.",
+          "title": "Folder Id"
+        }
+      }
+    },
+    {
+      "job_type": "multi_image_to_3d",
+      "display_name": "Multi-Image to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "image_references": {
+          "description": "Source images of the subject (1-4; more views = better reconstruction).",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Image References",
+          "type": "array"
+        },
+        "should_texture": {
+          "default": false,
+          "description": "Generate a textured mesh.",
+          "title": "Should Texture",
+          "type": "boolean"
+        },
+        "should_remesh": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Remesh the generated geometry.",
+          "title": "Should Remesh"
+        },
+        "texture_prompt": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Text prompt guiding texture generation (requires should_texture).",
+          "title": "Texture Prompt"
+        },
+        "texture_image_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference image URL for texture (requires should_texture).",
+          "title": "Texture Image Url"
+        },
+        "target_polycount": {
+          "anyOf": [
+            {
+              "maximum": 300000,
+              "minimum": 100,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Target polygon count (100-300000).",
+          "title": "Target Polycount"
+        },
+        "topology": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "quad",
+                  "title": "Quad"
+                },
+                {
+                  "const": "triangle",
+                  "title": "Triangle"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Mesh topology: 'quad' for smooth/editable surfaces, 'triangle' for detailed geometry.",
+          "title": "Topology"
+        },
+        "symmetry_mode": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "off",
+                  "title": "Off"
+                },
+                {
+                  "const": "auto",
+                  "title": "Auto"
+                },
+                {
+                  "const": "on",
+                  "title": "On"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Symmetry enforcement during reconstruction.",
+          "title": "Symmetry Mode"
+        },
+        "enable_pbr": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Generate PBR texture maps (requires should_texture).",
+          "title": "Enable Pbr"
+        },
+        "pose_mode": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "a-pose",
+                  "title": "A-Pose"
+                },
+                {
+                  "const": "t-pose",
+                  "title": "T-Pose"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Canonical pose for the reconstructed model.",
+          "title": "Pose Mode"
+        },
+        "enable_rigging": {
+          "default": false,
+          "description": "Generate a rig / skeleton for the mesh.",
+          "title": "Enable Rigging",
+          "type": "boolean"
+        },
+        "rigging_height_meters": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Real-world height in meters used for rigging.",
+          "title": "Rigging Height Meters"
+        },
+        "enable_animation": {
+          "default": false,
+          "description": "Apply an animation clip (requires enable_rigging).",
+          "title": "Enable Animation",
+          "type": "boolean"
+        },
+        "animation_action_id": {
+          "anyOf": [
+            {
+              "maximum": 696,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Animation clip id (0-696); required when enable_animation=true.",
+          "title": "Animation Action Id"
+        },
+        "enable_safety_checker": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Run the input safety checker.",
+          "title": "Enable Safety Checker"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Random seed for reproducibility.",
+          "title": "Seed"
+        },
+        "folder_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Destination folder id.",
+          "title": "Folder Id"
+        }
+      }
+    },
+    {
+      "job_type": "3d_rigging",
+      "display_name": "3D Rigging",
+      "label": "model"
+    },
+    {
+      "job_type": "kimodo",
+      "display_name": "Kimodo",
+      "label": "model"
+    },
+    {
+      "job_type": "meshy_v5_remesh",
+      "display_name": "Meshy 5 Remesh",
+      "label": "model"
+    },
+    {
+      "job_type": "meshy_v5_retexture",
+      "display_name": "Meshy 5 Retexture",
+      "label": "model"
+    },
+    {
+      "job_type": "meshy_v7_image_to_3d",
+      "display_name": "Meshy 7 Image to 3D",
+      "label": "model",
+      "required": [
+        "image_references"
+      ],
+      "properties": {
+        "image_references": {
+          "description": "Source image of the subject to reconstruct in 3D.",
+          "items": {
+            "$ref": "#/$defs/DeveloperAPIMediaInput"
+          },
+          "maxItems": 1,
+          "minItems": 1,
+          "title": "Image References",
+          "type": "array"
+        },
+        "model_type": {
+          "default": "standard",
+          "description": "Geometry mode: standard or lowpoly.",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard"
+            },
+            {
+              "const": "lowpoly",
+              "title": "Low Poly"
+            }
+          ],
+          "title": "Model Type"
+        },
+        "topology": {
+          "default": "triangle",
+          "description": "Output mesh topology.",
+          "oneOf": [
+            {
+              "const": "quad",
+              "title": "Quad"
+            },
+            {
+              "const": "triangle",
+              "title": "Triangle"
+            }
+          ],
+          "title": "Topology"
+        },
+        "target_polycount": {
+          "default": 30000,
+          "description": "Target polygon count.",
+          "maximum": 300000,
+          "minimum": 100,
+          "title": "Target Polycount",
+          "type": "integer"
+        },
+        "symmetry_mode": {
+          "default": "auto",
+          "description": "Symmetry enforcement during reconstruction.",
+          "oneOf": [
+            {
+              "const": "off",
+              "title": "Off"
+            },
+            {
+              "const": "auto",
+              "title": "Auto"
+            },
+            {
+              "const": "on",
+              "title": "On"
+            }
+          ],
+          "title": "Symmetry Mode"
+        },
+        "should_remesh": {
+          "default": true,
+          "description": "Remesh the generated geometry.",
+          "title": "Should Remesh",
+          "type": "boolean"
+        },
+        "should_texture": {
+          "default": true,
+          "description": "Generate textures.",
+          "title": "Should Texture",
+          "type": "boolean"
+        },
+        "enable_pbr": {
+          "default": false,
+          "description": "Generate PBR maps; requires should_texture=true.",
+          "title": "Enable Pbr",
+          "type": "boolean"
+        },
+        "pose_mode": {
+          "anyOf": [
+            {
+              "oneOf": [
+                {
+                  "const": "a-pose",
+                  "title": "A-Pose"
+                },
+                {
+                  "const": "t-pose",
+                  "title": "T-Pose"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional canonical pose for the reconstructed model.",
+          "title": "Pose Mode"
+        },
+        "texture_prompt": {
+          "anyOf": [
+            {
+              "maxLength": 600,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Text prompt guiding texture generation.",
+          "title": "Texture Prompt"
+        },
+        "texture_image_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference image URL guiding texture generation.",
+          "title": "Texture Image Url"
+        },
+        "enable_rigging": {
+          "default": false,
+          "description": "Generate a rig for the mesh.",
+          "title": "Enable Rigging",
+          "type": "boolean"
+        },
+        "rigging_height_meters": {
+          "default": 1.7,
+          "description": "Real-world height in meters used for rigging.",
+          "exclusiveMinimum": 0,
+          "title": "Rigging Height Meters",
+          "type": "number"
+        },
+        "enable_animation": {
+          "default": false,
+          "description": "Apply an animation; requires enable_rigging=true.",
+          "title": "Enable Animation",
+          "type": "boolean"
+        },
+        "animation_action_id": {
+          "default": 92,
+          "description": "Animation action id.",
+          "maximum": 696,
+          "minimum": 0,
+          "title": "Animation Action Id",
+          "type": "integer"
+        },
+        "enable_safety_checker": {
+          "default": true,
+          "description": "Run the input safety checker.",
+          "title": "Enable Safety Checker",
+          "type": "boolean"
+        },
+        "ultra_mode": {
+          "default": false,
+          "description": "Generate higher-fidelity geometry and finer surface detail.",
+          "title": "Ultra Mode",
+          "type": "boolean"
+        },
+        "folder_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Destination folder id.",
+          "title": "Folder Id"
+        }
+      }
+    }
+  ]
+}

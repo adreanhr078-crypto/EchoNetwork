@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet.glb",
+  "blend": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\refinement-v1\\Echo_G0_Refinement_v1.blend",
+  "output": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\refinement-v1\\Echo_G0_Refinement_v1.glb",
+  "removed_helpers": [
+    "Icosphere"
+  ],
+  "tuned_materials": [
+    "tripo_mat_5faf31c2-0abc-4c25-abc9-bb90530143a2"
+  ],
+  "coat_weight_correction": {
+    "adjusted": 13496,
+    "reason": "outer-tail pelvis/thigh blend"
+  },
+  "eye_layer_count": 6,
+  "body_triangles_before": 92622,
+  "runtime_triangles_blender": 77548,
+  "bone_count": 41,
+  "actions": [
+    "preset:biped:idle.001",
+    "preset:biped:look_around.001",
+    "preset:biped:run.001",
+    "preset:biped:walk.001"
+  ],
+  "status": "REFINEMENT_CANDIDATE_REQUIRES_VISUAL_AND_DEFORMATION_GATE"
+}
