@@ -65,11 +65,16 @@ def validate_animated_pose(armature, action):
     if action.slots:
         armature.animation_data.action_slot = action.slots[0]
     samples = []
+    leg_samples = {name: [] for name in ('thigh.L', 'thigh.R', 'shin.L', 'shin.R')}
     # Relative bone matrices exclude moving the entire rig as a rigid prop.
     for fraction in (0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1):
         frame = start + (end - start) * fraction
         bpy.context.scene.frame_set(int(frame), subframe=frame % 1)
         bpy.context.view_layer.update()
+        for name, poses in leg_samples.items():
+            bone = armature.pose.bones.get(name)
+            if bone and bone.parent:
+                poses.append(tuple(value for row in (bone.parent.matrix.inverted_safe() @ bone.matrix) for value in row))
         samples.append(tuple(
             value
             for bone in armature.pose.bones if bone.parent
@@ -81,6 +86,14 @@ def validate_animated_pose(armature, action):
         for sample in samples[1:]
     ):
         raise RuntimeError(f"Animation has no changing bone pose: {action.name}")
+    clip = action.name.upper().split('|')[-1]
+    if clip in {'WALK', 'RUN'}:
+        for name, poses in leg_samples.items():
+            if not poses or not any(any(abs(a-b) > 1e-4 for a,b in zip(pose,poses[0])) for pose in poses[1:]):
+                raise RuntimeError(f"Locomotion has stationary leg bone {name}: {action.name}")
+    if clip in {'IDLE', 'WALK', 'RUN'}:
+        if max(abs(a-b) for a,b in zip(samples[0],samples[-1])) > 1e-3:
+            raise RuntimeError(f"Animation loop endpoints do not match: {action.name}")
 
 
 def main():

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "status": "prepared-deferred-owner-declined-local-install",
+  "status": "official-distribution-staged-owner-requested-migration",
   "runtimeIntegrationApproved": false,
   "productionGreenlight": false,
   "localInstallAuthorized": false,
-  "downloadInstallerNow": false,
+  "downloadInstallerNow": true,
   "targetEditor": {
     "releaseLine": "Unity 6.3 LTS",
     "version": "6000.3.23f1",
@@ -15,7 +15,11 @@
     "installerBytesObserved": 4125667560,
     "windowsFormat": "exe-installer",
     "officialPortableZipAvailable": false,
-    "sha256": null
+    "sha256": "C00E1DC2EA519F18E68C3FB6C69366DF916738BCC3A8C67537B293C2994DBC72",
+    "downloadAssistantSha256": "D618A2FB1279AC169D4733A95720D96C2BB6FBE1D158016BB7FB54A901D5BC00",
+    "stagedPath": "C:/Tools/Unity-6000.3.23f1-Official/downloads/UnitySetup64-6000.3.23f1.exe",
+    "downloadAssistantStagedPath": "C:/Tools/Unity-6000.3.23f1-Official/downloads/UnityDownloadAssistant-6000.3.23f1.exe",
+    "installerExecuted": false
   },
   "resolutionOrder": [
     "UNITY_EXE",
@@ -51,5 +55,5 @@
     "storeCredentialsInRepository": false,
     "unityCliAlternative": "experimental-not-a-production-dependency"
   },
-  "activeAlternative": "Blender 5.2 LTS plus Three.js/React Three Fiber; portable Godot is isolated to measured non-Canon comparison proofs"
+  "activeAlternative": "Unity-isolated-G0-migration-with-preserved-Godot-backup; web runtime remains unchanged until measured greenlight"
 }

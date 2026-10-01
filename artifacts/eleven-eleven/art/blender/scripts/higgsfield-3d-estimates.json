@@ -1,0 +1,21 @@
+{
+  "available_credits": 46.0,
+  "estimates": {
+    "tripo_multiview_detailed": {
+      "job_type": "tripo_h3_1_multiview_to_3d",
+      "credits": 19.5
+    },
+    "hunyuan_multiview_max": {
+      "job_type": "hunyuan3d_v3_image_to_3d",
+      "credits": 23.0
+    },
+    "multi_image_game_ready": {
+      "job_type": "multi_image_to_3d",
+      "error": "Request failed with status 422"
+    },
+    "meshy7_ultra_single": {
+      "job_type": "meshy_v7_image_to_3d",
+      "credits": 50.0
+    }
+  }
+}

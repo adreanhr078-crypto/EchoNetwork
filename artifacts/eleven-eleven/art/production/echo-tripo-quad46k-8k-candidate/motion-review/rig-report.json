@@ -1,0 +1,405 @@
+{
+  "source": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet.glb",
+  "blend": "C:\\Users\\yasmo\\Documents\\Codex\\2026-09-11\\create-an-image-of-3\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-quad46k-8k-candidate\\Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet.blend",
+  "mesh_count": 2,
+  "mesh_names": [
+    "tripo_node_5faf31c2-0abc-4c25-abc9-bb90530143a2",
+    "Icosphere"
+  ],
+  "triangle_count": 92702,
+  "vertex_count": 67203,
+  "weighted_mesh_count": 1,
+  "armature_count": 1,
+  "bone_count": 41,
+  "actions": [
+    {
+      "name": "preset:biped:idle.001",
+      "frame_range": [
+        1.0,
+        369.0
+      ],
+      "slot_count": 1
+    },
+    {
+      "name": "preset:biped:look_around.001",
+      "frame_range": [
+        1.0,
+        375.0
+      ],
+      "slot_count": 1
+    },
+    {
+      "name": "preset:biped:run.001",
+      "frame_range": [
+        1.0,
+        31.0
+      ],
+      "slot_count": 1
+    },
+    {
+      "name": "preset:biped:walk.001",
+      "frame_range": [
+        1.0,
+        57.0
+      ],
+      "slot_count": 1
+    }
+  ],
+  "sample_frames": [
+    1,
+    188,
+    375
+  ],
+  "bone_motion": {
+    "Armature": {
+      "bone_count": 41,
+      "changing_bone_count": 40,
+      "changing_bones": [
+        "Hip",
+        "Pelvis",
+        "L_Thigh",
+        "L_Calf",
+        "L_Foot",
+        "L_ToeBase",
+        "L_CalfTwist01",
+        "L_CalfTwist02",
+        "L_ThighTwist01",
+        "L_ThighTwist02",
+        "R_Thigh",
+        "R_ThighTwist01",
+        "R_ThighTwist02",
+        "R_Calf",
+        "R_Foot",
+        "R_ToeBase",
+        "R_CalfTwist01",
+        "R_CalfTwist02",
+        "Waist",
+        "Spine01",
+        "Spine02",
+        "NeckTwist01",
+        "NeckTwist02",
+        "Head",
+        "L_Clavicle",
+        "L_Upperarm",
+        "L_Forearm",
+        "L_ForearmTwist01",
+        "L_ForearmTwist02",
+        "L_Hand",
+        "L_UpperarmTwist01",
+        "L_UpperarmTwist02",
+        "R_Clavicle",
+        "R_Upperarm",
+        "R_UpperarmTwist01",
+        "R_UpperarmTwist02",
+        "R_Forearm",
+        "R_ForearmTwist01",
+        "R_ForearmTwist02",
+        "R_Hand"
+      ]
+    }
+  },
+  "action_previews": [
+    {
+      "name": "preset:biped:idle.001",
+      "frames": [
+        1,
+        185,
+        369
+      ],
+      "mid_dimensions": [
+        0.359718,
+        0.300343,
+        0.983206
+      ],
+      "bone_motion": {
+        "Armature": {
+          "bone_count": 41,
+          "changing_bone_count": 40,
+          "changing_bones": [
+            "Hip",
+            "Pelvis",
+            "L_Thigh",
+            "L_Calf",
+            "L_Foot",
+            "L_ToeBase",
+            "L_CalfTwist01",
+            "L_CalfTwist02",
+            "L_ThighTwist01",
+            "L_ThighTwist02",
+            "R_Thigh",
+            "R_ThighTwist01",
+            "R_ThighTwist02",
+            "R_Calf",
+            "R_Foot",
+            "R_ToeBase",
+            "R_CalfTwist01",
+            "R_CalfTwist02",
+            "Waist",
+            "Spine01",
+            "Spine02",
+            "NeckTwist01",
+            "NeckTwist02",
+            "Head",
+            "L_Clavicle",
+            "L_Upperarm",
+            "L_Forearm",
+            "L_ForearmTwist01",
+            "L_ForearmTwist02",
+            "L_Hand",
+            "L_UpperarmTwist01",
+            "L_UpperarmTwist02",
+            "R_Clavicle",
+            "R_Upperarm",
+            "R_UpperarmTwist01",
+            "R_UpperarmTwist02",
+            "R_Forearm",
+            "R_ForearmTwist01",
+            "R_ForearmTwist02",
+            "R_Hand"
+          ]
+        }
+      }
+    },
+    {
+      "name": "preset:biped:look_around.001",
+      "frames": [
+        1,
+        188,
+        375
+      ],
+      "mid_dimensions": [
+        0.32186,
+        0.251146,
+        0.985886
+      ],
+      "bone_motion": {
+        "Armature": {
+          "bone_count": 41,
+          "changing_bone_count": 40,
+          "changing_bones": [
+            "Hip",
+            "Pelvis",
+            "L_Thigh",
+            "L_Calf",
+            "L_Foot",
+            "L_ToeBase",
+            "L_CalfTwist01",
+            "L_CalfTwist02",
+            "L_ThighTwist01",
+            "L_ThighTwist02",
+            "R_Thigh",
+            "R_ThighTwist01",
+            "R_ThighTwist02",
+            "R_Calf",
+            "R_Foot",
+            "R_ToeBase",
+            "R_CalfTwist01",
+            "R_CalfTwist02",
+            "Waist",
+            "Spine01",
+            "Spine02",
+            "NeckTwist01",
+            "NeckTwist02",
+            "Head",
+            "L_Clavicle",
+            "L_Upperarm",
+            "L_Forearm",
+            "L_ForearmTwist01",
+            "L_ForearmTwist02",
+            "L_Hand",
+            "L_UpperarmTwist01",
+            "L_UpperarmTwist02",
+            "R_Clavicle",
+            "R_Upperarm",
+            "R_UpperarmTwist01",
+            "R_UpperarmTwist02",
+            "R_Forearm",
+            "R_ForearmTwist01",
+            "R_ForearmTwist02",
+            "R_Hand"
+          ]
+        }
+      }
+    },
+    {
+      "name": "preset:biped:run.001",
+      "frames": [
+        1,
+        16,
+        31
+      ],
+      "mid_dimensions": [
+        0.332371,
+        0.56975,
+        0.867852
+      ],
+      "bone_motion": {
+        "Armature": {
+          "bone_count": 41,
+          "changing_bone_count": 40,
+          "changing_bones": [
+            "Hip",
+            "Pelvis",
+            "L_Thigh",
+            "L_Calf",
+            "L_Foot",
+            "L_ToeBase",
+            "L_CalfTwist01",
+            "L_CalfTwist02",
+            "L_ThighTwist01",
+            "L_ThighTwist02",
+            "R_Thigh",
+            "R_ThighTwist01",
+            "R_ThighTwist02",
+            "R_Calf",
+            "R_Foot",
+            "R_ToeBase",
+            "R_CalfTwist01",
+            "R_CalfTwist02",
+            "Waist",
+            "Spine01",
+            "Spine02",
+            "NeckTwist01",
+            "NeckTwist02",
+            "Head",
+            "L_Clavicle",
+            "L_Upperarm",
+            "L_Forearm",
+            "L_ForearmTwist01",
+            "L_ForearmTwist02",
+            "L_Hand",
+            "L_UpperarmTwist01",
+            "L_UpperarmTwist02",
+            "R_Clavicle",
+            "R_Upperarm",
+            "R_UpperarmTwist01",
+            "R_UpperarmTwist02",
+            "R_Forearm",
+            "R_ForearmTwist01",
+            "R_ForearmTwist02",
+            "R_Hand"
+          ]
+        }
+      }
+    },
+    {
+      "name": "preset:biped:walk.001",
+      "frames": [
+        1,
+        29,
+        57
+      ],
+      "mid_dimensions": [
+        0.315924,
+        0.267945,
+        0.974692
+      ],
+      "bone_motion": {
+        "Armature": {
+          "bone_count": 41,
+          "changing_bone_count": 40,
+          "changing_bones": [
+            "Hip",
+            "Pelvis",
+            "L_Thigh",
+            "L_Calf",
+            "L_Foot",
+            "L_ToeBase",
+            "L_CalfTwist01",
+            "L_CalfTwist02",
+            "L_ThighTwist01",
+            "L_ThighTwist02",
+            "R_Thigh",
+            "R_ThighTwist01",
+            "R_ThighTwist02",
+            "R_Calf",
+            "R_Foot",
+            "R_ToeBase",
+            "R_CalfTwist01",
+            "R_CalfTwist02",
+            "Waist",
+            "Spine01",
+            "Spine02",
+            "NeckTwist01",
+            "NeckTwist02",
+            "Head",
+            "L_Clavicle",
+            "L_Upperarm",
+            "L_Forearm",
+            "L_ForearmTwist01",
+            "L_ForearmTwist02",
+            "L_Hand",
+            "L_UpperarmTwist01",
+            "L_UpperarmTwist02",
+            "R_Clavicle",
+            "R_Upperarm",
+            "R_UpperarmTwist01",
+            "R_UpperarmTwist02",
+            "R_Forearm",
+            "R_ForearmTwist01",
+            "R_ForearmTwist02",
+            "R_Hand"
+          ]
+        }
+      }
+    }
+  ],
+  "bounds_by_frame": {
+    "1": {
+      "min": [
+        -0.148727,
+        -0.277588,
+        -0.02022
+      ],
+      "max": [
+        0.146506,
+        0.049086,
+        0.971226
+      ],
+      "dimensions": [
+        0.295233,
+        0.326675,
+        0.991446
+      ]
+    },
+    "188": {
+      "min": [
+        -0.14436,
+        -0.251427,
+        -0.010963
+      ],
+      "max": [
+        0.219157,
+        0.039497,
+        0.972473
+      ],
+      "dimensions": [
+        0.363517,
+        0.290924,
+        0.983437
+      ]
+    },
+    "375": {
+      "min": [
+        -0.14874,
+        -0.277626,
+        -0.020236
+      ],
+      "max": [
+        0.146583,
+        0.049104,
+        0.971281
+      ],
+      "dimensions": [
+        0.295323,
+        0.32673,
+        0.991517
+      ]
+    }
+  },
+  "image_sizes": [
+    "2048x2048",
+    "4096x4096",
+    "8192x8192"
+  ]
+}

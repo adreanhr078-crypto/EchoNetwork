@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "migrationId": "godot-g0-to-unity-2026-09-12",
+  "status": "prepared-structural-runtime-unverified",
+  "targetEditor": {
+    "version": "6000.3.23f1",
+    "changeset": "09d2ecc7fb28",
+    "officialReleasePage": "https://unity.com/releases/editor/whats-new/6000.3.23f1",
+    "officialWindowsDistribution": "https://download.unity3d.com/download_unity/09d2ecc7fb28/Windows64EditorInstaller/UnitySetup64-6000.3.23f1.exe",
+    "officialPortableZipAvailable": false,
+    "installerStagingPath": "C:/Tools/Unity-6000.3.23f1-Official/downloads/UnitySetup64-6000.3.23f1.exe",
+    "installerSha256": "C00E1DC2EA519F18E68C3FB6C69366DF916738BCC3A8C67537B293C2994DBC72",
+    "downloadAssistantStagingPath": "C:/Tools/Unity-6000.3.23f1-Official/downloads/UnityDownloadAssistant-6000.3.23f1.exe",
+    "downloadAssistantSha256": "D618A2FB1279AC169D4733A95720D96C2BB6FBE1D158016BB7FB54A901D5BC00",
+    "installerExecuted": true,
+    "editorPath": "C:/Tools/Unity-6000.3.23f1-Official/Editor/Unity.exe",
+    "editorInstalled": true,
+    "licenseStatus": "UNVERIFIED_NO_VALID_EDITOR_LICENSE"
+  },
+  "source": {
+    "godotProject": "art/godot/technical-proofs/g0-vertical-slice",
+    "godotBackup": "art/unity/migration/source-backups/godot-g0-vertical-slice-2026-09-12",
+    "godotBackupFileCount": 225,
+    "godotBackupBytes": 36572018,
+    "godotOriginalPreserved": true,
+    "sourceScene": "assets/g0-room.glb",
+    "sourceCharacter": "assets/echo-g0-motion-study.glb"
+  },
+  "assets": [
+    {
+      "source": "assets/g0-room.glb",
+      "target": "Assets/Art/GLB/Sector11_G0_Room.glb",
+      "sha256": "A9B02C19E681B43F42102A0B7F708918C22B7D810B78E26DFDBEDD044F22BCB8",
+      "bytes": 909404,
+      "bridge": "Assets/Art/FBX/Sector11_G0_Room.fbx",
+      "bridgeSha256": "E7DAF9F47DED5DE07159BA8B1CE48DC81510249FE84AF3ECEEB9F6D7F97E63B3",
+      "bridgeBytes": 398412
+    },
+    {
+      "source": "assets/echo-g0-motion-study.glb",
+      "target": "Assets/Art/GLB/Echo_G0_MotionStudy.glb",
+      "sha256": "9071AA75BB59D508BAD644BFF6288FFC3A6CE8BBF7D635B8EE5E0BDAB900671E",
+      "bytes": 6072104,
+      "bridge": "Assets/Art/FBX/Echo_G0_MotionStudy.fbx",
+      "bridgeSha256": "9679F87FE2BE854C609F21ADF87D50524E62D14711D3F86B265BA694911318C0",
+      "bridgeBytes": 5614508
+    },
+    {
+      "source": "art/blender/intermediate/higgsfield-audit-r3-runtime.glb",
+      "target": "Assets/Art/GLB/Higgsfield_Audit_R3_Runtime.glb",
+      "sha256": "BF8BF121AB1BD2ACD65E08D6D4DAB2BA609FB3DD260BB28BA8015FB88230CCE7",
+      "bytes": 689236
+    },
+    {
+      "source": "art/blender/intermediate/g0-higgsfield-room-runtime.glb",
+      "target": "Assets/Art/GLB/Higgsfield_G0_Runtime.glb",
+      "sha256": "054A339F25765A9EFF477CCEEC8D1756DDC0B09A2A3DE6699D6EB8F58E3FB84F",
+      "bytes": 688096
+    }
+  ],
+  "unityRebuild": {
+    "scene": "Assets/Scenes/G0_Sector11_Escape.unity",
+    "builder": "Assets/Editor/G0SceneBuilder.cs",
+    "runtimeScripts": [
+      "Assets/Scripts/G0/UnityG0Bootstrap.cs",
+      "Assets/Scripts/G0/ThirdPersonController.cs",
+      "Assets/Scripts/G0/G0Interactable.cs",
+      "Assets/Scripts/G0/G0SmokeProbe.cs"
+    ],
+    "interactions": ["SignalNode", "MemoryClue", "ExitDoor"],
+    "systemsNotMigrated": ["combat", "open-world", "economy", "server-authority", "canon-progression"],
+    "godotSpecificCodeRebuilt": false,
+    "hexfieldSpecificRuntimeRebuilt": false,
+    "auditStatus": "INCOMPLETE: collision, animation playback, interaction parity, material and visual validation remain"
+  },
+  "verification": {
+    "preflight": "PASS",
+    "assetHashAndStructure": "PASS (UNITY_MIGRATION_STRUCTURE_OK)",
+    "blenderFbxReimport": "PASS (room and Echo; four animation clips preserved)",
+    "unityCliResolutionTest": "BLOCKED_EDITOR_NOT_PRESENT",
+    "unityEditorOpen": "UNVERIFIED_EDITOR_NOT_PRESENT",
+    "unityPlayMode": "UNVERIFIED_EDITOR_NOT_PRESENT",
+    "postflight": "PASS (content, TypeScript, 587 tests, production build, project doctor)"
+  }
+}
