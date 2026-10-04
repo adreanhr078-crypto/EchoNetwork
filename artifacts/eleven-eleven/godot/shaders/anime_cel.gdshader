@@ -2,9 +2,10 @@ shader_type spatial;
 render_mode cull_back;
 
 // 11.11 stepped anime lighting; artistic acceptance is a separate review.
-// Features: 2-band stepped cel shading, warm peach/rose Subsurface Scattering (SSS)
-// terminator line, Kajiya-Kay anisotropic hair specular highlight ("Angel Ring"),
-// dynamic backlight-boosted anime rim glow, and Forward+ light integration.
+// Features: 2-band stepped cel shading, soft two-tone cel ramp for face/skin,
+// warm peach/rose Subsurface Scattering (SSS) terminator line, Kajiya-Kay
+// anisotropic hair specular highlight ("Angel Ring"), dynamic backlight-boosted
+// anime rim glow, and Forward+ light integration.
 
 group_uniforms BaseProperties;
 uniform vec4 albedo_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
@@ -14,6 +15,13 @@ uniform bool use_normal_texture = false;
 uniform float normal_depth : hint_range(0.0, 2.0) = 1.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.35;
 uniform float metallic : hint_range(0.0, 1.0) = 0.05;
+uniform sampler2D roughness_texture : filter_linear_mipmap, hint_default_white;
+uniform sampler2D metallic_texture : filter_linear_mipmap, hint_default_white;
+uniform bool use_roughness_texture = false;
+uniform bool use_metallic_texture = false;
+uniform vec4 roughness_channel = vec4(1.0, 0.0, 0.0, 0.0);
+uniform vec4 metallic_channel = vec4(1.0, 0.0, 0.0, 0.0);
+uniform float metallic_limit : hint_range(0.0, 1.0) = 1.0;
 uniform float albedo_gamma : hint_range(0.5, 1.0) = 1.0;
 uniform float ambient_lift : hint_range(0.0, 0.5) = 0.0;
 
@@ -44,8 +52,14 @@ uniform float hair_specular_width : hint_range(0.01, 0.4) = 0.08;
 
 group_uniforms FaceShading;
 uniform bool is_face = false;
+uniform bool use_two_tone_face = true;
+uniform float face_cel_split : hint_range(0.0, 1.0) = 0.38;
+uniform float face_cel_smoothness : hint_range(0.001, 0.25) = 0.08;
+uniform vec4 face_shadow_tint : source_color = vec4(0.88, 0.82, 0.86, 1.0); // Soft flattering anime facial shadow
 uniform bool limit_skin_highlights = false;
 uniform float skin_light_scale : hint_range(0.1, 1.0) = 1.0;
+// Echo uses calibrated light units. Other existing materials retain their ramp.
+uniform bool normalize_light_response = false;
 varying float skin_mask;
 
 group_uniforms RimLighting;
@@ -66,8 +80,8 @@ void fragment() {
 	skin_mask = limit_skin_highlights ? smoothstep(0.24, 0.45, tex.r)
 		* smoothstep(0.035, 0.10, tex.r - tex.b)
 		* smoothstep(0.015, 0.06, tex.r - tex.g) : 0.0;
-	ROUGHNESS = roughness;
-	METALLIC = metallic;
+	ROUGHNESS = clamp(roughness * (use_roughness_texture ? dot(texture(roughness_texture, UV), roughness_channel) : 1.0), 0.0, 1.0);
+	METALLIC = min(metallic_limit, clamp(metallic * (use_metallic_texture ? dot(texture(metallic_texture, UV), metallic_channel) : 1.0), 0.0, 1.0));
 	
 	if (use_normal_texture) {
 		NORMAL_MAP = texture(normal_texture, UV).rgb;
@@ -90,28 +104,48 @@ void light() {
 	// Combine half-lambert with light attenuation/shadow map
 	float shadow_term = clamp(half_lambert * ATTENUATION, 0.0, 1.0);
 	
-	// 2-Band Stepped Cel Diffuse
-	float s1 = is_face ? (cel_split_1 * 0.45) : cel_split_1;
-	float s2 = is_face ? (cel_split_2 * 0.35) : cel_split_2;
-	float band_1 = smoothstep(s1 - cel_smoothness, s1 + cel_smoothness, shadow_term);
-	float band_2 = smoothstep(s2 - cel_smoothness, s2 + cel_smoothness, shadow_term);
+	// Determine face/skin factor: active if marked as face mesh OR detected via skin atlas mask
+	float face_factor = is_face ? 1.0 : skin_mask;
 	
-	vec3 shade_tier_2 = shadow_color.rgb * (is_face ? 0.88 : 0.72);
-	vec3 shade_tier_1 = shadow_color.rgb;
+	// Cel Diffuse Shading
 	vec3 lit_color = vec3(1.0);
+	vec3 shade_tier_1 = shadow_color.rgb;
+	vec3 shade_tier_2 = shadow_color.rgb * 0.72;
 	
-	vec3 cel_tone = mix(shade_tier_2, shade_tier_1, band_2);
-	cel_tone = mix(cel_tone, lit_color, band_1);
+	// Standard body / clothing: 2-band stepped cel diffuse (3 tiers)
+	float body_band_1 = smoothstep(cel_split_1 - cel_smoothness, cel_split_1 + cel_smoothness, shadow_term);
+	float body_band_2 = smoothstep(cel_split_2 - cel_smoothness, cel_split_2 + cel_smoothness, shadow_term);
+	vec3 body_cel_tone = mix(shade_tier_2, shade_tier_1, body_band_2);
+	body_cel_tone = mix(body_cel_tone, lit_color, body_band_1);
+	
+	// Face / skin: soft two-tone cel ramp (Lit tone + Soft shadow tone with zero secondary dark band)
+	float face_split_val = is_face ? (cel_split_1 * 0.45) : face_cel_split;
+	float face_smooth_val = max(cel_smoothness, face_cel_smoothness);
+	float face_band = smoothstep(face_split_val - face_smooth_val, face_split_val + face_smooth_val, shadow_term);
+	vec3 face_shadow = shadow_color.rgb * face_shadow_tint.rgb;
+	vec3 face_cel_tone = mix(face_shadow, lit_color, face_band);
+	
+	// Blend between body cel tone and soft two-tone face cel tone based on face_factor
+	vec3 cel_tone = (use_two_tone_face && face_factor > 0.001)
+		? mix(body_cel_tone, face_cel_tone, clamp(face_factor, 0.0, 1.0))
+		: (is_face ? face_cel_tone : body_cel_tone);
 	
 	// Quantization must not remove light distance and occlusion attenuation.
-	vec3 diffuse_result = ALBEDO * LIGHT_COLOR * cel_tone * ATTENUATION;
+	// Godot applies albedo to DIFFUSE_LIGHT and LIGHT_COLOR already carries PI.
+	// Applying either a second time loses dark cloth and clips light skin.
+	vec3 light_color = normalize_light_response ? LIGHT_COLOR / PI : LIGHT_COLOR;
+	vec3 diffuse_albedo = normalize_light_response ? vec3(1.0) : ALBEDO;
+	vec3 diffuse_result = diffuse_albedo * light_color * cel_tone * ATTENUATION;
 	
 	// Subsurface Scattering (Warm Peach Terminator Line Tint)
 	if (use_sss) {
-		float terminator_dist = abs(shadow_term - cel_split_1);
+		float terminator_split = (face_factor > 0.5) ? face_split_val : cel_split_1;
+		float terminator_dist = abs(shadow_term - terminator_split);
 		float sss_factor = smoothstep(sss_width, 0.0, terminator_dist);
-		vec3 sss_rim = sss_color.rgb * sss_factor * sss_intensity * LIGHT_COLOR * ATTENUATION;
-		diffuse_result += sss_rim * ALBEDO;
+		vec3 sss_rim = sss_color.rgb * sss_factor * sss_intensity * light_color * ATTENUATION;
+		// Modulate by skin/face if on unified atlas to protect dark uniform cloth
+		float sss_mask = limit_skin_highlights ? face_factor : 1.0;
+		diffuse_result += sss_rim * diffuse_albedo * sss_mask;
 	}
 	
 	// Stylized Anime Stepped Blinn-Phong Specular
@@ -119,7 +153,7 @@ void light() {
 	float NdotH = max(dot(NORMAL, half_vector), 0.0);
 	float spec_term = pow(NdotH, specular_shininess) * ATTENUATION;
 	float spec_band = smoothstep(specular_size - specular_smoothness, specular_size + specular_smoothness, spec_term);
-	vec3 specular_result = specular_color.rgb * LIGHT_COLOR * spec_band * (1.0 - roughness);
+	vec3 specular_result = specular_color.rgb * light_color * spec_band * (1.0 - ROUGHNESS);
 	
 	// Kajiya-Kay Anisotropic Hair Specular Highlight ("Angel Ring")
 	if (is_hair) {
@@ -130,9 +164,10 @@ void light() {
 		float sinTH = sqrt(max(0.0, 1.0 - TdotH * TdotH));
 		float hair_spec = pow(sinTH, hair_specular_power);
 		float hair_band = smoothstep(0.5 - hair_specular_width, 0.5 + hair_specular_width, hair_spec);
-		specular_result += hair_specular_color.rgb * LIGHT_COLOR * hair_band * 2.0 * ATTENUATION;
+		specular_result += hair_specular_color.rgb * light_color * hair_band * 2.0 * ATTENUATION;
 	}
 	
-	DIFFUSE_LIGHT += diffuse_result * mix(1.0, skin_light_scale, skin_mask);
+	float front_response = normalize_light_response ? smoothstep(-0.1, 0.1, NdotL) : 1.0;
+	DIFFUSE_LIGHT += front_response * diffuse_result * mix(1.0, skin_light_scale, skin_mask);
 	SPECULAR_LIGHT += specular_result * mix(1.0, 0.08, skin_mask);
 }

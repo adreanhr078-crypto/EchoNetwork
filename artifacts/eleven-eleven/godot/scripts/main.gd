@@ -29,6 +29,10 @@ func opening_line(ar: String, en: String, guide: bool = false) -> Dictionary:
 func set_presentation_language(language: String) -> void:
 	if language not in ["ar", "en"]:
 		return
+	if language != presentation_language and hud and hud._tutorial_toast:
+		# Timed hints were authored in the previous language; the refreshed
+		# objective stays visible and subsequent hints use the new language.
+		hud._tutorial_toast.dismiss_toast()
 	presentation_language = language
 	_save_native_preferences()
 	refresh_opening_language()
@@ -188,6 +192,7 @@ func _save_native_preferences() -> void:
 	preferences.set_value("presentation", "muted", audio_muted)
 	preferences.set_value("presentation", "reduced_motion", reduced_motion)
 	preferences.set_value("presentation", "language", presentation_language)
+	preferences.set_value("controls", "settings", get_control_preferences())
 	if preferences.save(native_preferences_path) != OK:
 		push_warning("Presentation preferences could not be saved.")
 
@@ -205,14 +210,32 @@ func _load_native_preferences() -> void:
 		set_audio_muted(muted)
 	if motion is bool:
 		set_reduced_motion(motion)
+	var controls: Variant = preferences.get_value("controls", "settings", {})
+	if controls is Dictionary: set_control_preferences(controls)
 	_restoring_native_session = false
 	refresh_opening_language()
+
+func get_control_preferences() -> Dictionary:
+	var touch = hud.find_child("MobileTouchControls", true, false) if hud else null
+	var settings: Dictionary = touch.control_preferences() if touch else {}
+	settings["mouse_sensitivity"] = player.mouse_look_sensitivity / 0.0022 if player else 1.0
+	settings["touch_sensitivity"] = player.touch_look_sensitivity / 0.003 if player else 1.0
+	return settings
+
+func set_control_preferences(settings: Dictionary) -> void:
+	var touch = hud.find_child("MobileTouchControls", true, false) if hud else null
+	if not touch or not player: return
+	touch.apply_control_preferences(settings)
+	player.mouse_look_sensitivity = 0.0022 * touch._finite_setting(settings, "mouse_sensitivity", 1, 0.5, 2.0)
+	player.touch_look_sensitivity = 0.003 * touch._finite_setting(settings, "touch_sensitivity", 1, 0.5, 2.0)
+	_save_native_preferences()
 
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
 		if player:
 			player.mobile_input_vector = Vector2.ZERO
 			player.mobile_sprint_active = false
+			player.clear_traversal_input()
 		_flush_native_checkpoint()
 		if what != NOTIFICATION_WM_CLOSE_REQUEST and native_pause_menu:
 			native_pause_menu.set_session_paused(true)
@@ -255,6 +278,8 @@ func set_audio_muted(muted: bool) -> void:
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	if player: player.reduced_camera_motion = enabled
+	if hud: hud.tutorial_toast.set_reduced_motion(enabled)
 	var touch_ui = hud.find_child("MobileTouchControls",true,false) if hud else null
 	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
 	var journey := get_node_or_null("SystemJourneyPreview")
@@ -281,10 +306,19 @@ func set_reduced_motion(enabled: bool) -> void:
 
 func _on_nearby_interactable_changed(target: Node) -> void:
 	if not is_instance_valid(player) or not is_instance_valid(hud) or is_queued_for_deletion() or player.opening_recovery_active: return
+	var touch = hud.find_child("MobileTouchControls", true, false)
+	if touch: touch.set_interaction_available(is_instance_valid(target))
 	if is_instance_valid(target): hud.show_interaction_prompt(target)
 	else: hud.hide_interaction_prompt()
 
 func _ready() -> void:
+	# Debug-only, explicitly requested; no instrumentation runs in a normal session.
+	var frame_capture_script = preload("res://scripts/diagnostics/player_frame_capture.gd")
+	if frame_capture_script.requested():
+		var frame_capture = frame_capture_script.new()
+		frame_capture.name = "PlayerFrameCapture"
+		add_child(frame_capture)
+		if not frame_capture.start_capture(): push_warning("Optional frame capture could not start")
 	audio_muted = AudioServer.is_bus_mute(0)
 	var touch_ui_initial = hud.find_child("MobileTouchControls", true, false) if hud else null
 	var mute_button_initial = touch_ui_initial.find_child("MuteBtn", true, false) as Button if touch_ui_initial else null
@@ -350,18 +384,18 @@ func _ready() -> void:
 		var touch_ui = hud.find_child("MobileTouchControls", true, false)
 		if touch_ui:
 			player.touch_input_enabled = touch_ui._platform_touch_enabled
+			touch_ui.input_reset.connect(player.clear_traversal_input)
 			touch_ui.joystick_moved.connect(func(v: Vector2):
-				player.set("mobile_input_vector", Vector2.ZERO if player.control_locked else v)
+				player.set_mobile_input_vector(Vector2.ZERO if player.control_locked else v, touch_ui.is_joystick_active and not player.control_locked)
 			)
 			touch_ui.attack_tapped.connect(player.perform_attack)
 			touch_ui.iai_charge_started.connect(player.start_iai_charge)
 			touch_ui.iai_charge_released.connect(player.execute_iai_slash)
 			touch_ui.dodge_tapped.connect(player.request_dodge)
 			touch_ui.jump_tapped.connect(player.request_jump)
-			touch_ui.camera_swiped.connect(player.apply_camera_look)
-			touch_ui.sprint_changed.connect(func(active: bool):
-				player.mobile_sprint_active = active and not player.control_locked
-			)
+			if touch_ui.has_signal("sprint_changed"):
+				touch_ui.sprint_changed.connect(player.set_dash_held)
+			touch_ui.camera_swiped.connect(player.apply_touch_camera_look)
 			if touch_ui.has_signal("use_tapped"):
 				touch_ui.use_tapped.connect(player.interact_with_nearest)
 			touch_ui.lock_on_tapped.connect(player.toggle_lock_on)
@@ -623,7 +657,7 @@ func _on_terminal_puzzle_closed() -> void:
 	if hud and hud.has_method("restore_touch_controls"):
 		hud.restore_touch_controls()
 	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
-	if OS.get_name() not in ["Android", "iOS"] and not (dialogue and dialogue.visible):
+	if player and not player.touch_input_enabled and not (dialogue and dialogue.visible):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if _pending_wake_terminal:
 		var terminal: Node = _pending_wake_terminal

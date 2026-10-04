@@ -173,7 +173,7 @@ func set_player(target: Node3D) -> void:
 	if system_window and system_window.has_method("set_player"):
 		system_window.set_player(target)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
 	if _compass_bar and follow_player and not overlay_open:
 		var boom := follow_player.find_child("CameraBoom", true, false) as Node3D
@@ -194,7 +194,9 @@ func _process(delta: float) -> void:
 		maxf(safe_margin, viewport_size.x - quest_container.size.x - safe_margin),
 		maxf(safe_margin, viewport_size.y * 0.12)
 	)
-	quest_container.position = quest_container.position.lerp(target_position, minf(1.0, delta * 14.0))
+	# Viewport reflow is layout, so anchor immediately instead of drifting over
+	# the control hint while the window or mobile canvas changes dimensions.
+	quest_container.position = target_position
 func set_directive(title: String, desc: String) -> void:
 	directive_active = true
 	current_directive_title = title
@@ -286,12 +288,16 @@ func close_system_window() -> void:
 @onready var interaction_prompt: Control = $InteractionPromptHUD if has_node("InteractionPromptHUD") else null
 
 func show_interaction_prompt(interactable: Node) -> void:
+	var touch = find_child("MobileTouchControls", true, false)
+	if touch: touch.set_interaction_available(is_instance_valid(interactable))
 	if not interaction_prompt:
 		interaction_prompt = find_child("InteractionPromptHUD", true, false)
 	if interaction_prompt and interaction_prompt.has_method("show_prompt"):
 		interaction_prompt.show_prompt(interactable)
 
 func hide_interaction_prompt() -> void:
+	var touch = find_child("MobileTouchControls", true, false)
+	if touch: touch.set_interaction_available(false)
 	if not interaction_prompt:
 		interaction_prompt = find_child("InteractionPromptHUD", true, false)
 	if interaction_prompt and interaction_prompt.has_method("hide_prompt"):

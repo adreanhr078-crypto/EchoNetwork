@@ -16,10 +16,29 @@ signal conduit_energized(conduit_node: Node)
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D if has_node("MeshInstance3D") else null
 
 var _surge_tween: Tween = null
+var _core_material: StandardMaterial3D = null
+var _signal_materials: Array[StandardMaterial3D] = []
 
 func _ready() -> void:
 	add_to_group("damageable")
 	add_to_group("conduits")
+	var core_mesh := get_node_or_null("CoreMesh") as MeshInstance3D
+	var signal_meshes: Array[MeshInstance3D] = []
+	if core_mesh: signal_meshes.append(core_mesh)
+	var presentation := get_node_or_null("Presentation")
+	if presentation:
+		for signal_name in ["CoreMesh", "StatusSignalMesh"]:
+			var signal_mesh := presentation.find_child(signal_name, true, false) as MeshInstance3D
+			if signal_mesh: signal_meshes.append(signal_mesh)
+	for signal_mesh in signal_meshes:
+		var source := signal_mesh.get_active_material(0) as StandardMaterial3D
+		if source:
+			# Scene resources are shared; a checkpoint restore must tint only this
+			# conduit, without changing another instance or its authored material.
+			var local_material := source.duplicate() as StandardMaterial3D
+			_signal_materials.append(local_material)
+			signal_mesh.set_surface_override_material(0, local_material)
+			if signal_mesh == core_mesh: _core_material = local_material
 	_update_visuals()
 
 func _update_visuals() -> void:
@@ -38,6 +57,12 @@ func _update_visuals() -> void:
 		else:
 			core_light.light_color = Color(1.0, 0.45, 0.08, 1.0) # Dormant amber
 			core_light.light_energy = 0.9
+	for signal_material in _signal_materials:
+		var signal_color := Color(0.0, 0.95, 1.0, 1.0) if is_energized else Color(1.0, 0.45, 0.08, 1.0)
+		signal_material.albedo_color = signal_color
+		signal_material.emission_enabled = true
+		signal_material.emission = signal_color
+		signal_material.emission_energy_multiplier = 1.4 if is_energized else 0.45
 
 	if spark_particles:
 		spark_particles.emitting = is_energized

@@ -1,10 +1,13 @@
 extends Node
 
-## Native opt-in connected traversal proof, never an accepted campaign release.
+## Existing maintenance traversal; campaign continuation is opt-in by its parent scene.
+signal stage_changed(value: int)
+signal room_ready
 const ROOM = preload("res://scenes/environment/maintenance_vertical.tscn")
 const SERVICE_CINEMATIC = preload("res://scripts/cinematics/maintenance_service_cinematic.gd")
 const SAVE_SCHEMA := "echo-maintenance-preview-v1"
 @export var checkpoint_path := "user://maintenance_preview_v1.json"
+@export var campaign_continuation := false
 var main: Node
 var room: Node3D
 var service_cinematic: Node
@@ -42,6 +45,7 @@ func _process(_delta: float) -> void:
 		room.service_release_started.connect(service_cinematic.start)
 		_restore()
 		_language = ""
+		room_ready.emit()
 	if main.presentation_language != _language:
 		_language = main.presentation_language
 		room.set_language(_language)
@@ -91,6 +95,7 @@ func _advance(next: int, anchor: Vector3) -> void:
 	_retry_anchor = anchor
 	_save_ready = true
 	refresh_objective()
+	stage_changed.emit(stage)
 
 func refresh_objective() -> void:
 	if room:
@@ -108,6 +113,9 @@ func refresh_objective() -> void:
 		hints[5] = "جارٍ تنفيس الضغط ورفع الحاجز…"
 		hints_en[5] = "Venting pressure and lifting the barrier…"
 	main.hud.set_directive(main.opening_text(titles[stage], titles_en[stage]), main.opening_text(hints[stage], hints_en[stage]))
+	if campaign_continuation and stage == 7:
+		var journey := main.get_node_or_null("NativeJourneyController")
+		if journey: journey.refresh_objective()
 
 func _save() -> bool:
 	var data := {"schema": SAVE_SCHEMA, "stage": stage}

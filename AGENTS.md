@@ -109,3 +109,7 @@ For every player-facing integration, visual pass, puzzle pass, or release task:
   experience cohesive, playable, attractive, and release-ready before reporting
   completion. Add assets or content only when they close an evidenced release
   gap and remain within approved Canon.
+
+## Owner animation foundation — 2026-09-30
+
+For EchoNetwork character skeletal animation import/retarget work, always preserve the Golden pipeline invariants. Successful routine motions may follow that proven pipeline directly. Use `$echo-golden-animation` at `.agents/skills/echo-golden-animation/SKILL.md` immediately when output is poor or a stage fails, and no later than the second evidence-driven attempt; do not repeat blind trials. Use the skill from the start when that improves quality. The Owner-approved Walk in `artifacts/eleven-eleven/art/production/master-animation-library/golden/walk-v1/` is the fixed Golden Reference. Verify its hashes before/after each motion; never regenerate/improve the Walk or manually edit source keys. Preserve Skeleton Retarget, Root Motion and the current player; no AnimationTree/blending during verification. Process Run/Jog → Idle → Jump sequentially with the same frozen transfer/import pipeline, isolating failures per motion without changing global project settings. Later explicit Owner instructions supersede this rule.

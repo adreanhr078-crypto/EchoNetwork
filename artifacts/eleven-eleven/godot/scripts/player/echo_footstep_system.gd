@@ -89,7 +89,7 @@ func _detect_surface(origin: Vector3) -> String:
 		return "metal"
 	elif combined.contains("wood") or combined.contains("tatami") or combined.contains("residence") or combined.contains("house") or combined.contains("board"):
 		return "wood"
-	elif combined.contains("water") or combined.contains("puddle") or combined.contains("ocean") or combined.contains("sea"):
+	elif combined.contains("water") or combined.contains("puddle") or combined.contains("ocean") or combined.contains("sea") or combined.contains("flood"):
 		return "water"
 
 	return "concrete"

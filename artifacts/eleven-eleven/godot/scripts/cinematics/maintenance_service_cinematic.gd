@@ -16,6 +16,9 @@ var _gate_shot: Node3D
 var _skip: Button
 var _touch_was_visible := false
 var _returning := false
+var _return_elapsed := 0.0
+var _return_from := Transform3D.IDENTITY
+var _return_fov := 65.0
 
 func start() -> void:
 	if active or main.reduced_motion or main.player.control_locked: return
@@ -48,6 +51,7 @@ func start() -> void:
 	active = true
 	_elapsed = 0
 	_returning = false
+	_return_elapsed = 0.0
 	main.player.control_locked = true
 	main.player.velocity = Vector3.ZERO
 	var touch = main.hud.find_child("MobileTouchControls",true,false)
@@ -77,14 +81,25 @@ func _lens(fov: float) -> Resource:
 func _process(delta: float) -> void:
 	if not active: return
 	_elapsed += delta
+	# Track the live collision-safe gameplay pose, including a moving floor.
+	if is_instance_valid(_previous_camera):
+		_return_shot.global_transform = _previous_camera.global_transform
 	_skip.text = "عودة للعب" if main.presentation_language == "ar" else "Return to play"
 	if main.reduced_motion:
-		finish()
+		_finish_now()
 		return
 	if _elapsed >= 2.85 and not _returning:
-		_returning = true
-		_return_shot.priority = 30
-	if _elapsed >= 3.25: finish()
+		finish()
+	if _returning:
+		_return_elapsed += delta
+		var weight := smoothstep(0.0,1.0,clampf(_return_elapsed/0.35,0.0,1.0))
+		# The Phantom host starts its priority tween on a later update. A separate
+		# timeout cut it off before the last pose (measured 10cm/2.46deg at 30Hz).
+		# Own this final 350ms explicitly and sample the live gameplay endpoint.
+		_camera.global_transform = _return_from.interpolate_with(_previous_camera.global_transform,weight)
+		_camera.fov = lerpf(_return_fov,_previous_camera.fov,weight)
+		_keep_return_inside_room()
+		if _return_elapsed >= 0.35: _finish_now()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if active and _elapsed > 0.15 and event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_SPACE,KEY_E]:
@@ -92,6 +107,32 @@ func _unhandled_input(event: InputEvent) -> void:
 		finish()
 
 func finish() -> void:
+	if not active: return
+	if main.reduced_motion:
+		_finish_now()
+		return
+	if _returning: return
+	_returning = true
+	_return_elapsed = 0.0
+	_return_from = _camera.global_transform
+	_return_fov = _camera.fov
+	_host.process_mode = Node.PROCESS_MODE_DISABLED
+	if is_instance_valid(_skip): _skip.hide()
+
+func _keep_return_inside_room() -> void:
+	var player: EchoPlayer = main.player
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = player.camera_boom.shape
+	query.transform = Transform3D(Basis.IDENTITY,player.camera_boom.global_position)
+	query.motion = _camera.global_position-query.transform.origin
+	query.collision_mask = player.camera_boom.collision_mask
+	query.exclude = [player.get_rid()]
+	var fraction := player.get_world_3d().direct_space_state.cast_motion(query)[0]
+	if fraction < 1.0:
+		var distance := maxf(0,query.motion.length()*fraction-player.camera_boom.margin)
+		_camera.global_position = query.transform.origin+query.motion.normalized()*distance
+
+func _finish_now() -> void:
 	if not active: return
 	active = false
 	if is_instance_valid(room): room.end_service_contact()
@@ -107,4 +148,4 @@ func finish() -> void:
 		else:
 			touch.set_interaction_blocked(not _touch_was_visible)
 
-func _exit_tree() -> void: finish()
+func _exit_tree() -> void: _finish_now()

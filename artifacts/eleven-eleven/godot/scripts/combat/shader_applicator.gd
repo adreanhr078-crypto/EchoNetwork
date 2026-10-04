@@ -6,19 +6,19 @@ extends RefCounted
 ## - Preserves high-resolution authored PBR albedo textures
 ## - Native DIFFUSE_TOON + SPECULAR_TOON lighting ramps
 ## - Rim lighting highlights for distinct silhouette separation
-## - GPU hardware-skinned inverted hull ink outlines (CULL_FRONT + grow)
+## - GPU hardware-skinned inverted hull ink outlines with microscopic non-deforming thickness
 
 static func apply_cel_shader(root_node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float = 3.2, rim_int: float = 0.85, outline_shader: Shader = null, albedo_gamma: float = 1.0, ambient_lift: float = 0.0) -> void:
 	if not root_node or not shader:
 		return
 	_recursive_apply(root_node, shader, albedo_col, rim_col, shadow_col, rim_pow, rim_int, outline_shader, albedo_gamma, ambient_lift)
 
-static func apply_outline(root_node: Node, _outline_shader: Shader = null, outline_width: float = 1.35) -> void:
+static func apply_outline(root_node: Node, outline_shader: Shader = null, outline_width: float = 1.0) -> void:
 	if not root_node:
 		return
-	_recursive_outline(root_node, outline_width)
+	_recursive_outline(root_node, outline_shader, outline_width)
 
-static func _recursive_outline(node: Node, outline_width: float) -> void:
+static func _recursive_outline(node: Node, outline_shader: Shader, outline_width: float) -> void:
 	if node is MeshInstance3D:
 		var mi := node as MeshInstance3D
 		if mi.mesh:
@@ -36,18 +36,26 @@ static func _recursive_outline(node: Node, outline_width: float) -> void:
 						anime_material.metallic = 0.0
 						anime_material.roughness = 0.65
 
-						# Built-in Godot GPU-skinned inverted hull ink outline
-						var outline_mat := StandardMaterial3D.new()
-						outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
-						outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-						outline_mat.albedo_color = Color(0.03, 0.04, 0.06, 1.0)
-						outline_mat.grow = true
-						outline_mat.grow_amount = 0.0022 * outline_width
-						anime_material.next_pass = outline_mat
+						if outline_shader:
+							var outline_mat := ShaderMaterial.new()
+							outline_mat.shader = outline_shader
+							outline_mat.set_shader_parameter("outline_color", Color(0.03, 0.04, 0.06, 1.0))
+							outline_mat.set_shader_parameter("outline_width", outline_width)
+							outline_mat.set_shader_parameter("microscopic_thickness", 0.00065)
+							anime_material.next_pass = outline_mat
+						else:
+							# Built-in Godot GPU-skinned inverted hull ink outline with microscopic thickness
+							var outline_mat := StandardMaterial3D.new()
+							outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
+							outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+							outline_mat.albedo_color = Color(0.03, 0.04, 0.06, 1.0)
+							outline_mat.grow = true
+							outline_mat.grow_amount = 0.00065 * outline_width
+							anime_material.next_pass = outline_mat
 
 						mi.set_surface_override_material(surface_index, anime_material)
 	for child in node.get_children():
-		_recursive_outline(child, outline_width)
+		_recursive_outline(child, outline_shader, outline_width)
 
 static func _recursive_apply(node: Node, shader: Shader, albedo_col: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, albedo_gamma: float, ambient_lift: float) -> void:
 	if node is MeshInstance3D:
@@ -92,23 +100,52 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	mat.set_shader_parameter("sss_intensity", 0.70)
 	var lower_name := mesh_name.to_lower()
 	if lower_name.begins_with("echoopeninguniform"):
+		mat.set_shader_parameter("normalize_light_response", true)
+		# Restored authored roughness must not turn the school cloth into a
+		# full-strength stepped white highlight. Preserve its map, soften energy.
+		mat.set_shader_parameter("specular_color", Color(0.18, 0.18, 0.18, 1))
+		if source_material is BaseMaterial3D:
+			var echo_source := source_material as BaseMaterial3D
+			# Preserve authored linear PBR channels; cap the sampled metallic
+			# response rather than replacing the entire skin/cloth atlas with 0.1.
+			mat.set_shader_parameter("metallic", echo_source.metallic)
+			mat.set_shader_parameter("metallic_limit", 0.1)
+			if echo_source.roughness_texture:
+				mat.set_shader_parameter("roughness_texture", echo_source.roughness_texture)
+				mat.set_shader_parameter("roughness_channel", _texture_channel(echo_source.roughness_texture_channel))
+				mat.set_shader_parameter("use_roughness_texture", true)
+			if echo_source.metallic_texture:
+				mat.set_shader_parameter("metallic_texture", echo_source.metallic_texture)
+				mat.set_shader_parameter("metallic_channel", _texture_channel(echo_source.metallic_texture_channel))
+				mat.set_shader_parameter("use_metallic_texture", true)
 		mat.set_shader_parameter("limit_skin_highlights", true)
 		mat.set_shader_parameter("skin_light_scale", 0.38)
+		# Enable face two-tone cel ramp and skin-modulated SSS for Echo
+		mat.set_shader_parameter("use_sss", true)
+		mat.set_shader_parameter("use_two_tone_face", true)
+		mat.set_shader_parameter("face_cel_split", 0.38)
+		mat.set_shader_parameter("face_cel_smoothness", 0.08)
 	if lower_name.contains("hair"):
 		mat.set_shader_parameter("is_hair", true)
 		mat.set_shader_parameter("hair_specular_color", Color(1.0, 0.96, 0.88, 1.0))
 		mat.set_shader_parameter("hair_specular_power", 42.0)
 	elif lower_name.contains("face") or lower_name.contains("head") or lower_name.contains("eye") or lower_name.contains("skin"):
 		mat.set_shader_parameter("is_face", true)
+		mat.set_shader_parameter("use_two_tone_face", true)
 		mat.set_shader_parameter("use_sss", true)
 	if outline_shader:
-		# A custom POSITION outline covered the animated torso/head in GLES3.
-		# Built-in growth keeps the outline on Godot's skinned mesh path.
-		var outline_mat := StandardMaterial3D.new()
-		outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
-		outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		outline_mat.albedo_color = Color(0.05, 0.06, 0.08, 1.0)
-		outline_mat.grow = true
-		outline_mat.grow_amount = 0.0012
+		var outline_mat := ShaderMaterial.new()
+		outline_mat.shader = outline_shader
+		outline_mat.set_shader_parameter("outline_color", Color(0.05, 0.06, 0.08, 1.0))
+		outline_mat.set_shader_parameter("outline_width", 1.0)
+		outline_mat.set_shader_parameter("microscopic_thickness", 0.00065)
 		mat.next_pass = outline_mat
 	return mat
+
+static func _texture_channel(channel: int) -> Vector4:
+	match channel:
+		BaseMaterial3D.TEXTURE_CHANNEL_GREEN: return Vector4(0, 1, 0, 0)
+		BaseMaterial3D.TEXTURE_CHANNEL_BLUE: return Vector4(0, 0, 1, 0)
+		BaseMaterial3D.TEXTURE_CHANNEL_ALPHA: return Vector4(0, 0, 0, 1)
+		BaseMaterial3D.TEXTURE_CHANNEL_GRAYSCALE: return Vector4(1.0 / 3, 1.0 / 3, 1.0 / 3, 0)
+		_: return Vector4(1, 0, 0, 0)

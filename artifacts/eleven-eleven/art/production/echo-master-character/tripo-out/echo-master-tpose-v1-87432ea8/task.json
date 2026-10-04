@@ -1,0 +1,21 @@
+{
+  "task_id": "87432ea8-88cc-46bf-b82b-1fd1dfa17a38",
+  "type": "image_to_image",
+  "status": "success",
+  "input": {
+    "prompt": "Completely show the full body of the character in T-pose. Standing upright, facing forward. Arms raise horizontally at shoulder height. Palms facing down, remove handheld objects but keep hand-worn equipment and accessories. Legs straight, feet shoulder-width apart. Keep natural body proportions and anatomy. Front view, neutral background.\nPreserve this exact original Echo Network protagonist identity, face, messy black hair, natural dark eyes and school uniform design. Produce a professional 3D character modeling reference: full body, straight orthographic front view, neutral anatomical T-pose, both arms exactly horizontal, palms facing down, fingers straight and separated, feet hip width apart, soles on one horizontal ground plane. Natural athletic young adult male human anatomy, balanced head-to-body ratio approximately 7.5 heads, normal head width and height, normal torso, strong correctly oriented knees, no elongation or deformation. Dark navy blazer with subtle grey piping, white shirt, loosened dark striped tie, dark straight trousers, black school shoes. No coat, supernatural eyes, powers, weapon, text, watermark, accessories hiding wrists. Entire head, hands and shoes visible, clean neutral grey background, soft even studio illumination, premium anime character sculpture proportions, detailed cloth and clean facial likeness.",
+    "quality": "high",
+    "template": "t_pose",
+    "model_version": "chat_image_2"
+  },
+  "output_fields": [
+    "generated_image_url"
+  ],
+  "credits_consumed": 25,
+  "created_at": "2026-09-29T16:16:33.204600Z",
+  "completed_at": "2026-09-29T16:18:35.080675Z",
+  "files": [
+    "generated_image.png",
+    "preview.png"
+  ]
+}

@@ -23,7 +23,7 @@ metallic = 0.7
 roughness = 0.34
 
 [sub_resource type="SphereShape3D" id="EvidenceArea"]
-radius = 1.35
+radius = 2.4
 
 [node name="OpeningEvidence" type="Node3D"]
 script = ExtResource("1_evidence")

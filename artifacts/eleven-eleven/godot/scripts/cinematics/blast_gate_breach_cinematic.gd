@@ -30,6 +30,7 @@ func play(subject: Node3D, gate: Node3D) -> void:
 	_player_camera = _subject.find_child("Camera3D", true, false) as Camera3D
 	if not _camera_boom or not _player_camera:
 		return
+	_subject.suspend_gameplay_camera()
 
 	_is_playing = true
 	emit_signal("cinematic_started")
@@ -62,11 +63,7 @@ func play(subject: Node3D, gate: Node3D) -> void:
 	_camera_tween.chain().tween_property(_camera_boom, "rotation:x", deg_to_rad(-8.0), 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	_camera_tween.parallel().tween_property(_player_camera, "fov", 72.0, 1.8)
 
-	# Stage 4: Smooth return to default gameplay third-person shoulder view
-	_camera_tween.chain().tween_property(_camera_boom, "rotation:x", deg_to_rad(-19.6), 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-	_camera_tween.parallel().tween_property(_camera_boom, "spring_length", 3.0, 0.8)
-	_camera_tween.parallel().tween_property(_player_camera, "fov", 75.0, 0.8)
-
+	# Natural completion uses the same live 350ms return as skip.
 	_camera_tween.chain().tween_callback(func():
 		finish()
 	)
@@ -104,15 +101,16 @@ func finish() -> void:
 	if _player_camera and is_instance_valid(_player_camera):
 		_player_camera.h_offset = 0.0
 		_player_camera.v_offset = 0.0
-		_player_camera.fov = 75.0
 
-	if _camera_boom and is_instance_valid(_camera_boom):
-		_camera_boom.rotation.y = 0.0
-		_camera_boom.rotation.x = deg_to_rad(-19.6)
-		_camera_boom.spring_length = 3.0
+	if _subject and is_instance_valid(_subject): _subject.resume_gameplay_camera()
 
 	# Ensure gate is opened
 	if _gate and is_instance_valid(_gate) and _gate.has_method("open_gate"):
 		_gate.open_gate()
 
 	emit_signal("cinematic_completed")
+
+func _exit_tree() -> void:
+	# Teardown only releases camera ownership; it must not activate a gate.
+	_gate = null
+	finish()

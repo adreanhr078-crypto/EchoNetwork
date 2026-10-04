@@ -152,7 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -4.0)
 conduit_id = "conduit_a"
 
 [node name="OpeningClock" parent="Room1_CryoChamber" instance=ExtResource("12_evidence")]
-position = Vector3(-2.4, 0, 1.8)
+position = Vector3(-1.85, 0, 1.8)
 evidence_id = "clock"
 
 [node name="OpeningPhotograph" parent="Room1_CryoChamber" instance=ExtResource("12_evidence")]

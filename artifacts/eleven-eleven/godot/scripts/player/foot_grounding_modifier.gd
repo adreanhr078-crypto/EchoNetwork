@@ -44,12 +44,11 @@ func update_foot_contacts(_delta: float) -> void:
 		_clear_contacts()
 		return
 
-	var horizontal_speed := Vector2(_player.velocity.x, _player.velocity.z).length()
-	if horizontal_speed < 0.2:
-		_clear_contacts()
-		return
 	_update_chain_contact(_left)
 	_update_chain_contact(_right)
+
+func _process_modification() -> void:
+	_process_modification_with_delta(0.0)
 
 func _process_modification_with_delta(_delta: float) -> void:
 	if not is_instance_valid(_player) or not is_instance_valid(_skeleton):
@@ -92,7 +91,8 @@ func _update_chain_contact(chain: FootChain) -> void:
 	var toe_height := (toe_world - toe_point).dot(toe_normal)
 	if chain.planted:
 		var drift := Vector2(toe_world.x - chain.target_world.x, toe_world.z - chain.target_world.z).length()
-		if toe_height > TOE_LIFT_RELEASE or drift > MAX_PLANT_DRIFT:
+		var speed := Vector2(_player.velocity.x, _player.velocity.z).length()
+		if toe_height > TOE_LIFT_RELEASE or drift > MAX_PLANT_DRIFT or (speed < 0.2 and drift > 0.08):
 			chain.planted = false
 	if not chain.planted and toe_height <= CONTACT_HEIGHT and toe_height >= -0.11:
 		chain.planted = true
@@ -182,12 +182,22 @@ func _apply_leg_target(chain: FootChain) -> void:
 
 	var final_foot := _skeleton.get_bone_global_pose(chain.foot)
 	final_foot.origin = target_ankle
-	final_foot.basis = foot_pose.basis
+	if chain.ground_normal.dot(Vector3.UP) > 0.4:
+		var normal_in_skeleton := (_skeleton.global_transform.basis.inverse() * chain.ground_normal).normalized()
+		var align_quat := Quaternion(Vector3.UP, normal_in_skeleton)
+		final_foot.basis = Basis(align_quat) * foot_pose.basis
+	else:
+		final_foot.basis = foot_pose.basis
 	_skeleton.set_bone_global_pose(chain.foot, final_foot)
 
 func _is_locomotion_clip() -> bool:
+	if _player.get("is_dodging") or _player.get("is_sliding"):
+		return false
+	var loco = _player.get("locomotion_controller")
+	if loco and (loco.get("is_skidding") or loco.get("is_hard_landing") or loco.get("is_rolling") or loco.get("is_sliding")):
+		return false
 	var active_animation := String(_player.get("current_anim")).to_lower()
-	return active_animation.contains("walk") or active_animation.contains("run")
+	return active_animation.contains("walk") or active_animation.contains("run") or active_animation.contains("idle")
 
 func _clear_contacts() -> void:
 	if _left:

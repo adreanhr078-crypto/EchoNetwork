@@ -1,0 +1,4 @@
+interface:
+  display_name: "Echo Golden Animation"
+  short_description: "Verify Echo motion with the frozen Walk pipeline"
+  default_prompt: "Use $echo-golden-animation to verify one existing Echo motion against the frozen Walk pipeline."

@@ -14,6 +14,8 @@ var session_paused := false
 var _previous_mouse_mode := Input.MOUSE_MODE_VISIBLE
 var _touch_was_visible := false
 var _save_succeeded := false
+var _control_sliders: Dictionary = {}
+var _control_labels: Dictionary = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -49,7 +51,12 @@ func _ready() -> void:
 	panel.add_theme_stylebox_override("panel", style)
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 16)
-	panel.add_child(column)
+	var scroll := ScrollContainer.new()
+	scroll.follow_focus = true
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(scroll)
+	scroll.add_child(column)
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading = Label.new()
 	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	heading.add_theme_font_size_override("font_size", 36)
@@ -65,6 +72,27 @@ func _ready() -> void:
 	language_button = _button("", func(): main.set_presentation_language("en" if main.presentation_language == "ar" else "ar"))
 	for button in [resume_button, mute_button, motion_button, language_button]:
 		column.add_child(button)
+	for key in ["scale", "opacity", "inset_x", "inset_y", "joystick_x", "joystick_y", "deadzone", "mouse_sensitivity", "touch_sensitivity"]:
+		var row := VBoxContainer.new()
+		column.add_child(row)
+		var label := Label.new()
+		label.add_theme_font_size_override("font_size", 20)
+		row.add_child(label)
+		_control_labels[key] = label
+		var slider := HSlider.new()
+		slider.custom_minimum_size = Vector2(0, 48)
+		var position_setting: bool = key.begins_with("inset") or key.begins_with("joystick")
+		slider.min_value = 0.85 if key == "scale" else (0.25 if key == "opacity" else (0.05 if key == "deadzone" else (0.0 if position_setting else 0.5)))
+		slider.max_value = 1.3 if key == "scale" else (1.0 if key == "opacity" else (0.30 if key == "deadzone" else (100.0 if position_setting else 2.0)))
+		slider.step = 1 if position_setting else (0.01 if key == "deadzone" else 0.05)
+		row.add_child(slider)
+		_control_sliders[key] = slider
+		slider.value_changed.connect(func(value: float):
+			var settings: Dictionary = main.get_control_preferences()
+			settings[key] = value
+			main.set_control_preferences(settings)
+			refresh_labels()
+		)
 	get_viewport().size_changed.connect(_layout)
 	panel.minimum_size_changed.connect(func(): _layout.call_deferred())
 	_layout()
@@ -81,7 +109,7 @@ func _button(text: String, action: Callable) -> Button:
 
 func _layout() -> void:
 	var screen := get_viewport().get_visible_rect().size
-	panel.size = Vector2(minf(620, screen.x - 48), 520)
+	panel.size = Vector2(minf(680, screen.x - 48), minf(900, screen.y - 48))
 	panel.position = (screen - panel.size) * 0.5
 
 func refresh_labels() -> void:
@@ -96,6 +124,12 @@ func refresh_labels() -> void:
 	motion_button.text = ("حركة الكاميرا: أقل" if main.reduced_motion else "حركة الكاميرا: معتادة") if arabic else ("Camera motion: reduced" if main.reduced_motion else "Camera motion: standard")
 	language_button.text = "لغة اللعب: العربية / English" if arabic else "Game language: English / العربية"
 	status.text = ("توقف الوقت. حُفظ تقدم الغرفة." if _save_succeeded else "توقف الوقت. تعذر الحفظ. يمكنك متابعة اللعب.") if arabic else ("Time is paused. Room progress saved." if _save_succeeded else "Time is paused. Save failed. You can continue playing.")
+	var settings: Dictionary = main.get_control_preferences()
+	var captions := {"scale": ["حجم الأزرار", "Button size"], "opacity": ["وضوح الأزرار", "Button opacity"], "inset_x": ["موضع الأزرار الأفقي", "Horizontal inset"], "inset_y": ["موضع الأزرار الرأسي", "Vertical inset"], "mouse_sensitivity": ["حساسية الفأرة", "Mouse sensitivity"], "touch_sensitivity": ["حساسية كاميرا اللمس", "Touch camera sensitivity"]}
+	captions.merge({"deadzone": ["نطاق سكون العصا", "Joystick deadzone"], "joystick_x": ["موضع العصا الأفقي", "Joystick horizontal inset"], "joystick_y": ["موضع العصا الرأسي", "Joystick vertical inset"]})
+	for key in _control_sliders:
+		_control_sliders[key].set_value_no_signal(settings.get(key, 1.0))
+		_control_labels[key].text = "%s: %.2f" % [captions[key][0 if arabic else 1], settings.get(key, 1.0)]
 	_layout.call_deferred()
 
 func set_session_paused(paused: bool) -> void:

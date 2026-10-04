@@ -41,7 +41,7 @@ const SKID_DURATION: float = 0.28
 var is_rolling: bool = false
 var roll_timer: float = 0.0
 var roll_direction: Vector3 = Vector3.ZERO
-const ROLL_DURATION: float = 0.45
+const ROLL_DURATION: float = 0.35
 const ROLL_SPEED: float = 7.5
 
 var is_sliding: bool = false
@@ -95,6 +95,12 @@ func trigger_roll(direction: Vector3) -> void:
 	roll_direction = d.normalized()
 	current_state = LocomotionState.ROLLING
 	emit_signal("roll_started", roll_direction)
+
+func cancel_roll() -> void:
+	if not is_rolling: return
+	is_rolling = false
+	roll_timer = 0.0
+	roll_finished.emit()
 
 func trigger_running_slide(direction: Vector3 = Vector3.ZERO) -> void:
 	cancel_root_motion()
@@ -150,7 +156,7 @@ func update(delta: float, input_vec: Vector2, speed: float, sprint_requested: bo
 	# Update Hard Landing Recovery State
 	if is_hard_landing:
 		hard_landing_timer -= delta
-		if hard_landing_timer <= 0.0:
+		if hard_landing_timer <= 0.0 or input_vec.length() > 0.15:
 			is_hard_landing = false
 			emit_signal("hard_landing_finished")
 		else:

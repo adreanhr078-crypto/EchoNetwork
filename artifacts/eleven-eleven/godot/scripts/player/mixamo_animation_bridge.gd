@@ -101,6 +101,12 @@ static func inject_animations(ap: AnimationPlayer) -> void:
 
 		if retargeted_anim:
 			lib.add_animation(anim_name, retargeted_anim)
+			if anim_name == "DODGE_ROLL" and not lib.has_animation("preset_biped_roll_001"):
+				lib.add_animation("preset_biped_roll_001", retargeted_anim)
+			elif anim_name == "HARD_LANDING" and not lib.has_animation("preset_biped_hard_landing_001"):
+				lib.add_animation("preset_biped_hard_landing_001", retargeted_anim)
+			elif anim_name == "CLIMB" and not lib.has_animation("PARKOUR_CLIMB"):
+				lib.add_animation("PARKOUR_CLIMB", retargeted_anim)
 
 static func _retarget_animation(src: Animation, skel_prefix: String = "EchoOpeningUniformRig/Skeleton3D", rotation_only: bool = false) -> Animation:
 	if not src:

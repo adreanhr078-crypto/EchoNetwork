@@ -6,7 +6,7 @@ extends Node3D
 
 const FootGroundingModifier = preload("res://scripts/player/foot_grounding_modifier.gd")
 
-@export var enabled: bool = false
+@export var enabled: bool = true
 @export_flags_3d_physics var ground_collision_mask: int = 1
 
 var _modifier: Node

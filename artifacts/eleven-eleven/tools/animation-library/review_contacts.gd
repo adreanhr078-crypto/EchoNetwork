@@ -11,7 +11,7 @@ func point(values: Array) -> Vector3:
 
 func review() -> void:
 	var args := OS.get_cmdline_user_args()
-	if args.size() != 3:
+	if args.size() < 3 or args.size() > 4:
 		push_error("Expected candidate GLB, contact sidecar, output directory")
 		quit(1)
 		return
@@ -26,6 +26,11 @@ func review() -> void:
 		return
 	var metadata: Dictionary = parsed
 	var output := args[2]
+	var snapshot_count := int(args[3]) if args.size() == 4 else 0
+	var snapshot_indices: Array[int] = []
+	if snapshot_count > 0:
+		for index in maxi(2,snapshot_count):
+			snapshot_indices.append(roundi(float(index)*(metadata.positions.size()-1)/float(maxi(2,snapshot_count)-1)))
 	DirAccess.make_dir_recursive_absolute(output)
 	var world := Node3D.new()
 	root.add_child(world)
@@ -116,7 +121,7 @@ func review() -> void:
 				measurements.append({"time":float(i)/30.0,"left":[actual[0].x,actual[0].y,actual[0].z],"right":[actual[1].x,actual[1].y,actual[1].z]})
 			camera.position = transport+views[view]
 			camera.look_at(transport+Vector3(0,0.9,0),Vector3.UP)
-			if DisplayServer.get_name() != "headless":
+			if DisplayServer.get_name() != "headless" and (snapshot_count == 0 or snapshot_indices.has(i)):
 				await RenderingServer.frame_post_draw
 				root.get_texture().get_image().save_png(output.path_join("%s-%03d.png" % [view,i]))
 	if max_error > 0.005: failures.append("Imported feet diverge from baked contact targets")

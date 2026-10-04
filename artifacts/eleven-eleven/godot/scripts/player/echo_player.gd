@@ -3,10 +3,12 @@ extends CharacterBody3D
 
 const OpeningWakeContacts = preload("res://scripts/player/opening_wake_contacts.gd")
 const SurfaceTraversalMotor = preload("res://scripts/player/surface_traversal_motor.gd")
-@export var surface_traversal_enabled := false
+@export var surface_traversal_enabled := true
 var surface_motor = SurfaceTraversalMotor.new()
 var _requested_traversal_jump := false
 var _requested_traversal_drop := false
+const DODGE_BUFFER_DURATION: float = 0.15
+var dodge_buffer_timer: float = 0.0
 
 func request_jump() -> void:
 	if opening_recovery_active or control_locked: return
@@ -17,13 +19,83 @@ func clear_traversal_input() -> void:
 	_requested_traversal_jump = false
 	_requested_traversal_drop = false
 	jump_buffer_timer = 0.0
+	dodge_buffer_timer = 0.0
+	_dash_held = false
+	_touch_dash_held = false
+	mobile_sprint_active = false
+	_requested_roll = false
+	mobile_move_owned = false
+	_mobile_run_intent = false
+	_keyboard_dash_suppressed = Input.is_action_pressed("sprint")
+
+func set_dash_held(held: bool) -> void:
+	if held and (opening_recovery_active or control_locked): return
+	_touch_dash_held = held
+	_resolve_dash_held(held or (Input.is_action_pressed("sprint") and not _keyboard_dash_suppressed))
+
+func _resolve_dash_held(held: bool) -> void:
+	_dash_held = held
+
+func _tick_dash_input(_delta: float) -> void:
+	var keyboard_held := Input.is_action_pressed("sprint")
+	if not keyboard_held: _keyboard_dash_suppressed = false
+	_resolve_dash_held(_touch_dash_held or (keyboard_held and not _keyboard_dash_suppressed))
+	var magnitude := resolve_movement_input().length()
+	if mobile_move_owned:
+		if magnitude >= 0.85: _mobile_run_intent = true
+		elif magnitude <= 0.75: _mobile_run_intent = false
+	else:
+		_mobile_run_intent = false
+	var wants_run := (_dash_held or (mobile_move_owned and _mobile_run_intent)) and magnitude > 0.001
+	if stamina <= 5.0: _run_exhausted = true
+	if not wants_run: _run_release_seen = true
+	if _run_exhausted and _run_release_seen and stamina >= 20.0:
+		_run_exhausted = false
+		_run_release_seen = false
+	mobile_sprint_active = wants_run and not _run_exhausted and not is_dodging and not traversal.is_climbing()
+	if mobile_sprint_active: _run_release_seen = false
 
 func request_dodge() -> void:
 	if opening_recovery_active or control_locked: return
 	if surface_traversal_enabled and traversal.is_climbing():
 		_requested_traversal_drop = true
 	else:
-		start_dodge()
+		_requested_roll = true
+		dodge_buffer_timer = DODGE_BUFFER_DURATION
+
+func resolve_movement_input() -> Vector2:
+	var result := mobile_input_vector if mobile_move_owned else Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	return result.limit_length(1.0) if result.is_finite() else Vector2.ZERO
+
+func movement_world_direction(input: Vector2) -> Vector3:
+	var forward := -player_camera.global_basis.z if player_camera else Vector3.FORWARD
+	forward.y = 0.0
+	if forward.length_squared() < 0.001: forward = Vector3.FORWARD
+	forward = forward.normalized()
+	var right := forward.cross(Vector3.UP).normalized()
+	return (right * input.x - forward * input.y).normalized() if input.length_squared() > 0.000001 else Vector3.ZERO
+
+func movement_target_speed(input: Vector2) -> float:
+	var magnitude := input.length()
+	if not mobile_move_owned: return (SPRINT_SPEED if mobile_sprint_active else WALK_SPEED) * magnitude
+	if _run_exhausted: return WALK_SPEED * magnitude
+	if _dash_held: return SPRINT_SPEED * magnitude
+	if magnitude <= 0.75: return WALK_SPEED * magnitude / 0.75
+	return lerpf(WALK_SPEED, SPRINT_SPEED, smoothstep(0.75, 1.0, magnitude))
+
+func cancel_roll() -> void:
+	is_dodging = false
+	is_invulnerable = false
+	_roll_recovery_active = false
+	_roll_recovery_speed = 0.0
+	dodge_timer = 0.0
+	dodge_buffer_timer = 0.0
+	if visual_root:
+		visual_root.position.y = 0.0
+		visual_root.scale = Vector3.ONE
+		visual_root.rotation.x = 0.0
+		visual_root.rotation.z = 0.0
+	locomotion_controller.cancel_roll()
 
 signal hp_changed(current_hp: float, max_hp: float)
 signal stamina_changed(current_stamina: float, max_stamina: float)
@@ -40,6 +112,7 @@ signal perfect_deflect_triggered(attacker: Node)
 signal visceral_strike_executed(target: Node, damage: int)
 signal combat_roll_executed(direction: Vector3)
 signal hard_landing_executed(impact_speed: float)
+signal landing_executed(impact_speed: float, heavy: bool)
 signal idle_bark_triggered(bark_id: String, text_ja: String)
 signal team_swapped(previous_slot: int, new_slot: int, character_data: Dictionary)
 signal ultimate_burst_fired(slot: int, character_name: String, damage: int)
@@ -90,6 +163,9 @@ const GROUND_ACCEL: float = 18.0
 const GROUND_BRAKE: float = 22.0
 const AIR_ACCEL: float = 6.0
 const MODEL_FORWARD_YAW_OFFSET: float = -PI * 0.5
+const DEFAULT_CAPSULE_HEIGHT: float = 1.8
+const DEFAULT_CAPSULE_RADIUS: float = 0.4
+const DEFAULT_CAPSULE_Y: float = 0.9
 
 var hp: float = MAX_HP
 var stamina: float = MAX_STAMINA
@@ -97,6 +173,8 @@ var is_invulnerable: bool = false
 var is_dodging: bool = false
 var dodge_timer: float = 0.0
 var dodge_direction: Vector3 = Vector3.ZERO
+var _roll_recovery_active: bool = false
+var _roll_recovery_speed: float = 0.0
 var perfect_dodge_surge: bool = false
 var jump_buffer_timer: float = 0.0
 const JUMP_BUFFER_DURATION: float = 0.15
@@ -153,10 +231,18 @@ var combo_reset_timer: float = 0.0
 var is_charging_iai: bool = false
 var iai_charge: float = 0.0
 var mobile_input_vector: Vector2 = Vector2.ZERO
+var mobile_move_owned := false
+var _mobile_run_intent := false
+var _run_exhausted := false
+var _run_release_seen := false
+var _requested_roll := false
 var touch_input_enabled := false
 var mobile_sprint_active: bool = false
 var control_locked: bool = false
 var ghost_trail_timer: float = 0.0
+var _dash_held := false
+var _touch_dash_held := false
+var _keyboard_dash_suppressed := false
 
 var _visual_root: Node3D = null
 var _recovery_skeleton: Skeleton3D = null
@@ -173,6 +259,155 @@ var animation_player: AnimationPlayer = null
 var player_camera: Camera3D = null
 var camera_boom: SpringArm3D = null
 @export var mouse_look_sensitivity: float = 0.0022
+@export var touch_look_sensitivity: float = 0.003
+var reduced_camera_motion := false
+var camera_target_rotation := Vector3.ZERO
+var _camera_last_rotation := Vector3.ZERO
+var _camera_suspended := false
+var _camera_anchor_y := 0.0
+var _camera_look_cooldown := 0.0
+var _camera_return_remaining := 0.0
+var _camera_return_duration := 0.35
+var _camera_return_rotation := Vector3.ZERO
+var _camera_return_fov := 65.0
+var _camera_return_distance := 3.0
+var _head_bone_idx: int = -1
+var _neck_bone_idx: int = -1
+var _skeleton_ref: Skeleton3D = null
+var _head_look_quat: Quaternion = Quaternion.IDENTITY
+var _gait_bob_phase: float = 0.0
+
+func suspend_gameplay_camera() -> void:
+	if not camera_boom or _camera_suspended: return
+	camera_target_rotation = camera_boom.rotation
+	_camera_suspended = true
+	_camera_return_remaining = 0.0
+
+func resume_gameplay_camera(duration: float = 0.35) -> void:
+	if not camera_boom or not player_camera: return
+	_camera_suspended = false
+	_camera_return_rotation = camera_boom.rotation
+	_camera_return_fov = player_camera.fov
+	_camera_return_distance = maxf(0,player_camera.position.z)
+	_camera_return_duration = maxf(0.0, duration) if not reduced_camera_motion else 0.0
+	_camera_return_remaining = _camera_return_duration
+	_camera_last_rotation = camera_boom.rotation
+	if _camera_return_duration == 0.0:
+		camera_boom.rotation = camera_target_rotation
+		_camera_last_rotation = camera_boom.rotation
+		player_camera.fov = 65.0
+
+func set_gameplay_orbit(rotation: Vector3) -> void:
+	if not rotation.is_finite() or not camera_boom: return
+	camera_target_rotation = Vector3(clampf(rotation.x, -0.3, 0.8), rotation.y, 0)
+	camera_boom.rotation = camera_target_rotation
+	_camera_last_rotation = camera_target_rotation
+	_camera_look_cooldown = 0.35
+
+func _process(delta: float) -> void:
+	_update_procedural_head_look(delta)
+	if not camera_boom or not player_camera or _camera_suspended: return
+	# Preserve intentional scene/debug placement through the existing public boom.
+	if not camera_boom.rotation.is_equal_approx(_camera_last_rotation):
+		camera_target_rotation = Vector3(camera_boom.rotation.x, camera_boom.rotation.y, 0)
+	_camera_look_cooldown = maxf(0.0, _camera_look_cooldown - delta)
+	var target_anchor := global_position.y + 1.4
+	_camera_anchor_y = lerpf(_camera_anchor_y, target_anchor, 1.0 - exp(-18.0 * delta))
+	_camera_anchor_y = clampf(_camera_anchor_y, target_anchor - 0.2, target_anchor + 0.2)
+	# Anchor follows the capsule; local animation recoil never drives it.
+	camera_boom.position.y = _camera_anchor_y - global_position.y
+	var shoulder := Vector3.ZERO if traversal.is_climbing() or reduced_camera_motion else camera_boom.global_basis.x * 0.22
+	shoulder.y = 0.0
+	var shoulder_query := PhysicsShapeQueryParameters3D.new()
+	shoulder_query.shape = camera_boom.shape
+	shoulder_query.transform = Transform3D(Basis.IDENTITY, Vector3(global_position.x, _camera_anchor_y, global_position.z))
+	shoulder_query.motion = shoulder
+	shoulder_query.collision_mask = camera_boom.collision_mask
+	shoulder_query.exclude = [get_rid()]
+	var shoulder_clearance := get_world_3d().direct_space_state.cast_motion(shoulder_query)
+	shoulder *= shoulder_clearance[0]
+	var local_shoulder := global_basis.inverse() * shoulder
+	camera_boom.position.x = lerpf(camera_boom.position.x, local_shoulder.x, 1.0 - exp(-12.0 * delta))
+	camera_boom.position.z = lerpf(camera_boom.position.z, local_shoulder.z, 1.0 - exp(-12.0 * delta))
+	# Retraction is immediate even when the previous shoulder offset is obstructed.
+	shoulder_query.motion = global_basis * Vector3(camera_boom.position.x, 0, camera_boom.position.z)
+	var shoulder_safe := get_world_3d().direct_space_state.cast_motion(shoulder_query)
+	camera_boom.position.x *= shoulder_safe[0]
+	camera_boom.position.z *= shoulder_safe[0]
+	var assist := _landing_camera_assist() if _camera_look_cooldown <= 0.0 and not reduced_camera_motion else 0.0
+	var wanted := camera_target_rotation
+	wanted.x = clampf(wanted.x + assist, -0.3, 0.8)
+	var weight := 1.0 - exp(-18.0 * delta)
+	if _camera_return_remaining > 0:
+		_camera_return_remaining = maxf(0.0, _camera_return_remaining - delta)
+		weight = smoothstep(0.0, 1.0, 1.0 - _camera_return_remaining / _camera_return_duration)
+		camera_boom.rotation.x = lerp_angle(_camera_return_rotation.x, wanted.x, weight)
+		camera_boom.rotation.y = lerp_angle(_camera_return_rotation.y, wanted.y, weight)
+		camera_boom.rotation.z = lerp_angle(_camera_return_rotation.z, 0, weight)
+		if player_camera.current: player_camera.fov = lerpf(_camera_return_fov, 65.0, weight)
+	else:
+		camera_boom.rotation.x = lerp_angle(camera_boom.rotation.x, wanted.x, weight)
+		camera_boom.rotation.y = lerp_angle(camera_boom.rotation.y, wanted.y, weight)
+		camera_boom.rotation.z = lerp_angle(camera_boom.rotation.z, 0, weight)
+		_update_camera_fov(delta)
+	_camera_last_rotation = camera_boom.rotation
+	_update_camera_distance(delta)
+
+func _landing_camera_assist() -> float:
+	if is_on_floor() or velocity.y >= -2.0 or traversal.is_climbing() or control_locked: return 0.0
+	var previous := global_position + Vector3.UP * 0.2
+	for sample in range(1, 9):
+		var time := sample * 0.1
+		var point := global_position + Vector3.UP * 0.2 + velocity * time + Vector3.DOWN * (0.5 * GRAVITY * time * time)
+		var query := PhysicsRayQueryParameters3D.create(previous, point, collision_mask, [get_rid()])
+		var hit := get_world_3d().direct_space_state.intersect_ray(query)
+		if not hit.is_empty():
+			if hit.normal.y < 0.8: return 0.0
+			return -deg_to_rad(6.0) * clampf((global_position.y - hit.position.y) / 3.0, 0.0, 1.0)
+		previous = point
+	return 0.0
+
+func _update_camera_distance(delta: float) -> void:
+	# Always probe the full preferred length; a shortened arm must discover clearance.
+	var returning := _camera_return_remaining > 0.0 and _camera_return_duration > 0.0
+	var preferred := 3.0
+	if returning:
+		var weight := smoothstep(0.0,1.0,1.0-_camera_return_remaining/_camera_return_duration)
+		preferred = lerpf(_camera_return_distance,3.0,weight)
+	var probe_length := maxf(3.0,preferred)
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = camera_boom.shape
+	query.transform = camera_boom.global_transform
+	query.motion = camera_boom.global_basis.z * probe_length
+	query.collision_mask = camera_boom.collision_mask
+	query.exclude = [get_rid()]
+	var space := get_world_3d().direct_space_state
+	var safe_length := 0.0
+	if space.intersect_shape(query, 1).is_empty():
+		var fractions := space.cast_motion(query)
+		safe_length = maxf(0.0, fractions[0] * probe_length - (camera_boom.margin if fractions[0] < 1.0 else 0.0))
+	safe_length = minf(safe_length,preferred)
+	if returning:
+		# The cinematic distance shares its live 350ms return. Only a real
+		# obstruction may shorten it sooner; a 4.2→3m preference must not snap.
+		camera_boom.spring_length = safe_length
+	elif safe_length < camera_boom.spring_length:
+		camera_boom.spring_length = safe_length
+	else:
+		camera_boom.spring_length = lerpf(camera_boom.spring_length, safe_length, 1.0 - exp(-10.0 * delta))
+	# SpringArm updates at physics rate. Apply the same safe distance after render
+	# orbit smoothing so the rendered camera cannot cross a wall between ticks.
+	player_camera.position.z = camera_boom.spring_length
+
+func apply_touch_camera_look(relative: Vector2) -> void:
+	_apply_camera_look(relative, touch_look_sensitivity)
+
+func _update_camera_fov(delta: float) -> void:
+	if not player_camera or not player_camera.current or _camera_suspended: return
+	var moving := Vector2(velocity.x, velocity.z).length() > 1.8
+	var sprinting := mobile_sprint_active and moving and stamina > 5.0
+	var target_fov := 70.0 if sprinting and not reduced_camera_motion else 65.0
+	player_camera.fov = lerpf(player_camera.fov, target_fov, 1.0 - exp(-6.0 * delta))
 var current_anim: String = ""
 var is_locked_on: bool = false
 var lock_target: Node3D = null
@@ -188,6 +423,7 @@ func _ready() -> void:
 	floor_stop_on_slope = true
 	floor_max_angle = deg_to_rad(45.0)
 	floor_constant_speed = true
+	platform_on_leave = CharacterBody3D.PLATFORM_ON_LEAVE_ADD_UPWARD_VELOCITY
 	_last_safe_ground_position = global_position
 	if not locomotion_controller.is_inside_tree():
 		add_child(locomotion_controller)
@@ -204,6 +440,9 @@ func _ready() -> void:
 	camera_boom = find_child("CameraBoom", true, false) as SpringArm3D
 	if camera_boom:
 		camera_boom.add_excluded_object(get_rid())
+		camera_target_rotation = camera_boom.rotation
+		_camera_last_rotation = camera_boom.rotation
+		_camera_anchor_y = global_position.y + camera_boom.position.y
 	if animation_player:
 		if not OS.has_feature("web"):
 			MixamoAnimationBridgeScript.inject_animations(animation_player)
@@ -216,6 +455,13 @@ func _ready() -> void:
 
 	emit_signal("hp_changed", hp, MAX_HP)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
+
+	if traversal:
+		traversal.traversal_state_changed.connect(func(_old_state: int, new_state: int):
+			if new_state != PlayerTraversalController.TraversalState.CLIMBING and surface_motor:
+				if surface_motor.hanging or not surface_motor._mantle_points.is_empty():
+					surface_motor.reset(self)
+		)
 
 	facial_controller = find_child("EchoFacialController", true, false)
 	if not facial_controller:
@@ -264,14 +510,18 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 			"preset_run": ["RUN", "preset:run", "preset:biped:run.001", "preset_biped_run_001"],
 			"preset_biped_idle_001": ["preset_idle", "IDLE", "preset:idle", "preset:biped:idle.001"],
 			"preset_biped_fight_idle_001": ["Fight_Idle", "preset_fight_idle", "preset:fight_idle", "IDLE", "preset_biped_idle_001"],
-			"preset_biped_roll_001": ["Run_To_Rolling", "Stand To Roll", "preset_roll", "preset:roll", "preset_biped_run_001"],
-			"DODGE_ROLL": ["Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll", "preset_biped_run_001"],
-			"ROLL": ["Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll"],
-			"SLIDE": ["preset_biped_roll_001", "Run_To_Rolling", "preset_biped_run_001"],
-			"preset_roll": ["preset_biped_roll_001", "Run_To_Rolling", "Stand To Roll"],
-			"preset_biped_hard_landing_001": ["Hard_Landing", "preset_hard_landing", "preset:hard_landing", "IDLE", "preset_biped_idle_001"],
+			"preset_biped_roll_001": ["DODGE_ROLL", "Run_To_Rolling", "Stand To Roll", "preset_roll", "preset:roll", "preset_biped_run_001"],
+			"DODGE_ROLL": ["DODGE_ROLL", "Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll", "preset_biped_run_001"],
+			"ROLL": ["DODGE_ROLL", "Run_To_Rolling", "Stand To Roll", "preset_biped_roll_001", "preset_roll"],
+			"SLIDE": ["preset_biped_roll_001", "DODGE_ROLL", "Run_To_Rolling", "preset_biped_run_001"],
+			"preset_roll": ["DODGE_ROLL", "preset_biped_roll_001", "Run_To_Rolling", "Stand To Roll"],
+			"preset_biped_hard_landing_001": ["HARD_LANDING", "Hard_Landing", "preset_hard_landing", "preset:hard_landing", "IDLE", "preset_biped_idle_001"],
+			"HARD_LANDING": ["HARD_LANDING", "Hard_Landing", "preset_biped_hard_landing_001", "preset_hard_landing", "IDLE"],
 			"preset_biped_walk_001": ["preset_walk", "WALK", "preset:walk", "preset:biped:walk.001"],
 			"preset_biped_run_001": ["preset_run", "RUN", "preset:run", "preset:biped:run.001"],
+			"PARKOUR_CLIMB": ["PARKOUR_CLIMB", "CLIMB", "Climbing_Up_Wall"],
+			"PARKOUR_HANG": ["PARKOUR_HANG", "Braced_To_Free_Hang", "Jump_To_Hang"],
+			"PARKOUR_MANTLE": ["PARKOUR_MANTLE", "PARKOUR_VAULT", "preset_jump"],
 			"preset_biped_interact_001": ["INTERACT"],
 			"preset_biped_wakeup_001": ["preset_wakeup", "WAKEUP"],
 			"preset_biped_standup_001": ["STANDUP"],
@@ -292,16 +542,25 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		return
 	var previous_anim := current_anim
 	var gait_phase := -1.0
-	if animation_player.is_playing() and previous_anim in ["preset_walk", "preset_run"] and resolved_anim in ["preset_walk", "preset_run"]:
-		var previous_length := animation_player.get_animation(previous_anim).length
-		if previous_length > 0.0:
-			gait_phase = fposmod(animation_player.current_animation_position / previous_length, 1.0)
+	const LOCOMOTION_CLIPS := [
+		"WALK", "RUN",
+		"preset_walk", "preset_run",
+		"preset_biped_walk_001", "preset_biped_run_001",
+		"preset:walk", "preset:run",
+		"preset:biped:walk.001", "preset:biped:run.001"
+	]
+	if animation_player.is_playing() and previous_anim in LOCOMOTION_CLIPS and resolved_anim in LOCOMOTION_CLIPS:
+		var previous_clip: Animation = animation_player.get_animation(previous_anim)
+		if previous_clip and previous_clip.length > 0.0:
+			gait_phase = fposmod(animation_player.current_animation_position / previous_clip.length, 1.0)
 	current_anim = resolved_anim
 	animation_player.play(resolved_anim, blend_time)
 	# Both locomotion takes start on the same contact. Preserve that contact
 	# when changing pace instead of restarting on an unrelated foot.
 	if gait_phase >= 0.0:
-		animation_player.seek(gait_phase * animation_player.get_animation(resolved_anim).length)
+		var target_clip: Animation = animation_player.get_animation(resolved_anim)
+		if target_clip and target_clip.length > 0.0:
+			animation_player.seek(gait_phase * target_clip.length)
 
 func _play_opening_recovery() -> void:
 	# Restore/skip can finish the recovery before this deferred call executes.
@@ -383,13 +642,20 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	_tick_dash_input(delta)
 	var requested_jump := _requested_traversal_jump or Input.is_action_just_pressed("jump")
-	var requested_drop := _requested_traversal_drop or Input.is_action_just_pressed("dodge")
+	var requested_roll_input := _requested_roll or Input.is_action_just_pressed("dodge")
+	if requested_roll_input:
+		dodge_buffer_timer = DODGE_BUFFER_DURATION
+	else:
+		dodge_buffer_timer = maxf(0.0, dodge_buffer_timer - delta)
+	var requested_roll := requested_roll_input or dodge_buffer_timer > 0.0
+	var requested_drop := _requested_traversal_drop or (requested_roll and traversal.is_climbing())
+	_requested_roll = false
 	_requested_traversal_jump = false
 	_requested_traversal_drop = false
 	if surface_traversal_enabled:
-		var surface_input := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-		if mobile_input_vector.length() > 0.05: surface_input = mobile_input_vector
+		var surface_input := resolve_movement_input()
 		if surface_motor.tick(self, delta, surface_input, requested_jump, requested_drop):
 			return
 	# Existing traversal compatibility path.
@@ -400,11 +666,9 @@ func _physics_process(delta: float) -> void:
 		elif get_viewport() and get_viewport().get_camera_3d():
 			cam_basis = get_viewport().get_camera_3d().global_transform.basis
 
-		var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-		if mobile_input_vector.length() > 0.05:
-			input_dir = mobile_input_vector
+		var input_dir := resolve_movement_input()
 
-		var is_sprint_active: bool = Input.is_action_pressed("sprint") or mobile_sprint_active
+		var is_sprint_active: bool = mobile_sprint_active
 		var trav_res: Dictionary = traversal.update_traversal_physics(
 			delta,
 			velocity,
@@ -425,12 +689,14 @@ func _physics_process(delta: float) -> void:
 			emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
 		# Wall jump handling
-		if traversal.is_climbing() and Input.is_action_just_pressed("jump"):
+		if traversal.is_climbing() and requested_jump:
 			var jump_res = traversal.climb_jump(stamina)
 			if jump_res["success"]:
 				stamina -= jump_res["stamina_cost"]
 				emit_signal("stamina_changed", stamina, MAX_STAMINA)
 				velocity = jump_res["impulse"]
+				if surface_motor:
+					surface_motor.reset(self)
 				traversal.stop_climbing()
 
 		move_and_slide()
@@ -445,28 +711,41 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = maxf(0.0, coyote_timer - delta)
 
 	# Jump Buffer Countdown
-	if Input.is_action_just_pressed("jump"):
+	if requested_jump:
 		jump_buffer_timer = JUMP_BUFFER_DURATION
 	else:
 		jump_buffer_timer = maxf(0.0, jump_buffer_timer - delta)
+	if is_dodging and jump_buffer_timer > 0.0 and (is_on_floor() or coyote_timer > 0.0):
+		cancel_roll()
 
 	# Handle Dodge Physics & I-Frames
 	if is_dodging:
 		dodge_timer -= delta
-		velocity.x = dodge_direction.x * DODGE_SPEED
-		velocity.z = dodge_direction.z * DODGE_SPEED
+		var base_dodge_speed := DODGE_SPEED if combat_available else 4.2
+		var active_dodge_speed: float = maxf(base_dodge_speed, _roll_recovery_speed) if _roll_recovery_active else base_dodge_speed
+		velocity.x = dodge_direction.x * active_dodge_speed
+		velocity.z = dodge_direction.z * active_dodge_speed
 		ghost_trail_timer -= delta
-		if ghost_trail_timer <= 0.0:
+		if ghost_trail_timer <= 0.0 and combat_available:
 			ghost_trail_timer = 0.08
 			var parent = get_parent()
 			if parent:
 				GhostTrailSpawner.spawn_ghost(parent, visual_root, 0.28, Color(0.0, 0.94, 1.0, 0.65))
 		play_anim("preset_biped_roll_001", 0.08)
+		# Fluid procedural visual roll if authored clip not active or on web
+		if visual_root and (current_anim != "DODGE_ROLL" or not animation_player or not animation_player.is_playing()):
+			var roll_progress := 1.0 - clampf(dodge_timer / 0.35, 0.0, 1.0)
+			visual_root.position.y = -0.36 * sin(PI * roll_progress)
+			visual_root.rotation.x = sin(TAU * roll_progress) * 0.45
 		if dodge_timer <= 0.0:
-			is_dodging = false
-			is_invulnerable = false
-		move_and_slide()
+			cancel_roll()
+		_move_and_detect_landing()
 		return
+
+	# Handle Headroom check for slide recovery
+	if is_sliding and _slide_wants_to_stand:
+		if can_stand_up():
+			_finish_slide_exit()
 
 	# Handle Iai Charging State
 	if is_charging_iai:
@@ -485,16 +764,21 @@ func _physics_process(delta: float) -> void:
 				facial_controller.set_combat_focus(0.0, 0.3)
 
 	# Handle Jump with Buffering & Coyote Time
+	var jump_executed := false
 	if jump_buffer_timer > 0.0 and (is_on_floor() or coyote_timer > 0.0) and not is_sliding:
 		jump_buffer_timer = 0.0
-		coyote_timer = 0.0
+		dodge_buffer_timer = 0.0
 		perform_jump()
+		jump_executed = true
 
 	# Handle Dodge Input & Attack Canceling (Dodge Cancel / Exploration Roll)
-	if (Input.is_action_just_pressed("dodge") or (InputMap.has_action("sprint") and Input.is_action_just_pressed("sprint") and velocity.length() < 0.2)) and stamina >= 15.0 and not is_dodging and not is_sliding:
+	if requested_roll and not requested_jump and not jump_executed and not traversal.is_climbing() and stamina >= 15.0 and not is_dodging and not is_sliding:
 		is_attacking = false
+		dodge_buffer_timer = 0.0
 		start_dodge()
-		return
+		if is_dodging:
+			_move_and_detect_landing()
+			return
 
 	# Handle 3-Hit Combo Reset Timer
 	if combo_step_timer > 0.0:
@@ -514,11 +798,7 @@ func _physics_process(delta: float) -> void:
 			var lock_yaw: float = atan2(target_diff.x, target_diff.z) + MODEL_FORWARD_YAW_OFFSET
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, lock_yaw, 10.0 * delta)
 
-	# Dynamic FOV Warping
-	var is_sprinting: bool = (Input.is_action_pressed("sprint") or mobile_sprint_active) and stamina > 5.0
-	if player_camera:
-		var target_fov: float = 82.0 if is_sprinting else 75.0
-		player_camera.fov = lerp(player_camera.fov, target_fov, 6.0 * delta)
+	var is_sprinting: bool = mobile_sprint_active and stamina > 5.0
 
 	# Attack & Iai Charge Input (Keyboard/Mouse)
 	if combat_available and Input.is_action_just_pressed("attack_light") and not _suppress_attack_until_release:
@@ -528,37 +808,28 @@ func _physics_process(delta: float) -> void:
 	if not Input.is_action_pressed("attack_light"):
 		_suppress_attack_until_release = false
 
-	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	if mobile_input_vector.length() > 0.05:
-		input_dir = mobile_input_vector
-
-	var direction: Vector3 = Vector3(input_dir.x, 0, input_dir.y).normalized()
-	if player_camera:
-		var camera_right: Vector3 = player_camera.global_transform.basis.x
-		var camera_forward: Vector3 = -player_camera.global_transform.basis.z
-		camera_right.y = 0.0
-		camera_forward.y = 0.0
-		direction = (camera_right.normalized() * input_dir.x - camera_forward.normalized() * input_dir.y).normalized()
+	var input_dir := resolve_movement_input()
+	var direction := movement_world_direction(input_dir)
 	is_sprinting = is_sprinting and direction.length() > 0.1
 
 	if is_sprinting:
 		stamina = max(0.0, stamina - 12.0 * delta)
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
-		# Handle Sprint Slide Input (C or Ctrl)
-		if ((InputMap.has_action("crouch") and Input.is_action_just_pressed("crouch")) or Input.is_physical_key_pressed(KEY_C) or Input.is_physical_key_pressed(KEY_CTRL)) and is_on_floor() and not is_sliding:
+		# Ctrl belongs exclusively to Roll. C retains the existing slide action.
+		if ((InputMap.has_action("crouch") and Input.is_action_just_pressed("crouch")) or Input.is_physical_key_pressed(KEY_C)) and is_on_floor() and not is_sliding:
 			perform_slide()
 	else:
 		stamina = min(MAX_STAMINA, stamina + 18.0 * delta)
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
-	var current_speed: float = SPRINT_SPEED if is_sprinting else WALK_SPEED
+	var current_speed := movement_target_speed(input_dir)
 	var horizontal_speed: float = Vector2(velocity.x, velocity.z).length()
 	var loco_data: Dictionary = locomotion_controller.update(delta, input_dir, horizontal_speed, is_sprinting, is_attacking)
 	if is_attacking and not locomotion_controller.root_motion_active:
 		is_attacking = false
 
 	combat_activity_timer = maxf(0.0, combat_activity_timer - delta)
-	locomotion_controller.set_combat_stance(combat_activity_timer > 0.0 or not is_sheathed)
+	locomotion_controller.set_combat_stance(combat_available and (combat_activity_timer > 0.0 or not is_sheathed))
 
 	if loco_data.get("is_hard_landing", false):
 		velocity.x = move_toward(velocity.x, 0.0, 32.0 * delta)
@@ -576,35 +847,28 @@ func _physics_process(delta: float) -> void:
 		# Rotate visual model towards move direction unless locked-on
 		if not is_locked_on or not lock_target:
 			var target_yaw: float = atan2(direction.x, direction.z) + MODEL_FORWARD_YAW_OFFSET
+			var yaw_delta: float = wrapf(target_yaw - visual_root.rotation.y, -PI, PI)
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_yaw, 14.0 * delta)
+			var target_bank: float = clampf(-yaw_delta * (horizontal_speed / 5.8) * 0.25, -0.15, 0.15)
+			visual_root.rotation.z = lerp_angle(visual_root.rotation.z, target_bank, 8.0 * delta)
+		else:
 			visual_root.rotation.z = lerp_angle(visual_root.rotation.z, 0.0, 12.0 * delta)
 	else:
 		var braking: float = GROUND_BRAKE if is_on_floor() else AIR_ACCEL
 		velocity.x = move_toward(velocity.x, 0.0, braking * delta)
 		velocity.z = move_toward(velocity.z, 0.0, braking * delta)
 		visual_root.rotation.z = lerp_angle(visual_root.rotation.z, 0.0, 12.0 * delta)
-	var grounded_before_move: bool = is_on_floor()
-	var landing_speed: float = absf(velocity.y)
-	move_and_slide()
-	if is_on_floor() and not grounded_before_move:
-		_landing_recoil = minf(0.18, landing_speed * 0.025 + 0.04)
-		if absf(_last_airborne_velocity_y) > 8.5:
-			locomotion_controller.trigger_hard_landing(absf(_last_airborne_velocity_y))
-			emit_signal("hard_landing_executed", absf(_last_airborne_velocity_y))
-			if is_inside_tree():
-				var land_audio = AudioStreamPlayer.new()
-				add_child(land_audio)
-				land_audio.stream = ProceduralCinematicAudio.create_hard_landing_sfx()
-				land_audio.play()
-				land_audio.finished.connect(land_audio.queue_free)
-			if player_camera:
-				ImpactSpawner.trigger_screen_shake(player_camera, 0.28, 0.35)
+	_move_and_detect_landing()
 	if is_on_floor():
 		_last_safe_ground_position = global_position
 		_landing_recoil = move_toward(_landing_recoil, 0.0, 2.0 * delta)
-		visual_root.rotation.x = lerpf(visual_root.rotation.x, _landing_recoil, minf(1.0, 12.0 * delta))
+		if not loco_data.get("is_skid", false) and not loco_data.get("is_hard_landing", false) and not loco_data.get("is_sliding", false) and not is_sliding and not is_dodging:
+			visual_root.rotation.x = lerpf(visual_root.rotation.x, _landing_recoil, minf(1.0, 12.0 * delta))
+		var actual_speed: float = Vector2(velocity.x, velocity.z).length()
+		if not loco_data.get("is_skid", false) and not is_dodging and not opening_recovery_active and not (surface_traversal_enabled and surface_motor._mantle_visual_active):
+			var target_bob_y: float = _get_gait_bob_offset(delta, actual_speed)
+			visual_root.position.y = lerpf(visual_root.position.y, target_bob_y, minf(1.0, 14.0 * delta))
 		if not locomotion_controller.root_motion_active:
-			var actual_speed: float = Vector2(velocity.x, velocity.z).length()
 			var clip: String = "IDLE"
 			var target_blend_time: float = 0.22
 			if loco_data.get("is_hard_landing", false):
@@ -620,8 +884,9 @@ func _physics_process(delta: float) -> void:
 				target_blend_time = 0.1
 			elif loco_data.get("is_skid", false):
 				clip = "IDLE"
-				target_blend_time = 0.12
-				visual_root.rotation.x = lerpf(visual_root.rotation.x, 0.08, minf(1.0, 14.0 * delta))
+				target_blend_time = 0.10
+				visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.12, minf(1.0, 14.0 * delta))
+				visual_root.position.y = lerpf(visual_root.position.y, -0.08, minf(1.0, 14.0 * delta))
 			elif actual_speed > 0.2:
 				if is_sprinting and actual_speed > 3.8:
 					clip = "RUN"
@@ -630,7 +895,7 @@ func _physics_process(delta: float) -> void:
 					clip = "WALK"
 					target_blend_time = 0.25
 			else:
-				if combat_activity_timer > 0.0 or not is_sheathed:
+				if combat_available and (combat_activity_timer > 0.0 or not is_sheathed):
 					clip = "preset_biped_fight_idle_001"
 					target_blend_time = 0.2
 				else:
@@ -658,9 +923,36 @@ func _physics_process(delta: float) -> void:
 			if animation_player:
 				animation_player.speed_scale = 1.0
 		visual_root.rotation.x = lerpf(visual_root.rotation.x, -0.12 if velocity.y > 0.0 else 0.16, minf(1.0, 9.0 * delta))
-		if global_position.y < _last_safe_ground_position.y - 3.0:
-			global_position = _last_safe_ground_position + Vector3.UP * 0.12
-			velocity = Vector3.ZERO
+
+func _move_and_detect_landing() -> void:
+	var grounded_before_move := is_on_floor()
+	var impact_speed := maxf(0.0, -velocity.y)
+	var pre_horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var pre_horizontal_dir := Vector3(velocity.x, 0.0, velocity.z).normalized()
+	move_and_slide()
+	if not is_on_floor() or grounded_before_move: return
+	_landing_recoil = minf(0.18, impact_speed * 0.025 + 0.04)
+	var heavy := impact_speed > 8.5
+	landing_executed.emit(impact_speed, heavy)
+	if heavy:
+		var input_dir := resolve_movement_input()
+		var has_input := input_dir.length() > 0.15
+		var has_momentum := pre_horizontal_speed > 1.2
+		if (has_input or has_momentum) and not is_dodging:
+			var move_dir := movement_world_direction(input_dir) if has_input else pre_horizontal_dir
+			if move_dir.length_squared() < 0.01:
+				move_dir = (visual_root.global_basis * Vector3(sin(-MODEL_FORWARD_YAW_OFFSET), 0, cos(-MODEL_FORWARD_YAW_OFFSET))).normalized() if visual_root else -global_basis.z
+			_roll_recovery_active = true
+			_roll_recovery_speed = maxf(SPRINT_SPEED if mobile_sprint_active else 5.8, pre_horizontal_speed)
+			start_dodge(move_dir)
+		else:
+			locomotion_controller.trigger_hard_landing(impact_speed)
+		hard_landing_executed.emit(impact_speed)
+		var land_audio := AudioStreamPlayer.new()
+		add_child(land_audio)
+		land_audio.stream = ProceduralCinematicAudio.create_hard_landing_sfx()
+		land_audio.play()
+		land_audio.finished.connect(land_audio.queue_free)
 
 func perform_jump() -> void:
 	if opening_recovery_active or control_locked:
@@ -677,8 +969,9 @@ func perform_jump() -> void:
 			if hud and hud.has_method("complete_tutorial_action"):
 				hud.complete_tutorial_action("TOAST_JUMP")
 
-func set_mobile_input_vector(vec: Vector2) -> void:
-	mobile_input_vector = vec
+func set_mobile_input_vector(vec: Vector2, owned: bool = true) -> void:
+	mobile_input_vector = vec.limit_length(1.0) if vec.is_finite() else Vector2.ZERO
+	mobile_move_owned = owned
 
 func set_combat_available(available: bool) -> void:
 	combat_available = available
@@ -702,7 +995,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if opening_recovery_active:
 		return
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and camera_boom:
+	if not touch_input_enabled and event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and camera_boom:
 		apply_camera_look(event.relative)
 		return
 	if not touch_input_enabled and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -727,10 +1020,15 @@ func _unhandled_input(event: InputEvent) -> void:
 var is_void_sight_active: bool = false
 
 func apply_camera_look(relative: Vector2) -> void:
-	if opening_recovery_active or control_locked or not camera_boom:
-		return
-	camera_boom.rotation.y -= relative.x * mouse_look_sensitivity
-	camera_boom.rotation.x = clampf(camera_boom.rotation.x - relative.y * mouse_look_sensitivity, -0.3, 0.8)
+	_apply_camera_look(relative, mouse_look_sensitivity)
+
+func _apply_camera_look(relative: Vector2, sensitivity: float) -> void:
+	if opening_recovery_active or control_locked or _camera_suspended or not camera_boom: return
+	if not relative.is_finite(): return
+	if not camera_boom.rotation.is_equal_approx(_camera_last_rotation): camera_target_rotation = camera_boom.rotation
+	camera_target_rotation.y -= relative.x * sensitivity
+	camera_target_rotation.x = clampf(camera_target_rotation.x - relative.y * sensitivity, -0.3, 0.8)
+	_camera_look_cooldown = 0.35
 
 func toggle_void_sight() -> void:
 	if not combat_available:
@@ -801,9 +1099,9 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 	if eff_ratio >= 0.7:
 		var parent = get_parent()
 		var dash_dist: float = 5.5
-		var dash_dir: Vector3 = -visual_root.transform.basis.z if visual_root else -transform.basis.z
+		var dash_dir: Vector3 = (visual_root.global_basis * Vector3(sin(-MODEL_FORWARD_YAW_OFFSET), 0, cos(-MODEL_FORWARD_YAW_OFFSET))).normalized() if visual_root else -transform.basis.z
 		dash_dir.y = 0.0
-		if dash_dir.length() < 0.1:
+		if dash_dir.length_squared() < 0.01:
 			dash_dir = -transform.basis.z
 		dash_dir = dash_dir.normalized()
 
@@ -886,7 +1184,7 @@ func equip_shadow_katana() -> void:
 			shadow_katana.owner = null
 			shadow_katana.get_parent().remove_child(shadow_katana)
 			_hand_weapon_socket.add_child(shadow_katana)
-		var s: float = 1.0 / 1.81
+		var s: float = 1.0 / (visual_root.scale.y if visual_root else 1.28)
 		shadow_katana.transform = Transform3D(
 			Basis.IDENTITY.scaled(Vector3.ONE * s),
 			Vector3(-0.017, 0.075, -0.002)
@@ -1122,7 +1420,11 @@ func toggle_lock_on(target: Node3D = null) -> void:
 	else:
 		lock_target = null
 
-func start_dodge() -> void:
+func start_dodge(custom_dir: Vector3 = Vector3.ZERO) -> void:
+	if opening_recovery_active or control_locked or is_dodging or is_sliding: return
+	if not _roll_recovery_active and not is_on_floor(): return
+	if not _roll_recovery_active and stamina < 15.0: return
+	if jump_buffer_timer > 0: return
 	if is_sheathed and combat_activity_timer > 0.0 and combat_available:
 		unsheath_weapon()
 	if locomotion_controller:
@@ -1130,7 +1432,7 @@ func start_dodge() -> void:
 	is_dodging = true
 	is_invulnerable = true
 	dodge_timer = 0.35
-	stamina = max(0.0, stamina - 15.0)
+	stamina = max(0.0, stamina - (10.0 if _roll_recovery_active else 15.0))
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
 	if combat_available:
@@ -1145,11 +1447,14 @@ func start_dodge() -> void:
 	if tassel and tassel.has_method("apply_impulse"):
 		tassel.apply_impulse(Vector3(0, 10.0, -14.0))
 
-	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	if input_dir.length() > 0.1:
-		dodge_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if custom_dir.length_squared() > 0.01:
+		dodge_direction = custom_dir.normalized()
 	else:
-		dodge_direction = -transform.basis.z
+		var input_dir := resolve_movement_input()
+		if input_dir.length() > 0.1:
+			dodge_direction = movement_world_direction(input_dir)
+		else:
+			dodge_direction = (visual_root.global_basis * Vector3(sin(-MODEL_FORWARD_YAW_OFFSET), 0, cos(-MODEL_FORWARD_YAW_OFFSET))).normalized() if visual_root else -global_basis.z
 
 	# Trigger roll animation immediately
 	play_anim("preset_biped_roll_001", 0.08)
@@ -1176,7 +1481,7 @@ func _setup_weapon_attachment() -> void:
 	if skeleton.find_bone(hand_bone) == -1:
 		return
 
-	var s: float = 1.0 / 1.81
+	var s: float = 1.0 / (visual_root.scale.y if visual_root else 1.28)
 
 	_hand_weapon_socket = skeleton.get_node_or_null("RightHandWeaponSocket") as BoneAttachment3D
 	if not _hand_weapon_socket:
@@ -1260,9 +1565,9 @@ func perform_slide() -> void:
 	stamina = max(0.0, stamina - 10.0)
 	emit_signal("stamina_changed", stamina, MAX_STAMINA)
 
-	var move_forward = -visual_root.global_transform.basis.z if visual_root else -transform.basis.z
+	var move_forward = (visual_root.global_basis * Vector3(sin(-MODEL_FORWARD_YAW_OFFSET), 0, cos(-MODEL_FORWARD_YAW_OFFSET))).normalized() if visual_root else -transform.basis.z
 	move_forward.y = 0.0
-	if move_forward.length() < 0.1:
+	if move_forward.length_squared() < 0.01:
 		move_forward = -transform.basis.z
 		move_forward.y = 0.0
 	velocity += move_forward.normalized() * 6.5
@@ -1292,13 +1597,45 @@ func perform_slide() -> void:
 		if hud and hud.has_method("complete_tutorial_action"):
 			hud.complete_tutorial_action("TOAST_SLIDE")
 		tree.create_timer(0.65).timeout.connect(func():
-			is_sliding = false
-			if col and is_instance_valid(col) and col.shape is CapsuleShape3D:
-				col.shape.height = 1.8
-				col.position.y = 0.9
+			_request_exit_slide()
 		)
 	else:
-		is_sliding = false
+		_request_exit_slide()
+
+var _slide_wants_to_stand: bool = false
+
+func can_stand_up() -> bool:
+	var col = find_child("CollisionShape3D", true, false) as CollisionShape3D
+	if not col or not (col.shape is CapsuleShape3D):
+		return true
+	var query := PhysicsShapeQueryParameters3D.new()
+	var test_capsule := CapsuleShape3D.new()
+	test_capsule.radius = col.shape.radius
+	test_capsule.height = DEFAULT_CAPSULE_HEIGHT
+	query.shape = test_capsule
+	var xform := global_transform
+	xform.origin += Vector3(0, DEFAULT_CAPSULE_Y, 0)
+	query.transform = xform
+	query.collision_mask = collision_mask
+	query.exclude = [get_rid()]
+	query.margin = 0.001
+	return get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty()
+
+func _request_exit_slide() -> void:
+	if not is_sliding:
+		return
+	if can_stand_up():
+		_finish_slide_exit()
+	else:
+		_slide_wants_to_stand = true
+
+func _finish_slide_exit() -> void:
+	_slide_wants_to_stand = false
+	is_sliding = false
+	var col = find_child("CollisionShape3D", true, false) as CollisionShape3D
+	if col and is_instance_valid(col) and col.shape is CapsuleShape3D:
+		col.shape.height = DEFAULT_CAPSULE_HEIGHT
+		col.position.y = DEFAULT_CAPSULE_Y
 
 func register_hit_landed(base_damage: int) -> void:
 	combo_count += 1
@@ -1475,9 +1812,11 @@ func is_swimming() -> bool:
 	return traversal.is_swimming()
 
 func start_climbing(normal: Vector3, contact_point: Vector3) -> bool:
-	return traversal.start_climbing(normal, contact_point)
+	return surface_motor.try_start_climb(self, normal, contact_point)
 
 func stop_climbing() -> void:
+	if surface_motor:
+		surface_motor.reset(self)
 	traversal.stop_climbing()
 
 func climb_jump() -> bool:
@@ -1486,6 +1825,8 @@ func climb_jump() -> bool:
 		stamina = maxf(0.0, stamina - jump_res["stamina_cost"])
 		emit_signal("stamina_changed", stamina, MAX_STAMINA)
 		velocity = jump_res["impulse"]
+		if surface_motor:
+			surface_motor.reset(self)
 		traversal.stop_climbing()
 		return true
 	return false
@@ -1590,3 +1931,36 @@ func execute_team_burst(target: Node = null, cine_camera_director: CineCameraDir
 	if res.get("success", false):
 		emit_signal("ultimate_burst_fired", res["slot"], res["character"], res["damage"])
 	return res
+
+func _update_procedural_head_look(delta: float) -> void:
+	if not visual_root or opening_recovery_active: return
+	if not _skeleton_ref:
+		_skeleton_ref = visual_root.find_child("Skeleton3D", true, false) as Skeleton3D
+		if _skeleton_ref:
+			_head_bone_idx = _skeleton_ref.find_bone("tripo__Head_1")
+			_neck_bone_idx = _skeleton_ref.find_bone("tripo__Head_0")
+	if not _skeleton_ref or _head_bone_idx < 0: return
+
+	var target_look := Quaternion.IDENTITY
+	var nearest = get_nearest_interactable()
+	if nearest and is_instance_valid(nearest):
+		var target_pos: Vector3 = nearest.global_position if nearest.is_inside_tree() else nearest.position
+		var head_global_pos: Vector3 = _skeleton_ref.to_global(_skeleton_ref.get_bone_global_pose(_head_bone_idx).origin)
+		var to_target := target_pos - head_global_pos
+		var dist := to_target.length()
+		if dist > 0.4 and dist < 3.8:
+			var local_dir := visual_root.global_basis.inverse() * to_target.normalized()
+			var yaw := clampf(atan2(local_dir.x, local_dir.z), -0.55, 0.55)
+			var pitch := clampf(asin(clampf(local_dir.y, -1.0, 1.0)), -0.32, 0.32)
+			target_look = Quaternion(Vector3.UP, yaw) * Quaternion(Vector3.RIGHT, -pitch)
+
+	_head_look_quat = _head_look_quat.slerp(target_look, minf(1.0, 8.0 * delta))
+	_skeleton_ref.set_bone_pose_rotation(_head_bone_idx, _head_look_quat)
+
+func _get_gait_bob_offset(delta: float, speed: float) -> float:
+	if speed < 0.5:
+		return 0.0
+	var freq := 8.5 if speed > 3.8 else 6.0
+	_gait_bob_phase += delta * freq
+	var bob_amp := 0.02 if speed > 3.8 else 0.01
+	return -absf(sin(_gait_bob_phase)) * bob_amp

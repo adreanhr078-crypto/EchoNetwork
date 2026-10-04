@@ -35,3 +35,33 @@
 - التالي: مقارنة المشي التسعة ثم run/idle/jump/landing/climb، قبول النقل والجلد والحلقة وإكمال وجه/أصابع rig؛ نشر canonical المعتمد فقط ثم AnimationTree وربط اللاعب والتحكم والباركور وفقG1–G2. لا توسيع الغرف قبل شريحة الجودة.
 
 - CP-20260930-02 native delivery verification: Windows and Android debug exports PASS with no export ERROR/WARNING. Package hashes/sizes retained in verification.json; packages are ignored local outputs. They include the touch fix and existing opening, not the staged character. This does not verify physical-device performance.
+
+## CP-20260930-03 — حالة Walk واحدة وتشخيص pipeline
+
+توجيه المالك الأخير أوقف التوليد والتحسين والمقارنة الموسعة. استُعمل MOB1_Walk_F الأصلي مع Echo review LOD فقط. التشخيص سبق الإصلاح: source/target rest ومحاور bones غير متطابقة؛ نسخ basis الخام يسبب44–48° خطأ فخذ؛ export ACTIONS ضم حركة مصدر غير مقصودة. الأدوات الجديدة single_walk.py وsingle_walk.gd لا تحتوي IK أو تصحيح نعل أو fitted root أو تحرير مفاتيح يدوي.
+
+النقل الكامل rest-space والحوض الأصلي نجحا في Blender:37 إطاراً، replay≈1.8ميكرومتر، الأطوال≈0.95ميكرومتر؛74 لقطة بصرية قبل export. GLB baked واحد بالاسم، وحارس SHA يمنع export بعد مراجعة قديمة؛ اختبار الحارس وستة اختبارات pipeline PASS. glTF0 errors/2 warnings؛ التفاصيل محفوظة.
+
+Godot منفرد بلا AnimationTree/blending/root extraction: الاستيراد الافتراضي خفّض مفاتيح ToeBase37 إلى12/14، فرق6.46مم/1.215°. A/B بحفظ المفاتيح فقط أعطى PASS≈1.36ميكرومتر/0.000062° لجميع23 مفصلاً ×37 زمناً، مع74 صورة فعلية. حفظ المفاتيح profile تشخيصي؛ لم تُغير إعدادات التشغيل أو Skeleton Retarget/Root Motion. لا دليل هنا يبرر إصلاحهما. لا ادعاء قبول فني100% أو تبديل اللاعب أو canonical.
+
+الأدلة والجذر السابق للإصلاح في audits/evidence/single-walk-20260930؛ سجل فحوص المشروع في verification.json. لا توليد مدفوع أو نشر Git أو عامل خارجي. التالي هو تثبيت هذه الحالة وحدها كمرجع؛ توجيهات استكمال المقارنة القديمة أعلاه تاريخية وموقوفة بتعليمات المالك الأخيرة.
+
+## CP-20260930-04 — Golden ثابت والتحقق المتتابع Run/Jog ثم Idle ثم Jump
+
+اعتمد المالك Walk الحالية صراحةً كـGolden Reference، ثم طلب نفس pipeline حرفياً للحركات الموجودة بالتتابع. إيقاف توسيع التحقق في CP-03 أصبح تاريخياً؛ منع إعادة توليد/تحسين Walk وتحرير مفاتيح المصدر وتغيير Skeleton Retarget/Root Motion/اللاعب وإضافة AnimationTree/blending مستمر. [التقرير الجديد](GOLDEN_ANIMATION_2026-09-30.ar.md) و[سجل التحقق](../../../audits/evidence/golden-sequence-20260930/sequence-verification.json) هما مرجع هذه الدفعة.
+
+جُمّدت الملفات الموجودة في `art/production/master-animation-library/golden/walk-v1/` دون bake جديد. حارس192 ملفاً أصلياً مع snapshots/manifest PASS؛ replay جديد للـGLB المجمدة في Godot≈0.001361مم. حسابات transfer/rest/alignment/export مطابقة للـGolden؛ تغييرات الهوية/العدد/المدة/الاسم ومجلدات الأدلة فقط. الاستيراد يحفظ المفاتيح بنفس profile التشخيصي في مشاريع Godot منفصلة، وليس في التشغيل.
+
+| الحالة المتحققة | المصدر الأصلي | عينات/30fps والمدة | أقصى Blender replay، مم | أقصى فرق Godot، مم | المحاولات المحسوبة |
+| --- | --- | --- | --- | --- | --- |
+| Run/Jog | `MOB1_Jog_F` |25؛0.8ث |0.002351 |0.003042839 |1 |
+| Idle2 | `Standing Idle 04` |225؛7.46667ث |0.00149457 |0.00211953 |2 |
+| Jump | `Standing Jump` |74؛2.43333ث |0.00115347 |0.001328817 |1 |
+
+اكتمل source diagnosis/review ثم Blender numeric+visual ثم export one-clip ACTIVE_ACTIONS ثم قياس ومشاهدة Godot لكل حالة قبل بدء التالية. Run يحوي23 مفصلاً مربوطاً، وIdle/Jump22؛ Root غير المربوط بقي rest. هذه metadata للتقرير ولا تستحدث Root Motion أو تغيّر retarget. لا IK أو تصحيح نعل أو fitted root أو smoothing أو تعديل keyframes للمصادر.
+
+Idle1 من Motus عُزلت **قبل bake/export**؛ التشخيص أثبت حد المحاور المتفرقة/default عند الاستيراد في الإطارات الأولى، بينما قصد التقييم الأصلي بـFBX SDK يبقى `UNVERIFIED`. لا قص للإطارات ولا shim للمستورد ولا تحرير مفاتيح. البديل الموجود يبدأ جميع315 curves الأصلية عند tick0، ونجح نقله بنفس pipeline. حركة Idle2 وقفة/تمدد تعبيري، ولا تُعد neutral idle معتمداً للاعب. لم يُعدّل Walk أو يُستبدل اللاعب لإخفاء الخطأ.
+
+ثبتت مهارة `$echo-golden-animation` بنسخة مطابقة لملف المشروع؛ مدققا المهارة PASS. القواعد في AGENTS/AGENT_RULES/README تحفظ Golden وتوجيه المالك الأحدث: المسار المثبت مباشرة عند النجاح، والمهارة فور فائدتها أو أول إخفاق/نتيجة رديئة، بحد أقصى محاولتين مبنيتين على أدلة؛ لا حلقة محاولات عمياء.14 اختباراً موجهاً وpreflight الحالي PASS. **Final postflight: PASS** بعد آخر metadata/renderer:631/631 اختباراً، content وTypeScript وbuild وdoctor؛ السجل الحالي في `audits/evidence/golden-sequence-20260930/postflight.log`. Replay مستقل لكلblend محفوظ PASS مع بصمات source/target keys ثابتة دون إعادةbake؛ peer review نهائي بلا عيب خطير أو ادعاء إكمال مضلل.
+
+الحالة:1 Golden معتمد من المالك،0 runtime canonical؛ characterReplaced=false؛ G0 جزئي/G1 جارٍ. لا توليد أو خدمة مدفوعة أو commit/push أو قبول مرحلة/لعبة. عمل Codex محلي مع مهام مفوضة محدودة، دون عامل خارجي. التالي: حفظ fixtures وبصماتها؛ يحتاج إصلاح Idle1 native oracle مثبتاً قبل أي adapter. بقية الحركات بنفس بوابات المصدر/Blender/Godot واحدة في كل مرة؛ لا دمج لاعب أو اعتماد neutral Idle من نتائج هذه الدفعة.

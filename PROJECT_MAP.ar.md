@@ -1,76 +1,169 @@
-# خريطة المشروع — EchoNetwork / 11.11
+# خريطة المشروع والتحكم المركزي — EchoNetwork / 11.11
 
-## آخر نقطة — CP-20260930-02
+> **القاعدة الذهبية للتنقل (Owner Navigation Rule):**
+> لا تقرأ كامل ملفات المستودع أو السجلات التاريخية أبداً. ابدأ دائماً من هذه الخريطة، ثم اقرأ بطاقة المتابعة الحالية في `artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md`. افتح فقط ملفات النظام المعني بالمهمة، ونفّذ، وافحص، ثم حدّث الخريطة والبطاقة بعد كل تسليم فعلي مثبت بالأدلة.
 
-خطة الرحلة المراجعة من ثماني بوابات وقرارات المالك ومعايير القبول: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`. سجل 20 بند جودة والأدلة في `artifacts/eleven-eleven/audits/evidence/quality-plan-review-20260930/`. استعمل مكتبة سول الحالية والجرد المكتمل؛ الشخصية والتحكم وأداء الهاتف قبل توسعة الغرف. بدأ تنفيذG0/G1: أدوات mocap في tools/animation-library، مرجع الإنتاج ProductionBenchmark.json، سجل إعادة استخدام31 أصل حركة وstaging خارج التشغيل، وأدلة master-animation-foundation-20260930 داخل التطبيق. قفز اللمس أصلح؛ لم يُعتمد النموذج أو مكتبة canonical أو الفصل.
+---
 
-## ابدأ من هنا
+## 1. لوحة الملاحة والتحكم السريع (Quick Navigation Matrix)
 
-| المكان | دوره |
-| --- | --- |
-| `AGENTS.md` | قواعد العمل وحفظ التقدم |
-| `artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md` | بطاقة متابعة قصيرة: آخر تنفيذ مثبت، الملفات المعنية، النواقص والخطوة التالية |
-| `artifacts/eleven-eleven/docs/11-11/START_HERE.md` | نقطة الدخول إلى وثائق اللعبة |
-| `artifacts/eleven-eleven/docs/11-11/design/CONTINUATION.md` | آخر ما نُفّذ واختُبر وحدوده |
-| `artifacts/eleven-eleven/docs/PROJECT_VISION.md` | الرؤية المعتمدة |
-| `artifacts/eleven-eleven/docs/internal/narrative/current/ar/manifest.json` | مراجع الكانون |
+حدد نوع مهمتك من الجدول التالي واذهب مباشرة إلى الملفات والأوامر المحددة دون مسح باقي المشروع:
 
-## مسارات التنفيذ
+| مجال المهمة | الملفات الأساسية التي تبدأ منها | مسار الأصول / الشيفرة | أمر الفحص / التشغيل |
+|---|---|---|---|
+| **توليد فيديو/وسائط الذكاء الاصطناعي (Higgsfield / Seedance)** | `index.ts`<br>`tools/higgsfield/run-higgsfield.ts` | `tools/higgsfield/`<br>`.env.local` (محمي) | `npm run higgsfield:example`<br>`npx tsx tools/higgsfield/run-higgsfield.ts -- doctor` |
+| **اختيار نموذج Higgsfield بحسب توجيه المالك** | `artifacts/eleven-eleven/docs/internal/production/HIGGSFIELD_MODEL_POLICY_2026-10-01.ar.md` | `higgsfield-preferred-models.json` في المجلد نفسه | Seedance 2.5 / 2.0 للفيديو؛ Jutsu/Blender للمشهد القابل للتحرير؛ تحقق من الكتالوج قبل التشغيل |
+| **تحريك الشخصيات والمرجع الذهبي (Golden Animation)** | `tools/animation-library/golden_reference.py`<br>`tools/animation-library/single_motion.py` | `art/production/master-animation-library/golden/`<br>`.agents/skills/echo-golden-animation/` | `python tools/animation-library/golden_reference.py`<br>`python tools/animation-library/test_golden_pipeline.py` |
+| **محرك اللعبة والجيم بلاي (Godot 4.7 Engine)** | `artifacts/eleven-eleven/godot/scripts/player/echo_player.gd`<br>`godot/scripts/boot.gd` | `artifacts/eleven-eleven/godot/scenes/`<br>`godot/scripts/`<br>`godot/assets/` | `npm run godot:test`<br>`npm run godot:doctor`<br>`npm run godot:test-combat` |
+| **واجهة اللمس وتحكم الهاتف وقائمة الإيقاف** | `godot/scripts/ui/mobile_touch_controls.gd`<br>`godot/scripts/ui/native_pause_menu.gd` | `artifacts/eleven-eleven/godot/scenes/ui/` | `npm run godot:test`<br>`godot/tests/player_controls_capture.gd` |
+| **خطة التحكم والمنظور الثالث حسب التوجيه الأخير** | `artifacts/eleven-eleven/docs/internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md`<br>`CURRENT_WORK.ar.md` | `godot/scripts/player/` و`godot/scripts/ui/mobile_touch_controls.gd` داخل التطبيق | `tools/test-third-person-foundation.ps1` داخل التطبيق:16 حالة محلية؛ Walk/Run تدريجيان وRoll منفصل منفذان، الفن والهاتف غير مقبولين |
+| **مراجعة الجاذبية والحركة الفعلية** | `artifacts/eleven-eleven/docs/internal/production/PROFESSIONAL_ART_REVIEW_2026-10-01.ar.md` | `audits/evidence/third-person-foundation-20261001/implementation/art-review-v3/` و`audits/evidence/sprint-natural-20261001/` داخل التطبيق | `godot/tests/player_art_review_capture.gd` و`opening_art_direction_capture.gd` للتصوير المرئي؛ Run البديلةFAIL_CONTACT معزولة، لاexport أوتبديلavatar |
+| **إصلاح غرفة المرجع والوقفة الحالي** | `artifacts/eleven-eleven/docs/internal/production/CHARACTER_REFERENCE_REPAIR_2026-10-01.ar.md` | `audits/evidence/character-shading-20261001/` داخل التطبيق | `character_light_response_smoke.gd` و`character_authored_maps_smoke.gd` مرئيان؛ nativeIdlecandidate معزولة حتى القبول |
+| **native من الافتتاح إلى عتبة الأمن** | `godot/scripts/systems/native_journey_controller.gd` و`native_journey_checkpoint.gd` داخل التطبيق | `godot/scenes/native_journey.tscn`؛ `audits/evidence/hospital-route-20261001/` | `native_journey_checkpoint_smoke.gd` و`opening_route_input_smoke.gd -- native-journey`؛ hospitalrouteغير مكتملة، الأمن/bedside أصول مراجعة منفصلة |
+| **قياس الهاتف المعزول وإصلاح الإدخال** | `godot/scripts/diagnostics/player_frame_capture.gd`<br>`godot/tests/player_foundation_smoke.gd`<br>`godot/tests/player_frame_capture_smoke.gd` | `artifacts/eleven-eleven/audits/evidence/player-foundation-20260930/` | العلم `--echo-frame-capture` في debug فقط؛ لا يعوض اختبار الهاتف الفعلي |
+| **فحص أصابع الشخصية دون تغيير اللاعب** | `audits/evidence/echo-hand-rig-20261001/ROOT_CAUSE.md`<br>`fit_hand_landmarks.py`<br>`build_left_hand_candidate.py` | `art/production/echo-master-character/rig-v3-hands/` داخل التطبيق | مراجعة rest/curl/spread في Blender؛ محاولتان كحد أقصى؛ لا export قبل قبول التشوه |
+| **واجهة الويب والشطرنج والقصة (React 19 / Three.js)** | `artifacts/eleven-eleven/src/app/`<br>`artifacts/eleven-eleven/src/components/` | `artifacts/eleven-eleven/src/`<br>`artifacts/eleven-eleven/public/` | `npm run check`<br>`npm run typecheck`<br>`npm test` |
+| **الخدمات السحابية والريل تايم (Cloudflare Workers)** | `artifacts/eleven-eleven/workers/realtime/` | `artifacts/eleven-eleven/workers/` | `npm run check:realtime`<br>`npm run typecheck:realtime` |
+| **أدوات الوسائط والبلندر بدون تثبيت (Media & Blender CLI)** | `tools/blender/run-blender.ts`<br>`tools/media/validate-glb.ts` | `tools/blender/`<br>`tools/media/` | `npm run blender:doctor`<br>`npm run gltf:validate` |
+| **بوابات الجودة والفحص العام (Autonomous Quality Gate)** | `artifacts/eleven-eleven/tools/project-doctor/` | `tools/environment-setup/` | `npm run agent:preflight`<br>`npm run doctor`<br>`npm run agent:postflight` |
 
-- اللعبة ثلاثية الأبعاد: `artifacts/eleven-eleven/godot/`؛ المشاهد في `scenes/`، الشيفرة في `scripts/`، الأصول في `assets/`، اختبارات Godot في `tests/`.
-- واجهة الويب والخدمات القائمة: `artifacts/eleven-eleven/src/` و`functions/` و`workers/`. وجود افتتاح Godot مرشح لا يعني قبول الانتقال إليه في الويب.
-- فحوص المشروع: `artifacts/eleven-eleven/tools/project-doctor/`.
-- بناء افتتاح Windows وAndroid التجريبي: `artifacts/eleven-eleven/tools/build-godot-native.ps1`؛ متطلبات البناء وحدود القبول في `docs/internal/production/NATIVE_BUILD_AND_BATCH2_2026-09-28.ar.md` داخل التطبيق.
-- الأدلة والتدقيق: `artifacts/eleven-eleven/audits/`؛ تقارير الإنتاج في `docs/internal/production/`.
-- مراجعة صورة الافتتاح وإصلاحات الدفعة الثالثة: `artifacts/eleven-eleven/docs/internal/production/OPENING_VISUAL_BATCH3_2026-09-28.ar.md`؛ دراسة الإضاءة المولدة وسجلها في `art/production/opening-lighting-study/` داخل التطبيق، وهي مرجع فني خارج تشغيل اللعبة.
+---
 
-## أرشيف التجارب
+## 2. هيكل المستودع المنظم (Repository Structure Map)
 
-`FlaxMigration/` تجربة نقل قديمة، وليست مصدر تشغيل Godot. حُفظت ملفاتها الفريدة والتقارير، وحُذفت النسخ المتطابقة فقط. ملفات `scratch/` تجارب وأدلة يُرجع إليها عند الحاجة. تستثني `.rgignore` هذه المسارات من البحث المعتاد؛ يمكن قراءتها بالمسار الصريح أو البحث مع `--no-ignore`.
+```text
+EchoNetwork/
+├── .agents/skills/                 # المهارات المتخصصة وقواعد وكلاء الذكاء الاصطناعي (مثل echo-golden-animation)
+├── .env.local                      # مفاتيح وبيئة الخادم المحلية (محمية ومستثناة من Git)
+├── index.ts                        # نقطة الدخول الرسمية لـ Higgsfield SDK مع Seedance 2.5
+├── package.json                    # إعدادات الحزم المركزية والأوامر العامة (npm)
+├── PROJECT_MAP.ar.md               # هذه الخريطة المرجعية الشاملة (دليل الملاحة الأول)
+│
+├── tools/                          # أدوات الدعم والأتمتة المستقلة:
+│   ├── higgsfield/                 # عميل وأدوات Higgsfield AI وتحويل Blender إلى فيديو
+│   ├── blender/                    # أداة تشغيل Blender Headless المحمولة
+│   ├── godot/                      # أداة تشغيل وفحص واختبارات Godot Headless
+│   ├── unity/                      # أداة ومسارات Unity CLI
+│   ├── canva/                      # واجهة Canva API للتصاميم
+│   ├── stable-diffusion/           # مشغل ومولد ComfyUI المحلي
+│   ├── ai-audio/                   # أدوات توليد الصوت عبر TTS
+│   ├── media/                      # أدوات ضغط وفحص GLB/GLTF وتشفير الفيديو
+│   └── environment-setup/          # فحص وتجهيز بيئة العمل
+│
+├── artifacts/eleven-eleven/        # تطبيق اللعبة والإنتاج النشط (القلب النابض للمشروع):
+│   ├── godot/                      # مشروع محرك Godot 4.7 (النسخة ثلاثية الأبعاد المعتمدة):
+│   │   ├── scenes/                 # مشاهد اللعبة (اللاعب echo_player.tscn، الصيانة، الغرف)
+│   │   ├── scripts/                # سكربتات GDScript (اللاعب، الكاميرا Phantom Camera، البيئة، الواجهات)
+│   │   ├── assets/                 # أصول التشغيل الفعلية (المجسمات GLB، الخامات، المؤثرات الصوتية)
+│   │   ├── tests/                  # اختبارات Godot التلقائية (التحكم باللمس، التحريك، الغرف)
+│   │   └── addons/                 # إضافات المحرك المعتمدة (مثل Phantom Camera)
+│   │
+│   ├── src/                        # واجهة الويب وتطبيق React 19 + Three.js / R3F:
+│   │   ├── app/                    # التوجيه وهيكل التطبيق
+│   │   ├── components/             # مكونات واجهة المستخدم (لوحة الشطرنج، الألغاز، المانهوا)
+│   │   ├── stores/                 # إدارة الحالة بالعميل عبر Zustand
+│   │   └── ui/                     # مكتبة مكونات Radix UI و Tailwind
+│   │
+│   ├── art/production/             # أصول الإنتاج الفني القابلة للتحرير (Blender, Rig, Kitting):
+│   │   ├── master-animation-library/# مكتبة التحريك الرئيسية والمرجع الذهبي المجمد (golden/walk-v1/)
+│   │   ├── echo-master-character/  # شخصية إيكو الرئيسية وهيكلها العظمي ونماذج LOD
+│   │   ├── maintenance-jutsu-v1/   # غرفة الصيانة، عناصر التصادم، وسجلات الإخراج
+│   │   └── echo-parkour-v1/        # حركات الباركور و IK على هيكل إيكو
+│   │
+│   ├── audits/evidence/            # أدلة الفحص والتدقيق الملموسة (صور، سجلات JSON، بصمات التجزئة)
+│   ├── docs/                       # وثائق الكانون، خطة الإنتاج، وبطاقة المتابعة:
+│   │   ├── 11-11/START_HERE.md     # مدخل وثائق اللعبة والرؤية
+│   │   ├── 11-11/design/           # تفويض المالك وسجل CONTINUATION.md
+│   │   └── internal/production/    # بطاقة العمل CURRENT_WORK.ar.md وتقارير الجودة التفصيلية
+│   │
+│   ├── tools/                      # أدوات داخلية لتطبيق 11.11:
+│   │   ├── animation-library/      # نصوص بايثون لحراسة وتصدير واختبار حركات Golden Reference
+│   │   ├── project-doctor/         # نظام التشخيص الشامل والفحص المسبق/اللاحق
+│   │   └── manhwa/                 # أدوات استيراد وفحص المانهوا
+│   │
+│   └── workers/                    # عمال Cloudflare السحابيون للبيانات والوقت الفعلي (Realtime)
+│
+├── FlaxMigration/                  # [أرشيف تاريخي معزول] تجربة نقل سابقة — لا تلمسه ومستثنى بالبحث
+└── scratch/                        # [مسودة تجارب] ملفات مؤقتة ومخرجات تدقيق سريعة
+```
 
-ابدأ البحث داخل مجلد النظام المعني، ثم وسّعه عند الحاجة. لا حاجة لقراءة جميع الأصول أو التقارير كل مرة، ولا تُحذف نسخة فريدة لمجرد قدمها.
+---
 
-## الحفاظ على الخريطة عند الإضافة
+## 3. قواعد العمل الصارمة والممنوعات (Invariants & Guardrails)
 
-1. اقرأ بطاقة المتابعة ثم آخر نقطة متابعة ذات صلة؛ السجل الكامل مرجع تاريخي عند الحاجة.
-2. حافظ على قراءة القواعد والذاكرة ومراجع الكانون الإلزامية، ثم افتح ملفات المهمة فقط.
-3. ضع شيفرة Godot في `godot/scripts/<system>/`، والمشاهد في `godot/scenes/`، واختباراتها في `godot/tests/` داخل التطبيق. استخدم مجلد النظام الموجود أولاً.
-4. ضع مصادر الإنتاج القابلة للتحرير وسجل التوليد في `art/production/<asset-or-task>/`، والأصول المستخدمة فعلياً في `godot/assets/`، والصور الداعمة في `audits/evidence/`.
-5. ضع التقرير المفصل في `docs/internal/production/` واربطه من بطاقة المتابعة. لا تنسخ التقرير أو التاريخ الكامل إلى البطاقة.
-6. الملفات المؤقتة ومخرجات البناء تبقى في `.tmp/` المتجاهل. لا تضع مفاتيح الخدمات داخل المشروع.
-7. حدّث الخريطة عند إضافة نظام أو نقطة دخول، وحدّث البطاقة ونقطة المتابعة بعد كل تسليم فعلي. تحقق من وجود الروابط؛ حالة الوثيقة لا تثبت اكتمال الميزة.
+1. **المرجع الذهبي للتحريك (Golden Walk Reference):**
+   - النسخة الموجودة في `artifacts/eleven-eleven/art/production/master-animation-library/golden/walk-v1/` مجمدة تماماً برقم بصمتها في `GoldenReference.json`.
+   - **يُمنع منعاً باتاً:** إعادة توليد أو تحسين Walk، أو تعديل مفاتيح المصادر يدوياً، أو العبث بـ Skeleton Retarget أو Root Motion أو شجرة التحريك AnimationTree أثناء التحقق.
+   - في حال حدوث أي خلل في نقل التحريك، استخدم مهارة `$echo-golden-animation` في `.agents/skills/echo-golden-animation/SKILL.md` فوراً وبحد أقصى محاولتين محسوبتين.
 
-## مكتبة التحريك الدائمة
+2. **سلطة اللعبة والجوائز (Server Authority & Canon):**
+   - منطق الألغاز والقصة وشظايا الذاكرة (Memory Shards) والجوائز وسجل الإنجازات مملوكة للخادم ومحمية.
+   - لا تمنح الجوائز أبداً من شيفرات العرض (Presentation Layer) أو نصوص التوليد.
 
-خطة الفحص والإنتاج: `artifacts/eleven-eleven/docs/internal/production/MASTER_ANIMATION_LIBRARY_PLAN_2026-09-29.ar.md`. مصادر الحزم الأصلية في Downloads محمية؛ الوجهة المعتمدة للمشتقات المستقبلية `godot/Animations/` داخل التطبيق. لا توجد مكتبة canonical معتمدة بعد. ابدأ الخطة وبطاقة المتابعة قبل قراءة حزم التحريك.
+3. **حماية المفاتيح والأمان (Security & Secrets):**
+   - مفاتيح الخدمات (مثل مفتاح Higgsfield) تُحفظ فقط في `.env.local` المحمي بالقاعدة `.env.*` داخل `.gitignore`.
+   - يُمنع طباعة المفاتيح، أو تمريرها في السجلات (Logs)، أو تضمينها في نصوص المحادثة أو مستودع Git.
 
-سجل العمل والفهارس غير المعتمدة: `artifacts/eleven-eleven/docs/internal/production/MASTER_ANIMATION_LIBRARY_EXECUTION_2026-09-29.ar.md` و`art/production/master-animation-library/manifests/` و`tools/animation-library/` داخل التطبيق. خطة الرحلة إلى المستشفى ومراجعة فيديو المالك: `artifacts/eleven-eleven/docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md`؛ عقد المحطات في `art/production/echo-to-hospital-v2/JourneyCatalog.json`، والتحقق في `tools/journey/validate_catalog.py`. كلها تخطيط/دليل إنتاج، ولا تضيف مشاهد تشغيل مكتملة.
+4. **توفير استهلاك السياق (Context Optimization):**
+   - المجلدات `FlaxMigration/` و `scratch/` و `.tmp/` و `node_modules/` مستثناة من البحث عبر `.rgignore`. لا تبحث داخلها إلا بطلب صريح ومحدد.
+   - لا تقرأ سجل `CONTINUATION.md` بالكامل (يتجاوز 2000 سطر)؛ اقرأ فقط آخر نقطة متابعة (مثل `CP-20261001-01` أو سابقتها المباشرة).
 
-## مراجع تنفيذ الافتتاح
+---
 
-داخل `artifacts/eleven-eleven/`:
+## 4. مسارات التنفيذ المباشرة خطوة بخطوة
 
-- `godot/scripts/player/echo_player.gd`: حركة Echo والتحريك وربط التحكم.
-- `godot/scripts/player/player_traversal_controller.gd`: أساس التسلق والسباحة؛ وجوده لا يثبت قابلية التسلق للاعب.
-- `godot/scenes/system_journey_preview.tscn`: نموذج صيانة اختياري متصل بنهاية الافتتاح؛ ليس قبولاً للرحلة الكاملة.
-- `godot/scripts/player/surface_traversal_motor.gd`: تسلق وتعلق وصعود حافة بفحص كبسولة اللاعب.
-- `godot/scripts/systems/system_journey_preview.gd`: مراحل الصيانة وحفظ الاستراحة المستقل.
-- `godot/scripts/environment/maintenance_service_override.gd`: تفاعل تنفيس الضغط عبر اللاعب؛ الحركة والتصادم في `maintenance_vertical.gd`.
-- `godot/scripts/cinematics/maintenance_service_cinematic.gd`: لقطة داخل الغرفة الفعلية مع تخطي واستعادة التحكم، باستخدام Phantom Camera.
-- `godot/scripts/player/service_hand_contact.gd`: تماس معصمي إيكو مع عجلة الصيانة على الهيكل الأصلي باستخدام TwoBoneIK3D؛ لا سلطة له على فتح الباب.
-- `godot/addons/phantom_camera/`: مكتبة كاميرا MIT مثبتة بإصدار محدد؛ مستثناة من البحث المعتاد. سجل النسخة في `art/production/maintenance-jutsu-v1/camera-library.json`.
-- `godot/scripts/boot.gd`: خيار مراجعة النسخة الأصلية `--maintenance-preview` بعد فاصل معاملات المستخدم؛ يفتح النموذج المتصل، والافتتاح الافتراضي محدود.
-- `art/production/maintenance-jutsu-v1/` و`art/production/echo-parkour-v1/`: مصادر الغرفة والتحريك القابلة للتحرير؛ أصول التشغيل في `godot/assets/`.
-- `docs/internal/production/JUTSU_MAINTENANCE_2026-09-29.ar.md`: أحدث تنفيذ ودليل وحدود معيار الجودة.
-- `godot/scripts/main.gd`: تدفق الغرفة والحوارات والحدود الحالية.
-- `docs/internal/production/JUTSU_SIGNAL_CONSOLE_2026-09-28.ar.md`: دمج محطة الافتتاح المثبت سابقاً.
-- `docs/internal/production/OPENING_PLAYABILITY_2026-09-28.ar.md`: عيوب اللعب وأدلتها.
-- `docs/internal/production/GODOT_SYSTEM_EXECUTION_2026-09-28.ar.md`: سجل الدفعات السابق؛ توجيهات المالك اللاحقة تُوثّق قبل تحديثه.
+### أ. عند العمل على الذكاء الاصطناعي والوسائط السينمائية:
+1. تحقق من المتغيرات في [`.env.local`](file:///c:/Users/yasmo/EchoNetwork/.env.local).
+2. استخدم الكود الجاهز في [`index.ts`](file:///c:/Users/yasmo/EchoNetwork/index.ts) أو الأدوات في [`tools/higgsfield/`](file:///c:/Users/yasmo/EchoNetwork/tools/higgsfield/).
+3. للتحقق من الاتصال دون استهلاك رصيد التوليد:
+   ```bash
+   npx tsx --env-file=.env.local tools/higgsfield/run-higgsfield.ts -- doctor
+   ```
+4. لتشغيل طلب التوليد الرسمي مع Seedance 2.5 عند التوجيه:
+   ```bash
+   npm run higgsfield:example
+   ```
 
-## سجل ترتيب 2026-09-28
+### ب. عند العمل على حركات وتحريك إيكو (Echo Animations):
+1. افحص سلامة ملفات المرجع الذهبي (192 ملفاً):
+   ```bash
+   python artifacts/eleven-eleven/tools/animation-library/golden_reference.py
+   ```
+2. استخدم مسار النقل الصارم `single_motion.py` لكل حركة جديدة (بالتتابع: Run/Jog ثم Idle ثم Jump).
+3. اختبر الحركة في Godot بدون تشغيل AnimationTree عبر `single_motion.gd`.
 
-حُذف **880 ملفاً متطابقاً** من `FlaxMigration/SourceAssets/`، بحجم **1,396,160,145 بايت** (حوالي 1.30 GiB). بقيت **56 نسخة فريدة** في هذا المجلد. يربط سجل التنظيف كل ملف محذوف بأصله المحفوظ وبصمة SHA-256:
+### ج. عند العمل على محرك Godot وأسلوب اللعب:
+1. ادخل إلى مجلد `artifacts/eleven-eleven/godot/`.
+2. المشهد الرئيسي للاعب: [`godot/scenes/player/echo_player.tscn`](file:///c:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/godot/scenes/player/echo_player.tscn).
+3. منطق الحركة والتحكم: [`godot/scripts/player/echo_player.gd`](file:///c:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/godot/scripts/player/echo_player.gd).
+4. تحكم اللمس للهاتف: [`godot/scripts/ui/mobile_touch_controls.gd`](file:///c:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/godot/scripts/ui/mobile_touch_controls.gd).
+5. شغّل الفحص واختبارات Godot Headless:
+   ```bash
+   npm run godot:doctor
+   npm run godot:smoke
+   ```
 
-`artifacts/eleven-eleven/docs/internal/production/2026-09-28-cleanup-manifest.json`
+### د. عند العمل على واجهة الويب أو الألغاز:
+1. ادخل إلى `artifacts/eleven-eleven/src/`.
+2. شغّل الفحص المسبق:
+   ```bash
+   npm run agent:preflight
+   ```
+3. أجرِ التعديلات وافحص عبر:
+   ```bash
+   npm run check
+   ```
 
-النسخة الاحتياطية خارج المستودع مسجلة داخله؛ ويمكن أيضاً استرجاع النسخ من التزام Git المذكور فيه. لم تُحذف أصول اللعبة الفريدة أو تقارير الكانون أو ملفات التشغيل المستعملة.
+---
+
+## 5. بروتوكول تسليم المهام وتحديث السجلات
+
+بعد كل إنجاز فعلي مثبت:
+1. **لا تعلن الإنجاز بمجرد كتابة الشيفرة؛** يجب تشغيل الفحوصات والتحقق من النتيجة.
+2. أضف نقطة متابعة جديدة في [`artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md`](file:///c:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md) تشمل:
+   - رقم النقطة وتاريخها.
+   - الملفات التي أضيفت أو عُدلت بروابطها.
+   - الفحوصات الفعلية التي نُفذت ونتائجها.
+   - القيود والنواقص المتبقية.
+   - الخطوة التالية بالضبط.
+3. حدّث هذه الخريطة [`PROJECT_MAP.ar.md`](file:///c:/Users/yasmo/EchoNetwork/PROJECT_MAP.ar.md) فقط إذا تمت إضافة نظام جديد، أو أداة رئيسية، أو نقطة دخول جديدة.

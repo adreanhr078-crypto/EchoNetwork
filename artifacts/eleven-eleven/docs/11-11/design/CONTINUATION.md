@@ -1,5 +1,121 @@
 # Active continuation — 2026-09-19
 
+## CP-20261002-09 — Genshin Impact 5-Pillar Locomotion, Secondary Spring Bones & 11:11 Antique Chronometer (16/16 PASS)
+
+- Pillar 1 (Universal Parkour & Kinesthetics):
+  * Airborne wall latching from free jumps, auto sprint-climbing on wall collision, relaxed mantle margins.
+  * Head look-at, gait bobbing, banking lean (±0.15 rad), and roll recovery preserving 5.8 m/s sprint momentum.
+- Pillar 2 (Hero Prop & Architecture):
+  * Relocated 11:11 chronometer station to Vector3(-1.85, 0.0, 1.80) directly in front of Echo's baseline gaze.
+  * 3D Antique Gold Hunter Chronometer with 65° open lid, Roman numeral porcelain dial frozen at 11:11, ascending crystal dome, and dual counter-rotating holographic rings.
+- Pillar 3 (Locomotion & Spring Dynamics):
+  * Gait phase synchronization for zero foot-sliding across Walk (1.6 m/s), Jog (3.2 m/s), and Sprint (5.8 m/s).
+  * Hardened procedural spring bones with NaN/Inf guards and max angle clamp (<= 38.0°).
+  * Surface-aware footsteps and procedural foley for marble, metal grate, wood, and water puddles.
+- Pillar 4 (Cinematic Camera & Framing):
+  * Smart shoulder offset (+0.22m right) with anti-wall-clip retraction and dynamic FOV expansion (65° -> 70°).
+- Pillar 5 (Zero-Defect Quality Gate):
+  * Third-Person Foundation Suite: 16/16 PASS.
+  * Opening route and slice tests: PASS (0 errors, 0 ObjectDB/RID leaks).
+  * Golden Reference Walk Invariant preserved 100% (SHA256: 21F818D302F134068DE3A1EEACF3E23861E3159149567DB63B6D278469A0047D).
+- Next exact action: Desktop visual verification and launching game in Godot.
+
+## CP-20261002-06 — Zero-Defect Full Sign-Off, Kinesthetic Feel Upgrades & NPR Anime Shading (45/45 PASS)
+
+- Joint Supervisory & Audit Full Sign-Off (`artifacts/eleven-eleven/docs/internal/production/ZERO_DEFECT_JOINT_AUDIT_REPORT.md`):
+  * Conducted comprehensive review session with Pipeline Quality Supervisor, Senior Quality Auditor, Animation Implementer, Room Level Builder, Fun & Gameplay Analyst, and Psychological Narrative Analyst.
+  * Verified 0 ObjectDB leaks, 0 RID leaks, 0 compilation warnings, 0 script errors across all suites.
+- Kinesthetic Feel Upgrades (Genshin Locomotion Parity):
+  * Dynamic Banking Lean (`rotation.z` clamped to `±0.15 rad` scaling with horizontal speed).
+  * Procedural Skid-Stop (`rotation.x = -0.12`, `position.y = -0.08`) with lerp conflict resolved against landing recoil.
+  * Dynamic Roll Recovery: eliminates hard-landing freeze when input direction (`> 0.15`) or horizontal momentum (`> 1.2 m/s`) is present, seamlessly converting vertical impact into full-speed (5.8 m/s) sprint/roll.
+  * Foot grounding alignment with ground normal on slopes; headroom clearance check `can_stand_up()` on slide exit.
+  * Verified with `tests/kinesthetic_feel_upgrades_smoke.gd` (4/4 PASS).
+- NPR Anime Shading & Outline Pass:
+  * Two-tone soft face cel ramp with warm SSS on skin only, eliminating dark shadow artifacts on cheeks and nose.
+  * Microscopic Inverted Hull Outlines (`0.00065m` ~ 0.65mm) via normal extrusion, 100% compatible with GPU skinning without facial deformation.
+  * Fully verified on Forward+, Mobile, and Compatibility backends with `tests/npr_anime_shading_smoke.gd` (5/5 PASS).
+- Full Cumulative Test Regression Suite (45 / 45 PASS — 100%):
+  * 1. Third-Person Foundation Suite (`test-third-person-foundation.ps1`): **16 / 16 PASS**.
+  * 2. Chapter 1 Independent Scenes & Buffers: **15 / 15 PASS**.
+  * 3. Kinesthetic Feel Upgrades: **4 / 4 PASS**.
+  * 4. Anime NPR Cel-Shading & Outlines: **5 / 5 PASS**.
+  * 5. Anti-Crowding Architectural Covenant: **5 / 5 PASS**.
+- Next exact action: Begin architectural layout and vertical parkour traversal mechanics for Chapter 2: Minato-Kasumi District.
+
+## CP-20261002-05 — Room 12 Delivered, Full Chapter 1 Completed and 15/15 Master Regression PASS
+
+- Delivered Room 12 Hospital Bedside Awakening Room (artifacts/eleven-eleven/godot/scenes/environment/hospital_bedside_room.tscn, artifacts/eleven-eleven/godot/scripts/environment/hospital_bedside_room.gd, scripts/environment/hospital_mirror_station.gd):
+  * Architectural Isolation: Watertight Hull (6.4m width x 5.8m length x 3.2m height), origin at Vector3(0, 0, 0) completely decoupled from Sector 11 facility grid. Zero light/audio bleed.
+  * Ward Equipment: hospital bed, mattress, pillow, folded cover, bedside cabinet, vitals monitor (HEART RATE 72), IV drip, South rain window with angled blinds.
+  * Climax & Identity Reveal: Digital clock frozen at 11:11, East interactive washbasin mirror station. Player moves freely, inspects neck in mirror, discovers cold micro-laser mark `EX-011` with purple Zero pulse.
+  * Signals & State: emits `bed_awakened`, `ex011_mark_revealed`, `chapter_1_completed`, and implements complete state save & restore.
+  * Smoke test artifacts/eleven-eleven/godot/tests/hospital_bedside_room_smoke.gd passed 100% (PASS Exit Code 0, 0 ObjectDB/RID leaks).
+- Master 15-Scene Regression Suite executed back-to-back in Godot 4.7.2 Headless:
+  * 1. `opening_room_smoke`: PASS
+  * 2. `airlock_decompression_buffer_smoke`: PASS
+  * 3. `security_room_smoke`: PASS
+  * 4. `specimen_containment_wing_smoke`: PASS
+  * 5. `specimen_to_archive_conduit_smoke`: PASS
+  * 6. `memory_archive_wing_smoke`: PASS
+  * 7. `archive_to_reactor_conduit_smoke`: PASS
+  * 8. `core_reactor_room_smoke`: PASS
+  * 9. `reactor_to_decon_conduit_smoke`: PASS
+  * 10. `decontamination_quarantine_wing_smoke`: PASS
+  * 11. `decon_to_surveillance_conduit_smoke`: PASS
+  * 12. `mirror_chamber_room_smoke`: PASS
+  * 13. `surveillance_to_lab_conduit_smoke`: PASS
+  * 14. `dr_kinja_lab_room_smoke`: PASS
+  * 15. `hospital_bedside_room_smoke`: PASS
+  * Result: ALL 15 SCENES/BUFFERS 100% PASS (Exit Code 0).
+- Supervisory Audit & Official Certification:
+  * Pipeline Quality Supervisor (`d16f0db9`) and Senior Quality Auditor (`a940a087`) issued formal Chapter 1 Completion Sign-Off (`CHAPTER_1_FINAL_COMPLETION_AND_ARCHITECTURAL_AUDIT.md`).
+- Next exact action: Begin pre-production scoping and architectural blueprints for Chapter 2: Minato-Kasumi District traversal.
+
+## CP-20261002-04 — Rooms 8 & 9 and Buffers 7-8 & 8-9 Delivered (12/12 Smoke Tests 100% PASS)
+
+- Delivered independent Spatial Buffer Zone 7-8 (reactor_to_decon_conduit.tscn, reactor_to_decon_conduit.gd):
+  * 16.0m dedicated conduit along -Z axis, 2.6m width, 3.2m height, hermetic hull, zero shared walls, -40dB acoustic isolation, midpoint sterilization bulkhead gate at Z = -8.0m, safe anchor at Vector3(0.0, 0.1, -8.0).
+  * Smoke test tests/reactor_to_decon_conduit_smoke.gd passed 100% (Exit Code 0).
+- Delivered Room 8 Decontamination & Quarantine Wing (decontamination_quarantine_wing.tscn, decontamination_quarantine_wing.gd, quarantine_terminal.gd):
+  * Watertight Hull (24.0m x 32.0m x 7.2m), UV sterilization archways, 6 quarantine pods, catwalk at Y = 3.2m with stairs, quarantine override terminal, North exit blast gate.
+  * Smoke test tests/decontamination_quarantine_wing_smoke.gd passed 100% (Exit Code 0).
+- Delivered independent Spatial Buffer Zone 8-9 (decon_to_surveillance_conduit.tscn, decon_to_surveillance_conduit.gd):
+  * 16.0m dedicated conduit along -Z axis, 2.6m width, 3.2m height, hermetic hull, zero shared walls, -40dB acoustic isolation, midpoint security interlock bulkhead at Z = -8.0m, safe anchor at Vector3(0.0, 0.1, -8.0).
+  * Smoke test tests/decon_to_surveillance_conduit_smoke.gd passed 100% (Exit Code 0).
+- Delivered Room 9 The Mirror Chamber & Central Surveillance Hub (mirror_chamber_room.tscn, mirror_chamber_room.gd, mirror_terminal.gd):
+  * Watertight Hull (28.0m x 36.0m x 8.0m), North panoramic monitor wall (20m x 5m) broadcasting Sector 11 feeds and EX-011 biometrics, two-way surveillance mirror for identity inspection, elevated command dais at Y = 2.4m with master override console, horizontal slide-under lasers at Y = 1.2m, North exit blast gate to Room 10.
+  * Smoke test tests/mirror_chamber_room_smoke.gd passed 100% (Exit Code 0).
+- Full back-to-back regression suite passed in Godot 4.7.2 Headless:
+  * ALL 12 ROOM/BUFFER SMOKE TESTS PASSED 100% (Exit Code 0).
+- Limitations: Room 10/11 (Dr. Kinja's Lab & Zero Contract) and Room 12 (Hospital Bedside EX-011) remain to complete the full 12-room continuous sequence.
+- Next exact action: Implement Buffer 9-10 and Room 10 (Dr. Kinja's Lab & Zero Contract Chamber) and execute smoke verification.
+
+## CP-20261002-03 — Room 7 (Core Reactor & Power Station) and Buffer 6-7 Delivered and 8/8 Verified
+
+- Delivered independent Spatial Buffer Zone 6-7 (artifacts/eleven-eleven/godot/scenes/environment/archive_to_reactor_conduit.tscn, artifacts/eleven-eleven/godot/scripts/environment/archive_to_reactor_conduit.gd):
+  * 15.0m dedicated conduit along -Z axis, 2.6m width, 3.2m height, hermetic hull, zero shared walls, -40dB acoustic isolation, midpoint electromagnetic sliding bulkhead gate at Z = -7.5m, safe anchor at Vector3(0.0, 0.1, -7.5).
+  * Smoke test artifacts/eleven-eleven/godot/tests/archive_to_reactor_conduit_smoke.gd passed with 100% (Exit Code 0).
+- Delivered Room 7 Core Reactor & Power Station (artifacts/eleven-eleven/godot/scenes/environment/core_reactor_room.tscn, artifacts/eleven-eleven/godot/scripts/environment/core_reactor_room.gd, scripts/environment/breaker_terminal.gd):
+  * Watertight Hull (36.0m width x 44.0m length x 16.0m height) spanning Y: -10.0m plasma abyss floor to +6.0m ceiling.
+  * Vertical traversal: entry at Y = -4.0m South Balcony, West turbine platform, dual interactive circuit breaker consoles (Breakers A & B implementing trigger_interaction), raising central hydraulic bridge from Y = -3.5m to Y = 0.0m, North Exit Gantry at Y = 0.0m with blast gate to Room 8.
+  * Electrical hazards built strictly as Area3D volumes with safe rhythm: 0.8s warning amber sparks -> 1.0s active cold cyan plasma discharge -> 2.5s safe recovery window.
+  * Plasma abyss recovery volume at Y <= -8.5m resetting player instantly to active safe anchor without scene reloading.
+  * 3-Tier distributed safe anchors (Alpha at entry, Beta at mid-transformer, Gamma at exit gantry) with monotonic progression.
+  * Smoke test artifacts/eleven-eleven/godot/tests/core_reactor_room_smoke.gd passed with 100% (Exit Code 0).
+- Full back-to-back regression suite passed in Godot 4.7.2 Headless:
+  * tests/opening_room_smoke.gd: PASS
+  * tests/airlock_decompression_buffer_smoke.gd: PASS
+  * tests/security_room_smoke.gd: PASS
+  * tests/specimen_containment_wing_smoke.gd: PASS
+  * tests/specimen_to_archive_conduit_smoke.gd: PASS
+  * tests/memory_archive_wing_smoke.gd: PASS
+  * tests/archive_to_reactor_conduit_smoke.gd: PASS
+  * tests/core_reactor_room_smoke.gd: PASS
+  * Result: ALL 8 ROOMS/BUFFERS 100% PASS (Exit Code 0).
+- Limitations: Room 8 (Decontamination & Quarantine) and subsequent rooms up to Room 12 (Hospital Bed) remain in production pipeline.
+- Next exact action: Implement Buffer Zone 7-8 and Room 8 (Decontamination & Quarantine Wing) per Level Architect specification and execute smoke verification.
+
 ## CP-20260929-05 — Planning and animation inventory, not runtime approval
 
 - Owner requested planning mode for the connected journey through hospital. `docs/internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md` specifies eight quality gates and 13 planned beats. Japanese voice and Arabic/English subtitles are the approved language direction; the first hospital reveal is `EX-011` on Echo's neck.
@@ -2198,3 +2314,69 @@ from measured failures; maintain this record after each accepted change.
 - Next: compare nine forward-walk candidates, sole/skin/loop approval, facial/finger rig and remaining source-action comparisons before canonical publication and player/AnimationTree integration. Preserve existing saves, progression and room boundary.
 
 - CP-20260930-02 native delivery verification: Windows and Android debug exports PASS with no export ERROR/WARNING. Package hashes/sizes retained in verification.json; packages are ignored local outputs. They include the touch fix and existing opening, not the staged character. This does not verify physical-device performance.
+## CP-20260930-03 — Owner stops generation; one-Walk/one-Echo import diagnosis
+
+- Latest Owner instruction replaces batch/quality-generation work. Stopped Higgsfield exploration, generation and improvement; no request submitted, no new source animation, no manually edited keys. Nine-take evidence from earlier work remains preserved and is no longer the active next action. Current runtime character and all gameplay systems unchanged.
+- Fixture: original Motus MOB1_Walk_F, SHA d72ede82bef3, original37 frames/30fps/1.2s; one existing Echo review LOD SHA62db579a8129. Source animation inspected before transfer. Rest pose, explicit bone mapping, local rest matrices, source/target armature matrices, Hips travel and both thigh rotations recorded in diagnosis.json before bake.
+- Root causes documented before repairs: raw local basis copying between incompatible rest frames produces44–48deg thigh errors; earlier direction-only/IK/contact solvers do not prove faithful transfer. Blender ACTIONS export tried the retained source action on the target and produced an unintended second clip. ACTIVE_ACTIONS export now verifies exactly one named baked Walk. No target bone-axis editing or contact/root key compensation.
+- New tools single_walk.py (inspect, bake, gated export) and single_walk.gd (23 mapped joints at37 times). Parent-first full source world/rest rotation deltas and original Hips translation once, target rest offsets; no IK/sole edits/root fitting/blending. Blender numerical/replay PASS: position1.80micrometres, lengths0.95micrometres; visual back/side74 frames reviewed before export. Export requires fresh .blend visual-review hash. Negative stale-review gate PASS and six pipeline tests PASS. glTF validator0 errors,2 inherited/asset warnings; retain report.
+- Godot A/B on identical GLB: default optimizer drops keys (ToeBase37 to12/14), producing6.46066mm/1.21477deg differences. Key-preserving diagnostic import PASS1.36124micrometres/0.00006188deg; actual back/side74 rendered frames. No AnimationTree/blending/root extraction. No production importer, Skeleton Retarget or Root Motion changes; diagnostic precision settings are not a runtime fix or approval. Missing bone-name/90deg initial oracle errors corrected in the test, not misreported as engine bugs.
+- Evidence/root-cause record audits/evidence/single-walk-20260930/. Source .blend remains editable, selected GLB isolated under .tmp. User-facing source/Blender images and Blender/Godot comparison video saved in this chat outputs. Full required project checks are recorded separately in verification.json with actual final status.
+- Worker: local Codex only. No external worker, model generation, commit/push, phase transition or canonical approval. Artistic100%, facial/finger and player integration not claimed. Next: retain this bounded regression fixture; do not restart batches or generate/improve motion. Compare actual runtime bridge rest bases before integrating any new character; do not alter Godot retarget/root motion to conceal import optimization loss.
+
+## CP-20260930-04 — Owner-approved Golden Walk; sequential Run/Jog, Idle and Jump verification
+
+- Latest Owner instruction explicitly approves the existing Walk as the fixed Golden Reference and authorizes sequential verification of existing Run → Idle → Jump with the same pipeline. CP-03's stop on expanding verification is historical; restrictions on Walk improvement/source-key edits, Skeleton Retarget, Root Motion, the current player and AnimationTree/blending remain in force. No new motion generation, paid request, commit/publish or phase completion.
+- Frozen Walk manifest and artifacts: `art/production/master-animation-library/golden/walk-v1/GoldenReference.json` inside the app. The guard verifies192 protected originals plus snapshots/manifest; PASS. Fresh playback of the frozen GLB in isolated Godot matches the frozen Blender reference within0.001361mm. Golden transfer/rest/alignment/export math remains unchanged; lossless diagnostic import settings are confined to per-motion projects.
+- Cases completed numerically and visually in order, with source diagnosis/source review before bake, Blender numeric+visual hash gates before one-clip ACTIVE_ACTIONS export and isolated AnimationPlayer-only Godot comparison: Run/Jog `MOB1_Jog_F`,25 samples/30fps/0.8s, Blender replay0.002351mm, Godot difference0.003042839mm; Idle2 existing `Standing Idle 04`,225 samples/30fps/7.46667s, Blender0.00149457mm, Godot0.00211953mm; Jump existing `Standing Jump`,74 samples/30fps/2.43333s, Blender0.00115347mm, Godot0.001328817mm. These are maximum position errors, not runtime gameplay/contact/sprint acceptance.
+- Idle attempt1 (`MOB1_Stand_Relaxed_Idle`) was quarantined before bake/export. Its sparse rotation-axis first-key/default import boundary caused the initial pose discrepancy; a full native FBX SDK intent oracle is UNVERIFIED. No source trimming, manual keys, importer shim or global settings change. The second evidence-driven source choice has all315 native curves starting at tick0; its expressive stance/stretch is not an approved neutral player Idle. Counted attempts: Run1, Idle2, Jump1; no blind retry loop.
+- Run compares23 mapped joints; Idle/Jump22, with the unmatched Root left at rest. This report metadata does not change Skeleton Retarget or Root Motion. No player integration, AnimationTree or blending.1 Owner-approved Golden reference is separate from0 runtime canonical animations; characterReplaced=false. G0 partial/G1 in progress.
+- Durable workflow/rules: root `AGENTS.md`, app `AGENT_RULES.md`, `tools/animation-library/README.md`, project `.agents/skills/echo-golden-animation/SKILL.md` and identical Codex-installed copy. Both skill validators PASS. Owner's later rule: use the proven pipeline directly when successful; invoke the diagnosis skill immediately when useful or at the first poor/failed result, no later than the second attempt; at most two evidence-driven attempts.
+- Verification: current preflight PASS;14 targeted tests PASS. **Final postflight: PASS** after final metadata/renderer edits:631/631 tests, content, TypeScript, production build and doctor. Current log `audits/evidence/golden-sequence-20260930/postflight.log`; hash in sequence-verification.json. All three saved blends independently replayed PASS without rebake or key edits; before/after source/target key fingerprints unchanged. Final scoped peer review found no serious defect or misleading completion claim.
+- Full [report](../../internal/production/GOLDEN_ANIMATION_2026-09-30.ar.md) and consolidated [verification evidence](../../../audits/evidence/golden-sequence-20260930/sequence-verification.json). Preserve original Idle1 diagnosis, source/native timing, visual gates, all case artifacts and hashes. Worker status: local Codex root and bounded Codex delegates; no external worker or paid generation.
+- Next exact action: preserve all fixed fixtures and Golden hashes. Original Idle1 needs a proven native oracle before considering a scoped adapter. Future motions follow the same source-first, gated pipeline one at a time. Do not convert this fixture verification into neutral-Idle approval, player integration or phase acceptance.
+
+### CP-20261001-02 — Native player foundation, isolated Blender review and model policy
+
+- Scope/authority: Owner approved controller/camera/touch work and transparent responsive buttons, existing animation reuse, Blender diagnosis and quality-gated continuation through hospital. Latest steering explicitly reinforces `$echo-golden-animation` instead of repeated attempts. G0 partial; G1/G2 open; hospital unfinished. Preserve the separate CP-20261001-01 Higgsfield setup history.
+- Native controller/HUD: camera-relative single press DASH, hold-to-sprint, three-finger/keyboard ownership, held DROP, immediate jump, cancellation on modal/focus/resize, bounded saved settings and reduced-motion FOV. Seven runtime SVG icons with transparent native controls and short press ring. Fixed hint overlap, stale hide tween and quest drift during resize inside existing HUD. Actual AR/EN captures at1280×720,1920×1080,2408×1080 plus pressed/settings reviewed; staged screenshots, not full-route/device acceptance.
+- Debug opt-in: `godot/scripts/diagnostics/player_frame_capture.gd`, `--echo-frame-capture`,20-second warmup then1200 measured active seconds, raw callback CSV/p95/p99/hitches, excludes pause/background/resume gaps. `player_frame_capture_smoke.gd` validates raw statistics and actual opening opt-in. No normal-session capture, device ID/PIN logs or GPU/input-latency claim.
+- Blender source/body inspection: existing master23 body bones lacks independent fingers/face. Isolated left-hand fork made in two construction attempts; first failed due8 surface shells being mistaken for4 anatomical fingers. Diagnosis recorded before measured second fix. Second preserves source SHA, body rest maxdifference0, mesh rest0 and outside-hand weights; rest/curl/corrected static spread reviewed. Signed spread-harness correction reads the same saved candidate without changes/saving/keys/export, not a third construction. Status PARTIAL left-hand static review; right hand/face/per-joint/contact/GLB/Godot pending. `audits/evidence/echo-hand-rig-20261001/ROOT_CAUSE.md` and `static-review.json` retain failure/success and exact SHA.
+- Existing-library motions: neutral Idle fixture saved independently with PASS evidence; no player integration or new runtime canonical. HardLanding source faithfully replays numerically but target shoe penetrates≈81mm in Blender. Measured target/source rest-vector and posed-skin clearance differences cause contact failure; original source skin/floor oracle unverified. Quarantined before GLB. No source-key, SkeletonRetarget or RootMotion compensation. Longer native roll source still requires source-first semantic/rig inspection before a second motion attempt.
+- Phone: ADB USB/mdns still empty. Owner rejected further UAC repair; no registry update. Prepared normal-user wireless pairing helper in chat outputs, tested parsing/private-IP/port validation; actual pairing and20-minute physical performance remain UNVERIFIED pending the two endpoints. PIN goes only to private local input, never chat/logs.
+- Owner's durable Higgsfield preference: **Seedance2.5/2.0** exact catalog IDs `seedance_2_5`/`seedance_2_0`; checked live MCP catalog classifies both as video. Model2.5 supports4–30s/1080p;2.0 supports4–15s/4K in std. Jutsu Blender Python tool has no Seedance selector. Policy/contract in `docs/internal/production/HIGGSFIELD_MODEL_POLICY_2026-10-01.ar.md` and `higgsfield-preferred-models.json`; no generation submitted for this preference. No inference that a video is playable3D or that a404 verifies credentials.
+- Verification: current preflight and final postflight PASS:631 tests, content, TypeScript, production build and doctor. Golden guard PASS192 and9 pipeline tests PASS. Actual native foundation, pause/touch, opening both orders, maintenance skip/reduced and frame-capture tests PASS. Windows/Android debug exports rebuilt (APK83,190,217 bytes). Evidence consolidated in `audits/evidence/player-foundation-20260930/verification-20261001.json`; report `PLAYER_FOUNDATION_2026-09-30.ar.md`. Dirty prior work preserved; no commit/push/publish/paid job. Historical delegated files inspected locally; root completed current work serially, no live subagent or external-worker claim.
+- Next exact action: use the animation skill's source/rest/mapping/local-axes/armature/pelvis/thigh diagnosis in Blender on the saved isolated case before any further change; no speculative third hand construction. Finish independent hand/face/contact rig review before export and per-motion Godot replay. Pair wirelessly when phone endpoints arrive and measure real20-minute route/device evidence before G2 acceptance. Do not expand later rooms/cinematics or declare the hospital complete while gates remain open.
+
+### CP-20261001-03 — Owner-directed controller-first plan
+
+- Latest Owner direction prioritizes the existing third-person controller, camera, real mobile touch and parkour reliability before story rooms/editable3D/polish. Owner explicitly selected partial-stick Walk/full-stick Run with a separate Roll button, preserved camera orbit with mild landing assistance, and a clear vertical main route plus harder optional memory route. Landscape mobile. These choices supersede the older combined mobile DASH/hold-sprint contract, not Canon or the frozen animation invariants.
+- Concrete plan: `docs/internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md`; source inspection identified loss of analog magnitude through normalized direction, missing explicit radial joystick deadzone and current held-button sprint. Reuse coyote120ms/buffer150ms, player avatar, SpringArm and tagged traversal motor. Plan approval/recording is not implementation or phase acceptance. Baseline and postflight evidence live in `audits/evidence/third-person-foundation-20261001/`.
+- Independent unkeyed Blender joint probes exposed abrupt skin-weight boundaries in the isolated left-hand fork. Root cause recorded before one scoped native smooth repair, which saved a new fork preserving38 rest bones, mesh and outside weights; exit0 is not deformation approval. No animation/export/player change. Park this DEFORMATION_REVIEW_PENDING candidate to follow the new controller priority.
+- Phone remains physically unverified: USB ADB interface lacks standard interface GUID and adb/mdns inventory is empty; Phone Link screenshot is synchronization only. Owner authorizes deferring this connection failure while local work continues. No renewed UAC/registry action. Antigravity authorized only for short detailed read-only advice; not used in this delivery.
+- Current Canon/story gate stays open; no broad room production or hospital claim. Root serial work, dirty work preserved, no commit/push/paid job.
+- Verification: freshly rerun real Godot `player_foundation_smoke.gd` and `maintenance_traversal_smoke.gd` both exit0/PASS, preserving the old behavior as a baseline only. Current postflight PASS631, content/TypeScript/build/doctor; final metadata/JSON and diff checks recorded in `verification.json`. No new analog/Roll implementation or new runtime visual/phone acceptance is claimed.
+- Next exact action: baseline real player/maintenance, failing regression for partial/full stick, preserve analog magnitude and add Run hysteresis/separate Roll in current paths, verify Godot, then camera. Do not drift back into rig production or random rooms.
+
+### CP-20261001-04 — Resume implemented foundation; honest artistic review
+
+- Read the actual preceding chat and current dirty checkout before continuing. Analog Walk/Run hysteresis, separate Roll, camera and traversal were already implemented after CP-03; no claim that the older plan still describes current code. Latest Owner explicitly asks for professional appeal and animation with Genshin as a craft benchmark; original 11.11 identity remains authoritative.
+- Fixed real pointer ownership: emulated MouseMotion cannot rotate the touch camera again, and terminal close cannot capture the mouse in touch mode, including Web touch. Rendered regression first reproduced the bug, then passed. Its existing HUD resize assertion now waits process frames for Control layout, preserving overlap assertions. Headless pointer-capture coverage explicitly reports SKIP/UNVERIFIED; rendered coverage supplies that evidence.
+- Functional evidence: all16 third-person suite cases PASS; current postflight631 tests/content/TypeScript/build/doctor PASS before final record updates, with final refresh recorded separately. Golden guard192 and9 pipeline tests PASS. This is functional evidence, not artistic acceptance or physical-phone testing.
+- Actual staged runtime capture v3 reaches5.8m/s; preset_run plays3.317 times its authored rate. Earlier capture paths collided with an existing prop and are excluded from run acceptance. v3 video/trace and12 sampled review frames retained. Opening still shows prototype presentation; professional appeal/character acting/contact gates remain open.
+- Two bounded existing-source sprint attempts: first has Hips as an armature object and fails the frozen primary-bone contract before bake. Second faithfully replays numerically (~0.00275mm) but measured weighted shoe soles penetrate36.38mm. Comparison sheets reviewed; FAIL_CONTACT. No GLB export, player integration, source-key edit, compensating motion, or third speculative source attempt. Source-skin/floor oracle remains unverified.
+- Three isolated lighting variants rendered in the real room; soft key and skin response did not resolve the pale face/presentation gap. Rejected; production lighting/materials untouched. Runtime body has4 blend shapes, so no false claim that it has none. Existing saved hand deformation candidate remains parked.
+- Report: docs/internal/production/PROFESSIONAL_ART_REVIEW_2026-10-01.ar.md. Evidence: audits/evidence/third-person-foundation-20261001/implementation/ and audits/evidence/sprint-natural-20261001/. Map/current card/project memory updated. Preserve dirty/untracked work. Worker: local Codex only, no new subagent/external worker, paid job, commit, push or publication.
+- Next exact action: use the existing opening as the reference room; diagnose the saved source/target rest and posed shoe geometry before any bounded rig correction, then review character face/materials, contact and transitions in runtime. Follow controller → camera → mobile → parkour → story/editable3D → polish without using extra rooms to conceal weak art. Human free-play, actual20-minute phone benchmark, full hospital/chapter and professional art acceptance remain UNVERIFIED; phase PARTIAL.
+- Final refresh: postflight PASS631/content/TypeScript/build/doctor after review/capture additions; Golden guard PASS192; native visual smoke PASS. Windows/Android rebuilt with current pointer fix (APK83,215,445B; PCK56,705,432B), Android signature verified. Final log/package hashes in implementation/resume-verification-final.json. Documentation-only closure does not alter tested runtime behavior or accept art/phone gates.
+
+### CP-20261001-05 — IN PROGRESS: reference-room repairs, native stance diagnosis and first route link
+
+- Latest Owner requires autonomous professional work through Echo awakening in hospital, with High agents and reviewed graphics/control/animation. Latest tool direction says do not depend on Higgsfield API for models/cinematics; no new paid generation since that instruction. Existing previously authored conduit has local editable source; connector provenance is recorded honestly, not claimed as paid-key access.
+- Echo-only shader light-unit/albedo/hemisphere repair PASS with actual rendered pixels in Forward+ and Compatibility; non-Echo response preserved. Source material diagnosis proved enabled green roughness/blue metallic textures were discarded, AO was not enabled. Textures/channels and post-sample metallic cap now preserved; rendered channel-specific highlights PASS on both renderers. Frozen actual-room A/B needs final corrected fixture review; a null non-Echo uniform conversion hung the fixture, was stopped and fixed, not reported as a production shader failure. Source face weights all four zero in runtime, not a blend-default defect.
+- Local conduit GLB6920tri/7meshes/6materials imported and state-bound in the existing prop scene. Hidden original fallback retained. Exact preserved0.45m radius/1.8m height footprint, collider/interaction/light count, independent material state and native checkpoint regression PASS. Actual integrated dormant/energized room captures reviewed at prop/integrated/; full-room art acceptance open.
+- Standing complaint is genuine: embedded preset_idle on22bone avatar, no finger joints. Current local authoring reverses named side semantics; T/A rest differs and mapped Root is floor-level. Frozen candidate numericalPASS but anatomical/skinFAIL (arms92–94deg/sole17.659mm), no export. Diagnosed full-frame anatomical transport fixes segment directions but shoe contact stillFAIL32–37mm, remains quarantined. Source keys, mesh/rest and Golden192 preserved. Root viewed local native arm-only derivative diagnostic front/side at3times and authorized ONE isolated190-frame construction, keeping original body/root/foot tracks verbatim; all-frame/deformation/seam/export/import/Godot review required before integration. This local-authored presentation scope is separate from frozen source transfer.
+- High worker slice1 links actual default native boot to opening → existing maintenance → grounded security-entry threshold. Strict local progress-only versioned prefix/atomic validated backup and duplicate/order/failure guards PASS; no powers/account/rewards. Both complete physical touch routes PASS without teleports/phase calls. Existing preview/Web boundaries preserved. Security room itself is a separate root-authored review candidate: real cover-ray/diversion/manual latch/grounded entry/restore/noearlypower PASS; Ogg cleanup leak diagnosed and fixed with fresh clean run. No later legacy boss/timer route connected.
+- Hospital daylight local kit is separate: actual floor/bed physics and scalePASS, room6.4x5.8m, mattress2.12x0.96m/top0.70m. Rigid patient prototype FAIL at head52mm/footcover80mm and skin mark not accepted; do not integrate as a completed awakening. Legacy identifier's bone_6 is current shoulder, not neck; measured production neck fix is next. Canon exposure audit/matrix read approved later pages and preserve explicit consent/powers after pact/wish confirmation/bedside ambiguity.
+- Evidence/report: docs/internal/production/CHARACTER_REFERENCE_REPAIR_2026-10-01.ar.md; audits/evidence/character-shading-20261001/, hospital-route-20261001/, hospital-bedside-foundation-20261001/. Agent postflights PASS631/content/TS/build/doctor before later edits. Root owns next central postflight and native rebuild after a stable reviewed bundle; CP04 Windows/Android exports are older. Dirty originals preserved; no commit/push/publication.
+- Work continues. G0 partial, G1/G2 open; no professional-art, physical-phone/20min/thermal, full chapter or hospital acceptance. Next exact action: finish isolated native Idle gates, corrected authored-map A/B, security actual traversal/camera/render review and then measured connection, EX-011 true neck placement; proceed each approved room through Subjects/archive/energy/pursuit/mirror, Kenja/dream/drowning, explicit Zero pact, controllable revenge, explicit wish and genuine patient wake/sit/control recovery. Never shortcut those beats or use extra rooms to conceal character defects.

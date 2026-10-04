@@ -1,4 +1,4 @@
-extends SceneTree
+﻿extends SceneTree
 
 const PATH := "user://maintenance_checkpoint_smoke.json"
 
@@ -33,7 +33,10 @@ func _run() -> void:
 	if not _check(not director._save(), "failed storage reported a successful save"): return
 	if not _check(not main.player.contract_with_zero_sealed and not main.player.combat_available, "restore granted premature powers"): return
 	main.queue_free()
-	for i in range(3): await process_frame
+	for i in range(4):
+		await process_frame
+		await physics_frame
+	await create_timer(0.1).timeout
 	for path in [PATH,PATH+".bak",PATH+".tmp","user://maintenance_checkpoint_opening.json","user://maintenance_checkpoint_opening.json.bak","user://maintenance_checkpoint_prefs.cfg"]:
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
 	print("PASS maintenance checkpoint: atomic replacement, corrupt-primary recovery, schema/range/type rejection, failed write and no premature powers")
@@ -49,3 +52,4 @@ func _check(condition: bool, detail: String) -> bool:
 		push_error(detail)
 		quit(1)
 	return condition
+

@@ -9,6 +9,25 @@ Status: **OWNER APPROVED**
 Version: **1.0**  
 Approved: **2026-08-28**
 
+## Owner update — 2026-10-01: Third-person foundation priority
+
+The latest [controller-first execution plan](internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md)
+refines V2 without changing Canon: preserve the existing Godot player and systems,
+then verify controller, camera, real touch and parkour before broad room production.
+Mobile is landscape; partial stick means Walk and full stick means Run, with a
+separate Roll button. This supersedes the older combined mobile dash/sprint choice.
+Keep the user's camera orbit after releasing look input, with restrained landing
+framing assistance. The vertical area has a clear main route and a harder optional
+parkour route revealing an additional approved memory. No supernatural traversal
+before the Zero contract. Frozen Walk, source keys, Skeleton Retarget, Root Motion
+and the existing avatar remain protected.
+
+The Owner permits deferring phone connection difficulties while independent local
+work continues; physical-device quality/performance remain unverified until tested.
+Antigravity may advise on short, detailed read-only tasks; returned claims require
+local verification. This direction prioritizes the control foundation over further
+isolated hand-rig work. It does not accept the foundation or advance any story gate.
+
 ## Owner update — 2026-09-30
 
 The revised [eight-gate production plan](internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md) supersedes earlier batch ordering. Painted-texture soft-shaded anime art, assisted ledge catches, human survival before the contract, short attacks and one timed shadow ability after it, fast safe retries, continuous interactive Kenja scenes, combined dash/sprint mobile control and parkour-driven System memory discoveries are Owner-approved. Preserve and reuse the existing Sol-arranged animations and completed inventory. Character, controls and measured phone performance precede broad room production. These are production requirements, not accepted runtime features; the chapter still ends at hospital awakening with Japanese performance and Arabic/English subtitles.
@@ -377,6 +396,18 @@ No phase receives PASS because it took a long time or produced many assets.
 7. Build, test, self-critique, repair, and quality-gate one phase at a time.
 
 ## Change control
+
+### Owner direction — 2026-10-01: Preferred Higgsfield models
+
+Use Seedance 2.5 (`seedance_2_5`) and Seedance 2.0 (`seedance_2_0`) as the
+preferred video models for this project. Choose between them using the shot's
+duration, references and verified quality, with no automatic substitution to
+Mini or another model. The live catalog classifies both as video generators;
+editable Jutsu 3D scenes still require Blender construction, review and Godot
+integration. This preference preserves the frozen Golden Walk and the current
+sequential gates; it does not accept unfinished rooms, animation or the hospital.
+See [the production policy](internal/production/HIGGSFIELD_MODEL_POLICY_2026-10-01.ar.md)
+and its checked model contract for actual capabilities.
 
 ### Owner direction — 2026-09-03: Approved Part 1 and Manhwa-anchored opening
 

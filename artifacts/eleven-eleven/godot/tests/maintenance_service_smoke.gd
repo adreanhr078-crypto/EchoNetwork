@@ -34,18 +34,18 @@ func _run() -> void:
 	var room = director.room
 	if not _check(director.stage == 5 and not room.service_open, "old stage-5 checkpoint skipped the new task"): return
 	player.camera_boom.rotation.y = 0
-	player.mobile_input_vector = Vector2.RIGHT
+	player.set_mobile_input_vector(Vector2.RIGHT, true)
 	for i in range(35):
 		await physics_frame
 		if player.position.x >= 2.8: break
-	player.mobile_input_vector = Vector2.ZERO
+	player.set_mobile_input_vector(Vector2.ZERO, true)
 	for i in range(5): await physics_frame
 	if not _check(not room.request_service_release(player).released, "wheel accepted remote interaction"): return
-	player.mobile_input_vector = Vector2.LEFT
+	player.set_mobile_input_vector(Vector2.LEFT, true)
 	for i in range(100):
 		await physics_frame
 		if player.position.x <= 1.25: break
-	player.mobile_input_vector = Vector2.ZERO
+	player.set_mobile_input_vector(Vector2.ZERO, true)
 	for i in range(8): await physics_frame
 	if not _check(player.get_nearest_interactable() == room.service_interaction, "wheel proximity not registered"): return
 	# Physical capsule must be blocked by the sealed panel.
@@ -67,6 +67,7 @@ func _run() -> void:
 		if not _check(room.hand_contact.active, "service gesture failed: " + room.hand_contact.start_result): return
 	if "--skip" in args:
 		cinematic._skip.pressed.emit()
+		await create_timer(0.5).timeout
 		if not _check(not cinematic.active and not player.control_locked and not room.service_open and room.service_opening and root.get_camera_3d() == player_camera, "skip changed gate authority or retained control/camera"): return
 	for i in range(12): await physics_frame
 	main.native_pause_menu.set_session_paused(true)

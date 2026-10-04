@@ -58,6 +58,11 @@ func _physics_process(delta: float) -> void:
 	angular_velocity += total_torque * delta
 	current_rotation += angular_velocity * delta
 
+	# Guard against NaN/Inf or numerical instability
+	if not angular_velocity.is_finite() or not current_rotation.is_finite():
+		angular_velocity = Vector3.ZERO
+		current_rotation = Vector3.ZERO
+
 	# 5. Clamp to physical bounds
 	var max_rad: float = deg_to_rad(max_angle_degrees)
 	current_rotation.x = clamp(current_rotation.x, -max_rad, max_rad)

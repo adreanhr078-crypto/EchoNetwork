@@ -31,12 +31,12 @@ func _run() -> void:
 	main.player.velocity = Vector3.ZERO
 	main.player.control_locked = false
 	main.player.camera_boom.rotation.y = 0
-	main.player.mobile_input_vector = Vector2(0,-1)
+	main.player.set_mobile_input_vector(Vector2(0,-1), true)
 	main.player.request_jump()
 	for i in range(180):
 		await physics_frame
 		if main.player.surface_motor.hanging: break
-	main.player.mobile_input_vector = Vector2.ZERO
+	main.player.set_mobile_input_vector(Vector2.ZERO, true)
 	main.player.set_physics_process(false)
 	main.player.camera_boom.rotation.y = 0.35
 	for i in range(8): await process_frame
@@ -54,7 +54,7 @@ func _run() -> void:
 	# Inspect the new authored push at its peak. This is a render fixture,
 	# not an extra progression test or an accepted in-game cinematic.
 	main.player.set_physics_process(true)
-	main.player.mobile_input_vector = Vector2(0,-1)
+	main.player.set_mobile_input_vector(Vector2(0,-1), true)
 	main.player.request_jump()
 	for i in range(26): await physics_frame
 	main.player.set_physics_process(false)

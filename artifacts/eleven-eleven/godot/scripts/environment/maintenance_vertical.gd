@@ -36,7 +36,9 @@ func _ready() -> void:
 		collider.shape = shape
 		body.add_child(collider)
 		add_child(body)
-		if row.climbable: body.add_to_group("climbable")
+		if row.climbable:
+			body.add_to_group("climbable")
+			_add_climbable_visual_cues(body, shape.size)
 	for position in [Vector3(-3, 4.8, -2), Vector3(1, 6.3, -6), Vector3(4, 6.8, -10)]:
 		var light := OmniLight3D.new()
 		light.position = position
@@ -74,7 +76,7 @@ func _ready() -> void:
 	service_interaction.position.y = 0.9
 	var area_shape := CollisionShape3D.new()
 	var range_shape := SphereShape3D.new()
-	range_shape.radius = 0.85
+	range_shape.radius = 1.35
 	area_shape.shape = range_shape
 	service_interaction.add_child(area_shape)
 	station.add_child(service_interaction)
@@ -102,7 +104,7 @@ func request_service_release(interactor: Node3D) -> Dictionary:
 	var floor_anchor := to_global(Vector3(1.25,5.4,-12.1))
 	if not service_allowed or service_open or service_opening:
 		return {"released":false, "reason":"not_ready"}
-	if not interactor is EchoPlayer or service_interaction.current_interactor != interactor or interactor.control_locked or not interactor.is_on_floor() or interactor.global_position.distance_to(floor_anchor) > 1.15:
+	if not interactor is EchoPlayer or service_interaction.current_interactor != interactor or interactor.control_locked or not interactor.is_on_floor() or interactor.global_position.distance_to(floor_anchor) > 1.45:
 		return {"released":false, "reason":"out_of_reach"}
 	service_opening = true
 	_disable_interaction()
@@ -165,3 +167,39 @@ func set_reduced_motion(reduced: bool) -> void:
 				animation.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
 				animation.play(clip)
 			break
+
+func _add_climbable_visual_cues(body: StaticBody3D, size: Vector3) -> void:
+	var rung_mat := StandardMaterial3D.new()
+	rung_mat.albedo_color = Color(0.12, 0.15, 0.18)
+	rung_mat.metallic = 0.85
+	rung_mat.roughness = 0.25
+	rung_mat.emission_enabled = true
+	rung_mat.emission = Color(0.0, 0.85, 1.0)
+	rung_mat.emission_energy_multiplier = 1.6
+
+	var rung_count := clampi(int(size.y / 0.55), 3, 7)
+	var y_step := (size.y * 0.8) / float(rung_count)
+	var start_y := -size.y * 0.38
+	for i in range(rung_count):
+		var rung := MeshInstance3D.new()
+		rung.name = "ClimbRung_%d" % i
+		var mesh := BoxMesh.new()
+		mesh.size = Vector3(size.x * 0.82, 0.04, 0.06)
+		rung.mesh = mesh
+		rung.material_override = rung_mat
+		rung.position = Vector3(0.0, start_y + i * y_step, size.z * 0.5 + 0.03)
+		body.add_child(rung)
+
+	var lip := MeshInstance3D.new()
+	lip.name = "ClimbLedgeLip"
+	var lip_mesh := BoxMesh.new()
+	lip_mesh.size = Vector3(size.x * 0.9, 0.03, 0.06)
+	lip.mesh = lip_mesh
+	var lip_mat := StandardMaterial3D.new()
+	lip_mat.albedo_color = Color(0.0, 0.95, 1.0)
+	lip_mat.emission_enabled = true
+	lip_mat.emission = Color(0.0, 0.95, 1.0)
+	lip_mat.emission_energy_multiplier = 2.4
+	lip.material_override = lip_mat
+	lip.position = Vector3(0.0, size.y * 0.5, size.z * 0.5 + 0.02)
+	body.add_child(lip)

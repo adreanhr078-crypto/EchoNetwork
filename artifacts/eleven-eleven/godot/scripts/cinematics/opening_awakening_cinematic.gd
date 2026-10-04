@@ -18,6 +18,7 @@ func play(subject: Node3D) -> void:
 	if not _camera_boom or not _player_camera:
 		return
 	_subject = subject
+	_subject.suspend_gameplay_camera()
 	_is_playing = true
 	# Keep the first frame inside the authored chamber instead of facing the void beyond it.
 	_camera_boom.rotation.y = TAU - 0.35
@@ -47,12 +48,18 @@ func finish() -> void:
 	_is_playing = false
 	if _camera_tween and _camera_tween.is_running():
 		_camera_tween.kill()
-	if _camera_boom and is_instance_valid(_camera_boom):
-		_camera_boom.rotation.y = 0.0
-		_camera_boom.spring_length = 3.0
-	if _player_camera and is_instance_valid(_player_camera):
-		_player_camera.fov = 75.0
 	if _guide_pod and is_instance_valid(_guide_pod):
 		_guide_pod.set("float_offset", _original_pod_offset)
 	if _subject and is_instance_valid(_subject) and _subject.has_method("finish_opening_recovery"):
+		_subject.resume_gameplay_camera()
 		_subject.finish_opening_recovery()
+
+func _exit_tree() -> void:
+	# Scene teardown releases presentation ownership only. finish() also emits
+	# recovery completion and must not start dialogue/progression while unloading.
+	_is_playing = false
+	if _camera_tween and _camera_tween.is_running(): _camera_tween.kill()
+	if is_instance_valid(_guide_pod) and not _guide_pod.is_queued_for_deletion():
+		_guide_pod.set("float_offset", _original_pod_offset)
+	if is_instance_valid(_subject) and not _subject.is_queued_for_deletion():
+		_subject.resume_gameplay_camera()

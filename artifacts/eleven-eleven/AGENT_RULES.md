@@ -2,6 +2,26 @@
 
 These rules apply to every agent working in the active application.
 
+## Owner animation foundation — 2026-09-30
+
+The frozen Golden invariants apply to every character skeletal animation
+import/retarget task. Routine successful work follows the proven pipeline directly.
+Invoke `$echo-golden-animation` from the repository's
+`.agents/skills/echo-golden-animation/SKILL.md` immediately when diagnosis improves
+quality, at the first failed/poor result, and no later than the second attempt.
+Allow at most two evidence-driven attempts per motion; a second attempt requires
+a documented cause and scoped fix, never a blind retry loop.
+The Owner-approved Walk is the fixed Golden Reference in
+`art/production/master-animation-library/golden/walk-v1/`; verify its protected
+hashes before and after each motion, and never regenerate, improve or reseal it.
+Process existing Run/Jog → Idle → Jump sources sequentially with the same frozen
+transfer/export and isolated Godot import pipeline. Preserve source keys,
+Skeleton Retarget, Root Motion and the current player; no AnimationTree or
+blending during verification. Diagnose failures within the individual motion
+before any local fix, without changing global project settings. Later explicit
+Owner instructions take precedence. The exact workflow is documented in
+`tools/animation-library/README.md`.
+
 ## 1. Read the durable project memory first
 
 Before analysis, planning, design, code, content, or asset work, read in order:

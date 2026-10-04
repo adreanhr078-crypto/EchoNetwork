@@ -7,17 +7,22 @@ var player: CharacterBody3D
 var dialogue: Control
 var touch: Control
 var maintenance := false
+var native_journey := false
 
 func _init() -> void:
 	call_deferred("_run")
 
 func _run() -> void:
-	maintenance = "maintenance" in OS.get_cmdline_user_args()
+	native_journey = "native-journey" in OS.get_cmdline_user_args()
+	maintenance = native_journey or "maintenance" in OS.get_cmdline_user_args()
 	for terminal_first in [true, false]:
 		_clear()
-		main = load("res://scenes/system_journey_preview.tscn" if maintenance else "res://scenes/opening_native_room.tscn").instantiate()
+		var scene_path := "res://scenes/system_journey_preview.tscn" if maintenance else "res://scenes/opening_native_room.tscn"
+		if native_journey: scene_path = preload("res://scripts/boot.gd").NATIVE_SCENE
+		main = load(scene_path).instantiate()
 		main.native_checkpoint_path = SAVE
 		main.native_preferences_path = PREFS
+		if native_journey: main.get_node("NativeJourneyController").checkpoint_path = "user://journey_route_input_smoke.json"
 		root.add_child(main)
 		if maintenance: main.get_node("SystemJourneyPreview").checkpoint_path = "user://maintenance_route_smoke.json"
 		await process_frame
@@ -80,6 +85,13 @@ func _run() -> void:
 		if not _check(main.opening_web_handoff.reported_milestones.has("memory_scene_completed") and not player.combat_available, "ending not completed or combat activated"): return
 		if maintenance:
 			if not await _maintenance_route(): return
+		if native_journey:
+			# The authored far wall stops the capsule at about -31.90. Aim within
+			# the route driver's arrival tolerance, beyond the -31.82 threshold.
+			if not await _walk(Vector3(0,5.4,-32.05)): return
+			var journey = main.get_node("NativeJourneyController")
+			if not _check(journey.security_entered and journey.progress.completed == ["opening_completed", "maintenance_completed", "security_entered"] and not player.combat_available and not player.contract_with_zero_sealed and not player.shadow_step_unlocked, "native route did not reach grounded security entry or granted powers"): return
+			print("PASS default native journey: wake -> opening -> maintenance -> grounded security entry; actual touch input, no relocations or phase calls")
 		if terminal_first and not maintenance:
 			if not await _walk(Vector3(0, 0, -7)): return
 			if not await _walk(Vector3(-7.7, 0, -7)): return
@@ -100,6 +112,7 @@ func _run() -> void:
 	quit(0)
 
 func _walk(target: Vector3) -> bool:
+	touch.is_joystick_active = true
 	for i in range(1000):
 		if target.z <= -14.5 and dialogue.is_active and player.global_position.z <= -14.5:
 			touch.joystick_moved.emit(Vector2.ZERO)
@@ -109,8 +122,12 @@ func _walk(target: Vector3) -> bool:
 		if delta.length() < 0.18:
 			touch.joystick_moved.emit(Vector2.ZERO)
 			for settle in range(8): await physics_frame
-			return true
-		touch.joystick_moved.emit(Vector2(delta.x, delta.z).normalized())
+			if player.is_on_floor(): return true
+			continue
+		# A full stick now runs. Feather it near a landing/interaction so this
+		# route driver does not sprint past a small platform while airborne.
+		var magnitude := 1.0 if delta.length() > 1.2 else 0.65
+		touch.joystick_moved.emit(Vector2(delta.x, delta.z).normalized() * magnitude)
 		await physics_frame
 	return _check(false, "movement blocked toward %s from %s" % [target, player.global_position])
 
@@ -128,6 +145,9 @@ func _continue_dialogue() -> void:
 
 func _clear() -> void:
 	for path in [SAVE, SAVE + ".bak", SAVE + ".tmp", PREFS, "user://maintenance_route_smoke.json", "user://maintenance_route_smoke.json.bak", "user://maintenance_route_smoke.json.tmp"]:
+		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
+	for suffix in ["", ".bak", ".tmp", ".bak.tmp"]:
+		var path: String = "user://journey_route_input_smoke.json" + suffix
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
 
 func _maintenance_route() -> bool:
@@ -166,21 +186,28 @@ func _maintenance_route() -> bool:
 	return true
 
 func _climb_and_mantle() -> bool:
+	touch.is_joystick_active = true
+	# Full stick now runs and spends stamina. Rest at the authored ledge before
+	# each ascent, using real recovery rather than refilling a fixture variable.
+	touch.joystick_moved.emit(Vector2.ZERO)
+	for i in range(240):
+		if player.stamina >= 60: break
+		await physics_frame
 	touch.joystick_moved.emit(Vector2(0,-1))
 	touch.jump_tapped.emit()
 	for i in range(180):
 		await physics_frame
 		if player.surface_motor.hanging: break
-	if not _check(player.surface_motor.hanging, "route failed to hang at authored ledge"): return false
+	if not _check(player.surface_motor.hanging, "route failed to hang at authored ledge: %s input=%s climbing=%s" % [player.position,player.resolve_movement_input(),player.is_climbing()]): return false
 	await process_frame
-	if not _check(touch.dodge_btn.visible and touch.dodge_btn.text == "أفلت", "touch drop is hidden before Zero's contract"): return false
+	if not _check(touch.dodge_btn.visible and touch.dodge_btn.get_node("ActionCaption").text == "أفلت", "touch drop is hidden before Zero's contract"): return false
 	touch.jump_tapped.emit()
 	for i in range(140):
 		await physics_frame
 		if not player.traversal.is_climbing(): break
 	touch.joystick_moved.emit(Vector2.ZERO)
 	for i in range(16): await physics_frame
-	if not _check(not touch.dodge_btn.visible, "wall release exposes combat dodge on the floor"): return false
+	if not _check(touch.dodge_btn.visible and touch.dodge_btn.get_node("ActionCaption").text == "تدحرج", "wall release did not restore exploration Roll"): return false
 	return _check(player.is_on_floor(), "route mantle did not land")
 
 func _check(condition: bool, message: String) -> bool:

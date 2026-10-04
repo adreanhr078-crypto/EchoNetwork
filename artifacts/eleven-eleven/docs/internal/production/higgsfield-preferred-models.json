@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "ownerInstructionDate": "2026-10-01",
+  "preferredVideoModelIds": [
+    "seedance_2_5",
+    "seedance_2_0"
+  ],
+  "qualityPolicy": {
+    "seedance_2_5": {
+      "resolution": "1080p",
+      "bitrate_mode": "high",
+      "draft": false
+    },
+    "seedance_2_0": {
+      "mode": "std",
+      "resolution": "4k",
+      "bitrate_mode": "high"
+    },
+    "selection": "Choose between these two according to shot duration, reference continuity and verified output quality; recheck live availability and shot requirements before submission.",
+    "automaticFallback": false
+  },
+  "editable3DPolicy": {
+    "pipeline": "Jutsu 3D / Blender -> reviewed editable scene -> Godot",
+    "seedanceSelectorAvailableInJutsu3DPythonTool": false,
+    "videoIsNotPlayable3D": true
+  },
+  "animationPolicy": "Existing library only. Preserve frozen Golden Walk, source keys, player, Skeleton Retarget and Root Motion. Diagnose isolated pipeline failures before fixes.",
+  "catalogVerifiedOn": "2026-10-01",
+  "catalogSource": "Higgsfield MCP models_get",
+  "modelCatalog": [
+    {
+      "id": "seedance_2_5",
+      "name": "Seedance 2.5",
+      "provider_name": "Bytedance",
+      "description": "Seedance 2.5 text-to-video, multimodal omni-reference generation, video edit, and video extension",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "mode",
+          "required": "optional",
+          "type": "string",
+          "description": "Generation mode: 't2v' for prompt-only generation, 'omni_reference' for image, video, or audio references, 'video_edit' to edit one reference video (billed by that video's duration; 'duration' and 'aspect_ratio' are ignored), or 'video_extension' to extend a reference video ('aspect_ratio' is ignored — the output follows the extended video).",
+          "options": [
+            "t2v",
+            "omni_reference",
+            "video_edit",
+            "video_extension"
+          ],
+          "default": "t2v"
+        },
+        {
+          "name": "duration",
+          "required": "optional",
+          "type": "number",
+          "description": "Duration in seconds (4-30).",
+          "min": 4,
+          "max": 30,
+          "default": 5
+        },
+        {
+          "name": "resolution",
+          "required": "optional",
+          "type": "string",
+          "description": "Output resolution: 480p, 720p, or 1080p.",
+          "options": [
+            "480p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "name": "generate_audio",
+          "required": "optional",
+          "type": "bool",
+          "description": "Generate audio for the output video.",
+          "default": true
+        },
+        {
+          "name": "bitrate_mode",
+          "required": "optional",
+          "type": "string",
+          "description": "'standard' = normal output bitrate; 'high' = higher bitrate output.",
+          "options": [
+            "standard",
+            "high"
+          ],
+          "default": "standard"
+        },
+        {
+          "name": "extension_mode",
+          "required": "optional",
+          "type": "string",
+          "description": "Extension direction; required for mode 'video_extension' and not allowed otherwise.",
+          "options": [
+            "backward",
+            "forward"
+          ],
+          "nullable": true
+        },
+        {
+          "name": "draft",
+          "required": "optional",
+          "type": "bool",
+          "description": "Generate a 480p draft that can be finalized within seven days.",
+          "default": false
+        },
+        {
+          "name": "draft_job_id",
+          "required": "optional",
+          "type": "string",
+          "description": "Completed draft job to finalize at 1080p.",
+          "nullable": true
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "start_image",
+            "end_image",
+            "image_references",
+            "video_references",
+            "audio_references"
+          ]
+        }
+      ],
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "tags": [
+        "text-to-video",
+        "reference",
+        "identity",
+        "audio-reference",
+        "video-reference",
+        "video-edit",
+        "video-extension",
+        "480p",
+        "720p",
+        "1080p"
+      ]
+    },
+    {
+      "id": "seedance_2_0",
+      "name": "Seedance 2.0",
+      "provider_name": "Bytedance",
+      "description": "Reference-driven video with image/video/audio reference inputs, consistent identity, multi-SKU; optional generate_audio for native audio",
+      "output_type": "video",
+      "parameters": [
+        {
+          "name": "duration",
+          "required": "optional",
+          "type": "number",
+          "description": "Duration in seconds (4-15).",
+          "min": 4,
+          "max": 15,
+          "default": 5
+        },
+        {
+          "name": "resolution",
+          "required": "optional",
+          "type": "string",
+          "description": "Output resolution. 4k/1080p require mode='std'; mode='fast' supports 480p/720p only.",
+          "options": [
+            "480p",
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "name": "mode",
+          "required": "optional",
+          "type": "string",
+          "description": "'std' = higher quality, supports 480p/720p/1080p/4k; 'fast' = cheaper/faster, supports 480p/720p only.",
+          "options": [
+            "std",
+            "fast"
+          ],
+          "default": "std"
+        },
+        {
+          "name": "bitrate_mode",
+          "required": "optional",
+          "type": "string",
+          "description": "'standard' = normal output bitrate; 'high' = higher bitrate output.",
+          "options": [
+            "standard",
+            "high"
+          ],
+          "default": "standard"
+        },
+        {
+          "name": "genre",
+          "required": "optional",
+          "type": "string",
+          "description": "Cinematic genre hint.",
+          "options": [
+            "auto",
+            "action",
+            "horror",
+            "comedy",
+            "noir",
+            "drama",
+            "epic"
+          ],
+          "default": "auto"
+        },
+        {
+          "name": "generate_audio",
+          "required": "optional",
+          "type": "bool",
+          "description": "Generate native audio for the video. Set false for a silent video. Independent of audio_references.",
+          "default": true
+        }
+      ],
+      "medias": [
+        {
+          "name": "medias",
+          "type": "image",
+          "roles": [
+            "start_image",
+            "end_image",
+            "image_references",
+            "video_references",
+            "audio_references"
+          ]
+        }
+      ],
+      "aspect_ratios": [
+        "auto",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "tags": [
+        "reference",
+        "identity",
+        "consistent",
+        "product",
+        "multi-sku",
+        "e-commerce",
+        "audio",
+        "audio-reference",
+        "video-reference",
+        "start-frame",
+        "end-frame",
+        "4k",
+        "high-resolution",
+        "unlim"
+      ],
+      "supports_unlim": true
+    }
+  ],
+  "jobsSubmittedForThisPreference": 0
+}

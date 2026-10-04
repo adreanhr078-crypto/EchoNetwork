@@ -68,20 +68,22 @@ func _run() -> void:
 		_fail("played memory did not unlock the terminal mission")
 		return
 	var touch = hud.find_child("MobileTouchControls", true, false)
-	if touch.attack_btn.visible or touch.dodge_btn.visible or touch.lock_on_btn.visible or not touch.use_btn.visible:
+	if touch.attack_btn.visible or not touch.dodge_btn.visible or touch.lock_on_btn.visible or touch.use_btn.visible != touch._interaction_available:
 		_fail("touch actions expose combat before its story unlock")
 		return
 	var camera_boom = player.find_child("CameraBoom", true, false)
 	var yaw_before: float = camera_boom.rotation.y
 	touch.camera_swiped.emit(Vector2(60.0, 0.0))
-	if is_equal_approx(camera_boom.rotation.y, yaw_before):
+	if is_equal_approx(player.camera_target_rotation.y, yaw_before):
 		_fail("touch camera drag is not connected to the player")
 		return
-	touch.sprint_changed.emit(true)
+	player.set_mobile_input_vector(Vector2(0, -1), true)
+	for i in range(3): await physics_frame
 	if not player.mobile_sprint_active:
 		_fail("touch sprint is not connected to the player")
 		return
-	touch.sprint_changed.emit(false)
+	player.set_mobile_input_vector(Vector2.ZERO, false)
+	for i in range(3): await physics_frame
 	if player.mobile_sprint_active:
 		_fail("touch sprint did not release")
 		return
@@ -181,7 +183,7 @@ func _run() -> void:
 		second_dialogue.advance_dialogue()
 	second.set_reduced_motion(true)
 	var motion_button = second.find_child("MotionBtn", true, false) as Button
-	if not second.reduced_motion or not motion_button or motion_button.text != "STILL":
+	if not second.reduced_motion or not motion_button or motion_button.text != "أقل":
 		_fail("reduced motion could not be enabled")
 		return
 	var second_prologue = second.get_node("PrologueOrchestrator")

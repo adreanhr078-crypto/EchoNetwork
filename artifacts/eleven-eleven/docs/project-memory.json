@@ -1,7 +1,26 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-09-30",
+  "updatedAt": "2026-10-01",
+  "ownerRevision20261001": {
+    "foundationPlan": "docs/internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md",
+    "executionPriority": ["controller", "camera", "mobile-controls", "parkour-reliability", "story-rooms", "higgsfield-editable-3d", "polish-performance-testing"],
+    "mobileOrientation": "landscape",
+    "mobileLocomotion": "partial-stick Walk, full-stick Run, separate Roll; supersedes combined mobile dash/hold-sprint",
+    "cameraRelease": "preserve user orbit; restrained landing framing assistance without forced recenter",
+    "verticalRoutes": "clear main route; harder optional parkour route reveals an additional approved memory",
+    "phoneFallback": "Owner permits deferring connection failure while local work continues; physical touch/performance acceptance remains UNVERIFIED",
+    "externalAdvice": "Antigravity optional for short detailed read-only consultations; no autonomous edits; locally verify responses",
+    "rigPriority": "preserve isolated rig candidates; prioritize current player control foundation before further hand/face work",
+    "preferredHiggsfieldVideoModels": ["seedance_2_5", "seedance_2_0"],
+    "modelPolicy": "docs/internal/production/HIGGSFIELD_MODEL_POLICY_2026-10-01.ar.md",
+    "modelContract": "docs/internal/production/higgsfield-preferred-models.json",
+    "editable3D": "Jutsu/Blender editable scene; Seedance catalog output is video and Jutsu Python has no Seedance selector",
+    "animationWorkflow": "Use echo-golden-animation and source-first Blender diagnosis; no repeated speculative attempts, new animations or manual source-key compensation",
+    "goldenWalkFrozen": true,
+    "artisticQualityPriority": "Owner explicitly requests professional appeal and animation craft; judge the actual Godot reference room and character motion, preserve original 11.11 identity and reject weak motion rather than count assets/tests as artistic acceptance.",
+    "sliceAccepted": false
+  },
   "ownerRevision20260928": {
     "runtime": "Godot; supersedes the temporary Unity cloud trial",
     "systemJourney": "Sequential missions, parkour, survival, Kinja experiments, Zero pact, revenge, wish and exit in approved Manhwa order",
@@ -280,10 +299,14 @@
     "animationReuse": "Reuse existing Sol-arranged Godot animation assets and completed inventory; preserve originals; canonical quality acceptance remains pending"
   },
   "lastExecutionCheckpoint": {
-    "id": "CP-20260930-02",
-    "record": "docs/internal/production/MASTER_ANIMATION_LIBRARY_EXECUTION_2026-09-29.ar.md",
-    "status": "G0 partial; G1 in progress; touch jump on press fixed",
+    "id": "CP-20261001-05",
+    "record": "docs/internal/production/CHARACTER_REFERENCE_REPAIR_2026-10-01.ar.md",
+    "verification": "audits/evidence/character-shading-20261001/ and audits/evidence/hospital-route-20261001/",
+    "status": "IN_PROGRESS through hospital: measured Echo shader light-units/hemisphere and authored roughness/metallic-channel fixes PASS rendered Forward+/Compatibility. Local existing conduit source integrated with preserved footprint and state-bound signals PASS. Current22bone Idle diagnosis found reversed semantic sides, A/T reference and floorRoot; faithful frozen transfer rejected anatomically, full anatomical adapter still fails sole contact. Root viewed native arm-only local derivative diagnosis and authorized one isolated190-frame construction; no runtime integration yet, fingers remain rigid. Default native boot connects working opening/maintenance to security threshold; both actual touch routes PASS without teleport/phase calls, strict checkpoint/backup/noearlypower PASS. Standalone security gameplay and daylight hospital art are review candidates; rigid patient pose FAIL, full route unfinished. Latest Owner says do not depend on Higgsfield API for models/cinematics; no new jobs. Golden/sourcekeys/mesh/rest preserved, no new Run attempt. Next: nativeIdle190-frame/Godot gates, authored-map A/B, physical security review then integration, measured EX-011 neck fix, continue ordered later rooms/pact/wish/bedside. Art/phone/chapter gates remain open.",
     "canonicalAnimationsApproved": 0,
-    "characterReplaced": false
+    "runtimeCanonicalAnimationsApproved": 0,
+    "ownerApprovedGoldenReferences": 1,
+    "characterReplaced": false,
+    "finalPostflightStatus": "IN_PROGRESS; agent slice checks PASS631 before later edits"
   }
 }

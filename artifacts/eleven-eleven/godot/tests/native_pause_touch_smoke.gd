@@ -25,15 +25,16 @@ func _run() -> void:
 	var menu = main.native_pause_menu
 	touch._platform_touch_enabled = true
 	touch.set_interaction_blocked(false)
+	touch.set_interaction_available(true)
 	main.refresh_opening_language()
-	if not _check(touch.use_btn.text == "تفاعل" and touch.sprint_btn.text == "اركض", "touch labels ignore Arabic"): return
+	if not _check(touch.use_btn.tooltip_text == "تفاعل" and touch.dodge_btn.tooltip_text == "تدحرج", "touch labels ignore Arabic"): return
 	touch.use_tapped.connect(func(): uses += 1)
 	touch.jump_tapped.connect(func(): jumps += 1)
 	var size: Vector2 = root.get_visible_rect().size
-	_touch(touch, 0, Vector2(120, size.y * 0.6), true)
-	_drag(touch, 0, Vector2(180, size.y * 0.6))
+	_touch(touch, 0, touch.joystick_center, true)
+	_drag(touch, 0, touch.joystick_center + Vector2(60, 0))
 	_touch(touch, 1, Vector2(size.x * 0.7, size.y * 0.25), true)
-	_touch(touch, 2, touch.sprint_btn.get_global_rect().get_center(), true)
+	_touch(touch, 2, touch.dodge_btn.get_global_rect().get_center(), true)
 	_touch(touch, 3, touch.use_btn.get_global_rect().get_center(), true)
 	_touch(touch, 3, touch.use_btn.get_global_rect().get_center(), false)
 	var jump = touch.find_child("JumpBtn", true, false) as Button
@@ -48,7 +49,7 @@ func _run() -> void:
 	var boom = player.find_child("CameraBoom", true, false)
 	var yaw: float = boom.rotation.y
 	_drag(touch, 1, Vector2(size.x * 0.7 + 40, size.y * 0.25))
-	if not _check(player.mobile_input_vector.length() > 0.5 and player.mobile_sprint_active and uses == 1 and not is_equal_approx(yaw, boom.rotation.y), "simultaneous movement/camera/sprint/use failed"): return
+	if not _check(player.mobile_input_vector.length() > 0.5 and player._requested_roll and uses == 1 and not is_equal_approx(yaw, player.camera_target_rotation.y), "simultaneous movement/camera/dash/use failed"): return
 	menu.set_session_paused(true)
 	for i in range(4): await process_frame
 	var bounds: Rect2 = menu.panel.get_global_rect()
@@ -59,7 +60,7 @@ func _run() -> void:
 	if not _check(player.global_position == position and menu.resume_button.has_focus(), "pause did not freeze world or focus resume"): return
 	menu.language_button.pressed.emit()
 	if not _check(main.presentation_language == "en" and menu.resume_button.text == "Continue" and menu.status.text.begins_with("Time"), "menu localization incomplete"): return
-	if not _check(touch.use_btn.text == "USE" and touch.sprint_btn.text == "RUN", "touch labels ignore language changes"): return
+	if not _check(touch.use_btn.tooltip_text == "USE" and touch.dodge_btn.tooltip_text == "ROLL", "touch labels ignore language changes"): return
 	menu.resume_button.pressed.emit()
 	if not _check(not paused and touch.visible and touch.current_joystick_vector == Vector2.ZERO, "resume retained input or hid touch"): return
 	# Pause during a terminal modal must restore its existing lock/visibility.
