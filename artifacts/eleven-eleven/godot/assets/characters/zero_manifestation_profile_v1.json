@@ -10,9 +10,9 @@
   "source_front": [1, 0, 0],
   "allow_articulated_fallback": false,
   "material_presentation": {
-    "metallic_cap": 0.28,
-    "roughness_factor_min": 0.6,
-    "reason": "Source defaults to full metal. Local multipliers reveal original dark texture and limb separation in the lab; source colour, normal and ORM images remain unchanged."
+    "metallic_cap": 0.16,
+    "roughness_factor_min": 0.5,
+    "reason": "Source defaults to full metal. Local multipliers tuned (metallic_cap: 0.16, roughness_factor_min: 0.50) to enhance distant limb and torso readability against the obsidian facility background in 30fps captures; source colour, normal and ORM images remain untouched."
   },
   "eyes": [
     {

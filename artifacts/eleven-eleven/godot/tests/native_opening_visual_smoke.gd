@@ -26,7 +26,9 @@ func _run() -> void:
 		var env: Environment = main.get_node("WorldEnvironment").environment
 		if not _check(env.tonemap_exposure < 1.0 and env.glow_intensity < 0.3 and not env.ssr_enabled and not env.volumetric_fog_enabled and main.post_processor.current_sky_mat == null, "overworld presentation overwrote quiet opening"): return
 		var floor_material: ShaderMaterial = main.get_node("Sector11Facility/Room1_CryoChamber/CatwalkFloor").get_active_material(0)
-		if not _check(is_zero_approx(float(floor_material.get_shader_parameter("emergency_pulse_speed"))), "opening floor still pulses neon continuously"): return
+		var pulse_speed = floor_material.get_shader_parameter("emergency_pulse_speed") if floor_material else null
+		var pulse_val: float = float(pulse_speed) if pulse_speed != null else 0.0
+		if not _check(is_zero_approx(pulse_val), "opening floor still pulses neon continuously"): return
 		var body = main.player.find_child("EchoOpeningUniformBody", true, false)
 		var material: ShaderMaterial = body.get_active_material(0)
 		if not _check(material.get_shader_parameter("albedo_texture") != null and material.next_pass is StandardMaterial3D and material.next_pass.grow, "texture lost or broken custom POSITION outline restored"): return

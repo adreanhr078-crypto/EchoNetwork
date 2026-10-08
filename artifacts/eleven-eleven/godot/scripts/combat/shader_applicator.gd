@@ -134,11 +134,14 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 		mat.set_shader_parameter("use_two_tone_face", true)
 		mat.set_shader_parameter("use_sss", true)
 	if outline_shader:
-		var outline_mat := ShaderMaterial.new()
-		outline_mat.shader = outline_shader
-		outline_mat.set_shader_parameter("outline_color", Color(0.05, 0.06, 0.08, 1.0))
-		outline_mat.set_shader_parameter("outline_width", 1.0)
-		outline_mat.set_shader_parameter("microscopic_thickness", 0.00065)
+		# A custom POSITION outline covered the animated torso/head in GLES3.
+		# Built-in growth keeps the outline on Godot's skinned mesh path.
+		var outline_mat := StandardMaterial3D.new()
+		outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
+		outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		outline_mat.albedo_color = Color(0.05, 0.06, 0.08, 1.0)
+		outline_mat.grow = true
+		outline_mat.grow_amount = 0.0012
 		mat.next_pass = outline_mat
 	return mat
 

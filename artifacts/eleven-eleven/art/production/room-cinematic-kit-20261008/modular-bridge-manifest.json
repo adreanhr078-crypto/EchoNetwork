@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "11.11 (Eleven-Eleven)",
+  "manifest_id": "sector11-modular-bridge-manifest-v1",
+  "room_id": "sector11_opening_room",
+  "author": "Worker 1 (Room Cinematic Director), EchoNetwork Team C",
+  "date": "2026-10-08",
+  "target_scene_scripts": [
+    "res://scripts/environment/opening_room.gd",
+    "res://scripts/environment/sector11_visual_shell.gd"
+  ],
+  "collision_preservation_invariants": {
+    "FloodedFloorBody": {
+      "node_path": "FloodedFloorBody",
+      "script_owner": "opening_room.gd",
+      "node_type": "StaticBody3D",
+      "world_position": [0.0, -0.2, -5.5],
+      "shape_type": "BoxShape3D",
+      "shape_size": [18.0, 0.4, 25.4],
+      "immutable_rule": "Preserve exact box collider dimensions and position. Do not resize or offset under visual mesh replacement.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "PrimaryBlastGate": {
+      "node_path": "PrimaryBlastGate/GateCollider",
+      "script_owner": "blast_gate.gd / opening_room.gd",
+      "node_type": "StaticBody3D",
+      "gate_world_position": [0.0, 0.0, -18.0],
+      "collider_local_position": [0.0, 3.25, 0.0],
+      "collider_world_position": [0.0, 3.25, -18.0],
+      "shape_type": "BoxShape3D",
+      "shape_size": [7.2, 6.5, 0.8],
+      "immutable_rule": "Locked gate collider at state 0 seals Room 1. Must remain active and impermeable until breach sequence.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "OpeningClock": {
+      "node_path": "OpeningClock/InteractionArea",
+      "script_owner": "opening_evidence.gd / opening_room.gd",
+      "node_type": "Area3D",
+      "world_position": [-1.85, 0.0, 1.8],
+      "area_local_position": [0.0, 0.85, 0.0],
+      "shape_type": "SphereShape3D",
+      "shape_radius": 2.4,
+      "interaction_verb": 4,
+      "prompt_target_name": "11:11 CLOCK",
+      "immutable_rule": "Evidence interaction radius and trigger response must remain untouched.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "SectorTerminal": {
+      "node_path": "SectorTerminal/InteractionArea",
+      "script_owner": "substation_terminal.gd / opening_room.gd",
+      "node_type": "Area3D",
+      "world_position": [2.8, 0.0, 2.4],
+      "area_local_position": [0.0, 1.25, 0.0],
+      "shape_type": "CylinderShape3D",
+      "shape_radius": 1.55,
+      "shape_height": 2.5,
+      "terminal_collider": {
+        "node_path": "SectorTerminal/TerminalCollider",
+        "node_type": "StaticBody3D",
+        "box_collider_1": {"shape_size": [1.05, 1.2, 0.58], "local_position": [0.0, 0.6, 0.0]},
+        "box_collider_2": {"shape_size": [1.3, 0.8, 0.12], "local_position": [0.0, 1.35, 0.23], "rotation_x_rad": -0.436332}
+      },
+      "immutable_rule": "Terminal puzzle interaction cylinder and physical chassis static body must remain untouched.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "OpeningPhotograph": {
+      "node_path": "OpeningPhotograph/InteractionArea",
+      "script_owner": "opening_evidence.gd / opening_room.gd",
+      "node_type": "Area3D",
+      "world_position": [3.7, 0.0, -1.5],
+      "area_local_position": [0.0, 0.85, 0.0],
+      "shape_type": "SphereShape3D",
+      "shape_radius": 2.4,
+      "interaction_verb": 4,
+      "prompt_target_name": "Photograph",
+      "immutable_rule": "Evidence interaction radius and inspection callback must remain untouched.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "VentDuctMarker": {
+      "node_path": "VentDuctMarker",
+      "script_owner": "opening_room.gd",
+      "node_type": "Marker3D",
+      "world_position": [3.2, 1.8, -18.0],
+      "visual_rim_center": [3.2, 2.5, -17.95],
+      "immutable_rule": "get_vent_anchor() relies on this exact global position for traversal handoff to Room 2.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "EmergencyStrobe": {
+      "node_path": "EmergencyStrobe",
+      "script_owner": "emergency_warning_strobe.gd / opening_room.gd",
+      "node_type": "OmniLight3D",
+      "world_position": [-6.0, 5.2, -4.0],
+      "light_color": [0.95, 0.15, 0.25, 1.0],
+      "light_energy": 0.8,
+      "omni_range": 8.0,
+      "shadow_enabled": false,
+      "immutable_rule": "Controlled energy and range strictly prevents light bleed outside Sector 11.",
+      "status": "VERIFIED_LOCKED"
+    },
+    "PerimeterBoundaries": {
+      "WestContainmentWall": {
+        "world_position": [-9.0, 3.6, -5.5],
+        "shape_type": "BoxShape3D",
+        "shape_size": [0.8, 7.2, 25.4]
+      },
+      "EastContainmentWall": {
+        "world_position": [9.0, 3.6, -5.5],
+        "shape_type": "BoxShape3D",
+        "shape_size": [0.8, 7.2, 25.4]
+      },
+      "SouthContainmentWall": {
+        "world_position": [0.0, 3.6, 7.0],
+        "shape_type": "BoxShape3D",
+        "shape_size": [18.0, 7.2, 0.8]
+      },
+      "Gate1_Bulkhead_West": {
+        "world_position": [-6.3, 3.6, -18.0],
+        "shape_type": "BoxShape3D",
+        "shape_size": [5.4, 7.2, 0.8]
+      },
+      "Gate1_Bulkhead_East": {
+        "world_position": [6.3, 3.6, -18.0],
+        "shape_type": "BoxShape3D",
+        "shape_size": [5.4, 7.2, 0.8]
+      },
+      "Gate1_Bulkhead_Lintel": {
+        "world_position": [0.0, 6.85, -18.0],
+        "shape_type": "BoxShape3D",
+        "shape_size": [7.2, 0.7, 0.8]
+      }
+    }
+  },
+  "modular_resource_bridges": [
+    {
+      "resource_id": "res_structural_rib",
+      "resource_name": "Sector 11 Structural Rib Assembly",
+      "asset_source": "res://assets/environment/sector11_structural_rib_v1.glb",
+      "target_script": "sector11_visual_shell.gd",
+      "target_function": "_build_structural_ribs()",
+      "integration_type": "procedural_mesh_replacement",
+      "target_scene_nodes": [
+        {
+          "station_index": 0,
+          "z_coord": 5.0,
+          "replaces_nodes": ["ContainmentRib_L_01", "ContainmentRib_R_01", "CeilingCrossBeam_01", "ServiceTruss_01"],
+          "instantiated_node_name": "ModularRibAssembly_01",
+          "transform": {"position": [0.0, 0.0, 5.0], "rotation": [0.0, 0.0, 0.0]}
+        },
+        {
+          "station_index": 1,
+          "z_coord": 0.0,
+          "replaces_nodes": ["ContainmentRib_L_02", "ContainmentRib_R_02", "CeilingCrossBeam_02", "ServiceTruss_02"],
+          "instantiated_node_name": "ModularRibAssembly_02",
+          "transform": {"position": [0.0, 0.0, 0.0], "rotation": [0.0, 0.0, 0.0]}
+        },
+        {
+          "station_index": 2,
+          "z_coord": -5.0,
+          "replaces_nodes": ["ContainmentRib_L_03", "ContainmentRib_R_03", "CeilingCrossBeam_03", "ServiceTruss_03"],
+          "instantiated_node_name": "ModularRibAssembly_03",
+          "transform": {"position": [0.0, 0.0, -5.0], "rotation": [0.0, 0.0, 0.0]}
+        },
+        {
+          "station_index": 3,
+          "z_coord": -10.0,
+          "replaces_nodes": ["ContainmentRib_L_04", "ContainmentRib_R_04", "CeilingCrossBeam_04", "ServiceTruss_04"],
+          "instantiated_node_name": "ModularRibAssembly_04",
+          "transform": {"position": [0.0, 0.0, -10.0], "rotation": [0.0, 0.0, 0.0]}
+        },
+        {
+          "station_index": 4,
+          "z_coord": -15.0,
+          "replaces_nodes": ["ContainmentRib_L_05", "ContainmentRib_R_05", "CeilingCrossBeam_05", "ServiceTruss_05"],
+          "instantiated_node_name": "ModularRibAssembly_05",
+          "transform": {"position": [0.0, 0.0, -15.0], "rotation": [0.0, 0.0, 0.0]}
+        }
+      ],
+      "collision_handling": "Visual mesh only; fits within unchanged WestContainmentWall and EastContainmentWall colliders."
+    },
+    {
+      "resource_id": "res_wall_containment_panel",
+      "resource_name": "Sector 11 Wall Containment Service Module",
+      "asset_source": "res://assets/environment/sector11_service_module_v1.glb",
+      "target_script": "sector11_visual_shell.gd",
+      "target_function": "_build_wall_panels()",
+      "integration_type": "instance_scene_refinement",
+      "target_scene_nodes": [
+        {
+          "node_name": "ServiceModule_01_L",
+          "parent_node": "Sector11OpeningShell",
+          "position": [-8.6, 0.0, 2.0],
+          "rotation_y_rad": 1.570796
+        },
+        {
+          "node_name": "ServiceModule_02_L",
+          "parent_node": "Sector11OpeningShell",
+          "position": [-8.6, 0.0, -6.0],
+          "rotation_y_rad": 1.570796
+        },
+        {
+          "node_name": "ServiceModule_03_L",
+          "parent_node": "Sector11OpeningShell",
+          "position": [-8.6, 0.0, -15.0],
+          "rotation_y_rad": 1.570796
+        },
+        {
+          "node_name": "ServiceModule_01_R",
+          "parent_node": "Sector11OpeningShell",
+          "position": [8.6, 0.0, 2.0],
+          "rotation_y_rad": -1.570796
+        },
+        {
+          "node_name": "ServiceModule_03_R",
+          "parent_node": "Sector11OpeningShell",
+          "position": [8.6, 0.0, -15.0],
+          "rotation_y_rad": -1.570796
+        }
+      ],
+      "collision_handling": "Housed within WestContainmentWall and EastContainmentWall StaticBody3D hulls."
+    },
+    {
+      "resource_id": "res_observation_window_module",
+      "resource_name": "Sector 11 Observation Window Bay Module",
+      "asset_source": "res://assets/environment/sector11_observation_module_v1.glb",
+      "target_script": "sector11_visual_shell.gd",
+      "target_function": "_build_wall_panels()",
+      "integration_type": "instance_scene_refinement",
+      "target_scene_nodes": [
+        {
+          "node_name": "ObservationModule_02",
+          "parent_node": "Sector11OpeningShell",
+          "position": [8.6, 0.0, -6.0],
+          "rotation_y_rad": -1.570796
+        }
+      ],
+      "collision_handling": "Housed within EastContainmentWall StaticBody3D boundary. Impermeable lead glass."
+    },
+    {
+      "resource_id": "res_ceiling_light_cassette",
+      "resource_name": "Sector 11 Ceiling Light Cassette",
+      "asset_source": "res://assets/environment/sector11_ceiling_tile_v1.glb",
+      "target_script": "sector11_visual_shell.gd",
+      "target_function": "_build_ceiling_lights()",
+      "integration_type": "instance_scene_refinement",
+      "target_scene_nodes": [
+        {"node_name": "CeilingLightCassette_01", "position": [0.0, 6.81, 2.5]},
+        {"node_name": "CeilingLightCassette_02", "position": [0.0, 6.81, -2.5]},
+        {"node_name": "CeilingLightCassette_03", "position": [0.0, 6.81, -7.5]},
+        {"node_name": "CeilingLightCassette_04", "position": [0.0, 6.81, -12.5]},
+        {"node_name": "CeilingLightCassette_05", "position": [0.0, 6.81, -17.5]}
+      ],
+      "associated_light_nodes": [
+        {"node_name": "CoolLabKey_02", "parent": "Sector11OpeningShell", "position": [0.0, 5.85, 0.0]},
+        {"node_name": "CoolLabKey_04", "parent": "Sector11OpeningShell", "position": [0.0, 5.85, -10.0]},
+        {"node_name": "ContainmentBeacon_01", "parent": "Sector11OpeningShell", "position": [0.0, 5.0, 0.5]},
+        {"node_name": "ContainmentBeacon_04", "parent": "Sector11OpeningShell", "position": [0.0, 5.0, -14.5]}
+      ],
+      "collision_handling": "Visual only. Mounted at Y = 6.81m, outside player traversal capsule."
+    },
+    {
+      "resource_id": "res_flooded_floor_drainage_tray",
+      "resource_name": "Sector 11 Flooded Floor Tray & Maintenance Deck",
+      "asset_source": "res://assets/environment/sector11_flooded_floor_tray_v1.glb",
+      "target_script": "opening_room.gd / sector11_visual_shell.gd",
+      "target_function": "_build_room() [FloodedFloorBody] & _build_floor_inlays()",
+      "integration_type": "visual_mesh_override_and_shader_binding",
+      "target_scene_nodes": [
+        {
+          "node_name": "FloodedFloorBody/floor_mesh",
+          "parent_node": "FloodedFloorBody",
+          "script_owner": "opening_room.gd",
+          "shader_override": "res://shaders/flooded_lab_floor.gdshader",
+          "position": [0.0, 0.0, 0.0]
+        },
+        {
+          "replaces_procedural_inlays": [
+            "DeckExpansionJoint (8 transverse seams in sector11_visual_shell.gd)",
+            "MaintenanceDeckPanel (16 panels in sector11_visual_shell.gd)",
+            "DeckPanelSeam (16 seams in sector11_visual_shell.gd)"
+          ]
+        }
+      ],
+      "collision_handling": "Preserves FloodedFloorBody/floor_col BoxShape3D (18.0, 0.4, 25.4) at world (0, -0.2, -5.5)."
+    },
+    {
+      "resource_id": "res_blast_gate_assembly",
+      "resource_name": "Sector 11 Primary Blast Gate & Bulkhead Portal",
+      "asset_source": "res://assets/environment/sector11_primary_blast_gate_v1.glb",
+      "target_script": "opening_room.gd / blast_gate.gd / sector11_visual_shell.gd",
+      "target_function": "_build_room() [PrimaryBlastGate] & _build_boundaries()",
+      "integration_type": "scene_instance_and_bulkhead_mesh_swap",
+      "target_scene_nodes": [
+        {
+          "node_name": "PrimaryBlastGate",
+          "parent_node": "OpeningRoom",
+          "script_owner": "opening_room.gd",
+          "position": [0.0, 0.0, -18.0],
+          "gate_scene": "res://scenes/environment/blast_gate.tscn"
+        },
+        {
+          "bulkhead_surrounds": [
+            "Gate1_Bulkhead_West (StaticBody3D at -6.3, 3.6, -18.0)",
+            "Gate1_Bulkhead_East (StaticBody3D at 6.3, 3.6, -18.0)",
+            "Gate1_Bulkhead_Lintel (StaticBody3D at 0.0, 6.85, -18.0)"
+          ]
+        }
+      ],
+      "collision_handling": "GateCollider BoxShape3D (7.2, 6.5, 0.8) and bulkhead BoxShape3D hulls preserved 100% intact."
+    },
+    {
+      "resource_id": "res_service_conduit_bundles",
+      "resource_name": "Sector 11 Coolant & Signal Conduit Bundles",
+      "asset_source": "res://assets/environment/sector11_conduit_bundle_v1.glb",
+      "target_script": "sector11_visual_shell.gd",
+      "target_function": "_build_service_conduits()",
+      "integration_type": "procedural_mesh_replacement",
+      "target_scene_nodes": [
+        {
+          "node_name": "MainCoolantConduit_West",
+          "replaces": "West MainCoolantConduit CylinderMesh",
+          "position": [-6.6, 6.2, -5.5],
+          "rotation_x_rad": 1.570796
+        },
+        {
+          "node_name": "MainCoolantConduit_East",
+          "replaces": "East MainCoolantConduit CylinderMesh",
+          "position": [6.6, 6.2, -5.5],
+          "rotation_x_rad": 1.570796
+        },
+        {
+          "node_name": "SignalRail_West",
+          "replaces": "West SignalRail BoxMesh",
+          "position": [-8.15, 0.15, -5.5]
+        },
+        {
+          "node_name": "SignalRail_East",
+          "replaces": "East SignalRail BoxMesh",
+          "position": [8.15, 0.15, -5.5]
+        }
+      ],
+      "collision_handling": "Non-collidable visual dressing; recessed along ceiling brackets and perimeter deck edges."
+    },
+    {
+      "resource_id": "res_high_vent_duct_module",
+      "resource_name": "Sector 11 High Vent Duct Aperture Module",
+      "asset_source": "res://assets/environment/sector11_vent_duct_aperture_v1.glb",
+      "target_script": "opening_room.gd",
+      "target_function": "_build_vent_duct_aperture()",
+      "integration_type": "visual_mesh_replacement",
+      "target_scene_nodes": [
+        {
+          "node_name": "VentDuctMarker",
+          "node_type": "Marker3D",
+          "position": [3.2, 1.8, -18.0],
+          "purpose": "Gameplay traversal and camera anchor target"
+        },
+        {
+          "node_name": "VentRim",
+          "node_type": "MeshInstance3D",
+          "replaces": "TorusMesh rim",
+          "position": [3.2, 2.5, -17.95]
+        }
+      ],
+      "collision_handling": "Aperture is open for raycasts; surrounding wall collider Gate1_Bulkhead_East stops traversal until event trigger."
+    }
+  ],
+  "verification_checklist": {
+    "flooded_floor_collision_verified": true,
+    "primary_blast_gate_collision_verified": true,
+    "opening_clock_trigger_verified": true,
+    "sector_terminal_interaction_verified": true,
+    "opening_photograph_trigger_verified": true,
+    "vent_duct_marker_anchor_verified": true,
+    "emergency_strobe_bounds_verified": true,
+    "watertight_enclosure_verified": true
+  }
+}
