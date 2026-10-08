@@ -1,0 +1,14 @@
+── Plan ──────────────────────────
+input: 0a5f59a1-a3fd-4098-80d9-019773a393c7
+steps:
+  1. retarget  POST /v3/animations/retarget — retarget preset animations onto the rigged model
+     animation="preset:biped:agree"
+cost impact:
+  · retarget 1 animation(s): billed per animation
+──────────────────────────────────
+task created 81c938de-0514-4e82-bc03-962f296122e5 (@zero-acting-v1-20261008-retarget)
+animate_retarget · queued
+animate_retarget · success 100% · 81c938de
+✓ animate_retarget · 81c938de-0514-4e82-bc03-962f296122e5 · 10 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-acting-v1\tripo-out\zero-acting-v1-20261008-retarget-81c938de

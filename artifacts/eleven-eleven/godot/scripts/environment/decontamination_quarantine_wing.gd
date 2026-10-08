@@ -66,6 +66,7 @@ func _ready() -> void:
 	_build_observation_catwalk()
 	_build_override_terminal()
 	_build_exit_gate()
+	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-12,-32,24,32),7.2)
 
 func _physics_process(delta: float) -> void:
 	_update_uv_pulses(delta)
@@ -198,9 +199,9 @@ func _build_quarantine_pods() -> void:
 	for idx in range(pod_z_positions.size()):
 		var pz: float = pod_z_positions[idx]
 		# Left Pod (X = -6.5m)
-		_create_pod("QuarantinePod_L%d" % idx, Vector3(-6.5, 2.0, pz), frame_mat, glass_mat)
+		_create_pod("QuarantinePod_L%d" % idx, Vector3(-6.5, 1.4, pz), frame_mat, glass_mat)
 		# Right Pod (X = +6.5m)
-		_create_pod("QuarantinePod_R%d" % idx, Vector3(6.5, 2.0, pz), frame_mat, glass_mat)
+		_create_pod("QuarantinePod_R%d" % idx, Vector3(6.5, 1.4, pz), frame_mat, glass_mat)
 
 func _create_pod(node_name: String, pos: Vector3, frame_mat: Material, glass_mat: Material) -> void:
 	var body := StaticBody3D.new()
@@ -212,7 +213,7 @@ func _create_pod(node_name: String, pos: Vector3, frame_mat: Material, glass_mat
 	var cyl := CylinderMesh.new()
 	cyl.top_radius = 1.4
 	cyl.bottom_radius = 1.4
-	cyl.height = 4.0
+	cyl.height = 2.8
 	mesh.mesh = cyl
 	mesh.material_override = glass_mat
 	body.add_child(mesh)
@@ -222,13 +223,13 @@ func _create_pod(node_name: String, pos: Vector3, frame_mat: Material, glass_mat
 	col.name = "CollisionShape3D"
 	var shape := CylinderShape3D.new()
 	shape.radius = 1.4
-	shape.height = 4.0
+	shape.height = 2.8
 	col.shape = shape
 	body.add_child(col)
 	
 	# Top and Bottom metal rims
-	_box("PodBase", Vector3(0.0, -1.9, 0.0), Vector3(3.2, 0.2, 3.2), frame_mat, false)
-	_box("PodCap", Vector3(0.0, 1.9, 0.0), Vector3(3.2, 0.2, 3.2), frame_mat, false)
+	_box("PodBase", Vector3(0.0, -1.35, 0.0), Vector3(3.2, 0.1, 3.2), frame_mat, false).reparent(body, false)
+	_box("PodCap", Vector3(0.0, 1.35, 0.0), Vector3(3.2, 0.1, 3.2), frame_mat, false).reparent(body, false)
 	
 	add_child(body)
 
@@ -241,13 +242,16 @@ func _build_observation_catwalk() -> void:
 	
 	# Catwalk Railings
 	_box("CatwalkRailNorth", Vector3(0.0, 3.7, -17.15), Vector3(18.0, 1.0, 0.1), rail_mat, true)
-	_box("CatwalkRailSouth", Vector3(0.0, 3.7, -14.85), Vector3(18.0, 1.0, 0.1), rail_mat, true)
+	_box("CatwalkRailSouth", Vector3(0.65, 3.7, -14.85), Vector3(16.7, 1.0, 0.1), rail_mat, true)
 	
 	# Access Stairs from Floor (Y = 0.0m) to Catwalk (Y = 3.2m) on West side (X: -9.0m to -12.0m)
 	for i in range(11):
-		var step_y := float(i) * 0.3
-		var step_z := -16.0 + (float(i) - 5.0) * 0.5
-		_box("CatwalkStair_%d" % i, Vector3(-8.5, step_y + 0.15, step_z), Vector3(1.6, 0.2, 0.5), deck_mat, true)
+		var step_y := float(i) * 0.29
+		var step_z := -9.25 - float(i) * 0.5
+		_box("CatwalkStair_%d" % i, Vector3(-8.5, step_y + 0.15, step_z), Vector3(1.6, 0.2, 0.5), deck_mat, false)
+	var support = preload("res://scripts/environment/room_path_support.gd")
+	support.add_ramp(self, "CatwalkStairSupport", Vector3(-8.5, 0, -9), Vector3(-8.5, 3.2, -14.1), 1.6)
+	support.add_ramp(self, "CatwalkStairLanding", Vector3(-8.5,3.2,-14.1), Vector3(-8.5,3.2,-15.3), 1.6, deck_mat)
 
 func _build_override_terminal() -> void:
 	var metal_mat := _material(Color(0.2, 0.24, 0.28), 0.7, 0.4)

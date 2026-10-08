@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/system_journey_preview.tscn" id="1"]
 [ext_resource type="Script" path="res://scripts/systems/native_journey_controller.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/systems/native_campaign_controller.gd" id="3"]
 
 [node name="Main" instance=ExtResource("1")]
 
@@ -10,3 +11,6 @@ campaign_continuation = true
 
 [node name="NativeJourneyController" type="Node" parent="."]
 script = ExtResource("2")
+
+[node name="NativeCampaignController" type="Node" parent="."]
+script = ExtResource("3")

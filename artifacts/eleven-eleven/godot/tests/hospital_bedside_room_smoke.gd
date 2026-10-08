@@ -30,15 +30,15 @@ func _run() -> void:
 	var floor_body := room.get_node_or_null("Floor") as StaticBody3D
 	var ceiling_body := room.get_node_or_null("Ceiling") as StaticBody3D
 	var north_wall := room.get_node_or_null("NorthWall") as StaticBody3D
-	var south_wall := room.get_node_or_null("SouthWall") as StaticBody3D
+	var south_wall := room.get_node_or_null("SouthWallBelowWindow") as StaticBody3D
 	var west_wall := room.get_node_or_null("WestWall") as StaticBody3D
 	var east_wall := room.get_node_or_null("EastWall") as StaticBody3D
-	var bed_body := room.get_node_or_null("HospitalBed") as StaticBody3D
-	var cabinet_body := room.get_node_or_null("BedsideCabinet") as StaticBody3D
+	var furniture := room.get_node_or_null("WardFurniture")
+	var bed_body := furniture.get_node("Mattress").get_child(0) as StaticBody3D
+	var cabinet_body := furniture.get_node("BedsideCabinet").get_child(0) as StaticBody3D
 	var window_barrier := room.get_node_or_null("WindowGlassBarrier") as StaticBody3D
 	var mirror_station := room.get_node_or_null("VanityMirrorStation") as StaticBody3D
 	var clock_label := room.get_node_or_null("DigitalClock1111") as Label3D
-	var vitals_label := room.get_node_or_null("VitalsReadout") as Label3D
 	var exit_door := room.get_node_or_null("WardExitDoor") as StaticBody3D
 	
 	if not _check(floor_body and ceiling_body and north_wall and south_wall and west_wall and east_wall, "Missing hermetic hull envelope components"):
@@ -47,7 +47,20 @@ func _run() -> void:
 		return
 	if not _check(clock_label and clock_label.text == "11:11", "Digital clock 11:11 missing or incorrect time display"):
 		return
-	if not _check(vitals_label and vitals_label.text.contains("HEART RATE: 72"), "Vitals monitor missing or incorrect heart rate"):
+	if not _check(furniture.has_node("MonitorGlass") and furniture.has_node("StaticMonitorTrace"), "Authored monitor screen and trace must be present"):
+		return
+	if not _check(room.has_node("SouthWallAboveWindow") and room.has_node("WardMirrorReflection"), "Window aperture and actual inspection reflection must be present"):
+		return
+	# Verify actual collision coverage through the daylight aperture, bedside
+	# furniture and all six hull directions, rather than checking node names alone.
+	await physics_frame
+	var space := room.get_world_3d().direct_space_state
+	for destination in [Vector3(8,1.85,0),Vector3(-8,1.85,0),Vector3(0,8,0),Vector3(0,-2,0),Vector3(0,1.85,8),Vector3(0,1.85,-8)]:
+		var query := PhysicsRayQueryParameters3D.create(Vector3(0,1.85,0),destination,1)
+		if not _check(not space.intersect_ray(query).is_empty(), "Ward hull must block escape, including the window aperture"):
+			return
+	var bed_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(-1,2,0),Vector3(-1,0.1,0),1))
+	if not _check(bed_hit.get("collider")==bed_body, "Mattress needs real collision, not only a visual"):
 		return
 	
 	# Verify room floor dimensions (6.4m x 5.8m)
@@ -121,7 +134,7 @@ func _run() -> void:
 	if not _check(restore_ok, "State restoration failed"):
 		return
 	
-	print("PASS hospital bedside room: 6.4x5.8m watertight ward, bed recovery, mirror inspection, EX-011 mark reveal, chapter completion, and clean state restoration")
+	print("PASS hospital bedside state and collision: sealed ward/window, mattress collider, explicit wake, mirror gate, mark and checkpoint. Skeletal bedside performance remains unverified.")
 	
 	# Cleanup without leaks
 	if player:

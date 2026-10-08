@@ -8,7 +8,7 @@ const PROBE_ABOVE: float = 0.28
 const PROBE_BELOW: float = 0.52
 const TOE_CLEARANCE: float = 0.012
 const CONTACT_HEIGHT: float = 0.055
-const TOE_LIFT_RELEASE: float = 0.15
+const TOE_LIFT_RELEASE: float = 0.085
 const MAX_PLANT_DRIFT: float = 0.62
 const MAX_FLOOR_SLOPE_DOT: float = 0.48
 const IK_REACH_MARGIN: float = 0.004
@@ -21,6 +21,11 @@ class FootChain:
 	var planted: bool = false
 	var target_world: Vector3 = Vector3.ZERO
 	var ground_normal: Vector3 = Vector3.UP
+	var animated_toe_world: Vector3 = Vector3.ZERO
+	var sampled_player_position: Vector3 = Vector3.ZERO
+	var has_animation_sample: bool = false
+	var previous_height: float = 0.0
+	var contact_weight: float = 0.0
 
 var _player: CharacterBody3D
 var _skeleton: Skeleton3D
@@ -33,10 +38,10 @@ func configure(player: CharacterBody3D, collision_mask: int) -> void:
 	_collision_mask = collision_mask
 	_skeleton = player.find_child("Skeleton3D", true, false) as Skeleton3D
 	if _skeleton:
-		_left = _create_chain("tripo__1_Left_Limb_3")
-		_right = _create_chain("tripo__1_Right_Limb_3")
+		_left = _create_chain(preload("res://scripts/player/echo_rig_profile.gd").bone(_skeleton,"left_toe"))
+		_right = _create_chain(preload("res://scripts/player/echo_rig_profile.gd").bone(_skeleton,"right_toe"))
 
-func update_foot_contacts(_delta: float) -> void:
+func update_foot_contacts(delta: float) -> void:
 	if not is_instance_valid(_player) or not is_instance_valid(_skeleton):
 		_clear_contacts()
 		return
@@ -44,22 +49,28 @@ func update_foot_contacts(_delta: float) -> void:
 		_clear_contacts()
 		return
 
-	_update_chain_contact(_left)
-	_update_chain_contact(_right)
+	_update_chain_contact(_left, delta)
+	_update_chain_contact(_right, delta)
 
 func _process_modification() -> void:
 	_process_modification_with_delta(0.0)
 
-func _process_modification_with_delta(_delta: float) -> void:
+func _process_modification_with_delta(delta: float) -> void:
 	if not is_instance_valid(_player) or not is_instance_valid(_skeleton):
 		return
 	var has_contact := false
-	if _left and _left.planted:
-		_apply_leg_target(_left)
-		has_contact = true
-	if _right and _right.planted:
-		_apply_leg_target(_right)
-		has_contact = true
+	for chain in [_left, _right]:
+		if not chain or chain.toe < 0: continue
+		# Sample the authored pose before our solve. Reading the corrected pose
+		# during physics would keep a planted toe low and suppress its release.
+		chain.animated_toe_world = _skeleton.global_transform * _skeleton.get_bone_global_pose(chain.toe).origin
+		chain.sampled_player_position = _player.global_position
+		chain.has_animation_sample = true
+		var blend := 1.0 - exp(-24.0 * maxf(delta, 1.0 / 60.0))
+		chain.contact_weight = lerpf(chain.contact_weight, 1.0 if chain.planted else 0.0, blend)
+		if chain.contact_weight > 0.005:
+			_apply_leg_target(chain)
+			has_contact = true
 	influence = 1.0 if has_contact else 0.0
 
 func _create_chain(toe_name: String) -> FootChain:
@@ -74,11 +85,10 @@ func _create_chain(toe_name: String) -> FootChain:
 		chain.toe = -1
 	return chain
 
-func _update_chain_contact(chain: FootChain) -> void:
-	if not chain or chain.toe < 0:
+func _update_chain_contact(chain: FootChain, delta: float) -> void:
+	if not chain or chain.toe < 0 or not chain.has_animation_sample:
 		return
-	var toe_pose := _skeleton.get_bone_global_pose(chain.toe)
-	var toe_world := _skeleton.global_transform * toe_pose.origin
+	var toe_world := chain.animated_toe_world + _player.global_position - chain.sampled_player_position
 	var toe_hit := _ground_hit(toe_world)
 	if toe_hit.is_empty():
 		chain.planted = false
@@ -89,12 +99,14 @@ func _update_chain_contact(chain: FootChain) -> void:
 		chain.planted = false
 		return
 	var toe_height := (toe_world - toe_point).dot(toe_normal)
+	var lift_speed := (toe_height - chain.previous_height) / maxf(delta, 0.001)
+	chain.previous_height = toe_height
 	if chain.planted:
 		var drift := Vector2(toe_world.x - chain.target_world.x, toe_world.z - chain.target_world.z).length()
 		var speed := Vector2(_player.velocity.x, _player.velocity.z).length()
-		if toe_height > TOE_LIFT_RELEASE or drift > MAX_PLANT_DRIFT or (speed < 0.2 and drift > 0.08):
+		if toe_height > TOE_LIFT_RELEASE or (toe_height > CONTACT_HEIGHT and lift_speed > 0.2) or drift > MAX_PLANT_DRIFT or (speed < 0.2 and drift > 0.08):
 			chain.planted = false
-	if not chain.planted and toe_height <= CONTACT_HEIGHT and toe_height >= -0.11:
+	if not chain.planted and toe_height <= CONTACT_HEIGHT and toe_height >= -0.11 and lift_speed < 0.12:
 		chain.planted = true
 		chain.target_world = toe_point + toe_normal * TOE_CLEARANCE
 		chain.ground_normal = toe_normal
@@ -140,6 +152,7 @@ func _apply_leg_target(chain: FootChain) -> void:
 
 	var local_foot_toe := foot_pose.affine_inverse() * toe_pose
 	var target_toe := _skeleton.global_transform.affine_inverse() * chain.target_world
+	target_toe = toe_pose.origin.lerp(target_toe, chain.contact_weight)
 	var target_ankle := target_toe - foot_pose.basis * local_foot_toe.origin
 	var hip_to_ankle := target_ankle - hip
 	var raw_distance := hip_to_ankle.length()
@@ -202,5 +215,7 @@ func _is_locomotion_clip() -> bool:
 func _clear_contacts() -> void:
 	if _left:
 		_left.planted = false
+		_left.contact_weight = 0.0
 	if _right:
 		_right.planted = false
+		_right.contact_weight = 0.0

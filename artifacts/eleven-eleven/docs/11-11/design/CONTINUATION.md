@@ -1,3 +1,20 @@
+# المتابعة الفعلية الحالية — CP-20261008-02
+
+آخر تحديث: 2026-10-08؛ الحالة IN_PROGRESS (Team A ASSETS — 4/4 SUBAGENTS COMPLETE).
+
+- تسليم فريق الأصول Team A بالكامل عبر 4 عمال فرعيين محددين ومثبتين:
+  * العامل 1 (`2cf06c1f-8930-4d86-a110-6ff5b435f915`): تنظيف سلاحي Standard Katana وShadow Katana، تثبيت نصل مفرد، محور ارتكاز دقيق (0, 0, 0) في مركز الواقية والمقبض، أبعاد قياسية (0.95m و1.05m)، تصدير GLB بدون تشويه تحجيم عقدي (Scale 1.0) إلى `godot/assets/weapons/`، وحفظ الأصل الخام 100%.
+  * العامل 2 (`003c59f1-4544-46f8-b375-c2f6df6e2d0a`): تنظيف وتطبيع مجسمات الغرفة الأربعة (عربة التشخيص، طرفية الأمن، خادم المراقبة، وحدة الحائط). إصلاح عيب اتجاه طرفية الأمن الجذري (تدوير 90° لتوجيه الشاشة نحو اقتراب اللاعب +Z، ارتفاع 1.30m، قاعدة Y=0، محاذاة التثبيت Z=0)، إزالة الأوجه الفاسدة، حفظ أصول Tripo الخام 100%، وتصدير `godot/assets/props/`.
+  * العامل 3 (`caaf6a3d-ea7a-43f8-8788-f38f19a9ce6a`): تدقيق هندسي وتشفيري مستقل للأصول الستة (<30k مثلث)، إصدار تقرير `geometry_qa_report_20261008.json` ووثيقة `tripo_geometry_qa_audit_20261008.md`، والإقرار الصريح بأن حجم السلاحين 8.83MB و9.30MB (بخامات 4K PBR) وأنهما غير مناسبين لأداء الهواتف دون ضغط الخامات لاحقاً.
+  * العامل 4 (`18c60d6f-97f7-421c-8bfb-493d3168f809`): إصلاح مكتبتي `tripo_prop_library.gd` و`tripo_weapon_visuals.gd`. حماية العناصر التابعة (أضواء، شاشات، نصوص، مناطق تفاعل)، حماية الميتاداتا عند التبديل المتكرر، حفظ حالة الإخفاء المسبق عند الاستعادة، وتمرير اختبارات `tripo_assets_review_20261008.gd` بنجاح تام.
+- التحقق الفعلي الصارم في Godot 4.7.2 Headless:
+  * `tripo_assets_review_20261008.gd`: جميع المراحل الأربع PASS بنسبة 100% (Exit Code 0).
+  * `test-third-person-foundation.ps1`: جميع الحالات الـ 16 PASS بنسبة 100% (Exit Code 0) بصفر أخطاء.
+- القيود والخطوة التالية: الأسلحة تحتاج لضغط الخامات قبل إصدار الهواتف؛ Root ينسق دمج الأصول البصرية مع فريقي B وC دون المساس باللاعب النشط أو الكانون أو استهلاك رصيد مدفوع.
+
+---
+
+
 # Active continuation — 2026-09-19
 
 ## CP-20261002-09 — Genshin Impact 5-Pillar Locomotion, Secondary Spring Bones & 11:11 Antique Chronometer (16/16 PASS)
@@ -2380,3 +2397,8 @@ from measured failures; maintain this record after each accepted change.
 - Hospital daylight local kit is separate: actual floor/bed physics and scalePASS, room6.4x5.8m, mattress2.12x0.96m/top0.70m. Rigid patient prototype FAIL at head52mm/footcover80mm and skin mark not accepted; do not integrate as a completed awakening. Legacy identifier's bone_6 is current shoulder, not neck; measured production neck fix is next. Canon exposure audit/matrix read approved later pages and preserve explicit consent/powers after pact/wish confirmation/bedside ambiguity.
 - Evidence/report: docs/internal/production/CHARACTER_REFERENCE_REPAIR_2026-10-01.ar.md; audits/evidence/character-shading-20261001/, hospital-route-20261001/, hospital-bedside-foundation-20261001/. Agent postflights PASS631/content/TS/build/doctor before later edits. Root owns next central postflight and native rebuild after a stable reviewed bundle; CP04 Windows/Android exports are older. Dirty originals preserved; no commit/push/publication.
 - Work continues. G0 partial, G1/G2 open; no professional-art, physical-phone/20min/thermal, full chapter or hospital acceptance. Next exact action: finish isolated native Idle gates, corrected authored-map A/B, security actual traversal/camera/render review and then measured connection, EX-011 true neck placement; proceed each approved room through Subjects/archive/energy/pursuit/mirror, Kenja/dream/drowning, explicit Zero pact, controllable revenge, explicit wish and genuine patient wake/sit/control recovery. Never shortcut those beats or use extra rooms to conceal character defects.
+
+
+## CP-20261006-01 quality repair IN_PROGRESS
+
+Current authority: CURRENT_WORK.ar.md and ANTIGRAVITY_QUALITY_REPAIR_2026-10-06.ar.md. Owner explicitly requires Golden Blender/Godot. Custom fitted/resampled action retarget withdrawn from runtime and preserved as REJECTED_OWNER_PROTOCOL. Existing Run/Idle/Jump fixtures replayed sequentially in Blender and isolated Godot PASS; no new canonical motion. Actual v13 front +X verified; Golden target front -Z and distinct rig. Shadow-step/execution orientation repaired with actual four-direction tests. Native room route to lab memory PASS; full decisions/hospital test in progress, art/camera/phone/postflight open. Never infer AAA acceptance from old smoke reports.

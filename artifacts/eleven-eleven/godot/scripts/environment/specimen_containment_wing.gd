@@ -37,7 +37,7 @@ const ROOM_HEIGHT := 7.2
 const WALL_THICKNESS := 0.4
 
 const SAFE_ANCHOR_ENTRY := Vector3(-2.5, 0.1, 2.0)
-const SAFE_ANCHOR_MIDPOINT := Vector3(-15.0, 0.1, -6.0)
+const SAFE_ANCHOR_MIDPOINT := Vector3(-26.0, 0.1, 3.0)
 const SAFE_ANCHOR_TERMINAL := Vector3(-24.0, 0.1, -12.0)
 
 var state: RoomState = RoomState.ENTRY_VESTIBULE
@@ -74,20 +74,24 @@ func _ready() -> void:
 	_build_scanner_system()
 	_build_terminal()
 	_build_exit_gate()
+	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-30,-18,30,24),7.2)
 
 var _alert_timer := 0.0
-const ALERT_GRACE_TIME := 0.6
+var _retry_grace := 0.0
+const ALERT_GRACE_TIME := 1.0
 
 func _physics_process(delta: float) -> void:
 	if _scanner_active and _scanner_head:
-		if not reduced_motion:
-			_scanner_sweep_angle += _scanner_sweep_speed * delta
-			_scanner_head.rotation.y = sin(_scanner_sweep_angle) * 0.75 + PI * 0.5
-			_scanner_head.rotation.x = -0.6 # Angled downward toward floor traversal
+		# This sweep defines the playable visibility window. Reduced motion
+		# cannot freeze it into a permanently blocked route.
+		_scanner_sweep_angle += _scanner_sweep_speed * delta
+		_scanner_head.rotation.y = sin(_scanner_sweep_angle) * 0.75 + PI * 0.5
+		_scanner_head.rotation.x = -0.6
+		_retry_grace=maxf(0,_retry_grace-delta)
 		
 		# Check if scanner spots player
 		if player and is_instance_valid(player):
-			if _scanner_sees(player):
+			if _retry_grace<=0 and _scanner_sees(player):
 				_alert_timer += delta
 				if _alert_timer < ALERT_GRACE_TIME:
 					# Phase 2: Amber Suspicion (reaction window for player to slide into cover)
@@ -146,10 +150,11 @@ func _on_player_spotted() -> void:
 	if _scanner_beam:
 		_scanner_beam.light_color = Color(1.0, 0.15, 0.1) # Crimson alarm
 	_alert_timer = 0.0
+	_retry_grace=2.5
 	
 	# Trigger retry to safe anchor
 	var anchor := SAFE_ANCHOR_ENTRY
-	if global_position.distance_to(player.global_position) > 16.0:
+	if to_local(player.global_position).x < -22.0:
 		anchor = SAFE_ANCHOR_MIDPOINT
 	
 	retry_requested.emit(anchor)
@@ -231,7 +236,7 @@ func restore_state(saved: Dictionary) -> bool:
 		state = saved.get("state", RoomState.ENTRY_VESTIBULE)
 		gate_open = saved.get("gate_open", false)
 		terminal_read = saved.get("terminal_read", false)
-		discoveries = saved.get("discoveries", []).duplicate()
+		discoveries.assign(saved.get("discoveries", []))
 		
 		if gate_open:
 			if _gate:
@@ -522,6 +527,9 @@ func _build_terminal() -> void:
 
 func trigger_interaction(_interactor: Node = null) -> Dictionary:
 	return request_terminal_access()
+
+func get_interaction_position() -> Vector3:
+	return _terminal_body.global_position + Vector3.UP * 0.7
 
 func _build_exit_gate() -> void:
 	var metal_mat := _material(Color(0.18, 0.22, 0.25), 0.75, 0.35)

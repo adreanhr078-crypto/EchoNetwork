@@ -1,0 +1,234 @@
+{
+  "limitCredits": 600,
+  "initialVerifiedBalance": 600,
+  "initialFrozen": 0,
+  "entries": [
+    {
+      "jobId": "zero-v1",
+      "owner": "root",
+      "maxCredits": 70,
+      "status": "completed",
+      "startedAt": "2026-10-07T17:08:08.4116245Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-v1-result.json",
+      "actualCredits": 70,
+      "taskId": "b830dbdf-e0d3-48c1-af9a-545326ebb7e1"
+    },
+    {
+      "jobId": "zero-rig-v1",
+      "owner": "root",
+      "maxCredits": 25,
+      "status": "completed",
+      "startedAt": "2026-10-08T08:56:02.3116996Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-v1-result.json",
+      "actualCredits": null
+    },
+    {
+      "jobId": "standard-katana",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:00:05.407775Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/standard-katana-result.json",
+      "actualCredits": 30,
+      "taskId": "f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a"
+    },
+    {
+      "jobId": "diagnostic-cart",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:00:20.9166882Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/diagnostic-cart-result.json",
+      "actualCredits": 30,
+      "taskId": "787ef5a5-0e0e-4131-a060-7711b10541e3"
+    },
+    {
+      "jobId": "zero-motion-v1",
+      "owner": "root",
+      "maxCredits": 30,
+      "status": "failed_needs_root_inspection",
+      "startedAt": "2026-10-08T09:02:33.1443055Z",
+      "exitCode": 6,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-motion-v1-result.json",
+      "actualCredits": null
+    },
+    {
+      "jobId": "zero-motion-inspect",
+      "owner": "root",
+      "maxCredits": 0,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:06:32.1231328Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-motion-inspect-result.json",
+      "actualCredits": null,
+      "taskId": "ef9aea76-cbb4-4000-a1f3-c4613058f1b3"
+    },
+    {
+      "jobId": "balance-20261008",
+      "owner": "root",
+      "maxCredits": 0,
+      "status": "running",
+      "startedAt": "2026-10-08T09:06:32.4583119Z",
+      "exitCode": null,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/balance-20261008-result.json",
+      "actualCredits": null
+    },
+    {
+      "jobId": "zero-idle-v2",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "failed_needs_root_inspection",
+      "startedAt": "2026-10-08T09:10:00.8860552Z",
+      "exitCode": 6,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-idle-v2-result.json",
+      "actualCredits": null
+    },
+    {
+      "jobId": "zero-rig-inspect",
+      "owner": "root",
+      "maxCredits": 0,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:10:11.1788916Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-inspect-result.json",
+      "actualCredits": 25,
+      "taskId": "925ca3b6-75b7-42f1-81ff-cf6119ed4c81"
+    },
+    {
+      "jobId": "shadow-katana",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:17:25.7495183Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/shadow-katana-result.json",
+      "actualCredits": 30,
+      "taskId": "c9cae674-2f4d-49b5-8632-59f2a5caa740"
+    },
+    {
+      "jobId": "security-terminal",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:18:27.4766769Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/security-terminal-result.json",
+      "actualCredits": 30,
+      "taskId": "df7cbe72-3f48-4f1c-b085-db87e2e7bcb9"
+    },
+    {
+      "jobId": "zero-idle-legacy-v3",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "failed_needs_root_inspection",
+      "startedAt": "2026-10-08T09:22:34.990166Z",
+      "exitCode": 6,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-idle-legacy-v3-result.json",
+      "actualCredits": null
+    },
+    {
+      "jobId": "observation-server",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:24:51.0547962Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/observation-server-result.json",
+      "actualCredits": 30,
+      "taskId": "4cdb4008-91a9-46be-af7b-27846de0f7e0"
+    },
+    {
+      "jobId": "zero-rig-humanoid-v2",
+      "owner": "root",
+      "maxCredits": 25,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:29:12.6580795Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-humanoid-v2-result.json",
+      "actualCredits": 25,
+      "taskId": "0a5f59a1-a3fd-4098-80d9-019773a393c7"
+    },
+    {
+      "jobId": "zero-humanoid-idle-v4",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:32:45.5875738Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-humanoid-idle-v4-result.json",
+      "actualCredits": 10,
+      "taskId": "d77f057b-5230-44df-a13e-7205faf0b075"
+    },
+    {
+      "jobId": "medical-wall-unit",
+      "owner": "gemini_assets",
+      "maxCredits": 40,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:34:02.4891448Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/medical-wall-unit-result.json",
+      "actualCredits": 30,
+      "taskId": "5affa583-0772-4141-8287-cb4ff9efa62b"
+    },
+    {
+      "jobId": "zero-acting-v1",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:42:35.1145902Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-acting-v1-result.json",
+      "actualCredits": 10,
+      "taskId": "81c938de-0514-4e82-bc03-962f296122e5"
+    },
+    {
+      "jobId": "zero-look-around-v1",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:43:43.3937264Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-look-around-v1-result.json",
+      "actualCredits": 10,
+      "taskId": "ebcfd3b8-1680-4af0-ad87-084bafd9d2de"
+    },
+    {
+      "jobId": "zero-cast-v1",
+      "owner": "root",
+      "maxCredits": 10,
+      "status": "completed",
+      "startedAt": "2026-10-08T09:43:54.0475831Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-cast-v1-result.json",
+      "actualCredits": 10,
+      "taskId": "760ffe8c-1b28-4a1c-b1a5-40eaefa92566"
+    },
+    {
+      "jobId": "zero-rig-mixamo-v3",
+      "owner": "root",
+      "maxCredits": 25,
+      "status": "completed",
+      "startedAt": "2026-10-08T14:06:15.8038844Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-mixamo-v3-result.json",
+      "actualCredits": 25,
+      "taskId": "bdb102d3-ba2e-43f6-9897-8593bc5c5b23"
+    },
+    {
+      "jobId": "balance-20261008-v2",
+      "owner": "root",
+      "maxCredits": 0,
+      "status": "completed",
+      "startedAt": "2026-10-08T14:36:52.4995449Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/balance-20261008-v2-result.json",
+      "actualCredits": null,
+      "taskId": null
+    }
+  ],
+  "assetAcceptance": "UNVERIFIED until preview geometry Godot inspection"
+}

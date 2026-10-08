@@ -44,7 +44,7 @@ func refresh_opening_language() -> void:
 		hud.quest_container.layout_direction = Control.LAYOUT_DIRECTION_RTL if presentation_language == "ar" else Control.LAYOUT_DIRECTION_LTR
 		for label in [hud.quest_title, hud.quest_desc]:
 			if label: label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
-	for node_name in ["DialogueOverlay", "TerminalHackPuzzle", "InteractionPromptHUD"]:
+	for node_name in ["DialogueOverlay", "TerminalHackPuzzle", "InteractionPromptHUD", "SystemWindow"]:
 		var surface = hud.find_child(node_name, true, false)
 		if surface and surface.has_method("set_presentation_language"):
 			surface.set_presentation_language(presentation_language)
@@ -105,7 +105,9 @@ func _flush_native_checkpoint() -> void:
 func save_native_checkpoint_now() -> bool:
 	if not is_inside_tree() or not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
 		return false
-	return SaveManagerScript.save_opening_checkpoint(capture_native_checkpoint(), native_checkpoint_path)
+	var opening_saved: bool=SaveManagerScript.save_opening_checkpoint(capture_native_checkpoint(), native_checkpoint_path)
+	var campaign=get_node_or_null("NativeCampaignController")
+	return (campaign.save_now() if campaign else true) and opening_saved
 
 func restore_native_checkpoint(raw: Dictionary) -> bool:
 	if OS.has_feature("web"):
@@ -129,7 +131,7 @@ func restore_native_checkpoint(raw: Dictionary) -> bool:
 	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
 		var evidence = find_child(evidence_name, true, false)
 		var completed: bool = state.clock if evidence_name == "OpeningClock" else state.memory
-		evidence.inspected = completed
+		evidence.restore_inspection(completed)
 		evidence.get_node("InteractionArea").is_enabled = not completed and (evidence_name == "OpeningClock" or state.clock)
 	var terminal = find_child("SectorTerminal", true, false)
 	terminal.is_hacked = state.terminal
@@ -278,8 +280,12 @@ func set_audio_muted(muted: bool) -> void:
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
+	var opening_atmosphere := get_node_or_null("OpeningAtmosphere")
+	if opening_atmosphere: opening_atmosphere.set_reduced_motion(enabled)
 	if player: player.reduced_camera_motion = enabled
 	if hud: hud.tutorial_toast.set_reduced_motion(enabled)
+	var system_popup = hud.find_child("SystemWindow", true, false) if hud else null
+	if system_popup: system_popup.reduced_motion = enabled
 	var touch_ui = hud.find_child("MobileTouchControls",true,false) if hud else null
 	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
 	var journey := get_node_or_null("SystemJourneyPreview")
@@ -290,6 +296,10 @@ func set_reduced_motion(enabled: bool) -> void:
 	var terminal = find_child("SectorTerminal", true, false)
 	if terminal and terminal.has_method("set_reduced_motion"):
 		terminal.set_reduced_motion(enabled)
+	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
+		var evidence = find_child(evidence_name,true,false)
+		if evidence and evidence.has_method("set_reduced_motion"):
+			evidence.set_reduced_motion(enabled)
 	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
 	if dialogue:
 		dialogue.reduced_motion = enabled
@@ -301,6 +311,9 @@ func set_reduced_motion(enabled: bool) -> void:
 		var breach = find_child("BlastGateBreachCinematic", true, false)
 		if breach and breach.has_method("finish"):
 			breach.finish()
+		# Camera teardown must not release a still-pending explicit decision.
+		if _system_modal_owned:
+			_release_gameplay_modal_controls()
 	if hud and hud.has_method("show_tutorial_toast"):
 		hud.show_tutorial_toast("TOAST_MOTION", "R", opening_text("حركة أقل", "Reduced motion") if enabled else opening_text("الحركة المعتادة", "Standard motion"), opening_text("يمكن تغيير حركة الكاميرا في أي وقت.", "Camera motion can be changed at any time."), 2.5)
 
@@ -330,6 +343,11 @@ func _ready() -> void:
 	add_child(post_processor)
 	if native_session_enabled:
 		_configure_native_opening_surfaces()
+		var opening_atmosphere := Node3D.new()
+		opening_atmosphere.name = "OpeningAtmosphere"
+		opening_atmosphere.set_script(preload("res://scripts/environment/opening_atmosphere.gd"))
+		add_child(opening_atmosphere)
+		opening_atmosphere.configure(self)
 
 	# Initialize Master Prologue Sequence
 	_set_specimen_encounter_active(false)
@@ -405,6 +423,10 @@ func _ready() -> void:
 				touch_ui.scan_tapped.connect(companion.trigger_scan)
 
 	# 6. Initialize HUD State
+	var system_window = hud.find_child("SystemWindow",true,false) if hud else null
+	if system_window:
+		system_window.system_window_opened.connect(_on_system_window_opened)
+		system_window.system_window_closed.connect(_on_system_window_closed)
 	if hud and player:
 		hud.update_player_hp(player.get("hp"), player.get("MAX_HP"))
 		hud.update_player_stamina(player.get("stamina"), player.get("MAX_STAMINA"))
@@ -460,6 +482,9 @@ func _on_opening_recovery_completed() -> void:
 		return
 	report_opening_milestone("wake_completed")
 	report_opening_milestone("room_entered")
+	var clock_target:=find_child("OpeningClock",true,false) as Node3D
+	if player and clock_target:
+		player.face_world_direction(clock_target.global_position-player.global_position)
 	if opening_cinematic and opening_cinematic.has_method("finish"):
 		opening_cinematic.finish()
 	var prologue = find_child("PrologueOrchestrator", true, false)
@@ -474,6 +499,17 @@ func _on_opening_recovery_completed() -> void:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
 
 func _configure_native_opening_surfaces() -> void:
+	# A neutral medical key keeps material and face values readable; colored
+	# practicals identify equipment rather than washing the entire room in neon.
+	var key := get_node_or_null("Sector11KeyFill") as OmniLight3D
+	if key:
+		key.light_color = Color(0.75,0.80,0.85)
+		key.light_energy = 1.35
+	for light_name in ["Sector11NeonVioletRim","Sector11NeonCyanRim"]:
+		var rim := get_node_or_null(light_name) as OmniLight3D
+		if rim:
+			rim.light_energy = 0.4
+			rim.light_color = Color(0.52,0.43,0.68) if light_name == "Sector11NeonVioletRim" else Color(0.42,0.66,0.72)
 	var terminal_fill := get_node_or_null("Sector11TerminalFocus") as OmniLight3D
 	if terminal_fill:
 		terminal_fill.position.z = 3.5
@@ -483,13 +519,20 @@ func _configure_native_opening_surfaces() -> void:
 		var source := floor_mesh.get_active_material(0) as ShaderMaterial
 		if source:
 			var floor_material := source.duplicate() as ShaderMaterial
-			floor_material.set_shader_parameter("floor_color", Color(0.18, 0.21, 0.25))
+			floor_material.set_shader_parameter("floor_color", Color(0.30, 0.34, 0.37))
 			floor_material.set_shader_parameter("water_tint", Color(0.15, 0.17, 0.2))
 			floor_material.set_shader_parameter("neon_reflection_color", Color(0.06, 0.1, 0.12))
 			floor_material.set_shader_parameter("emergency_pulse_speed", 0.0)
 			floor_material.set_shader_parameter("roughness", 0.58)
 			floor_material.set_shader_parameter("metallic", 0.12)
 			floor_material.set_shader_parameter("specular", 0.3)
+			# The puddle branch overwrites dry roughness/specular. Bound that branch
+			# too, so the real opening floor retains detail instead of light blobs.
+			floor_material.set_shader_parameter("puddle_coverage", 0.44)
+			floor_material.set_shader_parameter("wet_edge_width", 0.05)
+			floor_material.set_shader_parameter("wet_darkening", 0.8)
+			floor_material.set_shader_parameter("puddle_roughness", 0.09)
+			floor_material.set_shader_parameter("puddle_specular", 0.55)
 			floor_mesh.set_surface_override_material(0, floor_material)
 	if player:
 		var face_fill := player.get_node_or_null("ModelRoot/EchoFaceFill") as OmniLight3D
@@ -726,6 +769,7 @@ func _on_opening_dialogue_started() -> void:
 	for action in ["move_forward", "move_backward", "move_left", "move_right", "sprint", "jump", "interact", "attack_light"]:
 		if InputMap.has_action(action): Input.action_release(action)
 	if player:
+		player.clear_traversal_input()
 		player.control_locked = true
 		player.mobile_input_vector = Vector2.ZERO
 		player.mobile_sprint_active = false
@@ -739,14 +783,7 @@ func _on_opening_dialogue_started() -> void:
 func _on_dialogue_finished() -> void:
 	for action in ["jump", "interact", "attack_light"]:
 		if InputMap.has_action(action): Input.action_release(action)
-	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
-	if player:
-		player.control_locked = puzzle != null and puzzle.visible
-		player._suppress_attack_until_release = true
-	if not (puzzle and puzzle.visible):
-		if hud: hud.restore_touch_controls()
-		if player and not player.touch_input_enabled:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_release_gameplay_modal_controls()
 	if _evidence_memory_pending:
 		_evidence_memory_pending = false
 		report_opening_milestone("memory_recovered")
@@ -760,6 +797,36 @@ func _on_dialogue_finished() -> void:
 	if _archive_dialogue_pending and hud and hud.has_method("complete_directive"):
 		_archive_dialogue_pending = false
 		hud.complete_directive("Continue deeper into Sector 11", "The signal leads onward. Stay alert; the System is still withholding information.")
+
+var _system_modal_owned := false
+func _on_system_window_opened(_kind: int) -> void:
+	var window = hud.find_child("SystemWindow",true,false)
+	var was_owned:=_system_modal_owned
+	_system_modal_owned = window != null and window._modal
+	if _system_modal_owned: _on_opening_dialogue_started()
+	elif was_owned: _release_gameplay_modal_controls()
+
+func _on_system_window_closed(_kind: int) -> void:
+	if not _system_modal_owned: return
+	_system_modal_owned = false
+	_release_gameplay_modal_controls()
+
+func _release_gameplay_modal_controls() -> void:
+	var blocked := false
+	var campaign:=get_node_or_null("NativeCampaignController")
+	if campaign and campaign.is_hospital_input_blocked(): blocked=true
+	for id in ["TerminalHackPuzzle","DialogueOverlay","SystemWindow"]:
+		var overlay = hud.find_child(id,true,false) if hud else null
+		if overlay and overlay.visible and (id != "SystemWindow" or overlay._modal): blocked = true
+	for action in ["jump","interact","attack_light"]:
+		if InputMap.has_action(action): Input.action_release(action)
+	if player:
+		player.control_locked = blocked
+		player.clear_traversal_input()
+		player._suppress_attack_until_release = true
+	if not blocked:
+		if hud: hud.restore_touch_controls()
+		if player and not player.touch_input_enabled: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func trigger_kinga_encounter() -> void:
 	if hud and hud.has_method("complete_directive"):

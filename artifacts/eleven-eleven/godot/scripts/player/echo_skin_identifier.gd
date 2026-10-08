@@ -14,8 +14,13 @@ func _ready() -> void: _attach_identifier.call_deferred()
 func _attach_identifier() -> void:
 	if not placement_report.is_empty(): return
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
-	var body := find_child("EchoOpeningUniformBody", true, false) as MeshInstance3D
-	if not skeleton or not body or not body.skin or skeleton.find_bone(NECK_BONE) < 0 or skeleton.find_bone(HEAD_BONE) < 0:
+	var rig_profile := preload("res://scripts/player/echo_rig_profile.gd").identify(skeleton)
+	var body_name := "EchoV31BodyAndCoat" if rig_profile.get("id") == preload("res://scripts/player/echo_rig_profile.gd").V31_ID else "EchoOpeningUniformBody"
+	var body := find_child(body_name, true, false) as MeshInstance3D
+	var neck_bone: String = str(rig_profile.get("bones",{}).get("neck",""))
+	var head_bone: String = str(rig_profile.get("bones",{}).get("head",""))
+	var local_forward: Vector3 = rig_profile.get("local_forward",Vector3.ZERO)
+	if rig_profile.is_empty() or not body or not body.skin or skeleton.find_bone(neck_bone) < 0 or skeleton.find_bone(head_bone) < 0:
 		push_warning("EX-011: unsupported character/neck map; no guessed attachment")
 		return
 	var material := body.get_active_material(0)
@@ -44,8 +49,8 @@ func _attach_identifier() -> void:
 		for i in influence_count:
 			position += (bind_matrices[source_bones[v * influence_count + i]] * vertices[v]) * source_weights[v * influence_count + i]
 		rest_points.append(position)
-	var neck := skeleton.get_bone_global_rest(skeleton.find_bone(NECK_BONE)).origin
-	var head := skeleton.get_bone_global_rest(skeleton.find_bone(HEAD_BONE)).origin
+	var neck := skeleton.get_bone_global_rest(skeleton.find_bone(neck_bone)).origin
+	var head := skeleton.get_bone_global_rest(skeleton.find_bone(head_bone)).origin
 	var up := (head - neck).normalized()
 	var triangles: Array = []
 	for i in range(0, indices.size(), 3):
@@ -71,7 +76,7 @@ func _attach_identifier() -> void:
 	for height in [0.004, 0.010, -0.002]:
 		if not chosen.is_empty(): break
 		for angle in [30.0, 15.0, 0.0]:
-			var outward := Vector3(cos(deg_to_rad(angle)), 0, sin(deg_to_rad(angle)))
+			var outward := Basis(Vector3.UP,-deg_to_rad(angle))*local_forward
 			outward = (outward - up * outward.dot(up)).normalized()
 			var tangent := up.cross(outward).normalized()
 			var center: Vector3 = neck + up * float(height)
@@ -98,7 +103,7 @@ func _attach_identifier() -> void:
 	if stamped.is_compressed(): stamped.decompress()
 	stamped.convert(Image.FORMAT_RGBA8)
 	var ink_pixels := 0
-	var outward := Vector3(cos(deg_to_rad(chosen_angle)), 0, sin(deg_to_rad(chosen_angle)))
+	var outward := Basis(Vector3.UP,-deg_to_rad(chosen_angle))*local_forward
 	outward = (outward - up * outward.dot(up)).normalized()
 	var tangent := up.cross(outward).normalized()
 	# Clip each glyph against each source triangle before converting to UV.
@@ -140,7 +145,7 @@ func _attach_identifier() -> void:
 	if ink_material is BaseMaterial3D: ink_material.albedo_texture = ink_texture
 	else: ink_material.set_shader_parameter("albedo_texture", ink_texture)
 	body.set_surface_override_material(0, ink_material)
-	placement_report = {"bone": NECK_BONE, "head_bone": HEAD_BONE, "legacy_fallback": false, "native_skin": true, "method": "instance-local skin albedo ink", "vertices": chosen.size(), "skin_triangles": triangles.size(), "angle_degrees": chosen_angle, "rest_center": [chosen_center.x, chosen_center.y, chosen_center.z], "skin_offset_local_m": 0.0, "atlas_skin_only": true, "ink_pixels": ink_pixels, "atlas_size": [atlas.get_width(), atlas.get_height()]}
+	placement_report = {"bone": neck_bone, "head_bone": head_bone, "rig_profile":rig_profile.id, "body_mesh":body_name, "legacy_fallback": false, "native_skin": true, "method": "instance-local skin albedo ink", "vertices": chosen.size(), "skin_triangles": triangles.size(), "angle_degrees": chosen_angle, "rest_center": [chosen_center.x, chosen_center.y, chosen_center.z], "skin_offset_local_m": 0.0, "atlas_skin_only": true, "ink_pixels": ink_pixels, "atlas_size": [atlas.get_width(), atlas.get_height()]}
 
 func _stamp_triangle(destination: Image, original: Image, a: Vector2, b: Vector2, c: Vector2) -> int:
 	var size := Vector2(destination.get_width(), destination.get_height())

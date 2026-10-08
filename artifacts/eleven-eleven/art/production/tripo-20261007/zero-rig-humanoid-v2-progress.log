@@ -1,0 +1,13 @@
+── Plan ──────────────────────────
+input: b830dbdf-e0d3-48c1-af9a-545326ebb7e1
+steps:
+  1. rig  POST /v3/animations/rig — auto-rig a skeleton
+     model="v1.0-20240301"
+──────────────────────────────────
+task created 0a5f59a1-a3fd-4098-80d9-019773a393c7 (@zero-rig-humanoid-v2-20261008-ri)
+animate_rig · queued
+animate_rig · running 22% · 0a5f59a1
+animate_rig · success 100% · 0a5f59a1
+✓ animate_rig · 0a5f59a1-a3fd-4098-80d9-019773a393c7 · 25 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-rig-humanoid-v2\tripo-out\zero-rig-humanoid-v2-20261008-ri-0a5f59a1

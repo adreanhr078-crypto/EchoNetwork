@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://scripts/ui/system_window.gd" id="1_sys_win"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_system_panel"]
-bg_color = Color(0.008, 0.015, 0.028, 0.94)
+bg_color = Color(0.012, 0.009, 0.014, 0.98)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0.92, 1, 0.9)
+border_color = Color(0.68, 0.13, 0.2, 0.85)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
-shadow_color = Color(0, 0.85, 1, 0.25)
-shadow_size = 12
+shadow_color = Color(0.5, 0.03, 0.08, 0.16)
+shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
 bg_color = Color(0.02, 0.18, 0.26, 0.92)

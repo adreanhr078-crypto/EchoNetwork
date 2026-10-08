@@ -120,6 +120,7 @@ func _new_main() -> Node:
 	scene.native_preferences_path = PREFS
 	scene.get_node("SystemJourneyPreview").checkpoint_path = MAINTENANCE
 	scene.get_node("NativeJourneyController").checkpoint_path = PATH
+	scene.get_node("NativeCampaignController").checkpoint_path = PATH + "_campaign.json"
 	return scene
 
 func _write(path: String, text: String) -> void:

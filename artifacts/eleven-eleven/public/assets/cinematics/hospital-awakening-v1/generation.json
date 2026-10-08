@@ -1,0 +1,19 @@
+{
+  "model": "bytedance/seedance-2.5/image-to-video",
+  "input": {
+    "prompt": "One continuous quiet bedside shot. Preserve the exact character, black hair, scars, white patient gown, bed, medical equipment and daylight of the starting frame. The exhausted young adult human slowly inhales, his eyelids open a little, his visible right purple iris stays very faint. His fingers gently relax on the sheet. A very slow 12 cm camera push toward his face. Physically plausible pillow and sheet contact, breathing only, no sitting up, no sudden gestures, no change of clothes, no wings, no transformations, no extra limbs, no text, no subtitles, no voice, no scene cuts. Premium cinematic anime game rendering with restrained motion and consistent face. Soft room tone and distant monitor beep only.",
+    "duration": 6,
+    "resolution": "1080p",
+    "output_format": "mp4",
+    "generate_audio": false,
+    "image_url": "https://d3snorpfx4xhv8.cloudfront.net/9cf119f6-4283-441c-86dc-71d000610c02/c14dc5fc-d1a8-4ed7-97c1-4d8f98f1759f.png"
+  },
+  "source": "Approved manhwa PDF page 63; original generated landscape keyframe",
+  "submitted_at": "2026-10-06T10:57:53.491Z",
+  "status": "failed",
+  "billing": "API key; account discount unverified; public pre-discount 1080p estimate about USD 6.83 for 6s",
+  "review_status": "UNVERIFIED",
+  "request_id": "cb08de93-323b-469e-8c28-f43a0157feb3",
+  "last_checked_at": "2026-10-06T10:59:30.694Z",
+  "provider_error": "Your credit balance is too low to complete this request. Please top up your balance and try again."
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "One original premium anime sci-fi katana game asset, single straight continuous blade 85cm with subtle gentle curve toward tip, sharp brushed silver cutting edge, dark graphite spine, tiny recessed cyan power channel, refined black textured two-hand handle with woven grip and metallic pommel, compact angular tsuba guard, detailed physically modeled bevels and fasteners. No scabbard, no stand, no character, no floating particles, no extra objects. High quality clean usable hard surface asset.",
+    "texture": true,
+    "auto_size": true,
+    "export_uv": true,
+    "face_limit": 30000,
+    "model_seed": 1111,
+    "model_version": "v3.1-20260211",
+    "texture_quality": "detailed",
+    "texture_version": "v3.5-20260815",
+    "geometry_quality": "standard",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 30,
+  "created_at": "2026-10-08T09:00:15.972945Z",
+  "completed_at": "2026-10-08T09:03:43.008962Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

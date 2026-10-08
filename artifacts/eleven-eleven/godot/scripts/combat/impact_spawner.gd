@@ -96,7 +96,9 @@ static func spawn_katana_sparks(parent: Node, hit_pos: Vector3, hit_normal: Vect
 	# Auto-clean via tween
 	var tree = parent.get_tree() if parent.is_inside_tree() else null
 	if tree:
-		var tween := tree.create_tween()
+		# Scene-owned lifetime: changing rooms can free all three captured nodes
+		# while their fade is pending. Binding cancels that callback with the decal.
+		var tween := decal.create_tween()
 		tween.tween_property(decal, "modulate:a", 0.0, 2.2).set_delay(0.6)
 		tween.tween_callback(func():
 			if is_instance_valid(decal): decal.queue_free()
@@ -271,4 +273,3 @@ static func spawn_deflect_burst(parent: Node, hit_pos: Vector3) -> void:
 
 static func spawn_damage_number(parent: Node, world_pos: Vector3, damage: int, is_crit: bool = false, is_deflect: bool = false) -> void:
 	DamageNumberSpawnerScript.spawn_number(parent, world_pos, damage, is_crit, is_deflect)
-

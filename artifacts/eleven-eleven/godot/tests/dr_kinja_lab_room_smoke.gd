@@ -24,6 +24,7 @@ func _run() -> void:
 	if not _check(room != null, "Failed to instantiate dr_kinja_lab_room.tscn"):
 		return
 	root.add_child(room)
+	room.campaign_decisions=true
 	
 	for i in range(4):
 		await process_frame
@@ -117,9 +118,14 @@ func _run() -> void:
 	if not _check(is_equal_approx(anchor_contract.z, -32.0), "Safe anchor must advance to Zero Contract Altar"):
 		return
 	
-	# 8. Accept Zero Contract
+	# 8. The altar requests a decision; it cannot grant power itself.
 	var contract_res: Dictionary = contract_altar.trigger_interaction(player)
-	if not _check(contract_res.get("success", false) == true and contract_res.get("power_granted", "") == "shadow_surge", "Zero contract acceptance failed"):
+	if not _check(contract_res.get("decision_requested",false) and not room.contract_done and not room.breach_open, "Altar must leave explicit pact and wish decisions to the campaign"):
+		return
+	contract_res=room.accept_zero_contract()
+	if not _check(contract_res.get("power_granted", "") == "shadow_surge" and contract_accepted_fired and not stasis_1111_fired, "Explicit contract must not accept the later escape wish"):
+		return
+	if not _check(room.complete_revenge() and room.confirm_escape_wish("ESCAPE_SYSTEM_AT_ANY_COST"),"Explicit revenge and wish must precede the breach"):
 		return
 	if not _check(contract_accepted_fired and stasis_1111_fired and exit_breach_opened_fired, "Contract, 11:11 stasis, and breach signals did not fire"):
 		return
@@ -140,7 +146,7 @@ func _run() -> void:
 	if not _check(state_dict.get("breach_open", false), "State missing breach_open"):
 		return
 	
-	print("PASS dr kinja lab room: 32x38m watertight surgical theater, abyssal rift transition, zero pact confirmation, and state restoration")
+	print("PASS dr kinja lab room: 32x40m collision envelope, distinct explicit pact/revenge/wish, state capture and physical breach")
 	if player:
 		player.queue_free()
 	if room:

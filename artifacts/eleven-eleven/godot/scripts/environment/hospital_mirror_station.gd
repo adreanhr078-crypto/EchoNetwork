@@ -14,13 +14,18 @@ var _area_shape: CollisionShape3D
 
 func _ready() -> void:
 	room = get_parent()
+	set_meta("interaction_label_ar","المرآة")
+	set_meta("interaction_label_en","Mirror")
 	_setup_interaction_area()
+
+func get_interaction_verb(language:String) -> String:
+	return "افحص عنقك" if language=="ar" else "Inspect your neck"
 
 func _setup_interaction_area() -> void:
 	_interaction_area = Area3D.new()
 	_interaction_area.name = "InteractionArea"
 	_interaction_area.collision_layer = 0
-	_interaction_area.collision_mask = 2 # Player layer
+	_interaction_area.collision_mask = 1 # Actual EchoPlayer collision layer
 	
 	_area_shape = CollisionShape3D.new()
 	_area_shape.name = "AreaCollisionShape3D"

@@ -4,6 +4,7 @@ class_name OpeningEvidence
 signal evidence_inspected(evidence_id: String)
 
 const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+const EVIDENCE_FONT = preload("res://assets/fonts/NotoSansArabic.ttf")
 
 @export_enum("clock", "photo") var evidence_id := "clock"
 var inspected := false
@@ -16,6 +17,10 @@ var _orbit_ring_2: MeshInstance3D
 var _cloche_mesh: MeshInstance3D
 var _cloche_mat: StandardMaterial3D
 var _pulse_time: float = 0.0
+var reduced_motion := false
+var presentation_language := "ar"
+var _feedback_tween: Tween
+var _label_tween: Tween
 
 func _ready() -> void:
 	$ClockFace.visible = evidence_id == "clock"
@@ -28,6 +33,41 @@ func _ready() -> void:
 
 	_setup_pedestal_and_props()
 	_setup_holographic_beacon()
+	$EvidenceLabel.font = EVIDENCE_FONT
+	set_presentation_language(presentation_language)
+
+func set_presentation_language(language: String) -> void:
+	if language not in ["ar", "en"]: return
+	presentation_language = language
+	if not is_node_ready(): return
+	$InteractionArea.prompt_target_name = ("الساعة المتوقفة" if evidence_id == "clock" else "الأثر الشخصي") if language == "ar" else ("Stopped clock" if evidence_id == "clock" else "Personal trace")
+	if inspected:
+		$EvidenceLabel.text = ("تم فحص الساعة · 11:11" if evidence_id == "clock" else "تم فحص الأثر الشخصي") if language == "ar" else ("Clock inspected · 11:11" if evidence_id == "clock" else "Personal trace inspected")
+
+func set_reduced_motion(enabled: bool) -> void:
+	reduced_motion = enabled
+	if not is_node_ready(): return
+	if enabled:
+		if _beacon_light: _beacon_light.light_energy = 0.35
+		if _ring_mesh: _ring_mesh.scale = Vector3.ONE
+		if inspected:
+			if _feedback_tween: _feedback_tween.kill()
+			if _label_tween: _label_tween.kill()
+			_hide_inspected_effects()
+			$EvidenceLabel.position.y = 1.55
+			$EvidenceLabel.modulate.a = 1.0
+
+func _hide_inspected_effects() -> void:
+	for mesh in [_beacon_mesh,_ring_mesh,_orbit_ring_1,_orbit_ring_2,_cloche_mesh]:
+		if mesh: mesh.hide()
+	if _beacon_light: _beacon_light.light_energy = 0.0
+
+func restore_inspection(completed: bool) -> void:
+	# Checkpoint presentation reflects an existing milestone and never emits it.
+	inspected = completed
+	if completed:
+		_hide_inspected_effects()
+		set_presentation_language(presentation_language)
 
 func _setup_pedestal_and_props() -> void:
 	# 1. Architectural Pedestal Base (Plinth grounded on the floor)
@@ -36,23 +76,20 @@ func _setup_pedestal_and_props() -> void:
 	
 	var obsidian_mat := StandardMaterial3D.new()
 	obsidian_mat.albedo_color = Color(0.065, 0.08, 0.11)
-	obsidian_mat.metallic = 0.92
-	obsidian_mat.roughness = 0.18
+	obsidian_mat.metallic = 0.55
+	obsidian_mat.roughness = 0.42
 	
 	var accent_color := Color(0.0, 0.90, 1.0) if evidence_id == "clock" else Color(0.85, 0.3, 1.0)
 	var trim_mat := StandardMaterial3D.new()
 	trim_mat.albedo_color = accent_color
 	trim_mat.emission_enabled = true
 	trim_mat.emission = accent_color
-	trim_mat.emission_energy_multiplier = 2.4
+	trim_mat.emission_energy_multiplier = 0.35
 	
 	var gold_mat := StandardMaterial3D.new()
-	gold_mat.albedo_color = Color(1.0, 0.83, 0.36)
-	gold_mat.metallic = 0.96
-	gold_mat.roughness = 0.15
-	gold_mat.emission_enabled = true
-	gold_mat.emission = Color(1.0, 0.83, 0.36)
-	gold_mat.emission_energy_multiplier = 0.85
+	gold_mat.albedo_color = Color(0.70, 0.48, 0.19)
+	gold_mat.metallic = 0.72
+	gold_mat.roughness = 0.30
 	
 	# Chamfered Octagonal Plinth Base (0.42m radius, 0.12m height)
 	var base_mesh := MeshInstance3D.new()
@@ -216,12 +253,12 @@ func _setup_pedestal_and_props() -> void:
 		
 		# Dedicated Luminescent Material for 11:11 Hour & Minute Highlight
 		var eleven_mat := StandardMaterial3D.new()
-		eleven_mat.albedo_color = Color(0.0, 0.95, 1.0)
+		eleven_mat.albedo_color = Color(0.65, 0.85, 0.84)
 		eleven_mat.metallic = 0.95
 		eleven_mat.roughness = 0.06
 		eleven_mat.emission_enabled = true
 		eleven_mat.emission = Color(0.0, 0.95, 1.0)
-		eleven_mat.emission_energy_multiplier = 4.2
+		eleven_mat.emission_energy_multiplier = 0.30
 		eleven_mat.rim_enabled = true
 		eleven_mat.rim = 1.0
 		eleven_mat.rim_tint = 0.85
@@ -240,21 +277,20 @@ func _setup_pedestal_and_props() -> void:
 			dial.add_child(tick)
 		
 		# Hour Hand (pointed at 11:00 / 335.5 deg) with luminescent strip
-		$ClockHands.position = Vector3(0.0, 0.024, 0.0)
-		$ClockHands.rotation = Vector3.ZERO
 		var h_box := BoxMesh.new()
 		h_box.size = Vector3(0.016, 0.006, 0.095)
 		$ClockHands.mesh = h_box
 		var h_angle := deg_to_rad(335.5)
-		$ClockHands.rotation.y = -h_angle
-		$ClockHands.position = Vector3(sin(h_angle) * 0.042, 0.024, -cos(h_angle) * 0.042)
+		# ClockHands is a sibling of ClockFace in the scene. Convert the dial-local
+		# placement through the inclined face, so the hand does not sit on the floor.
+		$ClockHands.transform = $ClockFace.transform * Transform3D(Basis(Vector3.UP,-h_angle),Vector3(sin(h_angle)*0.042,0.024,-cos(h_angle)*0.042))
 		var hand_gold := StandardMaterial3D.new()
 		hand_gold.albedo_color = Color(1.0, 0.88, 0.42)
 		hand_gold.metallic = 0.98
 		hand_gold.roughness = 0.08
 		hand_gold.emission_enabled = true
 		hand_gold.emission = Color(0.0, 0.92, 1.0)
-		hand_gold.emission_energy_multiplier = 3.6
+		hand_gold.emission_energy_multiplier = 0.25
 		hand_gold.rim_enabled = true
 		hand_gold.rim = 1.0
 		hand_gold.rim_tint = 0.75
@@ -337,21 +373,26 @@ func _setup_pedestal_and_props() -> void:
 	elif evidence_id == "photo":
 		$PhotoFrame.position = Vector3(0.0, 0.965, 0.0)
 		$PhotoFrame.rotation = Vector3(deg_to_rad(24.0), deg_to_rad(75.0), 0.0)
-		$PhotoTrace.position = Vector3(0.0, 0.970, 0.0)
-		$PhotoTrace.rotation = Vector3(deg_to_rad(24.0), deg_to_rad(75.0), 0.0)
+		# The plane was buried inside the 55mm frame; its normal must also follow
+		# the inclined mount. Keep the existing trace without inventing a memory image.
+		$PhotoTrace.transform = $PhotoFrame.transform * Transform3D(Basis.IDENTITY,Vector3(0.0,0.031,0.0))
+		var paper := StandardMaterial3D.new()
+		paper.albedo_color = Color(0.61,0.57,0.48)
+		paper.roughness = 0.92
+		$PhotoTrace.material_override = paper
 
 func _setup_holographic_beacon() -> void:
-	var color := Color(0.0, 0.90, 1.0, 0.40) if evidence_id == "clock" else Color(0.85, 0.30, 1.0, 0.40)
+	var color := Color(0.24, 0.70, 0.76, 0.08) if evidence_id == "clock" else Color(0.57, 0.39, 0.71, 0.08)
 
 	# 1. Soft Vertical Holographic Light Beam (Pillar)
 	_beacon_mesh = MeshInstance3D.new()
 	_beacon_mesh.name = "HolographicBeacon"
 	var cyl := CylinderMesh.new()
-	cyl.top_radius = 0.06
-	cyl.bottom_radius = 0.28
-	cyl.height = 3.2
+	cyl.top_radius = 0.04
+	cyl.bottom_radius = 0.18
+	cyl.height = 0.48
 	_beacon_mesh.mesh = cyl
-	_beacon_mesh.position = Vector3(0.0, 1.7, 0.0)
+	_beacon_mesh.position = Vector3(0.0, 1.18, 0.0)
 
 	var beam_mat := StandardMaterial3D.new()
 	beam_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -366,8 +407,8 @@ func _setup_holographic_beacon() -> void:
 	_orbit_ring_1 = MeshInstance3D.new()
 	_orbit_ring_1.name = "OrbitRing1"
 	var orbit_torus_1 := TorusMesh.new()
-	orbit_torus_1.inner_radius = 0.26
-	orbit_torus_1.outer_radius = 0.285
+	orbit_torus_1.inner_radius = 0.235
+	orbit_torus_1.outer_radius = 0.242
 	_orbit_ring_1.mesh = orbit_torus_1
 	_orbit_ring_1.position = Vector3(0.0, 1.25, 0.0)
 	_orbit_ring_1.material_override = beam_mat
@@ -377,8 +418,8 @@ func _setup_holographic_beacon() -> void:
 	_orbit_ring_2 = MeshInstance3D.new()
 	_orbit_ring_2.name = "OrbitRing2"
 	var orbit_torus_2 := TorusMesh.new()
-	orbit_torus_2.inner_radius = 0.31
-	orbit_torus_2.outer_radius = 0.335
+	orbit_torus_2.inner_radius = 0.255
+	orbit_torus_2.outer_radius = 0.262
 	_orbit_ring_2.mesh = orbit_torus_2
 	_orbit_ring_2.position = Vector3(0.0, 1.28, 0.0)
 	_orbit_ring_2.rotation = Vector3(deg_to_rad(28.0), 0.0, deg_to_rad(15.0))
@@ -389,8 +430,8 @@ func _setup_holographic_beacon() -> void:
 	_ring_mesh = MeshInstance3D.new()
 	_ring_mesh.name = "BeaconRing"
 	var torus := TorusMesh.new()
-	torus.inner_radius = 0.50
-	torus.outer_radius = 0.64
+	torus.inner_radius = 0.46
+	torus.outer_radius = 0.475
 	_ring_mesh.mesh = torus
 	_ring_mesh.position = Vector3(0.0, 0.03, 0.0)
 	_ring_mesh.material_override = beam_mat
@@ -401,21 +442,21 @@ func _setup_holographic_beacon() -> void:
 	_beacon_light.name = "BeaconLight"
 	_beacon_light.position = Vector3(0.0, 1.05, 0.0)
 	_beacon_light.light_color = color
-	_beacon_light.light_energy = 1.45
-	_beacon_light.omni_range = 4.5
+	_beacon_light.light_energy = 0.35
+	_beacon_light.omni_range = 2.0
 	_beacon_light.omni_attenuation = 1.2
 	add_child(_beacon_light)
 
 func _process(delta: float) -> void:
-	if inspected:
+	if inspected or reduced_motion:
 		return
-	_pulse_time += delta * 2.8
-	var pulse := sin(_pulse_time) * 0.18 + 0.82
+	_pulse_time += delta * 0.75
+	var pulse := sin(_pulse_time) * 0.06 + 0.94
 	if _beacon_light:
-		_beacon_light.light_energy = 1.45 * pulse
+		_beacon_light.light_energy = 0.35 * pulse
 	if _ring_mesh:
 		_ring_mesh.rotation.y += delta * 0.6
-		var ring_scale := 1.0 + sin(_pulse_time * 1.2) * 0.08
+		var ring_scale := 1.0 + sin(_pulse_time * 1.2) * 0.015
 		_ring_mesh.scale = Vector3(ring_scale, 1.0, ring_scale)
 	if _orbit_ring_1:
 		_orbit_ring_1.rotation.y += delta * 1.1
@@ -436,17 +477,24 @@ func on_interacted(interactor: Node3D, _verb: int) -> Dictionary:
 	if interactor and interactor.has_method("play_anim"):
 		interactor.play_anim("preset_biped_interact_001", 0.1)
 
-	# Rewarding chime sound effect
-	if is_inside_tree():
+	# Muted inspection still has localized visual feedback without sound allocation.
+	if is_inside_tree() and not AudioServer.is_bus_mute(AudioServer.get_bus_index("Master")):
 		var audio := AudioStreamPlayer.new()
 		add_child(audio)
 		audio.stream = ProceduralCinematicAudio.create_loot_toast_chime()
 		audio.volume_db = -2.0
 		audio.play()
-		audio.finished.connect(func(): audio.queue_free())
+		audio.finished.connect(audio.queue_free, CONNECT_ONE_SHOT)
 
 	# Dissipate beacon, cloche, and rings with a graceful tween
+	if reduced_motion:
+		_hide_inspected_effects()
+		set_presentation_language(presentation_language)
+		$EvidenceLabel.modulate = Color(0.67,0.85,0.91,1.0)
+		evidence_inspected.emit(evidence_id)
+		return {"inspected": true, "evidenceId": evidence_id}
 	var tw := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_feedback_tween = tw
 	if _cloche_mesh and _cloche_mat:
 		tw.parallel().tween_property(_cloche_mesh, "position:y", 0.45, 0.7)
 		tw.parallel().tween_property(_cloche_mat, "albedo_color:a", 0.0, 0.6)
@@ -460,11 +508,13 @@ func on_interacted(interactor: Node3D, _verb: int) -> Dictionary:
 		tw.parallel().tween_property(_orbit_ring_2, "scale", Vector3(1.6, 0.01, 1.6), 0.5)
 	if _ring_mesh:
 		tw.parallel().tween_property(_ring_mesh, "scale", Vector3(1.6, 1.0, 1.6), 0.5)
+	tw.chain().tween_callback(_hide_inspected_effects)
 
 	# Update 3D label
-	$EvidenceLabel.text = "[ " + ("11:11 CHRONOMETER" if evidence_id == "clock" else "PHOTOGRAPH") + " SECURED ]"
+	set_presentation_language(presentation_language)
 	$EvidenceLabel.modulate = Color(0.2, 1.0, 0.6, 1.0)
 	var label_tw := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	_label_tween = label_tw
 	label_tw.tween_property($EvidenceLabel, "position:y", 2.0, 0.8)
 	label_tw.parallel().tween_property($EvidenceLabel, "modulate:a", 0.0, 1.4)
 

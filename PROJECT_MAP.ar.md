@@ -1,9 +1,21 @@
+# Active execution CP-20261008-01 — 2026-10-08
+
+Production is IN_PROGRESS. Read artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md first; historical acceptance claims below are not current proof. Echo owner-adoptedV31 isolatedrig/motion; Zero Tripo source+rig95credits actual; Gemini assets task dispatched; Flow938credits verified. GuardGolden and preserve all dirty work. No finalart/deviceacceptance.
+
+---
+
 # خريطة المشروع والتحكم المركزي — EchoNetwork / 11.11
 
 > **القاعدة الذهبية للتنقل (Owner Navigation Rule):**
 > لا تقرأ كامل ملفات المستودع أو السجلات التاريخية أبداً. ابدأ دائماً من هذه الخريطة، ثم اقرأ بطاقة المتابعة الحالية في `artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md`. افتح فقط ملفات النظام المعني بالمهمة، ونفّذ، وافحص، ثم حدّث الخريطة والبطاقة بعد كل تسليم فعلي مثبت بالأدلة.
 
 ---
+
+متابعة الجودة الحالية: `artifacts/eleven-eleven/docs/internal/production/ANTIGRAVITY_QUALITY_REPAIR_2026-10-06.ar.md`؛ تشخيص الاتجاه/Golden في `ANIMATION_FACING_GOLDEN_REVIEW_2026-10-06.ar.md`. الاختبارات الجديدة `avatar_facing_review.gd` و`player_facing_regression.gd`؛ ربط الغرف `native_campaign_controller.gd` واختبار `native_campaign_route_review.gd`. الحالة IN_PROGRESS، لا اعتماد AAA أو الفصل.
+
+تنفيذ المقطع المعتمد في `OPENING_QUALITY_EXECUTION_2026-10-06.ar.md` داخل مجلد الإنتاج نفسه: الحوار والأدلة والإضاءة، واختبارات `dialogue_readability_review.gd` و`opening_evidence_review.gd` و`opening_frame_budget_review.gd`. ملف التحقق الجديد `tools/animation-library/current_target_motion.py` داخل التطبيق؛ Run الحالي FAIL بصريًا ولا تصدير. حزمة مهمة Claude مجهزة في `ANTIGRAVITY_CLAUDE_HANDOFF_2026-10-06.ar.md` ولم ترسل لأن Use Computer لا ترى نافذة Antigravity.
+
+تحديث CP-20261006-02: وافق المالك على المرجع المشتق المعزول؛ أدوات `measured_target_reference.py` و`review_measured_reference.py` و`measured_target_motion.py` داخل animation-library، والأدلة `quality-execution-20261006/current-target/reference-pose-v1` و`run-attempt-02`. الأصل وGolden محفوظان، لا دمج. المتصفح الذي فتحه المالك حل عائق الوصول: تم التحقق من Claude Sonnet 5.5 Medium وإرسال تشخيص rig/skin محدود للقراءة فقط؛ حالة الوكيل RUNNING، لا ناتج نهائي بعد. الاختبارات المحلية الحالية PASS631 و16/16، لا اعتماد فني أو هاتف.
 
 ## 1. لوحة الملاحة والتحكم السريع (Quick Navigation Matrix)
 

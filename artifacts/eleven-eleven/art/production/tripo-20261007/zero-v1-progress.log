@@ -1,0 +1,25 @@
+── Plan ──────────────────────────
+input: C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-reference-v1.png
+model: v3.1-20260211 — default high-fidelity → v3.1
+steps:
+  1. image-to-model  POST /v3/generation/image-to-model — generate a 3D model from one image
+     model="v3.1-20260211" face_limit=120000 geometry_quality="detailed" texture_quality="extreme" texture_version="v3.5-20260815" auto_size=true model_seed=1111
+cost impact:
+  · texture_quality extreme: higher price tier
+  · geometry detailed (Ultra): extra HD credit
+──────────────────────────────────
+model: v3.1-20260211 (default high-fidelity → v3.1)
+task created b830dbdf-e0d3-48c1-af9a-545326ebb7e1 (@zero-v1-20261007)
+image_to_model · queued
+image_to_model · running 5% · b830dbdf
+image_to_model · running 10% · b830dbdf
+image_to_model · running 15% · b830dbdf
+image_to_model · running 24% · b830dbdf
+image_to_model · running 35% · b830dbdf
+image_to_model · running 53% · b830dbdf
+image_to_model · running 76% · b830dbdf
+image_to_model · running 98% · b830dbdf
+image_to_model · success 100% · b830dbdf
+✓ image_to_model · b830dbdf-e0d3-48c1-af9a-545326ebb7e1 · 70 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-v1\tripo-out\zero-v1-20261007-b830dbdf

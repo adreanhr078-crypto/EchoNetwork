@@ -1,0 +1,445 @@
+{
+  "authorization": {
+    "date": "2026-10-07",
+    "limitCredits": 600,
+    "source": "Explicit owner authorization for Tripo characters weapons and room assets",
+    "keyStoredOutsideRepository": true
+  },
+  "jobs": [
+    {
+      "id": "standard-katana",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One original premium anime sci-fi katana game asset, single straight continuous blade 85cm with subtle gentle curve toward tip, sharp brushed silver cutting edge, dark graphite spine, tiny recessed cyan power channel, refined black textured two-hand handle with woven grip and metallic pommel, compact angular tsuba guard, detailed physically modeled bevels and fasteners. No scabbard, no stand, no character, no floating particles, no extra objects. High quality clean usable hard surface asset.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "standard-katana-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/standard-katana",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "shadow-katana",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One original premium dark anime katana game asset, 110cm total length, coherent long sharp obsidian blade with refined violet fracture inlays, subtle layered angular blade spine, compact asymmetric black tsuba, long wrapped charcoal grip and polished pommel. Elegant readable silhouette, detailed beveled geometry, PBR material relief, no smoke, no floating particles, no scabbard, no characters, no pedestal.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "shadow-katana-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/shadow-katana",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "diagnostic-cart",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One detailed portable futuristic medical diagnostic trolley for an abandoned cryogenic laboratory, realistic 1.1m tall, narrow charcoal and pale ceramic console, angled teal glass monitor with abstract unreadable telemetry, tactile switches and recessed connectors, two shelves with sealed medical trays, side handle, four caster wheels, thin cyan indicator strips, restrained warm amber caution details. Premium anime sci-fi industrial hard-surface PBR asset, no room or person, no readable labels, no pedestal.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "diagnostic-cart-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/diagnostic-cart",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "security-terminal",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One detailed wall mounted futuristic security access terminal, 0.65m tall rectangular dark graphite and brushed titanium housing with chamfered corners, small recessed cyan scanner lens, angled amber touch screen, tactile sealed buttons, braided conduit on underside and ventilation fins, realistic screws and panel seams. Premium anime industrial sci-fi game asset, no wall plane, no person, no readable text, no room, single cohesive object.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "security-terminal-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/security-terminal",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "observation-server",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One detailed futuristic cryogenic laboratory equipment tower, 1.7m tall narrow rounded graphite cabinet with layered chamfered armor panels, three inset glass data windows with tiny cyan indicator dots, ventilation grilles, recessed service handle, exposed rear cable loops and ceramic white side accents, small restrained amber status lamps, clean premium anime sci-fi industrial PBR asset. Single cohesive object, no floor plane or room or person, no readable text.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "observation-server-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/observation-server",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "medical-wall-unit",
+      "owner": "gemini_assets",
+      "enabled": true,
+      "maxCredits": 40,
+      "args": [
+        "make",
+        "One detailed futuristic medical wall diagnostic module, 0.9m tall ceramic white and dark graphite housing with beveled rounded corners, central recessed cyan instrument screen, small amber warning indicator, two slim retractable probe cables with curved holders, vented service panel and precision metallic fasteners. Premium anime science-fiction medical game asset with thoughtful functional industrial design. Single coherent object, no wall plane, no room or person, no readable text.",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "medical-wall-unit-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/medical-wall-unit",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 70,
+      "args": [
+        "make",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-reference-v1.png",
+        "--seed",
+        "1111",
+        "-p",
+        "face_limit=120000",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "texture_quality=extreme",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "zero-v1-20261007",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-rig-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 25,
+      "args": [
+        "make",
+        "b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+        "--then",
+        "rig-check,rig:spec=mixamo",
+        "--name",
+        "zero-rig-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-motion-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 30,
+      "args": [
+        "anim",
+        "retarget",
+        "925ca3b6-75b7-42f1-81ff-cf6119ed4c81",
+        "--animation",
+        "preset:idle",
+        "preset:turn",
+        "preset:hurt",
+        "--out-format",
+        "glb",
+        "--animate-in-place",
+        "-p",
+        "export_with_geometry=true",
+        "-p",
+        "bake_animation=true",
+        "--name",
+        "zero-motion-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-motion-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-motion-inspect",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 0,
+      "args": [
+        "task",
+        "get",
+        "ef9aea76-cbb4-4000-a1f3-c4613058f1b3",
+        "--json"
+      ]
+    },
+    {
+      "id": "balance-20261008",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 0,
+      "args": [
+        "balance",
+        "--json"
+      ]
+    },
+    {
+      "id": "zero-idle-v2",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "925ca3b6-75b7-42f1-81ff-cf6119ed4c81",
+        "--then",
+        "retarget:preset:idle",
+        "--name",
+        "zero-idle-v2-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-idle-v2",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-rig-inspect",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 0,
+      "args": [
+        "task",
+        "get",
+        "925ca3b6-75b7-42f1-81ff-cf6119ed4c81",
+        "--json"
+      ]
+    },
+    {
+      "id": "zero-idle-legacy-v3",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "925ca3b6-75b7-42f1-81ff-cf6119ed4c81",
+        "--then",
+        "retarget:preset:biped:idle",
+        "--name",
+        "zero-idle-legacy-v3-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-idle-legacy-v3",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-rig-humanoid-v2",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 25,
+      "args": [
+        "make",
+        "b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+        "--then",
+        "rig:model=v1.0-20240301",
+        "--name",
+        "zero-rig-humanoid-v2-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-humanoid-v2",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-humanoid-idle-v4",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "0a5f59a1-a3fd-4098-80d9-019773a393c7",
+        "--then",
+        "retarget:preset:biped:idle",
+        "--name",
+        "zero-humanoid-idle-v4-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-humanoid-idle-v4",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-acting-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "0a5f59a1-a3fd-4098-80d9-019773a393c7",
+        "--then",
+        "retarget:preset:biped:agree",
+        "--name",
+        "zero-acting-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-acting-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-look-around-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "0a5f59a1-a3fd-4098-80d9-019773a393c7",
+        "--then",
+        "retarget:preset:biped:look_around",
+        "--name",
+        "zero-look-around-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-look-around-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-cast-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 10,
+      "args": [
+        "make",
+        "0a5f59a1-a3fd-4098-80d9-019773a393c7",
+        "--then",
+        "retarget:preset:biped:cast_a_spell",
+        "--name",
+        "zero-cast-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-cast-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "zero-rig-mixamo-v3",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 25,
+      "args": [
+        "make",
+        "b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+        "--then",
+        "rig:model=v1.0-20240301,spec=mixamo",
+        "--name",
+        "zero-rig-mixamo-v3-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/zero-rig-mixamo-v3",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "balance-20261008-v2",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 0,
+      "args": [
+        "balance",
+        "--json"
+      ]
+    }
+  ]
+}

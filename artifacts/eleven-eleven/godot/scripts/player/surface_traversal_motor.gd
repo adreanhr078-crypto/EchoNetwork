@@ -316,7 +316,7 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 	body.stamina = maxf(0.0, body.stamina - drain * delta)
 	body.stamina_changed.emit(body.stamina, body.MAX_STAMINA)
 	if body.visual_root:
-		body.visual_root.rotation.y = atan2(-normal.x, -normal.z) + body.MODEL_FORWARD_YAW_OFFSET
+		body.visual_root.rotation.y = atan2(-normal.x, -normal.z) + body.model_forward_yaw_offset
 		body.visual_root.rotation.x = 0.0
 		body.visual_root.rotation.z = 0.0
 	var clip := "PARKOUR_HANG" if hanging else "PARKOUR_CLIMB"

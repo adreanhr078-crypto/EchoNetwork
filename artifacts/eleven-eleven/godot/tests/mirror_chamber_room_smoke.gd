@@ -110,6 +110,12 @@ func _run() -> void:
 	
 	if not _check(gate_shape.disabled == true, "Exit blast gate collision must be disabled when open"):
 		return
+	room.set_presentation_language("en")
+	if not _check(room.get_node("Telemetry/Readout1").text=="ACCESS / UNLOCKED", "Actual override must update telemetry instead of retaining LOCKED"):
+		return
+	room.set_presentation_language("ar")
+	if not _check(room.get_node("Telemetry/Readout1").text.contains("مفتوح"), "Arabic telemetry must follow the same real state"):
+		return
 	
 	# 8. Move Player to Exit Gantry (Z = -33.0m, Y = 0.1m)
 	player.position = Vector3(0.0, 0.1, -33.0)
@@ -127,7 +133,7 @@ func _run() -> void:
 	if not _check(state_dict.get("gate_open", false), "State missing gate_open"):
 		return
 	
-	print("PASS mirror chamber room: 18x18m watertight hull, dual reality mirrors, psychological stillness, and state restoration")
+	print("PASS mirror chamber state: 28x36m hull bounds, mirror trigger, override gate, bilingual real-state telemetry and restoration; reflection art requires rendered review")
 	if player:
 		player.queue_free()
 	if room:

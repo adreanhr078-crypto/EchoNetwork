@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "room_id": "sector11-opening-20261008",
+  "stage": "references-reviewed",
+  "room_contract": {
+    "dimensions_m": [
+      18,
+      25.4,
+      7.2
+    ],
+    "landmarks": [
+      "original entrance and route",
+      "medical capsule",
+      "floor clock",
+      "memory pedestal",
+      "observation glass",
+      "existing terminal"
+    ],
+    "canon_source": "docs/11-11/design/CONTINUATION.md and actual Godot opening scene",
+    "native_scene": "godot/scenes/opening_native_room.tscn",
+    "base_scene": "godot/scenes/opening_web_room.tscn",
+    "shell": "godot/scripts/environment/sector11_visual_shell.gd opening_only mode"
+  },
+  "references": [
+    {
+      "id": "entry",
+      "role": "entry",
+      "review": "accepted",
+      "review_scope": "Root inspected actual concept image against native layout and other views; proposed art only",
+      "file": {
+        "path": "references/01-entry-wide.png",
+        "sha256": "34f0d5e915f10d9d1a153ac6b123095516bc55a3bb3f6665e5da350bc9586ee3"
+      },
+      "generation_id": "exec-19563022-a11e-4d85-906f-3261815ba77c",
+      "provider": "built-in-imagegen"
+    },
+    {
+      "id": "reverse",
+      "role": "reverse",
+      "review": "accepted",
+      "review_scope": "Root inspected actual concept image against native layout and other views; proposed art only",
+      "file": {
+        "path": "references/02-reverse-wide.png",
+        "sha256": "264264f8e77cf33ab63f415f66fa2f96b333c0e69c2275554fb3fa35ca3b8918"
+      },
+      "generation_id": "exec-2a892520-4b2e-4649-874e-e9cf7d8b0166",
+      "provider": "built-in-imagegen"
+    },
+    {
+      "id": "lateral",
+      "role": "lateral",
+      "review": "accepted",
+      "review_scope": "Root inspected actual concept image against native layout and other views; proposed art only",
+      "file": {
+        "path": "references/03-lateral-utility.png",
+        "sha256": "f817a186824483b24435285907860b7af3faedd11e4468f0f94ff5a51e8c0d33"
+      },
+      "generation_id": "exec-33eec347-08a9-45e2-afac-e88f45115e49",
+      "provider": "built-in-imagegen"
+    },
+    {
+      "id": "hero-detail",
+      "role": "hero-detail",
+      "review": "accepted",
+      "review_scope": "Root inspected corrected right-side existing terminal, no extra controlunit/utilitybox/hose; independent recheck pending",
+      "file": {
+        "path": "references/04-hero-capsule.png",
+        "sha256": "b58072c536d9ab23f71e8af93c954d3ffd58b85fb191c4fc42cd2bbb41079071"
+      },
+      "generation_id": "exec-2b4d0524-7f26-4a21-ad43-1c17af2b56d9",
+      "provider": "built-in-imagegen"
+    }
+  ],
+  "cinematic": {
+    "provider": "flow",
+    "provider_task_id": null,
+    "status": "not_submitted",
+    "review": "OPEN",
+    "file": null,
+    "duration_s": null,
+    "submitted_reference_ids": [],
+    "prompt_file": null,
+    "submission_evidence": null
+  },
+  "frames": [],
+  "assets": [],
+  "asset_briefs": [],
+  "generation_jobs": [
+    {
+      "provider": "flow",
+      "task_id": null,
+      "status": "not_submitted",
+      "charged_credits": null
+    }
+  ],
+  "budgets": {
+    "flow": {
+      "authorized_credits": 100,
+      "authorization": "Owner authorizes Flow room production using existing balance; single candidate scoped100",
+      "last_observed_account_balance": 938,
+      "balance_observation": "2026-10-08 prior first blocked Zero attempt, current charge unverified"
+    }
+  },
+  "native_reviews": {
+    "visual": "OPEN",
+    "traversal": "OPEN",
+    "pause": "OPEN",
+    "reduced_motion": "OPEN",
+    "mute": "OPEN",
+    "performance": "OPEN"
+  },
+  "native_evidence": [],
+  "limitations": [
+    "Four reviewed concept views generated; geometry dimensions are native measurements and visual references are proposed art, not native evidence.",
+    "Floor reflections in concepts are stronger than intended native satin floor; reduce at implementation.",
+    "No room cinematic submitted or extracted frames accepted yet.",
+    "Prior separate Flow Zero attempt failed unusual-activity verification; no video/audio or confirmed charge.",
+    "Six earlier Tripo prop assets are separate production provenance, not extracted from this uncreated movie.",
+    "Native character/player/art/performance gates remain OPEN.",
+    "Initial hero v1 terminal position failed continuity review, retained separately; corrected hero v2 in four-reference packet."
+  ]
+}

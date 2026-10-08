@@ -107,10 +107,8 @@ func execute_visceral_strike(player: Node, target: Node, cine_camera_director: C
 		player.position = strike_pos
 
 	# Align player facing towards target
-	if player.get("visual_root"):
-		var vr = player.get("visual_root") as Node3D
-		if vr:
-			vr.rotation.y = atan2(forward_dir.x, forward_dir.z)
+	if player.has_method("face_world_direction"):
+		player.face_world_direction(forward_dir)
 
 	# 2. Blade Elemental Flare & Audio Synthesis
 	var parent = player.get_parent()

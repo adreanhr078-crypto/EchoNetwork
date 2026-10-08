@@ -1,4 +1,5 @@
 extends Control
+const DIALOGUE_FONT = preload("res://assets/fonts/NotoSansArabic.ttf")
 
 signal dialogue_started
 signal line_displayed(index, line_data)
@@ -38,6 +39,7 @@ var displayed_chars: int = 0
 var typing_timer: float = 0.0
 var presentation_language := "ar"
 var continue_button: Button
+var _content_scroll: ScrollContainer
 
 @onready var speaker_lbl: Label = $DialogBox/VBox/SpeakerBadge/SpeakerLabel if has_node("DialogBox/VBox/SpeakerBadge/SpeakerLabel") else null
 @onready var text_lbl: Label = $DialogBox/VBox/TextLabel if has_node("DialogBox/VBox/TextLabel") else null
@@ -45,6 +47,33 @@ var continue_button: Button
 
 func _ready() -> void:
 	visible = false
+	set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	var readable_theme := Theme.new()
+	var readable_font := DIALOGUE_FONT.duplicate() as FontFile
+	readable_font.oversampling = 1.0
+	readable_theme.default_font = readable_font
+	theme = readable_theme
+	var panel_style := StyleBoxFlat.new()
+	panel_style.bg_color = Color(0.025, 0.022, 0.035, 0.96)
+	panel_style.border_color = Color(0.48, 0.19, 0.27, 0.8)
+	panel_style.set_border_width_all(1)
+	panel_style.border_width_top = 2
+	panel_style.set_corner_radius_all(8)
+	$DialogBox.add_theme_stylebox_override("panel", panel_style)
+	_content_scroll = ScrollContainer.new()
+	_content_scroll.name = "DialogueContentScroll"
+	_content_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_content_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	$DialogBox.add_child(_content_scroll)
+	_content_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_content_scroll.offset_left = 20
+	_content_scroll.offset_top = 12
+	_content_scroll.offset_right = -20
+	_content_scroll.offset_bottom = -76
+	var content := $DialogBox/VBox as VBoxContainer
+	content.reparent(_content_scroll)
+	content.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	continue_button = Button.new()
 	continue_button.name = "ContinueButton"
 	$DialogBox.add_child(continue_button)
@@ -53,27 +82,38 @@ func _ready() -> void:
 	continue_button.offset_right = -24
 	continue_button.offset_top = -60
 	continue_button.offset_bottom = -12
-	continue_button.add_theme_font_size_override("font_size", 22)
+	continue_button.custom_minimum_size = Vector2(140, 48)
+	continue_button.add_theme_font_size_override("font_size", 18)
 	continue_button.pressed.connect(advance_dialogue)
 	get_viewport().size_changed.connect(_layout)
 	_layout()
 	set_presentation_language(presentation_language)
 
 func _layout() -> void:
-	var screen := get_viewport().get_visible_rect().size
+	var stretch := get_viewport().get_stretch_transform().get_scale()
+	stretch = Vector2(maxf(0.001, stretch.x), maxf(0.001, stretch.y))
+	scale = Vector2.ONE / stretch
+	var screen := get_viewport().get_visible_rect().size * stretch
+	size = screen
+	position = Vector2.ZERO
 	var box := $DialogBox as Panel
-	box.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
-	box.size = Vector2(minf(960.0, screen.x - 48.0), minf(230.0, screen.y * 0.45))
-	box.position = Vector2((screen.x - box.size.x) * 0.5, screen.y - box.size.y - 24.0)
-	$DialogBox/VBox.offset_bottom = -68
-	if text_lbl: text_lbl.add_theme_font_size_override("font_size", 24)
-	if speaker_lbl: speaker_lbl.add_theme_font_size_override("font_size", 18)
+	box.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	box.size = Vector2(minf(720.0, screen.x - 24.0), minf(screen.y - 24.0, clampf(screen.y * 0.42, 168.0, 244.0)))
+	box.position = Vector2((screen.x - box.size.x) * 0.5, screen.y - box.size.y - 12.0)
+	if text_lbl:
+		text_lbl.add_theme_font_size_override("font_size", 20 if screen.y < 300 else 22)
+		text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
+	if speaker_lbl:
+		speaker_lbl.add_theme_font_size_override("font_size", 17)
+		speaker_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
+		_content_scroll.get_child(0).size.x = box.size.x - 40
 	if continue_prompt: continue_prompt.hide()
 
 func set_presentation_language(language: String) -> void:
 	presentation_language = "en" if language == "en" else "ar"
 	layout_direction = Control.LAYOUT_DIRECTION_RTL if presentation_language == "ar" else Control.LAYOUT_DIRECTION_LTR
 	if continue_button: continue_button.text = "متابعة" if presentation_language == "ar" else "Continue"
+	if is_node_ready(): _layout()
 	if is_active:
 		_apply_line_text()
 
@@ -161,6 +201,7 @@ func advance_dialogue() -> void:
 		text_lbl = find_child("TextLabel", true, false) as Label
 
 	_apply_line_text()
+	_content_scroll.scroll_vertical = 0
 
 	emit_signal("line_displayed", current_line_index, line)
 

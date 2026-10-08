@@ -1,0 +1,13 @@
+── Plan ──────────────────────────
+input: b830dbdf-e0d3-48c1-af9a-545326ebb7e1
+steps:
+  1. rig  POST /v3/animations/rig — auto-rig a skeleton
+     model="v1.0-20240301" spec="mixamo"
+──────────────────────────────────
+task created bdb102d3-ba2e-43f6-9897-8593bc5c5b23 (@zero-rig-mixamo-v3-20261008-rig)
+animate_rig · queued
+animate_rig · running 32% · bdb102d3
+animate_rig · success 100% · bdb102d3
+✓ animate_rig · bdb102d3-ba2e-43f6-9897-8593bc5c5b23 · 25 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-rig-mixamo-v3\tripo-out\zero-rig-mixamo-v3-20261008-rig-bdb102d3

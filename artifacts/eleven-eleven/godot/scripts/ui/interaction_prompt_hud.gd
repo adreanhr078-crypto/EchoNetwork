@@ -26,11 +26,18 @@ func show_prompt(interactable: Node) -> void:
 		prompt_label = find_child("PromptLabel", true, false) as Label
 	
 	if prompt_label and interactable:
-		var verb: String = interactable.get_verb_string()
-		if presentation_language == "ar":
-			verb = "افحص" if interactable.verb == InteractableComponent.InteractionVerb.INSPECT else "تفاعل"
+		var verb := "تفاعل" if presentation_language == "ar" else "Interact"
+		var target_name := String(interactable.get_meta("interaction_label_" + presentation_language, "لوحة التحكم" if presentation_language == "ar" else "Control panel"))
+		if interactable.has_method("get_interaction_verb"):
+			verb=interactable.get_interaction_verb(presentation_language)
+		elif interactable.has_method("get_verb_string"):
+			verb = interactable.get_verb_string()
+		if interactable is InteractableComponent:
+			if presentation_language == "ar":
+				verb = "افحص" if interactable.verb == InteractableComponent.InteractionVerb.INSPECT else "تفاعل"
+			target_name = interactable.prompt_target_name
 		var key := ("المس" if presentation_language == "ar" else "Tap") if touch_mode else "E"
-		prompt_label.text = "[%s] %s · %s" % [key, verb, interactable.prompt_target_name]
+		prompt_label.text = "[%s] %s · %s" % [key, verb, target_name]
 	
 	visible = true
 

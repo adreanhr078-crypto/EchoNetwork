@@ -2,7 +2,7 @@ extends SceneTree
 
 ## Live existing-avatar review; no source motion, retarget or Golden changes.
 ## Isolated entry and input are staged; this is not a chapter or phone verdict.
-const FOLDER := "res://../audits/evidence/third-person-foundation-20261001/implementation/art-review-v3/"
+var FOLDER := "res://../audits/evidence/quality-repair-20261006/locomotion-before/"
 var main: Node
 var player: EchoPlayer
 var touch: MobileTouchControls
@@ -12,6 +12,8 @@ var frame := 0
 func _initialize() -> void: _run.call_deferred()
 
 func _run() -> void:
+	var args := OS.get_cmdline_user_args()
+	if not args.is_empty(): FOLDER = "res://../audits/evidence/quality-repair-20261006/" + args[0].validate_filename() + "/"
 	root.size = Vector2i(960, 540)
 	root.content_scale_size = Vector2i(1280, 720)
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT

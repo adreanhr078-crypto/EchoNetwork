@@ -66,6 +66,7 @@ func _ready() -> void:
 	_build_memory_shards()
 	_build_console_terminal()
 	_build_exit_gate()
+	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-22,-14,22,28),8.5)
 
 func _material(color: Color, metal: float = 0.0, rough: float = 0.7, emission: bool = false, emission_color := Color.BLACK, energy := 1.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()
@@ -153,13 +154,18 @@ func _build_catwalk_and_racks() -> void:
 	
 	# Catwalk Railings
 	_box("CatwalkRailNorth", Vector3(-11.0, 4.1, -1.05), Vector3(16.0, 1.0, 0.1), rail_mat, true)
-	_box("CatwalkRailSouth", Vector3(-11.0, 4.1, 1.05), Vector3(16.0, 1.0, 0.1), rail_mat, true)
+	_box("CatwalkRailSouth", Vector3(-11.9, 4.1, 1.05), Vector3(14.2, 1.0, 0.1), rail_mat, true)
 	
 	# Access Stairs from Floor (Y = 0) to Catwalk (Y = 3.6) near East entrance
 	for i in range(12):
 		var step_y := i * 0.3
-		var step_x := -2.0 - i * 0.5
-		_box("CatwalkStair_%d" % i, Vector3(step_x, step_y + 0.15, 0.0), Vector3(0.55, 0.3, 1.8), catwalk_mat, true)
+		var step_z := 7.9 - i * 0.55
+		_box("CatwalkStair_%d" % i, Vector3(-3.8, step_y + 0.15, step_z), Vector3(1.8, 0.3, 0.58), catwalk_mat, false)
+	# Continuous support under the visible treads; a capsule cannot step up
+	# twelve 30cm collision risers without repeatedly jumping.
+	var support = preload("res://scripts/environment/room_path_support.gd")
+	support.add_ramp(self, "CatwalkStairSupport", Vector3(-3.8,0,8.4), Vector3(-3.8,3.6,1.6), 1.8)
+	support.add_ramp(self, "CatwalkStairLanding", Vector3(-3.8,3.6,1.6), Vector3(-3.8,3.6,0.8), 1.8, catwalk_mat)
 	
 	# Server Rack Rows (North row at Z = -6.5m, South row at Z = +6.5m)
 	# Instantiating 3D props with collision
@@ -257,27 +263,27 @@ func _build_memory_shards() -> void:
 	var shard_configs := [
 		{
 			"id": "shard_shizuka",
-			"pos": Vector3(-6.0, 3.8, 6.5),
-			"title_en": "Memory Shard 01: Shizuka's Umbrella",
-			"title_ar": "شظية الذاكرة 01: مظلة شيزوكا والمطر",
-			"text_en": "A vivid summer rain. Shizuka stands smiling under a red umbrella: 'You promised you would never leave, Echo.'",
-			"text_ar": "مطر صيفي دافئ. شيزوكا تبتسم تحت مظلة حمراء: 'لقد وعدتني ألا تختفي أبداً يا إيكو.'"
+			"pos": Vector3(-6.0, 0.85, 4.1),
+			"title_en": "Memory fragment 01: Shizuka",
+			"title_ar": "شظية الذاكرة 01: شيزوكا",
+			"text_en": "Shizuka. A familiar presence in a memory that has not fully returned.",
+			"text_ar": "شيزوكا. حضور تعرفه في ذاكرة لم تستعدها كاملة."
 		},
 		{
 			"id": "shard_yuki",
-			"pos": Vector3(-16.0, 3.8, -6.5),
-			"title_en": "Memory Shard 02: Yuki's Move",
-			"title_ar": "شظية الذاكرة 02: نقلة يوكي الشطرنجية",
-			"text_en": "Yuki sits across the chessboard, his silver hair reflecting the afternoon sun: 'Even a captured pawn can overturn the king, Echo.'",
-			"text_ar": "يوكي يجلس أمام رقعة الشطرنج، خصلات شعره الفضية تلمع تحت الشمس: 'حتى البيدق المسلوب يمكنه إسقاط الملك يا إيكو.'"
+			"pos": Vector3(-16.0, 0.85, -4.1),
+			"title_en": "Memory fragment 02: Yuki",
+			"title_ar": "شظية الذاكرة 02: يوكي",
+			"text_en": "Yuki. You recognize him, but the memory remains fragmented.",
+			"text_ar": "يوكي. تعرفه، لكن الذاكرة ما زالت متقطعة."
 		},
 		{
 			"id": "shard_sector11",
-			"pos": Vector3(-11.0, 6.2, 0.0),
-			"title_en": "Memory Shard 03: The Abduction Protocol",
-			"title_ar": "شظية الذاكرة 03: بروتوكول الاختطاف لسيكتور 11",
-			"text_en": "Blinding hospital white lights. Dr. Kinja's voice echoes: 'Neurological resonance confirmed. Label him EX-011. Prepare cryogenic immersion.'",
-			"text_ar": "أضواء مستشفى بيضاء تعمي البصر. صوت د. كينجا يتردد: 'الرنين العصبي مؤكد. ضعوا عليه رمز EX-011. جهزوا الغمر التجميدي فوراً.'"
+			"pos": Vector3(-11.0, 3.95, 0.0),
+			"title_en": "Memory fragment 03: EX-011",
+			"title_ar": "شظية الذاكرة 03: EX-011",
+			"text_en": "EX-011. The identifier links this fragment to the experiment. Recover the remaining fragments.",
+			"text_ar": "EX-011. الرمز يربط هذه الشظية بالتجربة. استعد بقية الشظايا."
 		}
 	]
 	
@@ -402,6 +408,9 @@ func _build_console_terminal() -> void:
 func trigger_interaction(_interactor: Node = null) -> Dictionary:
 	return decode_archive_and_unlock()
 
+func get_interaction_position() -> Vector3:
+	return _console_body.global_position + Vector3.UP * 0.5
+
 func decode_archive_and_unlock() -> Dictionary:
 	if collected_shards.size() < 3:
 		return {
@@ -489,7 +498,7 @@ func get_state() -> Dictionary:
 func restore_state(saved: Dictionary) -> bool:
 	if not saved.is_empty() and saved.has("collected_shards"):
 		state = saved.get("state", RoomState.ENTRY_TUNNEL)
-		collected_shards = saved.get("collected_shards", []).duplicate()
+		collected_shards.assign(saved.get("collected_shards", []))
 		archive_decoded = saved.get("archive_decoded", false)
 		gate_open = saved.get("gate_open", false)
 		

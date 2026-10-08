@@ -158,7 +158,7 @@ func _dash_hold_release() -> bool:
 	if not _check(player.dodge_direction.dot(expected) > 0.99, "Roll direction ignored camera"): return false
 	_touch(3, point, true)
 	_touch(3, point, false)
-	await _steps(40)
+	await _steps(int(ceil(player.locomotion_controller.ROLL_DURATION*60))+8)
 	if not _check(rolls == initial + 1 and not player.is_dodging and not player.mobile_sprint_active, "held Roll repeated or requested Run"): return false
 	_touch(2, point, false)
 	touch.reset_input()
@@ -181,7 +181,7 @@ func _mixed_dash_ownership_and_drop() -> bool:
 	var point: Vector2 = touch.dodge_btn.get_global_rect().get_center()
 	_touch(2, point, true)
 	_touch(2, point, false)
-	await _steps(28)
+	await _steps(int(ceil(player.locomotion_controller.ROLL_DURATION*60))+8)
 	if not _check(rolls == initial + 1 and player.mobile_sprint_active, "touch Roll canceled separately held keyboard Run"): return false
 	Input.action_release("sprint")
 	Input.action_release("move_forward")
@@ -248,6 +248,18 @@ func _cancel_focus_and_modal() -> bool:
 	if not _check(rolls == initial and not player.is_dodging and not player.mobile_sprint_active and player.is_on_floor(), "modal close replayed an action or bypassed floor state"): return false
 	_touch(2, point, false)
 	_touch(3, Vector2.ZERO, false)
+	var window=main.hud.find_child("SystemWindow",true,false)
+	var desktop:bool=not player.touch_input_enabled and DisplayServer.get_name()!="headless"
+	if desktop: Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	window.show_system_window(0,"Record","Nonmodal record",[],4.0)
+	if not _check(not player.control_locked,"Notification locked gameplay"): return false
+	if desktop and not _check(Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"Notification stole the desktop orbit cursor"): return false
+	window.show_decision("Contract","Explicit action",[{"id":"ACCEPT","text":"Accept"}])
+	if not _check(player.control_locked,"Decision did not own input"): return false
+	window.show_system_window(0,"Record","Replaced decision",[],4.0)
+	if not _check(not player.control_locked,"Modal replaced by notification retained its input lock"): return false
+	if desktop and not _check(Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"Modal replacement lost desktop orbit cursor"): return false
+	window.close_window()
 	observations["cancel_focus_modal"] = "PASS"
 	return true
 

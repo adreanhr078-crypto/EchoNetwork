@@ -76,8 +76,10 @@ func _run() -> void:
 	Input.action_press("sprint")
 	await _steps(12)
 	Input.action_press("dodge")
-	await _steps(45)
-	if not _check(rolls == 1 and not player.is_sliding and not player.is_dodging and not player.locomotion_controller.is_rolling, "held Ctrl repeated Roll or started Slide"): return
+	# The native Roll now lasts 720ms. At the old observation point one step
+	# can leave 3.33ms; keep Ctrl held beyond the complete clip to test repeats.
+	await _steps(60)
+	if not _check(rolls == 1 and not player.is_sliding and not player.is_dodging and not player.locomotion_controller.is_rolling, "held Ctrl repeated Roll or started Slide: rolls=%d slide=%s dodge=%s rolling=%s timer=%.6f" % [rolls,player.is_sliding,player.is_dodging,player.locomotion_controller.is_rolling,player.dodge_timer]): return
 	Input.action_release("dodge")
 	Input.action_release("sprint")
 	Input.action_release("move_forward")

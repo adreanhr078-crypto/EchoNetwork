@@ -1,0 +1,22 @@
+── Plan ──────────────────────────
+input: b830dbdf-e0d3-48c1-af9a-545326ebb7e1
+steps:
+  1. rig-check  POST /v3/animations/rig-check — check riggability (no model output; stops the chain if not riggable)
+  2. rig  POST /v3/animations/rig — auto-rig a skeleton
+     spec="mixamo"
+──────────────────────────────────
+task created a4cafe3c-11f0-4018-8116-09d531bbf5ca (@zero-rig-v1-20261008-rig-check)
+animate_prerigcheck · queued
+✓ animate_prerigcheck · a4cafe3c-11f0-4018-8116-09d531bbf5ca · 0 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-rig-v1\tripo-out\zero-rig-v1-20261008-rig-check-a4cafe3c
+using rig-check recommendation: biped
+task created 925ca3b6-75b7-42f1-81ff-cf6119ed4c81 (@zero-rig-v1-20261008-rig)
+animate_rig · queued
+animate_rig · running 21% · 925ca3b6
+animate_rig · running 42% · 925ca3b6
+animate_rig · running 70% · 925ca3b6
+animate_rig · success 100% · 925ca3b6
+✓ animate_rig · 925ca3b6-75b7-42f1-81ff-cf6119ed4c81 · 25 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-rig-v1\tripo-out\zero-rig-v1-20261008-rig-925ca3b6

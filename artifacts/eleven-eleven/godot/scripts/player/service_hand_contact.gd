@@ -25,6 +25,10 @@ func begin(player: EchoPlayer, owner_room: Node3D) -> bool:
 	if not _skeleton or not actor.control_locked:
 		start_result = "no_rig_or_unlocked"
 		return false
+	var profile := preload("res://scripts/player/echo_rig_profile.gd").identify(_skeleton)
+	if profile.is_empty():
+		start_result = "unsupported_rig"
+		return false
 	_start = actor.global_position
 	_anchor = room.to_global(Vector3(1.25,5.4,-12.18))
 	_anchor.y = _start.y
@@ -39,7 +43,17 @@ func begin(player: EchoPlayer, owner_room: Node3D) -> bool:
 	var alignment_distance := _start.distance_to(_anchor)
 	actor.play_anim("WALK" if alignment_distance > 0.08 else "IDLE",0.12)
 	actor.animation_player.speed_scale = clampf(alignment_distance / (0.35 * 2.8),0.65,1.25) if alignment_distance > 0.08 else 1.0
-	for bones in [["tripo__0_Right_Limb_0","tripo__0_Right_Limb_1","tripo__0_Right_Limb_2"],["tripo__Spine_4","tripo__0_Left_Limb_0","tripo__0_Left_Limb_1"]]:
+	var arms: Array = profile.service_arms.duplicate(true)
+	# Assign wheel sides using measured arm positions in the final facing frame.
+	# The legacy importer swapped named sides; authored V31 keeps anatomical names.
+	var parent_basis: Basis = actor.visual_root.get_parent().global_basis.orthonormalized()
+	var aligned_basis := parent_basis * Basis(Vector3.UP,PI+actor.model_forward_yaw_offset)
+	arms.sort_custom(func(a: Array,b: Array) -> bool:
+		var a_local := actor.visual_root.to_local(_skeleton.to_global(_skeleton.get_bone_global_pose(_skeleton.find_bone(a[0])).origin))
+		var b_local := actor.visual_root.to_local(_skeleton.to_global(_skeleton.get_bone_global_pose(_skeleton.find_bone(b[0])).origin))
+		return (aligned_basis*(a_local*actor.visual_root.scale)).x < (aligned_basis*(b_local*actor.visual_root.scale)).x
+	)
+	for bones in arms:
 		var root_index := _skeleton.find_bone(bones[0])
 		var middle_index := _skeleton.find_bone(bones[1])
 		var wrist_index := _skeleton.find_bone(bones[2])
@@ -83,7 +97,7 @@ func _physics_process(delta: float) -> void:
 		start_result = "alignment_interrupted"
 		stop()
 		return
-	actor.visual_root.rotation = Vector3(0,lerp_angle(_start_yaw,PI+actor.MODEL_FORWARD_YAW_OFFSET,align),0)
+	actor.visual_root.rotation = Vector3(0,lerp_angle(_start_yaw,PI+actor.model_forward_yaw_offset,align),0)
 	if align >= 1.0 and not _aligned:
 		_aligned = true
 		actor.play_anim("IDLE",0.12)
@@ -91,7 +105,7 @@ func _physics_process(delta: float) -> void:
 	var weight := smoothstep(0.35,0.65,elapsed) * (1.0-smoothstep(1.25,1.55,elapsed))
 	var angle: float = room._valve.rotation.z-room._closed_valve.z
 	for index in range(_solvers.size()):
-		# Original rig's named right arm lies on negative world X when facing the wheel.
+		# Chains are ordered by their measured negative/positive world-X wheel side.
 		var phase := (2.1 if index == 0 else 0.65) + angle
 		_targets[index].global_position = room.to_global(Vector3(1.25+cos(phase)*0.21,6.35+sin(phase)*0.21,-12.34))
 		_poles[index].global_position = actor.global_position+Vector3(-0.65 if index == 0 else 0.65,1.0,0.22)

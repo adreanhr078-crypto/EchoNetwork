@@ -1,0 +1,15 @@
+── Plan ──────────────────────────
+input: 925ca3b6-75b7-42f1-81ff-cf6119ed4c81
+steps:
+  1. retarget  POST /v3/animations/retarget — retarget preset animations onto the rigged model
+     animation="preset:biped:idle"
+cost impact:
+  · retarget 1 animation(s): billed per animation
+──────────────────────────────────
+task created 0ce3f02a-4ba5-4b29-b608-2f2f7135022a (@zero-idle-legacy-v3-20261008-ret)
+animate_retarget · queued
+animate_retarget · running 99% · 0ce3f02a
+animate_retarget · running 99% · 0ce3f02a
+animate_retarget · failed 100% · 0ce3f02a
+✗ animate_retarget · 0ce3f02a-4ba5-4b29-b608-2f2f7135022a
+✗ task 0ce3f02a-4ba5-4b29-b608-2f2f7135022a failed (frozen credits have been refunded automatically)

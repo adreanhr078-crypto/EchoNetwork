@@ -47,6 +47,20 @@ var current_anchor: Vector3 = SAFE_ANCHOR_ENTRY
 var reduced_motion := false
 var audio_muted := false
 var player: Node3D
+var presentation_language:="ar"
+var _telemetry:Node3D
+var _telemetry_signature:=""
+
+func set_presentation_language(language:String) -> void:
+	presentation_language="en" if language=="en" else "ar"
+	_update_telemetry()
+
+func _update_telemetry() -> void:
+	if not _telemetry: return
+	var signature:="%s/%s/%s" % [presentation_language,mirror_inspected,override_done]
+	if signature==_telemetry_signature: return
+	_telemetry_signature=signature
+	preload("res://scripts/environment/surveillance_display.gd").update(_telemetry,presentation_language,mirror_inspected,override_done)
 
 var mirror_inspected := false
 var override_done := false
@@ -70,8 +84,10 @@ func _ready() -> void:
 	_build_laser_security_grid()
 	_build_master_terminal()
 	_build_exit_gate()
+	preload("res://scripts/environment/room_service_lighting.gd").install(self, Rect2(-14,-36,28,36),8.0)
 
 func _physics_process(_delta: float) -> void:
+	_update_telemetry()
 	if not player or not is_instance_valid(player):
 		return
 	
@@ -119,11 +135,11 @@ func _box(label: String, center: Vector3, size: Vector3, mat: Material, solid :=
 	return node
 
 func _build_room_hull() -> void:
-	var wall_mat := _material(Color(0.18, 0.2, 0.23), 0.3, 0.6)
+	var wall_mat := _material(Color(0.58, 0.62, 0.68), 0.1, 0.8)
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
-	var floor_mat := _material(Color(0.12, 0.14, 0.17), 0.7, 0.4)
+	var floor_mat := _material(Color(0.38, 0.43, 0.5), 0.2, 0.7)
 	floor_mat.albedo_texture = GRAPHITE
 	floor_mat.uv1_scale = Vector3(5.0, 5.0, 1.0)
 	
@@ -165,47 +181,45 @@ func _build_room_hull() -> void:
 	_ambient_amber_light.name = "SurveillanceAmberLight"
 	_ambient_amber_light.position = Vector3(0.0, 6.0, center_z)
 	_ambient_amber_light.light_color = Color(1.0, 0.65, 0.15) # Surveillance Amber
-	_ambient_amber_light.light_energy = 1.3
+	_ambient_amber_light.light_energy = 0.4
 	_ambient_amber_light.omni_range = 28.0
 	_ambient_amber_light.shadow_enabled = true
 	add_child(_ambient_amber_light)
 
 func _build_panoramic_monitor_wall() -> void:
 	# Panoramic screen bank along North Wall at Z = -35.6m (Width 20.0m x Height 5.0m at Y = 4.5m)
-	var screen_mat := _material(Color(0.05, 0.08, 0.1), 0.1, 0.2, true, Color(1.0, 0.5, 0.0), 1.6)
+	var screen_mat := preload("res://scripts/environment/surveillance_display.gd").material()
 	var frame_mat := _material(Color(0.15, 0.18, 0.22), 0.8, 0.3)
 	
 	_box("MonitorWallFrame", Vector3(0.0, 4.5, -35.7), Vector3(22.0, 5.4, 0.2), frame_mat, false)
 	_box("MonitorWallScreens", Vector3(0.0, 4.5, -35.6), Vector3(21.0, 4.8, 0.05), screen_mat, false)
 	
-	# Biometric Telemetry Display Screen
-	var bio_screen := MeshInstance3D.new()
-	var bio_mesh := BoxMesh.new()
-	bio_mesh.size = Vector3(8.0, 1.8, 0.06)
-	bio_screen.mesh = bio_mesh
-	bio_screen.position = Vector3(0.0, 4.5, -35.5)
-	var bio_mat := _material(Color(0.02, 0.02, 0.02), 0.0, 0.1, true, Color(0.9, 0.1, 0.1), 2.2)
-	bio_screen.material_override = bio_mat
-	add_child(bio_screen)
+	_telemetry=preload("res://scripts/environment/surveillance_display.gd").populate(self,Vector3(0,4.5,-35.5),20,4.5,"SURVEILLANCE / LOCAL TELEMETRY")
+	_update_telemetry()
 
 func _build_surveillance_mirror() -> void:
 	# The Two-Way Surveillance Mirror Chamber (East side at X = 8.5m, Z = -10.0m)
 	var mirror_frame_mat := _material(Color(0.2, 0.24, 0.28), 0.8, 0.3)
-	var mirror_glass_mat := _material(Color(0.3, 0.35, 0.4), 0.95, 0.05, true, Color(0.1, 0.2, 0.25), 0.5)
 	
 	var mirror_node := Node3D.new()
 	mirror_node.name = "SurveillanceMirrorChamber"
 	mirror_node.position = Vector3(8.5, 1.6, -10.0)
 	
-	# Frame
-	_box("MirrorFrame", Vector3(8.5, 1.6, -10.0), Vector3(0.3, 3.2, 4.4), mirror_frame_mat, true)
-	
-	# Glass surface (MeshInstance3D)
-	var glass := MeshInstance3D.new()
-	var g_box := BoxMesh.new()
-	g_box.size = Vector3(0.1, 2.8, 4.0)
-	glass.mesh = g_box
-	glass.material_override = mirror_glass_mat
+	_box("MirrorTopFrame",Vector3(8.5,3.1,-10),Vector3(0.3,0.2,4.4),mirror_frame_mat,true)
+	_box("MirrorBottomFrame",Vector3(8.5,0.1,-10),Vector3(0.3,0.2,4.4),mirror_frame_mat,true)
+	for z in [-12.1,-7.9]:
+		_box("MirrorSideFrame",Vector3(8.5,1.6,z),Vector3(0.3,2.8,0.2),mirror_frame_mat,true)
+	var backing := StaticBody3D.new()
+	backing.name = "MirrorBacking"
+	backing.position = Vector3(8.5,1.6,-10)
+	var collision := CollisionShape3D.new()
+	var shape := BoxShape3D.new()
+	shape.size = Vector3(0.12,2.8,4.0)
+	collision.shape = shape
+	backing.add_child(collision)
+	add_child(backing)
+	var glass := preload("res://scripts/environment/planar_inspection_mirror.gd").new()
+	glass.position.x = -0.17
 	mirror_node.add_child(glass)
 	
 	# Interaction Area3D for examining reflection
@@ -240,13 +254,18 @@ func _build_elevated_command_dais() -> void:
 	
 	# Twin Access Stairs (West Stair & East Stair)
 	for i in range(8):
-		var step_y := float(i) * 0.3
+		var step_y := float(7 - i) * 0.3
 		# West Stair descending from X = -4.0m to -7.2m
-		var wx := -4.0 - float(i) * 0.45
-		_box("WestStair_%d" % i, Vector3(wx, step_y + 0.15, -18.0), Vector3(0.5, 0.2, 2.2), deck_mat, true)
+		var wx := -4.65 - float(i) * 0.45
+		_box("WestStair_%d" % i, Vector3(wx, step_y + 0.15, -16.6), Vector3(0.5, 0.2, 2.2), deck_mat, false)
 		# East Stair descending from X = +4.0m to +7.2m
-		var ex := 4.0 + float(i) * 0.45
-		_box("EastStair_%d" % i, Vector3(ex, step_y + 0.15, -18.0), Vector3(0.5, 0.2, 2.2), deck_mat, true)
+		var ex := 4.65 + float(i) * 0.45
+		_box("EastStair_%d" % i, Vector3(ex, step_y + 0.15, -16.6), Vector3(0.5, 0.2, 2.2), deck_mat, false)
+	var support = preload("res://scripts/environment/room_path_support.gd")
+	support.add_ramp(self, "WestStairSupport", Vector3(-7.8, 0, -16.6), Vector3(-4.5, 2.4, -16.6), 2.2)
+	support.add_ramp(self, "EastStairSupport", Vector3(7.8, 0, -16.6), Vector3(4.5, 2.4, -16.6), 2.2)
+	support.add_ramp(self, "WestStairLanding", Vector3(-4.5,2.4,-16.6), Vector3(-3.5,2.4,-16.6),2.2,deck_mat)
+	support.add_ramp(self, "EastStairLanding", Vector3(4.5,2.4,-16.6), Vector3(3.5,2.4,-16.6),2.2,deck_mat)
 
 func _build_laser_security_grid() -> void:
 	var laser_mat := _material(Color(1.0, 0.1, 0.1, 0.4), 0.0, 0.1, true, Color(1.0, 0.0, 0.0), 3.0)
@@ -270,7 +289,7 @@ func _build_laser_security_grid() -> void:
 
 func _build_master_terminal() -> void:
 	var metal_mat := _material(Color(0.2, 0.24, 0.28), 0.7, 0.4)
-	var screen_mat := _material(Color(0.05, 0.12, 0.15), 0.0, 0.2, true, Color(1.0, 0.6, 0.0), 1.8)
+	var screen_mat := preload("res://scripts/environment/surveillance_display.gd").material()
 	
 	var terminal_script = preload("res://scripts/environment/mirror_terminal.gd")
 	_terminal_body = terminal_script.new()

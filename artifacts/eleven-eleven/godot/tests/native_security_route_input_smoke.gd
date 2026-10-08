@@ -76,6 +76,7 @@ func _spawn() -> void:
 	main.native_preferences_path = BASE+"_prefs.cfg"
 	main.get_node("SystemJourneyPreview").checkpoint_path = BASE+"_maintenance.json"
 	main.get_node("NativeJourneyController").checkpoint_path = BASE+"_journey.json"
+	main.get_node("NativeCampaignController").checkpoint_path = BASE + "_campaign.json"
 	root.add_child(main)
 	for i in range(15): await physics_frame
 	controller = main.get_node("NativeJourneyController")

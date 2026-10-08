@@ -41,8 +41,8 @@ const SKID_DURATION: float = 0.28
 var is_rolling: bool = false
 var roll_timer: float = 0.0
 var roll_direction: Vector3 = Vector3.ZERO
-const ROLL_DURATION: float = 0.35
-const ROLL_SPEED: float = 7.5
+const ROLL_DURATION: float = 0.72
+const ROLL_SPEED: float = 4.2
 
 var is_sliding: bool = false
 var slide_timer: float = 0.0
@@ -52,7 +52,7 @@ const SLIDE_SPEED: float = 8.5
 
 var is_hard_landing: bool = false
 var hard_landing_timer: float = 0.0
-const HARD_LANDING_DURATION: float = 0.38
+const HARD_LANDING_DURATION: float = 0.72
 
 var root_motion_active: bool = false
 var root_motion_velocity: Vector3 = Vector3.ZERO

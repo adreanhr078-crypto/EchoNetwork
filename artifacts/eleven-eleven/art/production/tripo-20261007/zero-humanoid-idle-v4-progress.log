@@ -1,0 +1,15 @@
+── Plan ──────────────────────────
+input: 0a5f59a1-a3fd-4098-80d9-019773a393c7
+steps:
+  1. retarget  POST /v3/animations/retarget — retarget preset animations onto the rigged model
+     animation="preset:biped:idle"
+cost impact:
+  · retarget 1 animation(s): billed per animation
+──────────────────────────────────
+task created d77f057b-5230-44df-a13e-7205faf0b075 (@zero-humanoid-idle-v4-20261008-r)
+animate_retarget · queued
+animate_retarget · running 99% · d77f057b
+animate_retarget · success 100% · d77f057b
+✓ animate_retarget · d77f057b-5230-44df-a13e-7205faf0b075 · 10 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-humanoid-idle-v4\tripo-out\zero-humanoid-idle-v4-20261008-r-d77f057b

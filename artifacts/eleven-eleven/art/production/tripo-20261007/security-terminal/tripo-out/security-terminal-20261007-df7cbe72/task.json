@@ -1,0 +1,33 @@
+{
+  "task_id": "df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "One detailed wall mounted futuristic security access terminal, 0.65m tall rectangular dark graphite and brushed titanium housing with chamfered corners, small recessed cyan scanner lens, angled amber touch screen, tactile sealed buttons, braided conduit on underside and ventilation fins, realistic screws and panel seams. Premium anime industrial sci-fi game asset, no wall plane, no person, no readable text, no room, single cohesive object.",
+    "texture": true,
+    "auto_size": true,
+    "export_uv": true,
+    "face_limit": 30000,
+    "model_seed": 1111,
+    "model_version": "v3.1-20260211",
+    "texture_quality": "detailed",
+    "texture_version": "v3.5-20260815",
+    "geometry_quality": "standard",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 30,
+  "created_at": "2026-10-08T09:18:39.753288Z",
+  "completed_at": "2026-10-08T09:20:34.035081Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

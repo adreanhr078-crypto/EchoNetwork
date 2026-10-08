@@ -1,0 +1,540 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "11.11 (Eleven-Eleven)",
+  "bill_id": "sector11-opening-chamber-modular-bill-v1",
+  "room_id": "sector11_opening_room",
+  "author": "Worker 1 (Room Cinematic Director), EchoNetwork Team C",
+  "date": "2026-10-08",
+  "room_contract": {
+    "name": "Sector 11 Opening Awakening Cryo-Chamber",
+    "mode": "opening_only",
+    "dimensions_m": {
+      "width_x": 18.0,
+      "length_z": 25.4,
+      "height_y": 7.2
+    },
+    "coordinate_bounds": {
+      "x_min": -9.0,
+      "x_max": 9.0,
+      "z_south": 7.0,
+      "z_north": -18.0,
+      "center_z": -5.5,
+      "floor_y": 0.0,
+      "ceiling_y": 7.2
+    },
+    "zero_supernatural_in_opening": true,
+    "preserved_landmarks": [
+      {
+        "id": "cryo_capsule",
+        "node_name": "Sector11Capsule",
+        "position": [-2.5, 0.0, 2.8],
+        "rotation_y_deg": 30.0,
+        "role": "Hero patient awakening pod on docking dais"
+      },
+      {
+        "id": "echo_player_spawn",
+        "node_name": "EchoPlayer",
+        "position": [0.0, 0.0, 4.0],
+        "rotation_y_deg": 0.0,
+        "role": "Player initial spawn anchor"
+      },
+      {
+        "id": "floating_pod",
+        "node_name": "FloatingPod",
+        "position": [0.7, 1.5, 3.5],
+        "rotation_y_deg": 0.0,
+        "role": "Companion AI observation drone anchor"
+      },
+      {
+        "id": "antique_chronometer",
+        "node_name": "OpeningClock",
+        "position": [-1.85, 0.0, 1.8],
+        "rotation_y_deg": 0.0,
+        "role": "Evidence #1: Hunter chronometer locked at 11:11"
+      },
+      {
+        "id": "sector_terminal",
+        "node_name": "SectorTerminal",
+        "position": [2.8, 0.0, 2.4],
+        "rotation_y_deg": 0.0,
+        "role": "Substation signal console interaction"
+      },
+      {
+        "id": "photograph_evidence",
+        "node_name": "OpeningPhotograph",
+        "position": [3.7, 0.0, -1.5],
+        "rotation_y_deg": 0.0,
+        "role": "Evidence #2: Framed memory photograph pedestal"
+      },
+      {
+        "id": "primary_blast_gate",
+        "node_name": "PrimaryBlastGate",
+        "position": [0.0, 0.0, -18.0],
+        "rotation_y_deg": 0.0,
+        "role": "North exit portal; locked state 0"
+      },
+      {
+        "id": "vent_duct_aperture",
+        "node_name": "VentDuctMarker",
+        "position": [3.2, 1.8, -18.0],
+        "rotation_y_deg": 0.0,
+        "role": "High egress ventilation duct bypass to Room 2"
+      },
+      {
+        "id": "emergency_strobe",
+        "node_name": "EmergencyStrobe",
+        "position": [-6.0, 5.2, -4.0],
+        "rotation_y_deg": 0.0,
+        "role": "Pulsing red/violet hazard warning beacon"
+      }
+    ]
+  },
+  "modular_resources": [
+    {
+      "id": "res_structural_rib",
+      "name": "Sector 11 Structural Rib Assembly",
+      "target_file": "res://assets/environment/sector11_structural_rib_v1.glb",
+      "category": "architecture_framework",
+      "dimensions_m": {
+        "span_x": 18.0,
+        "column_width_x": 0.42,
+        "column_height_y": 6.7,
+        "column_depth_z": 0.55,
+        "cross_beam_span_x": 17.3,
+        "cross_beam_height_y": 0.38,
+        "cross_beam_depth_z": 0.6,
+        "service_truss_span_x": 16.2,
+        "service_truss_height_y": 0.12,
+        "service_truss_depth_z": 0.26
+      },
+      "spacing_m": 5.0,
+      "placement_stations_z": [5.0, 0.0, -5.0, -10.0, -15.0],
+      "instance_count_in_room": 5,
+      "materials": {
+        "primary": {
+          "name": "Mat_Rib_BrushedTitanium",
+          "albedo_color": [0.12, 0.15, 0.22, 1.0],
+          "metallic": 0.75,
+          "roughness": 0.38,
+          "normal_detail": "Heavy industrial mill-scale with precision bevels"
+        },
+        "accent": {
+          "name": "Mat_Rib_ServiceTrim",
+          "albedo_color": [0.04, 0.055, 0.08, 1.0],
+          "metallic": 0.45,
+          "roughness": 0.65
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 4200,
+        "lod1_tris": 1600,
+        "lod2_tris": 600,
+        "texture_budget_mb": 4.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "ao"]
+      },
+      "collision_strategy": {
+        "type": "none",
+        "rationale": "Rib geometry fits entirely inside the static perimeter boundary colliders (WestContainmentWall, EastContainmentWall, CeilingShell)."
+      },
+      "replaces_procedural_nodes": [
+        "ContainmentRib (Left & Right, 10 instances)",
+        "CeilingCrossBeam (5 instances)",
+        "ServiceTruss (5 instances)"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 2: Reverse Wide", "View 3: Lateral Utility"]
+    },
+    {
+      "id": "res_wall_containment_panel",
+      "name": "Sector 11 Wall Containment Service Module",
+      "target_file": "res://assets/environment/sector11_service_module_v1.glb",
+      "category": "architecture_perimeter",
+      "dimensions_m": {
+        "width_z": 4.8,
+        "height_y": 7.2,
+        "depth_x": 0.4,
+        "recess_depth_x": 0.15
+      },
+      "placement": [
+        {"side": "west", "x": -8.6, "z": 2.0, "name": "ServiceModule_01_L"},
+        {"side": "west", "x": -8.6, "z": -6.0, "name": "ServiceModule_02_L"},
+        {"side": "west", "x": -8.6, "z": -15.0, "name": "ServiceModule_03_L"},
+        {"side": "east", "x": 8.6, "z": 2.0, "name": "ServiceModule_01_R"},
+        {"side": "east", "x": 8.6, "z": -15.0, "name": "ServiceModule_03_R"}
+      ],
+      "instance_count_in_room": 5,
+      "materials": {
+        "primary": {
+          "name": "Mat_Panel_ObsidianSlate",
+          "albedo_color": [0.04, 0.055, 0.08, 1.0],
+          "metallic": 0.55,
+          "roughness": 0.45
+        },
+        "emissive_indicators": {
+          "name": "Mat_Service_LEDs",
+          "cyan_emission": [0.0, 0.88, 1.0, 1.0],
+          "amber_emission": [0.9, 0.32, 0.08, 1.0],
+          "emission_multiplier": 0.35
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 3500,
+        "lod1_tris": 1200,
+        "lod2_tris": 450,
+        "texture_budget_mb": 4.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "emission"]
+      },
+      "collision_strategy": {
+        "type": "parent_static_body",
+        "container_node": "WestContainmentWall / EastContainmentWall",
+        "shape": "BoxShape3D (0.8 × 7.2 × 25.4m)"
+      },
+      "replaces_procedural_nodes": [
+        "RecessedServiceBay",
+        "ServiceBayHeader / ServiceBaySill",
+        "ServiceVent (vent array)",
+        "ServiceBaySignal / StatusLight"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 2: Reverse Wide", "View 3: Lateral Utility"]
+    },
+    {
+      "id": "res_observation_window_module",
+      "name": "Sector 11 Observation Window Bay Module",
+      "target_file": "res://assets/environment/sector11_observation_module_v1.glb",
+      "category": "architecture_perimeter",
+      "dimensions_m": {
+        "bay_width_z": 4.1,
+        "bay_height_y": 3.45,
+        "depth_x": 0.28,
+        "sill_y": 1.57,
+        "header_y": 5.13,
+        "glass_pane_z": 3.8,
+        "glass_pane_y": 3.15,
+        "glass_thickness_x": 0.045
+      },
+      "placement": [
+        {"side": "east", "x": 8.6, "y": 0.0, "z": -6.0, "rotation_y_deg": -90.0, "name": "ObservationModule_02"}
+      ],
+      "instance_count_in_room": 1,
+      "materials": {
+        "frame": {
+          "name": "Mat_Observation_Frame",
+          "albedo_color": [0.12, 0.15, 0.22, 1.0],
+          "metallic": 0.8,
+          "roughness": 0.32
+        },
+        "glass": {
+          "name": "Mat_Observation_LeadedGlass",
+          "albedo_color": [0.02, 0.08, 0.14, 0.75],
+          "metallic": 0.35,
+          "roughness": 0.12,
+          "transparency": "alpha",
+          "cull_mode": "disabled",
+          "emission_tint": [0.0, 0.22, 0.32, 1.0],
+          "emission_multiplier": 0.45
+        },
+        "mullion_divider": {
+          "name": "Mat_Cyan_Mullion",
+          "albedo_color": [0.0, 0.35, 0.45, 1.0],
+          "emission_color": [0.0, 0.88, 1.0, 1.0],
+          "emission_multiplier": 0.35
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 2800,
+        "lod1_tris": 1100,
+        "lod2_tris": 350,
+        "texture_budget_mb": 4.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "emission"]
+      },
+      "collision_strategy": {
+        "type": "parent_static_body",
+        "container_node": "EastContainmentWall",
+        "shape": "BoxShape3D (0.8 × 7.2 × 25.4m)"
+      },
+      "replaces_procedural_nodes": [
+        "ObservationBayGlass",
+        "ObservationBayFrame",
+        "ObservationBayHeader / ObservationBaySill",
+        "GlassDivider",
+        "ObservationStatus",
+        "ObservationBayLabel (stencil decals)"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 3: Lateral Utility"]
+    },
+    {
+      "id": "res_ceiling_light_cassette",
+      "name": "Sector 11 Ceiling Light Cassette",
+      "target_file": "res://assets/environment/sector11_ceiling_tile_v1.glb",
+      "category": "lighting_fixture",
+      "dimensions_m": {
+        "width_x": 3.2,
+        "height_y": 0.25,
+        "length_z": 4.2
+      },
+      "placement_y": 6.81,
+      "placement_stations_z": [2.5, -2.5, -7.5, -12.5, -17.5],
+      "instance_count_in_room": 5,
+      "materials": {
+        "casing": {
+          "name": "Mat_Cassette_Housing",
+          "albedo_color": [0.06, 0.08, 0.12, 1.0],
+          "metallic": 0.65,
+          "roughness": 0.35
+        },
+        "diffuser": {
+          "name": "Mat_Cassette_Diffuser",
+          "albedo_color": [0.42, 0.65, 0.82, 1.0],
+          "emission_color": [0.45, 0.75, 1.0, 1.0],
+          "emission_multiplier": 0.8,
+          "roughness": 0.25
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 1800,
+        "lod1_tris": 600,
+        "lod2_tris": 200,
+        "texture_budget_mb": 2.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "emission"]
+      },
+      "collision_strategy": {
+        "type": "none",
+        "rationale": "Ceiling fixture placed above player reach at Y = 6.81m."
+      },
+      "replaces_procedural_nodes": [
+        "CeilingLightCassette_01 through _05",
+        "WallLightSlot"
+      ],
+      "associated_lights": [
+        {"name": "CoolLabKey_02", "pos": [0.0, 5.85, 0.0], "color": [0.78, 0.83, 0.90], "energy": 1.2, "range": 12.0},
+        {"name": "CoolLabKey_04", "pos": [0.0, 5.85, -10.0], "color": [0.78, 0.83, 0.90], "energy": 1.2, "range": 12.0},
+        {"name": "ContainmentBeacon_01", "pos": [0.0, 5.0, 0.5], "color": [1.0, 0.33, 0.12], "energy": 0.38, "range": 6.0},
+        {"name": "ContainmentBeacon_04", "pos": [0.0, 5.0, -14.5], "color": [1.0, 0.33, 0.12], "energy": 0.38, "range": 6.0}
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 2: Reverse Wide"]
+    },
+    {
+      "id": "res_flooded_floor_drainage_tray",
+      "name": "Sector 11 Flooded Floor Tray & Maintenance Deck",
+      "target_file": "res://assets/environment/sector11_flooded_floor_tray_v1.glb",
+      "category": "flooring_environmental",
+      "dimensions_m": {
+        "width_x": 18.0,
+        "length_z": 25.4,
+        "depth_y": 0.4,
+        "water_puddle_depth_m": 0.03
+      },
+      "placement_position": [0.0, -0.2, -5.5],
+      "instance_count_in_room": 1,
+      "materials": {
+        "substrate_deck": {
+          "name": "Mat_Floor_SlateEpoxy",
+          "albedo_color": [0.035, 0.045, 0.065, 1.0],
+          "metallic": 0.22,
+          "roughness": 0.50
+        },
+        "shader_overlay": {
+          "shader": "res://shaders/flooded_lab_floor.gdshader",
+          "water_tint": [0.015, 0.25, 0.34, 1.0],
+          "neon_reflection_color": [0.0, 0.48, 0.62, 1.0],
+          "puddle_roughness": 0.03,
+          "puddle_specular": 0.95,
+          "puddle_coverage": 0.52
+        },
+        "expansion_joints": {
+          "name": "Mat_Floor_Seals",
+          "albedo_color": [0.015, 0.02, 0.03, 1.0],
+          "roughness": 0.35,
+          "metallic": 0.35
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 5500,
+        "lod1_tris": 1500,
+        "lod2_tris": 400,
+        "texture_budget_mb": 8.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "height_puddle_mask"]
+      },
+      "collision_strategy": {
+        "type": "static_box_body",
+        "node_name": "FloodedFloorBody",
+        "shape": "BoxShape3D (18.0 × 0.4 × 25.4m)",
+        "position": [0.0, -0.2, -5.5]
+      },
+      "replaces_procedural_nodes": [
+        "BoxMesh on FloodedFloorBody",
+        "DeckExpansionJoint (8 transverse seams)",
+        "MaintenanceDeckPanel (16 panels)",
+        "DeckPanelSeam (16 seams)"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 2: Reverse Wide", "View 3: Lateral Utility", "View 4: Hero Capsule Detail"]
+    },
+    {
+      "id": "res_blast_gate_assembly",
+      "name": "Sector 11 Primary Blast Gate & Bulkhead Portal",
+      "target_file": "res://assets/environment/sector11_primary_blast_gate_v1.glb",
+      "category": "portal_mechanism",
+      "dimensions_m": {
+        "overall_frame_width_x": 9.6,
+        "overall_frame_height_y": 7.2,
+        "overall_frame_depth_z": 1.8,
+        "clear_aperture_width_x": 7.2,
+        "clear_aperture_height_y": 6.5,
+        "sliding_door_width_x": 7.2,
+        "sliding_door_height_y": 6.5,
+        "sliding_door_thickness_z": 0.6
+      },
+      "placement_position": [0.0, 0.0, -18.0],
+      "instance_count_in_room": 1,
+      "materials": {
+        "gate_frame": {
+          "name": "Mat_Gate_StructuralFrame",
+          "albedo_color": [0.18, 0.23, 0.3, 1.0],
+          "metallic": 0.78,
+          "roughness": 0.38
+        },
+        "door_armor": {
+          "name": "Mat_Gate_HeavyArmor",
+          "albedo_color": [0.22, 0.28, 0.36, 1.0],
+          "metallic": 0.82,
+          "roughness": 0.34
+        },
+        "hermetic_seal_emissive": {
+          "name": "Mat_Gate_Seals",
+          "albedo_color": [0.16, 0.055, 0.025, 1.0],
+          "emission_color": [0.72, 0.16, 0.035, 1.0],
+          "emission_multiplier": 0.42
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 8400,
+        "lod1_tris": 3200,
+        "lod2_tris": 1200,
+        "texture_budget_mb": 6.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "emission"]
+      },
+      "collision_strategy": {
+        "type": "static_box_body",
+        "node_name": "GateCollider",
+        "shape": "BoxShape3D (7.2 × 6.5 × 0.8m)",
+        "position": [0.0, 3.25, 0.0],
+        "state_behavior": "Keep collision when locked (state 0); disable or split during breach cinematic"
+      },
+      "replaces_procedural_nodes": [
+        "DoorFrame/LeftPillar",
+        "DoorFrame/RightPillar",
+        "DoorFrame/TopBeam",
+        "DoorFrame/SlidingDoor",
+        "LockSeamLeft / LockSeamRight",
+        "ArmorPlateLeft / Center / Right",
+        "CentralLockSeal"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 2: Reverse Wide"]
+    },
+    {
+      "id": "res_service_conduit_bundles",
+      "name": "Sector 11 Coolant & Signal Conduit Bundles",
+      "target_file": "res://assets/environment/sector11_conduit_bundle_v1.glb",
+      "category": "infrastructure_piping",
+      "dimensions_m": {
+        "run_length_z": 23.4,
+        "primary_coolant_pipe_radius_m": 0.12,
+        "secondary_pneumatic_pipe_radius_m": 0.06,
+        "signal_rail_width_x": 0.1,
+        "signal_rail_height_y": 0.08
+      },
+      "placement": [
+        {"side": "west_overhead", "x": -6.6, "y": 6.2, "z": -5.5, "rotation_x_deg": 90.0},
+        {"side": "east_overhead", "x": 6.6, "y": 6.2, "z": -5.5, "rotation_x_deg": 90.0},
+        {"side": "west_floor_rail", "x": -8.15, "y": 0.15, "z": -5.5},
+        {"side": "east_floor_rail", "x": 8.15, "y": 0.15, "z": -5.5}
+      ],
+      "instance_count_in_room": 2,
+      "materials": {
+        "coolant_pipes": {
+          "name": "Mat_Pipe_IndustrialSteel",
+          "albedo_color": [0.12, 0.15, 0.22, 1.0],
+          "metallic": 0.70,
+          "roughness": 0.40
+        },
+        "signal_rails": {
+          "name": "Mat_Rail_SignalStrip",
+          "albedo_color": [0.0, 0.35, 0.45, 1.0],
+          "emission_color": [0.0, 0.88, 1.0, 1.0],
+          "emission_multiplier": 0.35
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 3600,
+        "lod1_tris": 1200,
+        "lod2_tris": 400,
+        "texture_budget_mb": 2.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic", "emission"]
+      },
+      "collision_strategy": {
+        "type": "none",
+        "rationale": "Piping mounted flush to ceiling brackets (Y = 6.2m) or recessed into perimeter raceways (X = ±8.15m)."
+      },
+      "replaces_procedural_nodes": [
+        "MainCoolantConduit (West & East CylinderMesh)",
+        "SignalRail (West & East BoxMesh)"
+      ],
+      "reference_views": ["View 1: Entry Wide", "View 3: Lateral Utility"]
+    },
+    {
+      "id": "res_high_vent_duct_module",
+      "name": "Sector 11 High Vent Duct Aperture Module",
+      "target_file": "res://assets/environment/sector11_vent_duct_aperture_v1.glb",
+      "category": "portal_egress",
+      "dimensions_m": {
+        "aperture_width_x": 1.2,
+        "aperture_height_y": 1.4,
+        "outer_rim_radius_m": 0.75,
+        "inner_rim_radius_m": 0.60,
+        "flange_depth_z": 0.18
+      },
+      "placement_position": [3.2, 1.8, -18.0],
+      "rim_center_position": [3.2, 2.5, -17.95],
+      "instance_count_in_room": 1,
+      "materials": {
+        "vent_flange": {
+          "name": "Mat_Vent_HeavyRim",
+          "albedo_color": [0.18, 0.22, 0.26, 1.0],
+          "metallic": 0.60,
+          "roughness": 0.40
+        },
+        "interior_baffle": {
+          "name": "Mat_Vent_DarkLiner",
+          "albedo_color": [0.03, 0.04, 0.05, 1.0],
+          "metallic": 0.30,
+          "roughness": 0.85
+        }
+      },
+      "lod_specifications": {
+        "lod0_tris": 1400,
+        "lod1_tris": 500,
+        "lod2_tris": 180,
+        "texture_budget_mb": 1.0,
+        "pbr_maps": ["albedo", "normal", "roughness_metallic"]
+      },
+      "collision_strategy": {
+        "type": "marker_only",
+        "node_name": "VentDuctMarker",
+        "position": [3.2, 1.8, -18.0],
+        "rationale": "Marker3D anchor used by traversal and camera systems; wall penetration exists within Gate1_Bulkhead_East static hull."
+      },
+      "replaces_procedural_nodes": [
+        "VentRim (TorusMesh)",
+        "VentDuctMarker (preserved as functional anchor)"
+      ],
+      "reference_views": ["View 1: Entry Wide"]
+    }
+  ],
+  "performance_budget_summary": {
+    "total_room_tris_lod0": 31300,
+    "total_room_tris_lod1": 11000,
+    "total_texture_memory_mb": 31.0,
+    "target_draw_calls": 48,
+    "target_framerate": "60 FPS desktop / 30+ FPS mobile web (gl_compatibility)",
+    "zero_light_bleed_guarantee": "Watertight hermetic boundary: X=[-9, 9], Y=[0, 7.2], Z=[-18, 7]"
+  }
+}

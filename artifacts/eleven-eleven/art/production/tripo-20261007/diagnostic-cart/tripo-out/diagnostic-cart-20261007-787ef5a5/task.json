@@ -1,0 +1,33 @@
+{
+  "task_id": "787ef5a5-0e0e-4131-a060-7711b10541e3",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "One detailed portable futuristic medical diagnostic trolley for an abandoned cryogenic laboratory, realistic 1.1m tall, narrow charcoal and pale ceramic console, angled teal glass monitor with abstract unreadable telemetry, tactile switches and recessed connectors, two shelves with sealed medical trays, side handle, four caster wheels, thin cyan indicator strips, restrained warm amber caution details. Premium anime sci-fi industrial hard-surface PBR asset, no room or person, no readable labels, no pedestal.",
+    "texture": true,
+    "auto_size": true,
+    "export_uv": true,
+    "face_limit": 30000,
+    "model_seed": 1111,
+    "model_version": "v3.1-20260211",
+    "texture_quality": "detailed",
+    "texture_version": "v3.5-20260815",
+    "geometry_quality": "standard",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 30,
+  "created_at": "2026-10-08T09:00:33.979486Z",
+  "completed_at": "2026-10-08T09:04:45.557094Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

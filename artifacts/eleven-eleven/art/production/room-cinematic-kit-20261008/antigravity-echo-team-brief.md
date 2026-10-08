@@ -1,0 +1,20 @@
+# Echo team: three workers
+
+Latestowner explicitlyasks3conversations with2–4workers each. This is TeamB, create exactly3workers: measuredskinrepair, source-motionoracle, anatomicalfaciallidartist. Existing localCodexanimationlead activelyowns originalV12/collarrepair; yourbranches areNEWisolatedAGderivatives, do not overwrite anycurrentcandidate. FaceoriginalV3existswithoutreview-frames; priorV1/V2FAIL withbackhair atclosedeyes. ReadAGENTS/currentCanon and relevantownership:
+
+6. Echo sleeve repair: own NEW isolated source branch supplied-v31-20261007/v11AG under audits/evidence/quality-execution-20261006/current-target/. Existing source/Golden/V10 files remain immutable. T pose FAILED visually because hard x=.108 weights create128x underarm edge at1.21mm adjacent vertices: sleeve surface ring incorrectly receives torso instead of continuous arm/shoulder weights. Inspect latest local build scripts and geodesic diagnosis, repair measured surface skin only; preserve all outerface/finger/cape mesh/UV/rest/outside weights. Native4viewT/strain proof before handing off7.
+
+7. Echo source motion oracle: local Codex animation lead resumed and owns original V12/frozen-source attempt. Own NEW independent v31AG-source-motion diagnosis/evidence artifacts, avoid duplicate export unless root coordinates. Read exact frozen driver/Golden safeguards and existing original30fps Run/Idle/Jump/Walk sources; do not alter source keys, reseal Golden, relabel24/100fps fall sources or change global project settings. Source-preserving measured rest transfer only. Run/Jog -> Idle -> Jump; wait for6T skin actualPASS. Existing activeplayer/rootmain stay unchanged. Deliver clips/nativefullcycleproof, not just numericpasses.
+
+8. Facial eyelid artist: own NEW isolated facial-v3AG. Existing facialV1/V2 fullblink FAIL because closing iris exposes back-facing hair shell components61211/53058/53414; generatedsource has no prepared lid. Existing lower periocularskin sculpt or real curved native skinnedlid withsewnrim may solve closure, no floating billboard. Preserve originalheadidentity/bodyBasis/UV/topology/rest/sourcekeys for merging. New separate lid mesh is allowed if needed. Actual0/.5/1both-eye closeups and movement/headstrain proof. Four keysBlink_L/R,Brow_Frown,Mouth_Grimace must work honestly.
+
+## Shared constraints
+
+Root active app is C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven. Preserve huge dirty/staged/untrackedwork, originalcharacter source, Manhwa and allGolden protectedhashes. No resets/commits/push/publish/broadcleanup or project setting changes. Do not edit credentials/runner/jobs/ledger/centraldocs. Never inspectshellhistory or print/decrypt/copy keys. No new paidjobs: sixprops completed180credits; Zero jobs root owns shared600cap. Resource authorization does not imply buying plans. Coordinate liveBlender/Godot/GPU/import work. External results remain locallyunverified until actualreview. End each ownership task with paths/tests/currenthashes/limitations/next exact action. Do not stopatplan.
+
+## Live ownership update17:12 local
+
+Local animation lead now corrects measured collar discontinuity z=.795 in V12 afterV11/T-v2 reduced128x to50.37x butstill462severeedges: noTvisualacceptanceyet/noRunbake. Worker6canindependentlyinspect/measuresuggestcontinuousfield inNEWbranch; do notoverwriteV12. Localcinematic lead verified41Idlefullcycle andholdsintegration actor/scripts. ThreeactingcandidateGLBs arrivedpreservingexactgeometry/UV/rest/textures; agree4.03s/lookaround15.6s/cast5.4s. SourceMixamo23rigstillnofingers, default41twists retained. External9read-onlydedicatedfixture/review; sharedefectswithroot.
+
+
+Read liveupdate inantigravity-ten-worker-brief.md. LocalanimationleadlatestV11Tactualsleevesroundedbutcollar50xFAIL, V12correctsz=.795 boundary. Root/cinematicsownsZero actor, notyour scope. No paidjobs/noexistingruntime/main/player/centraldocs/secretchanges. Inspectactualsources, implementnewisolatedrepaironlywhereevidencerequires anddeliveractualT/fullblink/fullcycleproof. CoordinateGPUwithroot before eachrender. Reportactual3workers, artifacts/tests/limitations.

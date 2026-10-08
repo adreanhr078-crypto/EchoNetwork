@@ -20,6 +20,9 @@ signal zero_manifested
 signal zero_contract_accepted
 signal stasis_1111_activated
 signal exit_breach_opened
+signal contract_decision_requested
+signal revenge_completed
+signal wish_decision_requested
 signal retry_requested(anchor: Vector3)
 
 enum RoomState {
@@ -49,14 +52,19 @@ var state: RoomState = RoomState.ENTRY_SURGICAL
 var current_anchor: Vector3 = SAFE_ANCHOR_ENTRY
 var reduced_motion := false
 var audio_muted := false
+var presentation_language := "ar"
 var player: Node3D
 
 var confrontation_done := false
 var contract_done := false
 var breach_open := false
+var revenge_done := false
+var wish_done := false
+var campaign_decisions := false
 
 var _breach_portal: StaticBody3D
 var _breach_shape: CollisionShape3D
+var _breach_material: StandardMaterial3D
 var _breach_closed_y := 1.4
 var _breach_open_y := 5.2
 
@@ -69,14 +77,27 @@ var _contract_altar: StaticBody3D
 
 var _yuki_pod: MeshInstance3D
 var _shizuka_pod: MeshInstance3D
+var story_presentation: Node3D
 
 func _ready() -> void:
+	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-16,-40,32,40),10.0)
 	_build_room_hull()
 	_build_surgical_theater()
 	_build_memory_drowning_pool()
 	_build_zero_contract_altar()
 	_build_stasis_displays()
 	_build_exit_breach()
+	var ramp_mat := _material(Color(0.35,0.38,0.43),0.2,0.8)
+	preload("res://scripts/environment/room_path_support.gd").add_ramp(self,"TheaterApproach",Vector3(0,0,-9),Vector3(0,1.2,-13.8),3.2,ramp_mat)
+	story_presentation=preload("res://scripts/cinematics/pact_revenge_presentation.gd").new()
+	story_presentation.name="PactRevengePresentation"
+	add_child(story_presentation)
+	set_presentation_language(presentation_language)
+
+func set_presentation_language(language: String) -> void:
+	presentation_language="ar" if language=="ar" else "en"
+	if is_instance_valid(_contract_altar) and _contract_altar.has_method("set_presentation_language"):
+		_contract_altar.set_presentation_language(presentation_language)
 
 func _physics_process(_delta: float) -> void:
 	if not player or not is_instance_valid(player):
@@ -128,11 +149,11 @@ func _box(label: String, center: Vector3, size: Vector3, mat: Material, solid :=
 	return node
 
 func _build_room_hull() -> void:
-	var wall_mat := _material(Color(0.14, 0.16, 0.19), 0.4, 0.6)
+	var wall_mat := _material(Color(0.55, 0.59, 0.67), 0.15, 0.76)
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
-	var floor_mat := _material(Color(0.1, 0.12, 0.14), 0.7, 0.35)
+	var floor_mat := _material(Color(0.51, 0.56, 0.65), 0.17, 0.68)
 	floor_mat.albedo_texture = GRAPHITE
 	floor_mat.uv1_scale = Vector3(5.0, 5.0, 1.0)
 	
@@ -254,7 +275,7 @@ func _build_memory_drowning_pool() -> void:
 	add_child(_yuki_pod)
 
 func _build_zero_contract_altar() -> void:
-	var altar_mat := _material(Color(0.12, 0.08, 0.16), 0.9, 0.2, true, Color(0.45, 0.02, 0.6), 1.2)
+	var altar_mat := _material(Color(0.075, 0.06, 0.10), 0.6, 0.3)
 	
 	var altar_script = preload("res://scripts/environment/zero_contract_altar.gd")
 	_contract_altar = altar_script.new()
@@ -263,8 +284,11 @@ func _build_zero_contract_altar() -> void:
 	
 	# Altar plinth mesh
 	var plinth := MeshInstance3D.new()
-	var p_mesh := BoxMesh.new()
-	p_mesh.size = Vector3(2.4, 1.2, 2.4)
+	var p_mesh := CylinderMesh.new()
+	p_mesh.top_radius=1.05
+	p_mesh.bottom_radius=1.18
+	p_mesh.height=1.2
+	p_mesh.radial_segments=12
 	plinth.mesh = p_mesh
 	plinth.position = Vector3(0.0, 0.6, 0.0)
 	plinth.material_override = altar_mat
@@ -311,7 +335,7 @@ func _build_zero_contract_altar() -> void:
 
 func _build_stasis_displays() -> void:
 	# North Wall 11:11 Stasis Clock Displays
-	var screen_mat := _material(Color(0.02, 0.02, 0.04), 0.0, 0.1, true, Color(0.65, 0.1, 0.9), 3.0)
+	var screen_mat := _material(Color(0.025, 0.028, 0.045), 0.3, 0.4)
 	
 	var stasis_screen := MeshInstance3D.new()
 	var s_mesh := BoxMesh.new()
@@ -320,6 +344,16 @@ func _build_stasis_displays() -> void:
 	stasis_screen.position = Vector3(0.0, 5.0, -39.7)
 	stasis_screen.material_override = screen_mat
 	add_child(stasis_screen)
+	var digits:=Label3D.new()
+	digits.name="StasisClock1111"
+	digits.text="11:11"
+	digits.font_size=100
+	digits.pixel_size=0.018
+	digits.position=Vector3(0,5.0,-39.61)
+	digits.modulate=Color(0.73,0.58,0.94)
+	digits.outline_size=0
+	digits.no_depth_test=false
+	add_child(digits)
 	
 	_stasis_light = OmniLight3D.new()
 	_stasis_light.name = "Stasis1111Light"
@@ -330,7 +364,7 @@ func _build_stasis_displays() -> void:
 	add_child(_stasis_light)
 
 func _build_exit_breach() -> void:
-	var breach_mat := _material(Color(0.9, 0.95, 1.0), 0.1, 0.1, true, Color(0.9, 0.95, 1.0), 4.5)
+	_breach_material = _material(Color(0.06, 0.075, 0.10), 0.35, 0.5)
 	
 	_breach_portal = StaticBody3D.new()
 	_breach_portal.name = "DimensionalBreachPortal"
@@ -339,7 +373,7 @@ func _build_exit_breach() -> void:
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = BoxMesh.new()
 	mesh.mesh.size = Vector3(2.05, 2.8, 0.2)
-	mesh.material_override = breach_mat
+	mesh.material_override = _breach_material
 	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	_breach_portal.add_child(mesh)
 	
@@ -379,25 +413,50 @@ func initiate_memory_confrontation() -> Dictionary:
 
 func _on_drowning_complete() -> void:
 	state = RoomState.ZERO_MANIFESTED
+	set_presentation_language(presentation_language)
+	if story_presentation: story_presentation.set_stage("manifested")
 	memory_drowning_completed.emit()
 	zero_manifested.emit()
 	if _zero_light:
-		_zero_light.light_energy = 4.5
+		_zero_light.light_energy = 1.4
 
 func accept_zero_contract() -> Dictionary:
 	if contract_done:
 		return {"success": true, "already_contracted": true}
+	if not confrontation_done or state != RoomState.ZERO_MANIFESTED:
+		return {"success": false, "reason": "zero_not_manifested"}
 	
 	contract_done = true
 	state = RoomState.CONTRACT_ACCEPTED
+	if story_presentation: story_presentation.set_stage("accepted")
 	zero_contract_accepted.emit()
 	
-	# Trigger the absolute 11:11 stasis freeze
-	_trigger_1111_stasis()
 	return {"success": true, "contract_accepted": true, "power_granted": "shadow_surge"}
+
+func request_contract_decision() -> Dictionary:
+	if not confrontation_done or state != RoomState.ZERO_MANIFESTED:
+		return {"success":false,"reason":"zero_not_manifested"}
+	if not campaign_decisions: return {"success":false,"reason":"explicit_decision_required"}
+	contract_decision_requested.emit()
+	return {"success":true,"decision_requested":true}
+
+func complete_revenge() -> bool:
+	if not contract_done or revenge_done: return false
+	revenge_done=true
+	if story_presentation: story_presentation.set_stage("revenge")
+	revenge_completed.emit()
+	wish_decision_requested.emit()
+	return true
+
+func confirm_escape_wish(choice: String) -> bool:
+	if not contract_done or not revenge_done or wish_done or choice != "ESCAPE_SYSTEM_AT_ANY_COST": return false
+	wish_done=true
+	_trigger_1111_stasis()
+	return true
 
 func _trigger_1111_stasis() -> void:
 	state = RoomState.STASIS_1111
+	if story_presentation: story_presentation.set_stage("stasis")
 	stasis_1111_activated.emit()
 	
 	if _stasis_light:
@@ -409,6 +468,9 @@ func _open_exit_breach() -> void:
 	if breach_open:
 		return
 	breach_open = true
+	_breach_material.emission_enabled=true
+	_breach_material.emission=Color(0.45,0.58,0.74)
+	_breach_material.emission_energy_multiplier=1.2
 	state = RoomState.BREACH_READY
 	exit_breach_opened.emit()
 	
@@ -436,6 +498,8 @@ func get_state() -> Dictionary:
 		"current_anchor": current_anchor,
 		"confrontation_done": confrontation_done,
 		"contract_done": contract_done,
+		"revenge_done": revenge_done,
+		"wish_done": wish_done,
 		"breach_open": breach_open,
 		"breach_pos_y": _breach_portal.position.y if _breach_portal else _breach_closed_y,
 		"breach_col_disabled": _breach_shape.disabled if _breach_shape else false
@@ -451,8 +515,18 @@ func restore_state(data: Dictionary) -> void:
 	if data.has("contract_done"):
 		contract_done = data["contract_done"]
 	if data.has("breach_open"):
-		breach_open = data["breach_open"]
+		breach_open = data["breach_open"] and contract_done and data.get("revenge_done",false) and data.get("wish_done",false)
+	revenge_done=data.get("revenge_done",false) and contract_done
+	wish_done=data.get("wish_done",false) and revenge_done
 	if _breach_portal and data.has("breach_pos_y"):
 		_breach_portal.position.y = data["breach_pos_y"]
 	if _breach_shape and data.has("breach_col_disabled"):
 		_breach_shape.disabled = data["breach_col_disabled"]
+	if story_presentation:
+		var restored_stage := "stasis" if wish_done else ("revenge" if revenge_done else ("accepted" if contract_done else ("manifested" if confrontation_done else "dormant")))
+		story_presentation.set_stage(restored_stage,true)
+	if _breach_material:
+		_breach_material.emission_enabled=breach_open
+		_breach_material.emission=Color(0.45,0.58,0.74)
+		_breach_material.emission_energy_multiplier=1.2
+	set_presentation_language(presentation_language)

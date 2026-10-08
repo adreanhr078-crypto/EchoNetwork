@@ -39,12 +39,12 @@ func _run() -> void:
 			player.set_mobile_input_vector(Vector2(0, -magnitude), true)
 			player.stamina = 100
 			await _steps(30)
-			var expected: float = 1.55 * magnitude / 0.75 if magnitude <= 0.75 else 5.8
+			var expected: float = 1.55 * magnitude / 0.75 if magnitude <= 0.75 else 4.7
 			if not _check(absf(Vector2(player.velocity.x, player.velocity.z).length() - expected) < 0.05, "analog speed differs by magnitude/yaw"): return
 	# Diagonal input and a neutral owned stick do not increase speed/fall back to WASD.
 	player.set_mobile_input_vector(Vector2(1, -1), true)
 	await _steps(30)
-	if not _check(absf(Vector2(player.velocity.x, player.velocity.z).length() - 5.8) < 0.05, "diagonal speed gain"): return
+	if not _check(absf(Vector2(player.velocity.x, player.velocity.z).length() - 4.7) < 0.05, "diagonal speed gain"): return
 	Input.action_press("move_forward")
 	player.set_mobile_input_vector(Vector2.ZERO, true)
 	await _steps(30)

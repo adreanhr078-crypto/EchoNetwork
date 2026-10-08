@@ -98,6 +98,23 @@ func _ready() -> void:
 	_build_hazard_volumes()
 	_build_abyss_kill_zone()
 	_build_consoles()
+	_build_service_route()
+	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-18,-44,36,44),5.6)
+
+func _build_service_route() -> void:
+	var support = preload("res://scripts/environment/room_path_support.gd")
+	var mat := _material(Color(0.28,0.32,0.38), 0.5, 0.7)
+	support.add_ramp(self, "EntryServiceLink", Vector3(0,-4,-5.5), Vector3(0,-4,-7), 2.4, mat)
+	support.add_ramp(self, "WestServiceAscent", Vector3(0,-4,-7), Vector3(-9.2,-2,-11), 2.4, mat)
+	support.add_ramp(self, "WestServiceLanding", Vector3(-9.2,-2,-11), Vector3(-11,-2,-12.3), 2.4, mat)
+	# Both breakers remain physically reachable before the bridge request.
+	support.add_ramp(self, "SouthCircuitWalkway", Vector3(-11,-2,-14.8), Vector3(11,-2,-14.8), 2.4, mat)
+	support.add_ramp(self, "EastCircuitWalkway", Vector3(11,-2,-14.8), Vector3(11,-2,-24.2), 2.4, mat)
+	support.add_ramp(self, "BridgeAccessRamp", Vector3(11,-2,-30.5), Vector3(11,0.2,-33.7), 2.4, mat)
+	support.add_ramp(self, "BridgeAccessLanding", Vector3(11,0.2,-33.7), Vector3(11,0.2,-35.8), 2.4, mat)
+	support.add_ramp(self, "ExitBridgeLink", Vector3(0,0.2,-35.8), Vector3(0,0,-39), 2.4, mat)
+	for name in ["WestServiceAscent","WestServiceLanding","SouthCircuitWalkway","EastCircuitWalkway","BridgeAccessRamp"]:
+		support.add_guardrails(get_node(name),2.4)
 
 func _physics_process(delta: float) -> void:
 	_update_hazard_cycles(delta)
@@ -142,26 +159,22 @@ func _update_hazard_visuals(mesh: MeshInstance3D, light: OmniLight3D, area: Area
 	if not mesh or not light or not area:
 		return
 	
-	var mat := mesh.material_override as StandardMaterial3D
+	var mat := mesh.material_override as ShaderMaterial
 	if not mat:
 		return
 	
 	if discharge:
-		mat.emission_enabled = true
-		mat.emission = Color(0.0, 0.9, 1.0) # Cold Cyan Plasma
-		mat.emission_energy_multiplier = 3.5
+		mat.set_shader_parameter("phase_color",Color(0.20,0.72,0.82,0.86))
 		light.light_color = Color(0.0, 0.9, 1.0)
-		light.light_energy = 3.0
+		light.light_energy = 0.65
 		area.monitoring = true
 	elif telegraph:
-		mat.emission_enabled = true
-		mat.emission = Color(1.0, 0.7, 0.1) # Warning Amber
-		mat.emission_energy_multiplier = 1.2
+		mat.set_shader_parameter("phase_color",Color(0.95,0.59,0.16,0.85))
 		light.light_color = Color(1.0, 0.7, 0.1)
-		light.light_energy = 1.0
+		light.light_energy = 0.35
 		area.monitoring = false
 	else:
-		mat.emission_enabled = false
+		mat.set_shader_parameter("phase_color",Color(0.22,0.29,0.32,0.4))
 		light.light_energy = 0.05
 		area.monitoring = false
 
@@ -257,12 +270,6 @@ func _build_entry_balcony() -> void:
 	_box("EntryBalconyRailNorthL", Vector3(-2.25, -3.5, -5.95), Vector3(2.5, 1.0, 0.1), rail_mat, true)
 	_box("EntryBalconyRailNorthR", Vector3(2.25, -3.5, -5.95), Vector3(2.5, 1.0, 0.1), rail_mat, true)
 	
-	# Catwalk ramp leading down from Balcony to West Turbine at Y = -2.0m (stairs/steps)
-	for i in range(8):
-		var step_x := -3.5 - float(i) * 0.9
-		var step_y := -4.0 + float(i) * 0.25 # Ascending to -2.0m
-		var step_z := -6.0 - float(i) * 1.0
-		_box("BalconyStair_%d" % i, Vector3(step_x, step_y - 0.1, step_z), Vector3(1.6, 0.2, 1.2), deck_mat, true)
 
 func _build_reactor_core() -> void:
 	# Central Tokamak Core at X = 0.0m, Z = -22.0m, Y = -10.0m to +4.0m (14m tall)
@@ -270,8 +277,8 @@ func _build_reactor_core() -> void:
 	core_node.name = "ReactorCore"
 	core_node.position = Vector3(0.0, -3.0, -22.0)
 	
-	var core_mat := _material(Color(0.1, 0.12, 0.15), 0.9, 0.2)
-	var plasma_mat := _material(Color(0.0, 0.9, 1.0), 0.1, 0.1, true, Color(0.0, 0.9, 1.0), 4.0)
+	var core_mat := _material(Color(0.17, 0.21, 0.24), 0.7, 0.52)
+	var plasma_mat := _material(Color(0.12,0.48,0.58),0.1,0.5,true,Color(0.15,0.62,0.75),1.1)
 	
 	# Central cylinder mesh
 	var col_body := StaticBody3D.new()
@@ -297,8 +304,8 @@ func _build_reactor_core() -> void:
 	for i in range(3):
 		var ring := MeshInstance3D.new()
 		var torus := TorusMesh.new()
-		torus.inner_radius = 4.8
-		torus.outer_radius = 5.4
+		torus.inner_radius = 4.78
+		torus.outer_radius = 4.87
 		ring.mesh = torus
 		ring.position = Vector3(0.0, -4.0 + float(i) * 3.5, 0.0)
 		ring.material_override = plasma_mat
@@ -309,7 +316,7 @@ func _build_reactor_core() -> void:
 	_reactor_core_light.name = "ReactorCoreLight"
 	_reactor_core_light.position = Vector3(0.0, 0.0, 0.0)
 	_reactor_core_light.light_color = Color(0.0, 0.9, 1.0)
-	_reactor_core_light.light_energy = 4.5
+	_reactor_core_light.light_energy = 1.1
 	_reactor_core_light.omni_range = 28.0
 	_reactor_core_light.shadow_enabled = true
 	core_node.add_child(_reactor_core_light)
@@ -337,12 +344,8 @@ func _build_east_capacitor_complex() -> void:
 	_box("EastPlatform", Vector3(11.0, -2.1, -28.0), Vector3(6.0, 0.2, 8.0), metal_mat, true)
 	
 	# Secondary walkway linking East and North Gantry
-	_box("EastNorthWalkway", Vector3(11.0, -1.0, -36.0), Vector3(2.4, 0.2, 8.0), metal_mat, true)
 	
 	# Connector Gantry spanning from East walkway to Exit Gantry (X = +11.0m to +4.0m at Z = -40.0m, Y = 0.0m)
-	_box("EastToExitWalkway", Vector3(7.5, -0.1, -40.0), Vector3(7.0, 0.2, 2.4), metal_mat, true)
-	_box("EastToExitRailNorth", Vector3(7.5, 0.5, -41.15), Vector3(7.0, 1.0, 0.1), rail_mat, true)
-	_box("EastToExitRailSouth", Vector3(7.5, 0.5, -38.85), Vector3(7.0, 1.0, 0.1), rail_mat, true)
 
 func _build_hydraulic_bridge() -> void:
 	var bridge_mat := _material(Color(0.25, 0.28, 0.35), 0.85, 0.3)
@@ -351,11 +354,11 @@ func _build_hydraulic_bridge() -> void:
 	# Spanning across Z = -22.0m, width 3.2m, length 14.0m
 	_hydraulic_bridge = StaticBody3D.new()
 	_hydraulic_bridge.name = "HydraulicBridge"
-	_hydraulic_bridge.position = Vector3(0.0, _bridge_retracted_y, -22.0)
+	_hydraulic_bridge.position = Vector3(0.0, _bridge_retracted_y, -35.8)
 	
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = BoxMesh.new()
-	mesh.mesh.size = Vector3(14.0, 0.4, 3.2)
+	mesh.mesh.size = Vector3(22.0, 0.4, 3.2)
 	mesh.material_override = bridge_mat
 	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	_hydraulic_bridge.add_child(mesh)
@@ -363,7 +366,7 @@ func _build_hydraulic_bridge() -> void:
 	_hydraulic_bridge_shape = CollisionShape3D.new()
 	_hydraulic_bridge_shape.name = "CollisionShape3D"
 	var box := BoxShape3D.new()
-	box.size = Vector3(14.0, 0.4, 3.2)
+	box.size = Vector3(22.0, 0.4, 3.2)
 	_hydraulic_bridge_shape.shape = box
 	_hydraulic_bridge.add_child(_hydraulic_bridge_shape)
 	
@@ -406,13 +409,17 @@ func _build_hazard_volumes() -> void:
 	# Hazard A: West Catwalk Discharge Arc (Area3D)
 	var arc_a_node := Node3D.new()
 	arc_a_node.name = "HazardVolumeA"
-	arc_a_node.position = Vector3(-6.0, -1.9, -16.0)
+	arc_a_node.position = Vector3(-6.0, -1.9, -14.8)
 	
 	_hazard_a_mesh = MeshInstance3D.new()
 	var box_m := BoxMesh.new()
-	box_m.size = Vector3(3.5, 0.8, 2.2)
+	box_m.size = Vector3(3.5, 0.018, 2.2)
 	_hazard_a_mesh.mesh = box_m
-	_hazard_a_mesh.material_override = _material(Color(0.2, 0.2, 0.2), 0.5, 0.5)
+	_hazard_a_mesh.position.y=-0.084
+	_hazard_a_mesh.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var warning:=ShaderMaterial.new()
+	warning.shader=preload("res://shaders/discharge_floor_warning.gdshader")
+	_hazard_a_mesh.material_override=warning
 	arc_a_node.add_child(_hazard_a_mesh)
 	
 	_hazard_a_light = OmniLight3D.new()
@@ -433,11 +440,13 @@ func _build_hazard_volumes() -> void:
 	# Hazard B: East Catwalk Discharge Arc (Area3D)
 	var arc_b_node := Node3D.new()
 	arc_b_node.name = "HazardVolumeB"
-	arc_b_node.position = Vector3(6.0, -1.9, -28.0)
+	arc_b_node.position = Vector3(11.0, -1.9, -20.0)
 	
 	_hazard_b_mesh = MeshInstance3D.new()
 	_hazard_b_mesh.mesh = box_m
-	_hazard_b_mesh.material_override = _material(Color(0.2, 0.2, 0.2), 0.5, 0.5)
+	_hazard_b_mesh.position.y=-0.084
+	_hazard_b_mesh.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_hazard_b_mesh.material_override=warning.duplicate()
 	arc_b_node.add_child(_hazard_b_mesh)
 	
 	_hazard_b_light = OmniLight3D.new()
@@ -568,6 +577,8 @@ func _open_exit_gate() -> void:
 		)
 
 func _on_hazard_entered(hazard_name: String, body: Node3D) -> void:
+	var phase := hazard_phase_timer if hazard_name == "HazardA" else fmod(hazard_phase_timer + CYCLE_TIME * 0.5, CYCLE_TIME)
+	if phase < TELEGRAPH_TIME or phase >= TELEGRAPH_TIME + DISCHARGE_TIME: return
 	if _is_player(body):
 		hazard_triggered.emit(hazard_name)
 		_trigger_respawn(body)
@@ -591,7 +602,7 @@ func _trigger_respawn(target: Node3D = null) -> void:
 	retry_requested.emit(current_anchor)
 	var p: Node3D = target if (target and target.has_method("finish_opening_recovery")) else player
 	if p and is_instance_valid(p):
-		p.global_position = current_anchor
+		p.global_position = to_global(current_anchor)
 		if "velocity" in p:
 			p.velocity = Vector3.ZERO
 

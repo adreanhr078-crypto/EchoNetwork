@@ -1,0 +1,17 @@
+── Plan ──────────────────────────
+input: 0a5f59a1-a3fd-4098-80d9-019773a393c7
+steps:
+  1. retarget  POST /v3/animations/retarget — retarget preset animations onto the rigged model
+     animation="preset:biped:look_around"
+cost impact:
+  · retarget 1 animation(s): billed per animation
+──────────────────────────────────
+task created ebcfd3b8-1680-4af0-ad87-084bafd9d2de (@zero-look-around-v1-20261008-ret)
+animate_retarget · queued
+animate_retarget · running 99% · ebcfd3b8
+animate_retarget · running 99% · ebcfd3b8
+animate_retarget · running 99% · ebcfd3b8
+animate_retarget · success 100% · ebcfd3b8
+✓ animate_retarget · ebcfd3b8-1680-4af0-ad87-084bafd9d2de · 10 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\zero-look-around-v1\tripo-out\zero-look-around-v1-20261008-ret-ebcfd3b8

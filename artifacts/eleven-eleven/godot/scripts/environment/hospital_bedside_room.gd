@@ -101,7 +101,13 @@ func _build_room_hull() -> void:
 	# North Wall (Z = +2.9)
 	_north_wall = _create_box_body("NorthWall", Vector3(ROOM_WIDTH, ROOM_HEIGHT, WALL_THICKNESS), Vector3(0.0, ROOM_HEIGHT * 0.5, ROOM_LENGTH * 0.5 + WALL_THICKNESS * 0.5), _material(Color(0.34, 0.39, 0.42), 0.0, 0.90))
 	# South Wall (Z = -2.9)
-	_south_wall = _create_box_body("SouthWall", Vector3(ROOM_WIDTH, ROOM_HEIGHT, WALL_THICKNESS), Vector3(0.0, ROOM_HEIGHT * 0.5, -ROOM_LENGTH * 0.5 - WALL_THICKNESS * 0.5), _material(Color(0.34, 0.39, 0.42), 0.0, 0.90))
+	var window_wall_material:=_material(Color(0.34,0.39,0.42),0.0,0.90)
+	var wall_z:float=-ROOM_LENGTH*0.5-WALL_THICKNESS*0.5
+	# Four real wall pieces leave a daylight aperture; the glass retains collision.
+	_south_wall=_create_box_body("SouthWallBelowWindow",Vector3(ROOM_WIDTH,0.95,WALL_THICKNESS),Vector3(0,0.475,wall_z),window_wall_material)
+	_create_box_body("SouthWallAboveWindow",Vector3(ROOM_WIDTH,0.45,WALL_THICKNESS),Vector3(0,2.975,wall_z),window_wall_material)
+	for side in [-1.0,1.0]:
+		_create_box_body("SouthWindowPier",Vector3(1.765,1.8,WALL_THICKNESS),Vector3(side*2.3175,1.85,wall_z),window_wall_material)
 	# West Wall (X = -3.2)
 	_west_wall = _create_box_body("WestWall", Vector3(WALL_THICKNESS, ROOM_HEIGHT, ROOM_LENGTH), Vector3(-ROOM_WIDTH * 0.5 - WALL_THICKNESS * 0.5, ROOM_HEIGHT * 0.5, 0.0), _material(Color(0.34, 0.39, 0.42), 0.0, 0.90))
 	# East Wall (X = +3.2)
@@ -122,7 +128,7 @@ func _build_lighting_and_environment() -> void:
 	# Daylight through south rain window
 	var sun := DirectionalLight3D.new()
 	sun.name = "WardDaylight"
-	sun.rotation_degrees = Vector3(-45, -25, 0)
+	sun.rotation_degrees = Vector3(-35,155,0)
 	sun.light_color = Color(0.96, 0.92, 0.85)
 	sun.light_energy = 1.35
 	sun.shadow_enabled = true
@@ -138,6 +144,15 @@ func _build_lighting_and_environment() -> void:
 	add_child(fill)
 
 func _build_bed_and_equipment() -> void:
+	var furniture:=preload("res://scenes/environment/hospital_bedside_foundation.tscn").instantiate()
+	furniture.name="WardFurniture"
+	furniture.set_meta("furniture_only",true)
+	furniture.position=Vector3(-1,0,0)
+	add_child(furniture)
+	_bed_body=furniture.get_node("Mattress").get_child(0) as StaticBody3D
+	return
+
+func _build_legacy_bed_and_equipment() -> void:
 	# Bed frame and mattress
 	_bed_body = _create_box_body("HospitalBed", Vector3(2.24, 0.70, 1.04), Vector3(-1.0, 0.35, 0.0), _material(Color(0.67, 0.72, 0.73), 0.05, 0.95))
 	
@@ -180,6 +195,7 @@ func _build_bed_and_equipment() -> void:
 func _build_rain_window() -> void:
 	# South rain window frame & glass
 	var win_glass := _create_box_body("WindowGlassBarrier", Vector3(2.87, 1.80, 0.08), Vector3(0.0, 1.85, -2.85), _material(Color(0.64, 0.76, 0.85), 0.1, 0.2))
+	(win_glass.get_node("WindowGlassBarrierMesh") as MeshInstance3D).cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var win_sill := _create_mesh_box("WindowSill", Vector3(3.05, 0.08, 0.32), Vector3(0.0, 0.95, -2.76), _material(Color(0.73, 0.77, 0.73), 0.0, 0.84))
 	add_child(win_sill)
 	
@@ -232,6 +248,13 @@ func _build_mirror_station() -> void:
 	
 	var mirror_glass := _create_mesh_box("MirrorGlass", Vector3(0.02, 1.02, 0.72), Vector3(-0.04, 1.65, 0.0), _material(Color(0.75, 0.85, 0.92), 0.9, 0.05))
 	_mirror_station.add_child(mirror_glass)
+	var reflection:=preload("res://scripts/environment/planar_inspection_mirror.gd").new()
+	reflection.name="WardMirrorReflection"
+	reflection.glass_size=Vector2(0.72,1.02)
+	reflection.reflection_height=512
+	reflection.active_distance=5.0
+	reflection.position=Vector3(2.94,1.65,-1.0)
+	add_child(reflection)
 	
 	# Mirror Vanity Light
 	var mirror_light := OmniLight3D.new()
@@ -277,6 +300,8 @@ func wake_up_from_bed() -> bool:
 	return true
 
 func execute_mirror_inspection(_interactor: Node = null) -> Dictionary:
+	if not bed_awakened_done:
+		return {"success": false, "reason": "patient_not_awake"}
 	if mark_revealed_done:
 		return {
 			"success": true,

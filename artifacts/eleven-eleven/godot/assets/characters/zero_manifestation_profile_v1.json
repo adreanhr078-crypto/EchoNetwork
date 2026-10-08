@@ -1,0 +1,37 @@
+{
+  "schema": "echo-zero-source-profile-v1",
+  "scene_path": "res://assets/characters/zero_manifestation_idle_v1.glb",
+  "source_height": 2.10000105682411,
+  "source_base_y": 0.00000051673851,
+  "facing_y_radians": -1.5707963267948966,
+  "idle_animation": "idle",
+  "pact_animation": "pact/agree",
+  "pact_library_path": "res://assets/animations/zero/zero_pact_agree_v1.res",
+  "source_front": [1, 0, 0],
+  "allow_articulated_fallback": false,
+  "material_presentation": {
+    "metallic_cap": 0.28,
+    "roughness_factor_min": 0.6,
+    "reason": "Source defaults to full metal. Local multipliers reveal original dark texture and limb separation in the lab; source colour, normal and ORM images remain unchanged."
+  },
+  "eyes": [
+    {
+      "source_position": [0.122, 1.85596, 0.04084],
+      "source_forward": [1, 0, 0],
+      "bone_name": "Head",
+      "width": 0.028,
+      "height": 0.008,
+      "color": [0.9, 0.05, 0.15]
+    },
+    {
+      "source_position": [0.122, 1.85596, -0.04084],
+      "source_forward": [1, 0, 0],
+      "bone_name": "Head",
+      "width": 0.028,
+      "height": 0.008,
+      "color": [0.56, 0.13, 0.95]
+    }
+  ],
+  "art_gate": "Source full-take skin/facing and paired eye closeups reviewed; final connected pact acting and general character-art acceptance remain open.",
+  "motion_limit": "41 source bones include hands and twist chains but no finger bones. Imported agree is a bounded acknowledgement played after explicit acceptance; exact paired pact hand reach remains an acting gate."
+}

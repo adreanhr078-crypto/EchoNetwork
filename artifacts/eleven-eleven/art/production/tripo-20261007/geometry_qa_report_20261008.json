@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "standard-katana",
+    "name": "Standard Katana",
+    "category": "Weapon",
+    "target_spec": "length ~0.85m - 1.0m, pivot at hilt/guard for hand socket attachment, blade pointing up (+Y)",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\standard-katana\\tripo-out\\standard-katana-20261007-f43b4b42\\model.glb",
+        "size_bytes": 9000072,
+        "size_mb": 8.583,
+        "sha256": "0dde3a264651483e93c2f378e5ed8b5f336da06ea58e9d9fdad0239ef4d77d63"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\standard-katana\\standard-katana.blend",
+        "size_bytes": 9478664,
+        "size_mb": 9.04,
+        "sha256": "4ecec7dd88743dc1a36fb37f5d56f38103b9065a8510e8bd95e0b13363a0798c"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\standard-katana_tripo_20261008.glb",
+        "size_bytes": 8829976,
+        "size_mb": 8.421,
+        "sha256": "581408abf751c5c0feaf6a8b51864927ba6e35c62792220206c1f07ff9853c3f"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\standard_katana_tripo_20261008.glb",
+        "size_bytes": 8829976,
+        "size_mb": 8.421,
+        "sha256": "581408abf751c5c0feaf6a8b51864927ba6e35c62792220206c1f07ff9853c3f"
+      },
+      "godot_weapons_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\weapons\\standard_katana_tripo_20261008.glb",
+        "size_bytes": 8830040,
+        "size_mb": 8.421,
+        "sha256": "3da34bf8394bf41d008bcc87a3d0a9b939a2c4c7faf89b2f1c6f151bb1b2d5ee"
+      }
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 16271,
+        "triangles": 28296,
+        "local_dimensions": [
+          0.518897533416748,
+          0.9959315061569214,
+          1.0
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 16271,
+        "triangles": 28296,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.08367952704429626,
+          -0.2794407308101654,
+          -0.07289563119411469
+        ],
+        "bbox_max": [
+          0.07982288300991058,
+          0.670559287071228,
+          0.07267589867115021
+        ],
+        "dimensions": [
+          0.16350241005420685,
+          0.9500000178813934,
+          0.1455715298652649
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "offset",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2144784
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4444004
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 1548814
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": {
+        "vertices": 16271,
+        "triangles": 28296,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.08367645740509033,
+          -0.27909690141677856,
+          -0.07290873676538467
+        ],
+        "bbox_max": [
+          0.07980446517467499,
+          0.6709030270576477,
+          0.07266462594270706
+        ],
+        "dimensions": [
+          0.16348092257976532,
+          0.9499999284744263,
+          0.14557336270809174
+        ],
+        "world_dimensions": [
+          0.10669669113919955,
+          0.6200224916227839,
+          0.09500922721659766
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "offset",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              0.652655303478241,
+              0.652655303478241,
+              0.652655303478241
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2144784
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4444004
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 1548814
+              }
+            }
+          }
+        ]
+      }
+    },
+    "discrepancies": [
+      {
+        "type": "WEAPONS_VS_PROPS_HASH_MISMATCH",
+        "description": "godot/assets/weapons/ (8830040 bytes) does not match godot/assets/props/ (8829976 bytes). Weapons version retains unapplied node scale ([0.652655303478241, 0.652655303478241, 0.652655303478241]) while props version has baked transforms."
+      },
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 8.42 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  },
+  {
+    "id": "shadow-katana",
+    "name": "Shadow Katana",
+    "category": "Weapon",
+    "target_spec": "length ~1.0m - 1.1m, scabbard removed, pivot at hilt/guard for hand socket attachment, blade pointing up (+Y)",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\shadow-katana\\tripo-out\\shadow-katana-20261007-c9cae674\\model.glb",
+        "size_bytes": 9857468,
+        "size_mb": 9.401,
+        "sha256": "38e1d19992e7cc8d3378a90ef1a6a2c7b17b9a062d94d08066ebbeea1990ec2d"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\shadow-katana\\shadow-katana.blend",
+        "size_bytes": 9634107,
+        "size_mb": 9.188,
+        "sha256": "6929b3a360923336d287b70e396fd1631126901068a5627a43c2a3285e524e10"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\shadow-katana_tripo_20261008.glb",
+        "size_bytes": 9304260,
+        "size_mb": 8.873,
+        "sha256": "2f34fe806ae9032db91b914d6c1b6c8051417d1634064b00da82a4ef1a5b13ab"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\shadow_katana_tripo_20261008.glb",
+        "size_bytes": 9304260,
+        "size_mb": 8.873,
+        "sha256": "2f34fe806ae9032db91b914d6c1b6c8051417d1634064b00da82a4ef1a5b13ab"
+      },
+      "godot_weapons_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\weapons\\shadow_katana_tripo_20261008.glb",
+        "size_bytes": 9304328,
+        "size_mb": 8.873,
+        "sha256": "54a3e79375ad10a6551606ba218453b7af97d0ab57b1c246503fdf6f5b1c6425"
+      }
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 16870,
+        "triangles": 28212,
+        "local_dimensions": [
+          0.17292533814907074,
+          0.8228036165237427,
+          1.0
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 7739,
+        "triangles": 12978,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.08255527913570404,
+          -0.3009532392024994,
+          -0.08037804067134857
+        ],
+        "bbox_max": [
+          0.07988524436950684,
+          0.7490467429161072,
+          0.0803244560956955
+        ],
+        "dimensions": [
+          0.16244052350521088,
+          1.0499999821186066,
+          0.16070249676704407
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "offset",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2510922
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4092175
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2373726
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": {
+        "vertices": 7739,
+        "triangles": 12978,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.08147551119327545,
+          -0.28398191928863525,
+          -0.08012816309928894
+        ],
+        "bbox_max": [
+          0.08096500486135483,
+          0.7660180330276489,
+          0.08057433366775513
+        ],
+        "dimensions": [
+          0.16244051605463028,
+          1.0499999523162842,
+          0.16070249676704407
+        ],
+        "world_dimensions": [
+          0.16780970774018567,
+          1.0847058936093674,
+          0.16601424121631325
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "offset",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0330532789230347,
+              1.0330532789230347,
+              1.0330532789230347
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2510922
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4092175
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2373726
+              }
+            }
+          }
+        ]
+      }
+    },
+    "discrepancies": [
+      {
+        "type": "WEAPONS_VS_PROPS_HASH_MISMATCH",
+        "description": "godot/assets/weapons/ (9304328 bytes) does not match godot/assets/props/ (9304260 bytes). Weapons version retains unapplied node scale ([1.0330532789230347, 1.0330532789230347, 1.0330532789230347]) while props version has baked transforms."
+      },
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 8.87 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  },
+  {
+    "id": "diagnostic-cart",
+    "name": "Diagnostic Cart",
+    "category": "Prop",
+    "target_spec": "~1.1m tall, base at ground y=0, wheels on floor, centered pivot",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\diagnostic-cart\\tripo-out\\diagnostic-cart-20261007-787ef5a5\\model.glb",
+        "size_bytes": 7486576,
+        "size_mb": 7.14,
+        "sha256": "f9705d8f038bbcf2bcf78644bbd410d31d5c98fb47139e6d4800857e81a58fa8"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\diagnostic-cart\\diagnostic-cart.blend",
+        "size_bytes": 7948834,
+        "size_mb": 7.581,
+        "sha256": "3d0982f902494b1fb6434c303f8bbd9b8bdde354836737668bfe4fba7f85a840"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\diagnostic-cart_tripo_20261008.glb",
+        "size_bytes": 7326196,
+        "size_mb": 6.987,
+        "sha256": "ce9007ee6071266857138c2c1dec322c7c9d03eb43e111dbc0d858ec2785ad1b"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\diagnostic_cart_tripo_20261008.glb",
+        "size_bytes": 7326196,
+        "size_mb": 6.987,
+        "sha256": "ce9007ee6071266857138c2c1dec322c7c9d03eb43e111dbc0d858ec2785ad1b"
+      },
+      "godot_weapons_glb": null
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 17491,
+        "triangles": 26671,
+        "local_dimensions": [
+          0.5895411968231201,
+          1.0,
+          0.6936587691307068
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 17491,
+        "triangles": 26671,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.32424765825271606,
+          0,
+          -0.381512314081192
+        ],
+        "bbox_max": [
+          0.32424765825271606,
+          1.100000023841858,
+          0.381512314081192
+        ],
+        "dimensions": [
+          0.6484953165054321,
+          1.100000023841858,
+          0.763024628162384
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "min",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_787ef5a5-0e0e-4131-a060-7711b10541e3",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_787ef5a5-0e0e-4131-a060-7711b10541e3",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_787ef5a5-0e0e-4131-a060-7711b10541e3",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2589433
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_787ef5a5-0e0e-4131-a060-7711b10541e3",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2781600
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_787ef5a5-0e0e-4131-a060-7711b10541e3",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 1233519
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": null
+    },
+    "discrepancies": [
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 6.99 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  },
+  {
+    "id": "security-terminal",
+    "name": "Security Terminal",
+    "category": "Prop",
+    "target_spec": "~0.65m tall, mounting back at z=0 / pivot centered",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\security-terminal\\tripo-out\\security-terminal-20261007-df7cbe72\\model.glb",
+        "size_bytes": 9118512,
+        "size_mb": 8.696,
+        "sha256": "d4f94c57a7dabc42e14a52e6ee226c615906a6e663a75cc16de79fe3494c65b5"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\security-terminal\\security-terminal.blend",
+        "size_bytes": 9573945,
+        "size_mb": 9.13,
+        "sha256": "1c3a6519b8ac1f7ecc35bf153149d99bf63b4928f88d89a3bdd6c86a6907875a"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\security-terminal_tripo_20261008.glb",
+        "size_bytes": 8959516,
+        "size_mb": 8.544,
+        "sha256": "2de49b8e57efbce6f872bf238461d16f5ac9444190395bc3eea23e2e7550ff88"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\security_terminal_tripo_20261008.glb",
+        "size_bytes": 8959516,
+        "size_mb": 8.544,
+        "sha256": "2de49b8e57efbce6f872bf238461d16f5ac9444190395bc3eea23e2e7550ff88"
+      },
+      "godot_weapons_glb": null
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 16848,
+        "triangles": 26440,
+        "local_dimensions": [
+          0.2757245898246765,
+          1.0,
+          0.5474585890769958
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 16848,
+        "triangles": 26440,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.1779240369796753,
+          -0.32499998807907104,
+          0
+        ],
+        "bbox_max": [
+          0.1779240369796753,
+          0.32499998807907104,
+          0.17922097444534302
+        ],
+        "dimensions": [
+          0.3558480739593506,
+          0.6499999761581421,
+          0.17922097444534302
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "centered",
+          "z": "min"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2083888
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4355569
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_df7cbe72-3f48-4f1c-b085-db87e2e7bcb9",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 1820373
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": null
+    },
+    "discrepancies": [
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 8.54 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  },
+  {
+    "id": "observation-server",
+    "name": "Observation Server Rack",
+    "category": "Prop",
+    "target_spec": "~1.7m tall, base at ground y=0, centered pivot",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\observation-server\\tripo-out\\observation-server-20261007-4cdb4008\\model.glb",
+        "size_bytes": 10024344,
+        "size_mb": 9.56,
+        "sha256": "5fbac7d778c0d8e084cedacfa2dca89197de33d2848bed1767145534f7468b45"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\observation-server\\observation-server.blend",
+        "size_bytes": 10448624,
+        "size_mb": 9.965,
+        "sha256": "c3a93301661e21f69f3f713dc4356a347b8ee58f1ebebc0b7dcf7d62db385643"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\observation-server_tripo_20261008.glb",
+        "size_bytes": 9862688,
+        "size_mb": 9.406,
+        "sha256": "f47a39aa192a49ecf3d813c9594370640bf6eb47a18c11ed044b1825d5219abd"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\observation_server_tripo_20261008.glb",
+        "size_bytes": 9862688,
+        "size_mb": 9.406,
+        "sha256": "f47a39aa192a49ecf3d813c9594370640bf6eb47a18c11ed044b1825d5219abd"
+      },
+      "godot_weapons_glb": null
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 20042,
+        "triangles": 26889,
+        "local_dimensions": [
+          0.4488578736782074,
+          1.0,
+          0.48831480741500854
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 20042,
+        "triangles": 26889,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.38152921199798584,
+          0,
+          -0.415067583322525
+        ],
+        "bbox_max": [
+          0.38152921199798584,
+          1.7000000476837158,
+          0.415067583322525
+        ],
+        "dimensions": [
+          0.7630584239959717,
+          1.7000000476837158,
+          0.83013516664505
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "min",
+          "z": "centered"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_4cdb4008-91a9-46be-af7b-27846de0f7e0",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_4cdb4008-91a9-46be-af7b-27846de0f7e0",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_4cdb4008-91a9-46be-af7b-27846de0f7e0",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2770889
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_4cdb4008-91a9-46be-af7b-27846de0f7e0",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 4089467
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_4cdb4008-91a9-46be-af7b-27846de0f7e0",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2197748
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": null
+    },
+    "discrepancies": [
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 9.41 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  },
+  {
+    "id": "medical-wall-unit",
+    "name": "Medical Wall Unit",
+    "category": "Prop",
+    "target_spec": "~0.9m tall, mounting back at z=0 / pivot centered",
+    "validation_pass": true,
+    "triangles_limit_30k_pass": true,
+    "files": {
+      "raw_tripo_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\medical-wall-unit\\tripo-out\\medical-wall-unit-20261007-5affa583\\model.glb",
+        "size_bytes": 7369736,
+        "size_mb": 7.028,
+        "sha256": "496963632d9e3d10ea827e195cb8a0cf52ad5ca43eca5520f1b64fda17b52b7c"
+      },
+      "editable_blend": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\tripo-20261007\\medical-wall-unit\\medical-wall-unit.blend",
+        "size_bytes": 7794377,
+        "size_mb": 7.433,
+        "sha256": "f69a5f4f44ddc3a3bf44238d6bf61af20c99e1072ebff7e14ac6f509625ed767"
+      },
+      "godot_props_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\medical-wall-unit_tripo_20261008.glb",
+        "size_bytes": 7216296,
+        "size_mb": 6.882,
+        "sha256": "624be84fd85425fdb09704b3e07a643b38c15d5f3bcc4c59fff6882b2b14cb9b"
+      },
+      "godot_props_alias_glb": {
+        "path": "c:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\props\\medical_wall_unit_tripo_20261008.glb",
+        "size_bytes": 7216296,
+        "size_mb": 6.882,
+        "sha256": "624be84fd85425fdb09704b3e07a643b38c15d5f3bcc4c59fff6882b2b14cb9b"
+      },
+      "godot_weapons_glb": null
+    },
+    "geometry": {
+      "raw_asset": {
+        "vertices": 16622,
+        "triangles": 25525,
+        "local_dimensions": [
+          0.7328654527664185,
+          1.0,
+          0.5937646627426147
+        ]
+      },
+      "godot_props_production": {
+        "vertices": 16622,
+        "triangles": 25525,
+        "has_normals": true,
+        "has_tangents": false,
+        "has_uv": true,
+        "uv_channels": [
+          "TEXCOORD_0"
+        ],
+        "bbox_min": [
+          -0.3297894299030304,
+          -0.44999998807907104,
+          0
+        ],
+        "bbox_max": [
+          0.3297894299030304,
+          0.44999998807907104,
+          0.5343881845474243
+        ],
+        "dimensions": [
+          0.6595788598060608,
+          0.8999999761581421,
+          0.5343881845474243
+        ],
+        "pivot_relative": {
+          "x": "centered",
+          "y": "centered",
+          "z": "min"
+        },
+        "node_hierarchy": [
+          {
+            "name": "tripo_node_5affa583-0772-4141-8287-cb4ff9efa62b",
+            "mesh": 0,
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "matrix": null
+          }
+        ],
+        "materials": [
+          {
+            "name": "tripo_material_5affa583-0772-4141-8287-cb4ff9efa62b",
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 1.0,
+            "roughnessFactor": 1.0,
+            "textures": {
+              "baseColor": {
+                "index": 1,
+                "name": "Color_5affa583-0772-4141-8287-cb4ff9efa62b",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2309894
+              },
+              "normalGL": {
+                "index": 0,
+                "name": "NormalGL_5affa583-0772-4141-8287-cb4ff9efa62b",
+                "mimeType": "image/png",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 2990331
+              },
+              "metallicRoughness_ORM": {
+                "index": 2,
+                "name": "ORM_5affa583-0772-4141-8287-cb4ff9efa62b",
+                "mimeType": "image/jpeg",
+                "width": 4096,
+                "height": 4096,
+                "size_bytes": 1229107
+              }
+            }
+          }
+        ]
+      },
+      "godot_weapons_production": null
+    },
+    "discrepancies": [
+      {
+        "type": "NO_PRECOMPUTED_TANGENTS",
+        "description": "GLB does not include precomputed TANGENT vertex attribute. Normal mapping relies on Godot runtime Mikktspace generation."
+      },
+      {
+        "type": "LARGE_UNOPTIMIZED_FILE_SIZE",
+        "description": "Asset is 6.88 MB due to uncompressed 4096x4096 textures. Requires downscaling to 2048x2048 or KTX2/Basis compression before low-end mobile deployment."
+      }
+    ]
+  }
+]

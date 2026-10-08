@@ -20,11 +20,11 @@ func _ready() -> void:
 		"ink": _mat(Color(0.05, 0.08, 0.10), 0.95),
 		"wood": _mat(Color(0.31, 0.25, 0.19), 0.84),
 	}
-	_room()
+	if not get_meta("furniture_only",false): _room()
 	_bed()
 	_equipment()
 	_anchors()
-	_lighting()
+	if not get_meta("furniture_only",false): _lighting()
 
 func _room() -> void:
 	_box("WardFloor", Vector3(6.4, 0.16, 5.8), Vector3(0, -0.08, 0), "floor", true)

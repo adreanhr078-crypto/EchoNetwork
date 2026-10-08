@@ -9,6 +9,24 @@ Status: **OWNER APPROVED**
 Version: **1.0**  
 Approved: **2026-08-28**
 
+## Owner update — 2026-10-07: room craft and adopted Echo source
+
+The Owner requests continued room-by-room color, material, effects and animation
+craft, including detailed living Zero, the explicit pact and controlled Kinja
+revenge. Code line counts are not acceptance evidence. The supplied
+`Echo_Tripo_HD_v31_8K_Source (1).glb` is now the adopted source for Echo's next
+production character; preserve the source and build a measured optimized rigged
+derivative before runtime replacement. Cape animation must be independent of
+the legs. This supersedes the earlier ban on replacing the current avatar for
+this authorized character work; Golden Walk and original motion keys stay
+protected. Adoption does not mean deformation, locomotion, face, performance,
+Canon exposure or phone acceptance has passed. No phase is advanced.
+
+The Owner authorizes Antigravity Claude Sonnet/Opus5.5, followed by Gemini3.8
+Flash if quota is exhausted, plus local agents and the available Flow/Higgsfield
+tools. Inspect real returned work. A stated0.60 API balance is not a validated
+quote or connector-credit balance; do not exceed available authorized funds.
+
 ## Owner update — 2026-10-01: Third-person foundation priority
 
 The latest [controller-first execution plan](internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md)
@@ -456,3 +474,26 @@ not a static 3D showcase. Any Blender room, Echo model, or resource is
 provisional until it passes visual, interaction, collision, performance, and
 Manhwa-fidelity review; a primitive prototype may never silently replace the
 authored playable room.
+
+### Owner direction — 2026-10-06: measured first-slice quality execution
+
+The Owner reaffirmed Manhwa character identity with premium anime coloring,
+lighting and direction. The immediate slice is awakening → clock/memory →
+signal terminal; broader room expansion follows its acceptance. The Owner
+authorized an isolated measured bone-map profile for the existing v13 avatar,
+using the unchanged Golden transfer math and preserving source, Golden and
+the current character. Numerical and visual gates precede any integration.
+The first faithful Jog transfer passed numerically but failed the visible arm
+carriage, so it was not exported or integrated. The Owner then explicitly
+authorized an isolated measured derived reference-pose rig, preserving original
+and Golden, with full numerical and visual verification before integration.
+
+The latest instruction authorizes professional implementation and assistance
+from Claude through the actual Antigravity app using Computer Use, superseding
+the older read-only external-advice scope. This does not establish tool/model
+availability: current Computer Use cannot target its window, no prompt was sent,
+and no Claude result exists. Local verification remains mandatory. The latest
+Higgsfield/Flow authorization permits specific production work when useful;
+external media does not replace interactive animation or prove scene acceptance.
+See `internal/production/OPENING_QUALITY_EXECUTION_2026-10-06.ar.md`. The active
+phase and open Canon, art, player-experience, Edge and physical-phone gates remain.
