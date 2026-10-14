@@ -56,7 +56,16 @@ func _run() -> void:
 	for bone in slot.skeleton.get_bone_count(): frozen.append(slot.skeleton.get_bone_pose(bone))
 	for i in 8: await process_frame
 	for bone in slot.skeleton.get_bone_count(): assert(frozen[bone]==slot.skeleton.get_bone_pose(bone))
-	var report:={"status":"CONNECTED_ASSET_IMPORT_FIDELITY_PASS_VISUAL_GATE_OPEN","source_sha256":FileAccess.get_sha256(SOURCE),"native_tracks":123,"native_keys":keys,"native_duration":imported.length,"max_key_difference":worst,"actual_skeleton_to_world":var_to_str(slot.skeleton.global_transform),"actual_skeleton_to_world_scale":var_to_str(slot.skeleton.global_basis.get_scale()),"native_reduced_pause_exact":true,"source_bytes_unchanged":true,"native_material_presentation":slot._material_presentation,"actor_source_fingers":false}
+	# Restoring an already accepted pact must show ambient source acting,
+	# rather than replay the one-time acknowledgement or imply a new choice.
+	slot.set_stage_hint(true)
+	slot.tick(0,false,"accepted",0)
+	assert(slot.source_player.assigned_animation=="idle")
+	slot.tick(0,false,"manifested",0)
+	slot.tick(0,false,"accepted",0)
+	assert(slot.source_player.assigned_animation=="pact/agree")
+	assert(slot.source_player.get_animation("pact/agree").get_track_count()==123)
+	var report:={"status":"CONNECTED_ASSET_IMPORT_FIDELITY_PASS_VISUAL_GATE_OPEN","source_sha256":FileAccess.get_sha256(SOURCE),"native_tracks":123,"native_keys":keys,"native_duration":imported.length,"max_key_difference":worst,"actual_skeleton_to_world":var_to_str(slot.skeleton.global_transform),"actual_skeleton_to_world_scale":var_to_str(slot.skeleton.global_basis.get_scale()),"native_reduced_pause_exact":true,"restored_pact_keeps_ambient_idle":true,"explicit_pact_uses_source_agree":true,"source_bytes_unchanged":true,"native_material_presentation":slot._material_presentation,"actor_source_fingers":false}
 	var out:=ProjectSettings.globalize_path("res://../audits/evidence/room-color-cinematics-20261007/zero-native-idle-v4/connected-asset-fidelity.json")
 	var file:=FileAccess.open(out,FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))

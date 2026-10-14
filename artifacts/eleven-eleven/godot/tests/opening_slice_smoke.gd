@@ -107,7 +107,9 @@ func _run() -> void:
 		return
 	puzzle.freq_slider.value = 96.0
 	puzzle.close_puzzle()
-	if player.control_locked or puzzle.visible:
+	# The outgoing panel remains visible for its cosmetic fade; logical closure
+	# must release input immediately, without waiting for that presentation.
+	if player.control_locked or puzzle.is_open:
 		_fail("closing the terminal did not restore control")
 		return
 	main._on_terminal_accessed(terminal)

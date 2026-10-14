@@ -18,6 +18,25 @@ func _ready() -> void:
 	if searchlight:
 		searchlight.shadow_enabled = false
 	_set_guide_shadow_casting($GuideCore)
+	_apply_companion_cel_shading()
+
+func _apply_companion_cel_shading() -> void:
+	var guide_core = get_node_or_null("GuideCore")
+	if guide_core:
+		var cel_shader = load("res://shaders/anime_cel.gdshader")
+		var outline_shader = load("res://shaders/anime_outline.gdshader")
+		var applicator = load("res://scripts/combat/shader_applicator.gd")
+		if cel_shader and applicator:
+			applicator.apply_cel_shader(
+				guide_core,
+				cel_shader,
+				Color(1.0, 1.0, 1.0, 1.0),
+				Color(0.15, 0.75, 0.95, 1.0), # Cyan aura rim
+				Color(0.22, 0.28, 0.38, 1.0),
+				3.2,
+				0.6,
+				outline_shader
+			)
 
 func _set_guide_shadow_casting(node: Node) -> void:
 	if node is GeometryInstance3D:
@@ -35,8 +54,9 @@ func _process(delta: float) -> void:
 	# Follow Player with Spring Damped Lerp
 	if follow_target:
 		var target_pos: Vector3 = follow_target.global_position + follow_target.global_transform.basis * float_offset
+		target_pos = _clear_player_face(target_pos)
 		if not reduced_motion: target_pos.y += sin(current_time * 3.5) * 0.06
-		global_position = global_position.lerp(target_pos, 10.0 * delta)
+		global_position = global_position.lerp(target_pos, 1.0 - exp(-10.0 * maxf(delta, 0.0)))
 
 		# Aim tactical spotlight towards enemy or facing direction
 		if aim_target:
@@ -51,6 +71,24 @@ func _process(delta: float) -> void:
 		scan_cooldown -= delta
 	elif Input.is_action_just_pressed("companion_scan"):
 		trigger_scan()
+
+func _clear_player_face(target_pos: Vector3) -> Vector3:
+	if not follow_target is EchoPlayer: return target_pos
+	var camera := get_viewport().get_camera_3d()
+	if not camera: return target_pos
+	var head := follow_target.global_position + Vector3.UP * 1.55
+	var rig: Skeleton3D = follow_target._recovery_skeleton
+	if is_instance_valid(rig):
+		var index: int = rig.find_bone(str(follow_target.rig_profile.get("bones",{}).get("head","")))
+		if index >= 0: head = rig.to_global(rig.get_bone_global_pose(index).origin) + Vector3.UP * 0.08
+	var ray := head - camera.global_position
+	if ray.length_squared() < 0.01: return target_pos
+	var along: float = (target_pos-camera.global_position).dot(ray) / ray.length_squared()
+	if along > 0 and along < 1 and target_pos.distance_to(camera.global_position+ray*along) < 0.48:
+		# Resolve toward screen-left, clear of the persistent right-side directive.
+		# This changes the follower's desired position, never the actor or camera.
+		return target_pos - camera.global_basis.x * 0.85
+	return target_pos
 
 func trigger_scan() -> void:
 	scan_cooldown = 8.0

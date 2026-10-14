@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "scope": "Actual original PCM + generated OGG fingerprints and sustained-tone regression only. Environmental noise/heartbeat/impact source equations contain no tuned notes, chords or instruments; listening quality remains separate.",
+  "tracks": [
+    {
+      "name": "void_bed",
+      "worst_single_spectral_line_fraction": 0.07811870734988702,
+      "peak": 0.21685791015625,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "revenge_bed",
+      "worst_single_spectral_line_fraction": 0.07951365211715337,
+      "peak": 0.2552490234375,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "contract_seal",
+      "worst_single_spectral_line_fraction": 0.03975837945238059,
+      "peak": 0.31829833984375,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "stasis_release",
+      "worst_single_spectral_line_fraction": 0.022763716839834473,
+      "peak": 0.09539794921875,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "contact_1",
+      "worst_single_spectral_line_fraction": 0.030121849289122753,
+      "peak": 0.285247802734375,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "contact_2",
+      "worst_single_spectral_line_fraction": 0.03110930261783576,
+      "peak": 0.315216064453125,
+      "channels": 2,
+      "sample_rate": 48000
+    },
+    {
+      "name": "contact_3",
+      "worst_single_spectral_line_fraction": 0.0375388956538616,
+      "peak": 0.258270263671875,
+      "channels": 2,
+      "sample_rate": 48000
+    }
+  ]
+}

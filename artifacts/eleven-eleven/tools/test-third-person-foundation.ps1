@@ -1,5 +1,5 @@
 param(
-    [string]$GodotPath = 'C:/Tools/Godot-4.7.2-stable/Godot_v4.7.2-stable_win64_console.exe',
+    [string]$GodotPath = 'C:/Tools/Godot-4.8-dev7/Godot_v4.8-dev7_win64_console.exe',
     [string]$OutputDirectory = '.tmp/third-person-foundation'
 )
 $ErrorActionPreference = 'Stop'

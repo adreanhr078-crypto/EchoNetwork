@@ -171,11 +171,18 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		if not session_paused and main.opening_inspection and main.opening_inspection.is_active:
+			main.opening_inspection.cancel()
+			get_viewport().set_input_as_handled()
+			return
 		set_session_paused(not session_paused)
 		get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if not session_paused and main.opening_inspection and main.opening_inspection.is_active:
+			main.opening_inspection.cancel()
+			return
 		set_session_paused(not session_paused)
 
 func _exit_tree() -> void:

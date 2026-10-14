@@ -46,12 +46,13 @@ func _run() -> void:
 		root.push_input(click,true)
 		await process_frame
 	assert(decisions == ["ESCAPE_SYSTEM_AT_ANY_COST"])
-	assert(not window.visible and not window.get_node("ClickShield").visible)
+	assert(not window._modal and not window.get_node("ClickShield").visible, "A chosen wish releases input immediately, including during cosmetic departure")
 	if cinematic:
 		for i in range(42):
 			await process_frame
 			await _capture("cinematic",60+i)
 		assert(root.find_child("SystemWindowFracture",true,false) == null,"Fracture overlay must release its memory and never block input")
+	assert(not window.visible, "System departure must finish, or close immediately with Reduced Motion")
 	window.show_decision("العقد", "الثمن أن يبقى زيرو معك إلى النهاية.", [{"id":"accept", "text":"أعطني ما أحتاجه"},{"id":"decline", "text":"ليس الآن"}])
 	var stale: int = window._window_generation
 	window.show_system_window(0, "السجل", "تمت قراءة سجل العينة.", [], 0)

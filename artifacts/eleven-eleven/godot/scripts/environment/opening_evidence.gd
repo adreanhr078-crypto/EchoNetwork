@@ -2,6 +2,7 @@ extends Node3D
 class_name OpeningEvidence
 
 signal evidence_inspected(evidence_id: String)
+signal inspection_requested(evidence: Node3D, interactor: Node3D)
 
 const ProceduralCinematicAudio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
 const EVIDENCE_FONT = preload("res://assets/fonts/NotoSansArabic.ttf")
@@ -377,8 +378,11 @@ func _setup_pedestal_and_props() -> void:
 		# the inclined mount. Keep the existing trace without inventing a memory image.
 		$PhotoTrace.transform = $PhotoFrame.transform * Transform3D(Basis.IDENTITY,Vector3(0.0,0.031,0.0))
 		var paper := StandardMaterial3D.new()
-		paper.albedo_color = Color(0.61,0.57,0.48)
+		# Abstract washed emulsion only: no generated person, place or memory scene.
+		paper.albedo_texture = preload("res://assets/textures/opening/photochemical-emulsion.jpg")
+		paper.albedo_color = Color(0.80,0.76,0.68)
 		paper.roughness = 0.92
+		paper.metallic_specular = 0.12
 		$PhotoTrace.material_override = paper
 
 func _setup_holographic_beacon() -> void:
@@ -466,6 +470,13 @@ func _process(delta: float) -> void:
 		_beacon_mesh.rotation.y -= delta * 0.35
 
 func on_interacted(interactor: Node3D, _verb: int) -> Dictionary:
+	if inspected: return {"inspected": false}
+	if inspection_requested.get_connections().size() > 0:
+		inspection_requested.emit(self, interactor)
+		return {"inspected": false, "inspectionPending": true}
+	return complete_inspection(interactor)
+
+func complete_inspection(interactor: Node3D) -> Dictionary:
 	if inspected:
 		return {"inspected": false}
 	inspected = true

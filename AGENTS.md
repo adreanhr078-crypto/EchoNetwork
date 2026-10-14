@@ -15,6 +15,21 @@ update the current-work card after meaningful delivery with actual evidence,
 remaining work and the next action. Keep one current card, not dated duplicates.
 Never reduce context by deleting unique assets, Canon, reports or required rules.
 
+## Owner cleanup and current-evidence rule — 2026-10-12
+
+After PROJECT_MAP and CURRENT_WORK, use the active app's
+`docs/internal/production/WORK_TREE.ar.md` and `SOURCE_INDEX.json` to select the
+current room, runtime avatar and authoritative source. Older map updates are
+preserved under production/archive and are historical, never current status.
+Do not use old agent screenshots as acceptance of the current scene. Record the
+review checkpoint, actual scene/asset paths and matching source hashes; if this
+link cannot be established, mark visual evidence UNVERIFIED and capture the
+current runtime when that task resumes. Update affected source-index hashes
+after intentional runtime edits. Do not choose evidence by filename or mtime alone.
+The Owner requested development to stop for project cleanup; CURRENT_WORK records
+the pause and the exact next task. Resume game work only on a later Owner request.
+Prefer individual work; use agents only for a concrete quality or time benefit.
+
 ## Current Owner mandate and continuation (2026-09-19)
 
 Read `artifacts/eleven-eleven/docs/11-11/design/OWNER_PRODUCTION_MANDATE.md`
@@ -113,3 +128,18 @@ For every player-facing integration, visual pass, puzzle pass, or release task:
 ## Owner animation foundation — 2026-09-30
 
 For EchoNetwork character skeletal animation import/retarget work, always preserve the Golden pipeline invariants. Successful routine motions may follow that proven pipeline directly. Use `$echo-golden-animation` at `.agents/skills/echo-golden-animation/SKILL.md` immediately when output is poor or a stage fails, and no later than the second evidence-driven attempt; do not repeat blind trials. Use the skill from the start when that improves quality. The Owner-approved Walk in `artifacts/eleven-eleven/art/production/master-animation-library/golden/walk-v1/` is the fixed Golden Reference. Verify its hashes before/after each motion; never regenerate/improve the Walk or manually edit source keys. Preserve Skeleton Retarget, Root Motion and the current player; no AnimationTree/blending during verification. Process Run/Jog → Idle → Jump sequentially with the same frozen transfer/import pipeline, isolating failures per motion without changing global project settings. Later explicit Owner instructions supersede this rule.
+
+## Gemini 3.8 Deep Rigor Invariant — 2026-10-11
+
+When operating as or receiving directives for Gemini 3.8:
+- NEVER cut corners, apply superficial patches, or take lazy shortcuts ("ممنوع الشلفقة").
+- Always activate and adhere to `.agents/skills/gemini-3-8-deep-rigor/SKILL.md`.
+- Inspect dependencies and explain root cause before writing code.
+- Implement minimal atomic diffs; never rename public APIs, rewrite unrelated systems, or invent unrequested mechanics.
+- Think before and after every tool call (pre-action purpose, post-action empirical verification).
+- Orchestrate subagents (`research` for dependency scans, `self` for adversarial diff review) on non-trivial tasks.
+- Exercise autonomous full-ownership authority without interrupting for routine operational approvals.
+- Strictly avoid trial-and-error: study every decision deeply before execution; zero guesswork ("ممنوع المحاولات العشوائية").
+- Validate via project tests and Godot logs (verifying clean exits and zero SCRIPT ERRORs).
+- Inspect full git diff before declaring completion; state unverified items explicitly.
+

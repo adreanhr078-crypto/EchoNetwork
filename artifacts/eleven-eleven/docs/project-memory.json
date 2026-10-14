@@ -1,7 +1,128 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-10-14",
+  "ownerRevision20261009": {
+    "source": "Direct Owner request to implement the 30-stage chapter plan on 2026-10-09",
+    "executionMode": "EXECUTION_IN_PROGRESS; supersedes earlier planning-only instruction",
+    "plan": "docs/internal/production/CHAPTER_PLAYABILITY_MASTER_PLAN_2026-10-09.ar.md",
+    "record": "docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md",
+    "priority": "Verify the adopted V31 derivative and real Godot Run first, then Idle and Jump sequentially; prepare Canon/entry matrix in parallel",
+    "audio": "SFX_ONLY; no music, instruments, melodies or musical soundtrack",
+    "agentProvenanceCorrection": "AG Run/Idle folders actually target the old prepared-v1 EchoMasterRig with 23 joints, not adopted V31; neither accepts V31",
+    "v31ReviewCandidate": "V31 V18 mobile-materials-v2 isolated candidate: 68 joints/15 Cape, 79999 indexed triangles, 5444848 bytes; face/cape/art/device gates open",
+    "runStatus": "Exact V2 GLB independently replayed in Blender and Godot; bone transfer PASS, optimized shoe contact FAIL -8.507466mm, art OPEN; no runtime replacement",
+    "runtimeCharacterReplaced": false,
+    "phaseAdvanced": false,
+    "chapterAccepted": false,
+    "physicalPhoneAccepted": false,
+    "delegation20261009": {
+      "local": "Luna6 Max actual independent Blender/render review, plus V2 raw integrity and bounded bridge lifecycle repair; results inspected locally",
+      "antigravityConversation": "a2003d98-4642-492f-a5ee-993fecdc5187",
+      "actualWorkersStarted": 10,
+      "status": "10 actual AG workers delivered; four follow-up roles ran. Root rejected source overlay and inspected corrected isolated cape diagnosis8/8. Luna6 Max follow-up completed CPU face/inventory review; Root14/14 input hashes. Face/Run/device acceptance open.",
+      "qualityInstruction": "Deep thinking, step-by-step work, take necessary time, do not rush or shorten verification; no artificial delay",
+      "ownershipRecord": "audits/evidence/chapter-execution-20261009/antigravity-cp06/team-status.json"
+    },
+    "capeDiagnosis20261010": {
+      "status": "ISOLATED_GEOMETRY_DIAGNOSIS_ONLY",
+      "rootImagesViewed": 8,
+      "hashesMatched": 8,
+      "externalTask215ExitCode": 0,
+      "capeFixed": false
+    },
+    "capeSecondary20261010": {
+      "status": "EXECUTED_ISOLATED_VISUAL_FAIL",
+      "nativeUnitScaleOnly": true,
+      "protectedHumanPositionErrorM": 7.23775701771956e-06,
+      "elapsedSeconds": 0.8,
+      "fullV18SkinCrossingPairs": 930,
+      "baselineFullV18SkinCrossingPairs": 9028,
+      "graphicalCaptures": 100,
+      "graphicalHashesMatched": 100,
+      "capeFixed": false,
+      "runtimeIntegrated": false,
+      "record": "audits/evidence/chapter-execution-20261009/cp08-root/ROOT_REVIEW.ar.md",
+      "capeSurfaceEdges": 25434,
+      "maxEdgeStretchRatio": 1.7884074700713222,
+      "cpuSkinStrainOnly": true,
+      "lunaInputsMatched": 13,
+      "agent03CausalClaimsAccepted": false,
+      "antigravityCorrectedReviewDelivered": true,
+      "externalRecommendationsIntegrated": false,
+      "overallMaxRotationBones": [
+        "Cape_3_1",
+        "Cape_3_2"
+      ]
+    },
+    "capeSurface20261010": {
+      "status": "FAIL_INPUT_CONSTRAINTS_INFEASIBLE",
+      "guardVerification": "PASS6/6",
+      "samplesRejected": 25,
+      "capeFixed": false,
+      "runtimeIntegrated": false,
+      "record": "audits/evidence/chapter-execution-20261009/cp09-root/ROOT_REVIEW.ar.md"
+    },
+    "clothProxy20261010": {
+      "status": "NATIVE_CLOTH_EXPERIMENTS_FAIL",
+      "diagnosticArms": 4,
+      "diagnosticSamplesVerified": 100,
+      "rootCapturesReviewed": 14,
+      "topologyNonmanifoldEdges": 24,
+      "surfaceDeformSyntheticToolCheck": "PASS; Echo binding OPEN",
+      "capeFixed": false,
+      "runtimeIntegrated": false,
+      "record": "audits/evidence/chapter-execution-20261009/cp10-root/ROOT_REVIEW.ar.md",
+      "proxyDraftBuilt": true,
+      "proxyVertices": 1073,
+      "proxyTriangles": 1944,
+      "proxyNonmanifoldEdges": 0,
+      "proxyWindingConflicts": 0,
+      "proxyBowtieVertices": 0,
+      "proxyFaceComponents": 2,
+      "echoBindIdentityErrorWorldM": 2.2697298036577997e-06,
+      "attachmentFitMaxWorldM": 0.044228826824575664,
+      "echoAnimatedTransferAccepted": false,
+      "externalReviewCorrectedAndRead": true
+    },
+    "toolAndDilucDirection20261010": {
+      "source": "Direct Owner instruction 2026-10-10",
+      "bodyComparison": "Owner says Echo body is comparable to Diluc; artistic movement reference, not measured proportion matching",
+      "usefulToolsAuthorized": true,
+      "selectedTool": "Built-in Blender Surface Deform + Cloth",
+      "newAnimationSoftwareInstalled": false,
+      "genshinAnimationAssetsImported": false
+    },
+    "boundaryProxy20261010": {
+      "checkpoint": "CP-20261010-05",
+      "vertices": 2003,
+      "triangles": 2815,
+      "rawAttachmentIdentitiesExact": 316,
+      "rawAttachmentIdentitiesOnSurface": 316,
+      "attachmentUnsignedDistanceWorldM": 0,
+      "bindErrorWorldM": 3.8899651218274945e-06,
+      "frozenSourceTransferMaxErrorWorldM": 1.0622412975352103e-05,
+      "sourceRunAccepted": false,
+      "isolatedTriangleComponents": 121,
+      "physicsEligible": false,
+      "kinematicInterfaceSourceFaces": [
+        55853,
+        61590,
+        63007
+      ],
+      "next": "Reconstruct coherent source-fitted proxy panel seams preserving all attachments; measure before any new cloth simulation",
+      "strictNoncoplanarSelfCrossingPairsPerSample": 9,
+      "selfCrossingSamplesMeasured": 25,
+      "selfContactAccepted": false,
+      "luna6MaxResumed": true,
+      "luna6MaxReviewDeliveredAndRootRead": true,
+      "antigravity03CorrectedReviewDeliveredAndRootRead": true,
+      "boundaryCycles": 138,
+      "kinematicTabEdgeConnectedToMainCape": false,
+      "uniqueSourceSingletonFaceSets": 121,
+      "coherentSeamProposalImplemented": false
+    }
+  },
   "ownerRevision20261006": {
     "artDirection": "Manhwa identity and characters with premium anime coloring, lighting and direction",
     "firstQualitySlice": [
@@ -326,14 +447,15 @@
     "animationReuse": "Reuse existing Sol-arranged Godot animation assets and completed inventory; preserve originals; canonical quality acceptance remains pending"
   },
   "lastExecutionCheckpoint": {
-    "id": "CP-20261008-01",
-    "record": "docs/internal/production/ROOM_VISUAL_EXECUTION_2026-10-07.ar.md",
-    "status": "IN_PROGRESS; actual current card supersedes historical acceptance",
-    "canonicalAnimationsApproved": 0,
-    "runtimeCanonicalAnimationsApproved": 0,
-    "ownerApprovedGoldenReferences": 1,
+    "id": "CP-20261014-01",
+    "record": "docs/internal/production/ROOM01_EXECUTION_2026-10-14.ar.md",
+    "status": "ROOM01_IN_PROGRESS: actual native clue camera, explicit confirmation/cancellation, paused checkpoint interruption and abstract Flow surface texture; Wake/Walk/Canon image/character art/audio listening/performance/enjoyment OPEN",
+    "currentAvatar": "Echo V31 High adopted by CP20",
     "characterReplaced": false,
-    "artDeviceAcceptance": false
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "physicalPhoneAccepted": false,
+    "finalPostflightStatus": "See audits/evidence/room01-20261014/verification.json"
   },
   "ownerRevision20261007": {
     "source": "Direct Owner messages in Codex on 2026-10-07",
@@ -383,5 +505,140 @@
     },
     "quality": "Real skeletal animation and independent cape/shadow effects; preserve identity and explicit choice authority; do not claim best-in-history or AAA without actual acceptance",
     "sliceAccepted": false
+  },
+  "ownerRunCapeDeferral20261010": {
+    "source": "Direct human response in current Codex conversation on 2026-10-10",
+    "status": "OWNER_APPROVED_TEMPORARY_CAPE_DEFERRAL",
+    "ownerAnswer": "نعم، اعتماد مؤقت ومتابعة الخطة (أنصح به)",
+    "scope": "Run cape/leg intersection only; continue Idle then Jump, finish garment deformation later",
+    "sourceBlendSha256": "887f385abdf2ea9e638490bbcb116654fa7ab43e3f92bf4a1b8f5d8a6d200bf1",
+    "sourceIdentity": "Original HD V31 body with existing MOB1_Jog_F",
+    "technicalExportSha256": "77e18c0607336ac8b0afa36ce8998e5d21d8407ee5504ecaddda650780daec8c",
+    "godotNumericalStatus": "PASS_25_SAMPLES",
+    "finalGarmentAccepted": false,
+    "characterArtAccepted": false,
+    "runtimeCharacterReplaced": false,
+    "phaseAdvanced": false,
+    "record": "audits/evidence/chapter-execution-20261009/cp15-root/ROOT_REVIEW.ar.md",
+    "godotPositionErrorM": 7.25867539586034e-06,
+    "godotRotationErrorDegrees": 0.00146897696393241,
+    "actualGodotCapturesReviewed": 50,
+    "knownCapeDefectStillPresent": true,
+    "ownerReconfirmed20261011": "اللي حكينا نوقفو موقتا لا تنسى بس وقفو موقتا عشان ننجز ومنرجعلو",
+    "returnGate": "After face/hand foundation, before final V31 and07 integration acceptance"
+  },
+  "previousExecutionCheckpoint20261010": {
+    "id": "CP-20261010-09",
+    "record": "docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md",
+    "status": "CP15: original HD Run provisionally accepted by direct owner with cape deferral; Godot PASS25 and50 actual captures reviewed. Native Idle v2 PASS source inspection26 captures/185 samples; HD bake in progress. Final art/runtime/device gates remain open.",
+    "canonicalAnimationsApproved": 0,
+    "runtimeCanonicalAnimationsApproved": 0,
+    "ownerApprovedGoldenReferences": 1,
+    "provisionalOwnerMotionDeferrals": 1,
+    "characterReplaced": false,
+    "artDeviceAcceptance": false,
+    "finalPostflightStatus": "Current preflight PASS; Golden PASS192;5/5 protected input hashes and3/3 cape capture hashes match. CP15 postflight pending; unrelated dirty work preserved."
+  },
+  "nativeMotionReview20261011": {
+    "index": "art/production/echo-tripo-hd-v31-8k/working/motion-review-index.json",
+    "sourceReferenceSha256": "63d1a1695215f4760cc68306b89bf498e0aef2ea575984a41a1971c9cc6fdaa4",
+    "idleSamples": 58,
+    "jumpSamples": 74,
+    "godotCapturesReviewedTotal": 446,
+    "finalGarmentOrCharacterOrDeviceOrRuntimeAccepted": false,
+    "next": "02/06 optimization and character performance, then07 integration after gates"
+  },
+  "previousExecutionCheckpoint20261011": {
+    "id": "CP-20261011-01",
+    "record": "docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md",
+    "status": "CP16: native Idle and Jump isolated original HD pose/fidelity gates PASS after measured A/T Idle source selection; Run remains owner provisional with cape defect.157 samples/446 actual Godot captures reviewed; no runtime/character/phase/device acceptance.",
+    "canonicalAnimationsApproved": 0,
+    "runtimeCanonicalAnimationsApproved": 0,
+    "ownerApprovedGoldenReferences": 1,
+    "provisionalOwnerMotionDeferrals": 1,
+    "verifiedIsolatedMotionCandidates": 3,
+    "characterReplaced": false,
+    "artDeviceAcceptance": false,
+    "finalPostflightStatus": "PASS EXIT0: content validation, TypeScript, foundation tests, production build, content registry, boot graph, save foundation and foundation files. Golden192 PASS;9/9 source/tool hashes reverified. Owned EOF defect fixed; three unrelated pre-existing EOF warnings preserved."
+  },
+  "gameGeometryReview20261011": {
+    "index": "art/production/echo-tripo-hd-v31-8k/working/motion-review-index.json",
+    "review": "audits/evidence/chapter-execution-20261009/cp17-root/ROOT_REVIEW.ar.md",
+    "highTriangles": 334529,
+    "balancedTriangles": 274529,
+    "godotCapturesReviewed": 942,
+    "exactHDMotionChannelsPerClip": 204,
+    "faceOrFingersOrClothFinallyAccepted": false,
+    "devicePerformanceAccepted": false,
+    "runtimeIntegrated": false,
+    "workMode": "SOLO",
+    "next": "06: تعيين سطح الجفن/العين على نسخة High المعزولة من الأصل، ثم تأليف رمشة واحدة وفحصها كاملة في Blender وGodot؛ قبضة الأصابع بعدها. لا أجفان عائمة أو تبديل اللاعب. يبقى إصلاح العباءة مؤجلًا مؤقتًا قبل اعتماد V31 ودمج07."
+  },
+  "previousExecutionCheckpointCP17": {
+    "id": "CP-20261011-02",
+    "record": "docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md",
+    "status": "CP17: six isolated adaptive geometry motion derivatives PASS; 314 joint samples,942 Godot captures,66 Blender motion and12 matched detail captures. Run and secondary cloth remain owner temporary deferral; no final character/device/runtime/stage acceptance.",
+    "canonicalAnimationsApproved": 0,
+    "runtimeCanonicalAnimationsApproved": 0,
+    "ownerApprovedGoldenReferences": 1,
+    "provisionalOwnerMotionDeferrals": 1,
+    "verifiedIsolatedMotionCandidates": 3,
+    "verifiedGeometryMotionDerivatives": 6,
+    "characterReplaced": false,
+    "artDeviceAcceptance": false,
+    "finalPostflightStatus": "Current result and log in cp17-root/root-verification.json; original sources17/17 and Golden192 PASS."
+  },
+  "ownerPlatformPriority20261012": {
+    "targets": [
+      "Windows/Steam",
+      "Android/GooglePlay"
+    ],
+    "mobile": "Mandatory landscape; physical InfinixHOT40Pro reference, no acceptance yet",
+    "effects": "Continue coherent dramatic craft in Godot4.8 development; measured lower presentation tier on phone; preserve gameplay/Canon/accessibility",
+    "finalCharacter": "Owner-adopted original Echo V31; face/hand/cape/runtime gates before final acceptance",
+    "publishingAuthorized": false,
+    "executionPriority": "Latest Owner steering: game craft, later rooms, purposeful tasks/combat and character presence first; physical phone testing deferred by Owner."
+  },
+  "ownerRuntimeIntegration20261012": {
+    "source": "Latest direct Owner request to insert adopted character and built assets now; supersedes previous hold on review integration only.",
+    "runtimeCharacterReplaced": true,
+    "model": "godot/scenes/characters/echo_v31_adopted.tscn",
+    "tier": "CP17 High",
+    "builtWeapons": [
+      "standard katana",
+      "shadow katana",
+      "hip scabbard"
+    ],
+    "unlock": "Existing explicit pact/normal combat availability; no early opening grant.",
+    "walk": "Temporary slowed source Run, not accepted Walk.",
+    "finalCharacterAccepted": false,
+    "chapterAccepted": false,
+    "phone": "DEFERRED_BY_OWNER",
+    "forwardPlus": "Vulkan allocation FAIL on local Intel UHD; Compatibility visual review only.",
+    "securityVFX": "Actual detector-matched animated field and bounded latch feedback; pause/live Reduced Motion/silent restore verified separately from final room art.",
+    "latestWindowsReview": "audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-reviewed.exe"
+  },
+  "ownerRoomByRoom20261012": {
+    "source": "Direct Owner resumption after cleanup; subsequent animated-effects and Flow/Omni/Higgsfield steering",
+    "mode": "SOLO_ROOM_BY_ROOM_EXECUTION",
+    "currentRoom": "01",
+    "quality": "Rich comfortable moving VFX, interactive meaningful tasks, smooth control, sound and cinematic craft",
+    "tools": "Godot4.8; Google Flow/Omni and Higgsfield where live account access and credits permit",
+    "audio": "SFX_ONLY; no music or instruments",
+    "roomAccepted": false,
+    "advance": "Accept the current room before polishing the next; preserve the existing30-stage plan",
+    "communication": "Dot only",
+    "phone": "DEFERRED_BY_OWNER"
+  },
+  "previousExecutionCheckpointCP22": {
+    "id": "CP-20261012-04",
+    "record": "docs/internal/production/ROOM01_EXECUTION_2026-10-12.ar.md",
+    "status": "ROOM01_IN_PROGRESS: real-input opening route, layered local animated VFX, spatial SFX, native exit context and live V31 capsule alignment; wake, Walk, photograph, character art, listening and independent play acceptance OPEN",
+    "characterReplaced": false,
+    "currentAvatar": "Echo V31 High adopted by CP20",
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "physicalPhoneAccepted": false,
+    "finalPostflightStatus": "See audits/evidence/room01-20261012/verification.json"
   }
 }

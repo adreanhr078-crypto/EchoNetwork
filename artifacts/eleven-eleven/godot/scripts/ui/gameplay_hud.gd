@@ -224,7 +224,7 @@ func complete_directive(next_title: String, next_desc: String) -> void:
 		system_window.show_quest_update(completed_title, next_title)
 	if is_inside_tree():
 		var fanfare := AudioStreamPlayer.new()
-		fanfare.name = "QuestFanfare"
+		fanfare.name = "QuestConfirmation"
 		add_child(fanfare)
 		fanfare.stream = ProceduralCinematicAudio.create_quest_complete_fanfare()
 		fanfare.volume_db = -3.0

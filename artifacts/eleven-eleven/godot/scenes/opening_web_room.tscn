@@ -1,4 +1,4 @@
-﻿[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/systems/opening_web_handoff.gd" id="14_web_handoff"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/reality_glitch_overlay.tscn" id="9_glitch"]
 [ext_resource type="PackedScene" path="res://scenes/cinematics/opening_awakening_cinematic.tscn" id="12_opening_cine"]
 [ext_resource type="PackedScene" path="res://scenes/cinematics/blast_gate_breach_cinematic.tscn" id="13_breach_cine"]
+[ext_resource type="PackedScene" path="res://scenes/environment/sector11_visual_shell.tscn" id="15_shell"]
 
 [sub_resource type="Environment" id="Environment_main"]
 background_mode = 1
@@ -19,8 +20,8 @@ ambient_light_color = Color(0.34, 0.43, 0.6, 1)
 ambient_light_energy = 0.72
 tonemap_mode = 3
 tonemap_exposure = 0.95
-ssr_enabled = true
-ssao_enabled = true
+ssr_enabled = false
+ssao_enabled = false
 glow_enabled = true
 glow_intensity = 0.26
 glow_bloom = 0.04
@@ -125,3 +126,6 @@ transform = Transform3D(0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5
 
 [node name="GameplayHUD" parent="." instance=ExtResource("6_hud")]
 [node name="RealityGlitchOverlay" parent="." instance=ExtResource("9_glitch")]
+
+[node name="Sector11OpeningShell" parent="." instance=ExtResource("15_shell")]
+opening_only = true

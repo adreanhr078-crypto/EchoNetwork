@@ -3,12 +3,9 @@ extends SceneTree
 func _initialize() -> void: _run.call_deferred()
 
 func _window() -> Control:
-	var window := Control.new()
+	var window: Control = load("res://scenes/ui/system_window.tscn").instantiate()
 	var args := OS.get_cmdline_user_args()
-	window.set_script(load(args[0] if not args.is_empty() else "res://scripts/ui/system_window.gd"))
-	var panel := Panel.new()
-	panel.name = "Panel"
-	window.add_child(panel)
+	if not args.is_empty(): window.set_script(load(args[0]))
 	root.add_child(window)
 	return window
 
@@ -25,7 +22,7 @@ func _run() -> void:
 	await create_timer(0.3).timeout
 	window = _window()
 	window.show_system_window(0,"Auto close","Auto close",[],0.05)
-	await create_timer(0.1).timeout
+	await create_timer(0.3).timeout
 	if window.visible:
 		push_error("Current notification did not close")
 		quit(1)

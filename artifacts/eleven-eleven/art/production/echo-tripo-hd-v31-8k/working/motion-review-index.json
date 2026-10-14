@@ -1,0 +1,410 @@
+{
+  "status": "REVIEWED_MOTION_CANDIDATES_NOT_FINAL_RUNTIME_ASSETS",
+  "checkpoint": "CP-20261011-02",
+  "original_source_sha256": "b03583c44998cf144d40a901c011a06f878de29a10852c2c751494596e2e9b67",
+  "shared_target_reference_sha256": "63d1a1695215f4760cc68306b89bf498e0aef2ea575984a41a1971c9cc6fdaa4",
+  "target_joints": 68,
+  "motions": [
+    {
+      "motion": "Run",
+      "take_id": "92bf7cb4b88e3ee2a29be185:0:fd47e298",
+      "action": "Run_Source_Retarget",
+      "fps_native": 30,
+      "source_samples": 25,
+      "source_span_seconds": 0.8,
+      "status": "OWNER_PROVISIONAL_RUN_ACCEPTED_WITH_CAPE_DEFERRAL",
+      "glb": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/run/single-motion.glb",
+      "glb_sha256": "77e18c0607336ac8b0afa36ce8998e5d21d8407ee5504ecaddda650780daec8c",
+      "numerical_report": "audits/evidence/chapter-execution-20261009/cp15-root/godot-numerical.json",
+      "visual_report": "audits/evidence/chapter-execution-20261009/cp15-root/godot-captures/capture-manifest.json",
+      "runtime_integrated": false
+    },
+    {
+      "motion": "Idle",
+      "take_id": "99f1e32d458dafbe5f106de8:0:13373cc7",
+      "action": "Idle_Source_Retarget",
+      "fps_native": 30,
+      "source_samples": 58,
+      "source_span_seconds": 1.9,
+      "status": "PASS_ISOLATED_IDLE_SOURCE_FIDELITY_AND_POSE_REVIEW",
+      "glb": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/idle-unarmed/single-motion.glb",
+      "glb_sha256": "4c240d4c309cc88336fae1b3838de0a0cb29410d5d3b9df8fb10f12a6fddee10",
+      "numerical_report": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/idle-unarmed/godot-numerical.json",
+      "visual_report": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/idle-unarmed/godot-captures/capture-manifest.json",
+      "runtime_integrated": false
+    },
+    {
+      "motion": "Jump",
+      "take_id": "34fa4178cfe703ccb9ff40f8:0:13373cc7",
+      "action": "Jump_Source_Retarget",
+      "fps_native": 30,
+      "source_samples": 74,
+      "source_span_seconds": 2.433333333333333,
+      "status": "PASS_ISOLATED_JUMP_SOURCE_FIDELITY_AND_POSE_REVIEW",
+      "glb": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/jump-standing/single-motion.glb",
+      "glb_sha256": "066b2d8bcf3d40c33fa62164dd45ae65f937fd820117b7d701da127cb8a4f99f",
+      "numerical_report": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/jump-standing/godot-numerical.json",
+      "visual_report": "audits/evidence/chapter-execution-20261009/original-rebase-cp14/jump-standing/godot-captures/capture-manifest.json",
+      "runtime_integrated": false
+    }
+  ],
+  "final_cape_or_character_or_device_or_stage_accepted": false,
+  "runtime_character_replaced": false,
+  "review": "audits/evidence/chapter-execution-20261009/cp17-root/ROOT_REVIEW.ar.md",
+  "next": "06: تعيين سطح الجفن/العين على نسخة High المعزولة من الأصل، ثم تأليف رمشة واحدة وفحصها كاملة في Blender وGodot؛ قبضة الأصابع بعدها. لا أجفان عائمة أو تبديل اللاعب. يبقى إصلاح العباءة مؤجلًا مؤقتًا قبل اعتماد V31 ودمج07.",
+  "geometryDerivatives": {
+    "status": "PASS_SCOPED_GEOMETRY_DERIVATIVE_REVIEW",
+    "referenceModels": [
+      {
+        "tier": "high",
+        "blend_path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\adaptive-high\\reference.blend",
+        "blend_sha256": "f71cff80bb2e51a5630590ca27a5fe34fec8cd0300528e31549710b24e628534",
+        "mesh": {
+          "vertices": 197964,
+          "triangles": 334529,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        "textures": [
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\high\\textures\\echo_original_high_basecolor.jpg",
+            "sha256": "08599602e6e6134702c77508d18219310180f09243a28bdbd6031e4d8571330f",
+            "source_size": [
+              8192,
+              8192
+            ],
+            "size": [
+              4096,
+              4096
+            ],
+            "bytes": 3340865,
+            "normal_vectors_renormalized": false
+          },
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\high\\textures\\echo_original_high_rm.png",
+            "sha256": "96d9f0db0819d0afa40fd78aeaa203acac6c40ab5ccc422dcb52f33ba9aec9a0",
+            "source_size": [
+              4096,
+              4096
+            ],
+            "size": [
+              1024,
+              1024
+            ],
+            "bytes": 693093,
+            "normal_vectors_renormalized": false
+          },
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\high\\textures\\echo_original_high_normal.png",
+            "sha256": "462cdbdba932bcd47e96be005357dd053decde4df97828da06b80e965b07bd88",
+            "source_size": [
+              4096,
+              4096
+            ],
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 1333571,
+            "normal_vectors_renormalized": true
+          }
+        ],
+        "glb": {
+          "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\adaptive-high\\reference.glb",
+          "sha256": "ded936a79d34aacb1cba7638afec25e072fe0a26acec8120ed471d6f945574dd",
+          "bytes": 19702104,
+          "joints": 68,
+          "animations": 0
+        },
+        "adaptive_protection": {
+          "source_protected_vertices": 110264,
+          "source_incident_protected_triangles": 214529,
+          "remaining_body_triangle_budget": 120000,
+          "requested_total_budget": 334529,
+          "source_region": {
+            "native_z": [
+              0.485,
+              0.575
+            ],
+            "native_abs_x_max": 0.13
+          },
+          "method": "Blender Decimate zero-weight endpoints are excluded from collapse; protect measured nonlinear hip/thigh skin seam. No authored cloth changes."
+        },
+        "skin_transfer": {
+          "method": "nearest original four-influence rest vertex by bone name",
+          "max_nearest_rest_vertex_distance_m": 0.0017799342749640346
+        },
+        "posed_surface_status": "PENDING"
+      },
+      {
+        "tier": "balanced",
+        "blend_path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\adaptive-balanced\\reference.blend",
+        "blend_sha256": "745d922dd76e1352b663dade14dc29730416221870527670a1d066c7db48b9a4",
+        "mesh": {
+          "vertices": 159841,
+          "triangles": 274529,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        "textures": [
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\balanced\\textures\\echo_original_balanced_basecolor.jpg",
+            "sha256": "09b8fa5ddc564c12d717b7f9a913524394112f22500d6bd8a62b0ae0ddadf694",
+            "source_size": [
+              8192,
+              8192
+            ],
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 1150922,
+            "normal_vectors_renormalized": false
+          },
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\balanced\\textures\\echo_original_balanced_rm.png",
+            "sha256": "96d9f0db0819d0afa40fd78aeaa203acac6c40ab5ccc422dcb52f33ba9aec9a0",
+            "source_size": [
+              4096,
+              4096
+            ],
+            "size": [
+              1024,
+              1024
+            ],
+            "bytes": 693093,
+            "normal_vectors_renormalized": false
+          },
+          {
+            "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\balanced\\textures\\echo_original_balanced_normal.png",
+            "sha256": "92c9eaf7ae7360a82c6d85285b2f62cdb116e3ec95aea38defc6778fcc455bdd",
+            "source_size": [
+              4096,
+              4096
+            ],
+            "size": [
+              1024,
+              1024
+            ],
+            "bytes": 479419,
+            "normal_vectors_renormalized": true
+          }
+        ],
+        "glb": {
+          "path": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\working\\game-mesh-cp17\\adaptive-balanced\\reference.glb",
+          "sha256": "a1e1a501f90094aae6a457d86cd996212af96a60f046105b60bc80c76fd2d5d3",
+          "bytes": 13949336,
+          "joints": 68,
+          "animations": 0
+        },
+        "adaptive_protection": {
+          "source_protected_vertices": 110264,
+          "source_incident_protected_triangles": 214529,
+          "remaining_body_triangle_budget": 60000,
+          "requested_total_budget": 274529,
+          "source_region": {
+            "native_z": [
+              0.485,
+              0.575
+            ],
+            "native_abs_x_max": 0.13
+          },
+          "method": "Blender Decimate zero-weight endpoints are excluded from collapse; protect measured nonlinear hip/thigh skin seam. No authored cloth changes."
+        },
+        "skin_transfer": {
+          "method": "nearest original four-influence rest vertex by bone name",
+          "max_nearest_rest_vertex_distance_m": 0.0015749653102830052
+        },
+        "posed_surface_status": "PENDING"
+      }
+    ],
+    "motionCases": [
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "run",
+        "tier": "high",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\run-high-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "0abd0fd1cb24a14b41bdf3383aa79a702712c75508a432490ad2660b560740d0",
+        "bytes": 19760428,
+        "native_samples": 25,
+        "actual_godot_captures_reviewed": 75,
+        "actual_blender_captures_reviewed": 9,
+        "max_position_error_m": 7.25867539586034e-06,
+        "max_rotation_error_degrees": 0.00146897696393241,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.0014112364733591676,
+        "sampled_surface_p95_m_bidirectional": 0.00014937157102394848,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": true,
+        "final_character_device_or_stage_accepted": false
+      },
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "run",
+        "tier": "balanced",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\run-balanced-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "1f17d5bc62412a81b4de5e08d2ec5c587e3f268ed360615abc252424befb4985",
+        "bytes": 14007660,
+        "native_samples": 25,
+        "actual_godot_captures_reviewed": 75,
+        "actual_blender_captures_reviewed": 9,
+        "max_position_error_m": 7.25867539586034e-06,
+        "max_rotation_error_degrees": 0.00146897696393241,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.001902258605696261,
+        "sampled_surface_p95_m_bidirectional": 0.0003076172986766323,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": true,
+        "final_character_device_or_stage_accepted": false
+      },
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "idle",
+        "tier": "high",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\idle-high-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+        "bytes": 19794428,
+        "native_samples": 58,
+        "actual_godot_captures_reviewed": 174,
+        "actual_blender_captures_reviewed": 9,
+        "max_position_error_m": 3.04789773508674e-06,
+        "max_rotation_error_degrees": 0.000885441332236717,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.002653921954333782,
+        "sampled_surface_p95_m_bidirectional": 0.0001394495557178743,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": false,
+        "final_character_device_or_stage_accepted": false
+      },
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "idle",
+        "tier": "balanced",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\idle-balanced-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "39ac0052b7b895fd941d8c919ef0103ee6b83eb3849917c41af4a7bffde8137c",
+        "bytes": 14041660,
+        "native_samples": 58,
+        "actual_godot_captures_reviewed": 174,
+        "actual_blender_captures_reviewed": 9,
+        "max_position_error_m": 3.04789773508674e-06,
+        "max_rotation_error_degrees": 0.000885441332236717,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.0024397706147283316,
+        "sampled_surface_p95_m_bidirectional": 0.0002963720675325021,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": false,
+        "final_character_device_or_stage_accepted": false
+      },
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "jump",
+        "tier": "high",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\jump-high-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "2e86ae4e088306f77e9e66ec1f49b447855151b439ae893be2cfc9190ac86992",
+        "bytes": 19812912,
+        "native_samples": 74,
+        "actual_godot_captures_reviewed": 222,
+        "actual_blender_captures_reviewed": 15,
+        "max_position_error_m": 1.12570733108441e-05,
+        "max_rotation_error_degrees": 0.00157488929394605,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.004703067243099213,
+        "sampled_surface_p95_m_bidirectional": 0.00016517472467967304,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": false,
+        "final_character_device_or_stage_accepted": false
+      },
+      {
+        "status": "PASS_ISOLATED_GEOMETRY_FIDELITY",
+        "motion": "jump",
+        "tier": "balanced",
+        "glb": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-execution-20261009\\cp17-root\\jump-balanced-adaptive-exact-rig\\single-motion.glb",
+        "glb_sha256": "c5574b1946243885c5574840ea8209c62ff36b640f340c82da1fe97386654d73",
+        "bytes": 14060144,
+        "native_samples": 74,
+        "actual_godot_captures_reviewed": 222,
+        "actual_blender_captures_reviewed": 15,
+        "max_position_error_m": 1.12570733108441e-05,
+        "max_rotation_error_degrees": 0.00157488929394605,
+        "exact_HD_animation_channels": 204,
+        "sampled_surface_max_m_bidirectional": 0.004160928539931774,
+        "sampled_surface_p95_m_bidirectional": 0.0003300873126136139,
+        "observations": [
+          "Original silhouette and accepted poses retained through all native samples in three views.",
+          "No new stretching spike, detached limb, T-pose or hip collapse in the inspected derivative.",
+          "Dark diagnostic lighting is not final room lighting or art acceptance.",
+          "Cape intersection and secondary cloth quality remain temporarily deferred by Owner."
+        ],
+        "runtime_integrated": false,
+        "run_owner_provisional_cape_deferral": false,
+        "final_character_device_or_stage_accepted": false
+      }
+    ],
+    "finalRuntimeAssets": false,
+    "finalCloseupBalancedAccepted": false
+  },
+  "runtimeReviewIntegrationCP20": {
+    "checkpoint": "CP-20261012-03",
+    "runtime_character_replaced": true,
+    "owner_directive": "Integrate adopted/built assets now for review; art gates remain open.",
+    "scene": "res://scenes/characters/echo_v31_adopted.tscn",
+    "source": "res://assets/characters/echo_v31_adopted_high.glb",
+    "source_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "tier": "High",
+    "libraries": {
+      "idle": {
+        "path": "res://assets/animations/v31/idle_cp17.res",
+        "sha256": "ee40cb6a536be933ca001c178337ea4010629032ebe9f04084d278d4a70aa4d3"
+      },
+      "run": {
+        "path": "res://assets/animations/v31/run_cp17.res",
+        "sha256": "4831345d77fe6cdc603bd38005fa33f9da01cb5b59f0948876f0ed6d01fd2d50"
+      },
+      "jump": {
+        "path": "res://assets/animations/v31/jump_cp17.res",
+        "sha256": "a264ecadbfcbad82203bf7a3031c2d5736bb3466a7e3bb4788a3807d2e2d641b"
+      }
+    },
+    "animation_aliases": [
+      "IDLE",
+      "RUN",
+      "preset_jump"
+    ],
+    "walk": "temporary slowed Run",
+    "final_art_accepted": false,
+    "device_accepted": false,
+    "phase_advanced": false
+  }
+}

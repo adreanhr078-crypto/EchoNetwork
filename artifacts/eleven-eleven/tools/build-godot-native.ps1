@@ -1,6 +1,6 @@
 param(
     [ValidateSet('Android', 'Windows', 'All')][string]$Target = 'All',
-    [string]$GodotPath = 'C:/Tools/Godot-4.7.2-stable/Godot_v4.7.2-stable_win64_console.exe'
+    [string]$GodotPath = 'C:/Tools/Godot-4.8-dev7/Godot_v4.8-dev7_win64_console.exe'
 )
 $ErrorActionPreference = 'Stop'
 $taskApp = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -35,7 +35,10 @@ if ($taskPlatforms -contains 'Android') {
         }
     } finally { $taskZip.Dispose() }
     if ($taskPatched) {
-        $taskEditorSettings = Get-Content -LiteralPath (Join-Path (Split-Path $GodotPath) 'editor_data/editor_settings-4.7.tres') -Raw
+        $taskEngineVersion = (& $GodotPath --version | Select-Object -First 1).Trim()
+        if ($taskEngineVersion -notmatch '^(\d+\.\d+)\.') { throw 'Cannot identify current Godot editor settings version.' }
+        $taskSettingsName = 'editor_settings-' + $Matches[1] + '.tres'
+        $taskEditorSettings = Get-Content -LiteralPath (Join-Path (Split-Path $GodotPath) ('editor_data/' + $taskSettingsName)) -Raw
         function Read-TaskSetting([string]$Key) {
             $taskMatch = [regex]::Match($taskEditorSettings, '(?m)^' + [regex]::Escape($Key) + ' = "([^"]*)"')
             if (-not $taskMatch.Success) { throw "Missing local editor setting: $Key" }

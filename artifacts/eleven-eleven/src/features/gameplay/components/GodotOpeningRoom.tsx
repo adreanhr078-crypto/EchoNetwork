@@ -41,13 +41,34 @@ export function GodotOpeningRoom({ locale, muted, reducedMotion, onFallback, onR
   const traceRef = useRef<readonly OpeningRoomEventId[]>([]);
   const pendingRef = useRef(false);
   const completedRef = useRef(false);
+  const sessionEpochRef = useRef(0);
+  const frameReadyRef = useRef(false);
+
+  useEffect(() => {
+    sessionEpochRef.current += 1;
+    return () => { sessionEpochRef.current += 1; };
+  }, []);
+
+  const configureFrame = useCallback(() => {
+    frameRef.current?.contentWindow?.postMessage(JSON.stringify({
+      source: '11-11-web', bridgeVersion: 1, type: 'configure',
+      nonce: nonceRef.current, coverVerified: true, locale, muted, reducedMotion,
+    }), window.location.origin);
+  }, [locale, muted, reducedMotion]);
+
+  useEffect(() => {
+    if (frameReadyRef.current) configureFrame();
+  }, [configureFrame]);
 
   const finishFromServer = useCallback(async () => {
     if (pendingRef.current || completedRef.current) return;
+    const sessionEpoch = sessionEpochRef.current;
+    const isCurrentSession = () => sessionEpochRef.current === sessionEpoch;
     pendingRef.current = true;
     setStatus('submitting');
     try {
       const response = await completeOpeningRoom(OPENING_ROOM_EVENT_SEQUENCE);
+      if (!isCurrentSession()) return;
       if (response.storyState.openingRoomCompleted !== true
         || response.receipt.roomId !== OPENING_ROOM_ID
         || !response.receipt.receiptId) throw new Error('Unconfirmed opening room receipt');
@@ -55,9 +76,11 @@ export function GodotOpeningRoom({ locale, muted, reducedMotion, onFallback, onR
       setStatus('playing');
       onRoomComplete(response.storyState, response.receipt.awarded === true);
     } catch {
+      if (!isCurrentSession()) return;
       // A lost response cannot justify a second reward request. Read the server.
       try {
         const confirmed = await fetchAuthoritativeStoryState();
+        if (!isCurrentSession()) return;
         if (confirmed.openingRoomCompleted === true) {
           completedRef.current = true;
           setStatus('playing');
@@ -67,9 +90,9 @@ export function GodotOpeningRoom({ locale, muted, reducedMotion, onFallback, onR
       } catch {
         // Keep the played room visible so the owner can retry verification.
       }
-      setStatus('error');
+      if (isCurrentSession()) setStatus('error');
     } finally {
-      pendingRef.current = false;
+      if (isCurrentSession()) pendingRef.current = false;
     }
   }, [onRoomComplete]);
 
@@ -110,32 +133,33 @@ export function GodotOpeningRoom({ locale, muted, reducedMotion, onFallback, onR
       if (typeof data !== 'object' || data === null || Array.isArray(data)) return;
       if (data.source !== '11-11-godot' || data.bridgeVersion !== 1) return;
       if (data.type === 'ready') {
-        frameRef.current?.contentWindow?.postMessage(JSON.stringify({
-          source: '11-11-web', bridgeVersion: 1, type: 'configure',
-          nonce: nonceRef.current, coverVerified: true, muted, reducedMotion,
-        }), window.location.origin);
+        frameReadyRef.current = true;
+        configureFrame();
         return;
       }
       if (data.nonce !== nonceRef.current) return;
+      const traceWasComplete = traceRef.current.length === OPENING_ROOM_EVENT_SEQUENCE.length;
       if (data.type === 'configured') {
         if (Array.isArray(data.milestones)) for (const milestone of data.milestones) {
           const next = advanceOpeningRoomTrace(traceRef.current, milestone);
           if (next === null) { setStatus('error'); return; }
           traceRef.current = next;
         }
-        setStatus('playing');
+        // Reconfiguration acknowledges preference changes too; it must not
+        // dismiss an in-flight receipt check or its recoverable error.
+        setStatus((current) => current === 'loading' ? 'playing' : current);
       } else if (data.type === 'milestone' && typeof data.milestoneId === 'string') {
         const next = advanceOpeningRoomTrace(traceRef.current, data.milestoneId);
         if (next === null) { setStatus('error'); return; }
         traceRef.current = next;
       }
-      if (traceRef.current.length === OPENING_ROOM_EVENT_SEQUENCE.length) {
+      if (!traceWasComplete && traceRef.current.length === OPENING_ROOM_EVENT_SEQUENCE.length) {
         void finishFromServer();
       }
     };
     window.addEventListener('message', onMessage);
     return () => window.removeEventListener('message', onMessage);
-  }, [finishFromServer, muted, reducedMotion]);
+  }, [configureFrame, finishFromServer]);
 
   const retry = () => {
     if (traceRef.current.length === OPENING_ROOM_EVENT_SEQUENCE.length) {
@@ -143,6 +167,7 @@ export function GodotOpeningRoom({ locale, muted, reducedMotion, onFallback, onR
       return;
     }
     nonceRef.current = crypto.randomUUID();
+    frameReadyRef.current = false;
     traceRef.current = [];
     setAttempt((current) => current + 1);
     setStatus('loading');

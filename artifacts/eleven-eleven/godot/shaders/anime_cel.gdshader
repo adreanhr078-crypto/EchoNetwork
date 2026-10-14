@@ -72,6 +72,15 @@ group_uniforms Emissive;
 uniform vec4 emissive_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float emissive_intensity : hint_range(0.0, 10.0) = 0.0;
 
+group_uniforms ContractHair;
+// Authored head/UV mask. Disabled by default for every other actor/material.
+uniform bool contract_hair_enabled = false;
+uniform sampler2D contract_hair_mask : filter_linear_mipmap, hint_default_black;
+uniform float contract_hair_blend : hint_range(0.0, 1.0) = 0.0;
+uniform float contract_hair_time = 0.0;
+uniform vec4 contract_hair_color : source_color = vec4(0.055, 0.035, 0.085, 1.0);
+uniform vec4 contract_hair_rim : source_color = vec4(0.45, 0.12, 0.72, 1.0);
+
 void fragment() {
 	vec4 tex = texture(albedo_texture, UV);
 	ALBEDO = pow(albedo_color.rgb * tex.rgb, vec3(albedo_gamma));
@@ -94,6 +103,17 @@ void fragment() {
 	float rim = smoothstep(1.0 - (1.0 / rim_power), 1.0 - (1.0 / rim_power) + rim_smoothness, fresnel);
 	
 	EMISSION = ALBEDO * ambient_lift + vec3(0.09, 0.085, 0.105) * ambient_lift + (emissive_color.rgb * emissive_intensity) + (rim_color.rgb * rim * rim_intensity);
+	if (contract_hair_enabled) {
+		float hair = texture(contract_hair_mask, UV).r * clamp(contract_hair_blend, 0.0, 1.0);
+		// Preserve authored strand contrast; the violet response is strongest
+		// along the silhouette, keeping eyes and facial skin outside the mask.
+		float strand = clamp(dot(tex.rgb, vec3(0.2126, 0.7152, 0.0722)) * 4.0, 0.0, 1.0);
+		vec3 obsidian = contract_hair_color.rgb * (0.65 + 0.6 * strand);
+		ALBEDO = mix(ALBEDO, obsidian, hair * 0.72);
+		float shimmer = 0.9 + 0.1 * sin(contract_hair_time * 1.7 + UV.x * 25.0);
+		EMISSION = mix(EMISSION, ALBEDO * ambient_lift + contract_hair_rim.rgb * (0.12 + 0.38 * rim) * shimmer, hair);
+		ROUGHNESS = mix(ROUGHNESS, 0.58, hair);
+	}
 }
 
 void light() {
@@ -153,7 +173,9 @@ void light() {
 	float NdotH = max(dot(NORMAL, half_vector), 0.0);
 	float spec_term = pow(NdotH, specular_shininess) * ATTENUATION;
 	float spec_band = smoothstep(specular_size - specular_smoothness, specular_size + specular_smoothness, spec_term);
-	vec3 specular_result = specular_color.rgb * light_color * spec_band * (1.0 - ROUGHNESS);
+	vec3 metal_spec_color = mix(specular_color.rgb, ALBEDO * specular_color.rgb, METALLIC);
+	float metal_boost = 1.0 + METALLIC * 1.5;
+	vec3 specular_result = metal_spec_color * light_color * spec_band * (1.0 - ROUGHNESS) * metal_boost;
 	
 	// Kajiya-Kay Anisotropic Hair Specular Highlight ("Angel Ring")
 	if (is_hair) {

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/echo_player.gd" id="1_player"]
-[ext_resource type="PackedScene" path="res://assets/characters/echo_opening_uniform_v13.glb" id="2_echo_model"]
+[ext_resource type="PackedScene" path="res://scenes/characters/echo_v31_adopted.tscn" id="2_echo_model"]
 [ext_resource type="PackedScene" path="res://scenes/player/katana_blade.tscn" id="3_katana"]
 [ext_resource type="Script" path="res://scripts/player/procedural_foot_ik.gd" id="4_foot_ik"]
 [ext_resource type="PackedScene" path="res://scenes/player/shadow_katana.tscn" id="5_shadow_katana"]
@@ -33,12 +33,12 @@ shape = SubResource("CapsuleShape3D_player")
 script = ExtResource("8_skin_identifier")
 
 [node name="EchoOpeningUniform" parent="ModelRoot" instance=ExtResource("2_echo_model")]
-transform = Transform3D(1.72, 0, 0, 0, 1.72, 0, 0, 0, 1.72, 0, 0, 0)
+transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, 0, 0, 0)
 
 [node name="EchoFaceFill" type="OmniLight3D" parent="ModelRoot"]
 position = Vector3(0, 1.15, -0.55)
 light_color = Color(0.92, 0.78, 0.72, 1)
-light_energy = 2.6
+light_energy = 1.15
 omni_range = 3.6
 omni_attenuation = 1.35
 shadow_enabled = false
@@ -46,7 +46,7 @@ shadow_enabled = false
 [node name="EchoShoulderFill" type="OmniLight3D" parent="ModelRoot"]
 position = Vector3(0, 1.45, 0.72)
 light_color = Color(0.78, 0.77, 0.9, 1)
-light_energy = 0.85
+light_energy = 0.95
 omni_range = 2.5
 omni_attenuation = 1.5
 shadow_enabled = false
@@ -78,6 +78,7 @@ spring_length = 3.0
 shape = SubResource("SphereShape3D_camera")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBoom"]
+keep_aspect = 1
 current = true
 fov = 65.0
 

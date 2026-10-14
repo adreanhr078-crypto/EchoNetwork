@@ -57,7 +57,14 @@ func _process(_delta: float) -> void:
 	main.hud.find_child("MobileTouchControls",true,false).set_traversal_active(player.traversal.is_climbing())
 	if main.companion:
 		# Keep the guide clear of the wrist/ledge contact and the climbing camera.
-		main.companion.float_offset = Vector3(1.1,1.45,0.9) if player.traversal.is_climbing() else Vector3(0.45,1.8,0.25)
+		var at_wheel: bool = player.get_nearest_interactable() == room.service_interaction
+		var in_insert: bool = is_instance_valid(service_cinematic) and service_cinematic.active
+		if at_wheel or room.service_opening or in_insert:
+			# The insert looks from the wheel's right. Move the guide smoothly left
+			# using its existing follow system, keeping fingers and pressure visible.
+			main.companion.float_offset = Vector3(-1.1,1.95,-0.6)
+		else:
+			main.companion.float_offset = Vector3(1.1,1.45,0.9) if player.traversal.is_climbing() else Vector3(0.45,1.8,0.25)
 	var local: Vector3 = room.to_local(player.global_position)
 	if stage == 0 and local.z < -2.0:
 		_advance(1, Vector3(0, 0.1, -20))
@@ -100,6 +107,7 @@ func _advance(next: int, anchor: Vector3) -> void:
 func refresh_objective() -> void:
 	if room:
 		room.set_language(main.presentation_language)
+		if is_instance_valid(room.presentation): room.presentation.set_route_stage(stage)
 		var nearest = main.player.get_nearest_interactable()
 		if nearest == room.service_interaction: main.hud.show_interaction_prompt(nearest)
 	var titles := ["طريق الصيانة", "الجدار الأول", "اعبر الفجوة", "الصعود الثاني", "الممر المرتفع", "حرّر منفذ الخدمة", "الضغط مستقر", "خلف منفذ الخدمة"]

@@ -234,15 +234,37 @@
       "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/balance-20261008-v2-result.json",
       "actualCredits": null,
       "taskId": null
+    },
+    {
+      "jobId": "echo-shadow-wing-v1",
+      "owner": "root",
+      "maxCredits": 70,
+      "status": "completed",
+      "startedAt": "2026-10-08T19:31:40.3320681Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/echo-shadow-wing-v1-result.json",
+      "actualCredits": 40,
+      "taskId": "dc3f46f8-b751-49dc-ace0-ac498826561a"
+    },
+    {
+      "jobId": "balance-20261009",
+      "owner": "root",
+      "maxCredits": 0,
+      "status": "completed",
+      "startedAt": "2026-10-09T08:19:51.4301037Z",
+      "exitCode": 0,
+      "resultFile": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/balance-20261009-result.json",
+      "actualCredits": null,
+      "taskId": null
     }
   ],
   "assetAcceptance": "UNVERIFIED until preview geometry Godot inspection",
   "reconciliation": {
-    "verifiedAt": "2026-10-08T14:49:13.6061880Z",
-    "actualSpent": 365.0,
-    "balance": 235,
+    "verifiedAt": "2026-10-09T08:21:43.7771536Z",
+    "actualSpent": 405.0,
+    "balance": 195,
     "frozen": 0,
-    "proof": "balance-20261008-v2-result.json",
-    "scope": "Source task charges deduplicated; free inspections0; failed retarget refunds0"
+    "proof": "balance-20261009-result.json",
+    "scope": "Actual positive source charges405; read-only balance verifies195 free and0 frozen. Source task IDs retained, inspections/refunds are not new paid charges."
   }
 }

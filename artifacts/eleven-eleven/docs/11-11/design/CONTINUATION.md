@@ -2402,3 +2402,332 @@ from measured failures; maintain this record after each accepted change.
 ## CP-20261006-01 quality repair IN_PROGRESS
 
 Current authority: CURRENT_WORK.ar.md and ANTIGRAVITY_QUALITY_REPAIR_2026-10-06.ar.md. Owner explicitly requires Golden Blender/Godot. Custom fitted/resampled action retarget withdrawn from runtime and preserved as REJECTED_OWNER_PROTOCOL. Existing Run/Idle/Jump fixtures replayed sequentially in Blender and isolated Godot PASS; no new canonical motion. Actual v13 front +X verified; Golden target front -Z and distinct rig. Shadow-step/execution orientation repaired with actual four-direction tests. Native room route to lab memory PASS; full decisions/hospital test in progress, art/camera/phone/postflight open. Never infer AAA acceptance from old smoke reports.
+
+## CP-20261009-04 — factual gap review and Owner-requested planning
+
+- Current authority: `docs/internal/production/CURRENT_WORK.ar.md`,
+  `CHAPTER_COMPLETION_GAPS_2026-10-09.ar.md`, and
+  `CHAPTER_PLAYABILITY_MASTER_PLAN_2026-10-09.ar.md` beside it. Owner now requests
+  planning only; the30-stage plan has dependencies, acceptance and six visible
+  delivery milestones. No phase advanced, no chapter/art/phone acceptance.
+- Root corrected ContractHair material ownership/cleanup, rebuilt7PactOGGs and
+  replaced10legacy musical cue payloads under SFX_ONLY (Owner forbids music),
+  imported with actual4.8-dev7, and ran clean hair/audio regressions. Actual
+  Antigravity user message and screenshot evidence record the new audio direction
+  and V31 target. Hospital film inspected via ffprobe: video only,4.041667s.
+- Native archive/mirror/security public-input regression actual EXIT0 PASS;
+  source-fingerprinted report `native-route-blockers-20261009/all.json` explicitly
+  leaves visual/device acceptance open. Security retry allegation not reproduced.
+  Native boot begins3D directly; the complete cover-puzzle-to-hospital release
+  route still needs unification with the authoritative web opening boundary.
+- Golden rerun PASS192. V31 source/cape and isolatedRun work preserved; AGRun/Idle
+  numerical reports are candidates, not independent full native visual acceptance.
+  CP03 historical100%/zero-sliding claims do not supersede actual open gates.
+- Tripo actual read-only balance195/frozen0, documented spending405. Flow first
+  take generated but rejected artistically; charge unresolved. TRELLIS.2 source
+  researched only; official24GB NVIDIA/Linux route does not fit IntelUHD host;
+  no generated model or paid GPU purchase claimed.
+- Root postflight after runtime changes EXIT0 PASS content/TS/tests/build/doctor;
+  web large-chunk warnings retained. Latest planning documentation does not change
+  runtime behavior. Preserve dirty/staged/untracked work; no commit/push/export.
+- Local agents' last turns exhausted usage; do not claim they remain running.
+  External outputs need local review. Next implementation, when requested: verify
+  exactV31 rig/skin candidate and reviewRun in actualGodot, thenIdle/Jump/face/cape;
+  integrate only after gates, and unify full fresh puzzle→hospital journey.
+
+
+## CP-20261009-05 — actual V31 chapter execution started
+
+- Owner explicitly resumes30-stage implementation; planning-only instruction superseded. Current phase remains unchanged. Record: docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md; stage00 matrix: CHAPTER_STAGE00_EXECUTION_2026-10-09.ar.md.
+- AGRun/Idle provenance FAIL: old23-joint prepared-v1 rig, not adopted V31. Root reran correct V18 frozen import/replay PASS7.259um/0.001469deg, then actual four-view native room captures and bounded source/LOD/material inspection. Preserve original, Golden and active player; no integration or motion-key/retarget/root/blend modifications.
+- Correct V31 LOD235085->79999tri;68joints/15Cape/rest/IBMs/204motion channels exact. Mobile2K/1K/1K candidate5444228B passes80k/6MiB asset limits; desktop9.35MB FAIL_BYTES. Khronos0errors/2inherited warnings. Numerical size and decoded-texture estimates are not FPS, phone or artistic acceptance.
+- Read-only exact-blend skin probe verifies pose samples within7.599um, finds sole min-8.508mm: FAIL_CONTACT. Filter/roughness diagnostics reduce glitter but dark coat, face and cape performance remain open. AGIdle is not permission to advanceJump. No floor/root compensation.
+- Stage00 actual audit:11pages viewed/hash-matched,33opening contract tests PASS. Native bypasses cover receipt, Web playable:false falls back toR3F; seeded campaign regression does not prove a fresh chapter. Matrix keeps server authority and delayed exposure intact.
+- Root preflightPASS; GoldenPASS192 before/after. Final project postflight log: audits/evidence/chapter-execution-20261009/postflight.log; visual/phone gates remain open. Preserve preexisting dirty work and3EOFwhitespace defects outside owned changes. No commit/push/publication, paidgeneration or new balance claim. SFX_ONLY/no music; review video silent.
+- Local provenance/LOD, independent-image and Canon-entry agents returned inspectable work. Root checked exact reports/source/images, not an automatic external-agent acceptance. Current card owned byRoot; CP04prefix preserved in new evidence archive.
+- Next exact action: measured V31 shoe-skin/rest diagnosis and permitted target derivative repair; localized material/neutral-light/face/independent-cape review; closeRun then correct-targetIdle/Jump. Implement the unified authenticated shell/cover receipt opening boundary per stage00 once the first package is stable. No phase/chapter/device acceptance claimed.
+
+
+## CP-20261009-06 — actual V2 candidate, bridge repair and verified Antigravity dispatch
+
+- Scope remains chapter plan execution, V31 Run/Jog first. No phase transition, player replacement, chapter/hospital/phone acceptance. Current map/card and CHAPTER_EXECUTION_2026-10-09.ar.md are current authority; CP05 card/record archived in evidence.
+- Latest V2 GLB SHA a746514673ca8971b81fa3d0c2abeb0eef0770cb1bb7f314e7e33554795bc32e:5444848 bytes/79999 indexed triangles,68 joints/15 Cape/30 fingers; uint16 saves479992 bytes from previous material candidate. Local material partition is conservative height/skin based, not semantic skin/hair/cloth. Sources/keys/Golden retained. Independent raw860 assertions and Khronos0errors/3warnings/1info actualPASS.
+- Root inspected actual Godot100 full-body +2 face captures,102 hashes matched, replay7.238µm/0.001465°. Corrected extra lights0.26/.12/.45 are diagnostic only; coat dark/face fixed/art OPEN. Review pack is video-only30fps/200frames/6.666s repeated frozen25 samples, not live gameplay.
+- Luna6 Max independently loaded exact optimized V2 and original V18 in Blender:53 roles×25 samples PASS9.098µm/.001324°, all68 poses/rest preserved. Exact optimized sole minimum -8.507466mm at.066667s, left, floor0:FAIL_CONTACT. Three coincident reverse-winding pairs explain79996 imported uniquefaces; purpose OPEN, not deleted. Foot/toe-only reweight cannot fix worst vertices; covered midpoint pivot is not anatomical authority and predicts worse -14.321mm in read-only sensitivity, no rig edit.
+- GodotOpeningRoom.tsx patch34 additions/9 deletions:resend mute/ReducedMotion to ready iframe; preserve submitting/error on configure acknowledgement; verify only on first transition to complete trace, retain explicitRetry; reject late completion/recovery after unmount. Actual Edge/ReactStrictMode with syntheticAPI/manifest/child PASS10/10 vs baseline6 failures; authority contracts33/33. Real playable:false unchanged. In-place account identity/input-before-configure/native export stillUNVERIFIED.
+- Verification:root postflight-cp06.log EXIT0 ALLCHECKSPASSED, content/TypeScript/631tests/build/registry/boot/save/foundation. Golden-cp06.json PASS192. Preexisting3blankEOF defects outside ownedscope preserved; don't claim globallyclean. No new paidjobs/balance verification/commit/push/publish/music.
+- Worker status:local Luna6 Max, v2_integrity and entry_handoff_fix delivered inspected evidence. User explicitly requested allAntigravity agents and deep,slow,step-by-step care; nativeapp actuallyobserved, then user openedapprovedRemote. Root sent actualmandate in conversation a2003d98-4642-492f-a5ee-993fecdc5187, Gemini3.8FlashHigh; screenshot10subagentsrunning and team-status.json10distinctIDs verified. Ownership only antigravity-cp06/worker-01..10; no runtime/central edits or GPU withoutrootcoordination. Their later files are UNVERIFIED untilrootinspection. Existing mislabeledAGRun/Idle23-jointtarget rejectedexplicitly.
+- Next exact action:inspect source/rest/contact findings fromAntigravity01/05, coordinateoneBlender job, deriveonlyevidence-backedbindfix preservingfrozen source/root/retarget; verifyactualGLBcontact and fullJog inGodot. Reviewnewmaterial/face/cape proofs. OnlyacceptedRun allowsIdle thenJump. Keep storyboard/roominventory/receipt/save/accessibility work disjoint; no expanding city/store or flippingplayable to compensate.
+
+
+## CP-20261010-01 — receipt race repair and actual cape/V3 review IN_PROGRESS
+
+2026-10-10. _opening.ts now proves award ownership by the stored server UUID, not ignored INSERT result. Real local SQLite migration/function concurrency baselineFAIL6, repairedPASS13/13; D1 async adapter and transport faults simulated. Integrated postflight-cp07 EXIT0/PASS644/TypeScript/build/content/doctor. No endpoint auth/migration/client reward changes. V3 BIN/rest/68joints/204channels/textures preserved; 102 actual Godot captures visually reviewed, art remains open/dark back/static face. Exact V18 Blender read-only cape/leg strict triangle intersections:9028 pairs across25 samples, maximum908 at21; REST0 within identical cohorts; coplanarity/mixed boundary/unclassified surfaces excluded. New inspect_cape_intersections.py and cape-*-crossings-cp07.json in run-v18. Shoe contact remainsFAIL−8.507466mm. No source keys/rig/root/floor/player/phase changes.10AG reports delivered; actual Root UI critiques restarted4 roles and yielded revised limited verdicts; no blanket externalPASS. Local Luna6 Max initial evidence delivered, later local agent turns hit usage limit; Root continued. cp07-root preserves CP06 cards/report and inventory/hash snapshot. Next: visualize sample21 intersection pairs and diagnose an isolated measured secondary-cape remedy, inspect source-floor/anatomical sole before new transfer attempt, then real Run acceptance→Idle→Jump. Full puzzle→hospital/account/device/fun/art gates open. SFX_ONLY, no paid generation/commit/push/deploy.
+
+### تسليم التشخيص المعزول المصحح — 2026-10-10
+
+وصلت8 صور أولى، وفحصها Root وبصماتها8/8، لكنه رفض العزل لأن جسم MotusMan المصدر ظهر مع V31. أُرسلت مراجعة فعلية عبرRemote؛ أخفى03 المصدر وIcosphere في الذاكرة وأعاد8 صور مع inventory للأجسام. شاهد Root الصور الثماني المصححة وبصماتها8/8. بقي مجسم V31 وحده، وأصبح بروز الحذاء عبر العباءة واضحًا في العينتين9 و21. REST بلا جسم المصدر. هذا **PASS لتشخيص هندسي معزول فقط، وليس إصلاح العباءة أو اعتماد Run**؛ Workbench grayscale، والعلامات أول12 زوجًا لكل عينة، لا جميع أزواج المسبار.
+
+قرأ Root نتيجة task-215 الموسعة فيRemote: **The command exited with code0**، وحفظ سجلها الحقيقي وصور/script/manifest فيcp07-root/cape-render-isolated-review؛ محفوظ أيضًا snapshot كامل للمحاولة الأولى. Golden بعد التصحيح **PASS192 EXIT0** فيgolden-after-cape-isolation.json. لم تُعدل أصولV18 أو مرجع المصدر أو اللاعب. طلب Root سحب وصف مقاسات كبسولات القماش بأنها مقاسة دون كود وبيانات؛ هذه المراجعة الثانية وصلت قائمة انتظار03 ولا تعني تطبيق مصادمات.
+
+التالي التنفيذي: استخرج مناطق تصادم الساق/الحذاء مع العباءة من هندسةV31 والعينات الفعلية، ثم جرّب معالجة ثانوية معزولة وقارن دورةJog كاملة فيGodot؛ لا قيم مصادمات تخمينية، ولا تغيير مفاتيح الحركة البشرية/root/floor، ولا إغلاق Run من هذه اللقطات.
+
+### مراجعة Luna6 Max المستقلة مكتملة — 2026-10-10
+
+عاد Luna6 Max بعد التحقق من إتاحة الاستخدام وأتم مراجعة مستقلة باستخدام المعالج فقط، دون تشغيل Blender أو Godot. قرأ Root التقرير والكود والنتائج، ثم طابق بصمات مدخلاته الحالية: **14/14**. الأدلة في `cp06-independent/antigravity-face-inventory-review.md/json/py`.
+
+ثبتت هوية V31 وسلسلة V18 ومشتق V2. أعاد الحساب 555 مكونًا كليًا و243 ضمن نطاق Y≥0.81m في V18؛ هذه فئات إحداثية وليست فصلًا تشريحيًا تلقائيًا. في V2 يوجد 241 مكونًا ضمن النطاق. العدد 102,484 في raw_analysis يجمع accessor مشتركًا مرتين؛ عدد مواضع الرؤوس الفريدة هو 51,242.
+
+بقي تعريف العين الحمراء غير متسق: صندوق 44 نقطة أبعاده 84.28×47.09×52.20mm، بينما span يخص 656 رأسًا ضمن نصف قطر 12mm وأبعاده 20.76×21.79×14.23mm. يجب فصل الفئتين قبل استخدام القياس لإصلاح الوجه. استنتاج أن الفم مغلق تشريحيًا غير محسوم بسبب اختلاف نطاقات الفحص؛ لم يُنفذ اختبار حاسم لسطح الفم وتجويفه. الأصول الحالية Owner/V18/V2 بلا morphs، بينما ست تجارب وجه تاريخية تحتوي 4–8؛ لا يصح تعميم النتيجة على كل المشتقات. مطابقة ثلاثة مراكز محلية لا تثبت تطابق جميع الرؤوس. أداء الوجه التعبيري ما زال **UNVERIFIED**.
+
+صحح العامل07 بصمة السرير، لكن الجرد ما زال 63 صفًا مقابل 62 ملفًا موجودًا؛ مسار shader مفقود. تطابقت أحجام وبصمات الملفات الحاضرة. السرير ذو 43,424 مثلثًا غير مربوط بغرفة المستشفى الحالية Room12، التي تستخدم foundation إجرائية. هذا جرد ساكن، وليس اعتمادًا للغرفة أو المستشفى أو الهاتف. قورنت صفحات Canon بصور V2 دون استنتاج اختلاف لون دقيق.
+
+لم يُنفذ إصلاح وجه في هذه المراجعة. التالي: فصل مجموعات قياس العين وفحص سطح الفم قبل تجربة وجه مشتقة ومعزولة. الأولوية التنفيذية تبقى إصلاح العباءة والنعل، ثم قبول Run داخل Godot، ثم Idle، ثم Jump. فحوص runtime الأخيرة **644 PASS** محفوظة؛ وأحدث فحص Golden بعد التصوير **192 PASS**. لا توليد مدفوع أو نشر.
+
+**متابعة التصحيح النهائي:** قرأ Root تقرير03 المعدل: صُرح بأن العلامات أول12زوجًا فقط، وسُحب وصف مقاسات الكبسولات بأنها مقاسة وأعيدت إلى UNMEASURED_DESIGN_PROPOSAL. سجل الخروج المنفصل يوافق نتيجة task-215 الفعلية. لم تُطبق مصادمات أو معالجة عباءة. دور Blender مخلى؛ لا عملية Blender ظاهرة عند فحص Root. يُستأنف القياس التالي بتنسيق جديد، لا بإعادة استعمال ترخيص الجوب السابق.
+
+
+## CP-20261010-02 — استجابة عباءة معزولة منفذة
+
+# المتابعة الفعلية — CP-20261010-02 / CP08
+
+2026-10-10؛ IN_PROGRESS / EXECUTION. اقرأ `CHAPTER_EXECUTION_2026-10-09.ar.md`.
+
+- نُفذت فيزياء Cape معزولة على V2 داخل Godot، خمس سلاسل مثبتة وثماني كبسولات مقاسة؛ خطأ الإنسان7.238µm، زمن24 فاصلًا=.8s، بلا تغيير source/keys/rig/rest/root/floor.
+- إعادة الجلد الكامل V18 في Blender: 9,028→930 أزواج تقاطع عبر25 عينة؛ ليست أعداد V2 أو عيوبًا فريدة. بقيت112 بالعينة21 وأقصى194 بالعينة22. لا قبول من النسبة.
+- صور Godot الثانية100/100 مطابقة وفُحصت الأربع مجموعات؛ **FAIL بصريًا** لانتفاخ العباءة كشريط جامد والعتمة. الحجم وحدة فقط؛ فيزياء حجم اللعبة والدوام والهاتف مفتوحة. لا دمج أو تبديل v13؛ Run يسبق Idle/Jump.
+- Golden PASS192/EXIT0؛ كود إصلاح الإيصال وReact مطابق لبصمات CP07؛ آخر postflight644 ناجح. لا مرحلة أو فصل أو هاتف معتمد، playable:false محفوظ.
+- Luna6 Max وAG03 مراجعة مستقلة عميقة للـAPI والصور؛ لا قبول تلقائي لتقاريرهم. Root انتهى من GPU/Blender؛ لا دور GPU جديد مصرح تلقائيًا. لا رسوم Tripo أو موسيقى.
+- التالي: تشخيص مقاس لشد سطح القماش وربط السلاسل وامتداد الطرف، ثم حل مناسب ومراجعة بحجم اللعبة؛ لا ضبط عشوائي أو تقدمIdle قبل الجري.
+
+
+
+تحديث ختام CP-20261010-02: Luna6 Max مكتمل ومدخلاته13/13مطابقة، وAG03 سلم التصحيح وقُرئ محليًا؛ لا قبول توصياته. قياسCPU علىV2:25,434حافة، أقصى زيادة طول78.84%، المئين95بلغ37.27%. راجعROOT_REVIEW/تقريرالتنفيذ النهائي؛ ما زالتCape/RunFAILبصريًا، والحجم1.987والنعلوالفصلوالهاتفOPEN. لاGPUنشط لهذه الحزمة.
+
+
+## CP-20261010-03 / CP09
+
+# المتابعة الفعلية — CP-20261010-03 / CP09
+
+- بُني إسقاط قيود سطح العباءة وحماية تمنع تصدير المدخلات غير الممكنة؛6/6 فحوص حماية PASS، native2 هو رفض هندسي متوقع.
+- 25/25 عينة ترفض كبسولات الفخذ الحالية بسبب تصادم نقاط التثبيت؛ أقصى74.783mm. حدود نصف القطر فارغة للفخذين مع ثبات المقطع؛ لا يكفي تصغير radius وحده.
+- لا إصلاح قماش معتمد أو تصوير جديد أو تبديلv13 أو قبولRun/الهاتف/الفصل. التالي مصادم مشتق من هندسة الجسم الفعلية، ثم إعادة القيود ومراجعةGodot؛ Run قبلIdle/Jump.
+- الأدلة: cape-surface-cp09-verified وcp09-root؛ التقرير CHAPTER_EXECUTION_2026-10-09.ar.md. المحاولة الأولى المشوهة محفوظة ومرفوضة؛ لا دمج.
+
+---
+
+## CP-20261010-04 / CP10
+
+# المتابعة الفعلية — CP-20261010-04 / CP10
+
+- المرحلة02:V31 واختبار03:Run؛ غير مغلقتين. لاIdle/Jumpأودمجv13أوقبولفصل/هاتف.
+- قيسسطحالجسم ومحدباته:الفخذانيتعارضانمعالتثبيت25/25حتىالمحدباتاللحظية؛ لاشكلتصادممعتمد.
+- شُغّلClothفعلي+3أذرععزل عندscale1.987؛ جميعهاFAIL. فُحص100ملفمواضع وبصماتهالكلذراع، و8صورمصادمات/4صورقماش. لاGLBأوربطruntime.
+- شبكةالمحاكاةتحوي24حافةغيرmanifold/6تناقضات/3مكونات. التاليproxyيحفظشكلالمعطفوالتثبيتويجتازtopology/bind/coverageقبلأي تشغيل جديد؛لا ضبطعشوائي.
+- أداةSurfaceDeformموجودةوفحصقدرتهاالاصطناعيPASS، ربطإيكوOPEN. ديلوكمرجعمرشحلبنيةوحركةإيكو؛لمتُنقلأصولGenshin.
+- الأدلة:run-v18/cloth-proxy-diagnosis-cp10 وcp10-root؛تقريرCHAPTER_EXECUTION_2026-10-09.ar.md. postflightالنهائيقيدالتسجيل؛Golden/runtimeمحميان.
+
+### CP10 — شبكة وسيطة فعلية وربط مقاس
+
+# المتابعة الفعلية — CP-20261010-04 / CP10
+
+- المرحلة 02: تجهيز V31، واختبار المرحلة 03: Run؛ لم تُغلقا. السكون والقفز بعد اعتماد الجري.
+- شُغّل Cloth فعليًا مع ثلاث مقارنات عزل عند مقياس 1.987؛ جميع الأذرع مرفوضة. فُحصت 100 عينة مواضع وصورها. لا دمج أو تبديل للشخصية الحالية.
+- بُنيت شبكة وسيطة من المصدر: 1073 رأسًا و1944 مثلثًا، بلا حواف غير manifold أو تناقض اتجاه أو ركن متشعب بعد إصلاح مسودة الشبكة. الربط الفعلي عبر Surface Deform نجح بهوية مقاسة 2.270µm؛ الحركة لم تختبر.
+- اتصال العباءة ما زال مفتوحًا: المسافة القصوى لنقاط الاتصال إلى الشبكة الوسيطة 44.229mm. التالي تمثيل حد الاتصال بدقة وحفظ التثبيت والتغطية قبل محاكاة أخرى؛ لا تعديل عشوائي للمعاملات.
+- صور المسودة المصححة من جهتين فُحصت وبصماتها مطابقة. صور Workbench تشخيصية فقط؛ خامات اللعبة وRun والهاتف والفصل غير مقبولة.
+- Surface Deform وCloth موجودان في Blender المثبت؛ لا برنامج أو ترخيص إضافي مطلوب الآن. ديلوك مرجع بصري مرشح وفق توجيه المالك؛ لم تُنقل أصول Genshin.
+- الأدلة: run-v18/cape-proxy-authoring-cp10 وcloth-proxy-diagnosis-cp10 وcp10-root. فحوص ما بعد التسليم النهائية تسجل في التقرير؛ Golden والمصدر والمرحلة الحالية محمية.
+
+### CP11 — تغطية اتصال المصدر ونقل الحركة المقاس
+
+# المتابعة الفعلية — CP-20261010-05 / CP11
+
+- المرحلتان02/03 مفتوحتان: V31 ثم Run داخل Godot، يليهما Idle ثم Jump. لا تغيير للشخصية الحالية أو مفاتيح المصدر.
+- غُطيت هويات اتصال العباءة316/316 بتمثيل مشتق2003 رأسًا/2815 مثلثًا. ثلاث هويات كانت نقطة واحدة داخل3 مثلثات مصدر مختلطة؛ أُعيدت كرقعة كينماتيكية دون حذف تثبيت أو اختراع أوجه.
+- Surface Deform مرتبط فعليًا:3.890µm عند الربط، ونقل25 عينة بأقصى فرق10.622µm مقابل المصدر. فُحصت8 صور نهائية؛ الجري مرفوض لظهور القدم عبر العباءة، وليس إصلاحًا للقماش.
+- المسودة غير مؤهلة للفيزياء:121 مثلثًا منفصلًا بسبب القص التشخيصي. التالي إعادة بناء اللوحات/الدرزات مع حفظ الاتصال والتغطية، قبل Cloth جديد؛ لا ضبط عشوائي للمعاملات أو حذف القطع لإخفاء الفشل.
+- الأدلة: run-v18/cape-boundary-interface-cp11 وcape-boundary-proxy-cp11 وcp11-root. أصل V31 وV18 وV2 وGolden وإصلاح إيصال البداية محفوظة.
+- AG03 قدم حساب مكونات مستقلاً راجعه Root؛ تصحيح الادعاءات والمتابعة غير متحققين بعد انقطاع Remote. Luna6 Max لم يعمل مجددًا بسبب حد استخدام.
+- preflight وGolden قبل العمل PASS؛ نتائج الإغلاق التقني النهائي في تقرير التنفيذ، وهي ليست قبول Run أو الهاتف أو الفصل.
+
+### CP11 — مراجعات واختبارات الإغلاق التقني الفعلية
+
+اكتملت مراجعتا Luna6 Max وAG03 وقرأ Root ملفاتها. إعادة حساب مستقلة: 316 هويات اتصال، 979 حافة/138 دورة حدود، 121 قطعة مصدرية فريدة؛ رقعة المصدر الثلاثية منفصلة حافيًا عن اللوحة الرئيسية. قياس Root: 9 أزواج تقاطع صارم لكل 25 عينة. مسودة القماش غير مؤهلة؛ Run مرفوض بصريًا. التالي بناء لوحات/درزات متصلة مع lineage وتغطية المصدر وكل التثبيتات؛ لا حذف القطع أو ضبط Cloth متكرر قبل إصلاح البنية وفحص التماس والمصادم. لا قبول 02/03 أو Idle/Jump.
+
+postflight النهائي EXIT0/644 اختبارًا؛ Golden EXIT0/192؛ diff المملوك EXIT0. ثلاثة أخطاء نهاية ملفات سابقة في الشجرة الكاملة محفوظة. مصدر V18 GLB/Blender وV2 وGolden وruntime مطابق للبصمات. التفاصيل: docs/internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md وcp11-root/root-verification.json.
+
+
+## CP-20261010-09 — CP15: Run مؤقت، والملابس مؤجلة بقرار صريح
+
+2026-10-10. المالك أجاب «نعم، اعتماد مؤقت ومتابعة الخطة (أنصح به)» على سؤال يذكر اختراق العباءة وتأجيل إصلاحها ومتابعةIdle/Jump. الوثيقة `cp15-root/owner-cape-deferral.json` تحفظ نطاق القرار: لا قبول نهائي للشخصية أو الأداء أو الإصدار. المصدر الذي يُستأنف منه هوHD V31 الأصلي، لاV2 الرمادي أو مسودةCape الجامدة.
+
+حُفظ رفض المسودة الجامدة بعد مراجعة الصور الثلاث في `original-rebase-cp14/run-review-cape21/blender-visual-review.json`. صدرتGLB Run فعلية80.84MB/68مفصلًا/قصاصة واحدةSHA77e18c06… بواسطةاستثناءمحدد، بينما التقريرالأصلي يبقىFAIL_CAPE_CONTACT. لم تتغير مفاتيح الإنسان أو Golden أو اللاعب. التصديرالعدديBlenderPASS7.599µm؛ استيرادGodot المصحح جارٍ في `cp15-root/godot-review`. إخفاقإعدادreviewer/ملفproject أولًا موثق، ثم أصلحالمسار إلىالملفالموجود؛ لا تغييرruntime.
+
+التحققالحالي:preflightPASS،Golden192PASS،5/5بصماتمدخلات و3/3بصماتصورمطابقة. postflightCP15 لازم بعد استكمال المراجعة. جميعالتغييرات المتسخةالأخرى محفوظة، دونcommit/staging أو paid generation أو وكلاء. المصدرIdle d22eb6f… مُعزل لحدودsparse keys؛ لا تعادمحاولته ولاقصه. التاليإنهاءمقارنة25عينةGodot ثم فحصMOB1_Stand_Relaxed_Idle_v2 الموجودقبلنقله، ثمJump؛ عيبالملابس يبقىمفتوحًا للمرحلةالخاصةبه. SFX_ONLY.
+
+
+## CP-20261011-01 / CP16 — السكون والقفز على الأصل داخل Godot
+
+اكتملت مراجعة الحركات بالتتابع بعد الجري المؤقت: Idle في58 عينة و174 صورة Godot،3.048µm/0.000885°؛ Jump في74 عينة و222 صورة،11.257µm/0.001575°. فُحص المصدر وصور Blender PBR فعلًا؛ مرجع63d1a16… ذي68 مفصلًا ثابت، دون تحرير المفاتيح أو Golden. الأصل HD وخاماته محفوظة، واللاعب الحالي ثابت. مجموع الحركات الثلاث157 عينة و446 صورة Godot؛ ليس اعتماد FPS أو الفصل.
+
+سبب رفض Idle_v2 هو راحة A بزاوية40.459° مقابل T بزاوية90°، وقد قيس مباشرة. بقي FAIL محفوظًا؛ نجح البديل الموجود Unarmed Idle ذو المرجع المتوافق، ثم Standing Jump بهيكل المصدر نفسه. لم تُقص المفاتيح أو تُكرر Idle القديمة. السبب موثق في cp15-root/IDLE_REST_ROOT_CAUSE.ar.md، والحالتان في original-rebase-cp14/idle-unarmed وjump-standing.
+
+دليل التسليم cp16-root/ROOT_REVIEW.ar.md؛ فهرس المراجعة في working/motion-review-index.json، والعرض في cp16-root/reviews. العرض من صور المحرك الفعلية بلا موسيقى، وهو قصاصات منفصلة؛ لا دمج أو أداء لاعب. المصدر والأداة9/9 وGolden192 PASS؛ postflight EXIT0؛ المحتوى وTypeScript واختبارات الأساس والبناء وdoctor PASS. التالي02/06 للوجه والأصابع والملابس والحجم وLOD والأداء، ثم07 بعد تحقق الدمج. لا إغلاق لمرحلة كاملة من الاختبارات العددية؛ الأجهزة والحفظ واللعب مفتوحة.
+---
+
+
+## CP-20261011-02 / CP17 — مشتق V31 وحركاته الست داخل Godot
+
+اكتملت بوابة مشتقات الهندسة المعزولة: نسختا High وBalanced من V31 الأصلية، وكل منهما بالجري والسكون والقفز، مع تطابق204 قنوات حركة حرفيًا مع أصلHD. خُفّضت المثلثات من1,954,040 إلى334,529 و274,529 (نحو83% و86%)، مع حفظ68 مفصلًا ومفاتيح المصدر. رفض التخفيف المنتظم120k/60k محفوظ؛ كشف القياس تشوه انتقال الحوض إلى الفخذ، وحُل بحماية المنطقة المقاسة أثناء التخفيف. لم تُعدل العباءة أو اللاعب.
+
+فُحصت942 صورة Godot فعلية في314 عينة مفاصل، و66 صورة Blender للحركات، و12 مقارنة قريبة للأصل والمشتقين. السطح اجتاز ميزانية العينات في الاتجاهين؛ أكبر انحراف للجريHigh هو1.411mm وليس0.622mm الذي يخص اتجاهًا واحدًا. النسخةBalanced أنعم في الشفتين والعين وأكثر زاوية في أطراف الأصابع؛ High مرشح اللقطات القريبة. لا قبول للهاتف أو حجم اللعبة أو LOD أو الفن النهائي من هذا التخفيف.
+
+اختراق العباءة **OPEN_DEFERRED_TEMPORARILY** بتأكيد المالك، والجري مؤقت. الوجه بلاshape keys أو مفاصل عين/فك في النماذج الثلاثة؛30 عظمة أصابع لها تأثيرات جلدية فعلية، وهذا ليس اعتماد رمش أو نظر أو قبضة. التشخيص محفوظ فيface-hand-foundation.json. العرض الجديد من صور المحرك وبلا صوت أو موسيقى، مع قطع بين الحركات، ولا يثبت مزج اللاعب أوFPS.
+
+الأدلة: cp17-root/ROOT_REVIEW.ar.md وgeometry-delivery.json؛ ملفات الإنتاجgame-mesh-cp17/adaptive-high وadaptive-balanced؛ فهرسmotion-review-index.json يحفظ الحركاتHD السابقة ويضيف مشتقاتها. بصمات المصدر والأداة17/17 وGolden192 PASS؛ نتيجةpostflight الحالية فيroot-verification.json. نُفذ هذا التسليم منفردًا دون مهام خارجية جديدة أو توليد مدفوع أوstaging/commit/push.
+
+التالي: 06: تعيين سطح الجفن/العين على نسخة High المعزولة من الأصل، ثم تأليف رمشة واحدة وفحصها كاملة في Blender وGodot؛ قبضة الأصابع بعدها. لا أجفان عائمة أو تبديل اللاعب. يبقى إصلاح العباءة مؤجلًا مؤقتًا قبل اعتماد V31 ودمج07. المرحلة الحالية PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE ثابتة؛02/06/07 والفصل والأجهزة والحفظ والدمج ليست مغلقة.
+
+
+## CP-20261011-03 / CP18 — دخول Web فعلي وتشخيص الجفن المقيد
+
+أصلح تسليم إعداد العربية/الإنجليزية، حصر configure في window.parent، وتعليق المشهد الحقيقي قبل إعداد صالح مع تطبيق الخيارات قبل التحرير ومنع إعادة السينمائي. كشف WebAssembly الفعلي BOM في مشهد الافتتاح ونقص موارد preload؛ أصلح حذف3 بايتات فقط وتغيير Web preset إلى اختيار resources مع الخط والزجاج والجناح. إعدادات المشروع والحزم العامة وplayable:false واللاعب وسلطة المكافأة لم تتغير.
+
+الدليل:React12/12،TS47/47،Godot28،Godot4.7.2WASM15/15 EXIT0 دون SCRIPT ERROR،postflight645/645 EXIT0،Golden192 EXIT0. تجربة SwiftShader للمنطق والاتصال، وليست أداء أو هاتفًا أو قبول فن. مراقب للقراءة فقط في boot النسخة التشخيصية موثق ببصمات مستقلة؛ Main/bridge/scene/project/preset مطابقون للإنتاج. ثلاثة تحذيرات توافق رسوم موجودة موثقة.
+
+الوجه لا يزالFAIL_VISUAL. مرشحات01–03 محفوظة ومرفوضة؛04 حل تداخل مخطط الشرائط الشعاعية بCDT مقيد وأثبت مساحات إسقاط موجبة لجميع الأوزان الخطية، وأعاد خرائط المصدر إلى أطلس محلي. فحص الصور الثماني رفض الإغلاق الأحمر غير الرتيب وخطوط الشعر/الحاجب المحمولة مع الجفن الأزرق. لم يصدر GLB أو يدمج. التالي: تشخيص عمق الجفن/سطح العين لكل وزن، بناء غلاف ثلاثي الأبعاد صحيح وتثبيت الحاجب وإزالة circular dependency في خبز normal، ثم مراجعة Blender كاملة وGodot. مصدر القبضة الموجود Grab And Slam فُحص30fps/129 إطارًا ومرجعًا متوافقًا، لكنه ليس قبضة معتمدة. Fist Pumps24fps معزول.
+
+الأدلة والتفصيل:audits/evidence/chapter-execution-20261009/cp18-root/ROOT_REVIEW.ar.md وcp18-entry/wasm/wasm-final-summary.json. توقف المساعدان بسبب حد الاستخدام؛Root أكمل العمل المحلي والتحقق. لا توليد مدفوع أو نشر أوcommit/staging. اختراق العباءة مؤجل مؤقتًا للعودة قبلV31/07؛المرحلة الحالية ثابتة، والمراحل30 ليست مكتملة.
+
+
+## CP-20261012-01 / CP18 — انتقالات واجهة مشتركة وغرفة Web معزولة — IN_PROGRESS
+
+راجع CURRENT_WORK للنتيجة الحالية. نُفذت انتقالات مريحة للحوار والنظام والمحطة والتلميحات مع إرجاع التحكم عند نهاية الحدث، واحترام Reduced Motion، وحماية الحوارات/القرارات/التلميحات التالية من callback قديم. أصلح قفل التحكم المرتبط بvisible الزخرفية، ومحاذاة العربية المضاعفة، وسباق التلميحات. المحطة صارت48px فعلية مع scrolling/focus ودقة +/- دون تغيير حل اللغز أو الحفظ.
+
+اختفاء العمارة في Web كان سببه أن الغلاف موجود في opening_native_room فقط. أعيد استعمال الغلاف والضوء والجو الموجودين في أصل مشترك، دون ازدواج native أو تغيير مصادمات الغلاف الأصلية/فتحة البوابة. تثبت13حالة تساوي الهندسة/المصادمات وحماية الإعداد؛ فحوص الجو والحفظ نجحت. لا قبول فن غرفة10 أو أداء28 أو رحلة كاملة من ذلك.
+
+18حالة للحوار،17انتقالات واجهة،35دخول وقفل فعلي نجحت؛ إعادةWASM/postflight للبايتات النهائية قيد التنفيذ. سجل اختبارbrowser الأصلي بعد الغلاف فشل في انتظارnavigation الخاص بـLocator، لا يرقى إلىPASS؛ استعملت إدخالbrowser الفعلي المباشر لإعادة الفحص. معرفTween صارstring يحفظ64bit ولا يقارن أرقامJS مقربة.
+
+راجعت نسخ الوجه06/07/08ثماني صور لكل نسخة.08 أصلح82رأسًا متقاطعة بين رمشتي العينين وخامة الجلد الجديدة، لكن الحواف/خط الجفن/الفن مفتوحة. لم يصدر أو يدمج مرشح مرفوض. الشخصية النهائية التي أكدها المالك هيV31 الأصلية المعتمدة؛ إعداد الوجه/اليد/العباءة ثم تثبيت اللاعب وفحوص النسخة النهائية بها. طلب المتعة والغموض والأكشن يسري على30مرحلة، ولا يسمح بقدر ظل قبل عقد زيرو. Golden والمصدر والمرحلة محفوظة؛ لا فصل أو هاتف أو حساب حي مقبول.
+
+
+## CP-20261012-01 — متابعة الهاتف الفعلي والكاميرا — IN_PROGRESS
+
+الهاتفInfinixHOT40Pro وصل فعليًا عبر ADB. أولAPK فشل لغيابpreload؛ أصلح Windows/Android resources والتغليف دون حذف الاعتماديات، واتجاه5عمودي إلى4أفقيإلزامي، وكثافةAndroid48dp مع144px مثبتة عند480dpi. اللاعب ما زال القديم؛V31/الوجه08/اليد/العباءة/07والفصل لا تزال مفتوحة. مستهدف API36 ومحاذاةZIP/ELF16KB ضمن نطاق الملفات فقط، لا AAB أوOS16KB.
+
+الأداءFAIL:4.83fps سابقًا و≈7fps بعد mobile raster0.65/MSAA0،657MBخامات ونحو1.7GBPSS. لا قبول20دقيقة من تبديل نسخ أو snapshots. استعلام الكاميرا≈0.02ms؛ مقارنةGLES تشخيصية جاهزة غير مختبرة. أوقف تطبيق الاختبار عند2%شحن/44° لحين شحن مناسب؛ استمر العمل المحلي. لم تمسح بيانات الهاتف أو تنشر اللعبة.
+
+فشلFOV كشفdefault72 مقابلحد70الموثق؛ حفظ الملف ثمأعيد70 واختبار الحركة/الكاميرا PASS. كثافةUI،حوار18وانتقالات17ودخول35 PASS؛ مجموعةالتحكم/Binary/WASM/postflight النهائيةقيدالإغلاق. Golden192 PASS. WASM22السابقصحيحلبايتاتهفقط وSwiftShaderليسأداء. راجع CURRENT_WORK وتقرير CP18_DEVICE_EXECUTION_2026-10-12.ar.md؛ المرحلة والـCanon/SFX_ONLY/سلطةالقراروالمكافأةمحفوظة. التالي:حسمحملالرسمعلىالهاتفالمشحون، ثموجهHigh/يد/عباءةوV31/07، والاستمراربالـ30مرحلةدونإغلاقشكلي.
+
+
+## CP-20261012-02 / CP19 — الغرفة الثانية وحضور كينجا/تغليف زيرو
+
+الحالة IN_PROGRESS. لا تغيير للمرحلة PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE ولا اعتماد للمراحل30. آخر توجيه المالك يقدّم جودة اللعب والغرف والمهام والشخصيات؛ **الهاتف مؤجل بطلبه**. نتيجة الجهاز السابقة FAIL6–8fps تبقى محفوظة، وليست عائقًا لكل عمل مستقل.
+
+## ما تغير فعليًا
+
+- غرفة الصيانة: تشطيب محلي يحفظ UV والصور والهندسة، تفاوت roughness وصبغة فولاذية، أنابيب MultiMesh وتجهيزات جدارية غير مصادمة، إضاءة باردة/دافئة باستعمال الأضواء الثلاثة الموجودة. خُفّض توهج المقابض العريضة كي يظهر شكلها، دون تغيير تصنيف التسلق أو مواضعه. عداد ضغط ووسم عربي/إنجليزي، لون حالة يرتبط بمراحل المهمة القائمة، وبخار محلي16جسيمًا عند التنفيس فقط. لا تقدم أو مكافأة من العرض.
+- المراجعة الأولى كشفت إسودادًا زائدًا: شُخّص من قيم اللون الفعلية في Godot ومن التحويل sRGB، ثم حفظت صبغات الأصل وزاد وضوح الغلاف. مرشح finish الأول محفوظ. زاوية lateral القديمة كانت داخل الجدار؛ أصلحت كاميرا الالتقاط فقط من داخل حدود الغرفة.
+- الالتقاط الفعلي للعجلة كشف أن المرافق يحجب اليد والعداد في الكاميرا القريبة. يتحرك الآن يسار اللاعب باستخدام نظام التتبع الموجود عند العجلة/المشهد، ثم يعود إلى وضعه العادي؛ لا إخفاء مفاجئ أو تغيير سلطة اللعبة.
+- كينجا: كان يُنشأ بعد قبول العقد فقط. صار نفس الممثل حاضرًا عند تفعيل المختبر، ساكنًا وغير قابل لتلقي ضربات أو تقديم تفاعل الانتقام قبل العقد. يُفعَّل بعد الموافقة الصريحة، وتبقى الليزر/الدرع القديمة مخفية. لا حوار أو مفاتيح حركة جديدة؛ أداء المواجهة قبل الغرق ما زال مفتوحًا.
+- زيرو: ثبت FAIL من **PCK السابق نفسه**، إذ فشل load_profile لاختفاء JSON/GLB/library التي تُحمَّل ديناميكيًا. أضيفت الاعتماديات الثلاثة الأصلية إلى Windows/Android فقط. اجتاز PCK الجديد load_profile والهيكل/Idle وpact/agree الأصلي؛ الملف ليس fallback. Android المعدل لم يُثبت مجددًا على الهاتف المؤجل.
+- ضوء التطهير: الحركة المخفضة الحية تثبّت النبض الزخرفي دون تغيير حالة الغرفة أو البوابة.
+
+## الدليل وحدوده
+
+- native-route-complete-final.log: المسار الوظيفي الفعلي، أمن→ست غرف/خمس وصلات→عقد/ثلاث ضربات/تأكيد الانتقام/الرغبة→شق/المستشفى/المرآة، بمدخلات عامة وفيزياء فعلية بعد fixture البداية. لا teleport أثناء السير. أصلح تصريح نوع touch في fixture الذي كان يمنع تحميل الاختبار، ولم تضعف الشروط. كينجا حاضر قبل العقد، والضرر المبكر لا يغير contacts.
+- ثمانية فحوص محددة: التسلق/التنفيس normal/reduced/skip/الحفظ/التطهير/حفظ الحملة/هيكل كينجا؛ PASS. إعادة خدمة المرافق في service-guide-final-* هي أحدث فحص للعجلة. pact-presentation-regression.log يفحص العقد/التأجيل والكتم والتخطي والعودة والضربات وReduced Motion/وقف الهيكل أثناء pause؛ PASS ضمن النطاق.
+- presentation-check-final.log: جميع مواضع وأبعاد المصادمات14 محفوظة، لا مصادم جديد في الزخرفة، pause/RM/اللغة والاسترجاع الصامت ولا تقدم من إشارات العرض؛ PASS. decon-motion.log PASS. الصور الأربع finish-final راجعت فعليًا. native-lab-reviewed يثبت الظهور الفعلي بكاميرات fixture؛ ليس قبول أداء كينجا أو الفن النهائي.
+- service-frames-reviewed:210 إطارًا من المحرك عند معدل تسجيل fixed30، تفاعل العجلة الفعلي وعودة الكاميرا والبوابة المفتوحة. فيديو المراجعة صامت ويستعمل اللاعب الحالي القديم؛ ليس قياسFPS أو دمج V31. لقطة الدخول staging فقط، والفعل يستعمل proximity/player.interact.
+- Golden192 PASS. نقل أصابع V31 من **Grab And Slam الأصلي30fps/129frame** أنتج fingers-only.blend منفصلًا:30مفصلًا، replay لكل129 عينة ومصفوفات الجسم غير المستهدف ثابتة؛ numerical PASS. توجد24صورة Blender، لكن الفن/قبضة ثنائية/تصدير Godot والدمج ما زالت OPEN. مرشح وجه08 لا يقبل من الاختبارات العددية.
+- postflight النهائي والبصمات في cp19-root/final-verification.json وسجله؛ لا ينقل PASS الأوديت السابق إلى التغييرات الجديدة. Independent-route-audit.ar.md قراءة مستقلة فعلية، مع postflight645 الخاص بوقتها، دون تعديل runtime من العامل.
+- تحذير gl_compatibility الخاص بـscreen-spaceAA ظاهر في سجلات الصور؛ لا SCRIPT ERROR في الالتقاطات المقبولة. لا توجد شهادة لعب مستقل أو قياس أداء للفصل من هذه الصور.
+
+## الباقي والترتيب التالي
+
+المرحلة06 مفتوحة: تغيير استراتيجية الجفن إلى تحرير تشريحي/خامة موضعية مثبتة بدل تكرار إسقاطات06–08، مقارنة القبضة مع rest الأصلي بإضاءة مقروءة، ثم العباءة قبل07/دمج الشخصية المعتمدة. صقل الصيانة مرشح يحسن الموجود؛ ليست غرفة نهائية بمستوى القبول المطلوب. تظل غرفة الأمن وما بعدها وفن/تنوع المهام والمواجهة/الحلم والغرق والعقد والقتال والمستشفى بحاجة صقل وتسلسل أداء؛ فحص route الوظيفي لا يغلق14–29.
+
+Tripo: الأمر الموثق npx tripo-cli balance أعاد balance=0/frozen=0 حيًا. لم يرسل أي توليد أو يكرر مهمة مدفوعة؛ الإذن باستخدام الأصول اللازمة قائم، والعمل بالأصول الموجودة مستمر. صور المفهوم الأربع وFlow لم تنتجا في هذه الدفعة؛ native views دليل فحص، لا بديل مزعوم عن cinematic/reference packet. لا نشر/شراء/commit/staging/حذف عمل سابق.
+
+
+## CP-20261012-03 / CP20 — دمج V31 والأسلحة المبنية للمراجعة
+
+الحالة IN_PROGRESS. توجيه المالك الأخير يطلب إدخال الشخصية والمجسمات المبنية الآن؛ يجيز الدمج للمراجعة رغم بقاء بوابات الفن، ولا يجيز إعلان اعتمادها. المرحلة العامة PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE ثابتة، والمراحل30 غير مكتملة. **07 دمج فعلي للمراجعة، و06 الوجه/اليد/العباءة ما زالت مفتوحة**. الهاتف مؤجل بتوجيه المالك، والاتجاه الأفقي محفوظ.
+
+## التغييرات المثبتة
+
+- صار لاعب echo_player.tscn الفعلي يستخدم echo_v31_adopted.tscn ونسخة بايتية من Idle High CP17 باسم echo_v31_adopted_high.glb. الحجم1.83 يطابق الكبسولة1.8m؛ الهيكل الأصلي68عظمة، بما فيها15عباءة، محفوظ. اللاعب القديم محفوظ في النسخ السابقة، ولا يظهر بديلًا في الالتقاطات الجديدة.
+- سبب التأخر التقني كان انعدام محوّل للمكتبات الثلاث ومقابس السلاح المعتمدة على أسماء الهيكل القديم، وإغلاق الدمج سابقًا خلف بوابات الوجه/العباءة. الآن المحوّل يقبل الهيكل الصحيح فقط؛ تصدير ثلاث AnimationLibrary من استيرادات CP17 المجمدة، مع provenance لكل ملف ومطابقة المفاتيح/المسارات/القيم. IDLE/RUN/preset_jump نسخ API بنفس المفاتيح. جميع مكتبات المصدر متطابقة rest hash؛ إعادة التحقق العددي داخل غلاف الدمج PASS لكل إطارات Idle/Run/Jump الأصلية. هذه ليست موافقة فنية على دمج اللعب.
+- WALK مؤقتًا نسخة من Run بسرعته المنخفضة، وليست Walk معتمدة. حركات الهجوم/الدحرجة/النهوض والتسلق المؤلف على V31 ما زالت OPEN؛ رفض حقن مكتبات الهيكل القديم مستمر. الأفعال الفيزيائية الوظيفية تعمل، وهذا لا يثبت جودة أنيميشنها.
+- الكاتانا والشفرة الظلية الأصليتان المبنيتان بواسطة Tripo، مع الغمد، مرتبطان باليد RightHand والحوض Hips. اتجاه المقبض من نقاط الأصابع الفعلية، والحجم مترّي مستقل عن تكبير اللاعب. تُحمّل المجسمات عند فتح القتال القائم فقط؛ لا أسلحة مبكرة في الافتتاح ولا سلطة مكافأة جديدة. محفوظة مؤثرات السلاح الموجودة؛ تخفى هندسة السلاح التجريبية فقط. Equip/revoke الفعليان يفحصان الموارد والحجم والظهور.
+- أصلح اتجاه كشف الضربة من محور +X القديم إلى local_forward الخاص بالهيكل. زيرو صاحب الهيكل41 والمكتبات الأصلية، وكينجا صاحب33عظمة الحاضر قبل العقد، من العمل السابق CP19؛ لا ادعاء إنشاء شخصيات جديدة. الإضافات الديناميكية في الحزمة تختبر من PCK نفسه.
+- ShaderApplicator يطبق Cel على مجسم إيكو فقط؛ كان المرور الشامل على ModelRoot يمحو مواد الجناح/العين. صار اسم جسم V31 يشغّل معايرة إضاءة إيكو ويحفظ PBR الأصلية. إضاءة الوجه في المختبر ما زالت زائدة في القرب، وجودة المختبر النهائية OPEN.
+- المرافق يتحرك إلى يسار خط رؤية الكاميرا عند حجب رأس اللاعب، مع تتبع أُسّي محدود عند هبوط FPS، ويحترم وقوف اللعبة. لا إزاحة للاعب أو الكاميرا أو تقدم مهمة منه.
+- وسم EX-011: فحص اللون الدافئ القديم كان يقبل القماش الأحمر، وفحص الجلد وحده كان يسمح بحبر تحت الياقة. فحص اللون المقاس، ورؤية الجلد أمام الياقة/الشعر، ثم مراكز جلد مقاسة فعلًا، ينتجون كتابة كاملة بحجم0.75 على صورة Albedo محلية للجسم. ظهرت القراءة EX-011 في الالتقاط الحقيقي وكذلك التشخيص غير المضاء. لا حبر على القماش أو مجسم نص عائم، ولا تغيير UV/mesh/source atlas/bones/keys. كاميرا الفحص تستخدم مركز الحبر المنثني الفعلي ومقدمة الهيكل الصحيح. كلفة الإسقاط وقت التحميل والتوزيع على الأجهزة ما زالت تحتاج قياسًا؛ لا اعتماد أداء من هذه العملية.
+- أصلح fixture التسلق الذي كان يستدعي عظامًا قديمة مفقودة، ثم خطأ استنتاج String في fixture؛ شرط فصل الركبتين/الكاحلين وانخفاض القدم عن الحوض محفوظ بمحور تشريحي مشتق من rest الصحيح. لا تغيير لفيزياء التسلق من هذا التصحيح.
+
+## الدليل وحدوده
+
+الأدلة في audits/evidence/chapter-execution-20261009/cp20-v31-integration. final-verification.json يحوي أحكام الفحوص من الملفات الفعلية، لا من خروج العملية فقط. numerical JSON الثلاثة يثبتون نقل CP17 في الغلاف. native-visible-centroid يحوي صور Godot الفعلية قبل العقد وبعده مع السلاحين ووسم الرقبة؛ المدخل/الكاميرا fixture للمراجعة، وليسا اختبار لعب مستقل. service-v31-frames يحوي210صور فعلية للعجلة/الكاميرا/البوابة؛ الفيديو7ثوانٍ1280×720/30fps وتوقيت تسجيل ثابت، صامت، ولا يثبت FPS الجهاز. Foundation16 بعضه headless؛ ملكية مؤشر الماوس فيه SKIP حتى فحص rendered مستقل.
+
+محاولة الالتقاط دون اختيار renderer استعملت Forward+ وسجلت Vulkan allocation FAIL على Intel UHD عند تحميل الأسلحة. تبديل **أداة الالتقاط** إلى Compatibility نجح؛ لم يُغيَّر renderer المشروع ولم يُعلن Forward+ PASS. الصور الجميلة لا تلغي خطأ الذاكرة ولا تصلح كتقرير أداء. الرمش08 والقبضة01 فنيًا غير مقبولين، ولم يدخلا Runtime؛ التشخيص المقاس للقبضة أثبت اختلاف محور المعصم في المسار finger-only ويقترح تحويلًا صحيحًا مختلفًا، لا تكرار المرشح نفسه. العباءة مؤجلة مؤقتًا والعودة إلزامية قبل الاعتماد النهائي. Tripo آخر رصيد0/frozen0؛ لا طلب مدفوع أو شراء أو نشر.
+
+Golden محمي192ملفًا، والمرحلة/مفاتيح المصادر/الاعتمادات السابقة محفوظة. Windows الحزمة الجديدة وحدها تُقاس في package-*؛ Android/Web القديمان لا ينقل PASS إلى بايتات V31 الحالية. هاتف Infinix السابق FAIL6–8fps ويظل DEFERRED، ولا قبول GooglePlay/Steam أو الفصل من هذه الفحوص.
+
+العامل room_quality_audit انتهى بتقرير read-only محفوظ في CP19؛ عاملَا topology/chapter السابقان تعثرا بالحصص، لا دليل مراجعة منهما. لا commit/staging/reset أو حذف مصادر.
+
+التالي: Walk/هجوم/دحرجة/نهوض V31 عبر المصدر والمرجع الصحيحين، الوجه/القبضة بمحاور صحيحة/العباءة؛ ثم تحسين الأمن والأرشيف والمفاعل ومهمة كل غرفة ومواجهة كينجا→الغرق→زيرو بدل الاختصار1.2s. معالجة ذاكرة Forward+ وموازنة الأصول/تحميل الغرف قبل اعتماد الأجهزة، ثم Web الحالي والجهاز المؤجل وQA الفصل. لا إغلاق وهمي للمراحل30.
+
+
+## متابعة المالك والطبقة المتحركة — CP20
+
+أكد المالك أهمية الأنيميشن وHiggsfield/Blender/Tripo/Godot4.8، وجودة الغرف وتسلسل المهام وكثرة VFX المتحركة وحضور زيرو. المرجع الجمالي Genshin/Spider-Man معيار للحرفية، وليس اعتماد جودة أو تغيير Canon. جرى بحث read-only في كتالوج Higgsfield؛ النتائج المعروضة تشمل مراجع Raster وAutoSprite PNG، ولم ينفذ توليد فيديو أو بديل مفاتيح3D. خط الأنيميشن الأصلي في Blender→Godot محفوظ.
+
+زيرو التقط فعلًا مع نافذة العقد الصريحة في zero-native-presence؛ no early pact/power محفوظ. غرفة الأمن: مخروط Shader متحرك منخفض الشفافية32قطاعًا، مطابق13m/12degree لجهاز الكشف القائم، عمق الأغطية يحجبه طبيعيًا، الكهرماني/الأزرق يطابقان الفعالية/تحويل الإشارة، ونبض حاجز واحد0.9s من التفاعل الفعلي. لا ضوء/جسيم/مصادم/سلطة تقدم جديدة؛ يتوقف الطور الزخرفي عند pause/Reduced Motion، ويستمر طور الكاشف الفيزيائي لتبقى صعوبة اللعبة الأصلية. الاسترجاع صامت ولا يعيد النبض. shader security_scan_field.gdshader والفحص security_feedback_review.gd، صور security-feedback-view-clear؛ الإضاءة والخامات/الفن الكامل للغرفة ما زالت OPEN. كاميرا fixture الأولى عبرت الرصيف عند المدخل وأعطت صورتين سوداوين؛ أصلح موضع الالتقاط داخل الغرفة، ولم يعتبر PASS الفني من ذلك الاختبار.
+
+فحص player_foundation_mapped المرسوم: الملكية الفعلية لمؤشر الماوس/اللمس والعودة من المحطة PASS في rendered-player-foundation-final.json/log. فشل floor الأول كان يقارن hit بطول spring_length الذي قصره الفحص الآمن بالفعل؛ القياس كاميراY≈0.518m، hit=safeArm≈1.23m يثبت عدم اختراق الأرض. أصلح fixture ليقارن بمرجع الذراع الخالي، مع إبقاء شرط الخلوص الفعلي>0.1m؛ لا إصلاح فيزياء كاميرا ولا حذف للشرط. فحص الأمن بالمسارين الحقيقيين مرّ وظيفيًا؛ ظهر خطأ إنهاء موارد في المحاولة الأولى، لم يظهر في verbose؛ أضيف انتظار تنظيف0.1s في fixture وعيد الفحص العادي، وتفاصيل حكمه في final-verification.json.
+
+أحدث حزمة مراجعة Windows: EchoNetwork-CP20-reviewed.exe/.pck، ومصفوفة package-*-reviewed تختبرها من مجلد الأدلة دون المصدر كres://. حزمة CP20-final الأقدم محفوظة وقد سبقت طبقة الأمن الأخيرة. آخر postflight بعد هذه التعديلات في postflight-reviewed-final.log. زيرو/إيكو/الأسلحة/مؤثر الأمن مثبتون بحسب الفحوص الفعلية، لا قبول الفن النهائي أو GooglePlay/Steam/30مرحلة. ينقل تسليم Windows المحلي launcher خاص بالمراجعة إلى Compatibility بسبب FAIL ذاكرة Vulkan المعروف؛ renderer المشروع لم يتغير.
+
+
+## CLEANUP-20261012-01 — إيقاف المالك والتنظيم
+
+طلب المالك إيقاف كل تطوير والوكلاء لأن صورًا قديمة تُقرأ، وتنظيف المشروع وترتيبه بشجرة قبل الاستمرار. أُوقف opening_player_audit وcombat_source_map؛ لم تُنفذ إصلاحات الحركة أو الغرف أثناء التنظيف. CP20 يبقى آخر دمج لعبة؛ CP21 تشخيص حركة معزول محفوظ وغير مدمج. تقارير الوكلاء الجزئية غير معتمدة.
+
+PROJECT_MAP صار مدخلًا مختصرًا للحالة الحالية، وحُفظ محتواه السابق كاملًا في docs/internal/production/archive/PROJECT_MAP_history_to_2026-10-12.ar.md. WORK_TREE يربط كل غرفة ومدخل الشخصية والأسلحة والواجهة والانتقالات، وSOURCE_INDEX يربط المسارات ببصمات الملفات الحالية. CURRENT_WORK بطاقة واحدة تسجل PAUSED_BY_OWNER؛ AGENTS يفرض التحقق من أصل الصورة/checkpoint قبل حكم بصري.
+
+حُذف 2,760 ملفًا / 2,079,546,692 بايت من كاش Godot المعزول وPython غير المتتبع، وأُزيلت 4 مجلدات فارغة لشجرة audits أنشئت خطأ في جذر المستودع. سجل كل مسار وطريقة إعادة توليده في audits/evidence/project-cleanup-20261012/cleanup-executed.json. كاش اللعبة الفعلية والمصادر الأصلية وGolden وFBX والصور الفريدة والتعديلات السابقة محفوظة. لا نقل لمسارات res://، لا reset/stash/staging/commit أو نشر/شراء. الفحوص والبصمات قبل/بعد في مجلد التنظيف، وحكمها النهائي في verification.json.
+
+الأولوية عند استئناف المالك: غرفة 01/V31 الحالي والحركة وفهم المهمة والانتقال، ثم 02 وبقية المسار بالتتابع. لا قبول مرحلة/فصل أو جودة فن من التنظيف أو الفحوص التقنية. الهاتف مؤجل والأفقي إلزامي، SFX_ONLY، والعمل الفردي افتراضيًا.
+
+## CP-20261012-04 / CP22 — استئناف الغرفة01؛ تحديث13 أكتوبر2026
+
+طلب المالك استلام تقرير الوكيل السابق والعمل غرفةً غرفة مع V31 الحالي، ومؤثرات متحركة غنية ومريحة ومهام وصوت ومشاهد وتحكم بجودة عالية. ثم أتاح حسابي Flow وأقرّ حقوق رفع مراجع المشروع وسمح باستعمال الكريديت. الاتصال نقطة فقط؛ التنفيذ فردي بلا عمال إضافيين.
+
+صححت شجرة الغرفة الفعلية داخل native_journey/opening_web_facility؛ opening_room المستقل ليس مدخلها. أضيفت85 نسخة مؤثر في خمس مجموعات رسم مع48 ذرة سابقة، ومسار طاقة من الموصل إلى الباب، وردود اكتشاف من التفاعل الحقيقي، وبخار منخفض عند قاعدة الكبسولة وتدفق زجاج محدود ومسح بانعكاس سلس. وقت الغرفة يحكم المؤثرات؛ pause/Reduced Motion والخروج يحافظون على التوقف/الإشارات الوظيفية. هواء مكاني وتحرير ضغط ونقرات مرحّل SFX_ONLY، كتم وتوقف واسترجاع صامت. أضيف توجيه الصيانة بدل «يتبع» داخل الرحلة المتصلة فقط.
+
+اختبار اللاعب أثبت ابتعاد Hips عن الكبسولة2.73881m أثناء Run. تعويض أصل العرض بعد mixer خفّضه إلى0.01345m مع حفظ المفاتيح وRoot Motion والمصدر المعزول، والتوقف يعيد الأصل. Walk المعزول CP21 لم يُدمج؛ الشخصية V31 High المعتمدة من CP20 بقيت كما هي.
+
+الأدلة في audits/evidence/room01-20261012؛ **flow-inspired-final** هو الالتقاط الأحدث، وبصمات المشهد/الشخصية/السكريبتات/الشيدرات تطابق SOURCE_INDEX66مسارًا. مسار الإدخال والمحطة/الإلغاء والاستكمال والبوابة والذكرى والخروج:31 شرطًا PASS مرسومًا. تسعة فحوص Godot PASS؛ أُعيد فحص العرض والغلاف بعد ضبط Flow. postflight-postflow اجتاز645 اختبارًا والبناء/النوع/المحتوى؛ golden-postflow يحفظ192 ملفًا. verification.json وتقرير ROOM01_EXECUTION_2026-10-12.ar.md يحددان نطاق النتائج، ولا يقبلان الفن/الأداء من PASS تقني.
+
+Flow: أربعة ملفات مكتملة،136 كريديت، رصيد الحسابين1006/926. Foley8s محفوظ كمرشح غير مسموع للنموذج، لذلك لم يُدمج. مرجعاOmni رُفضا لإضافتهما أشخاصًا/ملصقات وهندسة؛ مرجع Veo3.1Quality ثبّت البداية والنهاية على لقطة المحرك وحُفظ كمرجع حركة فقط، ثم نُفذت الاستجابة الأصلية داخل Godot. external-media-current.json هو الوضع الحالي؛ حظر الحساب القديم في preflight تاريخي. لا مهمة توليد معلقة من الدفعة، ولا شراء أو تعديل حماية. Higgsfield0كريديت في فحصه، لم يُستخدم TTS لـSFX؛ لا Tripo جديد.
+
+حزمة مراجعة محلية في outputs/Room01 في محادثة12 أكتوبر: PCK مع محرك Godot4.8-dev7 الرسمي ومشغّل الحفظ المنفصل room01_cp22_review_final؛ smoke له حفظ آخر ينظفه. package-smoke-postflow وlauncher-engine-postflow PASS من الحزمة/المحرك الفعليين. قالب Windows4.8.dev7 غير مثبت، فالتصدير المستقل BLOCKED والحزمة ليست إصدار متجر. Compatibility للمراجعة فقط؛ renderer المشروع محفوظ. مقطع Moving-Effects-Review عينات فعلية12fps للعرض، لا قياس معدل إطارات.
+
+الغرفة01 و30مرحلة ما زالت OPEN، PART_3 محفوظة. التالي غرفة01: نهوض V31 واتصالاته مع Golden قبل/بعد، صورة أصلية من Canon وأداء فحصها، Walk وتماس القدم والوجه/القبضة/العباءة، ثم الاستماع وتجربة اللاعب والأداء المستهدف. الهاتف مؤجل. لا صقل للثانية قبل قبول الأولى، ولا staging/commit أو نشر أو حذف مصادر. تقارير CP22 والمراجع القديمة محفوظة مع حدودها.
+
+## CP-20261014-01 / CP23 — فحص الغرفة01 وخامةFlow الأصلية
+
+
+الغرفة الأولى قيد الصقل. فحص الساعة والأثر الشخصي صار تفاعلًا داخل العالم الحقيقي: كاميرا قابلة للدوران والتقريب، رجوع بلا تقدم، وتأكيد صريح يستعمل عقد الدليل السابق مرة واحدة. فتح الفحص وحده لا يحفظ اكتشافًا. تعود الكاميرا والتحكم والواجهة عند الرجوع؛ بعد تأكيد الصورة يستمر حوار الذاكرة الأصلي.
+
+استُخدم متصفح Codex الداخلي وحساب Flow المفتوح. اكتمل أصل صورة واحد NanoBanana2.1،4:3، بسعر معروض0كريديت. فُحص الأصل كاملًا ثم أضيفت خامة أثر فوتوغرافي متآكل؛ لا شخص أو مكان أو نص أو مشهد ذاكرة مخترع. الأصل محفوظ في art/production/room01-20261014؛ هذا قبول سطح فقط، وصورة Canon نفسها مفتوحة. أُخفي ضوء الإرشاد أثناء المعاينة لتقليل الوهج وأعيد عند الرجوع؛ لا ضوء/مصادم/مجسم غرفة جديد.
+
+أصلحت قص أزرار الفحص من الالتقاط الأول، وفصلت أزرار النظر عن التأكيد والرجوع مع تخطيط عربي/إنجليزي. التوقف يمنع حركة النظر والتأكيد؛ Esc يعود من التوقف أولًا ثم يلغي الفحص، وطلب الرجوع يلغي بلا حدث. الاسترجاع الصحيح يقطع المعاينة حتى أثناء التوقف دون اكتشاف أو تكرار. الكاميرا تُحرر مع الغرفة؛ الويب/المشهد المستقل يحفظ عقد التفاعل السابق.
+
+الدليل الحالي: audits/evidence/room01-20261014/cp23-final-ar وcp23-final-compact-en، مطابقان لبصمات المصادر.49شرطًا في كل رحلة فعلية مرسومة؛19عقد فحص؛13فحص Godot؛645اختبارًا والبناء في postflight، Golden192 قبل/بعد. هذه نتائج وظيفية ومراجعة شكل الفحص المحدود، لا اعتماد غرفة أو أداء أو متعة من الأعداد.85نسخة مؤثر/5مجموعات و48غبار منCP22 محفوظة؛ المصدر/المفاتيح/RootMotion والشخصية لم تتغير.
+
+الحزمة المحلية outputs/Room01-CP23 تستعمل المحرك الرسمي4.8.dev7 وحفظًا منفصلًا. فشل PCK الأول بسبب خامة غير مدرجة ضمن الموارد؛ أضيفت إلى قوائم Windows/Web/Android الثلاث ثم اجتازت الحزمة الفعلية فحص الإلغاء/التأكيد والكاميرا والخامة. قالب التصدير المستقل غير مثبت؛ ليست حزمة متجر. المقطع48عينة عند12fps للعرض فقط. Compatibility للمراجعة، إعداد renderer المشروع محفوظ.
+
+النهوض OPEN: wake القديم موجود على22عظمة؛ V31 الحقيقي68عظمة ولا يملك Wake مؤهلًا مدمجًا. wake-source-audit.json يحفظ الأسماء والتوقيت والبصمات. لا حقن مباشر أو تحريك عظام بالتخمين أو مفاتيح بديلة أو إخفاء المشكلة بفيديو. التالي: تحديد مصدر Wake الأصلي المؤهل وتوقيته ونقل معزول وفق Golden، ثم مراجعة V31 فعلية؛ Walk/تماس القدم، الوجه والقبضة والعباءة، الاستماع، تجربة لاعب والأداء المستهدف. لا صقل للغرفة02 قبل قبول01؛ المراحل30 وPART_3 كما هي. الهاتف مؤجل. التنفيذ فردي، لا شراء/نشر/commit أو حذف مصادر.

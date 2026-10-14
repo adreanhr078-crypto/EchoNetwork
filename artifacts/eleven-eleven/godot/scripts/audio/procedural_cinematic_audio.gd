@@ -5,6 +5,45 @@ extends Node
 ## Synthesizes code-native 16-bit PCM soundscapes for medical monitors, neural shocks, abyssal drones, 
 ## AI voice acting formants, and reality simulation glitch waveforms.
 
+
+## Owner audio policy: environmental and physical effects only; no musical score.
+const AUDIO_POLICY := "SFX_ONLY"
+
+## Unpitched latch/pressure clicks. Timing changes emphasis; no pitched notes.
+static func create_physical_signal(duration: float, onsets: Array, noise_seed: int, amount := 0.35) -> AudioStreamWAV:
+	var rate := 22050
+	var samples := PackedFloat32Array()
+	samples.resize(int(duration * rate))
+	var rng := RandomNumberGenerator.new()
+	rng.seed = noise_seed
+	var body := 0.0
+	for i in samples.size():
+		var t := float(i) / rate
+		var raw := rng.randf_range(-1.0, 1.0)
+		body = lerpf(body, raw, 0.10)
+		var envelope := 0.0
+		for onset in onsets:
+			var local := t - float(onset)
+			if local >= 0.0:
+				envelope += exp(-local * 24.0) * (1.0 - exp(-local * 900.0))
+		samples[i] = (body * 0.8 + raw * 0.2) * minf(envelope, 1.0) * amount
+	return generate_wav(samples, rate)
+
+## Broad air pressure, without a sustained pitched drone or musical harmonics.
+static func create_pressure_air(duration: float, noise_seed: int) -> AudioStreamWAV:
+	var rate := 22050
+	var samples := PackedFloat32Array()
+	samples.resize(int(duration * rate))
+	var rng := RandomNumberGenerator.new()
+	rng.seed = noise_seed
+	var air := 0.0
+	for i in samples.size():
+		var t := float(i) / rate
+		air = lerpf(air, rng.randf_range(-1.0, 1.0), 0.08)
+		var envelope := minf(t / 0.04, 1.0) * minf((duration - t) / 0.12, 1.0)
+		samples[i] = air * envelope * 0.42
+	return generate_wav(samples, rate)
+
 static func generate_wav(samples: PackedFloat32Array, sample_rate: int = 22050) -> AudioStreamWAV:
 	var wav := AudioStreamWAV.new()
 	wav.format = AudioStreamWAV.FORMAT_16_BITS
@@ -56,42 +95,13 @@ static func create_neural_shock_sizzle() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_abyss_drone() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.5
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
+	return create_pressure_air(1.5, 1101)
 
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var sub_bass: float = sin(TAU * 52.0 * t) * 0.6
-		var harmonic: float = sin(TAU * 104.0 * t) * 0.25
-		var heartbeat: float = 0.0
-		var hb_t: float = fmod(t, 0.75)
-		if hb_t < 0.12:
-			heartbeat = sin(TAU * 45.0 * hb_t) * (1.0 - hb_t / 0.12) * 0.5
-		samples[i] = (sub_bass + harmonic + heartbeat) * 0.7
-
-	return generate_wav(samples, sample_rate)
-
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_covenant_chime() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.2
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	var chords = [440.0, 523.25, 659.25, 830.61] # A minor with sharp 7 (harmonic void)
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var env: float = exp(-t * 2.8)
-		var mix: float = 0.0
-		for freq in chords:
-			mix += sin(TAU * freq * t) * 0.25
-		samples[i] = mix * env * 0.8
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(1.2, [0.04, 0.21, 0.45], 1102)
 
 ## Synthesizes Dr. Kinga's cold cybernetic vocal formants
 static func create_kinga_voice_line() -> AudioStreamWAV:
@@ -143,7 +153,7 @@ static func create_echo_hysterical_laugh() -> AudioStreamWAV:
 	for i in range(total_samples):
 		var t: float = float(i) / float(sample_rate)
 		var env: float = 1.0 - (t / duration)
-		# Ascending pitch arpeggios
+		# Distorted vocal-like sweep; no discrete musical notes or sequence.
 		var freq_sweep: float = 300.0 + pow(t / duration, 2.0) * 550.0 + sin(t * 30.0) * 40.0
 		var raw_wave: float = sin(TAU * freq_sweep * t)
 		# Cubic distortion
@@ -262,28 +272,9 @@ func play_reality_glitch() -> void:
 	audio_player.stream = create_reality_glitch_sfx()
 	audio_player.play()
 
-## Synthesizes classic Japanese residential two-tone doorbell chime (Ding-Dong)
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_doorbell_chime() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.4
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	var t_split: float = 0.55 # Transition between Ding (880Hz) and Dong (660Hz)
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var val: float = 0.0
-		if t < t_split:
-			var env: float = exp(-4.5 * t)
-			val = (sin(TAU * 880.0 * t) * 0.7 + sin(TAU * 1760.0 * t) * 0.25) * env
-		else:
-			var t_local: float = t - t_split
-			var env2: float = exp(-3.8 * t_local)
-			val = (sin(TAU * 659.25 * t_local) * 0.75 + sin(TAU * 1318.5 * t_local) * 0.2) * env2
-		samples[i] = val * 0.85
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.65, [0.02, 0.2], 1103)
 
 ## Synthesizes Japanese vending machine coin drop & mechanical can dispense clunk
 static func create_vending_clunk() -> AudioStreamWAV:
@@ -366,31 +357,9 @@ func play_sliding_door() -> void:
 	audio_player.stream = create_sliding_door_whoosh()
 	audio_player.play()
 
-## Synthesizes Japanese Konbini entrance chime melody
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_konbini_chime() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.35
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# 6-note Japanese convenience store chime sequence: F#5 -> D#5 -> G#5 -> E5 -> B4 -> E5
-	var note_freqs: Array[float] = [740.0, 622.25, 830.6, 659.25, 493.88, 659.25]
-	var note_dur: float = 0.22
-
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var note_idx: int = clampi(int(t / note_dur), 0, note_freqs.size() - 1)
-		var note_t: float = t - (note_idx * note_dur)
-		var freq: float = note_freqs[note_idx]
-
-		var env: float = exp(-6.5 * note_t)
-		var fundamental: float = sin(TAU * freq * note_t) * 0.7
-		var overtone: float = sin(TAU * freq * 2.0 * note_t) * 0.25 * exp(-12.0 * note_t)
-		var val: float = (fundamental + overtone) * env * 0.8
-		samples[i] = val
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.55, [0.02, 0.19], 1104)
 
 ## Synthesizes barcode scanner beep and register drawer click
 static func create_register_beep() -> AudioStreamWAV:
@@ -812,69 +781,13 @@ static func create_footstep(surface: String = "concrete", is_run: bool = false) 
 
 	return generate_wav(samples, sample_rate)
 
-## Synthesizes serene, resonant Japanese Shinto / Buddhist shrine crystal bell chime (Suzu / Orin)
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_shrine_crystal_bell() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.8
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
+	return create_physical_signal(0.7, [0.02], 1105)
 
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		# Strike transient + shimmering crystal resonance
-		var env_strike: float = exp(-t * 22.0)
-		var env_ring: float = exp(-t * 2.2)
-		
-		var strike: float = sin(TAU * 1320.0 * t) * env_strike * 0.3
-		# Pure bell harmonic overtones (A6, E7, C#8, E8)
-		var f1: float = sin(TAU * 1760.0 * t) * 0.45
-		var f2: float = sin(TAU * 2640.0 * t) * 0.30
-		var f3: float = sin(TAU * 3520.0 * t) * 0.18
-		var f4: float = sin(TAU * 5280.0 * t) * 0.08
-		
-		# Slight tremolo shimmer
-		var shimmer: float = 1.0 + 0.12 * sin(TAU * 5.5 * t)
-		
-		samples[i] = strike + (f1 + f2 + f3 + f4) * env_ring * shimmer * 0.65
-
-	return generate_wav(samples, sample_rate)
-
-## Synthesizes Genshin-tier ascending crystal arpeggio fanfare for quest and directive completions
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_quest_complete_fanfare() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.75
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# Arpeggio note frequencies: C5 (523), E5 (659), G5 (784), B5 (988), D6 (1175), G6 (1568)
-	var notes = [523.25, 659.25, 783.99, 987.77, 1174.66, 1567.98]
-	var note_stagger: float = 0.12 # seconds between arpeggio notes
-
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var mix: float = 0.0
-
-		for n_idx in range(notes.size()):
-			var note_start: float = float(n_idx) * note_stagger
-			if t >= note_start:
-				var note_t: float = t - note_start
-				var freq: float = notes[n_idx]
-				var note_env: float = exp(-note_t * 2.8) * (1.0 - exp(-note_t * 80.0))
-				# Sine fundamental + octave overtone + sparkle
-				var fundamental: float = sin(TAU * freq * note_t) * 0.4
-				var octave: float = sin(TAU * freq * 2.0 * note_t) * 0.2
-				var sparkle: float = sin(TAU * freq * 4.0 * note_t) * 0.08
-				mix += (fundamental + octave + sparkle) * note_env
-
-		# Warm orchestral pad bass swell (C3 130.81 Hz, G3 196.0 Hz)
-		var pad_env: float = sin(clampf(t / duration, 0.0, 1.0) * PI) * 0.28
-		var pad: float = (sin(TAU * 130.81 * t) * 0.6 + sin(TAU * 196.0 * t) * 0.4) * pad_env
-
-		samples[i] = mix * 0.65 + pad
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.7, [0.02, 0.17, 0.34], 1106)
 
 ## Synthesizes crisp katana blade sheathing click (Habaki metal lock into Saya)
 static func create_blade_sheath_click() -> AudioStreamWAV:
@@ -900,51 +813,9 @@ static func create_blade_sheath_click() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
-## Synthesizes tiered treasure chest unlatch and crystalline opening chime (Genshin Standard)
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_chest_open_chime(rarity: int = 0) -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.35 + float(rarity) * 0.25
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# Frequencies based on rarity: Common, Exquisite, Precious, Luxurious
-	var chord_notes = [523.25, 659.25] # Common: C5, E5
-	if rarity >= 1:
-		chord_notes.append(783.99) # Exquisite: G5
-	if rarity >= 2:
-		chord_notes.append(987.77) # Precious: B5
-	if rarity >= 3:
-		chord_notes.append(1318.51) # Luxurious: E6
-
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-
-		# Initial mechanical unlatch & wood creak (first 0.12s)
-		var unlatch: float = 0.0
-		if t < 0.12:
-			var click_env: float = exp(-t * 45.0)
-			var creak: float = sin(TAU * 180.0 * t + sin(t * 300.0) * 10.0) * 0.4
-			var click: float = randf_range(-0.5, 0.5) * click_env
-			unlatch = (creak + click) * 0.7
-
-		# Radiant crystal chime chime starting at 0.08s
-		var chime_mix: float = 0.0
-		if t >= 0.08:
-			var chime_t: float = t - 0.08
-			var chime_env: float = exp(-chime_t * (2.2 - float(rarity) * 0.25))
-			var shimmer: float = 1.0 + 0.15 * sin(TAU * 7.0 * chime_t)
-			for n_idx in range(chord_notes.size()):
-				var f: float = chord_notes[n_idx]
-				var stagger: float = float(n_idx) * 0.06
-				if chime_t >= stagger:
-					var note_t: float = chime_t - stagger
-					var note_env: float = exp(-note_t * 2.5)
-					chime_mix += (sin(TAU * f * note_t) * 0.35 + sin(TAU * f * 2.0 * note_t) * 0.15) * note_env * shimmer
-
-		samples[i] = unlatch * 0.6 + chime_mix * 0.75
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.8, [0.02, 0.15], 1107, 0.30 + 0.025 * clampi(rarity, 0, 3))
 
 ## Synthesizes continuous coastal rain ambience: soft rainfall hiss, droplet spatters & low rolling ocean surge
 static func create_coastal_rain_ambience() -> AudioStreamWAV:
@@ -1116,29 +987,9 @@ static func create_sword_infusion_sfx() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
-## Synthesizes rewarding Loot Toast chime with crystalline bell arpeggio and coin clink
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_loot_toast_chime() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 0.55
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# Ascending high crystal chords: E6 (1318 Hz), G#6 (1661 Hz), B6 (1975 Hz)
-	var notes = [1318.5, 1661.2, 1975.5]
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var mix: float = 0.0
-		for idx in range(notes.size()):
-			var note_start: float = float(idx) * 0.065
-			if t >= note_start:
-				var note_t: float = t - note_start
-				var env: float = exp(-note_t * 9.5)
-				mix += sin(TAU * notes[idx] * note_t) * env * 0.3
-		var coin_click: float = (randf_range(-0.3, 0.3) if t < 0.02 else 0.0)
-		samples[i] = clampf(mix + coin_click, -1.0, 1.0)
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.4, [0.015, 0.13], 1108)
 
 ## Synthesizes high-frequency compass sonar ping when tracking objectives
 static func create_compass_ping_sfx() -> AudioStreamWAV:
@@ -1286,35 +1137,9 @@ static func create_pill_bottle_rattle() -> AudioStreamWAV:
 			val += sin(TAU * 1400.0 * tc2) * exp(-60.0 * tc2) * 0.6
 	return generate_wav(samples, sample_rate)
 
-## Synthesizes classic Westminster Japanese high school PA chime (Do-Mi-Re-Sol)
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_school_chime_bell() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.6
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# F4 (349 Hz), A4 (440 Hz), G4 (392 Hz), C4 (261 Hz)
-	var chimes = [
-		{"freq": 349.23, "time": 0.05},
-		{"freq": 440.00, "time": 0.42},
-		{"freq": 392.00, "time": 0.80},
-		{"freq": 261.63, "time": 1.18}
-	]
-
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var mix: float = 0.0
-		for bell in chimes:
-			if t >= bell["time"]:
-				var bt: float = t - bell["time"]
-				var env: float = exp(-bt * 3.8)
-				var tone: float = sin(TAU * bell["freq"] * bt) * env * 0.45
-				var harmonic: float = sin(TAU * (bell["freq"] * 2.0) * bt) * env * 0.15
-				mix += tone + harmonic
-		samples[i] = clampf(mix, -1.0, 1.0)
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.8, [0.03, 0.3], 1109)
 
 ## Synthesizes Japanese Geta-bako wooden/metal shoe locker click and slipper scuff
 static func create_shoe_locker_click() -> AudioStreamWAV:
@@ -1381,37 +1206,9 @@ static func create_bento_box_open_sfx() -> AudioStreamWAV:
 
 	return generate_wav(samples, sample_rate)
 
-## Synthesizes heartwarming Persona / Genshin-style social bond level-up fanfare
+## Non-musical physical cue; legacy method name retained for callers.
 static func create_bond_up_jingle() -> AudioStreamWAV:
-	var sample_rate: int = 22050
-	var duration: float = 1.35
-	var total_samples: int = int(sample_rate * duration)
-	var samples := PackedFloat32Array()
-	samples.resize(total_samples)
-
-	# Bright ascending major pentatonic: C5 (523 Hz), E5 (659 Hz), G5 (784 Hz), A5 (880 Hz), C6 (1046 Hz)
-	var notes = [
-		{"freq": 523.25, "time": 0.05},
-		{"freq": 659.25, "time": 0.22},
-		{"freq": 783.99, "time": 0.39},
-		{"freq": 880.00, "time": 0.56},
-		{"freq": 1046.50, "time": 0.74}
-	]
-
-	for i in range(total_samples):
-		var t: float = float(i) / float(sample_rate)
-		var mix: float = 0.0
-		for n in notes:
-			if t >= n["time"]:
-				var nt: float = t - n["time"]
-				var env: float = exp(-nt * 4.5)
-				var bell: float = sin(TAU * n["freq"] * nt) * env * 0.35
-				var sparkle: float = sin(TAU * (n["freq"] * 2.0) * nt) * env * 0.15
-				mix += bell + sparkle
-		var glockenspiel_chime: float = sin(TAU * 2093.0 * t) * exp(-t * 2.5) * 0.2 if t >= 0.74 else 0.0
-		samples[i] = clampf(mix + glockenspiel_chime, -1.0, 1.0)
-
-	return generate_wav(samples, sample_rate)
+	return create_physical_signal(0.65, [0.02, 0.18, 0.32], 1110)
 
 ## Synthesizes sharp Cryo / Cyan icy katana slash with crystal frost shatter
 static func create_cryo_slash_sfx() -> AudioStreamWAV:
@@ -1643,7 +1440,6 @@ static func create_spring_hair_swish_sfx() -> AudioStream:
 		var tone: float = sin(TAU * 320.0 * t) * env * 0.15
 		samples[i] = clampf(swish + tone, -1.0, 1.0)
 	return generate_wav(samples, sample_rate)
-
 
 
 

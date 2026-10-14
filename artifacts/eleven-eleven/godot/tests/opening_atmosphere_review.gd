@@ -15,6 +15,10 @@ func _run() -> void:
 	var report: Dictionary = atmosphere.diagnostics()
 	assert(report.configured and report.glass_materials > 0, "New glass must reach the live authored observation module")
 	assert(report.added_colliders == 0 and report.dust_count == 48, "Presentation cannot alter collision or exceed its particle budget")
+	assert(atmosphere.energy_fx.diagnostics().instances == 85 and atmosphere.energy_fx.diagnostics().colliders == 0, "Layered field exceeded its reviewed room-local geometry budget")
+	assert(not atmosphere.energy_fx._circuit.visible and not atmosphere.energy_fx._rings.visible, "Reduced Motion must suppress moving packets and event rings immediately")
+	for field in atmosphere.energy_fx._fields:
+		assert(not field.visible,"Reduced Motion left a billboard field moving")
 	var wall: MeshInstance3D = main.get_node("Sector11OpeningShell/WestContainmentWall/Surface")
 	assert(wall.material_override == null and wall.get_active_material(0) is ShaderMaterial,
 		"The visible containment wall must use its finish, without a higher-priority old override")
@@ -48,17 +52,21 @@ func _run() -> void:
 	assert(bounds.position.y>=-0.001 and bounds.end.y<=0.901, "Case must rest on floor and fit retained collider")
 	assert(bounds.size.x<=0.901 and bounds.size.z<=0.901 and case_mesh.mesh.get_surface_count()==4)
 	var clock = main.find_child("OpeningClock",true,false)
-	clock.on_interacted(null,0)
+	# This fixture tests committed presentation. The native request/confirm UI is
+	# exercised separately by opening_inspection_review and the public journey.
+	clock.complete_inspection(null)
 	assert(atmosphere.reaction_count==1 and atmosphere.reaction==0.0)
-	clock.on_interacted(null,0)
+	clock.complete_inspection(null)
 	assert(atmosphere.reaction_count==1,"Repeated inspect cannot replay presentation")
 	main.set_reduced_motion(false)
 	atmosphere._process(0.05)
 	assert(atmosphere.elapsed>frozen)
 	var before_pause: float = atmosphere.elapsed
+	var field_time: float = float(atmosphere.energy_fx._circuit_material.get_shader_parameter("motion_time"))
 	paused = true
 	for frame in 4: await process_frame
 	assert(is_equal_approx(atmosphere.elapsed,before_pause),"Actual paused tree must freeze the local shader/dust clock")
+	assert(is_equal_approx(float(atmosphere.energy_fx._circuit_material.get_shader_parameter("motion_time")),field_time),"Paused circuit field advanced independently of the room clock")
 	paused = false
 	await process_frame
 	assert(atmosphere.elapsed>before_pause,"Resume must advance the clock again")

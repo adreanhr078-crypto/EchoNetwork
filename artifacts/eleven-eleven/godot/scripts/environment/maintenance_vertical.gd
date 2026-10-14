@@ -20,6 +20,7 @@ var _release_audio: AudioStreamPlayer3D
 var _motion_reduced := false
 var _service_tween: Tween
 var _valve_tween: Tween
+var presentation: Node3D
 
 func _ready() -> void:
 	var spec = JSON.parse_string(FileAccess.get_file_as_string("res://assets/environments/maintenance_collision_v1.json"))
@@ -39,11 +40,11 @@ func _ready() -> void:
 		if row.climbable:
 			body.add_to_group("climbable")
 			_add_climbable_visual_cues(body, shape.size)
-	for position in [Vector3(-3, 4.8, -2), Vector3(1, 6.3, -6), Vector3(4, 6.8, -10)]:
+	for lighting in [[Vector3(-3, 4.8, -2), Color(0.58, 0.78, 1), 1.4], [Vector3(1, 6.3, -6), Color(1, 0.65, 0.4), 1.8], [Vector3(4, 6.8, -10), Color(0.58, 0.84, 0.94), 1.3]]:
 		var light := OmniLight3D.new()
-		light.position = position
-		light.light_color = Color(0.72, 0.83, 1)
-		light.light_energy = 1.1
+		light.position = lighting[0]
+		light.light_color = lighting[1]
+		light.light_energy = lighting[2]
 		light.omni_range = 8.0
 		add_child(light)
 	var animation := find_child("AnimationPlayer", true, false) as AnimationPlayer
@@ -95,8 +96,11 @@ func _ready() -> void:
 	destination_light.light_energy = 1.25
 	destination_light.omni_range = 5
 	add_child(destination_light)
+	presentation = preload("res://scripts/environment/maintenance_room_presentation.gd").new()
+	add_child(presentation)
 
 func set_language(language: String) -> void:
+	if is_instance_valid(presentation): presentation.set_language(language)
 	if service_interaction:
 		service_interaction.prompt_target_name = "عجلة تنفيس الضغط" if language == "ar" else "Pressure relief wheel"
 
@@ -139,6 +143,7 @@ func restore_service_open() -> void:
 	_gate_collider.set_deferred("disabled",true)
 	_release_audio.stop()
 	_disable_interaction()
+	if is_instance_valid(presentation): presentation.set_route_stage(6)
 
 func end_service_contact() -> void:
 	if is_instance_valid(hand_contact): hand_contact.stop()
@@ -152,6 +157,7 @@ func _disable_interaction() -> void:
 
 func set_reduced_motion(reduced: bool) -> void:
 	_motion_reduced = reduced
+	if is_instance_valid(presentation): presentation.set_reduced_motion(reduced)
 	if reduced and _valve_tween:
 		_valve_tween.kill()
 		_valve.rotation = _closed_valve
@@ -174,8 +180,8 @@ func _add_climbable_visual_cues(body: StaticBody3D, size: Vector3) -> void:
 	rung_mat.metallic = 0.85
 	rung_mat.roughness = 0.25
 	rung_mat.emission_enabled = true
-	rung_mat.emission = Color(0.0, 0.85, 1.0)
-	rung_mat.emission_energy_multiplier = 1.6
+	rung_mat.emission = Color(0.05, 0.35, 0.4)
+	rung_mat.emission_energy_multiplier = 0.2
 
 	var rung_count := clampi(int(size.y / 0.55), 3, 7)
 	var y_step := (size.y * 0.8) / float(rung_count)
@@ -196,10 +202,10 @@ func _add_climbable_visual_cues(body: StaticBody3D, size: Vector3) -> void:
 	lip_mesh.size = Vector3(size.x * 0.9, 0.03, 0.06)
 	lip.mesh = lip_mesh
 	var lip_mat := StandardMaterial3D.new()
-	lip_mat.albedo_color = Color(0.0, 0.95, 1.0)
+	lip_mat.albedo_color = Color(0.1, 0.6, 0.68)
 	lip_mat.emission_enabled = true
-	lip_mat.emission = Color(0.0, 0.95, 1.0)
-	lip_mat.emission_energy_multiplier = 2.4
+	lip_mat.emission = Color(0.1, 0.6, 0.68)
+	lip_mat.emission_energy_multiplier = 1.0
 	lip.material_override = lip_mat
 	lip.position = Vector3(0.0, size.y * 0.5, size.z * 0.5 + 0.02)
 	body.add_child(lip)

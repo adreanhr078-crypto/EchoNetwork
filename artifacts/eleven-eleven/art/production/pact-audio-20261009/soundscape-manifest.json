@@ -1,0 +1,79 @@
+{
+  "sample_rate": 48000,
+  "channels": 2,
+  "origin": "original offline environmental and physical effects; no voices or sampled performances",
+  "audio_policy": "SFX_ONLY: no music, instruments, melody, arpeggio, chord or sustained pitched drone. Heartbeat/air/impact rhythms only.",
+  "tracks": [
+    {
+      "name": "void_bed",
+      "seconds": 16.0,
+      "peak": 0.2168746386976419,
+      "rms": 0.01953953647868164,
+      "max_pcm_step": 277,
+      "source_sha256": "89f8658aa7775fa83803e762b3e722ab1eae3da1475d872240ddd0e75e0b6d52",
+      "runtime_sha256": "47ed1da5c5427c0129c471de024fd03e90a19d9266ec2a61d1553e84de3d68ba",
+      "runtime_bytes": 203748
+    },
+    {
+      "name": "revenge_bed",
+      "seconds": 16.0,
+      "peak": 0.2552514891983614,
+      "rms": 0.02155090147074236,
+      "max_pcm_step": 304,
+      "source_sha256": "f42aa7da8848edb1e68a6df1538cdf19ee28267f344ebd043bef7c4a4e6afad9",
+      "runtime_sha256": "a55a7a4e135a6ad44b5f982ef8a38b6aac4d6c1ec8c172b53db2f69ef5fbbe61",
+      "runtime_bytes": 203295
+    },
+    {
+      "name": "contract_seal",
+      "seconds": 3.6,
+      "peak": 0.318306267359794,
+      "rms": 0.02700271119225305,
+      "max_pcm_step": 1029,
+      "source_sha256": "4e4f1a2b833f1177ded1c3ab088bcafd42751bb442e08191bd272d82165dc615",
+      "runtime_sha256": "daf134dbebbeaf975cc91d21d5a4b341eff92e7a3ef6b0fe6539074a73b8481c",
+      "runtime_bytes": 50641
+    },
+    {
+      "name": "stasis_release",
+      "seconds": 1.8,
+      "peak": 0.09539923629712188,
+      "rms": 0.010150225736787697,
+      "max_pcm_step": 159,
+      "source_sha256": "5a10ecd84b81b47393e75ead787406c9fe9d7a294769af26be3c923fda0f8ffd",
+      "runtime_sha256": "1289c353a43cb34ff4cf4459fa8ea3104e4a7de76b2b64bca5de6fb2c334229e",
+      "runtime_bytes": 27221
+    },
+    {
+      "name": "contact_1",
+      "seconds": 0.9,
+      "peak": 0.28525333613753034,
+      "rms": 0.023622212641684456,
+      "max_pcm_step": 2502,
+      "source_sha256": "28e40e77538f6fc58b77963d3af8c303f3a99148712e1c3b8a6d7da26542e48d",
+      "runtime_sha256": "70979ac6fe8112108271222ec97e6f302315635251f6078c92c100fa948aedfc",
+      "runtime_bytes": 15927
+    },
+    {
+      "name": "contact_2",
+      "seconds": 0.9,
+      "peak": 0.3152172254590007,
+      "rms": 0.023099280106911004,
+      "max_pcm_step": 2192,
+      "source_sha256": "191bcc95ebd365261f810e59684bc41a8796e1d3e5534d72784a501646f49df9",
+      "runtime_sha256": "b02aef81428b84f66a59c5db7889f11f81a4f95d91b31d6f20dfe505ba469c84",
+      "runtime_bytes": 16006
+    },
+    {
+      "name": "contact_3",
+      "seconds": 0.9,
+      "peak": 0.25828372155086243,
+      "rms": 0.02219307801820022,
+      "max_pcm_step": 2908,
+      "source_sha256": "55bf5951a9802a4a6e71ba40e7c5b7949fc791631b08e29d3edb4bb4963d6762",
+      "runtime_sha256": "f5a02e98cecd93a7b6b8fff0e035b0b995789a96d9a1be7620f6740faa8afa8d",
+      "runtime_bytes": 15884
+    }
+  ],
+  "listening_acceptance": "OPEN: objective headroom and continuity do not establish listening quality"
+}

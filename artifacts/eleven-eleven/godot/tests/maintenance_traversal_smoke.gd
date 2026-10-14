@@ -90,12 +90,20 @@ func _check(condition: bool, detail: String) -> bool:
 
 func _check_leg_planes(player: EchoPlayer) -> bool:
 	var skeleton := player.find_child("Skeleton3D",true,false) as Skeleton3D
+	var profile := preload("res://scripts/player/echo_rig_profile.gd").identify(skeleton)
+	if not _check(not profile.is_empty(), "unknown traversal rig"): return false
+	var v31: bool = profile.id == "echo_v31_authored_68"
+	var right_hip := skeleton.find_bone("RightUpLeg" if v31 else "tripo__1_Right_Limb_0")
+	var left_hip := skeleton.find_bone("LeftUpLeg" if v31 else "tripo__1_Left_Limb_0")
+	var left_axis := (skeleton.get_bone_global_rest(left_hip).origin - skeleton.get_bone_global_rest(right_hip).origin).normalized()
 	for suffix in ["1", "2"]:
-		var right := skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone("tripo__1_Right_Limb_"+suffix)).origin)
-		var left := skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone("tripo__1_Left_Limb_"+suffix)).origin)
-		if not _check(right.is_finite() and left.is_finite() and right.x < left.x, "knees/ankles crossed their anatomical planes"): return false
-	var hip := skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone("tripo__1_Right_Limb_0")).origin)
+		var right_name: String = ("RightLeg" if suffix == "1" else "RightFoot") if v31 else "tripo__1_Right_Limb_"+suffix
+		var left_name: String = ("LeftLeg" if suffix == "1" else "LeftFoot") if v31 else "tripo__1_Left_Limb_"+suffix
+		var right := skeleton.get_bone_global_pose(skeleton.find_bone(right_name)).origin
+		var left := skeleton.get_bone_global_pose(skeleton.find_bone(left_name)).origin
+		if not _check(right.is_finite() and left.is_finite() and (left-right).dot(left_axis)>0, "knees/ankles crossed their anatomical planes"): return false
+	var hip := skeleton.to_global(skeleton.get_bone_global_pose(right_hip).origin)
 	for side in ["Right", "Left"]:
-		var ankle := skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone("tripo__1_"+side+"_Limb_2")).origin)
+		var ankle := skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone(side+"Foot" if v31 else "tripo__1_"+side+"_Limb_2")).origin)
 		if not _check(ankle.y < hip.y + 0.05, "folded ankle rose above hip during mantle"): return false
 	return true

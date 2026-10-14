@@ -1,0 +1,22 @@
+── Plan ──────────────────────────
+input: C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/echo-wing-reference-v1.png
+model: v3.1-20260211 — explicit --model
+steps:
+  1. image-to-model  POST /v3/generation/image-to-model — generate a 3D model from one image
+     model="v3.1-20260211" face_limit=30000 geometry_quality="ultra" texture_quality="detailed" texture_version="v3.5-20260815" auto_size=true
+cost impact:
+  · texture_quality detailed: higher price tier
+──────────────────────────────────
+model: v3.1-20260211 (explicit --model)
+task created dc3f46f8-b751-49dc-ace0-ac498826561a (@echo-shadow-wing-v1-20261008)
+image_to_model · queued
+image_to_model · running 6% · dc3f46f8
+image_to_model · running 10% · dc3f46f8
+image_to_model · running 16% · dc3f46f8
+image_to_model · running 26% · dc3f46f8
+image_to_model · running 39% · dc3f46f8
+image_to_model · running 59% · dc3f46f8
+image_to_model · success 100% · dc3f46f8
+✓ image_to_model · dc3f46f8-b751-49dc-ace0-ac498826561a · 40 credits
+downloading artifacts…
+✓ artifacts saved to C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\tripo-20261007\echo-shadow-wing-v1\tripo-out\echo-shadow-wing-v1-20261008-dc3f46f8

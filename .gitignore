@@ -94,6 +94,9 @@ node_modules/
 .godot/
 *.blend1
 .tripo/
+# Regenerable Python bytecode; existing tracked evidence is retained.
+__pycache__/
+*.pyc
 # Flax generated/cache files
 FlaxMigration/EchoNetworkFlax/Cache/
 FlaxMigration/EchoNetworkFlax/Binaries/

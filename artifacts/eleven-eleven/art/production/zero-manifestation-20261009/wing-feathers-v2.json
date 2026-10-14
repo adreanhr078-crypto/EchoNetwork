@@ -1,0 +1,108 @@
+{
+  "status": "EDITABLE_RIG_BUILT_VISUAL_REVIEW_REQUIRED",
+  "blender": "5.2.2 LTS",
+  "source_sha256": "029d4a631c1244e552346912fc75c345782aae8cb6a25ece3069bdc4022cd4d8",
+  "source_task_id": "dc3f46f8-b751-49dc-ace0-ac498826561a",
+  "output": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\characters\\echo_shadow_wing_feathers_v1.glb",
+  "output_sha256": "ae5f621bd6c03fb2263456f2b7561b451b84fe7445c667e1883c1030e74b1bca",
+  "blend_sha256": "744bf72ef447cfd4368e1db0664d8bab417ad28c5f7bacc1684456dd60499237",
+  "vertices": 24178,
+  "triangles": 28945,
+  "bones": 16,
+  "maximum_support": 4,
+  "maximum_weight_sum_error": 4.470348358154297e-08,
+  "uv_preserved": true,
+  "fin_endpoints": [
+    {
+      "bone": "Feather_0_2",
+      "rest_tip": [
+        0.6351483464241028,
+        -0.26960447430610657,
+        -0.0
+      ]
+    },
+    {
+      "bone": "Feather_1_2",
+      "rest_tip": [
+        0.6848568320274353,
+        -0.08408984541893005,
+        -0.0
+      ]
+    },
+    {
+      "bone": "Feather_2_2",
+      "rest_tip": [
+        0.6795173287391663,
+        0.11981724202632904,
+        -0.0
+      ]
+    },
+    {
+      "bone": "Feather_3_2",
+      "rest_tip": [
+        0.6253523826599121,
+        0.291606605052948,
+        -0.0
+      ]
+    },
+    {
+      "bone": "Feather_4_2",
+      "rest_tip": [
+        0.536230742931366,
+        0.43423107266426086,
+        -0.0
+      ]
+    }
+  ],
+  "runtime_textures": [
+    {
+      "name": "Color_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "source_size": [
+        4096,
+        4096
+      ],
+      "runtime_size": [
+        2048,
+        2048
+      ],
+      "colour_space": "sRGB"
+    },
+    {
+      "name": "NormalGL_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "source_size": [
+        4096,
+        4096
+      ],
+      "runtime_size": [
+        2048,
+        2048
+      ],
+      "colour_space": "Non-Color"
+    },
+    {
+      "name": "ORM_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "source_size": [
+        4096,
+        4096
+      ],
+      "runtime_size": [
+        2048,
+        2048
+      ],
+      "colour_space": "Non-Color"
+    }
+  ],
+  "canonical_extension": "anatomical-left, Godot +X",
+  "rest_aabb": {
+    "minimum": [
+      0.05249098688364029,
+      -0.07611419260501862,
+      -0.09749999642372131
+    ],
+    "maximum": [
+      0.6075090169906616,
+      0.07611419260501862,
+      0.2775000035762787
+    ]
+  }
+}

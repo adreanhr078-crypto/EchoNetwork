@@ -7,6 +7,8 @@ const GLASS_SHADER = preload("res://shaders/opening_frosted_glass.gdshader")
 const WALL_SHADER = preload("res://shaders/opening_wall_finish.gdshader")
 const DUST_SHADER = preload("res://shaders/opening_dust.gdshader")
 const CASE_PATH := "res://assets/props/sector11_supply_case_v1.glb"
+const ROOM_AUDIO = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+const ENERGY_FX = preload("res://scripts/environment/opening_energy_fx.gd")
 
 var reduced_motion := false
 var elapsed := 0.0
@@ -23,6 +25,25 @@ var _case_glows: Array[OmniLight3D] = []
 var _seen_evidence: Dictionary = {}
 var dust: MultiMeshInstance3D
 var _surface_count := 0
+var _vent: AudioStreamPlayer3D
+var _relay: AudioStreamPlayer3D
+var _vent_stream: AudioStreamWAV
+var _relay_stream: AudioStreamWAV
+var _phase := -1
+var relay_count := 0
+var _gate_focus: OmniLight3D
+var _gate_color: Color
+var _gate_energy := 0.0
+var _power_blend := 0.0
+var _face_fill: OmniLight3D
+var _shoulder_fill: OmniLight3D
+var _face_energy := 0.0
+var _shoulder_energy := 0.0
+var _inside_room := true
+var _reaction_origin := Vector2(-1.85, 1.8)
+var _reaction_age := 0.0
+var _power_state := 0.0
+var energy_fx: Node3D
 
 func configure(main: Node3D) -> void:
 	if configured: return
@@ -34,7 +55,101 @@ func configure(main: Node3D) -> void:
 	_finish_supply_cases()
 	_build_dust()
 	_bind_evidence()
+	_build_room_sound()
+	energy_fx = Node3D.new()
+	energy_fx.name = "OpeningEnergyFX"
+	energy_fx.set_script(ENERGY_FX)
+	add_child(energy_fx)
 	set_reduced_motion(bool(main.get("reduced_motion")))
+
+func _build_room_sound() -> void:
+	# Two bounded spatial sources; silence is retained behind the next threshold.
+	_vent = AudioStreamPlayer3D.new()
+	_vent.name = "ObservationVentAir"
+	_vent.position = Vector3(6.1, 2.8, -5.5)
+	_vent.volume_db = -14.0
+	_vent.unit_size = 7.0
+	_vent.max_distance = 20.0
+	add_child(_vent)
+	_relay = AudioStreamPlayer3D.new()
+	_relay.name = "GatePressureRelease"
+	_relay.position = Vector3(0, 2, -15.5)
+	_relay.volume_db = -16.0
+	_relay.unit_size = 8.0
+	_relay.max_distance = 24.0
+	add_child(_relay)
+	_gate_focus = _main.get_node_or_null("Sector11GateFocus") as OmniLight3D
+	if _gate_focus:
+		_gate_color = _gate_focus.light_color
+		_gate_energy = _gate_focus.light_energy
+	_face_fill = _main.player.find_child("EchoFaceFill", true, false) as OmniLight3D
+	_shoulder_fill = _main.player.find_child("EchoShoulderFill", true, false) as OmniLight3D
+	if _face_fill: _face_energy = _face_fill.light_energy
+	if _shoulder_fill: _shoulder_energy = _shoulder_fill.light_energy
+
+func _room_phase() -> int:
+	var prologue := _main.get_node_or_null("PrologueOrchestrator")
+	if not prologue: return 0
+	if prologue.room_gate_open: return 5
+	if prologue.wake_terminal_solved or prologue.conduit_a_energized: return 4
+	if prologue.opening_memory_recovered: return 3
+	if prologue.clock_inspected: return 2
+	return 0 if _main.player.opening_recovery_active else 1
+
+func _sync_room_sound_and_light(delta: float) -> void:
+	_inside_room = _main.player.global_position.z > -18.4
+	var next := _room_phase()
+	var prologue := _main.get_node_or_null("PrologueOrchestrator")
+	_power_state = 1.0 if prologue and prologue.conduit_a_energized else 0.0
+	# First observation also covers checkpoint load: restore visuals silently.
+	if _phase < 0:
+		_power_blend = 1.0 if next == 5 else 0.0
+	elif next == 5 and _phase != 5 and _inside_room and not _main.audio_muted:
+		if not _relay_stream: _relay_stream = ROOM_AUDIO.create_pressure_air(0.85, 111113)
+		_relay.stream = _relay_stream
+		_relay.play()
+		relay_count += 1
+	_phase = next
+	var target := 1.0 if next == 5 else 0.0
+	_power_blend = target if reduced_motion else move_toward(_power_blend, target, delta * 1.4)
+	if _gate_focus:
+		_gate_focus.light_color = _gate_color.lerp(Color(0.15, 0.78, 0.84), _power_blend)
+		_gate_focus.light_energy = lerpf(_gate_energy, 1.35, _power_blend)
+	# Room-specific exposure avoids bleaching V31's face at the arrival close-up.
+	# Release these local values at the physical exit, before the next room review.
+	if _face_fill: _face_fill.light_energy = 0.42 if _inside_room else _face_energy
+	if _shoulder_fill: _shoulder_fill.light_energy = 0.55 if _inside_room else _shoulder_energy
+	var audible: bool = _inside_room and not _main.audio_muted
+	if audible and not _vent.playing:
+		if not _vent_stream:
+			_vent_stream = _create_vent_air()
+		_vent.stream = _vent_stream
+		_vent.play()
+	elif not audible and _vent.playing:
+		_vent.stop()
+	if not audible and _relay.playing: _relay.stop()
+
+func _create_vent_air() -> AudioStreamWAV:
+	# Filtered broadband noise, no oscillator, notes, chord, or musical drone.
+	# Crossfade the final 80ms into the start for a continuous mechanical loop.
+	var rate := 22050
+	var samples := PackedFloat32Array()
+	samples.resize(rate * 6)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 111112
+	var air := 0.0
+	for index in samples.size():
+		air = lerpf(air, rng.randf_range(-1.0, 1.0), 0.045)
+		samples[index] = air * 0.28
+	var seam := int(rate * 0.08)
+	for index in seam:
+		var weight := float(index) / float(seam - 1)
+		samples[samples.size() - seam + index] = lerpf(samples[samples.size() - seam + index], samples[index], weight)
+	var stream := ROOM_AUDIO.generate_wav(samples, rate)
+	stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	stream.loop_begin = seam
+	stream.loop_end = samples.size()
+	return stream
 
 func _finish_floor() -> void:
 	var mesh := _main.get_node_or_null("Sector11Facility/Room1_CryoChamber/CatwalkFloor") as MeshInstance3D
@@ -199,17 +314,26 @@ func _on_evidence_inspected(id: String) -> void:
 	reaction_count += 1
 	if not reduced_motion:
 		reaction = 1.0
+		_reaction_age = 0.0
+		var source := _main.find_child("OpeningClock" if id == "clock" else "OpeningPhotograph", true, false) as Node3D
+		if source:
+			_reaction_origin = Vector2(source.global_position.x, source.global_position.z)
+			energy_fx.react_at(source.global_position, id == "photo")
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
 	if enabled: reaction = 0.0
+	if energy_fx: energy_fx.sync(elapsed,0.0,_phase,_power_state,enabled,_inside_room)
 	_sync_materials()
 
 func _process(delta: float) -> void:
 	if not configured or not is_instance_valid(_main): return
+	_sync_room_sound_and_light(delta)
 	if not reduced_motion:
 		elapsed += minf(delta,0.1)
-		reaction = maxf(0.0,reaction-delta*0.8)
+		_reaction_age += minf(delta,0.1)
+		reaction = maxf(0.0,reaction-delta*0.35)
+	energy_fx.sync(elapsed,delta,_phase,_power_state,reduced_motion,_inside_room)
 	for index in _beacons.size():
 		var beacon := _beacons[index]
 		if is_instance_valid(beacon):
@@ -222,11 +346,20 @@ func _sync_materials() -> void:
 		_deck.set_shader_parameter("motion_time", elapsed)
 		_deck.set_shader_parameter("ripple_amount", 0.0 if reduced_motion else 1.0)
 		_deck.set_shader_parameter("reaction", reaction)
-	if _dust_material: _dust_material.set_shader_parameter("motion_time", elapsed)
+		_deck.set_shader_parameter("reaction_origin", _reaction_origin)
+		_deck.set_shader_parameter("reaction_age", _reaction_age)
+		_deck.set_shader_parameter("power_state", _power_state)
+	if _dust_material:
+		_dust_material.set_shader_parameter("motion_time", elapsed)
+		_dust_material.set_shader_parameter("reaction", reaction)
 	for glass in _glass_materials:
 		glass.set_shader_parameter("reaction", reaction)
+		glass.set_shader_parameter("motion_time", elapsed)
+		glass.set_shader_parameter("scan_motion", 0.0 if reduced_motion else 1.0)
 
 func diagnostics() -> Dictionary:
 	return {"configured":configured,"surface_count":_surface_count,"glass_materials":_glass_materials.size(),
 		"dust_count":dust.multimesh.instance_count if dust else 0,"elapsed":elapsed,"reaction_count":reaction_count,
-		"added_colliders":find_children("*","CollisionObject3D",true,false).size(),"reduced_motion":reduced_motion}
+		"added_colliders":find_children("*","CollisionObject3D",true,false).size(),"reduced_motion":reduced_motion,
+		"room_phase":_phase,"vent_playing":_vent.playing if _vent else false,"relay_count":relay_count,
+		"sound_sources":2,"audio_policy":"SFX_ONLY","energy_fx":energy_fx.diagnostics() if energy_fx else {}}

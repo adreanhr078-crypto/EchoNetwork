@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/characters/dr_kinga.gd" id="1_kinga_script"]
-[ext_resource type="PackedScene" path="res://assets/characters/kinga_scientist.glb" id="2_kinga_glb"]
+[ext_resource type="PackedScene" path="res://assets/characters/kinja_revenge_rig_v1.glb" id="2_kinga_glb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kinga"]
 radius = 0.45
@@ -41,11 +41,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("CapsuleShape3D_kinga")
 
 [node name="Model" parent="." instance=ExtResource("2_kinga_glb")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0.9, 0)
+transform = Transform3D(0, 0, 1.8, 0, 1.8, 0, -1.8, 0, 0, 0, 0.9, 0)
 
 [node name="MonocleLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 1.62, 0.22)
-light_color = Color(1, 0.2, 0.1, 1)
+light_color = Color(1, 0.14902, 0.10196, 1)
 light_energy = 2.4
 omni_range = 2.0
 

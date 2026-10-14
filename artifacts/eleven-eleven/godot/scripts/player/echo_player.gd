@@ -265,7 +265,17 @@ var player_camera: Camera3D = null
 var camera_boom: SpringArm3D = null
 @export var mouse_look_sensitivity: float = 0.0022
 @export var touch_look_sensitivity: float = 0.003
+@export var base_fov: float = 65.0
+@export var sprint_fov: float = 70.0
+const CAMERA_PITCH_MIN: float = deg_to_rad(-75.0)
+const CAMERA_PITCH_MAX: float = deg_to_rad(75.0)
 var reduced_camera_motion := false
+var reduced_motion: bool:
+	get:
+		return reduced_camera_motion
+	set(val):
+		reduced_camera_motion = val
+var audio_muted := false
 var camera_target_rotation := Vector3.ZERO
 var _camera_last_rotation := Vector3.ZERO
 var _camera_suspended := false
@@ -304,7 +314,7 @@ func resume_gameplay_camera(duration: float = 0.35) -> void:
 
 func set_gameplay_orbit(rotation: Vector3) -> void:
 	if not rotation.is_finite() or not camera_boom: return
-	camera_target_rotation = Vector3(clampf(rotation.x, -0.3, 0.8), rotation.y, 0)
+	camera_target_rotation = Vector3(clampf(rotation.x, CAMERA_PITCH_MIN, CAMERA_PITCH_MAX), rotation.y, 0)
 	camera_boom.rotation = camera_target_rotation
 	_camera_last_rotation = camera_target_rotation
 	_camera_look_cooldown = 0.35
@@ -341,7 +351,7 @@ func _process(delta: float) -> void:
 	camera_boom.position.z *= shoulder_safe[0]
 	var assist := _landing_camera_assist() if _camera_look_cooldown <= 0.0 and not reduced_camera_motion else 0.0
 	var wanted := camera_target_rotation
-	wanted.x = clampf(wanted.x + assist, -0.3, 0.8)
+	wanted.x = clampf(wanted.x + assist, CAMERA_PITCH_MIN, CAMERA_PITCH_MAX)
 	var weight := 1.0 - exp(-18.0 * delta)
 	if _camera_return_remaining > 0:
 		_camera_return_remaining = maxf(0.0, _camera_return_remaining - delta)
@@ -409,9 +419,12 @@ func apply_touch_camera_look(relative: Vector2) -> void:
 
 func _update_camera_fov(delta: float) -> void:
 	if not player_camera or not player_camera.current or _camera_suspended: return
+	if reduced_camera_motion:
+		player_camera.fov = base_fov
+		return
 	var moving := Vector2(velocity.x, velocity.z).length() > 1.8
 	var sprinting := mobile_sprint_active and moving and stamina > 5.0
-	var target_fov := 70.0 if sprinting and not reduced_camera_motion else 65.0
+	var target_fov := sprint_fov if sprinting else base_fov
 	player_camera.fov = lerpf(player_camera.fov, target_fov, 1.0 - exp(-6.0 * delta))
 var current_anim: String = ""
 var is_locked_on: bool = false
@@ -451,6 +464,8 @@ func _ready() -> void:
 		camera_target_rotation = camera_boom.rotation
 		_camera_last_rotation = camera_boom.rotation
 		_camera_anchor_y = global_position.y + camera_boom.position.y
+	if player_camera:
+		player_camera.keep_aspect = Camera3D.KEEP_HEIGHT
 	if animation_player:
 		if not OS.has_feature("web"):
 			MixamoAnimationBridgeScript.inject_animations(animation_player)
@@ -482,6 +497,18 @@ func _ready() -> void:
 		footstep_system = EchoFootstepSystemScript.new()
 		footstep_system.name = "EchoFootstepSystem"
 		add_child(footstep_system)
+
+	# Ensure Echo rim/face lighting stays anchored to ModelRoot and clamped in [0.8, 1.4]
+	var face_fill := find_child("EchoFaceFill", true, false) as OmniLight3D
+	if face_fill:
+		if visual_root and face_fill.get_parent() != visual_root:
+			face_fill.reparent(visual_root)
+		face_fill.light_energy = clampf(face_fill.light_energy, 0.8, 1.4)
+	var shoulder_fill := find_child("EchoShoulderFill", true, false) as OmniLight3D
+	if shoulder_fill:
+		if visual_root and shoulder_fill.get_parent() != visual_root:
+			shoulder_fill.reparent(visual_root)
+		shoulder_fill.light_energy = clampf(shoulder_fill.light_energy, 0.8, 1.4)
 
 	visceral_combat = find_child("VisceralCombatController", true, false)
 	if not visceral_combat:
@@ -579,7 +606,7 @@ func _play_opening_recovery() -> void:
 		emit_signal("opening_recovery_completed")
 		return
 	visual_root.position = Vector3.ZERO
-	visual_root.rotation = Vector3(0.0, PI * 0.5, 0.0)
+	visual_root.rotation = Vector3(0.0, PI + model_forward_yaw_offset, 0.0)
 	var recovery_clip := ""
 	for candidate in ["preset_wakeup", "preset:wakeup", "WAKEUP"]:
 		if animation_player.has_animation(candidate):
@@ -960,6 +987,8 @@ func _move_and_detect_landing() -> void:
 		else:
 			locomotion_controller.trigger_hard_landing(impact_speed)
 		hard_landing_executed.emit(impact_speed)
+		if player_camera and not reduced_camera_motion:
+			ImpactSpawner.trigger_screen_shake(player_camera, minf(0.18, impact_speed * 0.015), 0.22)
 		var land_audio := AudioStreamPlayer.new()
 		add_child(land_audio)
 		land_audio.stream = ProceduralCinematicAudio.create_hard_landing_sfx()
@@ -986,6 +1015,13 @@ func set_mobile_input_vector(vec: Vector2, owned: bool = true) -> void:
 	mobile_move_owned = owned
 
 func set_combat_available(available: bool) -> void:
+	if available and not _built_weapon_visuals_applied:
+		# Delay the built models until their existing story unlock, rather than
+		# allocating their textures during the protected opening.
+		var visuals = load("res://scripts/player/tripo_weapon_visuals.gd")
+		var result: Dictionary = visuals.apply_weapon_visuals(self)
+		_built_weapon_visuals_applied = bool(result.get("applied",false))
+		if is_instance_valid(_hip_weapon_mesh): visuals.apply_weapon_visuals(_hip_weapon_mesh)
 	combat_available = available
 	if not available: _cancel_attack()
 	var standard_katana = find_child("KatanaBlade", true, false) as Node3D
@@ -1016,7 +1052,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var dialogue := root.find_child("DialogueOverlay", true, false) as Control
 		var puzzle := root.find_child("TerminalHackPuzzle", true, false) as Control
 		var window := root.find_child("SystemWindow", true, false) as Control
-		if not ((dialogue and dialogue.visible) or (puzzle and puzzle.visible) or (window and window.visible)):
+		if not ((dialogue and dialogue.is_active) or (puzzle and puzzle.is_open) or (window and window.visible and window._modal)):
 			_suppress_attack_until_release = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		return
@@ -1040,7 +1076,7 @@ func _apply_camera_look(relative: Vector2, sensitivity: float) -> void:
 	if not relative.is_finite(): return
 	if not camera_boom.rotation.is_equal_approx(_camera_last_rotation): camera_target_rotation = camera_boom.rotation
 	camera_target_rotation.y -= relative.x * sensitivity
-	camera_target_rotation.x = clampf(camera_target_rotation.x - relative.y * sensitivity, -0.3, 0.8)
+	camera_target_rotation.x = clampf(camera_target_rotation.x - relative.y * sensitivity, CAMERA_PITCH_MIN, CAMERA_PITCH_MAX)
 	_camera_look_cooldown = 0.35
 
 func toggle_void_sight() -> void:
@@ -1197,11 +1233,7 @@ func equip_shadow_katana() -> void:
 			shadow_katana.owner = null
 			shadow_katana.get_parent().remove_child(shadow_katana)
 			_hand_weapon_socket.add_child(shadow_katana)
-		var s: float = 1.0 / (visual_root.scale.y if visual_root else 1.28)
-		shadow_katana.transform = Transform3D(
-			Basis.IDENTITY.scaled(Vector3.ONE * s),
-			Vector3(-0.017, 0.075, -0.002)
-		)
+		shadow_katana.transform = _weapon_attach_transform
 		shadow_katana.visible = not is_sheathed
 	# Strict narrative constraint: Shadow Katana equip does NOT manifest Zero's eye or wing.
 	# Zero's Singularity and Monarch Wing appear strictly after the Zero Pact is forged.
@@ -1210,6 +1242,15 @@ func awaken_zero_pact(intensity: float = 1.6) -> void:
 	contract_with_zero_sealed = true
 	set_zero_eye_active(true, intensity)
 	manifest_zero_wing(intensity)
+	var hair = get_node_or_null("EchoContractHair")
+	if not hair:
+		hair = preload("res://scripts/player/echo_contract_hair.gd").new()
+		hair.name = "EchoContractHair"
+		add_child(hair)
+	var parent := get_parent()
+	var campaign := parent.get_node_or_null("NativeCampaignController") if parent else null
+	var restoring: bool = campaign != null and parent.get("_restoring_native_session") == true
+	hair.reveal(restoring)
 
 func manifest_zero_wing(intensity: float = 1.0) -> void:
 	var wing = find_child("ZeroShadowWing", true, false)
@@ -1299,7 +1340,7 @@ func face_world_direction(direction: Vector3) -> void:
 	var local_direction := global_basis.inverse()*direction if is_inside_tree() else basis.inverse()*direction
 	local_direction.y=0.0
 	if local_direction.length_squared()<0.0001: return
-	# The untouched GLB face and toe directions both prove a +X front.
+	# Each identified rig preserves its own measured face/toe direction.
 	visual_root.rotation.y=atan2(local_direction.x,local_direction.z)+model_forward_yaw_offset
 
 var combo_step: int = 1
@@ -1328,7 +1369,7 @@ func perform_attack() -> void:
 	combo_step = 1 if combo_step >= 3 else combo_step + 1
 	combo_step_timer = 0.85
 
-	var forward_dir: Vector3 = visual_root.global_basis.x if visual_root else -global_basis.z
+	var forward_dir: Vector3 = visual_root.global_basis * model_local_forward if visual_root else -global_basis.z
 	locomotion_controller.trigger_combo_root_motion(current_step, forward_dir)
 
 	# Play Authored Character Attack Animation on Skeleton & Trigger Wing on Finisher
@@ -1397,7 +1438,7 @@ func perform_attack() -> void:
 
 func _apply_melee_contact(step: int, sequence: int) -> void:
 	if not is_inside_tree() or sequence != _attack_sequence or not is_attacking or control_locked or not combat_available or is_dodging: return
-	var forward := (visual_root.global_basis.x if visual_root else -global_basis.z).normalized()
+	var forward := (visual_root.global_basis * model_local_forward if visual_root else -global_basis.z).normalized()
 	var candidates: Array[Node] = get_tree().get_nodes_in_group("damageable")
 	# Preserve legacy actors which predate the damageable group.
 	for node in get_parent().get_children():
@@ -1506,6 +1547,8 @@ func start_dodge(custom_dir: Vector3 = Vector3.ZERO) -> void:
 		roll_audio.finished.connect(func(): roll_audio.queue_free())
 
 var _hand_weapon_socket: BoneAttachment3D = null
+var _weapon_attach_transform := Transform3D.IDENTITY
+var _built_weapon_visuals_applied := false
 var _hip_weapon_socket: BoneAttachment3D = null
 var _hip_weapon_mesh: Node3D = null
 var is_sliding: bool = false
@@ -1514,7 +1557,7 @@ func _setup_weapon_attachment() -> void:
 	var skeleton = find_child("Skeleton3D", true, false) as Skeleton3D
 	if not skeleton:
 		return
-	var hand_bone = "tripo__0_Left_Limb_1"
+	var hand_bone: String = EchoRigProfileScript.bone(skeleton, "weapon_hand")
 	if skeleton.find_bone(hand_bone) == -1:
 		return
 
@@ -1531,6 +1574,21 @@ func _setup_weapon_attachment() -> void:
 		Basis.IDENTITY.scaled(Vector3.ONE * s),
 		Vector3(-0.017, 0.075, -0.002)
 	)
+	if rig_profile.get("id") == EchoRigProfileScript.V31_ID:
+		# Measure the palm and across-knuckle axis from this rig's actual rests.
+		# The built blades' guard is at0; grip centre is local-Y=-0.12m.
+		s = 1.0 / skeleton.global_basis.get_scale().y
+		var hand_rest: Transform3D = skeleton.get_bone_global_rest(skeleton.find_bone(hand_bone))
+		var middle: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandMiddle1")).origin
+		var index: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandIndex1")).origin
+		var pinky: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandPinky1")).origin
+		var y_axis: Vector3 = (hand_rest.basis.inverse() * (index - pinky)).normalized()
+		var forward_axis: Vector3 = hand_rest.basis.inverse() * (middle - hand_rest.origin)
+		var x_axis: Vector3 = y_axis.cross(forward_axis).normalized()
+		var z_axis: Vector3 = x_axis.cross(y_axis).normalized()
+		var grip: Vector3 = hand_rest.affine_inverse() * hand_rest.origin.lerp(middle, 0.5)
+		socket_transform = Transform3D(Basis(x_axis,y_axis,z_axis).scaled(Vector3.ONE*s),grip+y_axis*0.12*s)
+	_weapon_attach_transform = socket_transform
 
 	var katana = find_child("KatanaBlade", true, false) as Node3D
 	if katana and katana.get_parent() != _hand_weapon_socket:
@@ -1551,7 +1609,7 @@ func _setup_weapon_attachment() -> void:
 		shadow_katana.visible = combat_available and is_shadow_katana_equipped and not is_sheathed
 
 	# Build or locate hip scabbard socket attached to pelvis bone
-	var pelvis_bone = "tripo__Spine_0"
+	var pelvis_bone: String = EchoRigProfileScript.bone(skeleton, "pelvis")
 	if skeleton.find_bone(pelvis_bone) != -1:
 		_hip_weapon_socket = skeleton.get_node_or_null("HipWeaponSocket") as BoneAttachment3D
 		if not _hip_weapon_socket:
@@ -1710,6 +1768,9 @@ func take_damage(amount: float, attacker: Node = null) -> void:
 	emit_signal("hp_changed", hp, MAX_HP)
 	if facial_controller:
 		facial_controller.trigger_damage_grimace(0.9, 0.38)
+	if player_camera and not reduced_camera_motion:
+		var shake_intensity: float = clampf(amount * 0.005, 0.08, 0.22)
+		ImpactSpawner.trigger_screen_shake(player_camera, shake_intensity, 0.22)
 
 func trigger_perfect_deflect(attacker: Node = null) -> void:
 	deflect_window_timer = 0.0

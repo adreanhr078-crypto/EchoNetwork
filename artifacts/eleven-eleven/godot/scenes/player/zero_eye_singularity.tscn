@@ -1,32 +1,43 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://scripts/player/zero_eye_singularity.gd" id="1_singularity"]
+[ext_resource type="Script" path="res://scripts/player/zero_eye_singularity.gd" id="1_eye"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_flare"]
-direction = Vector3(0, 0.2, 1)
-spread = 15.0
-initial_velocity_min = 0.5
-initial_velocity_max = 1.2
-gravity = Vector3(0, 0.1, 0)
-scale_min = 0.02
-scale_max = 0.06
-color = Color(0.1, 0.9, 1, 0.85)
+[sub_resource type="Shader" id="Shader_iris"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled;
+uniform float local_time = 0.0;
+uniform float intensity = 0.0;
+uniform bool reduced_motion = false;
+void fragment() {
+    vec2 p = (UV - vec2(0.5)) * 2.0;
+    float r = length(p);
+    float a = atan(p.y, p.x);
+    float fibres = pow(0.5 + 0.5 * sin(a * 43.0 + sin(a * 17.0) * 2.0 + r * 23.0), 3.0);
+    float pupil = smoothstep(0.30, 0.39, r);
+    float limbal = 1.0 - smoothstep(0.80, 1.0, r);
+    float ring = exp(-abs(r - 0.63) * 26.0);
+    float beat = reduced_motion ? 1.0 : 0.96 + 0.04 * sin(local_time * 2.0);
+    vec3 violet = mix(vec3(0.10, 0.009, 0.22), vec3(0.32, 0.04, 0.66), fibres);
+    ALBEDO = mix(vec3(0.003, 0.001, 0.009), violet * limbal, pupil);
+    EMISSION = violet * pupil * limbal * (0.18 + ring * 0.20) * intensity * beat;
+    ROUGHNESS = 0.29;
+}"
 
-[sub_resource type="SphereMesh" id="SphereMesh_particle"]
-radius = 0.02
-height = 0.04
+[sub_resource type="ShaderMaterial" id="Material_iris"]
+shader = SubResource("Shader_iris")
 
 [node name="ZeroEyeSingularity" type="Node3D"]
-script = ExtResource("1_singularity")
+visible = false
+script = ExtResource("1_eye")
+
+[node name="ContractIris" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+material_override = SubResource("Material_iris")
 
 [node name="EyeLight" type="OmniLight3D" parent="."]
-light_color = Color(0, 0.94, 1, 1)
-light_energy = 2.8
-omni_range = 1.4
-
-[node name="EyeFlareParticles" type="GPUParticles3D" parent="."]
-emitting = false
-amount = 16
-lifetime = 0.45
-process_material = SubResource("ParticleProcessMaterial_flare")
-draw_pass_1 = SubResource("SphereMesh_particle")
+visible = false
+position = Vector3(0, 0, 0.007)
+light_color = Color(0.45, 0.06, 0.85, 1)
+light_energy = 0.012
+omni_range = 0.055
+shadow_enabled = false

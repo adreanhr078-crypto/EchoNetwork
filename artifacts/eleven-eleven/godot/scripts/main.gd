@@ -10,6 +10,7 @@ const CinematicPostProcessorScript = preload("res://scripts/effects/cinematic_po
 const PrologueOrchestratorScript = preload("res://scripts/cinematics/prologue_orchestrator.gd")
 const SaveManagerScript = preload("res://scripts/systems/save_manager.gd")
 const NativePauseMenuScript = preload("res://scripts/ui/native_pause_menu.gd")
+const OpeningInspectionScript = preload("res://scripts/cinematics/opening_inspection.gd")
 
 @export var native_session_enabled := false
 @export var maintenance_preview_enabled := false
@@ -17,8 +18,44 @@ var native_checkpoint_path := SaveManagerScript.OPENING_SAVE_PATH
 var native_preferences_path := "user://presentation_v1.cfg"
 var _restoring_native_session := false
 var _checkpoint_queued := false
+var _web_configuration_pending := false
+var _web_configuration_accepted := false
+var _opening_initialization_ready := false
+var _web_process_mode_before: ProcessMode = Node.PROCESS_MODE_INHERIT
 var presentation_language := "ar"
 var native_pause_menu: Node = null
+var opening_inspection: Node = null
+
+func _requires_web_configuration() -> bool:
+	return OS.has_feature("web")
+
+func _enter_tree() -> void:
+	if _requires_web_configuration():
+		# Hold this scene's input, animation and bound tweens before child ready.
+		# Direct browser callbacks still configure it; the SceneTree is not paused.
+		_web_configuration_pending = true
+		_web_process_mode_before = process_mode
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+func is_web_configuration_pending() -> bool:
+	return _web_configuration_pending
+
+func complete_web_configuration() -> void:
+	if not _web_configuration_pending:
+		return
+	_web_configuration_accepted = true
+	_release_web_configuration_gate()
+
+func _release_web_configuration_gate() -> void:
+	if not _web_configuration_pending or not _web_configuration_accepted or not _opening_initialization_ready:
+		return
+	_web_configuration_pending = false
+	process_mode = _web_process_mode_before
+	_start_opening_cinematic()
+
+func _start_opening_cinematic() -> void:
+	if player and opening_cinematic and player.get("opening_recovery_active") and not reduced_motion:
+		opening_cinematic.play(player)
 
 func opening_text(ar: String, en: String) -> String:
 	return ar if presentation_language == "ar" else en
@@ -66,6 +103,8 @@ func refresh_opening_language() -> void:
 		prompt.show_prompt(prompt.current_interactable)
 	if native_pause_menu:
 		native_pause_menu.refresh_labels()
+	if opening_inspection:
+		opening_inspection.refresh_labels()
 	var journey := get_node_or_null("SystemJourneyPreview")
 	if journey and journey.room:
 		journey.refresh_objective()
@@ -117,6 +156,8 @@ func restore_native_checkpoint(raw: Dictionary) -> bool:
 	if clean.is_empty() or not clean.milestones.wake or not prologue or not player:
 		return false
 	_restoring_native_session = true
+	if opening_inspection and opening_inspection.is_active:
+		opening_inspection.interrupt()
 	player.finish_opening_recovery()
 	if opening_cinematic:
 		opening_cinematic.finish()
@@ -286,6 +327,10 @@ func set_reduced_motion(enabled: bool) -> void:
 	if hud: hud.tutorial_toast.set_reduced_motion(enabled)
 	var system_popup = hud.find_child("SystemWindow", true, false) if hud else null
 	if system_popup: system_popup.reduced_motion = enabled
+	var terminal_puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
+	if terminal_puzzle: terminal_puzzle.reduced_motion = enabled
+	var interaction_prompt = hud.find_child("InteractionPromptHUD", true, false) if hud else null
+	if interaction_prompt: interaction_prompt.reduced_motion = enabled
 	var touch_ui = hud.find_child("MobileTouchControls",true,false) if hud else null
 	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
 	var journey := get_node_or_null("SystemJourneyPreview")
@@ -296,6 +341,8 @@ func set_reduced_motion(enabled: bool) -> void:
 	var terminal = find_child("SectorTerminal", true, false)
 	if terminal and terminal.has_method("set_reduced_motion"):
 		terminal.set_reduced_motion(enabled)
+	var opening_conduit = find_child("EnergyPowerConduit_A", true, false)
+	if opening_conduit: opening_conduit.set_reduced_motion(enabled)
 	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
 		var evidence = find_child(evidence_name,true,false)
 		if evidence and evidence.has_method("set_reduced_motion"):
@@ -339,9 +386,9 @@ func _ready() -> void:
 		mute_button_initial.text = "MUTED" if audio_muted else "SOUND"
 	post_processor = CinematicPostProcessorScript.new()
 	post_processor.name = "CinematicPostProcessor"
-	post_processor.bounded_opening = native_session_enabled
+	post_processor.bounded_opening = native_session_enabled or _requires_web_configuration()
 	add_child(post_processor)
-	if native_session_enabled:
+	if native_session_enabled or _requires_web_configuration():
 		_configure_native_opening_surfaces()
 		var opening_atmosphere := Node3D.new()
 		opening_atmosphere.name = "OpeningAtmosphere"
@@ -444,7 +491,7 @@ func _ready() -> void:
 
 	# The Web opening package contains only the first room. Future zones remain
 	# native-only until their own authored export and story gate exist.
-	if not OS.has_feature("web") and not native_session_enabled:
+	if not _requires_web_configuration() and not native_session_enabled:
 		weather_system = WeatherSystemScript.new()
 		weather_system.name = "WeatherSystem"
 		add_child(weather_system)
@@ -474,8 +521,11 @@ func _ready() -> void:
 		if not checkpoint.is_empty() and checkpoint.milestones.wake:
 			restore_native_checkpoint(checkpoint)
 			return
-	if player and opening_cinematic and player.get("opening_recovery_active") and not reduced_motion:
-		opening_cinematic.play(player)
+	_opening_initialization_ready = true
+	if _web_configuration_pending:
+		_release_web_configuration_gate()
+	else:
+		_start_opening_cinematic()
 
 func _on_opening_recovery_completed() -> void:
 	if _restoring_native_session:
@@ -536,16 +586,19 @@ func _configure_native_opening_surfaces() -> void:
 			floor_mesh.set_surface_override_material(0, floor_material)
 	if player:
 		var face_fill := player.get_node_or_null("ModelRoot/EchoFaceFill") as OmniLight3D
-		if face_fill: face_fill.light_energy = 0.35
+		if face_fill: face_fill.light_energy = clampf(face_fill.light_energy, 0.8, 1.4)
 		var shoulder_fill := player.get_node_or_null("ModelRoot/EchoShoulderFill") as OmniLight3D
-		if shoulder_fill: shoulder_fill.light_energy = 0.18
+		if shoulder_fill: shoulder_fill.light_energy = clampf(shoulder_fill.light_energy, 0.8, 1.4)
 
 func apply_stylized_shaders() -> void:
 	# Keep Echo's authored texture values and a restrained neutral silhouette rim.
 	if player and player.has_node("ModelRoot"):
 		var model_root := player.get_node("ModelRoot")
+		# The avatar owns cel shading. Wings, eyes and blades retain their own
+		# authored materials; broad traversal erased their textures and effects.
+		var avatar := model_root.get_node_or_null("EchoOpeningUniform")
 		ShaderApplicator.apply_cel_shader(
-			model_root,
+			avatar,
 			CelShader,
 			Color(1.0, 1.0, 1.0, 1.0),
 			Color(0.75, 0.8, 0.86, 1.0),
@@ -657,10 +710,19 @@ func _on_victory_sheathed() -> void:
 	_setup_substation_events()
 
 func _setup_substation_events() -> void:
+	if native_session_enabled and not opening_inspection:
+		opening_inspection = CanvasLayer.new()
+		opening_inspection.name = "OpeningInspection"
+		opening_inspection.set_script(OpeningInspectionScript)
+		add_child(opening_inspection)
+		opening_inspection.configure(self)
 	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
 		var evidence = find_child(evidence_name, true, false)
 		if evidence and evidence.has_signal("evidence_inspected"):
 			evidence.evidence_inspected.connect(_on_opening_evidence_inspected)
+		if opening_inspection and evidence and evidence.has_signal("inspection_requested"):
+			if not evidence.inspection_requested.is_connected(opening_inspection.open):
+				evidence.inspection_requested.connect(opening_inspection.open)
 	var wake_terminal = find_child("SectorTerminal", true, false)
 	var terminal = find_child("MainframeTerminal", true, false)
 	var puzzle = hud.find_child("TerminalHackPuzzle", true, false) if hud else null
@@ -695,13 +757,7 @@ func _on_terminal_accessed(terminal: Node) -> void:
 
 func _on_terminal_puzzle_closed() -> void:
 	queue_native_checkpoint()
-	if player:
-		player.control_locked = false
-	if hud and hud.has_method("restore_touch_controls"):
-		hud.restore_touch_controls()
-	var dialogue = hud.find_child("DialogueOverlay", true, false) if hud else null
-	if player and not player.touch_input_enabled and not (dialogue and dialogue.visible):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_release_gameplay_modal_controls()
 	if _pending_wake_terminal:
 		var terminal: Node = _pending_wake_terminal
 		_pending_wake_terminal = null
@@ -813,11 +869,14 @@ func _on_system_window_closed(_kind: int) -> void:
 
 func _release_gameplay_modal_controls() -> void:
 	var blocked := false
+	if opening_inspection and opening_inspection.is_active: blocked = true
 	var campaign:=get_node_or_null("NativeCampaignController")
 	if campaign and campaign.is_hospital_input_blocked(): blocked=true
 	for id in ["TerminalHackPuzzle","DialogueOverlay","SystemWindow"]:
 		var overlay = hud.find_child(id,true,false) if hud else null
-		if overlay and overlay.visible and (id != "SystemWindow" or overlay._modal): blocked = true
+		if not overlay: continue
+		var owns_input: bool = overlay.is_active if id == "DialogueOverlay" else (overlay.is_open if id == "TerminalHackPuzzle" else overlay.visible)
+		if owns_input and (id != "SystemWindow" or overlay._modal): blocked = true
 	for action in ["jump","interact","attack_light"]:
 		if InputMap.has_action(action): Input.action_release(action)
 	if player:

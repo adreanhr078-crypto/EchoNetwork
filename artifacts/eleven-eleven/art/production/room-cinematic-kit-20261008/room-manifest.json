@@ -74,13 +74,37 @@
   "cinematic": {
     "provider": "flow",
     "provider_task_id": null,
-    "status": "not_submitted",
-    "review": "OPEN",
-    "file": null,
-    "duration_s": null,
-    "submitted_reference_ids": [],
+    "status": "success",
+    "review": "rejected",
+    "file": {
+      "path": "flow-take-v1/opening-tour-veo31-fast-v1.mp4",
+      "sha256": "459a87db339ee5725832e81e1c8059b0c597b5d30cfa5399092f42c1f2e34ca1"
+    },
+    "duration_s": 8,
+    "submitted_reference_ids": ["entry", "reverse", "lateral", "hero-detail"],
+    "reference_submission_mode": "Four-view storyboard ingredient plus individual entry and hero ingredients; three ingredient slots",
     "prompt_file": null,
-    "submission_evidence": null
+    "prepared_prompt": "flow-cinematic-prompt.txt",
+    "submission_evidence": null,
+    "provenance_limit": "Actual browser download and complete local take are preserved. Provider task ID, exact submitted prompt hash and charged credits are unverified; do not mark cinematic-reviewed.",
+    "whole_take_review": {
+      "frames": 192,
+      "fps": 24,
+      "resolution": [1280, 720],
+      "contact_sheets": 6,
+      "reviewer": "root",
+      "review_date": "2026-10-09",
+      "status": "FAIL_ART",
+      "defects": [
+        "The requested reverse view is omitted.",
+        "Crossfade near 3.9-4.1s replaces the requested hard cut.",
+        "The rigid capsule morphs and opens near 5-6.4s; duplicate capsule geometry appears.",
+        "Final hero capsule differs from the approved source shape and introduces an invented label.",
+        "Floor reflections are too wet for the intended satin material."
+      ],
+      "asset_extraction": "blocked; no extracted frame accepted for Tripo reconstruction",
+      "audio_review": "OPEN; decoded stereo ambience file is preserved, listening acceptance is separate"
+    }
   },
   "frames": [],
   "assets": [],
@@ -89,8 +113,11 @@
     {
       "provider": "flow",
       "task_id": null,
-      "status": "not_submitted",
-      "charged_credits": null
+      "status": "blocked",
+      "phase": "accounting-reconciliation",
+      "generation_status": "success",
+      "charged_credits": null,
+      "reason": "Actual video generated and downloaded; task ID and charge not yet verified. Art review rejected."
     }
   ],
   "budgets": {
@@ -113,9 +140,9 @@
   "limitations": [
     "Four reviewed concept views generated; geometry dimensions are native measurements and visual references are proposed art, not native evidence.",
     "Floor reflections in concepts are stronger than intended native satin floor; reduce at implementation.",
-    "No room cinematic submitted or extracted frames accepted yet.",
+    "Actual Flow take v1 was generated, downloaded and reviewed in full; art was rejected and no extracted frame accepted.",
     "Prior separate Flow Zero attempt failed unusual-activity verification; no video/audio or confirmed charge.",
-    "Six earlier Tripo prop assets are separate production provenance, not extracted from this uncreated movie.",
+    "Six earlier Tripo prop assets have separate production provenance and were not extracted from this rejected movie.",
     "Native character/player/art/performance gates remain OPEN.",
     "Initial hero v1 terminal position failed continuity review, retained separately; corrected hero v2 in four-reference packet."
   ]

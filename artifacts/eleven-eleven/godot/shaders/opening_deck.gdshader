@@ -7,6 +7,9 @@ uniform vec4 water_tint : source_color = vec4(0.035, 0.15, 0.19, 1.0);
 uniform float motion_time = 0.0;
 uniform float ripple_amount = 1.0;
 uniform float reaction = 0.0;
+uniform vec2 reaction_origin = vec2(-1.85, 1.8);
+uniform float reaction_age = 0.0;
+uniform float power_state = 0.0;
 varying vec3 world_pos;
 
 float hash21(vec2 p) {
@@ -71,4 +74,15 @@ void fragment() {
     vec3 sheen = vec3(0.035, 0.30, 0.40) * cyan_rail + vec3(0.30, 0.11, 0.025) * amber_clock;
     sheen += vec3(0.16, 0.06, 0.28) * violet_glass;
     EMISSION = sheen * fresnel * (0.12 + wet * 0.35) * (1.0 + reaction * 0.15);
+    // A physical feed from the real conduit to the door, kept below foot level.
+    float across = (1.0-smoothstep(0.045,0.095,abs(p.y+4.0))) * step(-3.5,p.x) * step(p.x,0.0);
+    float toward_gate = (1.0-smoothstep(0.045,0.095,abs(p.x))) * step(-17.2,p.y) * step(p.y,-4.0);
+    float path_distance = p.y > -4.08 ? p.x+3.5 : 3.5+(-4.0-p.y);
+    float packet = pow(max(0.0,cos(path_distance*3.2-motion_time*4.0)),10.0);
+    float flow = max(across,toward_gate)*power_state;
+    EMISSION += vec3(0.04,0.65,0.88)*flow*(0.38+packet*1.5*ripple_amount);
+    // One bounded discovery wave per real inspection; no autonomous progress.
+    float ring_distance = abs(length(p-reaction_origin)-(0.35+reaction_age*1.5));
+    float ring = 1.0-smoothstep(0.025,0.075,ring_distance);
+    EMISSION += vec3(0.16,0.70,0.82)*ring*reaction*1.25*ripple_amount;
 }

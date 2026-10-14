@@ -4,13 +4,17 @@ extends CharacterBody3D
 signal pressure_changed(contacts: int)
 signal collar_requested
 var player: EchoPlayer
-var active := false
+var active: bool = false:
+	set(value):
+		active = value
+		if is_inside_tree(): _refresh_interaction_registration()
 var contacts := 0
 var completed := false
 var verb:=InteractableComponent.InteractionVerb.TALK
 var prompt_target_name:="كينجا"
 var _recoil := Vector3.ZERO
 var trauma_pose: Node3D
+var _interaction_area: Area3D
 const REVENGE_RIG_PATH := "res://assets/characters/kinja_revenge_rig_v1.glb"
 
 func _ready() -> void:
@@ -19,6 +23,7 @@ func _ready() -> void:
 	set_meta("interaction_label_en","Kinja")
 	_install_reviewed_rig()
 	var area:=Area3D.new()
+	_interaction_area = area
 	area.collision_layer=0
 	# Match the actual current EchoPlayer layer; the old assumed layer 2 never entered.
 	area.collision_mask=1
@@ -29,12 +34,20 @@ func _ready() -> void:
 	area.add_child(col)
 	add_child(area)
 	area.body_entered.connect(func(body: Node3D):
-		if body.has_method("register_nearby_interactable"): body.register_nearby_interactable(self))
+		if active and not completed and body.has_method("register_nearby_interactable"): body.register_nearby_interactable(self))
 	area.body_exited.connect(func(body: Node3D):
 		if body.has_method("unregister_nearby_interactable"): body.unregister_nearby_interactable(self))
 	for node in ["HexShield","NeuralLaserBeam","SyringeGlow"]:
 		var prop:=get_node_or_null(node) as Node3D
 		if prop: prop.hide()
+
+func _refresh_interaction_registration() -> void:
+	if not is_instance_valid(_interaction_area): return
+	for body in _interaction_area.get_overlapping_bodies():
+		if active and not completed and body.has_method("register_nearby_interactable"):
+			body.register_nearby_interactable(self)
+		elif body.has_method("unregister_nearby_interactable"):
+			body.unregister_nearby_interactable(self)
 
 func _install_reviewed_rig() -> void:
 	var original:=get_node_or_null("Model") as Node3D

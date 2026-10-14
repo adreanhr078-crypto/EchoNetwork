@@ -5,6 +5,8 @@ render_mode cull_back;
 uniform vec4 glass_tint : source_color = vec4(0.16, 0.28, 0.34, 1.0);
 uniform vec4 backing_tint : source_color = vec4(0.25, 0.13, 0.33, 1.0);
 uniform float reaction = 0.0;
+uniform float motion_time = 0.0;
+uniform float scan_motion = 1.0;
 varying vec3 world_pos;
 
 // Polynomial hash keeps mobile/Compatibility precision from making square blocks.
@@ -44,6 +46,21 @@ void fragment() {
     ROUGHNESS = clamp(0.40 + frost*0.08 - droplets*0.12,0.28,0.5);
     SPECULAR = 0.45;
     EMISSION = backing_tint.rgb * (0.11 + reaction*0.04) + fresnel*vec3(0.03,0.08,0.09);
+    // A narrow instrument sweep behind the frost, with a static accessible state.
+    // Smooth reversal removes the old wrap jump at the upper edge of the glass.
+    float scan_height = mix(2.3,2.68+sin(motion_time*0.28)*1.52,scan_motion);
+    float sweep = exp(-abs(p.y-scan_height)*18.0);
+    float cells = step(0.90,noise21(floor(p*vec2(18.0,12.0))));
+    EMISSION += vec3(0.08,0.40,0.56)*sweep*(0.35+cells*0.5);
+    // Two gentle luminous flows stay behind the authored frosted pane. The
+    // cinematic reference informed their motion, not new room architecture.
+    float phase = motion_time*scan_motion;
+    float ribbon_height = 2.45+sin(p.x*0.90+phase*0.16)*0.38+sin(p.x*2.30-phase*0.12)*0.12;
+    float ribbon = exp(-abs(p.y-ribbon_height)*9.0);
+    float lower_ribbon = exp(-abs(p.y-(1.70+sin(p.x*1.25-phase*0.11)*0.22))*12.0);
+    float flow_density = noise21(p*1.45+vec2(phase*0.023,-phase*0.041));
+    float wisps = noise21(p*3.10+vec2(-phase*0.032,phase*0.017));
+    EMISSION += vec3(0.055,0.26,0.40)*(ribbon+lower_ribbon*0.45)*(0.30+flow_density*0.70)*(0.65+wisps*0.35);
     NORMAL_MAP = normalize(vec3(d * droplets * 0.018 + vec2(drip*0.004,0),1.0))*0.5+0.5;
     NORMAL_MAP_DEPTH = 0.16;
 }

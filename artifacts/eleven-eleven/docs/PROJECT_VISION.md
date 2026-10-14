@@ -1,5 +1,29 @@
 # 11.11 Owner Product Vision and Production Charter
 
+## Owner room-by-room execution — 2026-10-12
+
+The Owner resumed development after cleanup and directs one room at a time,
+starting with the actual adopted V31 in Room01. Review entry, objectives,
+interactive tasks, camera, movement, scenes, environmental sound and transition
+as a player before advancing. The latest steering requests abundant, high-quality
+animated visual effects and smooth control. Tie those effects to real discoveries,
+power, threat and atmosphere, with static Reduced Motion equivalents and pause,
+mute and performance preservation. Keep original anime psychological mystery,
+SFX_ONLY and the existing30-stage acceptance plan; this resumes execution and
+does not accept a room, character, chapter or phase transition.
+
+## Owner execution decision — 2026-10-10: temporary Run cape deferral
+
+The Owner explicitly accepts the existing Run provisionally despite the known
+cape/leg intersection and directs continuation to Idle, then Jump. Stop the
+rejected cloth/pitch experiments. Retain the original HD V31 body, source motion
+keys and Golden reference. Complete the exact Run's isolated Godot numerical
+replay, then verify the following motions sequentially. The failed cape visual
+report remains FAIL; this scoped exception does not accept final garment quality,
+V31 optimization/face/device performance, current-player replacement, the chapter
+or a phase transition. Finish garment deformation in its dedicated clothing pass.
+Authorization and evidence: `audits/evidence/chapter-execution-20261009/cp15-root/`.
+
 > Latest Owner decision, 2026-09-12: continue G0 in Godot 4.7.2 and cancel
 > Unity migration. This supersedes historical engine-candidate decisions below.
 > Unity files remain inactive history. Preserve the approved Manhwa, VRoid/Blender
@@ -83,6 +107,20 @@ the agreed player journey, system order, quality bar, and production boundaries.
 The current narrative authority remains
 `docs/internal/narrative/current/ar/manifest.json`. This charter controls how
 the story becomes a game; it does not invent or overwrite story Canon.
+
+### Owner execution direction — 2026-10-09
+
+The Owner explicitly resumed implementation of the 30-stage playable chapter
+plan, superseding the planning-only checkpoint. Prioritize the adopted V31 and
+its actual Godot Run, then Idle and Jump in sequence; prepare Canon and the
+entry/receipt matrix in parallel. Audio is SFX_ONLY with no music or instruments.
+This starts bounded execution, not a phase transition or chapter acceptance.
+Preserve the current player until the correct V31 source, skin, motion, face
+and independent cape pass their gates. Numerical or delegated PASS alone is
+insufficient. See `internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md`.
+The Owner requests Luna6 Max and all useful Antigravity workers, with deep,
+step-by-step verification and sufficient time; delegated output requires local
+inspection before acceptance and has isolated file ownership.
 
 ## North star
 
@@ -497,3 +535,10 @@ Higgsfield/Flow authorization permits specific production work when useful;
 external media does not replace interactive animation or prove scene acceptance.
 See `internal/production/OPENING_QUALITY_EXECUTION_2026-10-06.ar.md`. The active
 phase and open Canon, art, player-experience, Edge and physical-phone gates remain.
+
+Current execution follow-up 2026-10-10: CP-20261010-01 repairs authoritative opening receipt response ownership and measures actual cape/leg intersections; V31 Run/contact, facial art, phone and chapter remain open. Continue existing plan and preserve SFX_ONLY/no music and deep step-by-step evidence review.
+
+
+## Owner platform and visual priority — 2026-10-12
+
+The Owner prioritizes actual PC and Android play for future Steam/GooglePlay release. Android must remain landscape. Continue the connected30-stage chapter with strong transitions, cinematic drama and purposeful effects in Godot4.8 development, while measuring a suitable phone presentation tier. The final playable character remains the adopted original V31; current preview is not final character or chapter acceptance. No store publication, paid service, phase advancement or source/Golden replacement is implied. Current device evidence and unresolved performance are recorded in internal/production/CP18_DEVICE_EXECUTION_2026-10-12.ar.md.

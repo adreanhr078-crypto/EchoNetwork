@@ -1,8 +1,19 @@
 extends RefCounted
 
 ## Snapshot only the chosen dialog. Shards never carry interactive state.
+const OWNER_META := "system_window_fracture_owner"
+
+static func clear_owned(window: Control) -> void:
+	if not window.is_inside_tree(): return
+	for child in window.get_tree().root.get_children():
+		if child is CanvasLayer and child.get_meta(OWNER_META,0)==window.get_instance_id():
+			# Remove the old pixels immediately, before the new choice is drawn.
+			child.hide()
+			child.queue_free()
+
 static func play(window: Control, panel: Control) -> void:
 	if DisplayServer.get_name() == "headless" or not window.is_inside_tree(): return
+	clear_owned(window)
 	var viewport := window.get_viewport()
 	var rendered := viewport.get_texture().get_image()
 	if not rendered or rendered.is_empty(): return
@@ -15,6 +26,7 @@ static func play(window: Control, panel: Control) -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "SystemWindowFracture"
 	layer.layer = 89
+	layer.set_meta(OWNER_META,window.get_instance_id())
 	window.get_tree().root.add_child(layer)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 1111
@@ -41,4 +53,9 @@ static func play(window: Control, panel: Control) -> void:
 				tween.tween_property(shard,"position",shard.position+drift,0.55).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 				tween.tween_property(shard,"rotation",rng.randf_range(-0.12,0.12),0.55)
 				tween.tween_property(shard,"modulate:a",0.0,0.55)
-	window.get_tree().create_timer(0.6).timeout.connect(func(): if is_instance_valid(layer): layer.queue_free())
+	# A rapid next decision may already have released this layer. Keep a weak
+	# handle so its expiry callback never captures a freed CanvasLayer.
+	var weak_layer: WeakRef=weakref(layer)
+	window.get_tree().create_timer(0.6).timeout.connect(func():
+		var expired: CanvasLayer=weak_layer.get_ref()
+		if expired: expired.queue_free())

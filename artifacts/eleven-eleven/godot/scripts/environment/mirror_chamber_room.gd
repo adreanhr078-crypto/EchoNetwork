@@ -57,10 +57,10 @@ func set_presentation_language(language:String) -> void:
 
 func _update_telemetry() -> void:
 	if not _telemetry: return
-	var signature:="%s/%s/%s" % [presentation_language,mirror_inspected,override_done]
+	var signature:="%s/%s/%s/%s" % [presentation_language,mirror_inspected,override_done,gate_open]
 	if signature==_telemetry_signature: return
 	_telemetry_signature=signature
-	preload("res://scripts/environment/surveillance_display.gd").update(_telemetry,presentation_language,mirror_inspected,override_done)
+	preload("res://scripts/environment/surveillance_display.gd").update(_telemetry,presentation_language,mirror_inspected,gate_open)
 
 var mirror_inspected := false
 var override_done := false
@@ -235,6 +235,7 @@ func _build_surveillance_mirror() -> void:
 		if body == player and not mirror_inspected:
 			mirror_inspected = true
 			mirror_examined.emit()
+			if override_done: _open_exit_gate()
 	)
 	mirror_node.add_child(area)
 	add_child(mirror_node)
@@ -374,7 +375,7 @@ func trigger_interaction(_interactor: Node = null) -> Dictionary:
 
 func execute_lockdown_override() -> Dictionary:
 	if override_done:
-		return {"success": true, "already_overridden": true}
+		return {"success": true, "already_overridden": true, "cleared": gate_open, "mirror_required": not mirror_inspected}
 	
 	override_done = true
 	state = RoomState.OVERRIDE_ACTIVE
@@ -385,10 +386,10 @@ func execute_lockdown_override() -> Dictionary:
 		beam.visible = false
 	
 	_open_exit_gate()
-	return {"success": true, "cleared": true}
+	return {"success": true, "cleared": gate_open, "mirror_required": not mirror_inspected}
 
 func _open_exit_gate() -> void:
-	if gate_open:
+	if gate_open or not mirror_inspected or not override_done:
 		return
 	gate_open = true
 	state = RoomState.SECURITY_CLEARED
@@ -442,3 +443,10 @@ func restore_state(data: Dictionary) -> void:
 	if override_done:
 		for beam in _laser_beams:
 			beam.visible = false
+	# The saved room adapter can carry an older override-only open gate. The
+	# physical exit must agree with the same two flags as route progression.
+	gate_open = mirror_inspected and override_done
+	if _gate: _gate.position.y = _gate_open_y if gate_open else _gate_closed_y
+	if _gate_shape: _gate_shape.set_deferred("disabled", gate_open)
+	if gate_open: state = RoomState.SECURITY_CLEARED
+	elif override_done: state = RoomState.OVERRIDE_ACTIVE

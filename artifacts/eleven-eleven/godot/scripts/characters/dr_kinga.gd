@@ -25,6 +25,9 @@ var current_state: State = State.IDLE
 
 const MAX_HP: float = 600.0
 var hp: float = MAX_HP
+var max_hp: float:
+	get:
+		return MAX_HP
 var is_active: bool = false
 var is_defeated: bool = false
 var is_staggered: bool = false
@@ -116,6 +119,23 @@ var model_root: Node3D:
 	set(val):
 		_model_root = val
 
+var _skeleton: Skeleton3D
+var skeleton: Skeleton3D:
+	get:
+		if not _skeleton or not is_instance_valid(_skeleton):
+			_setup_skeleton()
+		return _skeleton
+	set(val):
+		_skeleton = val
+
+# Procedural Skeletal Controller state
+var _bones: Dictionary = {}
+var _axes: Dictionary = {}
+var _rests: Dictionary = {}
+var _anim_phase: float = 0.0
+var _walk_phase: float = 0.0
+var reduced_motion: bool = false
+
 const DIALOGUE_LINES: Array[String] = [
 	"«النموذج EX-011... هل تجاوزت حقول الحجر الصحي؟! كلما أظهرت مقاومة أصبحت أكثر قيمة للتشريح!»",
 	"«مشابكك العصبية صُنعت بيدي! لن تستطيع التمرد على صانعك يا ملك التجارب الفاشلة!»",
@@ -125,6 +145,7 @@ const DIALOGUE_LINES: Array[String] = [
 func _ready() -> void:
 	add_to_group("enemies")
 	add_to_group("damageable")
+	_setup_skeleton()
 	emit_signal("hp_changed", hp, MAX_HP)
 	if hex_shield:
 		hex_shield.visible = false
@@ -134,8 +155,31 @@ func _ready() -> void:
 		syringe_glow.visible = false
 	if monocle_light:
 		monocle_light.visible = true
-		monocle_light.light_color = Color(1.0, 0.15, 0.1, 1.0)
-		monocle_light.light_energy = 2.5
+		# Red #FF261A ominous rim light at 2.4 energy
+		monocle_light.light_color = Color(1.0, 0.14902, 0.10196, 1.0)
+		monocle_light.light_energy = 2.4
+	_apply_anime_cel_shading()
+
+func _apply_anime_cel_shading() -> void:
+	var kinga_model := get_node_or_null("Model")
+	if kinga_model:
+		var cel_shader = load("res://shaders/anime_cel.gdshader")
+		var outline_shader = load("res://shaders/anime_outline.gdshader")
+		var applicator = load("res://scripts/combat/shader_applicator.gd")
+		if cel_shader and applicator:
+			applicator.apply_cel_shader(
+				kinga_model,
+				cel_shader,
+				Color(1.0, 1.0, 1.0, 1.0),
+				Color(1.0, 0.149, 0.102, 1.0),
+				Color(0.28, 0.24, 0.35, 1.0),
+				2.8,
+				0.85,
+				outline_shader
+			)
+
+func _process(delta: float) -> void:
+	update_procedural_skeleton(delta)
 
 func start_combat_encounter(player: Node3D) -> void:
 	target_player = player
@@ -353,3 +397,251 @@ func react_to_zero_singularity() -> void:
 		var tween = tree.create_tween()
 		tween.tween_property(self, "position", position + transform.basis.z * 4.0, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	emit_signal("scientist_terrified")
+
+# ---------------------------------------------------------------------------
+# Procedural Skeletal Controller Methods
+# ---------------------------------------------------------------------------
+
+func _setup_skeleton() -> void:
+	if _skeleton and is_instance_valid(_skeleton) and _bones.size() > 0:
+		return
+	_skeleton = find_child("Skeleton3D", true, false) as Skeleton3D
+	if not _skeleton:
+		return
+	_bones.clear()
+	_axes.clear()
+	_rests.clear()
+	for i in _skeleton.get_bone_count():
+		var bname: String = _skeleton.get_bone_name(i)
+		_bones[bname] = i
+		_axes[bname] = _skeleton.get_bone_global_rest(i).basis.inverse()
+		_rests[bname] = _skeleton.get_bone_rest(i).basis.get_rotation_quaternion()
+
+func _reset_bone_poses() -> void:
+	if not _skeleton:
+		return
+	for index in _bones.values():
+		_skeleton.reset_bone_pose(index)
+
+func _set_bone_rotation(label: String, axis: Vector3, degrees: float) -> void:
+	if not _skeleton or not _bones.has(label):
+		return
+	var b_idx: int = _bones[label]
+	var local: Vector3 = (_axes[label] * axis).normalized()
+	_skeleton.set_bone_pose_rotation(b_idx, _rests[label] * Quaternion(local, deg_to_rad(degrees)))
+
+func _add_bone_rotation(label: String, axis: Vector3, degrees: float) -> void:
+	if not _skeleton or not _bones.has(label):
+		return
+	var b_idx: int = _bones[label]
+	var local: Vector3 = (_axes[label] * axis).normalized()
+	var current: Quaternion = _skeleton.get_bone_pose_rotation(b_idx)
+	_skeleton.set_bone_pose_rotation(b_idx, current * Quaternion(local, deg_to_rad(degrees)))
+
+func update_procedural_skeleton(delta: float) -> void:
+	if not _skeleton or not is_instance_valid(_skeleton) or _bones.size() == 0:
+		_setup_skeleton()
+		if not _skeleton:
+			return
+
+	_anim_phase += delta
+	_reset_bone_poses()
+
+	# 1. Terrified / Climax Defeat pose
+	if current_state == State.TERRIFIED or is_defeated:
+		_apply_terrified_cower_pose(delta)
+	# 2. Stagger / Flinch pose
+	elif is_staggered:
+		_apply_stagger_flinch_pose(delta)
+	# 3. Firing Neural Laser
+	elif is_firing_laser:
+		_apply_neural_laser_pose(delta)
+	# 4. Syringe Lunge
+	elif is_lunging:
+		_apply_syringe_lunge_pose(delta)
+	# 5. Injection Administering
+	elif current_state == State.ADMINISTERING_INJECTION:
+		_apply_injection_pose(delta)
+	# 6. Locomotion / Moving
+	elif velocity.length() > 0.1:
+		_apply_locomotion_pose(delta)
+	# 7. Idle Breathing
+	else:
+		_apply_idle_breathing_pose(delta)
+
+func _apply_terrified_cower_pose(delta: float) -> void:
+	var shiver: float = 0.0 if reduced_motion else sin(_anim_phase * 24.0) * 3.5
+	var breath: float = 0.0 if reduced_motion else sin(_anim_phase * 2.5) * 2.0
+
+	_set_bone_rotation("Spine", Vector3.BACK, 15.0 + breath)
+	_set_bone_rotation("Spine1", Vector3.BACK, 12.0)
+	_set_bone_rotation("Chest", Vector3.BACK, 18.0)
+
+	_set_bone_rotation("Neck", Vector3.BACK, -12.0)
+	_set_bone_rotation("Head", Vector3.BACK, -16.0 + shiver * 0.4)
+	_add_bone_rotation("Head", Vector3.RIGHT, shiver * 0.5)
+
+	_set_bone_rotation("RightShoulder", Vector3.UP, 15.0)
+	_set_bone_rotation("LeftShoulder", Vector3.UP, -15.0)
+	_add_bone_rotation("RightShoulder", Vector3.BACK, 10.0)
+	_add_bone_rotation("LeftShoulder", Vector3.BACK, 10.0)
+
+	_set_bone_rotation("RightArm", Vector3.BACK, 70.0)
+	_add_bone_rotation("RightArm", Vector3.UP, -10.0)
+	_set_bone_rotation("RightForeArm", Vector3.UP, 50.0)
+	_add_bone_rotation("RightForeArm", Vector3.BACK, 15.0 + shiver)
+
+	_set_bone_rotation("LeftArm", Vector3.BACK, 70.0)
+	_add_bone_rotation("LeftArm", Vector3.UP, 10.0)
+	_set_bone_rotation("LeftForeArm", Vector3.UP, -50.0)
+	_add_bone_rotation("LeftForeArm", Vector3.BACK, 15.0 - shiver)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, 8.0)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, -8.0)
+	_set_bone_rotation("LeftLeg", Vector3.BACK, -12.0)
+	_set_bone_rotation("RightLeg", Vector3.BACK, -10.0)
+
+	for column in 5:
+		for row in 2:
+			var wave: float = 0.0 if reduced_motion else sin(_anim_phase * 14.0 + column) * 2.5
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, wave)
+
+func _apply_stagger_flinch_pose(delta: float) -> void:
+	var flinch_strength: float = 0.8 if reduced_motion else clampf(stagger_timer / 2.0, 0.4, 1.0)
+	var tremor: float = 0.0 if reduced_motion else sin(_anim_phase * 18.0) * 3.5 * flinch_strength
+
+	_set_bone_rotation("Spine", Vector3.BACK, -18.0 * flinch_strength)
+	_set_bone_rotation("Spine1", Vector3.BACK, -12.0 * flinch_strength)
+	_set_bone_rotation("Chest", Vector3.BACK, -22.0 * flinch_strength)
+	_set_bone_rotation("Neck", Vector3.BACK, -8.0)
+	_set_bone_rotation("Head", Vector3.BACK, -15.0 * flinch_strength + tremor)
+	_add_bone_rotation("Head", Vector3.RIGHT, tremor * 0.5)
+
+	_set_bone_rotation("LeftShoulder", Vector3.RIGHT, -12.0 * flinch_strength)
+	_set_bone_rotation("RightShoulder", Vector3.RIGHT, 12.0 * flinch_strength)
+
+	_set_bone_rotation("LeftArm", Vector3.BACK, -25.0 * flinch_strength)
+	_set_bone_rotation("RightArm", Vector3.BACK, -20.0 * flinch_strength)
+	_set_bone_rotation("LeftForeArm", Vector3.BACK, 22.0 * flinch_strength)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 25.0 * flinch_strength)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, -14.0 * flinch_strength)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, 14.0 * flinch_strength)
+
+	for column in 5:
+		for row in 2:
+			var wave: float = 0.0 if reduced_motion else sin(_anim_phase * 8.0 + column * 0.8) * 6.0 * flinch_strength
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, wave)
+
+func _apply_neural_laser_pose(delta: float) -> void:
+	_set_bone_rotation("RightShoulder", Vector3.BACK, 8.0)
+	_set_bone_rotation("RightArm", Vector3.BACK, 82.0)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 12.0)
+
+	_set_bone_rotation("Spine", Vector3.BACK, 4.0)
+	_set_bone_rotation("Chest", Vector3.BACK, 8.0)
+	_set_bone_rotation("Head", Vector3.BACK, -6.0)
+
+	_set_bone_rotation("LeftArm", Vector3.BACK, -15.0)
+	_set_bone_rotation("LeftForeArm", Vector3.BACK, 22.0)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, 10.0)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, -10.0)
+
+	for column in 5:
+		for row in 2:
+			var wave: float = -10.0 - row * 5.0 + (0.0 if reduced_motion else sin(_anim_phase * 10.0 + column) * 3.0)
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, wave)
+
+func _apply_syringe_lunge_pose(delta: float) -> void:
+	_set_bone_rotation("Spine", Vector3.BACK, 24.0)
+	_set_bone_rotation("Spine1", Vector3.BACK, 15.0)
+	_set_bone_rotation("Chest", Vector3.BACK, 18.0)
+	_set_bone_rotation("Head", Vector3.BACK, -18.0)
+
+	_set_bone_rotation("RightShoulder", Vector3.BACK, 15.0)
+	_set_bone_rotation("RightArm", Vector3.BACK, 88.0)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 6.0)
+
+	_set_bone_rotation("LeftArm", Vector3.BACK, -35.0)
+	_set_bone_rotation("LeftForeArm", Vector3.BACK, 15.0)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, 32.0)
+	_set_bone_rotation("LeftLeg", Vector3.BACK, -28.0)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, -32.0)
+	_set_bone_rotation("RightLeg", Vector3.BACK, -10.0)
+
+	for column in 5:
+		for row in 2:
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, -24.0 - row * 10.0)
+
+func _apply_injection_pose(delta: float) -> void:
+	_set_bone_rotation("RightArm", Vector3.BACK, 55.0)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 45.0)
+	_set_bone_rotation("Spine", Vector3.BACK, 4.0)
+	_set_bone_rotation("Chest", Vector3.BACK, 6.0)
+	_set_bone_rotation("Head", Vector3.BACK, -8.0)
+
+	var breath: float = 0.0 if reduced_motion else sin(_anim_phase * 1.8) * 1.5
+	_add_bone_rotation("Chest", Vector3.BACK, breath)
+
+	for column in 5:
+		for row in 2:
+			var wave: float = 0.0 if reduced_motion else sin(_anim_phase * 1.5 + column * 0.7) * (2.5 + row * 1.5)
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, wave)
+
+func _apply_locomotion_pose(delta: float) -> void:
+	var speed: float = velocity.length()
+	_walk_phase += delta * speed * 3.8
+
+	var swing_amp: float = 20.0 if reduced_motion else clampf(speed * 8.0, 16.0, 32.0)
+	var leg_sin: float = 0.5 if reduced_motion else sin(_walk_phase)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, leg_sin * swing_amp)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, -leg_sin * swing_amp)
+
+	var left_knee: float = -maxf(0.0, -leg_sin) * (swing_amp * 0.85)
+	var right_knee: float = -maxf(0.0, leg_sin) * (swing_amp * 0.85)
+	_set_bone_rotation("LeftLeg", Vector3.BACK, left_knee)
+	_set_bone_rotation("RightLeg", Vector3.BACK, right_knee)
+
+	var arm_amp: float = swing_amp * 0.65
+	_set_bone_rotation("LeftArm", Vector3.BACK, -leg_sin * arm_amp)
+	_set_bone_rotation("RightArm", Vector3.BACK, leg_sin * arm_amp)
+	_set_bone_rotation("LeftForeArm", Vector3.BACK, 15.0 + maxf(0.0, -leg_sin) * 8.0)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 15.0 + maxf(0.0, leg_sin) * 8.0)
+
+	_set_bone_rotation("Spine", Vector3.BACK, 4.0)
+	_add_bone_rotation("Spine", Vector3.UP, -leg_sin * 3.0)
+	_set_bone_rotation("Chest", Vector3.UP, leg_sin * 2.5)
+	_set_bone_rotation("Head", Vector3.UP, -leg_sin * 1.5)
+
+	for column in 5:
+		for row in 2:
+			var coat_lag: float = column * 0.6
+			var coat_wave: float = 0.0 if reduced_motion else (sin(_walk_phase - coat_lag) * (8.0 + row * 4.0) - (speed * 2.8))
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, coat_wave)
+
+func _apply_idle_breathing_pose(delta: float) -> void:
+	var breath_sin: float = 0.0 if reduced_motion else sin(_anim_phase * 1.6)
+	var breath_chest: float = breath_sin * 2.8
+	var breath_spine: float = breath_sin * 1.6
+
+	_set_bone_rotation("Spine", Vector3.BACK, breath_spine)
+	_set_bone_rotation("Spine1", Vector3.BACK, breath_spine * 0.6)
+	_set_bone_rotation("Chest", Vector3.BACK, breath_chest)
+	_set_bone_rotation("Head", Vector3.BACK, -breath_chest * 0.35)
+
+	_set_bone_rotation("LeftArm", Vector3.BACK, -2.0 + breath_spine * 0.4)
+	_set_bone_rotation("RightArm", Vector3.BACK, -2.0 + breath_spine * 0.4)
+	_set_bone_rotation("LeftForeArm", Vector3.BACK, 8.0)
+	_set_bone_rotation("RightForeArm", Vector3.BACK, 8.0)
+
+	_set_bone_rotation("LeftUpLeg", Vector3.BACK, 0.0)
+	_set_bone_rotation("RightUpLeg", Vector3.BACK, 0.0)
+
+	for column in 5:
+		for row in 2:
+			var coat_wave: float = 0.0 if reduced_motion else (sin(_anim_phase * 1.4 + column * 0.7) * (2.5 + row * 2.0))
+			_set_bone_rotation("Coat_%d_%d" % [column, row], Vector3.BACK, coat_wave)
+

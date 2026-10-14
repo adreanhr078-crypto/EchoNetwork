@@ -1,0 +1,76 @@
+WorkerThreadPool: 8 threads, 2 max low-priority.
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+TextServer: Added interface "Dummy" (dummy)
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)" (advanced)
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)" (advanced).
+TextureStreaming settings: enabled=0, budget_mb=512, min_lod=0, max_lod=3
+CORE API HASH: 2111838908
+EDITOR API HASH: 2953101286
+Loading resource: res://tests/pact_audio_director_review.gd remapped: res://tests/pact_audio_director_review.gd
+Loading resource: res://assets/audio/pact/void_bed.ogg remapped: res://assets/audio/pact/void_bed.ogg
+Loading resource: res://.godot/imported/void_bed.ogg-d5eb4fa402d6df8d1297317027584c50.oggvorbisstr remapped: res://.godot/imported/void_bed.ogg-d5eb4fa402d6df8d1297317027584c50.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/void_bed.ogg' remapped 'res://assets/audio/pact/void_bed.ogg' at thread -1
+Loading resource: res://assets/audio/pact/revenge_bed.ogg remapped: res://assets/audio/pact/revenge_bed.ogg
+Loading resource: res://.godot/imported/revenge_bed.ogg-43ce79c53119789e940ce633ceb6c9a3.oggvorbisstr remapped: res://.godot/imported/revenge_bed.ogg-43ce79c53119789e940ce633ceb6c9a3.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/revenge_bed.ogg' remapped 'res://assets/audio/pact/revenge_bed.ogg' at thread -1
+Loading resource: res://assets/audio/pact/contract_seal.ogg remapped: res://assets/audio/pact/contract_seal.ogg
+Loading resource: res://.godot/imported/contract_seal.ogg-597ed9dd086aabf593c8d09ff286a162.oggvorbisstr remapped: res://.godot/imported/contract_seal.ogg-597ed9dd086aabf593c8d09ff286a162.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/contract_seal.ogg' remapped 'res://assets/audio/pact/contract_seal.ogg' at thread -1
+Loading resource: res://assets/audio/pact/stasis_release.ogg remapped: res://assets/audio/pact/stasis_release.ogg
+Loading resource: res://.godot/imported/stasis_release.ogg-a03901949e60d7049a084c2a7c4fbd07.oggvorbisstr remapped: res://.godot/imported/stasis_release.ogg-a03901949e60d7049a084c2a7c4fbd07.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/stasis_release.ogg' remapped 'res://assets/audio/pact/stasis_release.ogg' at thread -1
+Loading resource: res://assets/audio/pact/contact_1.ogg remapped: res://assets/audio/pact/contact_1.ogg
+Loading resource: res://.godot/imported/contact_1.ogg-69b16e931d7c0856b74463a5e494db66.oggvorbisstr remapped: res://.godot/imported/contact_1.ogg-69b16e931d7c0856b74463a5e494db66.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/contact_1.ogg' remapped 'res://assets/audio/pact/contact_1.ogg' at thread -1
+Loading resource: res://assets/audio/pact/contact_2.ogg remapped: res://assets/audio/pact/contact_2.ogg
+Loading resource: res://.godot/imported/contact_2.ogg-dba24ee67f7552f1bbd3cb51ff300c19.oggvorbisstr remapped: res://.godot/imported/contact_2.ogg-dba24ee67f7552f1bbd3cb51ff300c19.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/contact_2.ogg' remapped 'res://assets/audio/pact/contact_2.ogg' at thread -1
+Loading resource: res://assets/audio/pact/contact_3.ogg remapped: res://assets/audio/pact/contact_3.ogg
+Loading resource: res://.godot/imported/contact_3.ogg-581926e53ee8711b2bb82741c7ac36ab.oggvorbisstr remapped: res://.godot/imported/contact_3.ogg-581926e53ee8711b2bb82741c7ac36ab.oggvorbisstr
+Completed load for: 'res://assets/audio/pact/contact_3.ogg' remapped 'res://assets/audio/pact/contact_3.ogg' at thread -1
+Completed load for: 'res://tests/pact_audio_director_review.gd' remapped 'res://tests/pact_audio_director_review.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd remapped: res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd
+Completed load for: 'res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd' remapped 'res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd' at thread -1
+Loaded system CA certificates
+PACT_AUDIO_REVIEW {"failures":[],"scope":"Actual AudioStreamPlayers, preferences, contract gating, pause and event ownership; listening and device quality separate","status":"PASS"}
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Leaked instance: OggPacketSequence:9223372064402966008 - Reference count: 3
+Leaked instance: OggPacketSequence:9223372064755287546 - Reference count: 3
+Leaked instance: OggPacketSequence:9223372065040500220 - Reference count: 3
+Leaked instance: AudioStreamOggVorbis:9223372065057277437 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372065325712894 - Reference count: 3
+Leaked instance: AudioStreamOggVorbis:9223372065342490111 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372065610925568 - Reference count: 3
+Leaked instance: AudioStreamOggVorbis:9223372065627702785 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372069469685273 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372069536794143 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372069620680227 - Reference count: 1
+Leaked instance: OggPacketSequencePlayback:9223372069637457444 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372069654234661 - Reference count: 1
+Leaked instance: OggPacketSequencePlayback:9223372069671011878 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372069687789095 - Reference count: 1
+Leaked instance: OggPacketSequencePlayback:9223372069704566312 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372069721343529 - Reference count: 1
+Leaked instance: OggPacketSequencePlayback:9223372069738120746 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372069805229611 - Reference count: 1
+Leaked instance: OggPacketSequencePlayback:9223372069822006828 - Reference count: 1
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Resource still in use: res://assets/audio/pact/void_bed.ogg::OggPacketSequence_lleh8 (OggPacketSequence)
+Resource still in use: res://assets/audio/pact/revenge_bed.ogg::OggPacketSequence_diu6d (OggPacketSequence)
+Resource still in use: res://assets/audio/pact/contract_seal.ogg::OggPacketSequence_rlqbq (OggPacketSequence)
+Resource still in use: res://assets/audio/pact/contract_seal.ogg (AudioStreamOggVorbis)
+Resource still in use: res://assets/audio/pact/stasis_release.ogg::OggPacketSequence_pgulb (OggPacketSequence)
+Resource still in use: res://assets/audio/pact/stasis_release.ogg (AudioStreamOggVorbis)
+Resource still in use: res://assets/audio/pact/contact_1.ogg::OggPacketSequence_5g4mu (OggPacketSequence)
+Resource still in use: res://assets/audio/pact/contact_1.ogg (AudioStreamOggVorbis)
+Orphan StringName: Master (static: 0, total: 5)
+StringName: 1 unclaimed string names at exit.
+WARNING: 20 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2604)
+ERROR: 8 resources still in use at exit.
+   at: clear (core/io/resource.cpp:817)

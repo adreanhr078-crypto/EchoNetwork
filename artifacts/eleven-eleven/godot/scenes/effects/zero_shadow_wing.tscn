@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/zero_shadow_wing.gd" id="1_wing"]
+
+[sub_resource type="StandardMaterial3D" id="Material_mote"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.17, 0.023, 0.34, 0.32)
+emission_enabled = true
+emission = Color(0.15, 0.018, 0.28, 1)
+emission_energy_multiplier = 0.35
+
+[sub_resource type="SphereMesh" id="Mesh_mote"]
+material = SubResource("Material_mote")
+radius = 0.0015
+height = 0.003
+radial_segments = 6
+rings = 3
+
+[node name="ZeroShadowWing" type="Node3D"]
+visible = false
+script = ExtResource("1_wing")
+
+[node name="WingRoot" type="Node3D" parent="."]
+
+[node name="WingGlowLight" type="OmniLight3D" parent="."]
+visible = false
+position = Vector3(0.17, 0.14, 0.05)
+light_color = Color(0.34, 0.04, 0.60, 1)
+light_energy = 0.30
+omni_range = 0.9
+shadow_enabled = false
+
+[node name="ShadowMistParticles" type="CPUParticles3D" parent="."]
+position = Vector3(0.25, 0.1, 0)
+emitting = false
+amount = 12
+lifetime = 0.65
+mesh = SubResource("Mesh_mote")
+direction = Vector3(0.6, 0.7, -0.1)
+spread = 22.0
+gravity = Vector3(0, 0.008, 0)
+initial_velocity_min = 0.018
+initial_velocity_max = 0.055
+scale_amount_min = 0.6
+scale_amount_max = 1.2
+cast_shadow = 0

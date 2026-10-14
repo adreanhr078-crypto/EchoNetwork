@@ -1,18 +1,18 @@
 class_name SeawallRadioPlayer
 extends Node3D
 
-## AAA Seawall Coastal Radio & Musical Lo-Fi Ambient Player
+## Seawall receiver for coastal weather and environmental broadcasts.
 ## Located at the Coastal Overlook Point overlooking the Pacific Ocean.
 ## Features:
 ## - Cassette boombox mesh with rotating reel indicators
-## - Lo-fi seaside synthwave ambient station toggle
+## - Environmental station toggle; no music or instrumental score
 ## - Grants Echo the "Ocean Solace" buff (+40 Sanity, +15 Max Stamina)
 
 signal radio_toggled(is_playing: bool, station_name: String)
 signal ocean_solace_granted(sanity_restored: float)
 
 @export var is_playing: bool = false
-@export var station_name: String = "Minato Coastal Lo-Fi // 98.4 FM"
+@export var station_name: String = "Minato Coastal Weather // 98.4 FM"
 
 func _ready() -> void:
 	_setup_boombox_mesh()

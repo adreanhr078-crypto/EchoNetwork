@@ -144,6 +144,9 @@ func _set_active_rooms() -> void:
 		conduits[index].visible=index==current or index==current+1
 		conduits[index].process_mode=Node.PROCESS_MODE_INHERIT if active and (index==current or index==current+1) else Node.PROCESS_MODE_DISABLED
 		conduits[index].player=main.player if active and (index==current or index==current+1) else null
+	# The scientist is already physically present when Echo reaches the lab.
+	# The same actor becomes vulnerable only after the player's explicit pact.
+	if active and current == 5 and not rooms[5].revenge_done: _ensure_kinja()
 	if current>=1:
 		native_owner.security.hide()
 		native_owner.security.process_mode=Node.PROCESS_MODE_DISABLED
@@ -204,7 +207,8 @@ func _restore_room(index: int) -> void:
 			opened=state.get("breaker_a_done",false) and state.get("breaker_b_done",false)
 			state.bridge_extended=opened
 			state.bridge_pos_y=0.0 if opened else -3.5
-		3,4: opened=state.get("override_done",false)
+		3: opened=state.get("override_done",false)
+		4: opened=state.get("mirror_inspected",false) and state.get("override_done",false)
 		5:
 			opened=state.get("wish_done",false)
 			state.breach_open=opened
@@ -233,9 +237,8 @@ func _accept_pact(choice: String) -> void:
 		rooms[5].accept_zero_contract()
 		_capture_progress()
 
-func _start_revenge() -> void:
-	if current!=5 or not rooms[5].contract_done or rooms[5].revenge_done: return
-	if not kinja:
+func _ensure_kinja() -> void:
+	if not is_instance_valid(kinja):
 		kinja=load("res://scenes/characters/dr_kinga.tscn").instantiate()
 		kinja.set_script(preload("res://scripts/characters/kinja_revenge_actor.gd"))
 		kinja.position=Vector3(0,0.1,-27)
@@ -245,6 +248,10 @@ func _start_revenge() -> void:
 			_ui_signature=""
 			rooms[5].story_presentation.impact_feedback(count))
 		kinja.collar_requested.connect(_collar_confrontation)
+
+func _start_revenge() -> void:
+	if current!=5 or not rooms[5].contract_done or rooms[5].revenge_done: return
+	_ensure_kinja()
 	kinja.active=true
 	main.player.set_combat_available(true)
 	main.player.awaken_zero_pact(0.65)
@@ -283,6 +290,20 @@ func _begin_hospital(play_movie:=true) -> void:
 	main.player.set_combat_available(false)
 	main.player.dismiss_zero_wing()
 	main.player.set_zero_eye_active(false)
+	# The Sector 11 guide remains in the facility. It cannot follow, light or
+	# perform tactical scans inside the real ward after the transfer.
+	if is_instance_valid(main.companion):
+		main.companion.hide()
+		main.companion.process_mode=Node.PROCESS_MODE_DISABLED
+		main.companion.follow_target=null
+		main.companion.aim_target=null
+		var touch: Node=main.hud.find_child("MobileTouchControls",true,false)
+		if touch:
+			if touch.scan_tapped.is_connected(main.companion.trigger_scan): touch.scan_tapped.disconnect(main.companion.trigger_scan)
+			var scan:=touch.find_child("ScanBtn",true,false) as Button
+			if scan:
+				scan.hide()
+				scan.disabled=true
 	main.player.control_locked=true
 	main.player.velocity=Vector3.ZERO
 	hospital=load("res://scenes/environment/hospital_bedside_room.tscn").instantiate()
@@ -457,10 +478,16 @@ func _refresh_objective() -> void:
 			hint=main.opening_text("اصعد إلى منصة الفحص واستعد ما حدث.","Reach the examination platform and recover what happened.")
 			if rooms[5].confrontation_done: hint=main.opening_text("اقترب من زيرو. العقد يحتاج إلى قرارك.","Approach Zero. The pact needs your decision.")
 			if rooms[5].contract_done: hint=main.opening_text("واجه كينجا؛ بعد ثلاث ضربات اقترب واقبض عليه.","Confront Kinja; after three contacts, approach and seize him.")
+			if rooms[5].revenge_done: hint=main.opening_text("انتهت المواجهة. أكّد أمنيتك بالخروج في عرض زيرو.","The confrontation is over. Confirm your wish to leave in Zero's offer.")
 			if rooms[5].wish_done: hint=main.opening_text("تم قبول الأمنية. اعبر الشق المضيء.","The wish is accepted. Cross the illuminated breach.")
 		_:
 			title=main.opening_text("الاستيقاظ","Awakening")
 			hint=main.opening_text("افحص عنقك عند المرآة.","Inspect your neck at the mirror.")
+			if is_instance_valid(hospital):
+				if not hospital.bed_awakened_done: hint=main.opening_text("اختر الاستيقاظ عندما تكون مستعدًا.","Choose to wake when you are ready.")
+				elif hospital.mark_revealed_done:
+					title="EX-011"
+					hint=main.opening_text("العلامة مؤكدة. اكتمل هذا الفصل.","The mark is confirmed. This chapter is complete.")
 	if not save_succeeded: hint+=main.opening_text(" لم يُؤكد الحفظ."," Saving is not confirmed.")
 	var signature: String=title+hint+main.presentation_language
 	if signature==_ui_signature: return

@@ -7,6 +7,7 @@ extends Node
 
 @export var mesh_instance_path: NodePath
 var mesh_instance: MeshInstance3D = null
+var expression_meshes: Array[MeshInstance3D] = []
 
 var blink_timer: float = 3.5
 var next_blink_interval: float = 3.2
@@ -20,26 +21,27 @@ var current_focus: float = 0.0
 var current_grimace: float = 0.0
 
 func _ready() -> void:
-	if mesh_instance_path and not mesh_instance:
-		mesh_instance = get_node_or_null(mesh_instance_path) as MeshInstance3D
-	if not mesh_instance:
+	if mesh_instance_path:
+		if not mesh_instance:
+			mesh_instance = get_node_or_null(mesh_instance_path) as MeshInstance3D
+		if mesh_instance and mesh_instance.mesh and mesh_instance.mesh.get_blend_shape_count() > 0:
+			expression_meshes.append(mesh_instance)
+	else:
+		# A legacy caller can assign the primary body directly. Authored lids
+		# still belong to the avatar and must participate in that same blink.
 		_find_mesh_instance(get_parent())
 	_reset_blink_timer()
 
 func _find_mesh_instance(node: Node) -> void:
 	if not node:
 		return
-	var body := node.find_child("EchoOpeningUniformBody", true, false) as MeshInstance3D
-	if body:
-		mesh_instance = body
-		return
 	if node is MeshInstance3D and node.mesh is ArrayMesh and node.mesh.get_blend_shape_count() > 0:
-		mesh_instance = node
-		return
+		if not expression_meshes.has(node):
+			expression_meshes.append(node)
+		if not mesh_instance or node.name == "EchoOpeningUniformBody":
+			mesh_instance = node
 	for child in node.get_children():
 		_find_mesh_instance(child)
-		if mesh_instance:
-			return
 
 func _process(delta: float) -> void:
 	if not mesh_instance:
@@ -86,7 +88,8 @@ func trigger_blink(duration: float = 0.14) -> void:
 func set_combat_focus(focus_amount: float, duration: float = 0.25) -> void:
 	if not mesh_instance:
 		return
-	var target = clampf(focus_amount, 0.0, 1.0)
+	var target = clampf(focus_amount, 0.0, 1.0) if is_finite(focus_amount) else 0.0
+	duration = maxf(0.02, duration) if is_finite(duration) else 0.25
 	if expression_tween and expression_tween.is_running():
 		expression_tween.kill()
 	expression_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -123,8 +126,15 @@ func _apply_eyelids() -> void:
 	_set_shape("Blink_R", weight)
 
 func _set_shape(shape_name: String, weight: float) -> void:
-	if not mesh_instance or not mesh_instance.mesh:
-		return
-	var idx = mesh_instance.find_blend_shape_by_name(shape_name)
-	if idx >= 0:
-		mesh_instance.set_blend_shape_value(idx, clampf(weight, 0.0, 1.0))
+	# Authored lids can be a separate skinned mesh. Drive every mesh exposing
+	# the named expression, so scanning the body first cannot leave lids frozen.
+	var value := clampf(weight, 0.0, 1.0) if is_finite(weight) else 0.0
+	var targets := expression_meshes.duplicate()
+	if is_instance_valid(mesh_instance) and not targets.has(mesh_instance):
+		targets.append(mesh_instance)
+	for target in targets:
+		if not is_instance_valid(target) or not target.mesh:
+			continue
+		var idx: int = target.find_blend_shape_by_name(shape_name)
+		if idx >= 0:
+			target.set_blend_shape_value(idx, value)

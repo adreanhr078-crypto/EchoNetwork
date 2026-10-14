@@ -178,6 +178,9 @@ func _create_server_tower(pos: Vector3, label: String) -> void:
 	var tower := StaticBody3D.new()
 	tower.name = label
 	tower.position = pos
+	# A single authored collider gives both hands continuous wall support.
+	# Decorative 10cm rungs cannot carry a capsule or a complete climb ray.
+	tower.add_to_group("climbable")
 	
 	var col := CollisionShape3D.new()
 	col.name = "CollisionShape3D"
@@ -203,9 +206,7 @@ func _create_server_tower(pos: Vector3, label: String) -> void:
 	# Climbable ladder rungs on the side of the rack for vertical parkour
 	for r in range(10):
 		var rung_y := 0.6 + r * 0.6
-		var rung := _box(label + "_Rung_%d" % r, pos + Vector3(1.25, rung_y, 0.0), Vector3(0.15, 0.1, 0.8), _material(Color(0.0, 0.8, 0.9, 1.0), 0.5, 0.3, true, Color(0.0, 0.8, 0.9), 1.2), true)
-		# Tag as climbable surface for surface traversal motor
-		rung.set_meta("climbable", true)
+		_box(label + "_Rung_%d" % r, pos + Vector3(1.25, rung_y, 0.0), Vector3(0.15, 0.1, 0.8), _material(Color(0.0, 0.8, 0.9, 1.0), 0.5, 0.3, true, Color(0.0, 0.8, 0.9), 1.2))
 	
 	add_child(tower)
 

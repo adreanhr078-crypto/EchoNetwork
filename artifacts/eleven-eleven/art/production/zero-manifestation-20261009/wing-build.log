@@ -1,0 +1,22 @@
+Failed to remove: (<built-in function unlink>, 'C:\\Users\\yasmo\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.local\\lib\\python3.13\\site-packages\\cryptography\\hazmat\\bindings\\_rust.pyd', PermissionError(13, 'Access is denied'))
+Failed to remove: (<built-in function rmdir>, 'C:\\Users\\yasmo\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.local\\lib\\python3.13\\site-packages\\cryptography\\hazmat\\bindings', OSError(41, 'The directory is not empty'))
+Failed to remove: (<built-in function rmdir>, 'C:\\Users\\yasmo\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.local\\lib\\python3.13\\site-packages\\cryptography\\hazmat', OSError(41, 'The directory is not empty'))
+Failed to remove: (<built-in function rmdir>, 'C:\\Users\\yasmo\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.local\\lib\\python3.13\\site-packages\\cryptography', OSError(41, 'The directory is not empty'))
+10:07:34 | INFO: Data are loaded, start creating Blender stuff
+10:07:34 | INFO: Blender create Mesh node tripo_mesh_dc3f46f8-b751-49dc-ace0-ac498826561a
+10:07:34 | INFO: glTF import finished in 0.50s
+C:\Users\yasmo\EchoNetwork\artifacts\eleven-eleven\art\production\zero-manifestation-20261009\build_wing_derivative.py:124: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if material.use_nodes:
+Info: Saved as "wing-feathers-v1.blend"
+INFO Draco is available, use library at C:\Tools\Blender-5.2.2-portable\blender-5.2.2-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Tools\Blender-5.2.2-portable\blender-5.2.2-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+10:07:40 | INFO: Starting glTF 2.0 export
+10:07:40 | INFO: Extracting primitive: EchoShadowFeatherMesh
+10:07:42 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+10:07:42 | INFO: Primitives created: 1
+10:07:42 | INFO: Finished glTF 2.0 export in 2.342299461364746 s
+
+{"status": "EDITABLE_RIG_BUILT_VISUAL_REVIEW_REQUIRED", "vertices": 24178, "triangles": 28945, "bones": 16, "maximum_support": 4, "output_sha256": "404e01b00bf20be7e7e64672009c876bc2541fdbedb77c13c65667d3dd2002fb"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

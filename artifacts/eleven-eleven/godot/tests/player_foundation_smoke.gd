@@ -320,7 +320,7 @@ func _camera_and_collision() -> bool:
 	_drag(0, touch.joystick_center + Vector2(0, 75))
 	await _steps(55)
 	var sprint_fov: float = player.player_camera.fov
-	if not _check(sprint_fov > 69 and sprint_fov <= 70, "actual sprint did not approach the bounded 70-degree FOV"): return false
+	if not _check(sprint_fov > 69 and sprint_fov <= 70, "actual sprint did not approach the bounded 70-degree FOV: %.3f" % sprint_fov): return false
 	main.set_reduced_motion(true)
 	await _steps(65)
 	var reduced_fov: float = player.player_camera.fov
@@ -334,6 +334,7 @@ func _camera_and_collision() -> bool:
 	await _steps(3)
 	var boom: SpringArm3D = player.camera_boom
 	var origin := boom.global_position
+	var clear_arm_length := boom.spring_length
 	var wall := _box("CameraWallProbe", Vector3(4, 4, 0.2), origin + Vector3(0, 0, 1.0))
 	await _steps(8)
 	var wall_hit := boom.get_hit_length()
@@ -343,7 +344,11 @@ func _camera_and_collision() -> bool:
 	boom.rotation.x = 0.8
 	await _steps(8)
 	var floor_hit := boom.get_hit_length()
-	if not _check(player.player_camera.global_position.y > 0.1 and floor_hit < boom.spring_length, "camera penetrated the actual room floor"): return false
+	print("FLOOR_PROBE camera_y=",player.player_camera.global_position.y," hit=",floor_hit," safe_arm=",boom.spring_length," rotation=",boom.rotation)
+	# Rendering shortens spring_length to the safe shape-cast distance before
+	# the next physics tick. Compare against its unobstructed baseline, not the
+	# already shortened arm; keep the actual floor clearance assertion.
+	if not _check(player.player_camera.global_position.y > 0.1 and floor_hit < clear_arm_length, "camera penetrated the actual room floor"): return false
 	boom.rotation.x = -0.3
 	var ceiling := _box("CameraCeilingProbe", Vector3(10, 0.2, 10), origin + Vector3(0, 0.65, 0))
 	await _steps(8)

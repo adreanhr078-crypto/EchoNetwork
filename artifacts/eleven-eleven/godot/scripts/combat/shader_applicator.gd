@@ -71,6 +71,7 @@ static func _recursive_apply(node: Node, shader: Shader, albedo_col: Color, rim_
 static func _make_stylized_material(source_material: Material, shader: Shader, albedo_tint: Color, rim_col: Color, shadow_col: Color, rim_pow: float, rim_int: float, outline_shader: Shader, mesh_name: String = "", albedo_gamma: float = 1.0, ambient_lift: float = 0.0) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = shader
+	mat.set_shader_parameter("contract_hair_enabled", false)
 	mat.set_shader_parameter("albedo_color", albedo_tint)
 	mat.set_shader_parameter("rim_color", rim_col)
 	mat.set_shader_parameter("shadow_color", shadow_col)
@@ -99,7 +100,7 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	mat.set_shader_parameter("sss_color", Color(0.96, 0.45, 0.40, 1.0))
 	mat.set_shader_parameter("sss_intensity", 0.70)
 	var lower_name := mesh_name.to_lower()
-	if lower_name.begins_with("echoopeninguniform"):
+	if lower_name.begins_with("echoopeninguniform") or lower_name == "echov31bodyandcoat":
 		mat.set_shader_parameter("normalize_light_response", true)
 		# Restored authored roughness must not turn the school cloth into a
 		# full-strength stepped white highlight. Preserve its map, soften energy.
@@ -134,14 +135,11 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 		mat.set_shader_parameter("use_two_tone_face", true)
 		mat.set_shader_parameter("use_sss", true)
 	if outline_shader:
-		# A custom POSITION outline covered the animated torso/head in GLES3.
-		# Built-in growth keeps the outline on Godot's skinned mesh path.
-		var outline_mat := StandardMaterial3D.new()
-		outline_mat.cull_mode = BaseMaterial3D.CULL_FRONT
-		outline_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		outline_mat.albedo_color = Color(0.05, 0.06, 0.08, 1.0)
-		outline_mat.grow = true
-		outline_mat.grow_amount = 0.0012
+		var outline_mat := ShaderMaterial.new()
+		outline_mat.shader = outline_shader
+		outline_mat.set_shader_parameter("outline_color", Color(0.05, 0.06, 0.08, 1.0))
+		outline_mat.set_shader_parameter("outline_width", 1.0)
+		outline_mat.set_shader_parameter("microscopic_thickness", 0.00065)
 		mat.next_pass = outline_mat
 	return mat
 

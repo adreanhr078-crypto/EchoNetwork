@@ -26,12 +26,22 @@ func _run() -> void:
 		var env: Environment = main.get_node("WorldEnvironment").environment
 		if not _check(env.tonemap_exposure < 1.0 and env.glow_intensity < 0.3 and not env.ssr_enabled and not env.volumetric_fog_enabled and main.post_processor.current_sky_mat == null, "overworld presentation overwrote quiet opening"): return
 		var floor_material: ShaderMaterial = main.get_node("Sector11Facility/Room1_CryoChamber/CatwalkFloor").get_active_material(0)
-		var pulse_speed = floor_material.get_shader_parameter("emergency_pulse_speed") if floor_material else null
-		var pulse_val: float = float(pulse_speed) if pulse_speed != null else 0.0
-		if not _check(is_zero_approx(pulse_val), "opening floor still pulses neon continuously"): return
-		var body = main.player.find_child("EchoOpeningUniformBody", true, false)
+		if not _check(floor_material != null and floor_material.shader != null, "opening floor lost its authored material"): return
+		if floor_material.shader.resource_path == "res://shaders/opening_deck.gdshader":
+			if not _check(is_zero_approx(float(floor_material.get_shader_parameter("reaction"))), "opening deck flashes without an evidence interaction"): return
+		else:
+			var pulse_speed = floor_material.get_shader_parameter("emergency_pulse_speed")
+			if not _check(pulse_speed != null and is_zero_approx(float(pulse_speed)), "opening floor lacks a verifiable quiet shader contract"): return
+		var body = main.player.find_child("EchoV31BodyAndCoat", true, false)
+		if not _check(body != null and main.player.get_node("ModelRoot/EchoOpeningUniform").get_meta("owner_adopted_echo_v31",false), "visual review must inspect the actual adopted V31 body"): return
 		var material: ShaderMaterial = body.get_active_material(0)
-		if not _check(material.get_shader_parameter("albedo_texture") != null and material.next_pass is StandardMaterial3D and material.next_pass.grow, "texture lost or broken custom POSITION outline restored"): return
+		if not _check(material.get_shader_parameter("albedo_texture") != null, "actual V31 lost its authored albedo atlas"): return
+		var outline: Material = material.next_pass
+		var skinned_hull: bool = outline is StandardMaterial3D and outline.grow
+		if outline is ShaderMaterial and outline.shader:
+			var code: String = outline.shader.code
+			skinned_hull = outline.shader.resource_path == "res://shaders/anime_outline.gdshader" and code.contains("VERTEX += NORMAL") and not code.contains("POSITION")
+		if not _check(skinned_hull, "outline bypasses hardware skinning or lost its bounded normal extrusion"): return
 		main.queue_free()
 		await process_frame
 		for path in ["user://native_visual_smoke.json", "user://native_visual_smoke.json.bak", "user://native_visual_smoke.cfg"]:

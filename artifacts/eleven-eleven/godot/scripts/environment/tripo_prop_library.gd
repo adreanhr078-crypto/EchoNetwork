@@ -14,6 +14,7 @@ const MEDICAL_WALL_UNIT_SCENE: PackedScene = preload("res://assets/props/medical
 const TRIPO_VISUAL_NODE_NAME := "TripoVisual"
 const META_HIDDEN_VISUALS := "tripo_hidden_nodes"
 const META_PROP_ID := "tripo_prop_id"
+const META_SUPPRESSED_MESHES := "tripo_suppressed_meshes"
 
 const PROP_REGISTRY := {
 	"diagnostic_cart": DIAGNOSTIC_CART_SCENE,
@@ -93,6 +94,15 @@ static func _process_visual_candidate(node: Node, target_node: Node3D, hidden_pa
 	# Ensure the container itself is NOT hidden, so descendant lights, labels,
 	# screen readouts, and interaction shapes remain visible and active in the scene tree.
 	# We recursively inspect and hide only non-protected visual meshes.
+	# A mesh may itself parent a light/readout. Remove its drawing resource,
+	# retaining the node and all inherited transforms/visibility for children.
+	if node is MeshInstance3D and node.mesh != null:
+		var meshes: Dictionary = target_node.get_meta(META_SUPPRESSED_MESHES, {})
+		var path := target_node.get_path_to(node)
+		if not meshes.has(path):
+			meshes[path] = node.mesh
+			target_node.set_meta(META_SUPPRESSED_MESHES, meshes)
+		node.mesh = null
 	for child in node.get_children():
 		if _is_protected_node(child):
 			continue
@@ -109,6 +119,11 @@ static func replace_prop_visual(target_node: Node3D, prop_id: String) -> Node3D:
 	var scene := get_prop_scene(prop_id)
 	if not scene:
 		push_error("TripoPropLibrary: Unknown prop_id '%s'" % prop_id)
+		return null
+	# Validate the new instance before changing any live original visuals.
+	var visual_instance := scene.instantiate() as Node3D
+	if not visual_instance:
+		push_error("TripoPropLibrary: Failed to instantiate prop scene '%s'" % prop_id)
 		return null
 
 	# Remove any existing TripoVisual on this node
@@ -133,12 +148,6 @@ static func replace_prop_visual(target_node: Node3D, prop_id: String) -> Node3D:
 		target_node.set_meta(META_HIDDEN_VISUALS, hidden_paths)
 
 	target_node.set_meta(META_PROP_ID, prop_id)
-
-	# Instantiate Tripo visual model
-	var visual_instance := scene.instantiate() as Node3D
-	if not visual_instance:
-		push_error("TripoPropLibrary: Failed to instantiate prop scene '%s'" % prop_id)
-		return null
 
 	visual_instance.name = TRIPO_VISUAL_NODE_NAME
 	target_node.add_child(visual_instance)
@@ -165,6 +174,13 @@ static func restore_prop_visual(target_node: Node3D) -> bool:
 
 	if target_node.has_meta(META_PROP_ID):
 		target_node.remove_meta(META_PROP_ID)
+	if target_node.has_meta(META_SUPPRESSED_MESHES):
+		var meshes: Dictionary = target_node.get_meta(META_SUPPRESSED_MESHES)
+		for path in meshes:
+			var mesh_node := target_node.get_node_or_null(path) as MeshInstance3D
+			if mesh_node:
+				mesh_node.mesh = meshes[path]
+		target_node.remove_meta(META_SUPPRESSED_MESHES)
 
 	return true
 
@@ -184,46 +200,36 @@ static func apply_prop_visuals(room_node: Node3D) -> Dictionary:
 	return result
 
 static func _apply_to_node_recursive(current: Node, room_root: Node3D, result: Dictionary) -> void:
+	# These names often contain "terminal" or "server", but they are live
+	# descendants, never owners of an entire physical prop.
+	if _is_protected_node(current):
+		return
 	if current is Node3D:
-		var node_name := current.name.to_lower()
-		var replaced := false
-
-		# Check 1: Terminal / Console
-		if current.has_node("ConsoleVisual") or node_name.contains("terminal") or node_name.contains("substation"):
-			if not current.has_node(TRIPO_VISUAL_NODE_NAME):
-				var vis := replace_prop_visual(current as Node3D, "security_terminal")
-				if vis:
-					result["replaced_count"] += 1
-					result["replaced_paths"].append(str(room_root.get_path_to(current)))
-					replaced = true
-
-		# Check 2: Server Rack / Observation Server
-		elif current.has_node("server_rack") or (node_name.contains("server") and not node_name.contains("manager")):
-			if not current.has_node(TRIPO_VISUAL_NODE_NAME):
-				var vis := replace_prop_visual(current as Node3D, "observation_server")
-				if vis:
-					result["replaced_count"] += 1
-					result["replaced_paths"].append(str(room_root.get_path_to(current)))
-					replaced = true
-
-		# Check 3: Diagnostic Cart / Mobile Cart
-		elif node_name.contains("cart") or node_name.contains("trolley"):
-			if not current.has_node(TRIPO_VISUAL_NODE_NAME):
-				var vis := replace_prop_visual(current as Node3D, "diagnostic_cart")
-				if vis:
-					result["replaced_count"] += 1
-					result["replaced_paths"].append(str(room_root.get_path_to(current)))
-					replaced = true
-
-		# Check 4: Medical Wall Unit
-		elif node_name.contains("wall_unit") or (node_name.contains("medical") and node_name.contains("unit")):
-			if not current.has_node(TRIPO_VISUAL_NODE_NAME):
-				var vis := replace_prop_visual(current as Node3D, "medical_wall_unit")
-				if vis:
-					result["replaced_count"] += 1
-					result["replaced_paths"].append(str(room_root.get_path_to(current)))
-					replaced = true
-
+		# Repeated application is idempotent and never traverses into a generated
+		# model or the original descendant screens/housing of an installed prop.
+		if current.has_node(TRIPO_VISUAL_NODE_NAME):
+			return
+		# Match actual prop owners, not substrings in unrelated names such as
+		# SubstationPowerGate or CartographyCamera. Callers may explicitly tag
+		# procedural owners; direct replacement remains available for fitted props.
+		var names := {
+			"substationterminal":"security_terminal", "securityterminal":"security_terminal",
+			"terminal":"security_terminal", "observationserver":"observation_server",
+			"serverrack":"observation_server", "diagnosticcart":"diagnostic_cart",
+			"mobilecart":"diagnostic_cart", "cart":"diagnostic_cart", "trolley":"diagnostic_cart",
+			"medicalwallunit":"medical_wall_unit", "wallunit":"medical_wall_unit",
+			"medicalunit":"medical_wall_unit",
+		}
+		var clean_name := str(current.name).to_lower().replace("_", "").replace("-", "")
+		var prop_id := str(current.get_meta("tripo_visual_owner", names.get(clean_name, "")))
+		if prop_id.is_empty() and current.has_node("ConsoleVisual"):
+			prop_id = "security_terminal"
+		if has_prop(prop_id):
+			var vis := replace_prop_visual(current as Node3D, prop_id)
+			if vis:
+				result["replaced_count"] += 1
+				result["replaced_paths"].append(str(room_root.get_path_to(current)))
+				return
 	for child in current.get_children():
 		_apply_to_node_recursive(child, room_root, result)
 

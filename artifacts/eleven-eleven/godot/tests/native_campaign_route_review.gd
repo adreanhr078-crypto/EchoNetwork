@@ -9,6 +9,7 @@ var campaign: Node
 
 func _run() -> void:
 	root.size=Vector2i(960,540)
+	root.unfocusable=true
 	var opening: Dictionary={"schema":Saves.OPENING_SCHEMA,"milestones":{"wake":true,"clock":true,"photo":true,"memory":true,"terminal":true,"conduit":true,"ending":true},"terminal":{"frequency":111.0,"phase":45.0,"harmonic":7.0}}
 	Saves.save_opening_checkpoint(opening,base+"_opening.json")
 	var file:=FileAccess.open(base+"_maintenance.json",FileAccess.WRITE)
@@ -101,6 +102,9 @@ func _run() -> void:
 	if not await _walk(Vector3(0,0,-15.8)): return
 	room=campaign.rooms[5]
 	if not _check(not player.combat_available and not room.contract_done,"Early power authority before explicit pact"): return
+	if not _check(is_instance_valid(campaign.kinja) and campaign.kinja.get_parent()==room and not campaign.kinja.active,"Kinja must already be present in the laboratory before the pact"): return
+	campaign.kinja.take_damage(50,player.global_position)
+	if not _check(campaign.kinja.contacts==0,"Pre-pact presence must not enable damage or advance revenge"): return
 	for point in [Vector3(0,0,-9),Vector3(0,1.2,-14),Vector3(2.5,1.2,-14),Vector3(2.5,1.2,-18.4)]:
 		if not await _walk(point): return
 	if not _use("KinjaNeuralRigTerminal"): return
@@ -138,6 +142,7 @@ func _complete_campaign() -> bool:
 	window.stats_box.get_child(0).pressed.emit()
 	for i in 5: await physics_frame
 	if not _check(room.revenge_done and not room.wish_done and not room.breach_open,"Revenge auto-accepted the wish"): return false
+	if not _check(main.hud.current_directive_desc.contains("أمنيتك") or main.hud.current_directive_desc.contains("wish to leave"),"Completed confrontation left the tracker asking for the same three attacks"): return false
 	window.stats_box.get_child(0).pressed.emit()
 	for i in 15: await physics_frame
 	if not _check(room.wish_done and room.breach_open and campaign.hospital==null,"Accepted wish must open a physical breach before transfer"): return false
@@ -150,6 +155,12 @@ func _complete_campaign() -> bool:
 	player.set_mobile_input_vector(Vector2.ZERO,false)
 	if not _check(campaign.hospital!=null and campaign.progress.completed.size()==6,"Physical breach did not transfer to the ward"): return false
 	if not _check(player.control_locked and not player.combat_available,"Hospital awakening must own input and remove combat"): return false
+	if not _check(not main.companion.visible and main.companion.follow_target==null and main.companion.process_mode==Node.PROCESS_MODE_DISABLED,"Facility guide followed or scanned inside the real ward"): return false
+	var touch: Node=main.hud.find_child("MobileTouchControls",true,false)
+	if not _check(not touch.scan_tapped.is_connected(main.companion.trigger_scan) and not touch.get_node("ActionCluster/ScanBtn").visible,"Ward retained its facility scan action"): return false
+	for weapon in ["KatanaBlade","ShadowKatana"]:
+		if not _check(not player.find_child(weapon,true,false).visible,"Hospital retained an active blade: "+weapon): return false
+	if player._hip_weapon_mesh and not _check(not player._hip_weapon_mesh.visible,"Hospital retained its sheathed blade mesh"): return false
 	if film:
 		if not _check(campaign._movie!=null,"Actual ward transfer did not play its native film"): return false
 		for i in 60: await physics_frame
@@ -171,6 +182,7 @@ func _complete_campaign() -> bool:
 	if not _use("VanityMirrorStation"): return false
 	for i in 10: await physics_frame
 	if not _check(room.mark_revealed_done and campaign.progress.completed.size()==7,"Physical mirror interaction did not persist the final chapter event"): return false
+	if not _check(room.chapter_completed_done and (main.hud.current_directive_desc.contains("اكتمل هذا الفصل") or main.hud.current_directive_desc.contains("chapter is complete")),"Confirmed ward mirror left the completed chapter asking for another inspection"): return false
 	if not _check(campaign._mark_inspection!=null and player.control_locked,"Skin inspection must own camera and input until explicit dismissal"): return false
 	await _capture()
 	window.close_window()

@@ -155,6 +155,9 @@ func _dispose() -> void:
 	touch.joystick_moved.emit(Vector2.ZERO)
 	world.queue_free()
 	for i in range(4): await process_frame
+	# Let deferred resource retirement settle before the next fixture/engine exit.
+	# A verbose load happened to mask this cleanup race on the adopted large rig.
+	await create_timer(0.10).timeout
 
 func _check(condition: bool, detail: String) -> bool:
 	if condition: return true

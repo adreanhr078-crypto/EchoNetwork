@@ -128,15 +128,17 @@ func dismiss_toast() -> void:
 	if not visible or active_toast_id.is_empty():
 		return
 	if _transition: _transition.kill()
-	emit_signal("toast_completed", active_toast_id)
+	var completed_id := active_toast_id
 	active_toast_id = ""
 	_dismiss_timer = 0
 	if reduced_motion:
 		visible = false
+		emit_signal("toast_completed", completed_id)
 		return
 	_transition = create_tween()
 	_transition.tween_property(self, "modulate:a", 0.0, 0.25)
 	_transition.tween_callback(func(): visible = false)
+	emit_signal("toast_completed", completed_id)
 
 func _play_chime() -> void:
 	var audio_player := AudioStreamPlayer.new()

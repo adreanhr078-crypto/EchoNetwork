@@ -89,6 +89,9 @@ func _physics_process(delta: float) -> void:
 func _update_uv_pulses(delta: float) -> void:
 	if not _uv_pulse_light:
 		return
+	if reduced_motion:
+		_uv_pulse_light.light_energy = 0.8
+		return
 	_uv_timer += delta
 	# Subtle clinical pulse every 3.0s
 	var intensity: float = 0.8 + 0.4 * sin(_uv_timer * 2.0)

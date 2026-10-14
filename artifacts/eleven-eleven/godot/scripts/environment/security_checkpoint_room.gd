@@ -12,6 +12,7 @@ const CERAMIC = preload("res://assets/environments/maintenance_jutsu_v1_Maintena
 const GRAPHITE = preload("res://assets/environments/maintenance_jutsu_v1_Maintenance brushed graphite 512.png")
 const STATION = preload("res://scripts/environment/security_station.gd")
 const RELAY_AUDIO = preload("res://assets/audio/maintenance_service_release_v1.ogg")
+const SCAN_FIELD = preload("res://shaders/security_scan_field.gdshader")
 var player: CharacterBody3D
 var gate_open := false
 var service_trace := false
@@ -30,6 +31,9 @@ var _retry_cooldown := 0.0
 var _stations: Dictionary = {}
 var _language := "ar"
 var _passage_reported := false
+var _scan_material: ShaderMaterial
+var _presentation_phase := 0.0
+var _gate_feedback := 0.0
 
 func _ready() -> void:
 	_build_room()
@@ -42,6 +46,13 @@ func _physics_process(delta: float) -> void:
 	_scanner.rotation.y = PI + sin(elapsed * 0.55) * 0.78
 	_lamp.light_color = Color(1,0.48,0.13) if diversion_remaining <= 0 else Color(0.3,0.75,1)
 	_lamp.light_energy = 1.2 if diversion_remaining <= 0 else 0.15
+	if not reduced_motion: _presentation_phase += delta
+	_scan_material.set_shader_parameter("phase",_presentation_phase)
+	_scan_material.set_shader_parameter("motion_amount",0.0 if reduced_motion else 1.0)
+	_scan_material.set_shader_parameter("signal_color",_lamp.light_color)
+	_scan_material.set_shader_parameter("alert",warning)
+	_gate_feedback = maxf(0.0,_gate_feedback-delta)
+	_signal.emission_energy_multiplier = 1.0 if reduced_motion else 1.0+0.35*sin(PI*clampf(_gate_feedback/0.9,0.0,1.0))
 	if not is_instance_valid(player): return
 	var local := to_local(player.global_position)
 	if local.y < -1 or (local.z <= 0.1 and local.z >= -18 and absf(local.x) > 4.6):
@@ -93,6 +104,7 @@ func request_station(action: String, actor: Node3D, station: Node3D) -> Dictiona
 		"gate":
 			if gate_open: return {"accepted": false}
 			gate_open = true
+			_gate_feedback = 0.9
 			_signal.albedo_color = Color(0.12,0.85,0.75)
 			_signal.emission = _signal.albedo_color
 			_stations.gate.get_node("InteractionArea").is_enabled = false
@@ -110,6 +122,7 @@ func request_station(action: String, actor: Node3D, station: Node3D) -> Dictiona
 func restore_state(state: Dictionary) -> bool:
 	if state.size() != 3 or not state.get("gate_open") is bool or not state.get("service_trace") is bool or not state.get("scanner_trace") is bool: return false
 	gate_open = state.gate_open
+	_gate_feedback = 0.0 # Restoring progress must not replay the completion cue.
 	service_trace = state.service_trace
 	scanner_trace = state.scanner_trace
 	_gate_shape.set_deferred("disabled",gate_open)
@@ -260,6 +273,23 @@ func _build_room() -> void:
 	_lamp.spot_angle = 12
 	_lamp.shadow_enabled = true
 	_scanner.add_child(_lamp)
+	var field := MeshInstance3D.new()
+	field.name = "AuthoredScannerField"
+	var cone := CylinderMesh.new()
+	cone.top_radius = 0.0
+	cone.bottom_radius = tan(deg_to_rad(12.0))*13.0
+	cone.height = 13.0
+	cone.radial_segments = 32
+	cone.rings = 1
+	cone.cap_bottom = false
+	field.mesh = cone
+	field.rotation.x = PI/2.0
+	field.position.z = -6.5
+	field.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_scan_material = ShaderMaterial.new()
+	_scan_material.shader = SCAN_FIELD
+	field.material_override = _scan_material
+	_scanner.add_child(field)
 	_box("ScannerMount",Vector3(0,3.3,-14.5),Vector3(0.08,2.6,0.08),metal)
 	for z in [-2.5,-9,-15.5]:
 		var light := OmniLight3D.new()

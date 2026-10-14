@@ -1,0 +1,30 @@
+[
+  {
+    "profile": "echo_opening_v13",
+    "source": "godot\\assets\\characters\\echo_opening_uniform_v13.glb",
+    "source_sha256": "9a7eda30d329342d42f86c1c8da6ac1a90c541059afe6f440ccb57c2b03fb5f2",
+    "head_bone": "tripo::Head_1",
+    "head_triangles": 15760,
+    "mask_texels": 74345,
+    "warm_skin_texels_changed": 0,
+    "eye_aperture_texels_changed": 0,
+    "mask": "godot\\assets\\characters\\contract\\echo_opening_v13_hair_mask.png",
+    "mask_sha256": "21aaf27a9eda8f6e106ad8d79862633d40ed0e7a6b027c9b1cfda86e876e5157",
+    "source_modified": false,
+    "native_hair_only_visual_acceptance": "OPEN"
+  },
+  {
+    "profile": "echo_v31_authored_68",
+    "source": "audits\\evidence\\quality-execution-20261006\\current-target\\supplied-v31-20261007\\source-reference-v8\\echo-v31-measured-reference.glb",
+    "source_sha256": "050b5231b8ff72a377fd2ee5df8b0b37524a391e5a2d15fea1b66d6fc841b835",
+    "head_bone": "Head",
+    "head_triangles": 77296,
+    "mask_texels": 27083,
+    "warm_skin_texels_changed": 0,
+    "eye_aperture_texels_changed": 0,
+    "mask": "godot\\assets\\characters\\contract\\echo_v31_authored_68_hair_mask.png",
+    "mask_sha256": "a45d6187695d9d14b230981e4bac4dd3764770664d7ff2bc995f1ae1879a1a5f",
+    "source_modified": false,
+    "native_hair_only_visual_acceptance": "OPEN"
+  }
+]

@@ -1,12 +1,21 @@
 extends Control
 const DIALOGUE_FONT = preload("res://assets/fonts/NotoSansArabic.ttf")
+const NativeUIDensity = preload("res://scripts/ui/native_ui_density.gd")
 
 signal dialogue_started
 signal line_displayed(index, line_data)
 signal dialogue_completed
 
 @export var typewriter_speed: float = 0.025
-@export var reduced_motion: bool = false
+@export var reduced_motion: bool = false:
+	set(value):
+		reduced_motion = value
+		if value and is_node_ready():
+			_cancel_presentation()
+			modulate.a = 1.0 if is_active else 0.0
+			visible = is_active
+			if text_lbl: text_lbl.modulate.a = 1.0
+			finish_typing()
 
 var dialogue_lines: Array = [
 	{
@@ -40,6 +49,10 @@ var typing_timer: float = 0.0
 var presentation_language := "ar"
 var continue_button: Button
 var _content_scroll: ScrollContainer
+var _presentation_tween: Tween
+var _line_tween: Tween
+var _presentation_revision := 0
+var _panel_style: StyleBoxFlat
 
 @onready var speaker_lbl: Label = $DialogBox/VBox/SpeakerBadge/SpeakerLabel if has_node("DialogBox/VBox/SpeakerBadge/SpeakerLabel") else null
 @onready var text_lbl: Label = $DialogBox/VBox/TextLabel if has_node("DialogBox/VBox/TextLabel") else null
@@ -53,12 +66,16 @@ func _ready() -> void:
 	readable_font.oversampling = 1.0
 	readable_theme.default_font = readable_font
 	theme = readable_theme
+	if speaker_lbl: speaker_lbl.add_theme_color_override("font_color", Color.WHITE)
 	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color(0.025, 0.022, 0.035, 0.96)
-	panel_style.border_color = Color(0.48, 0.19, 0.27, 0.8)
+	panel_style.bg_color = Color(0.018, 0.028, 0.045, 0.97)
+	panel_style.border_color = Color(0.25, 0.57, 0.65, 0.65)
 	panel_style.set_border_width_all(1)
 	panel_style.border_width_top = 2
-	panel_style.set_corner_radius_all(8)
+	panel_style.set_corner_radius_all(10)
+	panel_style.shadow_color = Color(0.0, 0.01, 0.02, 0.3)
+	panel_style.shadow_size = 12
+	_panel_style = panel_style
 	$DialogBox.add_theme_stylebox_override("panel", panel_style)
 	_content_scroll = ScrollContainer.new()
 	_content_scroll.name = "DialogueContentScroll"
@@ -84,16 +101,58 @@ func _ready() -> void:
 	continue_button.offset_bottom = -12
 	continue_button.custom_minimum_size = Vector2(140, 48)
 	continue_button.add_theme_font_size_override("font_size", 18)
+	continue_button.add_theme_color_override("font_color", Color(0.91, 0.95, 0.98))
+	continue_button.add_theme_color_override("font_hover_color", Color.WHITE)
+	_style_continue_button(Color(0.3, 0.65, 0.73))
 	continue_button.pressed.connect(advance_dialogue)
 	get_viewport().size_changed.connect(_layout)
 	_layout()
 	set_presentation_language(presentation_language)
 
+func _style_continue_button(accent: Color) -> void:
+	if not continue_button: return
+	for state in ["normal", "hover", "pressed", "focus"]:
+		var style := StyleBoxFlat.new()
+		style.set_corner_radius_all(7)
+		style.set_border_width_all(2 if state == "focus" else 1)
+		style.bg_color = Color(0.035, 0.065, 0.085, 0.98)
+		if state == "hover": style.bg_color = Color(0.055, 0.105, 0.14, 1.0)
+		if state == "pressed": style.bg_color = Color(0.025, 0.05, 0.07, 1.0)
+		if state == "focus": style.bg_color = Color.TRANSPARENT
+		style.border_color = Color(0.76, 0.9, 0.96) if state == "focus" else Color(accent, 0.7)
+		continue_button.add_theme_stylebox_override(state, style)
+
+func _cancel_presentation() -> void:
+	_presentation_revision += 1
+	if _presentation_tween and _presentation_tween.is_valid(): _presentation_tween.kill()
+	if _line_tween and _line_tween.is_valid(): _line_tween.kill()
+	_presentation_tween = null
+	_line_tween = null
+
+func _set_dialogue_input(enabled: bool) -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP if enabled else Control.MOUSE_FILTER_IGNORE
+	$DialogBox.mouse_filter = mouse_filter
+	if _content_scroll: _content_scroll.mouse_filter = mouse_filter
+	if continue_button:
+		continue_button.disabled = not enabled
+		continue_button.mouse_filter = mouse_filter
+		if not enabled: continue_button.release_focus()
+
+func _finish_departure(revision: int) -> void:
+	# Completion handlers may synchronously start another dialogue. An old
+	# departure must never hide the new line or steal its input ownership.
+	if revision == _presentation_revision and not is_active:
+		visible = false
+
+func _presentation_density() -> float:
+	return NativeUIDensity.pixel_ratio()
+
 func _layout() -> void:
 	var stretch := get_viewport().get_stretch_transform().get_scale()
 	stretch = Vector2(maxf(0.001, stretch.x), maxf(0.001, stretch.y))
-	scale = Vector2.ONE / stretch
-	var screen := get_viewport().get_visible_rect().size * stretch
+	var density := _presentation_density()
+	scale = Vector2.ONE * density / stretch
+	var screen := get_viewport().get_visible_rect().size * stretch / density
 	size = screen
 	position = Vector2.ZERO
 	var box := $DialogBox as Panel
@@ -102,10 +161,12 @@ func _layout() -> void:
 	box.position = Vector2((screen.x - box.size.x) * 0.5, screen.y - box.size.y - 12.0)
 	if text_lbl:
 		text_lbl.add_theme_font_size_override("font_size", 20 if screen.y < 300 else 22)
-		text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
+		# Godot mirrors logical LEFT in RTL layouts; explicit RIGHT would
+		# mirror a second time and put Arabic body text on the left.
+		text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	if speaker_lbl:
 		speaker_lbl.add_theme_font_size_override("font_size", 17)
-		speaker_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if presentation_language == "ar" else HORIZONTAL_ALIGNMENT_LEFT
+		speaker_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_content_scroll.get_child(0).size.x = box.size.x - 40
 	if continue_prompt: continue_prompt.hide()
 
@@ -122,7 +183,10 @@ func _apply_line_text() -> void:
 	full_text = line.get("text_" + presentation_language, line.get("text", ""))
 	if speaker_lbl:
 		speaker_lbl.text = line.get("speaker_" + presentation_language, line.get("speaker", "UNKNOWN"))
-		speaker_lbl.modulate = line.get("speaker_color", Color.WHITE)
+		var accent: Color = line.get("speaker_color", Color(0.3, 0.75, 0.82))
+		speaker_lbl.modulate = accent.lerp(Color(0.88, 0.94, 0.98), 0.2)
+		if _panel_style: _panel_style.border_color = Color(accent.lerp(Color(0.32, 0.42, 0.5), 0.45), 0.65)
+		_style_continue_button(accent.lerp(Color(0.32, 0.42, 0.5), 0.45))
 	if text_lbl:
 		# Shape the complete Arabic line once; reveal characters without slicing
 		# and reshaping the text every frame.
@@ -134,12 +198,19 @@ func finish_typing() -> void:
 	if text_lbl: text_lbl.visible_characters = -1
 
 func start_dialogue(custom_lines: Array = []) -> void:
+	_cancel_presentation()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if custom_lines.size() > 0:
 		dialogue_lines = custom_lines
 	current_line_index = -1
 	is_active = true
 	visible = true
+	_set_dialogue_input(true)
+	modulate.a = 1.0 if reduced_motion else 0.0
+	if text_lbl: text_lbl.modulate.a = 1.0
+	if not reduced_motion:
+		_presentation_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		_presentation_tween.tween_property(self, "modulate:a", 1.0, 0.22)
 	_layout()
 	if continue_button: continue_button.grab_focus()
 	emit_signal("dialogue_started")
@@ -202,6 +273,13 @@ func advance_dialogue() -> void:
 
 	_apply_line_text()
 	_content_scroll.scroll_vertical = 0
+	if _line_tween and _line_tween.is_valid(): _line_tween.kill()
+	if text_lbl:
+		text_lbl.modulate.a = 1.0
+		if current_line_index > 0 and not reduced_motion:
+			text_lbl.modulate.a = 0.55
+			_line_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			_line_tween.tween_property(text_lbl, "modulate:a", 1.0, 0.12)
 
 	emit_signal("line_displayed", current_line_index, line)
 
@@ -209,5 +287,15 @@ func close_dialogue() -> void:
 	if not is_active: return
 	is_active = false
 	is_typing = false
-	visible = false
+	_cancel_presentation()
+	_set_dialogue_input(false)
+	if reduced_motion:
+		modulate.a = 0.0
+		visible = false
+	else:
+		_presentation_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_presentation_tween.tween_property(self, "modulate:a", 0.0, 0.18)
+		_presentation_tween.finished.connect(_finish_departure.bind(_presentation_revision))
+	# Story and control handoff remain immediate; cosmetic departure does not
+	# delay a decision, replay a completion, or capture resumed player input.
 	emit_signal("dialogue_completed")

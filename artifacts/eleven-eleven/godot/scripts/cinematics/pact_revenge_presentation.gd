@@ -2,7 +2,7 @@ extends Node3D
 
 ## Local, editable presentation of the existing laboratory beats. This node
 ## never accepts a pact, ends a confrontation, grants power or records progress.
-const Audio = preload("res://scripts/audio/procedural_cinematic_audio.gd")
+const PactAudio = preload("res://scripts/audio/pact_audio_director.gd")
 var room: Node3D
 var main: Node
 var actor: Node3D
@@ -20,6 +20,8 @@ var _vein_material: ShaderMaterial
 var _splinter_positions: Array[Vector3] = []
 var _suppressed_wing: Node3D
 var _wing_was_visible := false
+var _suppressed_actor: Node3D
+var _actor_was_visible := false
 var _signal_material: StandardMaterial3D
 var _elapsed := 0.0
 var _duration := 0.0
@@ -28,7 +30,7 @@ var _camera: Camera3D
 var _previous: Camera3D
 var _overlay: CanvasLayer
 var _skip: Button
-var _sound: AudioStreamPlayer
+var audio_director: Node
 var _impact := 0.0
 var _phase := 0.0
 var _return_elapsed := -1.0
@@ -37,9 +39,13 @@ var _return_fov := 48.0
 var _start_pose := Transform3D.IDENTITY
 var _end_pose := Transform3D.IDENTITY
 var _owned_controls := false
+var _quiet_hud: Array[Dictionary] = []
 
 func _ready() -> void:
 	room = get_parent()
+	audio_director=PactAudio.new()
+	audio_director.name="PactAudioDirector"
+	add_child(audio_director)
 	_build_laboratory_details()
 	_build_zero()
 	_build_fracture_field()
@@ -239,21 +245,22 @@ func set_stage(value: String, restoring := false) -> void:
 	for shard in _shards: shard.visible = value in ["revenge","stasis"]
 	if _signal_material:
 		_signal_material.emission = Color(0.42,0.06,0.71) if value=="stasis" else Color(0.66,0.08,0.22)
-	if not restoring and value=="accepted": _play_chime()
+	_sync_audio_preferences()
+	if audio_director: audio_director.set_stage(value,restoring,bool(room.get("contract_done")))
 	if value=="stasis": _impact=0.0
 
-func _play_chime() -> void:
-	if room.audio_muted: return
-	if not _sound:
-		_sound = AudioStreamPlayer.new()
-		_sound.name = "CovenantChime"
-		_sound.volume_db = -20.0
-		add_child(_sound)
-	_sound.stream = Audio.create_covenant_chime()
-	_sound.play()
+func _sync_audio_preferences() -> void:
+	if not audio_director or not room: return
+	var deciding:=false
+	if is_instance_valid(main) and main.get("hud"):
+		var decision: Control=main.hud.find_child("SystemWindow",true,false)
+		deciding=is_instance_valid(decision) and decision.visible and bool(decision.get("_modal"))
+	audio_director.sync_preferences(bool(room.get("audio_muted")),1.0,deciding)
 
 func impact_feedback(contacts: int) -> void:
 	if contacts<1 or contacts>3 or stage=="stasis": return
+	_sync_audio_preferences()
+	if audio_director: audio_director.contact_confirmed(contacts,bool(room.get("contract_done")))
 	_impact=0.0 if room.reduced_motion else 0.38
 	for i in _shards.size():
 		if i<contacts*4: _shards[i].show()
@@ -263,16 +270,26 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	main=owner
 	actor=subject
 	_kind=kind
-	# The existing wing is an oversized luminous combat prop. The dialogue
-	# insert suppresses it visually and restores its prior visibility afterward;
-	# its manifestation state, power and all attack contacts remain untouched.
+	# A bounded, socket-validated feather rig belongs in Echo's pact portrait.
+	# Keep the prior suppression only for a legacy wing lacking that guarantee;
+	# neither branch changes manifestation state or contract authority.
 	_suppressed_wing=main.player.find_child("ZeroShadowWing",true,false) as Node3D
-	if _suppressed_wing and kind in ["accepted","revenge"]:
+	var supports_framing: bool=is_instance_valid(_suppressed_wing) and _suppressed_wing.has_method("supports_cinematic_framing") and bool(_suppressed_wing.call("supports_cinematic_framing"))
+	if _suppressed_wing and not supports_framing and kind in ["accepted","revenge"]:
 		_wing_was_visible=_suppressed_wing.visible
 		_suppressed_wing.hide()
+	else:
+		_suppressed_wing=null
+	# Zero's accepted acknowledgement is an encounter with Echo. Keep the
+	# live revenge actor out of this picture until control returns to the lab.
+	if kind=="accepted" and is_instance_valid(actor):
+		_suppressed_actor=actor
+		_actor_was_visible=actor.visible
+		actor.hide()
 	_previous = get_viewport().get_camera_3d()
 	if not _previous or main.reduced_motion:
 		_restore_wing()
+		_restore_actor()
 		return
 	_camera=Camera3D.new()
 	_camera.name="PactRevengeCamera"
@@ -293,8 +310,10 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 		toward=toward.normalized()
 		var side: Vector3 = Vector3(toward.z,0,-toward.x)
 		_camera.global_position=main.player.global_position-toward*3.8+side*4.6+Vector3.UP*3.2
-		point=main.player.global_position.lerp(_zero.global_position,0.55)+Vector3.UP*2.75
+		point=main.player.global_position.lerp(_zero.global_position,0.55)+Vector3.UP*2.18
 		_duration=3.6
+		if generated_zero.source_player and generated_zero.source_player.has_animation("pact/agree"):
+			_duration=maxf(_duration,generated_zero.source_player.get_animation("pact/agree").length+0.35)
 	else:
 		if not is_instance_valid(actor):
 			_camera.queue_free()
@@ -308,6 +327,17 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 		point=center+Vector3.UP*0.2
 		_duration=4.0
 	_camera.look_at(point)
+	if kind=="revenge":
+		# A local camera fill reveals the two faces without bleaching the
+		# laboratory. It exists only while this optional insert owns the camera.
+		var face_fill:=OmniLight3D.new()
+		face_fill.name="DialogueFaceFill"
+		face_fill.light_color=Color(0.75,0.70,0.77)
+		face_fill.light_energy=1.75
+		face_fill.omni_range=6.0
+		face_fill.omni_attenuation=0.65
+		face_fill.shadow_enabled=false
+		_camera.add_child(face_fill)
 	_start_pose=_camera.global_transform
 	_end_pose=_start_pose
 	_end_pose.origin+=(_camera.global_basis.z*-0.28)
@@ -317,16 +347,17 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	_owned_controls=kind=="accepted"
 	if _owned_controls: main._on_opening_dialogue_started()
 	_camera.make_current()
+	_quiet_story_hud()
 	_overlay=CanvasLayer.new()
 	_overlay.layer=96
 	add_child(_overlay)
 	_skip=Button.new()
 	_skip.name="ReturnToPlay"
-	_skip.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	_skip.offset_left=-205
+	_skip.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	_skip.offset_left=-225
 	_skip.offset_right=-20
-	_skip.offset_top=20
-	_skip.offset_bottom=72
+	_skip.offset_top=-84
+	_skip.offset_bottom=-24
 	_skip.pressed.connect(finish)
 	_overlay.add_child(_skip)
 	_skip.add_theme_font_override("font",preload("res://assets/fonts/NotoSansArabic.ttf"))
@@ -334,6 +365,8 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 
 func _process(delta: float) -> void:
 	if not room: return
+	_sync_audio_preferences()
+	if active: _hold_story_hud_quiet()
 	var still: bool=room.reduced_motion or stage=="stasis"
 	if not still: _phase+=delta
 	if generated_zero: generated_zero.tick(_phase,still,stage,delta)
@@ -343,7 +376,6 @@ func _process(delta: float) -> void:
 			mat.set_shader_parameter("phase",_phase)
 	for i in _splinters.size():
 		_splinters[i].position=_splinter_positions[i] if still else _splinter_positions[i]+Vector3(0.015*sin(_phase*.42+i),0.06*sin(_phase*.65+i),0)
-	if _sound and room.audio_muted: _sound.stop()
 	_impact=maxf(0.0,_impact-delta)
 	for i in _shards.size():
 		_shards[i].position.y=0.08 if still else 0.08+sin(_phase*8.0+i)*_impact*0.12
@@ -373,6 +405,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func finish(immediate := false) -> void:
 	if not active: return
+	# Returning from a camera insert never cancels the story-owned stage or
+	# its ambience. Only a still-playing transient belongs to this return.
+	if audio_director: audio_director.stop_transients()
 	if not immediate and is_instance_valid(_camera) and is_instance_valid(_previous) and not room.reduced_motion:
 		if _return_elapsed<0.0:
 			_return_elapsed=0.0
@@ -387,6 +422,8 @@ func finish(immediate := false) -> void:
 	_camera=null
 	_overlay=null
 	_restore_wing()
+	_restore_actor()
+	_restore_story_hud()
 	# Re-evaluate the existing modal owner even for a shot behind a decision.
 	# Other accessibility finish hooks may run first and release old ownership.
 	if is_instance_valid(main) and not main.is_queued_for_deletion(): main._release_gameplay_modal_controls()
@@ -394,11 +431,50 @@ func finish(immediate := false) -> void:
 
 func _exit_tree() -> void:
 	finish(true)
+	if audio_director: audio_director.cancel()
 
 func _restore_wing() -> void:
 	if is_instance_valid(_suppressed_wing) and _wing_was_visible: _suppressed_wing.show()
 	_suppressed_wing=null
 	_wing_was_visible=false
+
+func _restore_actor() -> void:
+	if is_instance_valid(_suppressed_actor): _suppressed_actor.visible=_actor_was_visible
+	_suppressed_actor=null
+	_actor_was_visible=false
+
+func _quiet_story_hud() -> void:
+	# Preserve gameplay-owned visibility and choices. Only passive readouts
+	# fade from the picture; pause, consent and the return control stay usable.
+	for label in ["CompassRadarBar","QuestContainer","ComboContainer","InteractionPromptHUD","TutorialToastSystem"]:
+		var item:=main.hud.find_child(label,true,false) as CanvasItem
+		if not item: continue
+		_quiet_hud.append({"node":item,"alpha":item.modulate.a,"visible":item.visible})
+		if label=="TutorialToastSystem": _quiet_hud[-1]["toast_id"]=String(item.get("active_toast_id"))
+		item.modulate.a=0.0
+		# Gameplay colour tweens run after _process and can restore alpha in
+		# the same frame. Visibility keeps those updates out of the shot.
+		item.hide()
+
+func _restore_story_hud() -> void:
+	for saved in _quiet_hud:
+		if is_instance_valid(saved.node):
+			saved.node.modulate.a=saved.alpha
+			saved.node.visible=saved.visible
+			if saved.has("toast_id") and String(saved.node.get("active_toast_id"))!=saved.toast_id:
+				# A timed hint may have expired while this shot was active.
+				# Restoring the snapshot must not revive its old text.
+				saved.node.hide()
+	_quiet_hud.clear()
+
+func _hold_story_hud_quiet() -> void:
+	# The campaign refreshes objective colours when its stage changes. Hold
+	# only the saved passive alphas while the shot owns presentation, so a
+	# same-frame gameplay refresh cannot put a readout back over the actors.
+	for saved in _quiet_hud:
+		if is_instance_valid(saved.node):
+			saved.node.modulate.a=0.0
+			saved.node.hide()
 
 func _fit_return_camera() -> void:
 	if not is_instance_valid(main.player) or not main.player.camera_boom: return

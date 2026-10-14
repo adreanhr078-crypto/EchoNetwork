@@ -53,6 +53,9 @@ var opening_memory_recovered: bool = false
 func _text(ar: String, en: String) -> String:
 	return main_root.opening_text(ar, en) if main_root else ar
 
+func _has_room_continuation() -> bool:
+	return main_root != null and main_root.get_node_or_null("SystemJourneyPreview") != null
+
 func refresh_opening_objective() -> void:
 	if not hud or current_step != Step.STAGE_0_AWAKENING:
 		return
@@ -74,8 +77,12 @@ func refresh_opening_objective() -> void:
 		title = _text("العتبة المفتوحة · 4/4", "Open threshold · 4/4")
 		description = _text("اقترب من البوابة لترى ما كشفت عنه.", "Approach the gate to see what it revealed.")
 	if main_root and main_root.opening_web_handoff.reported_milestones.has("memory_scene_completed"):
-		title = _text("نهاية الافتتاح", "Opening complete")
-		description = _text("حُفظ أثر الغرفة. يتبع...", "Room trace saved. To be continued...")
+		if _has_room_continuation():
+			title = _text("خلف العتبة", "Beyond the threshold")
+			description = _text("اعبر الباب المفتوح واتبع المقابض إلى طريق الصيانة.", "Cross the open door and follow the grips into the maintenance route.")
+		else:
+			title = _text("نهاية الافتتاح", "Opening complete")
+			description = _text("حُفظ أثر الغرفة. يتبع...", "Room trace saved. To be continued...")
 	hud.set_directive(title, description)
 	_update_room_markers()
 
@@ -198,7 +205,10 @@ func _physics_process(_delta: float) -> void:
 		if main_root and main_root.has_method("play_opening_boundary_memory"):
 			main_root.play_opening_boundary_memory()
 		if hud and hud.has_method("show_tutorial_toast"):
-			hud.show_tutorial_toast("TOAST_CHAPTER_END", "11.11", _text("نهاية الافتتاح", "End of opening"), _text("خلف العتبة أثر لم تُكشف هويته بعد. يتبع...", "An unidentified trace waits beyond the threshold. To be continued..."), 7.0)
+			if _has_room_continuation():
+				hud.show_tutorial_toast("TOAST_ROOM_EXIT", "11.11", _text("طريق الصيانة", "Maintenance route"), _text("الإشارة تمتد خلف الباب. اتبع المقابض إلى الممر المرتفع.", "The signal continues beyond the door. Follow the grips toward the upper passage."), 5.0)
+			else:
+				hud.show_tutorial_toast("TOAST_CHAPTER_END", "11.11", _text("نهاية الافتتاح", "End of opening"), _text("خلف العتبة أثر لم تُكشف هويته بعد. يتبع...", "An unidentified trace waits beyond the threshold. To be continued..."), 7.0)
 
 	# Stage 0 -> 1: Threshold crossing at Gate 1 (pz <= -18.5)
 	# The approved opening ends at Gate 1. Later stages stay dormant until a new phase is accepted.
@@ -350,7 +360,7 @@ func _open_primary_blast_gate() -> void:
 				"TOAST_GATE1",
 				"11.11",
 				_text("البوابة الرئيسية", "Main gate"),
-				_text("انفتحت البوابة. ما وراءها ينتظر في الفصل التالي.", "The gate is open. Beyond it awaits the next chapter."),
+				_text("انفتحت البوابة. اقترب منها واقرأ أثر الإشارة خلفها.", "The gate is open. Approach it and read the signal trace beyond."),
 				5.0
 			)
 	refresh_opening_objective()

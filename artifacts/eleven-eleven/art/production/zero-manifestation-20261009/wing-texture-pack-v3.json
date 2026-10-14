@@ -1,0 +1,126 @@
+{
+  "status": "TEXTURE_CODEC_PASS_NATIVE_REVIEW_REQUIRED",
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\zero-manifestation-20261009\\wing-feathers-v2-2k-lossless.glb",
+  "source_sha256": "ae5f621bd6c03fb2263456f2b7561b451b84fe7445c667e1883c1030e74b1bca",
+  "output": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\characters\\echo_shadow_wing_feathers_v1.glb",
+  "output_sha256": "1ff118327378d7680137a0a7d86d79312ade7105b2bc1f9658a133a489f44d73",
+  "source_bytes": 13508260,
+  "runtime_bytes": 5636556,
+  "runtime_budget_bytes": 6291456,
+  "image_records": [
+    {
+      "name": "NormalGL_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "size": [
+        2048,
+        2048
+      ],
+      "source_bytes": 1218975,
+      "source_sha256": "94359d781fb18448a9fbf25fdc9cd1f4548d648ab5af01a78c61aac6172522cd",
+      "codec": "PNG",
+      "byte_identical": true,
+      "runtime_bytes": 1218975,
+      "runtime_sha256": "94359d781fb18448a9fbf25fdc9cd1f4548d648ab5af01a78c61aac6172522cd"
+    },
+    {
+      "name": "Color_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "size": [
+        2048,
+        2048
+      ],
+      "source_bytes": 5231465,
+      "source_sha256": "0d28b462d267012c082047e3aed6b8a4d9135c66ef5f8a2b2d2c2fe7980abf98",
+      "codec": "JPEG",
+      "quality": 95,
+      "chroma_subsampling": "4:4:4",
+      "mean_absolute_error_255": [
+        0.6316649913787842,
+        0.6274995803833008,
+        0.7020087242126465
+      ],
+      "max_absolute_error_255": [
+        11,
+        10,
+        17
+      ],
+      "psnr_db": 47.3604886052602,
+      "runtime_bytes": 1228503,
+      "runtime_sha256": "2c7d1e1401c10f7ddb8e1797b18c3e18b3ba1aeba8db3e1cc415079747b8a523"
+    },
+    {
+      "name": "ORM_dc3f46f8-b751-49dc-ace0-ac498826561a",
+      "size": [
+        2048,
+        2048
+      ],
+      "source_bytes": 5233368,
+      "source_sha256": "4ac00436ac35683d931e928d2317fd41f8e88f47d49dd52dabcb07ab9e19956d",
+      "codec": "JPEG",
+      "quality": 95,
+      "chroma_subsampling": "4:4:4",
+      "mean_absolute_error_255": [
+        0.32830142974853516,
+        0.5393857955932617,
+        0.8434774875640869
+      ],
+      "max_absolute_error_255": [
+        12,
+        11,
+        19
+      ],
+      "psnr_db": 47.32491057535023,
+      "runtime_bytes": 1364627,
+      "runtime_sha256": "d76be01147ca9e85e582cf0cb1cf2a80b15174b87776b0df5e79b357672c4511"
+    }
+  ],
+  "geometry_views": [
+    {
+      "buffer_view": 0,
+      "bytes": 290136,
+      "sha256": "b0c9b06df312976c2f0ce209692ee93625c3f78780e343c5ee38043a209010ad",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 1,
+      "bytes": 290136,
+      "sha256": "d02f0494efbb5aadf08aa07f7d3d173730e3fad49bff0aa76e61cda6c2409791",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 2,
+      "bytes": 193424,
+      "sha256": "fbe6d2b0fa087d906149f9efe85e89ca97f02bef37ce5f3cfe25e1d471445071",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 3,
+      "bytes": 386848,
+      "sha256": "769143c24598e9c836e12c46caf5e3aea84721978cd42a82953cb7a39b31b9df",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 4,
+      "bytes": 96712,
+      "sha256": "4a34984eb877105f7903370d1271fa2add004589a3af99b4b99554753fa11afb",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 5,
+      "bytes": 386848,
+      "sha256": "b44978ddaa0897175e121a597777da89a1bc5fd0019d5e10453074c0f5627c99",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 6,
+      "bytes": 173670,
+      "sha256": "cd9734fbbf8efe7f923cd5260e4415685a92d309b1bdbe9cd0cb8b34ac09126c",
+      "byte_identical": true
+    },
+    {
+      "buffer_view": 10,
+      "bytes": 1024,
+      "sha256": "785375f8f4cf9d3037a9da6a7e9410d3ed74eff29c00aa132089100dc9d34b71",
+      "byte_identical": true
+    }
+  ],
+  "geometry_uv_skin_tangents_byte_identical": true
+}

@@ -440,6 +440,45 @@
         "balance",
         "--json"
       ]
+    },
+    {
+      "id": "echo-shadow-wing-v1",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 70,
+      "args": [
+        "make",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/echo-wing-reference-v1.png",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "face_limit=30000",
+        "-p",
+        "geometry_quality=ultra",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "texture_version=v3.5-20260815",
+        "-p",
+        "auto_size=true",
+        "--name",
+        "echo-shadow-wing-v1-20261008",
+        "-o",
+        "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/tripo-20261007/echo-shadow-wing-v1",
+        "--json",
+        "--yes",
+        "--no-open"
+      ]
+    },
+    {
+      "id": "balance-20261009",
+      "owner": "root",
+      "enabled": true,
+      "maxCredits": 0,
+      "args": [
+        "balance",
+        "--json"
+      ]
     }
   ]
 }

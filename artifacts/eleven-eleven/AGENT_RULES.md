@@ -2,6 +2,18 @@
 
 These rules apply to every agent working in the active application.
 
+## Owner audio direction — 2026-10-09
+
+The Owner forbids music. Use environmental, movement, physical impact and
+non-melodic heartbeat/rhythmic effects only. Do not create, import or play
+instrumental scores, melodies, chords, musical arpeggios, pitched ambient
+soundtracks or musical achievement fanfares. Preserve functional speech and
+medical/device alarms as effects, not a soundtrack. Flow and other external
+generation briefs must explicitly request no music or instruments. Legacy
+method names such as `create_quest_complete_fanfare` are compatibility APIs;
+their payloads must remain non-musical physical cues. Listening quality and
+the Owner's judgment are separate from automated PCM checks.
+
 ## Owner animation foundation — 2026-09-30
 
 The frozen Golden invariants apply to every character skeletal animation

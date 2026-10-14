@@ -18,6 +18,14 @@ signal conduit_energized(conduit_node: Node)
 var _surge_tween: Tween = null
 var _core_material: StandardMaterial3D = null
 var _signal_materials: Array[StandardMaterial3D] = []
+var reduced_motion := false
+
+func set_reduced_motion(enabled: bool) -> void:
+	reduced_motion = enabled
+	if enabled and _surge_tween:
+		_surge_tween.kill()
+		_surge_tween = null
+	if is_node_ready(): _update_visuals()
 
 func _ready() -> void:
 	add_to_group("damageable")
@@ -65,7 +73,7 @@ func _update_visuals() -> void:
 		signal_material.emission_energy_multiplier = 1.4 if is_energized else 0.45
 
 	if spark_particles:
-		spark_particles.emitting = is_energized
+		spark_particles.emitting = is_energized and not reduced_motion
 
 func get_interaction_prompt() -> String:
 	return "شحن موصل الطاقة [E]" if not is_energized else "الموصل مشحون"
@@ -91,38 +99,18 @@ func energize(hit_source_pos: Vector3 = Vector3.ZERO) -> void:
 	is_energized = true
 	_update_visuals()
 
-	# Audio feedback: Synthesized electric surge
-	var audio_player := AudioStreamPlayer3D.new()
-	add_child(audio_player)
-	var synth = load("res://scripts/audio/procedural_cinematic_audio.gd")
-	if synth:
-		# Synthesize high voltage surge
-		var sample_rate: float = 44100.0
-		var duration: float = 0.65
-		var num_samples: int = int(sample_rate * duration)
-		var pcm_data := PackedByteArray()
-		pcm_data.resize(num_samples * 2)
-
-		for i in range(num_samples):
-			var t: float = float(i) / sample_rate
-			var freq: float = lerpf(320.0, 1480.0, t / duration)
-			var env: float = (1.0 - (t / duration)) * minf(1.0, t * 40.0)
-			var wave: float = sin(2.0 * PI * freq * t) * 0.7 + sin(4.0 * PI * freq * t) * 0.3
-			var sample_val: int = int(clampf(wave * env, -1.0, 1.0) * 32767.0)
-			var idx: int = i * 2
-			pcm_data[idx] = sample_val & 0xFF
-			pcm_data[idx + 1] = (sample_val >> 8) & 0xFF
-
-		var stream := AudioStreamWAV.new()
-		stream.format = AudioStreamWAV.FORMAT_16_BITS
-		stream.mix_rate = int(sample_rate)
-		stream.data = pcm_data
-		audio_player.stream = stream
+	# A physical relay snap, spatial and mute-aware, with no pitched sequence.
+	if not AudioServer.is_bus_mute(AudioServer.get_bus_index("Master")):
+		var audio_player := AudioStreamPlayer3D.new()
+		add_child(audio_player)
+		audio_player.stream = ProceduralCinematicAudio.create_physical_signal(0.65, [0.02, 0.15], 111114, 0.42)
+		audio_player.volume_db = -8.0
+		audio_player.max_distance = 12.0
 		audio_player.play()
 		audio_player.finished.connect(audio_player.queue_free)
 
 	# Visual flash surge tween
-	if core_light:
+	if core_light and not reduced_motion:
 		if _surge_tween:
 			_surge_tween.kill()
 		_surge_tween = create_tween()

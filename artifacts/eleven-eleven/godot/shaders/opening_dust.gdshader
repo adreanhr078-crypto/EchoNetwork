@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode unshaded, cull_disabled;
 
 uniform float motion_time = 0.0;
+uniform float reaction = 0.0;
 varying vec3 dust_color;
 void vertex() {
     float seed = INSTANCE_CUSTOM.x;
@@ -11,5 +12,5 @@ void vertex() {
 }
 void fragment() {
     ALBEDO = dust_color;
-    EMISSION = dust_color*0.16;
+    EMISSION = dust_color*(0.16+reaction*0.65);
 }

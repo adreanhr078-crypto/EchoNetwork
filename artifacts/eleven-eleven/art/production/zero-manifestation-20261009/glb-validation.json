@@ -1,0 +1,43 @@
+{
+  "status": "FAIL",
+  "input": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\characters\\echo_shadow_wing_feathers_v1.glb",
+  "sha256": "404e01b00bf20be7e7e64672009c876bc2541fdbedb77c13c65667d3dd2002fb",
+  "bytes": 9550140,
+  "assetVersion": "2.0",
+  "metrics": {
+    "triangles": 28945,
+    "vertices": 24178,
+    "meshes": 1,
+    "primitives": 1,
+    "materials": 1,
+    "textures": 3,
+    "animations": 0,
+    "maxJointsPerSkin": 16
+  },
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "issues": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "hints": 0,
+    "messages": [
+      {
+        "code": "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE",
+        "message": "Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations.",
+        "severity": 1,
+        "pointer": "/meshes/0/primitives/0/material"
+      },
+      {
+        "code": "NODE_SKINNED_MESH_NON_ROOT",
+        "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+        "severity": 1,
+        "pointer": "/nodes/16"
+      }
+    ]
+  },
+  "failures": [
+    "Khronos validator warnings: 2",
+    "File size 9550140 exceeds 6291456 bytes."
+  ]
+}

@@ -1,6 +1,7 @@
 extends Control
 const SYSTEM_FONT=preload("res://assets/fonts/NotoSansArabic.ttf")
 const SYSTEM_GLASS=preload("res://assets/ui/system-red-glass-v1.png")
+const NativeUIDensity = preload("res://scripts/ui/native_ui_density.gd")
 
 signal system_window_opened(type)
 signal system_window_closed(type)
@@ -19,7 +20,17 @@ var current_type: WindowType = WindowType.NOTIFICATION
 var follow_player: Node3D = null
 var _window_generation: int = 0
 var _popup_tween: Tween = null
-var reduced_motion := false
+var reduced_motion := false:
+	set(value):
+		reduced_motion = value
+		if value and is_node_ready():
+			if _popup_tween and _popup_tween.is_valid(): _popup_tween.kill()
+			if panel:
+				panel.scale = Vector2.ONE
+				panel.modulate.a = 0.0 if _closing else 1.0
+			if _closing: visible = false
+			if _signal_glass: _signal_glass.begin(true, current_type == WindowType.SOLO_LEVELING_GLITCH)
+var _closing := false
 var presentation_language := "ar"
 var _modal := false
 var _inspection_layout:=false
@@ -99,14 +110,18 @@ func set_presentation_language(language: String) -> void:
 	layout_direction = Control.LAYOUT_DIRECTION_RTL if presentation_language == "ar" else Control.LAYOUT_DIRECTION_LTR
 	if confirm_btn: confirm_btn.text = "إغلاق" if presentation_language == "ar" else "Close"
 
+func _presentation_density() -> float:
+	return NativeUIDensity.pixel_ratio()
+
 func _layout_panel() -> void:
-	if not panel or not _scroll: return
+	if not panel or not _scroll or _closing: return
 	# Native boot uses a 1920x1080 canvas. Keep this dialog's text and 48px
 	# targets readable when the containing window is smaller than that canvas.
 	var stretch:=get_viewport().get_stretch_transform().get_scale()
 	stretch=Vector2(maxf(0.001,stretch.x),maxf(0.001,stretch.y))
-	scale=Vector2.ONE/stretch
-	var screen := get_viewport().get_visible_rect().size*stretch
+	var density := _presentation_density()
+	scale=Vector2.ONE*density/stretch
+	var screen := get_viewport().get_visible_rect().size*stretch/density
 	size=screen
 	position=Vector2.ZERO
 	panel.size.x = maxf(240, minf(480, screen.x - 48))
@@ -128,7 +143,7 @@ func set_player(target: Node3D) -> void:
 	follow_player = target
 
 func _process(delta: float) -> void:
-	if not visible or not panel:
+	if not visible or not panel or _closing:
 		return
 	_layout_panel()
 	if _modal or not follow_player or not is_instance_valid(follow_player): return
@@ -138,8 +153,8 @@ func _process(delta: float) -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	var anchor: Vector2 = camera.unproject_position(follow_player.global_position + Vector3(0, 1.45, 0))
 	var stretch:=get_viewport().get_stretch_transform().get_scale()
-	viewport_size*=stretch
-	anchor*=stretch
+	viewport_size*=stretch/_presentation_density()
+	anchor*=stretch/_presentation_density()
 	var target_position := Vector2(
 		clampf(anchor.x + 108.0, 24.0, viewport_size.x - panel.size.x - 24.0),
 		clampf(anchor.y - 56.0, 24.0, viewport_size.y - panel.size.y - 24.0)
@@ -151,6 +166,7 @@ func blocks_quest_tracker() -> bool:
 
 func show_system_window(type: WindowType, title: String, message: String, stats: Array = [], auto_close_delay: float = 0.0) -> void:
 	_ensure_nodes()
+	preload("res://scripts/ui/system_window_fracture.gd").clear_owned(self)
 	var crisp_theme:=Theme.new()
 	var crisp_font:=SYSTEM_FONT.duplicate() as FontFile
 	crisp_font.oversampling=1.0
@@ -158,6 +174,7 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 	crisp_theme.default_font=crisp_font
 	theme=crisp_theme
 	_window_generation += 1
+	_closing = false
 	var generation: int = _window_generation
 	current_type = type
 	_inspection_layout=false
@@ -168,6 +185,7 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 	var shield := get_node("ClickShield") as Control
 	shield.visible = _modal
 	shield.mouse_filter = Control.MOUSE_FILTER_STOP if _modal else Control.MOUSE_FILTER_IGNORE
+	_set_presentation_input(true)
 	var compact: bool = type == WindowType.NOTIFICATION or type == WindowType.QUEST_COMPLETED
 	if panel:
 		panel.size = Vector2(410.0, 190.0 if compact else 300.0)
@@ -229,8 +247,8 @@ func show_system_window(type: WindowType, title: String, message: String, stats:
 		var tree = get_tree() if is_inside_tree() else null
 		if tree and not reduced_motion:
 			_popup_tween = create_tween().set_parallel(true)
-			_popup_tween.tween_property(panel, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			_popup_tween.tween_property(panel, "modulate:a", 1.0, 0.18)
+			_popup_tween.tween_property(panel, "scale", Vector2.ONE, 0.22).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+			_popup_tween.tween_property(panel, "modulate:a", 1.0, 0.18).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 			if auto_close_delay > 0.0:
 				tree.create_timer(auto_close_delay).timeout.connect(_close_if_generation.bind(generation))
@@ -260,11 +278,36 @@ func show_quest_update(completed_title: String, next_title: String) -> void:
 	)
 
 func close_window() -> void:
+	if not visible or _closing: return
 	_ensure_nodes()
 	_window_generation += 1
-	visible = false
+	_closing = true
+	_modal = false
+	if _popup_tween and _popup_tween.is_valid(): _popup_tween.kill()
 	get_node("ClickShield").hide()
+	_set_presentation_input(false)
+	if reduced_motion:
+		visible = false
+	else:
+		_popup_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_popup_tween.tween_property(panel, "modulate:a", 0.0, 0.18)
+		_popup_tween.finished.connect(_finish_departure.bind(_window_generation))
 	emit_signal("system_window_closed", current_type)
+
+func _finish_departure(generation: int) -> void:
+	if generation == _window_generation and _closing: visible = false
+
+func _set_presentation_input(enabled: bool) -> void:
+	var controls := find_children("*", "Control", true, false)
+	controls.append(self)
+	for control: Control in controls:
+		# Preserve each child's original role: decorative glass stays ignored,
+		# while scroll and choice controls regain their own input filters.
+		if not control.has_meta("presentation_mouse_filter"):
+			control.set_meta("presentation_mouse_filter", control.mouse_filter)
+		control.mouse_filter = control.get_meta("presentation_mouse_filter") if enabled else Control.MOUSE_FILTER_IGNORE
+		if not enabled: control.release_focus()
+		if control is BaseButton: control.disabled = not enabled
 
 # Convenience shortcuts
 func show_level_up(level_num: int = 2) -> void:

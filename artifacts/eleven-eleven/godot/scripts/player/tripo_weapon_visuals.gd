@@ -46,7 +46,7 @@ static func apply_weapon_visuals(player_node: Node3D) -> Dictionary:
 
 	# 1. Apply to standard KatanaBlade
 	var katana: Node3D = null
-	if player_node.name == "KatanaBlade":
+	if player_node.name in ["KatanaBlade", "KatanaHipScabbard"]:
 		katana = player_node
 	else:
 		katana = player_node.find_child("KatanaBlade", true, false) as Node3D

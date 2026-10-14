@@ -158,13 +158,14 @@ export async function completeOpeningRecovery(
   if (existing) return readRecoveryRow(existing);
 
   const completedAt = new Date().toISOString();
+  const attemptedReceiptId = crypto.randomUUID();
   await database.prepare(`
     INSERT OR IGNORE INTO player_opening_recovery_receipts (
       user_id, receipt_id, puzzle_id, puzzle_version, completed_at
     ) VALUES (?, ?, ?, ?, ?)
   `).bind(
     account.uid,
-    crypto.randomUUID(),
+    attemptedReceiptId,
     OPENING_COVER_PUZZLE_ID,
     OPENING_VERSION,
     completedAt,
@@ -179,7 +180,9 @@ export async function completeOpeningRecovery(
   }
   return {
     ...readRecoveryRow(receipt),
-    awarded: true,
+    // INSERT OR IGNORE may lose to another request after the empty precheck.
+    // The stored server-generated ID proves ownership even without run metadata.
+    awarded: receipt.receipt_id === attemptedReceiptId,
   };
 }
 
@@ -210,13 +213,14 @@ export async function completeOpeningRoom(
   if (existing) return readRoomRow(existing);
 
   const completedAt = new Date().toISOString();
+  const attemptedReceiptId = crypto.randomUUID();
   await database.prepare(`
     INSERT OR IGNORE INTO player_opening_room_receipts (
       user_id, receipt_id, room_id, room_version, packet_id, page_ids_json, completed_at
     ) VALUES (?, ?, ?, ?, ?, ?, ?)
   `).bind(
     account.uid,
-    crypto.randomUUID(),
+    attemptedReceiptId,
     OPENING_ROOM_ID,
     OPENING_VERSION,
     OPENING_MANHWA_PACKET_ID,
@@ -233,6 +237,6 @@ export async function completeOpeningRoom(
   }
   return {
     ...readRoomRow(receipt),
-    awarded: true,
+    awarded: receipt.receipt_id === attemptedReceiptId,
   };
 }

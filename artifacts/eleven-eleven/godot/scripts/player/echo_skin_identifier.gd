@@ -8,6 +8,7 @@ const HEAD_BONE := "tripo__Head_1"
 const INK_OFFSET := 0.00015 #0.27mm at1.81 scale prevents z fighting.
 var projection_records: Array = []
 var placement_report := {}
+var _skin_minimum := Vector3(0.25, 0.0, 0.0)
 
 func _ready() -> void: _attach_identifier.call_deferred()
 
@@ -15,6 +16,10 @@ func _attach_identifier() -> void:
 	if not placement_report.is_empty(): return
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
 	var rig_profile := preload("res://scripts/player/echo_rig_profile.gd").identify(skeleton)
+	var v31_skin: bool = rig_profile.get("id") == preload("res://scripts/player/echo_rig_profile.gd").V31_ID
+	# The adopted coat has warm red cloth. Its measured neck skin is pale peach;
+	# the legacy warm-only classifier otherwise accepts cloth as exposed skin.
+	if v31_skin: _skin_minimum = Vector3(0.65, 0.50, 0.45)
 	var body_name := "EchoV31BodyAndCoat" if rig_profile.get("id") == preload("res://scripts/player/echo_rig_profile.gd").V31_ID else "EchoOpeningUniformBody"
 	var body := find_child(body_name, true, false) as MeshInstance3D
 	var neck_bone: String = str(rig_profile.get("bones",{}).get("neck",""))
@@ -53,14 +58,22 @@ func _attach_identifier() -> void:
 	var head := skeleton.get_bone_global_rest(skeleton.find_bone(head_bone)).origin
 	var up := (head - neck).normalized()
 	var triangles: Array = []
+	var projection_triangles: Array = []
 	for i in range(0, indices.size(), 3):
 		var a := indices[i]
 		var b := indices[i + 1]
 		var c := indices[i + 2]
 		var center := (rest_points[a] + rest_points[b] + rest_points[c]) / 3.0
-		if center.y < neck.y - 0.018 or center.y > head.y - 0.006: continue
+		# Include collar/hair in the visibility ray. Checking only skin permits
+		# numerically valid ink on skin hidden beneath the adopted high collar.
+		if v31_skin and minf(rest_points[a].y,minf(rest_points[b].y,rest_points[c].y)) <= head.y + 0.02 and maxf(rest_points[a].y,maxf(rest_points[b].y,rest_points[c].y)) >= neck.y - 0.018:
+			projection_triangles.append([a,b,c])
+		# V31's Head pivot lies at the lower neck, below the visible chin.
+		var upper_neck: float = head.y + 0.015 if v31_skin else head.y - 0.006
+		if center.y < neck.y - 0.018 or center.y > upper_neck: continue
 		if not _skin_texel(atlas, (uv[a] + uv[b] + uv[c]) / 3.0): continue
 		triangles.append([a, b, c])
+	if not v31_skin: projection_triangles = triangles
 	var template := TextMesh.new()
 	template.text = IDENTIFIER
 	template.font_size = 24
@@ -72,27 +85,64 @@ func _attach_identifier() -> void:
 	var chosen: Array = []
 	var chosen_angle := 0.0
 	var chosen_center := Vector3.ZERO
+	var chosen_font_scale := 1.0
+	var source_faces := faces.duplicate()
+	var heights := [0.004, 0.010, -0.002]
+	var placement_centers: Array[Vector3] = []
+	if v31_skin:
+		var exposed: Array[float] = []
+		for triangle in triangles:
+			var center: Vector3 = (rest_points[triangle[0]] + rest_points[triangle[1]] + rest_points[triangle[2]]) / 3.0
+			if (center-neck).dot(local_forward) <= 0 or absf(center.x-neck.x) > neck.distance_to(head): continue
+			exposed.append((center-neck).dot(up))
+		exposed.sort()
+		if not exposed.is_empty():
+			# Independent all-surface ray measurements locate visible throat skin
+			# in the upper band; the median patch is hidden by the high collar.
+			heights = [exposed[int((exposed.size()-1)*0.95)], exposed[int((exposed.size()-1)*0.85)], exposed[int((exposed.size()-1)*0.75)]]
+		var visible_centers: Array[Vector3] = []
+		var measured_direction := Basis(Vector3.UP,-deg_to_rad(15))*local_forward
+		var stride: int = maxi(1,int(ceil(triangles.size()/120.0)))
+		for index in range(0,triangles.size(),stride):
+			var triangle: Array = triangles[index]
+			var center: Vector3 = (rest_points[triangle[0]]+rest_points[triangle[1]]+rest_points[triangle[2]])/3.0
+			if (center-neck).dot(local_forward)<=0 or absf(center.x-neck.x)>neck.distance_to(head): continue
+			var hit := _project(center+measured_direction*0.18,-measured_direction,projection_triangles,rest_points,uv,atlas)
+			if not hit.is_empty() and hit.position.distance_to(center)<0.0003: visible_centers.append(center)
+		visible_centers.sort_custom(func(a: Vector3,b: Vector3): return a.y<b.y)
+		if not visible_centers.is_empty():
+			for fraction in [0.75,0.5,0.25]: placement_centers.append(visible_centers[int((visible_centers.size()-1)*fraction)])
+	if placement_centers.is_empty():
+		for height in heights: placement_centers.append(neck+up*float(height))
+	# A different collar exposes a smaller neck patch. Fit complete lettering
+	# deterministically, largest first; never place partial ink or a floating mesh.
+	var font_scales := [1.0,0.75,0.5] if rig_profile.id == preload("res://scripts/player/echo_rig_profile.gd").V31_ID else [1.0]
 	#Finite placement search over measured neck skin, never another bone.
-	for height in [0.004, 0.010, -0.002]:
+	for font_scale in font_scales:
 		if not chosen.is_empty(): break
-		for angle in [30.0, 15.0, 0.0]:
-			var outward := Basis(Vector3.UP,-deg_to_rad(angle))*local_forward
-			outward = (outward - up * outward.dot(up)).normalized()
-			var tangent := up.cross(outward).normalized()
-			var center: Vector3 = neck + up * float(height)
-			var attempt: Array = []
-			for glyph in faces:
-				var target: Vector3 = center + tangent * glyph.x + up * glyph.y
-				var hit := _project(target + outward * 0.18, -outward, triangles, rest_points, uv, atlas)
-				if hit.is_empty():
-					attempt.clear()
+		faces = source_faces.duplicate()
+		for index in faces.size(): faces[index] *= float(font_scale)
+		for measured_center in placement_centers:
+			if not chosen.is_empty(): break
+			for angle in [30.0, 15.0, 0.0]:
+				var outward := Basis(Vector3.UP,-deg_to_rad(angle))*local_forward
+				outward = (outward - up * outward.dot(up)).normalized()
+				var tangent := up.cross(outward).normalized()
+				var center: Vector3 = measured_center
+				var attempt: Array = []
+				for glyph in faces:
+					var target: Vector3 = center + tangent * glyph.x + up * glyph.y
+					var hit := _project(target + outward * 0.18, -outward, projection_triangles, rest_points, uv, atlas)
+					if hit.is_empty():
+						attempt.clear()
+						break
+					attempt.append(hit)
+				if attempt.size() == faces.size() and not attempt.is_empty():
+					chosen = attempt
+					chosen_angle = angle
+					chosen_center = center
+					chosen_font_scale = float(font_scale)
 					break
-				attempt.append(hit)
-			if attempt.size() == faces.size() and not attempt.is_empty():
-				chosen = attempt
-				chosen_angle = angle
-				chosen_center = center
-				break
 	if chosen.is_empty():
 		push_warning("EX-011: complete lettering cannot fit exposed neck; no floating substitute")
 		return
@@ -126,7 +176,7 @@ func _attach_identifier() -> void:
 				for point in polygon: center += point
 				center /= polygon.size()
 				var target: Vector3 = chosen_center + tangent * center.x + up * center.y
-				var visible := _project(target + outward * 0.18, -outward, triangles, rest_points, uv, atlas)
+				var visible := _project(target + outward * 0.18, -outward, projection_triangles, rest_points, uv, atlas)
 				if visible.is_empty() or visible.ids != triangle: continue
 				var polygon_uv := PackedVector2Array()
 				for point in polygon:
@@ -146,6 +196,8 @@ func _attach_identifier() -> void:
 	else: ink_material.set_shader_parameter("albedo_texture", ink_texture)
 	body.set_surface_override_material(0, ink_material)
 	placement_report = {"bone": neck_bone, "head_bone": head_bone, "rig_profile":rig_profile.id, "body_mesh":body_name, "legacy_fallback": false, "native_skin": true, "method": "instance-local skin albedo ink", "vertices": chosen.size(), "skin_triangles": triangles.size(), "angle_degrees": chosen_angle, "rest_center": [chosen_center.x, chosen_center.y, chosen_center.z], "skin_offset_local_m": 0.0, "atlas_skin_only": true, "ink_pixels": ink_pixels, "atlas_size": [atlas.get_width(), atlas.get_height()]}
+	placement_report["font_scale"] = chosen_font_scale
+	placement_report["collar_occlusion_checked"] = v31_skin
 
 func _stamp_triangle(destination: Image, original: Image, a: Vector2, b: Vector2, c: Vector2) -> int:
 	var size := Vector2(destination.get_width(), destination.get_height())
@@ -180,8 +232,10 @@ func _project(origin: Vector3, direction: Vector3, triangles: Array, points: Pac
 		var distance := origin.distance_to(hit)
 		if distance >= nearest: continue
 		var bary := _barycentric(hit, a, b, c)
-		if not _skin_texel(atlas, uv[triangle[0]] * bary.x + uv[triangle[1]] * bary.y + uv[triangle[2]] * bary.z): continue
 		nearest = distance
+		if not _skin_texel(atlas, uv[triangle[0]] * bary.x + uv[triangle[1]] * bary.y + uv[triangle[2]] * bary.z):
+			result = {}
+			continue
 		var normal := (b - a).cross(c - a).normalized()
 		if normal.dot(direction) > 0: normal = -normal
 		result = {"position": hit, "normal": normal, "ids": triangle, "bary": bary, "uv": uv[triangle[0]] * bary.x + uv[triangle[1]] * bary.y + uv[triangle[2]] * bary.z}
@@ -198,7 +252,7 @@ func _barycentric(point: Vector3, a: Vector3, b: Vector3, c: Vector3) -> Vector3
 
 func _skin_texel(atlas: Image, uv: Vector2) -> bool:
 	var color := atlas.get_pixel(clampi(int(uv.x * atlas.get_width()), 0, atlas.get_width() - 1), clampi(int(uv.y * atlas.get_height()), 0, atlas.get_height() - 1))
-	return color.r > 0.25 and color.r - color.b > 0.025 and color.r - color.g > 0.008
+	return color.r > _skin_minimum.x and color.g > _skin_minimum.y and color.b > _skin_minimum.z and color.r - color.b > 0.025 and color.r - color.g > 0.008
 
 func _ink_material() -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()
