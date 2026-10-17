@@ -17,7 +17,7 @@ var event_count := 0
 func _ready() -> void:
 	# The approved room geometry owns the pod position. Keep its visible cold-air
 	# bed below the clue/face line instead of filling the upper player silhouette.
-	_build_field("CryoVapor", 14, 0, Vector3(-2.5,0.25,2.8), Vector3(0.90,0.10,0.85), Vector2(1.25,0.65), Color(0.20,0.56,0.74))
+	_build_field("CryoVapor", 14, 0, Vector3(-1.95,0.22,2.35), Vector3(1.05,0.10,0.95), Vector2(1.55,0.72), Color(0.34,0.70,0.84))
 	_build_field("ObservationMotes", 32, 1, Vector3(6.1,2.0,-5.5), Vector3(1.1,1.4,2.0), Vector2(0.055,0.055), Color(0.34,0.55,0.96))
 	_build_field("SignalFragments", 12, 2, Vector3(2.8,1.15,2.4), Vector3(0.48,0.22,0.10), Vector2(0.24,0.06), Color(0.12,0.72,0.80))
 	var grain := SphereMesh.new()

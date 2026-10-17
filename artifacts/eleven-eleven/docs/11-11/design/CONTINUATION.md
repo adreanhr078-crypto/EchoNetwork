@@ -2731,3 +2731,183 @@ Flow: أربعة ملفات مكتملة،136 كريديت، رصيد الحسا
 الحزمة المحلية outputs/Room01-CP23 تستعمل المحرك الرسمي4.8.dev7 وحفظًا منفصلًا. فشل PCK الأول بسبب خامة غير مدرجة ضمن الموارد؛ أضيفت إلى قوائم Windows/Web/Android الثلاث ثم اجتازت الحزمة الفعلية فحص الإلغاء/التأكيد والكاميرا والخامة. قالب التصدير المستقل غير مثبت؛ ليست حزمة متجر. المقطع48عينة عند12fps للعرض فقط. Compatibility للمراجعة، إعداد renderer المشروع محفوظ.
 
 النهوض OPEN: wake القديم موجود على22عظمة؛ V31 الحقيقي68عظمة ولا يملك Wake مؤهلًا مدمجًا. wake-source-audit.json يحفظ الأسماء والتوقيت والبصمات. لا حقن مباشر أو تحريك عظام بالتخمين أو مفاتيح بديلة أو إخفاء المشكلة بفيديو. التالي: تحديد مصدر Wake الأصلي المؤهل وتوقيته ونقل معزول وفق Golden، ثم مراجعة V31 فعلية؛ Walk/تماس القدم، الوجه والقبضة والعباءة، الاستماع، تجربة لاعب والأداء المستهدف. لا صقل للغرفة02 قبل قبول01؛ المراحل30 وPART_3 كما هي. الهاتف مؤجل. التنفيذ فردي، لا شراء/نشر/commit أو حذف مصادر.
+
+
+## CP-20261014-02 / CP24 — خط أساس متصل أولًا؛ متابعة04
+
+أمر المالك الأحدث: إنجاز اللعبة كاملة بجودة عالية ثم التفاصيل الدقيقة؛ لا تعطيل الغرف التالية عند الساعة/Wake/الوجه/العباءة. استشارةArgonHigh فعلية09طلبات/إجابات، ست حزم تحفظ00–29، التنفيذ فردي وSFX_ONLY وCanon وGolden ثابتة.
+
+01: إضاءة وتوجيه متسلسل، ساعةBlender4784مثلثًا وإطار/ورقة/مشبكان232، فحص بحسبحدودالمجسم وضوابطRTL/LTR، إخفاءModelRootلمنظورقريب باستعادةcancel/confirm/pausedcheckpoint/removal. 27عقدفحصPASS. 02: دورانإشارةمنالدخول، تسربهواءمحليوإبرةضغطبساعةمحلية، موازنةضوء وRM/pause/الخروج، الفيزياءوالأصل محفوظان. 03: اكتشافالمجسمالمصمتبعدإزالةمصادمحدالصيانة؛فتحةShaderمكانية وإطارتبطينمطابقان للعبور، الصيانةالمعزولةمحفوظة.
+
+رحلةمرسومةبإدخالفعليمنالاستيقاظ عبرتسلقينوالفجوةوالعجلةوالمشهدوالتسلل/التحويل/القفل/العبور94شرطًاAR1280×720وEN960×540. مقاييس240processframesبدونFPSمصطنع فيcp24-connected-ar/profile.json؛ فحص01صار140draws/186136primitives، مدخل03p50/p95/p99=16.742/25.471/30.779msو857MBعدادtexturesليسVRAMمقيمة.
+
+الرحلةالوظيفيةللأجنحةالستة→عقدزيروصريح→ثلاثضربات→استكمالالانتقام→رغبةوحيدة→شقحقيقي→مستشفى/فحصEX-011اجتازتcurrent-campaign-final. فشلHUDالسابقكان5physicsتكاتقبلمعالجةprocess؛عدلfixtureلينتظرprocessولميسمحلعبتهبالتجاوز. العيوبوالسماعوالفنوالمرحلةمازالتOPEN، لاادعاءجاهزيةAAAأواعتماد30مرحلة.
+
+قوالبWindowsالرسميةالمطابقةمثبتةبـZIPCRCوبصماتالملفين؛ لاادعاءحساببصمةالأرشيفالكامل. تصديرEXE111754240بايت+PCK333508408بايت. القالبreleaseيتجاهل--script/--main-pack؛سببالمحاولتينموثق، لاPASSمزيف. مشغّلمراجعةمعuserargsوسكربتBootموردمدمجيمررمساراتحفظمنفصلة؛probeيعملفقطبخيارreview-smoke،قاداللاعببتحكمهالعامولاينقلهمباشرةللدليل. الحزمةالفعلية9PASSوصورةمرسومةومشاهدة، ليستمحركمحررمسمىexport.
+
+postflightبعدBoot645والبناءPASS، Golden192قبل/بعد. مصادرمحليةسابق dirtyمحفوظةفيbefore؛لاstaging/commit/reset/شراء/نشر/وكلاء. التالية04: تشخيصثلاثصورحديثةيحفظظلالالمصابيحبعدتبديلمؤقت؛ السائلOpaqueemission1.8هوflatcyan، لاالحل بإلغاءظلالالعالم. أبدأطبقةسائل/فقاعاتمتحركةمريحةوفحصتفاعليواضح، ثم05غرفةًغرفة. المصدر/الأدلة/الحزمةverification-cp24.json وSOURCE_INDEX.
+
+
+## CP-20261014-03 / CP25 — ROOM05_IN_PROGRESS
+
+- أحدث توجيه: مؤثرات وجزيئات متطايرة مريحة وقوية، جو نفسي غامض، أنيميشن إيكو، مراقبة وكاميرا وصوت مناسب ومهام ممتعة؛ استشارة Argon بكل خطوة. الأساس المتصل غرفةً غرفة ثم التفاصيل؛ التواصل نقطة، بلا وكلاء أو شراء/نشر/commit.
+-04: سائل شفاف بتيار محلي،36فقاعة و72ذرة هواء و24جزيئاً عند فتح البوابة؛ pause/RM/lifetime/idempotence/mute/restore PASS. فحص6سجلات بإدخال اللاعب بلا بوابات/flags/مكافآت إضافية. حاجب فعلي يحمي قراءة المحطة ويُبقي الرصد في العراء؛ FOV/range/grace لم تُغيّر. مخروط ناعم يتبع لون الاشتباه/الإنذار، وإضاءة محلية أهدأ. عبور04→ممر05 بالإدخال الحقيقي PASS، هيئة ومصادمات/رصد/بوابة/حفظ PASS. postflight645/build وGolden192PASS. صور جديدة مشاهدة؛ لقطة EX011 والبوابة القريبة ليست قبولاً فنياً بسبب الحجب/الكاميرا.
+-05 قيد التنفيذ: النواة شفافة بتدفق بيانات و3حلقات،56ذرة هواء و24جزيئاً عند جمع شظية أصلية؛ طفو/دوران للمرئي فقط، إشارة وحدة الأرشيف بعد الثلاث وصوت نقرتين فيزيائيتين غير موسيقي. أصل الخادم1m كان نصفه مدفوناً أمام مصادم6.5m؛ الآن6أصول مرئية تُلائم حدود المصادم دون تعديلGLB/الفيزياء. عقد المرئيات/الحركة/إتاحة/جمع مرة واحدة/كتم/استرجاعPASS، وفحص البنية وال3شظايا/وحدة/بوابة/حفظPASS. كريستالات أصلية ذات8أوجه حلت محل المكعبات بعد صورةcandidate؛ رحلة04→05 الحالية والجمع/الممشى/الخروج قيد التشغيل.
+- إرشادات04/05 تتبع الحالة الحقيقية الآن: سجل→خروج، جمع→وحدة أرشيف→خروج؛ عداد RTL محاط بعلاماتLTR. لا تغييرCanon أوcheckpointFLAGS أوreceipt.
+- المستشار:11إجابة فعلية محفوظة. الطلب12 أرسل الصورة الحالية05 وقياس240إطاراً وحدودGLB ومصدر HeadLookModifier والكاميرا الموجودين أصلاً؛ لا نكرر Modifier أوFOV. الرد12 ينتظر. التقرير verification-cp25-working.json والفهرس يربطان المصدر الحالي.
+- قياس الجهاز:04p95=45.818ms؛05قبل=31.51ms،candidate=35.036ms؛ ليستGPUtime/VRAM مقاسة أو قبول أداء. الفن والأنيميشن/تماس القدم/Wake/وجه/قبضة/عباءة والاستماع والأجهزة والمتعة المستقلة OPEN. PART_3 وCanon/Golden/SFX_ONLY محفوظة؛ لا اعتماد للفصل أو30مرحلة.
+- الحزمة المستقلة Connected-Chapter-CP24 تاريخية؛ لا تتضمن إضافات04/05. لا تعاد كتابة بصماتها بمصادر جديدة. التالي: فحص رحلة05 الحالية وصورها، الاستجابة لتوصية12 دون تشخيص عشوائي، ثم المفاعل06 بالتسلسل.
+
+الأدلة: audits/evidence/argon-production-20261014/verification-cp25-working.json؛ room04-shield-physics-contract.log، room04-final-presentation-contract.log، room04-connected-shielded.log، postflight-room04-shielded.log، golden-room04.log؛ room05-archive-original-contract-corrected.log، room05-archive-presentation-contract-corrected.log؛ فشل rung القديم وفشل frame scheduling محفوظان. SourceIndex مطابق لهذه الملفات الحالية؛ لا قبول فن أو FPS بسببPASSالعقود. لا وكلاء، لا staging/commit، العمل مستمر.
+
+
+# CP26 / CP-20261015-01 — المفاعل مثبت وظيفياً، الحجر الصحي قيد التشخيص
+
+استُدعيت محادثة «استأنف تطوير الغرفة الأولى». أحدث نقطة فعلية CP25 في الأرشيف، وتوقفت بسبب حد الاستخدام؛ ترويسة CP24 كانت أقدم. طابقت 20/20 بصمة قبل العمل. اكتملت رحلة الأرشيف المعلقة ثم أُعيدت الرحلة المتصلة في المصدر النهائي.
+
+في06: تحسنت قراءة الهيكل والممشيات، واستُثني ظل هيكل CoreBody وحده كي لا يحجب مصدره الداخلي؛ ظلال المصابيح والعالم محفوظة. ثلاث حلقات بلازما بتدفق محلي،48 ذرة معدات، منارات قواطع كهرماني/سيان، وحدود وتحذير وتفريغ من نفس نافذة الخطر. مؤثرات صوتية فيزيائية مخزنة عند انتقال الطور والقاطع والجسر، بلا موسيقى. يتغير إرشاد المهمة إلى القاطع المتبقي ثم الجسر والخروج.
+
+أثبت الاختبار خللاً سابقاً: استعادة حالة مغلقة أثناء Tween الجسر كانت تسمح باستكمال قديم يفتح البوابة ويعيد المؤثر. أُلغيت Tweens القديمة عند الاسترجاع، وأضيف استكمال صامت للحركة المحفوظة وحارس generation لتعطيل المصادم المؤجل. لا تغيير في مفاتيح get_state أو حدود/مواقع التصادمات أو دورات0.8/1.0/2.5 أو Canon/المكافآت/القوى.
+
+PASS: رحلة04→05→06 بالإدخال العام، الشظايا الثلاث والممشى ووحدة الأرشيف، انتظار التفريغ والقاطعان والجسر والمخرج والحفظ، بلا نقل بعدfixture وبلا قوى قبل العقد. PASS: مقارنة التصادمات والحالة الأولية بالسكريبت المحفوظ قبل التعديل، حدود الخطر، pause/RM/mute، عدم تكرار الطور/القاطع/البوابة، استرجاع أثناء رفع الجسر وفتح البوابة، paused/RM وسباق المصادم في الإطار نفسه، وعدد عقد ثابت. PASS: postflight645/0 والبناء، وGolden192 في فحص15أكتوبر. السجلات الفاشلة محفوظة؛ خروج0معSCRIPT ERROR لم يُحسب PASS.
+
+قياسات240إطاراً علىIntelUHD/Compatibility: قبلp50/p95=24.380/30.912ms؛ أول تمريرة24.829/36.666ms؛ المصدر النهائي24.414/30.379ms. draws1803→1751، primitives2.577M→2.424M. تباين العينات محفوظ؛ ليست قبول60fps أو قياسGPU/VRAM. صور حديثة شاهدها المنفذ وربطت بالمصدر؛ الفن والوجه/اليد/العباءة/Wake/Walk/تماس القدم، الاستماع والمتعة المستقلة والأجهزة OPEN.
+
+الاستشارة فعلية مع Argon High؛ مصادر وصور قبل/بعد راجعت في المحادثتين. أحدث توجيه المالك: استخدام متصفحCodex الخاص وحساباته المفتوحة لـGemini/Flow، والسماح برفع الصور وتوليد صور/فيديو عند حاجة سينمائية فعلية. رفع صورEdge نجح باللصق بعد تعذرfilechooser؛ انتقلت المحادثة نفسها إلى متصفحCodex بطلب المالك. لم يُنشأ أصل مدفوع أو يُسحب كود خارجي. العمل فردي، لا commit/نشر/شراء.
+
+التالي07: لقطة ومصدر حاليان فيroom-decon-before20261015؛ الظلمة/قراءة السلم وخامة الحجر تحتاج مراجعة، ولا يوجد في المصدر خطر تطهير فعلي أو قفل مزدوج؛ لا نخترع بوابات/قوى أو أعلام تقدم جديدة. استشارة محدودة قبل التعديل ثم رحلة06→07 واسترجاعها. حزمةWindows CP24 تاريخية؛ لا تشمل04–06 الجديدة. الفصل و30مرحلة وPART_3 لم تعتمد.
+
+الأدلة: audits/evidence/argon-resume-20261015/verification-cp26.json، وconnected-final، وreactor-restore-interruption-final.log، وpostflight-final.log. المصادر والصور مرتبطة بـSOURCE_INDEX.json.
+
+
+# CP27 / CP-20261015-02 — غرفة التعقيم: تمريرة الوظيفة مثبتة، الفن مفتوح
+
+استؤنف CP25 بعد استدعاء المحادثة وفحص 20/20 بصمة، ثم ثبت المفاعل في CP26. تستكمل هذه النقطة تمريرة 07 دون إعادة بناء ما نجح. لا تعني قبول الغرفة فنياً أو إكمال الفصل أو الانتقال إلى مرحلة PART_3.
+
+في 07 تحسنت قراءة الأرض والسلم والخزانات، وأضيفت خراطيش ترشيح زخرفية داخل الخزانات الستة، وحواف درجات في MultiMesh واحد ومصباح توجيه محدود. أربع بطاقات رذاذ خفيفة تحت القوسين و24 ذرة هواء تستعمل ساعة محلية؛ يتلاشى الرذاذ عند Override الحقيقي ويختفي عند استرجاع الحالة المكتملة، وتحافظ Reduced Motion على إشارات الهدف والإضاءة. مؤثرا نفث الهواء والمزلاج مخزنان ويعملان مرة واحدة؛ لا موسيقى. يتغير إرشاد المهمة بعد التفعيل إلى نزول السلم وعبور البوابة الشمالية نحو قاعة المرايا.
+
+حُفظت أبعاد الغرفة الأصلية 24×32م والتصادمات والمشغلات ومفاتيح الحالة والسلطة الأصلية؛ لا خطر تطهير فعلي جديد ولا قفل مزدوج ولا قوى أو مكافآت جديدة. تطبيق Tween cancellation وحارس generation يمنع callback قديم من تغيير الحالة المسترجعة، ويستكمل فتح البوابة المحفوظة في المنتصف صامتاً. يحسم تبديل Reduced Motion أثناء الفتح حالة البوابة دون إعادة المؤثرات أو الرذاذ.
+
+PASS: مقارنة هندسة/تحويلات/أبعاد التصادمات والحالة الأولية والمشغلات بالمصدر المحفوظ قبل التعديل؛ <=4 بطاقات، local clock/pause/RM/mute، تفعيل وحيد، تلاشي، استرجاع صامت، استرجاع مغلق أثناء Tween حي، استكمال منتصف البوابة، تبديل RM الحي وسباق المصادم المؤجل، وعدد عقد ثابت. أعيد اختبار المفاعل بعد تعديل مساعد المقارنة المشترك: PASS. فحص بنية 07 الأصلي PASS؛ صحح نصه أبعاد الغرفة وميز فحص البنية عن اختبارات العرض/الاسترجاع دون تخفيف شروطه.
+
+PASS: رحلة مرسومة بالإدخال العام 04→05→06→07، الشظايا الثلاث والممشى وفك الأرشيف والقاطعان والتفريغ والجسر، ثم المدخل الحقيقي والسلم الأيسر وOverride والبوابة والخروج والحفظ الأصلي الرابع مع بقاء المفاعل مكتملًا، بلا نقل بعد fixture وبلا قوى قبل العقد. اتخذت الرحلة يسار الأقواس؛ لا نزعم اختبار المرور تحت القوسين. تلاشي الرذاذ مثبت بعقد العرض منفصلاً؛ صور الأقواس تشخيص تكوين بموقع بدء واحد وليست دليل عبور. صور الرحلة 002/004/007 وصورة الأقواس الحالية فُحصت بصرياً.
+
+PASS: preflight، postflight 645/0 والتحقق من المحتوى والأنواع والبناء، Golden192. هذه فحوص تقنية وسلامة مصادر، وليست فحوص قبول أداء. القياس بعد التعديل فقط: 240 إطاراً على Intel UHD / Compatibility، p50=20.917ms، p95=27.913ms، p99=32.013ms، draws p50=1713، primitives p50=2.802M. لا baseline مماثل لـ07 ولا ادعاء تحسن زمني/60fps/GPU/VRAM. تحذير Screen-space AA غير المتاح في Compatibility مسجل؛ لم تغير إعدادات المشروع لإخفائه.
+
+أحدث توجيه المالك: Gemini/Flow عبر متصفح Codex الخاص؛ رفع صور المشروع وتوليد صور/فيديو عند حاجة فعلية مسموح. فُتحت المحادثة نفسها. آخر رد في الحساب الأول ظهر فعلياً Flash-Lite بعد نفاد حد Argon، فحُفظ بتصنيف واضح ولم يُعد مراجعة Argon. استُخدم حساب Argon مرتفع الثاني المفتوح في Codex لمراجعة المصدر الحالي والصور؛ الرد الفعلي محفوظ مع صورة إثبات. الاستشارة تدعم تدقيقاً محدوداً؛ الاختبارات المحلية هي دليل الوظيفة. لا نعد postflight/Golden قبول أداء حتى لو وصفهما رد المستشار بذلك.
+
+OPEN: الفن النهائي والوجه/اليد/العباءة/Wake/Walk/تماس القدم، تقديم الممشى العلوي، وضوح الرذاذ وتوافق الأقواس مع مسار اللاعب، الاستماع الفعلي والمتعة المستقلة والأجهزة والأداء المستهدف. لم يعدل اللاعب/Golden؛ لم تُسحب إضافة GitHub أو أصل خارجي جديد، ولم يحدث توليد/شراء/commit/نشر. العمل فردي. حزمة Windows CP24 تاريخية؛ لا يوجد تصدير جديد يتضمن هذه التغييرات.
+
+التالي المحدد: تشخيص 08 قاعة المرايا من mirror_chamber_room.gd والمصدر الحالي ومراجعة Argon، مع الحفاظ على فحص المرآة وممشى الخدمة وبوابة المختبر وسلطة الحفظ. نقطة الاستئناف ACTIVE، بلا قبول فني أو تقدم مرحلة ضمني. يجب الرجوع إلى بوابات الفن المفتوحة قبل قبول أي غرفة نهائياً.
+
+الأدلة: audits/evidence/argon-resume-20261015/verification-cp27.json، decon-contract.log، connected-room07.log، postflight-room07.log، وroom-decon-arches20261015/diagnosis.json. CP26 وسجلات الفشل والإصلاح السابقة محفوظة.
+
+
+# CP28 / CP-20261015-03 — تمريرة مؤثرات قوية لغرفة التعقيم
+
+الأولوية الأخيرة للمالك: التركيز على البصريات والمؤثرات القوية. لذلك بقيت 08 بلا تعديل، ونُفذت تمريرة عرض محدودة في 07 بعد تدقيق Argon مرتفع عبر حسابين داخل متصفح Codex. الحساب الجديد اختُبر فيه اختيار 4 Argon/مرتفع، وأُرسلت المصادر كنص؛ لم يُقبل إشعار تفعيل الصور فيه. الصور راجعت في الحساب الآخر الذي يقبلها. رد Flash السابق محفوظ ومنسوب لنموذجه، ولا يعد استشارة Argon.
+
+النتيجة المرئية: ستائر UV بأربع بطاقات كاملة الارتفاع، رش من الفوهات ودوامات بنفسجية/سيانية، تلاشي قرب العدسة يحافظ على قراءة اللاعب، وموجة تطهير واحدة تتبع التفعيل الحقيقي ثم تختفي. تتحول الفوهات والإشارة إلى الأخضر عند رفع الحجر. أضيفت16قطعة Hardware فيMultiMesh واحد و42ذرة هواء؛ جميعها ثابتة الإنشاء. تتحرك الستارة بساعة محلية مستقلة تستمر خلال التلاشي وتحترم pause/RM. لا موسيقى أو مؤثرات وامضة سريعة أو قوى/مكافآت جديدة.
+
+الإضاءة والخامات: مواد أقل معدنية للأقواس والدرابزين، مادة مرئية لدعامة السلم الأصلية دون تغيير شكل مصادمها، وحافة سيان للممشى. ضوءا ملء محدودان على طبقة عرض خاصة1<<18 لا تصيب طبقة الشخصية1؛ ظلال العالم والمصابيح الأصلية محفوظة. أثبت اختبارoff/4x أن القناع يؤثر على الأعمدة ولا يزيد الوجه، وكشف أن نسيجGRAPHITE الداكن يعيد لون الإطار إلى السواد؛ استعملتCERAMIC الموجودة بدلاً منه. خففت احتراق الفوهات والخزانات. بقيت إضاءة الوجه وتفاصيل الأصول والحركات OPEN؛ الصور ليست قبولAAA.
+
+كشف التدقيق المستقل خللاً حقيقياً في06: تفعيلReduced Motion أثناءTween الجسر/البوابة يبقيهما في منتصف الحركة، بخلاف07. أُثبت FAIL محلياً أولاً، ثم أضيفsetter يلغيTweens ويرفعgeneration قبل تثبيت الجسر واستكمال البوابة صامتاً؛ يمنعcallbacks القديمة ويحدث الجزيئات وخامة المخاطر حتى أثناءpause. PASS للحالات الأربع: bridge/gate×paused/unpaused، ولعقد06 الكامل والاسترجاع وسباق المصادم وحدود الخطر. لا تغيير في اللاعب أومفاتيح الحفظ أوالتصادمات. الفشل الأصلي وسجل أمرGolden ذي المسار الخطأ محفوظان؛ الفحص الصحيحGolden192 PASS.
+
+PASS فعلي فيGodot: V31 عبر قوسيUV بالإدخال العام ثم السلم الأيسر وأقربQuarantineOverrideTerminal، اختفى الرذاذ وانفتحت البوابة مع حفظ السلطة الأصلية ودون قوى مبكرة أو نقل بعد بدايةfixture. عقد07 الموسع يثبت التصادمات/الحالة/المشغلات مقارنة بالأصل، وحدود4بطاقات و42ذرة و16قطعة، وعزل الإضاءة وظلالها، وpause/RM/mute والتلاشي والاسترجاع وسباقالبوابة وثباتالعقد. فحص البنيةPASS. رحلة04→07 الكاملة مرجعCP27 سابق؛ التشغيل الحالي مركز علىUV والسلم والتجاوز، لا ندعي إعادة الفصل كله.
+
+راجع المنفذ أربع زوايا متماسكة: المدخل، العكس، المعدات الجانبية، وتفصيل القوس، وصور اللاعب والعبور. الزوايا الأربع ولقطاتpurge بكاميرا توثيق منفصلة داخل المحرك، وليستcutscene مدمجة أو نقل لاعب. تدوير كاميرا اللاعب قرب الدرابزين أعطى لقطةpurge مقصوصة؛ احتُفظ بها كتشخيص غير مقبول، ثم صورت الحالة بكاميرا التوثيق. GIFالحركة من48إطاراً مرسوماً وGIFالتطهير من18إطاراً، عرض20/15fps؛ ليستا قياسFPS أو فيديو مولداً. هما صامتتان، والاستماع البشري ما زالOPEN.
+
+مقارنة240إطاراً بنفسfixture الحملة/الشخصية والكاميرا علىIntelUHD Compatibility: الأصل1657draws و2,801,156primitives وp50/p95=23.296/34.778ms؛ CP27 السابق1713draws؛ أول مرور قوي1736و25.197/42.462ms؛ المصدر النهائي1749و2,802,648 و29.512/39.732ms. الزيادة الحالية عنCP27 هي36draws، وعنالأصل92. النتائج الزمنية أسوأ ومتباينة؛ لا قبول60fps/GPU/VRAM أو جهاز. عدادات العالم تشمل الشخصية والحملة وليست مضلعات غرفة معزولة. تحذيرScreen-spaceAA فيCompatibility مسجل. يلزم تحسين الأداء قبل قبول المنصات، دون إخفاء هذه العينات أو إضعاف الاختبارات.
+
+المصادر: core_reactor_room.gd، decontamination_quarantine_wing.gd، decon_mist.gdshader، decon_presentation_review.gd، والاختبار الجديدreactor_live_reduced_motion_review.gd. تقريرArgon النهائي وصوره وسجلات التشغيل وبصمات المصادر فيaudits/evidence/argon-independent-20261015/verification-cp28.json. محفوظة مصادرCP27 ومرحلتا المرشح الأولى والثانية، ولم يقعcommit/نشر/شراء/توليدأصول/دمجGitHub. العملSOLO. لا تقدمPART_3 أو قبولفصل أوبناءWindows جديد؛ CP24تاريخي.
+
+التالي: متابعة نقد07 البصري والأداء، ثم تشخيص08 قاعة المرايا من المصدر الحالي ولقطة/قياسقبل؛ مؤثرها يجب أن يخدم المرآة والمسار ويحفظشرطmirror_inspected+override_done. لا تعني هذه التمريرة إقفال الفن أو قبولالأجهزة. مرجع تقني للقناع: https://docs.godotengine.org/en/4.7/classes/class_light3d.html#class-light3d-property-light-cull-mask
+
+
+# CP29 / CP-20261015-04 — بصريات ومؤثرات الغرف 01–07
+
+نُفذت مراجعة وصقل الغرف السابقة مع أرجون بوضع 4 Argon / مرتفع في متصفح Codex، ثم اختُبرت الرحلة الفعلية. أُغلقت تمريرة عرض الغرف بهذا النطاق بعد مشاهدة الصور الحالية والمقارنة، مع بقاء الفن النهائي للشخصية وأداء الأجهزة مفتوحين. الغرفة 08 لم تبدأ؛ الخطوة التالية إبلاغ المالك ثم تشخيصها عند طلب المتابعة.
+
+|الغرفة|ما تغير فعليًا|
+|---|---|
+|01 الاستيقاظ|بخار تبريد منخفض خارج حافة الكبسولة، تقليل لمعان غطاء الدليل، وحفظ طاقة الموصل مرتبطة بالفعل الأصلي.|
+|02 الصيانة|خامات فولاذ أكثر وضوحًا، ستة مؤشرات ضغط في دفعة مشتركة، وبخار تنفيس أوضح تحت تحكم حضور اللاعب الأصلي.|
+|03 الأمن|مخروط شفاف بدل الصفيحة الكهرمانية الحادة، ذرات هواء وتغذية راجعة مرتبطة بتحويل المراقبة والبوابة، وخامات حواجز أوضح.|
+|04 الاحتواء|دعامات تثبيت الخزانات، مقروئية حافة السائل والفقاعات، مخروط مصحح المحور، وخامات أرضية وحواجز أهدأ.|
+|05 الأرشيف|تدفق شيفرة وحلقات أوضح، ضوء النواة أسفل الجسر بدل داخل بلاطته، وممشى وسلالم مقروءة، مع ذرات وصوت فعلي عند فك الأرشيف.|
+|06 المفاعل|غلاف ذو قنوات تبريد وأضلاع وفتحات، حلقات بلازما أقوى، ودرابزين وممرات أوضح. لون التبريد يتبع القاطعين الحقيقيين.|
+|07 الحجر|حُفظت ستائر UV وموجة التطهير؛ أغطية وقواعد الخزانات أصبحت مستديرة، وضوء أسفل الجسر أكثر توازنًا، ويختفي حث المحطة المستهلكة مع إمكانية عودته عند حفظ أقدم.|
+
+رفضنا مرشح v1 بعد معاينته مع أرجون: تعميم الألواح اللامعة صنع شبكة ساطعة وأضعف الغموض وتباين UV. حُفظ المرشح وسببه، ثم أُعيدت خامات الجدران والسقوف الأصلية، وأُلغيت البراغي المتكررة وخُففت الفواصل. حُفظت أرضية 07 الأصلية. الصور المسلّمة من المحرك الفعلي، ولم تُستعمل صور مولدة لتغطية عيب في المشهد.
+
+أُصلحت عيوب وظيفية مثبتة بفشل قبل الإصلاح: استعادة بوابات 03–05 أثناء Tween، إتمام البوابات صامتًا عند تشغيل Reduced Motion أثناء pause، وإعادة شظايا 05 غير المجموعة بعد استعادة حفظ أقدم. حراس الأجيال يمنعون callbacks القديمة من فتح المصادم بعد الاستعادة. لا تغيير لمفاتيح الحفظ أو حدود الرصد والمخاطر أو المكافآت أو Canon.
+
+التحقق الفعلي: 94 شرطًا في رحلة متصلة من الاستيقاظ عبر فحص الدليل والتسلقين والفجوة وعجلة الضغط والأمن والخروج. كذلك عبور 04→05→06→07 بإدخال اللاعب العام: المحطة والبوابات، الشظايا الثلاث والممشى، عبور التفريغ والقاطعان والجسر، قوسا UV ثم السلم والتجاوز والتطهير والخروج. لا نقل للاعب بعد بداية fixture ولا قوى قبل العقد. اختبارات pause/RM/mute/restore والفيزياء اجتازت؛ Golden بقي مطابقًا لـ192 ملفًا محميًا. اختبارات الأساس والبناء وpostflight النهائي موثقة في verification-cp29.json؛ لا يُعد التسليم كاملًا ما لم يحمل الفحص النهائي PASS.
+
+تمت مشاهدة أربع زوايا لكل غرفة، كاميرا اللاعب في الرحلة، وتسلسل حركة الأرشيف/المفاعل/UV والتطهير. كاميرات التوثيق الإضافية وصور المقارنة ليست cutscenes مضافة إلى اللعب. معاينات الحركة صامتة، وتردد تشغيل الفيديو/GIF ليس قياس FPS. الاستماع البشري ما زال UNVERIFIED، رغم نجاح عقود الكتم والصوت مرة واحدة.
+
+قياس استرشادي على Intel UHD / Compatibility بدقة1280×720، 240 فترة process فعلية لكل fixture:
+
+|الغرفة|p95 قبل ms|p95 بعد ms|draws بعد p50|
+|---|---:|---:|---:|
+|01|19.224|19.946|83|
+|02|19.065|28.360|2268|
+|03|30.219|28.956|1935|
+|04|29.725|27.822|1779|
+|05|37.693|33.370|1458|
+|06|30.477|25.358|1819|
+|07|30.015|40.474|1693|
+
+الأداء متفاوت، وأسوأ في عينتي 02 و07؛ لا ندعي نجاح 60fps أو GPU time أو VRAM فعلية أو أجهزة. عدادات الرسم تشمل المشهد والحملة والشخصية في الكاميرا، وليست ميزانية غرفة معزولة. إعداد البداية متكرر، لكن مواضع الكاميرا/اللاعب أثناء عينات baseline لم تسجل كاملة، لذلك ليست هذه تجربة عزل سببية أو ضمان أداء. جولة أداء الأجهزة تبقى OPEN، وكذلك جودة الشخصية والوجه واليد والعباءة وWake/Walk وتماس القدم والمتعة المستقلة. تشغل حافة القاعدة/الدرابزين الجزء السفلي من كاميرا المحطتين 05/07 عند الاقتراب؛ شاشة المحطة وحث التفاعل ظاهران والمرور اجتاز، وصقل الكاميرا القريبة باقٍ مع جولة اللاعب. لا قبول فصل كامل أو المراحل الثلاثين أو تقدم PART_3. النسخة المستقلة CP24 تاريخية ولا تتضمن هذه التعديلات.
+
+مصادر التنفيذ ودليل الصور وبصماتها: audits/evidence/rooms01-07-polish-20261015/verification-cp29.json. المصادر السابقة الـ446، فروق Git والحالة المرحلية محفوظة. العمل SOLO، بلا staging/commit أو نشر أو شراء أو دمج كود خارجي. يجب تشغيل postflight النهائي بعد تحديث هذه الوثائق والتحقق من بصمات الفهرس قبل التسليم.
+
+
+## CP-20261015-05 / CP30 — Room08 IN_PROGRESS
+
+Owner explicitly authorized08 after01–07 without another pause.520sources and dirty/staged diffs preserved. Original native mirror captured with four current baseline views and same-pose reflection control. Four proven gate/restore/liveRM failures repaired; regression compares original collisions/schema/areas and both orders, duplicates, silent rollback and deferred races. Public native08routes are rerun against stable final source; consult verification-core.json for actual final results and required postflight/Golden.
+
+New Argon High request with full current source, measurements and precise local visual description was prepared in Codex browser u4, but send/key/CDP screenshot actions repeatedly timed out. u2 explicitly fell back to Flash-Lite and is not accepted as High. User was asked asynchronously to press send while safe contract work continued. No new mirror-vision, shader, paid media, actor/GitHub code or Room09 work integrated. Report ROOM08_EXECUTION_2026-10-15.ar.md. SOLO; no staging/commit/publish or purchases.
+
+Next exact action: recover actual High consultation from prepared request, implement reviewed Room08 presentation/Canon beat, compare native four views and performance, rerun route/state/accessibility and postflight. Room08 art remains OPEN; do not call this room complete. PART_3, original Golden/V31/source keys, SFX_ONLY and save/reward authority preserved; actor/listening/device/chapter gates remain OPEN.
+
+
+# CP32 / CP-20261016-02 — 2026-10-16
+
+أذن المالك بتنفيذ خطة الجودة المعتمدة من الغلاف إلى المستشفى بعد تدقيق أرجون. هذا التوجيه يستأنف المختبر ويتجاوز قيد09 القديم. العمل SOLO، بلا staging/commit/نشر/شراء؛ PART_3 وCanon وSFX_ONLY وGolden ثابتة.
+
+- الخطة الحالية CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md؛ لا تلغي المراحل30. التقرير CHAPTER_EXECUTION_CP32_2026-10-16.ar.md، والعقود ENTRY_SAVE_EXPORT_CONTRACT_2026-10-16.ar.md.
+-08 وحدها توقف كلفة انعكاسها حين يغيب سطحها عن الشاشة؛ المقارنة1628→827draws خارج الشاشة،1155 في الحالتين عند رؤيتها. لا ضمانFPS؛ المستشفى ودقة358p والهندسة محفوظة.
+- أصلحت استعادة المختبر وTween/RM/pause والقرارات والمراسي وفيزياء المرحلة وrollback الإشارات. استئناف الحفظ الحقيقي لظهور/عقد/انتقام يعود لمرساة مؤهلة خارج مصادم المذبح ولا يعيد مشهد قبول العقد؛ الرغبة تبقى صريحة. التفاعل مع المذبح يظهر بعد الظهور وقبل العقد فقط. Zero/11:11 مرتبطان بالأحداث، دون تعديل ألوان V31.
+- Argon مرتفعu5 راجع الشفرة وصورًا فعلية؛ أعدنا إنتاج ملاحظاته الصحيحة وأصلحناها، وصُححت استنتاجات نقص السياق عن استعادة الرغبة والأسطوانة. hide/restore أثبت أن الكتل المرتفعة في المرآة تتبع GuideCore؛ لم يخف المرافق في المنتج.
+- آخر مسار04→المستشفى الحالي وظيفي، ويشمل الإدخال العام والبوابات والعقد والضربات والرغبة والفيلم وEX-011؛ fixture يبدأ بعد الأمن، وليس حفظًا جديدًا من الغلاف. فحص العرض الحالي و8فحوص مركزة موثقة معGolden وpostflight في audits/evidence/chapter-execution-20261016/cp32/verification-cp32.json؛ لا تقبل نسخة الدليل قبل اكتمال حقولها ومطابقة البصمات.
+- **FAIL بصري محدد:** عودة كاميرا الانتقام معRM قد تصلSpringArm=0 فتدخل جسمV31 وتحجب المشهد. التشخيص الفعلي camera-identity وcamera-overlap-identity أثبت أن إخفاء اللاعب وحده يزيل الحجب. لم يصلح هذا العيب بعد؛ ليس فشل عقد/حفظ أو قبولًا فنيًا. فن المرآة والشخصية/اليد/الوجه/العباءة والمشي وWake والاستماع والمتعة والأجهزة OPEN.
+- التالي المباشر: إصلاح عودة كاميرا المواجهة بعد مراجعة أرجون المحددة، مع حفظ اصطدام العالم ومدار اللاعب ومراجعة مرسومة. بالتوازي حسم نموذج مدخل الغلاف والإيصال الحقيقي والتصدير؛ المدخلnative الحالي يتجاوز الغلاف وقوالبAndroid/Web غير مثبتة. لا قبول فصل أو GooglePlay. بعدهما استكمال أداء مختبر كينجا غرفةً واحدة؛ الهاتف لاحقًا معLow لـHOT40Pro وخيارات أعلى مقاسة لأجهزةS22Ultra.
+
+
+التقرير CHAPTER_EXECUTION_CP32_2026-10-16.ar.md والأدلة audits/evidence/chapter-execution-20261016/cp32/verification-cp32.json. الفحوص النهائية لا تكون PASS إلا بقيمتها الفعلية في الدليل؛ لا تقدمPART_3 أو قبول فن/هاتف/فصل.
+
+
+## CP33 / CP-20261016-03 — 2026-10-16
+
+عودة الكاميرا بنطاقها مثبتة؛ راجع CURRENT_WORK والتقرير CHAPTER_EXECUTION_CP33_2026-10-16.ar.md وverification-cp33.json. مدخل الغلاف والفن/الحركة/الأجهزة والفصل OPEN. latest ArgonHigh u6؛ لا مشتريات أو commit أو نشر. لا تعتمد مسارCP32 كأنه التقط من المصدر الحالي.
+
+
+## CP34 / CP-20261016-04 — 2026-10-16
+
+14 pinned repositories studied; Kinja material scoped improvement qualified in current connected fixtures. Official CC0 Standard pack43motions downloaded/inspected; no model/motion replacement yet. Owner permits suitable Kinja replacement. Next isolated Hit_Chest eligibility65→33, then qualified acting. CURRENT_WORK, CHAPTER_EXECUTION_CP34 and verification-cp34.json are authoritative; CP33 captures historical. Argon u4 High text review after u6 limit. SOLO, no purchase/commit/publication; PART_3/SFX_ONLY/Golden retained; chapter/device/cover/export OPEN.
+
+
+### CP34 later Kinja redesign update — 2026-10-16
+
+Isolated23-body-bone Hit_Chest transfer numericalPASS but visual arm/coatFAIL; no export/integration. Matched rest/control reviewed; source/Golden preserved. Owner now prefers full Kinja redesign/re-rig and Tripo if economical. New original front T-pose concept and exact image-generation dry-run ready (~70+gated25credits); two distinct configured keys each live0available/0frozen. No paid task or credential changes. Read KINJA_REBUILD_DECISION_2026-10-16.ar.md and current card before next action.
+
+
+## CP35 / CP-20261016-05 — Tripo temporary R&D / partial evaluation
+
+Owner authorized Free Studio200credits temporarily and now requested broad feature evaluation before subscription advice. P2 trial0 + texture20 + Mixamo Humanoid20 completed; front/side/back and skeleton observed. Last visible balance160, not refreshed after browser control failures. body01 preview completed and paused0.84/1.29; fighter guard unsuitable for vulnerable Kinja, full clip/face/skin unqualified and no saved animation capture. FBX export hit Upgrade; no local file, purchase, runtime integration or commercial approval. All-feature practical request remains incomplete: existing-tab reads/bind/screenshot and fresh-tab attach timed out. Official feature/pricing docs reviewed separately; report TRIPO_FEATURE_EVALUATION_CP35_2026-10-16.ar.md distinguishes tested vs researched. Next recover control/read balance, test body02/idle/fear sequentially, legitimate export then isolated Blender/Godot and one static prop feature sample; specific Argon review before integration. Preserve Echo/Golden/Canon/SFX_ONLY; runtime remains CP34. No new spend in blocked resume, no agent/commit/publication.
+
+
+## CP36 / CP-20261017-01 — Tripo scoped evaluation
+
+Browser recovered. P2body02 and idle sampled; body02 guard unsuitable unchanged. Text-motion20 completed but failed relaxed-arm/no-guard brief in sampled frames; balance140, totalobserved60/200. Free H2.5trial generated19992tri/12152verts; 8Kexport gated, 2KGLB downloaded and headless Godot imported with one surface/albedo2048/no rig/no animations. Rig page redirected to oldP2; not a new H2.5rig. Current source GLBs audited: Echo68/30finger; Kinja33/0finger; Zero41/0finger, all no eye/jaw named joints or morph targets. Prioritize Kinja rebuild, Echo targeted face/hand/cape, Zero pact-hand qualification; city NPC primitives are future asset candidates. Pro3000monthly is bounded asset trial advice, not a purchase or animation guarantee; no measured superiority over Higgsfield+Blender. Strict Owner token/context rule appended toAGENTS; compact CURRENT_CONTEXT_CACHE.json introduced. No runtime integration, agent, commit, publish or purchase. Preserve Golden/Canon/SFX_ONLY. Report and next actions in CURRENT_WORK; all-feature request remains partial, P2 local acting and chapter/device gates OPEN.

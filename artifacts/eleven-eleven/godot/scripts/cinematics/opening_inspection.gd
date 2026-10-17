@@ -28,30 +28,35 @@ var pitch := 0.0
 var confirmed_count := 0
 var cancelled_count := 0
 var _drag_finger := -1
-var _camera_base := Vector3(0.70,0.55,-0.12)
+var _focus_points: Array[Vector3] = []
 
 func configure(owner_main: Node3D) -> void:
 	main = owner_main
 	layer = 80
 	camera = Camera3D.new()
 	camera.name = "ClueInspectionCamera"
-	camera.fov = 42.0
+	camera.fov = 30.0
+	camera.keep_aspect = Camera3D.KEEP_HEIGHT
 	camera.near = 0.035
+	camera.far = 8.0
 	main.add_child(camera)
 	panel = PanelContainer.new()
 	panel.name = "ClueInspectionControls"
 	panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	panel.offset_left = 32
-	panel.offset_right = -32
-	panel.offset_top = -390
+	# Font metrics can exceed the compact requested height. Keep the bottom
+	# margin fixed and let the container grow upward, including Arabic text.
+	panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	panel.offset_left = 64
+	panel.offset_right = -64
+	panel.offset_top = -258
 	panel.offset_bottom = -20
 	var theme := Theme.new()
 	theme.default_font = FONT
 	theme.default_font_size = 27
 	panel.theme = theme
 	var skin := StyleBoxFlat.new()
-	skin.bg_color = Color(0.02,0.035,0.055,0.94)
-	skin.border_color = Color(0.20,0.65,0.72,0.75)
+	skin.bg_color = Color(0.02,0.035,0.055,0.82)
+	skin.border_color = Color(0.20,0.65,0.72,0.35)
 	skin.set_border_width_all(1)
 	skin.set_corner_radius_all(8)
 	skin.content_margin_left = 20
@@ -84,14 +89,13 @@ func configure(owner_main: Node3D) -> void:
 	right_button = _button(row,func(): rotate_view(Vector2(0.12,0)))
 	near_button = _button(row,func(): change_zoom(-0.08))
 	far_button = _button(row,func(): change_zoom(0.08))
-	var actions := HBoxContainer.new()
-	actions.add_theme_constant_override("separation",12)
-	column.add_child(actions)
 	var space := Control.new()
 	space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	actions.add_child(space)
-	cancel_button = _button(actions,cancel)
-	confirm_button = _button(actions,confirm)
+	row.add_child(space)
+	cancel_button = _button(row,cancel)
+	confirm_button = _button(row,confirm)
+	for button in [left_button,right_button,near_button,far_button]:
+		button.custom_minimum_size.x = 72
 	panel.hide()
 	set_process_unhandled_input(false)
 
@@ -120,11 +124,24 @@ func open(clue: Node3D, actor: Node3D) -> void:
 	zoom = 1.0
 	_drag_finger = -1
 	guides.clear()
-	for visual in [clue._beacon_mesh,clue._ring_mesh,clue._orbit_ring_1,clue._orbit_ring_2,clue._beacon_light,clue.get_node("EvidenceLabel")]:
+	# The clue view is Echo's point of view. Hide only the avatar's display
+	# root; physics, position, rig and motion keep their existing state.
+	var actor_visual := actor.get_node_or_null("ModelRoot") as Node3D
+	if actor_visual:
+		guides[actor_visual] = actor_visual.visible
+		actor_visual.hide()
+	for visual in [clue._beacon_mesh,clue._ring_mesh,clue._orbit_ring_1,clue._orbit_ring_2,clue._beacon_light,clue._cloche_mesh,clue.get_node("EvidenceLabel"),clue.get_node("Pedestal/PedestalTrim")]:
 		if visual:
 			guides[visual] = visual.visible
 			visual.hide()
-	_camera_base = Vector3(0.9744,0.7656,-0.167) if clue.evidence_id == "clock" else Vector3(0.922,0.651,0.5424)
+	for visual in clue.get_node("Pedestal").find_children("CoolingFlute_*","MeshInstance3D",false,false):
+		guides[visual] = visual.visible
+		visual.hide()
+	_focus_points.clear()
+	var subject := clue.get_node("ClockFace/HeroClock/ClockBody" if clue.evidence_id == "clock" else "PhotoFrame") as MeshInstance3D
+	var bounds := subject.mesh.get_aabb()
+	for corner in 8:
+		_focus_points.append(subject.global_transform * bounds.get_endpoint(corner))
 	_update_camera()
 	camera.make_current()
 	refresh_labels()
@@ -140,10 +157,14 @@ func refresh_labels() -> void:
 	title.text = ("الساعة المتوقفة" if clock else "الأثر الشخصي") if ar else ("The stopped clock" if clock else "A personal trace")
 	description.text = ("العقربان ثابتان. انظر إلى الوجه قبل أن تحفظ هذا الأثر." if clock else "تآكلت الصورة، لكن الإحساس بها لم يختفِ. انظر أقرب، ثم اتبع الأثر.") if ar else ("Both hands are still. Examine the face before keeping this trace." if clock else "The photograph has worn away, but something familiar remains. Look closer, then follow the trace.")
 	controls.text = "اسحب لتغيّر زاوية النظر · عجلة الفأرة للتقريب · Esc للعودة دون فحص" if ar else "Drag to change your view · Wheel to zoom · Esc to return without inspecting"
-	left_button.text = "يسار" if ar else "Left"
-	right_button.text = "يمين" if ar else "Right"
-	near_button.text = "اقترب" if ar else "Closer"
-	far_button.text = "ابتعد" if ar else "Further"
+	left_button.text = "‹"
+	right_button.text = "›"
+	near_button.text = "+"
+	far_button.text = "−"
+	left_button.tooltip_text = "تدوير يسارًا" if ar else "Rotate left"
+	right_button.tooltip_text = "تدوير يمينًا" if ar else "Rotate right"
+	near_button.tooltip_text = "اقترب" if ar else "Closer"
+	far_button.tooltip_text = "ابتعد" if ar else "Further"
 	cancel_button.text = "رجوع" if ar else "Return"
 	confirm_button.text = ("احفظ الأثر" if clock else "اتبع الأثر") if ar else ("Keep this trace" if clock else "Follow the trace")
 
@@ -160,15 +181,35 @@ func change_zoom(amount: float) -> void:
 
 func _update_camera() -> void:
 	if not is_instance_valid(evidence): return
-	var center: Vector3 = evidence.global_position+Vector3(0,0.99,0)
-	var offset := Basis(Vector3.UP,yaw)*(_camera_base*zoom)
-	offset.y += pitch
-	camera.global_position = center+offset
-	# Frame the clue above the controls, retaining its real world position.
-	camera.look_at(center-Vector3(0,0.18,0))
+	var mount: Node3D = evidence.get_node("ClockFace" if evidence.evidence_id == "clock" else "PhotoFrame")
+	var normal: Vector3 = mount.global_basis.y.normalized()
+	var up: Vector3 = -mount.global_basis.z.normalized()
+	var right: Vector3 = mount.global_basis.x.normalized()
+	var view: Vector3 = (Basis(up,yaw)*Basis(right,pitch)*normal).normalized()
+	var screen_right := up.cross(view).normalized()
+	var screen_up := view.cross(screen_right).normalized()
+	var axes := Basis(screen_right,screen_up,view)
+	var low := Vector3(INF,INF,INF)
+	var high := Vector3(-INF,-INF,-INF)
+	for point in _focus_points:
+		var projected: Vector3 = axes.transposed()*point
+		low = low.min(projected)
+		high = high.max(projected)
+	var extent := (high-low)*0.5
+	var center := axes*((high+low)*0.5)
+	var viewport_size := main.get_viewport().get_visible_rect().size
+	var tangent := tan(deg_to_rad(camera.fov)*0.5)
+	# Geometric fit uses the exported subject's actual bounds, leaving the
+	# lower panel clear even for the wider photo and the raised watch lid.
+	var distance := maxf(extent.x/(tangent*(viewport_size.x/viewport_size.y)*0.84),extent.y/(tangent*0.60))+extent.z
+	distance *= zoom
+	var framing := screen_up*(distance*tangent*0.32)
+	camera.global_position = center+view*distance-framing
+	camera.look_at(center-framing,screen_up)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active or get_tree().paused: return
+	if event.device == InputEvent.DEVICE_ID_EMULATION: return
 	if event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		rotate_view(Vector2(-event.relative.x*0.002,event.relative.y*0.001))
 		get_viewport().set_input_as_handled()
@@ -206,9 +247,7 @@ func _close() -> void:
 	set_process_unhandled_input(false)
 	panel.hide()
 	_drag_finger = -1
-	for visual in guides:
-		if is_instance_valid(visual): visual.visible = guides[visual]
-	guides.clear()
+	_restore_visuals()
 	if is_instance_valid(previous_camera): previous_camera.make_current()
 	elif is_instance_valid(main.player.player_camera): main.player.player_camera.make_current()
 	main.hud.visible = previous_hud_visible
@@ -217,5 +256,11 @@ func _close() -> void:
 	evidence = null
 	interactor = null
 
+func _restore_visuals() -> void:
+	for visual in guides:
+		if is_instance_valid(visual): visual.visible = guides[visual]
+	guides.clear()
+
 func _exit_tree() -> void:
+	_restore_visuals()
 	if is_instance_valid(camera): camera.queue_free()

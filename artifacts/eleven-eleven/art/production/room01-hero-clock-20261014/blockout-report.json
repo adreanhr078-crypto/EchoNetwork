@@ -1,0 +1,27 @@
+{
+  "scene": "Room01ClockCraft",
+  "objects": [
+    "WatchCase",
+    "ClockDial",
+    "PocketWatchLid"
+  ],
+  "dimensions_m": {
+    "WatchCase": [
+      0.38999998569488525,
+      0.38999998569488525,
+      0.03199999779462814
+    ],
+    "ClockDial": [
+      0.3400000035762787,
+      0.3400000035762787,
+      0.0040000006556510925
+    ],
+    "PocketWatchLid": [
+      0.3799999952316284,
+      0.03634460270404816,
+      0.37855398654937744
+    ]
+  },
+  "stage": "silhouette/proportion/depth/contact/camera-read; no final detail yet",
+  "protected_previous_scene": "Scene; untouched"
+}

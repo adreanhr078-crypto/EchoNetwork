@@ -16,6 +16,7 @@ func _initialize() -> void:
 
 func _run() -> void:
 	print("--- Starting Room 5 Specimen Containment Wing Smoke Test ---")
+	_diagnostic_watchdog.call_deferred()
 	
 	# 1. Instantiate Room 5 Scene
 	wing = SPECIMEN_SCENE.instantiate()
@@ -104,6 +105,7 @@ func _run() -> void:
 		return
 	
 	# Spawn Player
+	print("DIAG specimen: structural/inspection PASS; loading actual player")
 	player = PLAYER_SCENE.instantiate()
 	player.position = Vector3(-2.5, 0.1, 2.0) # Entry anchor
 	root.add_child(player)
@@ -111,6 +113,7 @@ func _run() -> void:
 	player.surface_traversal_enabled = true
 	wing.player = player
 	wing.set_audio_muted(true)
+	print("DIAG specimen: player added; paused=",paused)
 	
 	for i in range(10):
 		await physics_frame
@@ -118,7 +121,8 @@ func _run() -> void:
 	if not _check(player.is_on_floor(), "Player failed to ground on floor"):
 		return
 	
-	# Test A: Unobstructed Line of Sight Detection
+	# Test A:
+	print("DIAG specimen: grounding PASS; scanner visibility") # Unobstructed line of sight
 	# Temporarily aim scanner directly at player at Vector3(-20.0, 0.1, -6.0)
 	wing._scanner_active = false
 	scanner_head.look_at(Vector3(-20.0, 0.9, -6.0), Vector3.UP)
@@ -142,14 +146,29 @@ func _run() -> void:
 	if not _check(not sees_behind_cover, "Scanner must NOT see player when occluded by CoverPlinth_2"):
 		return
 	
-	# Test C: Alert Escalation & retry_requested signal
+	# A physical privacy baffle protects the terminal, while earlier open
+	# beam and ordinary cover checks still enforce the scanner contract.
+	scanner_head.look_at(Vector3(-26.0,0.9,-10.4),Vector3.UP)
+	player.position = Vector3(-26.0,0.1,-10.4)
+	await physics_frame
+	await physics_frame
+	if not _check(not wing._scanner_sees(player),"Terminal privacy baffle failed real raycast occlusion"): return
+
+	# Test C:
+	print("DIAG specimen: visibility/occlusion PASS; alert") # Alert and retry
 	wing._scanner_active = true
 	scanner_head.look_at(Vector3(-20.0, 0.9, -6.0), Vector3.UP)
 	player.position = Vector3(-20.0, 0.1, -6.0)
 	
-	# Advance frames across 0.6s grace period
-	for frame in range(45):
+	# Hold the scanner on an unobstructed physical target for the actual
+	# authored grace period; 45 frames predated its 1.0s value.
+	var sweep_speed: float = wing._scanner_sweep_speed
+	wing._scanner_sweep_speed = 0.0
+	wing._scanner_sweep_angle = 0.0
+	var grace_frames := ceili(wing.ALERT_GRACE_TIME * Engine.physics_ticks_per_second) + 4
+	for frame in grace_frames:
 		await physics_frame
+	wing._scanner_sweep_speed = sweep_speed
 	
 	if not _check(retry_requested_fired, "Scanner failed to emit retry_requested after grace period in open sight"):
 		return
@@ -204,3 +223,7 @@ func _check(condition: bool, message: String) -> bool:
 		quit(1)
 		return false
 	return true
+
+func _diagnostic_watchdog() -> void:
+	await create_timer(30.0,true).timeout
+	print("DIAG specimen watchdog paused=",paused," wing=",is_instance_valid(wing)," player=",is_instance_valid(player)," physics frames=",Engine.get_physics_frames())

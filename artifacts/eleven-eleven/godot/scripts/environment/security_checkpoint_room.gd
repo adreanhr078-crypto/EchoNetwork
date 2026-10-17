@@ -20,7 +20,18 @@ var scanner_trace := false
 var warning := 0.0
 var diversion_remaining := 0.0
 var elapsed := 0.0
-var reduced_motion := false
+var reduced_motion := false:
+	set(value):
+		if reduced_motion == value: return
+		reduced_motion = value
+		if _scan_material: _scan_material.set_shader_parameter("motion_amount",0.0 if value else 1.0)
+		if is_instance_valid(_security_motes):
+			_security_motes._air.visible = not value
+			if value: _security_motes._release.visible = false
+		if value and gate_open and is_instance_valid(_gate):
+			_cancel_gate_motion()
+			_gate.position.y = 4.3
+			_finish_gate_motion.call_deferred(_gate_generation)
 var _scanner: Node3D
 var _lamp: SpotLight3D
 var _gate: StaticBody3D
@@ -34,6 +45,9 @@ var _passage_reported := false
 var _scan_material: ShaderMaterial
 var _presentation_phase := 0.0
 var _gate_feedback := 0.0
+var _security_motes: Node3D
+var _gate_tween: Tween
+var _gate_generation := 0
 
 func _ready() -> void:
 	_build_room()
@@ -101,6 +115,7 @@ func request_station(action: String, actor: Node3D, station: Node3D) -> Dictiona
 				scanner_trace = true
 				discovery_observed.emit("security_scanner_trace")
 			_audio.play()
+			if _security_motes: _security_motes.emit_release(station.position)
 		"gate":
 			if gate_open: return {"accepted": false}
 			gate_open = true
@@ -109,23 +124,42 @@ func request_station(action: String, actor: Node3D, station: Node3D) -> Dictiona
 			_signal.emission = _signal.albedo_color
 			_stations.gate.get_node("InteractionArea").is_enabled = false
 			_audio.play()
-			if reduced_motion:
-				_gate.position.y = 4.3
-				_gate_shape.set_deferred("disabled",true)
-			else:
-				var opening := create_tween()
-				opening.tween_property(_gate,"position:y",4.3,0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-				opening.tween_callback(func(): _gate_shape.set_deferred("disabled",true))
+			if _security_motes: _security_motes.emit_release(station.position)
+			_animate_gate()
 		_: return {"accepted": false}
 	return {"accepted":true,"action":action}
 
+func _cancel_gate_motion() -> void:
+	_gate_generation += 1
+	if _gate_tween and _gate_tween.is_valid(): _gate_tween.kill()
+
+func _animate_gate() -> void:
+	var generation := _gate_generation
+	if reduced_motion:
+		_gate.position.y = 4.3
+		_finish_gate_motion.call_deferred(generation)
+		return
+	_gate_tween = create_tween()
+	_gate_tween.tween_property(_gate,"position:y",4.3,0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	_gate_tween.tween_callback(func(): _finish_gate_motion.call_deferred(generation))
+
+func _finish_gate_motion(generation: int) -> void:
+	if generation==_gate_generation and gate_open: _gate_shape.disabled = true
+
+func _sync_restored_collider(generation: int) -> void:
+	if generation==_gate_generation: _gate_shape.disabled = gate_open
+
 func restore_state(state: Dictionary) -> bool:
 	if state.size() != 3 or not state.get("gate_open") is bool or not state.get("service_trace") is bool or not state.get("scanner_trace") is bool: return false
+	_cancel_gate_motion()
+	if _audio: _audio.stop()
+	if _security_motes: _security_motes._release.visible = false
 	gate_open = state.gate_open
 	_gate_feedback = 0.0 # Restoring progress must not replay the completion cue.
 	service_trace = state.service_trace
 	scanner_trace = state.scanner_trace
-	_gate_shape.set_deferred("disabled",gate_open)
+	# The generation check also guards same-frame deferred collider requests.
+	_sync_restored_collider.call_deferred(_gate_generation)
 	_gate.position.y = 4.3 if gate_open else 1.4
 	_stations.gate.get_node("InteractionArea").is_enabled = not gate_open
 	_signal.albedo_color = Color(0.12,0.85,0.75) if gate_open else Color(1,0.48,0.13)
@@ -181,12 +215,12 @@ func _box(label: String, center: Vector3, size: Vector3, material: Material, sol
 	return node
 
 func _build_room() -> void:
-	var wall := _material(Color(0.3,0.35,0.4),0.15)
+	var wall := _material(Color(0.46,0.53,0.62),0.12)
 	wall.albedo_texture = CERAMIC
 	wall.uv1_scale = Vector3(2,2,1)
-	var floor_mat := _material(Color(0.25,0.3,0.33),0.15,0.8)
-	var metal := _material(Color(0.18,0.22,0.25),0.45,0.55)
-	metal.albedo_texture = GRAPHITE
+	var floor_mat := _material(Color(0.30,0.37,0.44),0.12,0.65)
+	var metal := _material(Color(0.46,0.53,0.62),0.22,0.48)
+	metal.albedo_texture = CERAMIC
 	var ivory := _material(Color(0.7,0.73,0.70),0.0,0.8)
 	var cyan := _material(Color(0.12,0.72,0.76),0,0.5,true)
 	var amber := _material(Color(1,0.48,0.13),0,0.5,true)
@@ -281,6 +315,7 @@ func _build_room() -> void:
 	cone.height = 13.0
 	cone.radial_segments = 32
 	cone.rings = 1
+	cone.cap_top = false
 	cone.cap_bottom = false
 	field.mesh = cone
 	field.rotation.x = PI/2.0
@@ -304,6 +339,13 @@ func _build_room() -> void:
 	_audio.position = Vector3(-1.3,1,-15.6)
 	_audio.max_distance = 15
 	add_child(_audio)
+	_security_motes = preload("res://scripts/environment/room_motes.gd").new()
+	_security_motes.name = "SecurityAtmosphere"
+	_security_motes.anchors.assign([Vector3(-2,1.8,-4.2),Vector3(0,2.2,-9.5),Vector3(3.6,3,-8.4)])
+	_security_motes.particles_per_anchor = 12
+	_security_motes.tint = Color(0.56,0.82,0.92,0.26)
+	_security_motes.seed_value = 111103
+	add_child(_security_motes)
 
 func _station(label: String, center: Vector3, action: String, face: Material, housing: Material) -> Node3D:
 	var station := Node3D.new()

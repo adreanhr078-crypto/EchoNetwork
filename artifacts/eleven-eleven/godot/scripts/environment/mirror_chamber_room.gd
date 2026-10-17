@@ -1,14 +1,15 @@
 extends Node3D
 
-## Room 9: The Mirror Chamber & Central Security Surveillance Hub
+## Playable Room08: The Mirror Chamber & Central Security Surveillance Hub.
+## The original filenames/buffer comments below retain legacy room numbering.
 ## Connects from Buffer 8-9 (Decon-to-Surveillance Conduit) South Entrance at Z = 0.0m
 ## to Room 10 (Dr. Kinja's Observation Lab) North Exit Blast Gate at Z = -36.0m.
 ## Enforces the Anti-Crowding and Quality Gate Invariants:
 ## - Watertight Hull (28.0m x 36.0m x 8.0m), solid collision envelope, zero light bleed.
 ## - Narrative & Gameplay Flow:
-##   * Panopticon Discovery: Massive North monitor wall broadcasting live feeds of Echo's escape.
+##   * North monitor: authored local telemetry from the actual room flags.
 ##   * Two-Way Surveillance Mirror: Reflective glass revealing Echo's exhausted human state.
-##   * Kinetic High-Speed Traversal: Elevated catwalks, slide-under horizontal lasers (height 1.2m).
+##   * Elevated catwalks and decorative optical beams (no new hazard authority).
 ##   * Elevated Central Command Dais at Y = +2.4m with Master Security Override Terminal.
 ##   * Lockdown Override unlocking the North Exit Blast Gate to Dr. Kinja's Lab.
 ## - 3-Tier Safe Anchors: Entry, Command Dais, Exit Gantry.
@@ -44,12 +45,24 @@ const SAFE_ANCHOR_EXIT := Vector3(0.0, 0.1, -33.0)
 
 var state: RoomState = RoomState.ENTRY_LOBBY
 var current_anchor: Vector3 = SAFE_ANCHOR_ENTRY
-var reduced_motion := false
-var audio_muted := false
+var reduced_motion := false:
+	set(value):
+		if reduced_motion==value: return
+		reduced_motion = value
+		if _presentation: _presentation.sync_accessibility()
+		if value and gate_open and is_instance_valid(_gate) and (_gate.position.y<_gate_open_y-0.001 or not _gate_shape.disabled):
+			_kill_gate_tween()
+			_animate_gate()
+var audio_muted := false:
+	set(value):
+		if audio_muted==value: return
+		audio_muted = value
+		if _presentation: _presentation.sync_accessibility()
 var player: Node3D
 var presentation_language:="ar"
 var _telemetry:Node3D
-var _telemetry_signature:=""
+var _telemetry_language := ""
+var _telemetry_flags := -1
 
 func set_presentation_language(language:String) -> void:
 	presentation_language="en" if language=="en" else "ar"
@@ -57,10 +70,15 @@ func set_presentation_language(language:String) -> void:
 
 func _update_telemetry() -> void:
 	if not _telemetry: return
-	var signature:="%s/%s/%s/%s" % [presentation_language,mirror_inspected,override_done,gate_open]
-	if signature==_telemetry_signature: return
-	_telemetry_signature=signature
+	var flags := int(mirror_inspected) | (int(override_done)<<1) | (int(gate_open)<<2)
+	if flags==_telemetry_flags and presentation_language==_telemetry_language: return
+	_telemetry_flags = flags
+	_telemetry_language = presentation_language
 	preload("res://scripts/environment/surveillance_display.gd").update(_telemetry,presentation_language,mirror_inspected,gate_open)
+	_telemetry.get_node("Readout2").text = ("التجاوز / مفعل" if override_done else "التجاوز / انتظار") if presentation_language=="ar" else ("OVERRIDE / ENGAGED" if override_done else "OVERRIDE / STANDBY")
+	_telemetry.get_node("Status0").material_override.albedo_color = Color(.24,.55,.46) if mirror_inspected else Color(.68,.4,.16)
+	_telemetry.get_node("Status2").material_override.albedo_color = Color(.24,.55,.46) if override_done else Color(.68,.4,.16)
+	if _presentation: _presentation.refresh()
 
 var mirror_inspected := false
 var override_done := false
@@ -70,11 +88,15 @@ var _gate: StaticBody3D
 var _gate_shape: CollisionShape3D
 var _gate_closed_y := 1.4
 var _gate_open_y := 4.8
+var _gate_tween: Tween
+var _gate_generation := 0
 
 var _terminal_body: StaticBody3D
 var _terminal_light: OmniLight3D
 var _ambient_amber_light: OmniLight3D
 var _laser_beams: Array[MeshInstance3D] = []
+var _presentation: Node3D
+var _terminal_area: Area3D
 
 func _ready() -> void:
 	_build_room_hull()
@@ -85,9 +107,14 @@ func _ready() -> void:
 	_build_master_terminal()
 	_build_exit_gate()
 	preload("res://scripts/environment/room_service_lighting.gd").install(self, Rect2(-14,-36,28,36),8.0)
+	var finish = preload("res://scripts/environment/room_panel_finish.gd")
+	finish.apply(self,["CommandDais","DaisRail","WestStair","EastStair","MirrorTop","MirrorBottom","MirrorSide","MonitorWallFrame"],finish.material(Color(.24,.30,.38),Vector2(1.6,.8),.26,.56))
+	finish.apply(self,["Floor"],finish.material(Color(.11,.17,.22),Vector2(2.4,1.6),.14,.67))
+	_presentation = preload("res://scripts/environment/mirror_room_presentation.gd").new()
+	_presentation.name = "SurveillancePresentation"
+	add_child(_presentation)
 
 func _physics_process(_delta: float) -> void:
-	_update_telemetry()
 	if not player or not is_instance_valid(player):
 		return
 	
@@ -139,7 +166,7 @@ func _build_room_hull() -> void:
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
-	var floor_mat := _material(Color(0.38, 0.43, 0.5), 0.2, 0.7)
+	var floor_mat := _material(Color(0.49, 0.55, 0.63), 0.12, 0.72)
 	floor_mat.albedo_texture = GRAPHITE
 	floor_mat.uv1_scale = Vector3(5.0, 5.0, 1.0)
 	
@@ -187,14 +214,14 @@ func _build_room_hull() -> void:
 	add_child(_ambient_amber_light)
 
 func _build_panoramic_monitor_wall() -> void:
-	# Panoramic screen bank along North Wall at Z = -35.6m (Width 20.0m x Height 5.0m at Y = 4.5m)
+	# A visual-only bank above the original 2.8m exit portal.
 	var screen_mat := preload("res://scripts/environment/surveillance_display.gd").material()
 	var frame_mat := _material(Color(0.15, 0.18, 0.22), 0.8, 0.3)
 	
-	_box("MonitorWallFrame", Vector3(0.0, 4.5, -35.7), Vector3(22.0, 5.4, 0.2), frame_mat, false)
-	_box("MonitorWallScreens", Vector3(0.0, 4.5, -35.6), Vector3(21.0, 4.8, 0.05), screen_mat, false)
+	_box("MonitorWallFrame", Vector3(0.0, 5.7, -35.7), Vector3(22.0, 3.6, 0.2), frame_mat, false)
+	_box("MonitorWallScreens", Vector3(0.0, 5.7, -35.6), Vector3(21.0, 3.2, 0.05), screen_mat, false)
 	
-	_telemetry=preload("res://scripts/environment/surveillance_display.gd").populate(self,Vector3(0,4.5,-35.5),20,4.5,"SURVEILLANCE / LOCAL TELEMETRY")
+	_telemetry=preload("res://scripts/environment/surveillance_display.gd").populate(self,Vector3(0,5.7,-35.5),20,3.2,"SURVEILLANCE / LOCAL TELEMETRY")
 	_update_telemetry()
 
 func _build_surveillance_mirror() -> void:
@@ -220,6 +247,8 @@ func _build_surveillance_mirror() -> void:
 	add_child(backing)
 	var glass := preload("res://scripts/environment/planar_inspection_mirror.gd").new()
 	glass.position.x = -0.17
+	glass.reflection_depth = 23.5
+	glass.visibility_gated_updates = true
 	mirror_node.add_child(glass)
 	
 	# Interaction Area3D for examining reflection
@@ -234,6 +263,8 @@ func _build_surveillance_mirror() -> void:
 	area.body_entered.connect(func(body: Node3D):
 		if body == player and not mirror_inspected:
 			mirror_inspected = true
+			if _presentation: _presentation.inspect()
+			_update_telemetry()
 			mirror_examined.emit()
 			if override_done: _open_exit_gate()
 	)
@@ -241,8 +272,8 @@ func _build_surveillance_mirror() -> void:
 	add_child(mirror_node)
 
 func _build_elevated_command_dais() -> void:
-	var deck_mat := _material(Color(0.22, 0.25, 0.3), 0.8, 0.35)
-	var rail_mat := _material(Color(0.14, 0.17, 0.2), 0.9, 0.2)
+	var deck_mat := _material(Color(0.43, 0.49, 0.57), 0.26, 0.56)
+	var rail_mat := _material(Color(0.39, 0.45, 0.52), 0.3, 0.55)
 	
 	# Dais Platform: centered at X = 0.0m, Z = -18.0m, Y = 2.4m (Size: 8.0m x 8.0m x 0.3m)
 	_box("CommandDaisDeck", Vector3(0.0, 2.25, -18.0), Vector3(8.0, 0.3, 8.0), deck_mat, true)
@@ -263,8 +294,8 @@ func _build_elevated_command_dais() -> void:
 		var ex := 4.65 + float(i) * 0.45
 		_box("EastStair_%d" % i, Vector3(ex, step_y + 0.15, -16.6), Vector3(0.5, 0.2, 2.2), deck_mat, false)
 	var support = preload("res://scripts/environment/room_path_support.gd")
-	support.add_ramp(self, "WestStairSupport", Vector3(-7.8, 0, -16.6), Vector3(-4.5, 2.4, -16.6), 2.2)
-	support.add_ramp(self, "EastStairSupport", Vector3(7.8, 0, -16.6), Vector3(4.5, 2.4, -16.6), 2.2)
+	support.add_ramp(self, "WestStairSupport", Vector3(-7.8, 0, -16.6), Vector3(-4.5, 2.4, -16.6), 2.2,deck_mat)
+	support.add_ramp(self, "EastStairSupport", Vector3(7.8, 0, -16.6), Vector3(4.5, 2.4, -16.6), 2.2,deck_mat)
 	support.add_ramp(self, "WestStairLanding", Vector3(-4.5,2.4,-16.6), Vector3(-3.5,2.4,-16.6),2.2,deck_mat)
 	support.add_ramp(self, "EastStairLanding", Vector3(4.5,2.4,-16.6), Vector3(3.5,2.4,-16.6),2.2,deck_mat)
 
@@ -329,6 +360,7 @@ func _build_master_terminal() -> void:
 	# Interaction Area3D
 	var area := Area3D.new()
 	area.name = "InteractionArea"
+	_terminal_area = area
 	var area_col := CollisionShape3D.new()
 	var sphere := SphereShape3D.new()
 	sphere.radius = 2.4
@@ -336,7 +368,7 @@ func _build_master_terminal() -> void:
 	area.add_child(area_col)
 	
 	area.body_entered.connect(func(body: Node3D):
-		if body.has_method("register_nearby_interactable"):
+		if not override_done and body.has_method("register_nearby_interactable"):
 			body.register_nearby_interactable(_terminal_body)
 	)
 	area.body_exited.connect(func(body: Node3D):
@@ -348,7 +380,7 @@ func _build_master_terminal() -> void:
 	add_child(_terminal_body)
 
 func _build_exit_gate() -> void:
-	var gate_mat := _material(Color(0.2, 0.25, 0.3), 0.9, 0.2, true, Color(1.0, 0.6, 0.0), 0.8)
+	var gate_mat := _material(Color(0.34, 0.4, 0.48), 0.3, 0.5, true, Color(1.0, 0.6, 0.0), 0.6)
 	
 	_gate = StaticBody3D.new()
 	_gate.name = "SurveillanceExitGate"
@@ -378,6 +410,9 @@ func execute_lockdown_override() -> Dictionary:
 		return {"success": true, "already_overridden": true, "cleared": gate_open, "mirror_required": not mirror_inspected}
 	
 	override_done = true
+	if _presentation: _presentation.override_activated()
+	_refresh_terminal_registration()
+	_update_telemetry()
 	state = RoomState.OVERRIDE_ACTIVE
 	lockdown_override_initiated.emit()
 	
@@ -395,21 +430,39 @@ func _open_exit_gate() -> void:
 	state = RoomState.SECURITY_CLEARED
 	security_cleared.emit()
 	exit_gate_opened.emit()
-	
+	if _presentation: _presentation.gate_released()
+	_update_telemetry()
+	_animate_gate()
+
+func _animate_gate() -> void:
+	var generation := _gate_generation
 	if reduced_motion:
 		if _gate:
 			_gate.position.y = _gate_open_y
-		if _gate_shape:
-			_gate_shape.set_deferred("disabled", true)
+		_finish_gate_motion.call_deferred(generation)
 		return
 	
 	if _gate:
-		var tween := create_tween()
-		tween.tween_property(_gate, "position:y", _gate_open_y, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tween.tween_callback(func():
-			if _gate_shape:
-				_gate_shape.set_deferred("disabled", true)
+		var remaining := 0.8*clampf((_gate_open_y-_gate.position.y)/(_gate_open_y-_gate_closed_y),0.0,1.0)
+		_gate_tween = create_tween()
+		_gate_tween.tween_property(_gate, "position:y", _gate_open_y, remaining).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_gate_tween.tween_callback(func():
+			_finish_gate_motion.call_deferred(generation)
 		)
+
+func _finish_gate_motion(generation: int) -> void:
+	if generation==_gate_generation and gate_open and _gate_shape:
+		_gate_shape.disabled = true
+
+func _sync_restored_collision(generation: int, restored_open: bool) -> void:
+	if generation==_gate_generation and _gate_shape:
+		# Capture the restored state: a new interaction in this frame may have
+		# started opening, but its collider must stay solid until motion ends.
+		_gate_shape.disabled = restored_open
+
+func _kill_gate_tween() -> void:
+	_gate_generation += 1
+	if _gate_tween and _gate_tween.is_valid(): _gate_tween.kill()
 
 func get_safe_anchor() -> Vector3:
 	return current_anchor
@@ -426,6 +479,8 @@ func get_state() -> Dictionary:
 	}
 
 func restore_state(data: Dictionary) -> void:
+	_kill_gate_tween()
+	if _presentation: _presentation.restore_silently()
 	if data.has("state"):
 		state = data["state"]
 	if data.has("current_anchor"):
@@ -440,13 +495,25 @@ func restore_state(data: Dictionary) -> void:
 		_gate.position.y = data["gate_pos_y"]
 	if _gate_shape and data.has("gate_col_disabled"):
 		_gate_shape.disabled = data["gate_col_disabled"]
-	if override_done:
-		for beam in _laser_beams:
-			beam.visible = false
+	for beam in _laser_beams:
+		beam.visible = not override_done
 	# The saved room adapter can carry an older override-only open gate. The
 	# physical exit must agree with the same two flags as route progression.
 	gate_open = mirror_inspected and override_done
-	if _gate: _gate.position.y = _gate_open_y if gate_open else _gate_closed_y
-	if _gate_shape: _gate_shape.set_deferred("disabled", gate_open)
+	if _gate:
+		_gate.position.y = clampf(float(data.get("gate_pos_y",_gate_open_y)),_gate_closed_y,_gate_open_y) if gate_open else _gate_closed_y
+	if gate_open and (_gate.position.y<_gate_open_y-0.001 or not _gate_shape.disabled):
+		_sync_restored_collision.call_deferred(_gate_generation,false)
+		_animate_gate()
+	else: _sync_restored_collision.call_deferred(_gate_generation,gate_open)
 	if gate_open: state = RoomState.SECURITY_CLEARED
 	elif override_done: state = RoomState.OVERRIDE_ACTIVE
+	_update_telemetry()
+	if _presentation: _presentation.refresh()
+	_refresh_terminal_registration()
+
+func _refresh_terminal_registration() -> void:
+	if not _terminal_area: return
+	for body in _terminal_area.get_overlapping_bodies():
+		if override_done and body.has_method("unregister_nearby_interactable"): body.unregister_nearby_interactable(_terminal_body)
+		elif not override_done and body.has_method("register_nearby_interactable"): body.register_nearby_interactable(_terminal_body)

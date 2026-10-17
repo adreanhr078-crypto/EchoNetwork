@@ -107,6 +107,7 @@ func _build() -> void:
 	rooms[5].zero_contract_accepted.connect(_start_revenge)
 	rooms[5].wish_decision_requested.connect(_show_wish)
 	rooms[1].memory_shard_collected.connect(_show_memory_shard)
+	rooms[0].specimen_record_requested.connect(_show_specimen_record)
 	_set_active_rooms()
 
 func _show_memory_shard(id:String) -> void:
@@ -118,6 +119,13 @@ func _show_memory_shard(id:String) -> void:
 	var count:String=str(rooms[1].collected_shards.size())+" / 3"
 	_window().show_system_window(0,String(config.get("title_"+language,"EX-011")),String(config.get("text_"+language,"")),[count],4.0)
 
+func _show_specimen_record(index: int) -> void:
+	if not active or current!=0 or index<0 or index>=rooms[0]._specimen_tanks.size(): return
+	var record: Dictionary = rooms[0]._specimen_tanks[index]
+	# A readable non-modal record lets the player keep moving behind cover.
+	# Existing mandatory terminal flags/save schema and rewards are unchanged.
+	main.hud.show_tutorial_toast("SPECIMEN_"+record.id,"E",String(record.id).to_upper().replace("_","-"),record.get("status_"+main.presentation_language,""),6.0)
+
 func _activate() -> void:
 	active=true
 	current=progress.completed.size()
@@ -126,12 +134,12 @@ func _activate() -> void:
 	main.player.set_combat_available(false)
 	if current>0 and current<rooms.size():
 		main.player.surface_motor.reset(main.player)
-		main.player.global_position=ORIGINS[current]+ANCHORS[current]
+		main.player.global_position=rooms[current].to_global(rooms[current].get_safe_anchor()) if current==5 else ORIGINS[current]+ANCHORS[current]
 		main.player.velocity=Vector3.ZERO
 	if current>=rooms.size(): _begin_hospital(false)
 	else:
 		_set_active_rooms()
-		if current==5 and rooms[5].contract_done and not rooms[5].revenge_done: _start_revenge()
+		if current==5 and rooms[5].contract_done and not rooms[5].revenge_done: _start_revenge(true)
 		elif current==5 and rooms[5].revenge_done and not rooms[5].wish_done: _show_wish()
 	_refresh_objective()
 
@@ -249,7 +257,7 @@ func _ensure_kinja() -> void:
 			rooms[5].story_presentation.impact_feedback(count))
 		kinja.collar_requested.connect(_collar_confrontation)
 
-func _start_revenge() -> void:
+func _start_revenge(restoring:=false) -> void:
 	if current!=5 or not rooms[5].contract_done or rooms[5].revenge_done: return
 	_ensure_kinja()
 	kinja.active=true
@@ -258,7 +266,7 @@ func _start_revenge() -> void:
 	main.player.unsheath_weapon()
 	# The optional insert is presentation only; reduced motion immediately
 	# retains the same explicit decision and controlled confrontation.
-	rooms[5].story_presentation.begin("accepted",main,kinja)
+	if not restoring: rooms[5].story_presentation.begin("accepted",main,kinja)
 
 func _collar_confrontation() -> void:
 	if current!=5 or not kinja or kinja.contacts<3 or not rooms[5].contract_done: return
@@ -460,19 +468,29 @@ func _refresh_objective() -> void:
 		0:
 			title=main.opening_text("غرف التجارب","Specimen wing")
 			hint=main.opening_text("اعبر الممر. احتمِ من المراقبة وافحص سجل EX-011 عند الطرف الآخر.","Cross the passage. Use cover and inspect the EX-011 record at the far end.")
+			if rooms[0].terminal_read: hint=main.opening_text("السجل يطابق رمزك. البوابة مفتوحة؛ اعبر الممر الغربي إلى الأرشيف.","The record matches your identifier. The gate is open; take the west passage to the archive.")
 		1:
 			title=main.opening_text("شظايا الذاكرة","Memory fragments")
 			hint=main.opening_text("استعد الشظايا الثلاث على الأرض والممشى العلوي، ثم استخدم وحدة الأرشيف.","Recover the three fragments on the floor and upper walkway, then use the archive console.")
-			hint+="  "+str(rooms[1].collected_shards.size())+" / 3"
+			hint+="  "+"\u200e"+str(rooms[1].collected_shards.size())+" / 3"+"\u200e"
+			if rooms[1].collected_shards.size()==3: hint=main.opening_text("اكتملت الشظايا. عُد إلى وحدة الأرشيف عند قاعدة النواة لفك التسلسل.","All fragments are recovered. Return to the archive console beside the core and decode the sequence.")
+			if rooms[1].archive_decoded: hint=main.opening_text("تم فك التسلسل. اعبر البوابة الشمالية إلى ممر المفاعل.","The sequence is decoded. Take the north gate to the reactor conduit.")
 		2:
 			title=main.opening_text("الطاقة الاحتياطية","Reserve power")
 			hint=main.opening_text("انتظر انطفاء مناطق التفريغ. اتبع ممشى الخدمة إلى القاطعين ثم الجسر.","Wait for the discharge zones to clear. Follow the service walkway to both breakers, then the bridge.")
+			if rooms[2].breaker_a_done and not rooms[2].breaker_b_done: hint=main.opening_text("القاطع الغربي يعمل. انتظر هدوء التفريغ واعبر ممشى الخدمة إلى القاطع الشرقي.","The west breaker is active. Wait for the discharge to clear and follow the service walkway to the east breaker.")
+			elif rooms[2].breaker_b_done and not rooms[2].breaker_a_done: hint=main.opening_text("القاطع الشرقي يعمل. عُد عبر ممشى الخدمة إلى القاطع الغربي.","The east breaker is active. Follow the service walkway back to the west breaker.")
+			if rooms[2].bridge_extended: hint=main.opening_text("تم تفعيل القاطعين. اصعد الممشى الشرقي إلى الجسر المضاء واعبر البوابة الشمالية.","Both breakers are active. Take the east ramp to the lit bridge and cross the north gate.")
 		3:
 			title=main.opening_text("الحجر الصحي","Quarantine")
 			hint=main.opening_text("اصعد السلم يسار المدخل للوصول إلى وحدة تجاوز الحجر.","Use the stairs left of the entrance to reach the quarantine override.")
+			if rooms[3].override_done: hint=main.opening_text("رُفع الحجر. انزل السلم، ثم اعبر البوابة الشمالية إلى قاعة المرايا.","Quarantine is cleared. Take the stairs down, then cross the north gate to the mirror hall.")
 		4:
 			title=main.opening_text("المراقبة","Surveillance")
 			hint=main.opening_text("افحص المرآة. اصعد ممشى الخدمة وافتح بوابة المختبر.","Inspect the mirror. Climb the service walkway and release the laboratory gate.")
+			if rooms[4].gate_open: hint=main.opening_text("رُفع الإغلاق. اعبر البوابة الشمالية نحو المختبر.","Lockdown is cleared. Cross the north gate toward the laboratory.")
+			elif rooms[4].override_done: hint=main.opening_text("التجاوز مفعل. اقترب من المرآة الجانبية لإتمام الفحص.","Override is engaged. Approach the side mirror to finish inspection.")
+			elif rooms[4].mirror_inspected: hint=main.opening_text("هل أنت أنا؟ اصعد أحد السلمين وفعّل تجاوز الإغلاق.","Are you me? Take either staircase and engage the lockdown override.")
 		5:
 			title=main.opening_text("مختبر كينجا","Kinja's laboratory")
 			hint=main.opening_text("اصعد إلى منصة الفحص واستعد ما حدث.","Reach the examination platform and recover what happened.")

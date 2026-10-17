@@ -1,3 +1,56 @@
+# CP36 — تقييمTripo / الشخصية والفن OPEN
+
+آخر runtimeCP34. ابدأCURRENT_WORKوالكاش المختصر؛ التقريرTRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md. تنزيلH2.5ساكن2Kواستيراده نجحا؛ حركةP2غيرمؤهلة محليًا. الرصيد140والاختبارما زال محدودًا. ما يلي تاريخي.
+
+---
+# CP35 — تجربة Tripo جزئية / استكمال المتصفح BLOCKED
+
+آخر runtime CP34. خامة P2 وMixamo اكتملتا؛ body01 عُرضت دون قبول تمثيل. آخر رصيد مرئي160؛ التصدير مقفل، لا ملف محلي. راجع CURRENT_WORK وتقييم TRIPO_FEATURE_EVALUATION_CP35_2026-10-16.ar.md. التالي استعادة الاتصال ثم تأهيل ملف فعلي وعينة عنصر ثابت. ما يلي تاريخي.
+
+---
+
+# CP34 — دراسة مصادر وخامة كينجا مؤهلة بنطاقها؛ تمثيل الحركة OPEN
+
+ابدأCURRENT_WORK وSOURCE_INDEX. التقرير CHAPTER_EXECUTION_CP34_2026-10-16.ar.md، ودراسة EXTERNAL_REPOSITORY_STUDY_2026-10-16.ar.md، والدليل audits/evidence/external-research-20261016/cp34/verification-cp34.json. مصدر الخامة godot/scripts/characters/kinja_surface_profile.gd، اختبارها kinja_surface_profile_review.gd.43حركةCC0 قيد التأهيل وليست مدمجة. المالك يسمح باستبدال كينجا المناسب؛ لا تبديل فعلي. ما يلي تاريخي.
+
+---
+
+# CP33 — عودة كاميرا المختبر مثبتة بنطاقها؛ الفن والمدخل OPEN
+
+سلطة الحالة CURRENT_WORK.ar.md وSOURCE_INDEX.json. التقرير CHAPTER_EXECUTION_CP33_2026-10-16.ar.md، الاختبار godot/tests/pact_camera_return_review.gd، الدليل audits/evidence/chapter-execution-20261016/cp33/verification-cp33.json. المشهد الكامل/المتعة/الأجهزة مفتوحة، ومسارCP32 التاريخي لا يثبت شفرةCP33. التالي مدخل الغلاف الموثوق ثم تمثيل المختبر. ما يلي تاريخي.
+
+---
+
+# CP32 — المرآة واستعادة المختبر؛ بوابة الفن OPEN
+
+المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. الخطة CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md؛ التقرير CHAPTER_EXECUTION_CP32_2026-10-16.ar.md؛ عقد الدخول ENTRY_SAVE_EXPORT_CONTRACT_2026-10-16.ar.md. الفحص الجديد godot/tests/lab_campaign_resume_review.gd يؤهل المرساة والاستئناف، وlab_state_recovery_review.gd يغطي الفيزياء والقرارات وrollback. التالي إصلاح كاميرا المواجهة المثبتة بصريًا، وليس اعتماد الفصل. ما يلي تاريخي.
+
+# CP30 — قاعة المرايا08 قيدالتطوير بإذنالمالك الجديد
+
+المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. حفظالأصل والقياسوالصور في audits/evidence/room08-20261015؛ إصلاحاتالعقودالصغيرة مثبتة، مراجعةأرجونوالفنومسار08وpostflightنهائي قيدالعمل.09لمتعدل. ما يلي تاريخي.
+
+# CP29 — تمريرة عرض 01–07؛ الإبلاغ قبل08
+
+المرجع CURRENT_WORK.ar.md وSOURCE_INDEX.json وتقرير ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md. النظام المشترك الجديد اختياري room_panel_finish، وغلاف المفاعل reactor_housing؛ تستعمله الغرف04–07 فقط. لا قبول أداء/شخصية/فصل. ما يلي تاريخي.
+
+# CP28 — مؤثرات07 ومراجعةArgon؛ 08قيدالتشخيصالتالي
+
+المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. لا قبولفنيكامل أوأجهزة؛ أوصافCP27وماقبله تاريخية.
+
+# CP27 — تمريرة التعقيم الوظيفية مثبتة؛ التالي قاعة المرايا 08
+
+مصدر الحالة CURRENT_WORK.ar.md وSOURCE_INDEX.json؛ التقرير ROOM07_EXECUTION_2026-10-15.ar.md. الفن/الحركات/الاستماع/الأداء/الأجهزة مفتوحة. إشارات CP26 وما قبلها أدناه تاريخية.
+
+# CP26 — المفاعل مثبت وظيفياً؛ الحجر الصحي قيد التشخيص
+
+مصدر الحالة: CURRENT_WORK.ar.md وSOURCE_INDEX.json؛ التقرير ROOM06_EXECUTION_2026-10-15.ar.md. الحركات والفن والسمع والأجهزة مفتوحة. المداخل التالية محفوظة؛ إشاراتCP25وماقبلها تاريخية.
+
+# CP25 — الاحتواء مثبت وظيفياً؛ الأرشيف قيد التنفيذ
+
+المصدر الحالي: room_motes.gd + room_motes/scanner_volumetric_cone/specimen_fluid/specimen_bubbles shaders لل04؛ room_prop_fit.gd + archive_core_stream/archive_ring لل05. روابط SOURCE_INDEX وCURRENT_WORK هي سلطة الحالة؛ صورcandidateقبل الكريستال النهائي تاريخية. الحزمةCP24لمتحدث. الفن/الحركات/السمع/الأجهزةOPEN.
+
+> **الحالة الأحدث CP24 / CP-20261014-02:** خط الأساس المتصل01→02→03 مثبت، نسخةWindowsمستقلةمراجعة. العمل الآن04الاحتواء ثم بقيةالغرف؛ التفاصيلالفنيةOPENللتمريرةالأخيرة وفق توجيه المالك. التقرير verification-cp24.json في audits/evidence/argon-production-20261014 داخل التطبيق. كل ما يلي عنCP23 أقدم ومحفوظ تاريخيًا.
+
 # شجرة العمل الحالية — 11.11 — 2026-10-14
 
 **استؤنف التطوير بطلب المالك غرفةً غرفة — CP23 / CP-20261014-01.** الغرفة الأولى قيد الصقل مع V31 الحالي؛ أعمال CP21 المعزولة محفوظة ولم تدمج. الشجرة تحدد مكان العمل؛ لا تعتمد المراحل الثلاثين أو الجودة الفنية.

@@ -16,6 +16,7 @@ var _recoil := Vector3.ZERO
 var trauma_pose: Node3D
 var _interaction_area: Area3D
 const REVENGE_RIG_PATH := "res://assets/characters/kinja_revenge_rig_v1.glb"
+const SurfaceProfile=preload("res://scripts/characters/kinja_surface_profile.gd")
 
 func _ready() -> void:
 	add_to_group("damageable")
@@ -74,6 +75,7 @@ func _install_reviewed_rig() -> void:
 		return
 	trauma_pose=pose
 	pose.set_contact_count(contacts)
+	SurfaceProfile.apply(model)
 	original.hide()
 
 func _find_rig(node: Node) -> Skeleton3D:

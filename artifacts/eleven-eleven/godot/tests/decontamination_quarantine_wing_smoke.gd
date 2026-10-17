@@ -114,7 +114,7 @@ func _run() -> void:
 	if not _check(state_dict.get("override_done", false) and state_dict.get("gate_open", false), "State dictionary missing override or gate"):
 		return
 	
-	print("PASS decontamination quarantine wing: 26x32m watertight hull, chemical scrubbers, decontamination cycle, and state restoration")
+	print("PASS decontamination quarantine wing: 24x32m hull, original UV arches/pods, override gate, safe anchors and state serialization; presentation/restore tested separately")
 	if player:
 		player.queue_free()
 	if wing:

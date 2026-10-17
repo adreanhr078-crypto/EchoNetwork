@@ -14,7 +14,8 @@ void vertex() {
     life = fract(seed+motion_time*speed);
     vec3 origin = (MODEL_MATRIX*vec4(0.0,0.0,0.0,1.0)).xyz;
     if (kind == 0) {
-        origin += vec3(sin(seed*31.0+motion_time*0.21)*0.23,life*0.85,cos(seed*17.0+motion_time*0.16)*0.20);
+        // Cold vapour spreads at the pod's foot, below hands and clue sightlines.
+        origin += vec3(sin(seed*31.0+motion_time*0.21)*(0.25+life*0.45),life*0.42,cos(seed*17.0+motion_time*0.16)*(0.22+life*0.40));
         VERTEX.xy *= 0.8+life*1.25;
     } else if (kind == 1) {
         origin += vec3(sin(seed*27.0+motion_time*0.33)*0.25,sin(seed*42.0+motion_time*0.28)*0.30,cos(seed*32.0+motion_time*0.25)*0.25);
@@ -33,7 +34,7 @@ void fragment() {
     if (kind == 0) {
         float soft = exp(-dot(q*vec2(1.0,0.72),q*vec2(1.0,0.72))*4.2);
         float folds = 0.65+0.35*sin(q.x*8.0+q.y*5.0+motion_time*0.25+seed*13.0);
-        shape = soft*folds*sin(life*3.14159265)*0.22;
+        shape = soft*folds*sin(life*3.14159265)*0.38;
     } else if (kind == 1) {
         float core = exp(-dot(q,q)*8.0);
         float cross = exp(-abs(q.x)*30.0)*exp(-abs(q.y)*4.0)+exp(-abs(q.y)*30.0)*exp(-abs(q.x)*4.0);

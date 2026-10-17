@@ -6,6 +6,11 @@ const MIRROR_LAYER := 1 << 19
 @export var glass_size:=Vector2(4.0,2.8)
 @export var reflection_height:=358
 @export var active_distance:=11.0
+## Optional room depth measured from physical glass; 0 preserves hospital's 90m.
+@export var reflection_depth:=0.0
+## Optional: do not redraw an otherwise active mirror when its texture is not
+## visible in a rendered view. False keeps existing hospital behavior unchanged.
+@export var visibility_gated_updates:=false
 var reflection: SubViewport
 var camera: Camera3D
 var surface: MeshInstance3D
@@ -57,5 +62,6 @@ func _process(_delta: float) -> void:
 	# Clip at the glass plane, so the wall cannot cover the reflected actor.
 	var near := distance+0.002
 	camera.keep_aspect = Camera3D.KEEP_HEIGHT
-	camera.set_frustum(glass_size.y*near/distance,Vector2(center.x,center.y)*near/distance,near,90.0)
-	reflection.render_target_update_mode = SubViewport.UPDATE_ONCE
+	var far := near+reflection_depth if reflection_depth>0.0 else 90.0
+	camera.set_frustum(glass_size.y*near/distance,Vector2(center.x,center.y)*near/distance,near,far)
+	reflection.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE if visibility_gated_updates else SubViewport.UPDATE_ONCE

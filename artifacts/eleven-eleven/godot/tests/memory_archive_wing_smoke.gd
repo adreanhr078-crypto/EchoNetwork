@@ -72,9 +72,12 @@ func _run() -> void:
 	if not _check(north_rack != null and south_rack != null, "Missing server rack towers"):
 		return
 	var rung := wing.get_node_or_null("NorthRack_6_Rung_0") as Node3D
-	if not _check(rung != null and rung.has_meta("climbable") and rung.get_meta("climbable") == true, "Server rack rungs must be tagged as climbable"):
+	if not _check(rung != null and north_rack.is_in_group("climbable") and south_rack.is_in_group("climbable"), "Server towers must carry continuous climbable physics support; rungs are decorative"):
 		return
 	
+	var rack_shape: BoxShape3D = north_rack.get_node("CollisionShape3D").shape
+	if not _check(is_equal_approx(rack_shape.size.y,6.5) and rack_shape.size.x>=2.4,"Climbable rack lost continuous wall support"): return
+
 	# 3. Verify Memory Shards (Shizuka, Yuki, Sector 11)
 	var expected_shards := ["shard_shizuka", "shard_yuki", "shard_sector11"]
 	for sid in expected_shards:

@@ -7,6 +7,12 @@ uniform bool textured = false;
 uniform vec4 tint : source_color = vec4(0.28, 0.34, 0.41, 1.0);
 uniform float metal = 0.45;
 uniform float base_roughness = 0.6;
+// Opt-in connected-route opening in the joined backstop mesh. Bounds are
+// supplied by the same adapter that opens its original physics boundary.
+uniform bool campaign_aperture = false;
+uniform mat4 aperture_room_inverse = mat4(1.0);
+uniform vec3 aperture_min;
+uniform vec3 aperture_max;
 varying vec3 world_point;
 
 void vertex() {
@@ -14,6 +20,11 @@ void vertex() {
 }
 
 void fragment() {
+    vec3 room_point = (aperture_room_inverse * vec4(world_point, 1.0)).xyz;
+    if (campaign_aperture && all(greaterThanEqual(room_point, aperture_min))
+            && all(lessThanEqual(room_point, aperture_max))) {
+        discard;
+    }
     vec3 base = textured ? texture(source_albedo, UV).rgb * tint.rgb : tint.rgb;
     // Restrained brushed grain and oil variation, no animated noise or screen effects.
     float brush = sin(world_point.y * 140.0 + sin(world_point.x * 37.0) * 0.7);

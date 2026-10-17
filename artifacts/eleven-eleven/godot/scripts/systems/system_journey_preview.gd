@@ -66,6 +66,7 @@ func _process(_delta: float) -> void:
 		else:
 			main.companion.float_offset = Vector3(1.1,1.45,0.9) if player.traversal.is_climbing() else Vector3(0.45,1.8,0.25)
 	var local: Vector3 = room.to_local(player.global_position)
+	room.presentation.set_presence(absf(local.x)<6.0 and local.z<0.0 and local.z>-14.0)
 	if stage == 0 and local.z < -2.0:
 		_advance(1, Vector3(0, 0.1, -20))
 	elif stage == 2 and player.is_on_floor() and local.x > 3.0 and local.y > 3.1 and local.z < -6.0:

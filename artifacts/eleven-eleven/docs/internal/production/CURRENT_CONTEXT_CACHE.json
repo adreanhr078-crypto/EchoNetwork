@@ -1,0 +1,149 @@
+{
+  "checkpoint": "CP36 / CP-20261017-01",
+  "runtime": "CP34",
+  "date": "2026-10-17",
+  "scope": "Tripo evaluation and character needs, no runtime edit",
+  "facts": {
+    "date": "2026-10-17",
+    "last_balance": 140,
+    "budget_authorized": 200,
+    "observed_total_spent": 60,
+    "new_spend": 20,
+    "body02": {
+      "ui_duration": 1.7,
+      "reviewed_times": [
+        0,
+        0.75,
+        1.7
+      ],
+      "verdict": "Clear torso recoil; fighter guard at both ends; unsuitable unchanged for vulnerable Kinja. No old large coat/arm wing seen in these views."
+    },
+    "idle": {
+      "ui_duration": 15.33,
+      "reviewed_times": [
+        0,
+        7.5
+      ],
+      "verdict": "Relaxed arms, plausible subtle standing motion. Sampled web preview only; no facial or engine acceptance."
+    },
+    "custom_motion": {
+      "requested_seconds": 5,
+      "observed_seconds": 4.96,
+      "cost": 20,
+      "reviewed_times": [
+        0,
+        2.5,
+        4.96
+      ],
+      "verdict": "FAIL brief adherence: raised guard despite relaxed arms/no boxing guard instruction. No reroll."
+    },
+    "h25_trial": {
+      "asset_id": "567ed4aa-afb0-43d6-bff8-93be0556f22e",
+      "status": "COMPLETED_UI_STATIC_GLB_2K_DOWNLOADED_IMPORTED",
+      "displayed_price": 0,
+      "base_ui_price": 50,
+      "last_observed_progress": 75,
+      "model_selected": "H2.5 Legacy",
+      "8k_toggle": true,
+      "8k_output_verified": false,
+      "observed_faces": 19992,
+      "observed_vertices": 12152,
+      "export_8k": "UPGRADE_GATE_NO_DOWNLOAD",
+      "export_2k": "SUCCESS_FILE_VERIFIED_2048x2048",
+      "export_quota_before": 15,
+      "export_quota_after": 14,
+      "source_download_name": "Kinja_H25_8K_temporary.glb",
+      "actual_resolution": "2K; original filename is misleading, local copy renamed",
+      "local_file": "Kinja_H25_2K_unrigged.glb",
+      "local_sha256": "c912d1c64865ae177fd0d9f79683c9d529f1dae51f6128455c87e4515573b5f5",
+      "rig_test": "Rig page redirected to existing P2 asset df36; did not claim H2.5 rigging or pay Retry"
+    },
+    "pro3000_monthly_observed": "$6/month for first12months then$20/month; account offer, not public-price guarantee",
+    "pro6000_monthly_observed": "$15 first month then$30/month; account offer",
+    "plan_quality_difference": "No superior model or animation quality stated when switching Pro3k toPro6k; observed selector changes credits/price",
+    "purchase": false,
+    "runtime_integration": false,
+    "next": "Owner-facing plan advice: Pro3000 monthly as bounded asset-production trial if desired; no purchase by agent. P2 engine acting/export still open. Next qualify legitimate P2 file/rig and one static room asset; specific Argon review before integration.",
+    "checkpoint": "CP36 / CP-20261017-01",
+    "browser_recovered": true,
+    "all_features_tested": false
+  },
+  "character_sources": {
+    "Echo_current": {
+      "path": "godot/assets/characters/echo_v31_adopted_high.glb",
+      "sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+      "joint_count": 68,
+      "finger_joints": [
+        "LeftHandIndex3",
+        "LeftHandIndex2",
+        "LeftHandIndex1",
+        "LeftHandMiddle3",
+        "LeftHandMiddle2",
+        "LeftHandMiddle1",
+        "LeftHandPinky3",
+        "LeftHandPinky2",
+        "LeftHandPinky1",
+        "LeftHandRing3",
+        "LeftHandRing2",
+        "LeftHandRing1",
+        "LeftHandThumb3",
+        "LeftHandThumb2",
+        "LeftHandThumb1",
+        "RightHandIndex3",
+        "RightHandIndex2",
+        "RightHandIndex1",
+        "RightHandMiddle3",
+        "RightHandMiddle2",
+        "RightHandMiddle1",
+        "RightHandPinky3",
+        "RightHandPinky2",
+        "RightHandPinky1",
+        "RightHandRing3",
+        "RightHandRing2",
+        "RightHandRing1",
+        "RightHandThumb3",
+        "RightHandThumb2",
+        "RightHandThumb1"
+      ],
+      "eye_jaw_joints": [],
+      "morph_target_slots": 0,
+      "animation_names": [
+        "Idle_Source_Retarget"
+      ],
+      "mesh_count": 1,
+      "material_count": 1
+    },
+    "Kinja_current": {
+      "path": "godot/assets/characters/kinja_revenge_rig_v1.glb",
+      "sha256": "c08a9baceadf8985e7bb1dbabf15161aa52a37ffa4edbf60fb806ae073b1b460",
+      "joint_count": 33,
+      "finger_joints": [],
+      "eye_jaw_joints": [],
+      "morph_target_slots": 0,
+      "animation_names": [],
+      "mesh_count": 1,
+      "material_count": 1
+    },
+    "Zero_current": {
+      "path": "godot/assets/characters/zero_manifestation_idle_v1.glb",
+      "sha256": "a3593b7106f7fabc5de60340f9f2b55c17f238847314da8fd6eb67d096dad464",
+      "joint_count": 41,
+      "finger_joints": [],
+      "eye_jaw_joints": [],
+      "morph_target_slots": 0,
+      "animation_names": [
+        "idle"
+      ],
+      "mesh_count": 1,
+      "material_count": 1
+    },
+    "limits": "Static source inspection only. No new in-engine acting acceptance or complete character inventory; runtime modifiers are separate."
+  },
+  "read_policy": "Read this cache/current card, then only changed relevant sections. Cached balance is historical; refresh UI before spend.",
+  "source_hashes": {
+    "AGENTS.md": "2c206fb5e8a2aac5a9e4c0f54161389a133c5b25b980bdb476f4b962ab530388",
+    "artifacts\\eleven-eleven\\docs\\internal\\production\\CURRENT_WORK.ar.md": "148cea335a8abd4c00105790cb0b06d117f330ba0965e483f0f658c6fd6399f7",
+    "artifacts\\eleven-eleven\\docs\\internal\\production\\TRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md": "edd8ae517c44f9faa5fd06761dcf3a43b6c762fc430dcdef91fa3be2a195651d"
+  },
+  "next": "Owner-facing plan advice: Pro3000 monthly as bounded asset-production trial if desired; no purchase by agent. P2 engine acting/export still open. Next qualify legitimate P2 file/rig and one static room asset; specific Argon review before integration."
+}

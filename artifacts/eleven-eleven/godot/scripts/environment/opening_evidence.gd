@@ -22,6 +22,11 @@ var reduced_motion := false
 var presentation_language := "ar"
 var _feedback_tween: Tween
 var _label_tween: Tween
+var _guidance_strength := 1.0
+var _guidance_target := 1.0
+var _beam_material: StandardMaterial3D
+var _beam_color: Color
+var _trim_material: StandardMaterial3D
 
 func _ready() -> void:
 	$ClockFace.visible = evidence_id == "clock"
@@ -57,6 +62,8 @@ func set_reduced_motion(enabled: bool) -> void:
 			_hide_inspected_effects()
 			$EvidenceLabel.position.y = 1.55
 			$EvidenceLabel.modulate.a = 1.0
+		_guidance_strength = _guidance_target
+		_apply_guidance()
 
 func _hide_inspected_effects() -> void:
 	for mesh in [_beacon_mesh,_ring_mesh,_orbit_ring_1,_orbit_ring_2,_cloche_mesh]:
@@ -80,12 +87,13 @@ func _setup_pedestal_and_props() -> void:
 	obsidian_mat.metallic = 0.55
 	obsidian_mat.roughness = 0.42
 	
-	var accent_color := Color(0.0, 0.90, 1.0) if evidence_id == "clock" else Color(0.85, 0.3, 1.0)
+	var accent_color := Color(0.0, 0.90, 1.0) if evidence_id == "clock" else Color(0.72, 0.57, 0.29)
 	var trim_mat := StandardMaterial3D.new()
 	trim_mat.albedo_color = accent_color
 	trim_mat.emission_enabled = true
 	trim_mat.emission = accent_color
-	trim_mat.emission_energy_multiplier = 0.35
+	trim_mat.emission_energy_multiplier = 0.20 if evidence_id == "clock" else 0.12
+	_trim_material = trim_mat
 	
 	var gold_mat := StandardMaterial3D.new()
 	gold_mat.albedo_color = Color(0.70, 0.48, 0.19)
@@ -121,6 +129,7 @@ func _setup_pedestal_and_props() -> void:
 	# Vertical Neon Cooling Flutes on Column
 	for f in range(4):
 		var flute := MeshInstance3D.new()
+		flute.name = "CoolingFlute_%d" % f
 		var flute_box := BoxMesh.new()
 		flute_box.size = Vector3(0.02, 0.68, 0.02)
 		flute.mesh = flute_box
@@ -147,8 +156,16 @@ func _setup_pedestal_and_props() -> void:
 	var top_box := BoxMesh.new()
 	top_box.size = Vector3(0.48, 0.04, 0.48)
 	top_mesh.mesh = top_box
+	if evidence_id == "clock":
+		var clock_platter := CylinderMesh.new()
+		clock_platter.radial_segments = 32
+		clock_platter.top_radius = 0.22
+		clock_platter.bottom_radius = 0.23
+		clock_platter.height = 0.04
+		top_mesh.mesh = clock_platter
 	top_mesh.position = Vector3(0.0, 0.94, 0.0)
-	top_mesh.rotation = Vector3(deg_to_rad(24.0), deg_to_rad(75.0), 0.0)
+	var mount_yaw := deg_to_rad(15.0 if evidence_id == "clock" else -65.0)
+	top_mesh.rotation = Vector3(deg_to_rad(24.0), mount_yaw, 0.0)
 	top_mesh.material_override = obsidian_mat
 	pedestal.add_child(top_mesh)
 	
@@ -172,154 +189,25 @@ func _setup_pedestal_and_props() -> void:
 	if evidence_id == "clock":
 		# Position clock centered on the angled console cushion
 		$ClockFace.position = Vector3(0.0, 0.965, 0.0)
-		$ClockFace.rotation = Vector3(deg_to_rad(24.0), deg_to_rad(75.0), 0.0)
+		$ClockFace.rotation = Vector3(deg_to_rad(24.0), mount_yaw, 0.0)
 		
-		# Detailed Beveled Outer Casing in Polished Antique Gold
-		var bezel_mesh := CylinderMesh.new()
-		bezel_mesh.top_radius = 0.185
-		bezel_mesh.bottom_radius = 0.195
-		bezel_mesh.height = 0.034
-		$ClockFace.mesh = bezel_mesh
-		$ClockFace.material_override = gold_mat
-		
-		# Open Hunter Case Lid (Tilted back 65 degrees)
-		var lid := MeshInstance3D.new()
-		lid.name = "PocketWatchLid"
-		var lid_mesh := CylinderMesh.new()
-		lid_mesh.top_radius = 0.185
-		lid_mesh.bottom_radius = 0.190
-		lid_mesh.height = 0.012
-		lid.mesh = lid_mesh
-		lid.position = Vector3(0.0, 0.075, -0.185)
-		lid.rotation.x = deg_to_rad(-65.0)
-		lid.material_override = gold_mat
-		$ClockFace.add_child(lid)
-		
-		# Top Winding Crown & Bow Loop at 12 o'clock (-Z)
-		var crown := MeshInstance3D.new()
-		crown.name = "WindingCrown"
-		var crown_cyl := CylinderMesh.new()
-		crown_cyl.top_radius = 0.022
-		crown_cyl.bottom_radius = 0.022
-		crown_cyl.height = 0.028
-		crown.mesh = crown_cyl
-		crown.position = Vector3(0.0, 0.012, -0.215)
-		crown.rotation.x = deg_to_rad(90.0)
-		crown.material_override = gold_mat
-		$ClockFace.add_child(crown)
-		
-		var bow := MeshInstance3D.new()
-		bow.name = "BowRing"
-		var bow_torus := TorusMesh.new()
-		bow_torus.inner_radius = 0.030
-		bow_torus.outer_radius = 0.042
-		bow.mesh = bow_torus
-		bow.position = Vector3(0.0, 0.012, -0.252)
-		bow.rotation.x = deg_to_rad(90.0)
-		bow.material_override = gold_mat
-		$ClockFace.add_child(bow)
-		
-		# Draped Golden Chain Links curving onto cushion
-		for c in range(8):
-			var link := MeshInstance3D.new()
-			var link_torus := TorusMesh.new()
-			link_torus.inner_radius = 0.010
-			link_torus.outer_radius = 0.016
-			link.mesh = link_torus
-			var progress := float(c) / 7.0
-			var chain_z := -0.25 + progress * 0.32
-			var chain_x := sin(progress * PI) * 0.10
-			var chain_y := 0.008 - sin(progress * PI) * 0.03
-			link.position = Vector3(chain_x, chain_y, chain_z)
-			link.rotation = Vector3(deg_to_rad(25.0 * c), deg_to_rad(40.0), 0.0)
-			link.material_override = gold_mat
-			$ClockFace.add_child(link)
-		
-		# Inner Porcelain Dark Enamel Dial Face
-		var dial := MeshInstance3D.new()
-		dial.name = "ClockDial"
-		var dial_cyl := CylinderMesh.new()
-		dial_cyl.top_radius = 0.170
-		dial_cyl.bottom_radius = 0.170
-		dial_cyl.height = 0.006
-		dial.mesh = dial_cyl
-		dial.position = Vector3(0.0, 0.018, 0.0)
-		
-		var dial_mat := StandardMaterial3D.new()
-		dial_mat.albedo_color = Color(0.015, 0.025, 0.045)
-		dial_mat.metallic = 0.75
-		dial_mat.roughness = 0.12
-		dial.material_override = dial_mat
-		$ClockFace.add_child(dial)
-		
-		# Dedicated Luminescent Material for 11:11 Hour & Minute Highlight
-		var eleven_mat := StandardMaterial3D.new()
-		eleven_mat.albedo_color = Color(0.65, 0.85, 0.84)
-		eleven_mat.metallic = 0.95
-		eleven_mat.roughness = 0.06
-		eleven_mat.emission_enabled = true
-		eleven_mat.emission = Color(0.0, 0.95, 1.0)
-		eleven_mat.emission_energy_multiplier = 0.30
-		eleven_mat.rim_enabled = true
-		eleven_mat.rim = 1.0
-		eleven_mat.rim_tint = 0.85
+		# Original Blender hero asset: three shared materials, centre-origin hands.
+		var clock := preload("res://assets/props/room01_clock_hero.glb").instantiate()
+		clock.name = "HeroClock"
+		var hour := clock.find_child("HourHand",true,false) as MeshInstance3D
+		var minute := clock.find_child("MinuteHand",true,false) as MeshInstance3D
+		$ClockFace.mesh = null
+		$ClockFace.material_override = null
+		$ClockFace.add_child(clock)
+		$ClockHands.mesh = hour.mesh
+		$ClockHands.material_override = null
+		$ClockHands.transform = $ClockFace.transform * Transform3D(Basis(Vector3.UP,-deg_to_rad(335.5)),Vector3(0.0,0.024,0.0))
+		hour.get_parent().remove_child(hour)
+		hour.queue_free()
+		minute.get_parent().remove_child(minute)
+		$ClockFace.add_child(minute)
+		minute.rotation.y = -deg_to_rad(66.0)
 
-		# Radial Hour Ticks (Hour 11 and Minute 11 Highlighted in Cyan Neon)
-		for h in range(12):
-			var tick := MeshInstance3D.new()
-			var tick_mesh := BoxMesh.new()
-			var is_eleven := (h == 11)
-			tick_mesh.size = Vector3(0.012 if not is_eleven else 0.024, 0.006, 0.028 if not is_eleven else 0.046)
-			tick.mesh = tick_mesh
-			var angle := deg_to_rad(h * 30.0)
-			tick.position = Vector3(sin(angle) * 0.138, 0.004, -cos(angle) * 0.138)
-			tick.rotation.y = -angle
-			tick.material_override = eleven_mat if is_eleven else gold_mat
-			dial.add_child(tick)
-		
-		# Hour Hand (pointed at 11:00 / 335.5 deg) with luminescent strip
-		var h_box := BoxMesh.new()
-		h_box.size = Vector3(0.016, 0.006, 0.095)
-		$ClockHands.mesh = h_box
-		var h_angle := deg_to_rad(335.5)
-		# ClockHands is a sibling of ClockFace in the scene. Convert the dial-local
-		# placement through the inclined face, so the hand does not sit on the floor.
-		$ClockHands.transform = $ClockFace.transform * Transform3D(Basis(Vector3.UP,-h_angle),Vector3(sin(h_angle)*0.042,0.024,-cos(h_angle)*0.042))
-		var hand_gold := StandardMaterial3D.new()
-		hand_gold.albedo_color = Color(1.0, 0.88, 0.42)
-		hand_gold.metallic = 0.98
-		hand_gold.roughness = 0.08
-		hand_gold.emission_enabled = true
-		hand_gold.emission = Color(0.0, 0.92, 1.0)
-		hand_gold.emission_energy_multiplier = 0.25
-		hand_gold.rim_enabled = true
-		hand_gold.rim = 1.0
-		hand_gold.rim_tint = 0.75
-		$ClockHands.material_override = hand_gold
-		
-		# Minute Hand (pointed at 11 min / 66 deg)
-		var min_hand := MeshInstance3D.new()
-		min_hand.name = "MinuteHand"
-		var m_box := BoxMesh.new()
-		m_box.size = Vector3(0.011, 0.006, 0.135)
-		min_hand.mesh = m_box
-		var m_angle := deg_to_rad(66.0)
-		min_hand.rotation.y = -m_angle
-		min_hand.position = Vector3(sin(m_angle) * 0.060, 0.026, -cos(m_angle) * 0.060)
-		min_hand.material_override = hand_gold
-		$ClockFace.add_child(min_hand)
-		
-		# Center Jewel Pin
-		var pin := MeshInstance3D.new()
-		var pin_cyl := CylinderMesh.new()
-		pin_cyl.top_radius = 0.016
-		pin_cyl.bottom_radius = 0.016
-		pin_cyl.height = 0.014
-		pin.mesh = pin_cyl
-		pin.position = Vector3(0.0, 0.028, 0.0)
-		pin.material_override = trim_mat
-		$ClockFace.add_child(pin)
-		
 		# Protective Crystal Glass Cloche (Display Dome - 48 radial segments)
 		_cloche_mesh = MeshInstance3D.new()
 		_cloche_mesh.name = "GlassCloche"
@@ -335,10 +223,10 @@ func _setup_pedestal_and_props() -> void:
 		_cloche_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		_cloche_mat.albedo_color = Color(0.75, 0.94, 1.0, 0.18)
 		_cloche_mat.metallic = 0.18
-		_cloche_mat.roughness = 0.02
+		_cloche_mat.roughness = 0.14
 		_cloche_mat.clearcoat_enabled = true
-		_cloche_mat.clearcoat = 1.0
-		_cloche_mat.clearcoat_roughness = 0.02
+		_cloche_mat.clearcoat = 0.35
+		_cloche_mat.clearcoat_roughness = 0.16
 		_cloche_mat.rim_enabled = true
 		_cloche_mat.rim = 1.0
 		_cloche_mat.rim_tint = 0.85
@@ -373,7 +261,20 @@ func _setup_pedestal_and_props() -> void:
 		_cloche_mesh.add_child(base_ring)
 	elif evidence_id == "photo":
 		$PhotoFrame.position = Vector3(0.0, 0.965, 0.0)
-		$PhotoFrame.rotation = Vector3(deg_to_rad(24.0), deg_to_rad(75.0), 0.0)
+		$PhotoFrame.rotation = Vector3(deg_to_rad(24.0), mount_yaw, 0.0)
+		var frame := preload("res://assets/props/room01_trace_frame.glb").instantiate()
+		var frame_surface := frame.find_child("PhotoFrameHero",true,false) as MeshInstance3D
+		var paper_surface := frame.find_child("TracePaper",true,false) as MeshInstance3D
+		var clips := frame.find_child("ArchivalClips",true,false) as MeshInstance3D
+		$PhotoFrame.mesh = frame_surface.mesh
+		$PhotoTrace.mesh = paper_surface.mesh
+		$PhotoFrame.material_override = null
+		# Remove the old scene-level metal override so both authored inset materials render.
+		$PhotoFrame.set_surface_override_material(0,null)
+		clips.get_parent().remove_child(clips)
+		clips.owner = null
+		$PhotoFrame.add_child(clips)
+		frame.queue_free()
 		# The plane was buried inside the 55mm frame; its normal must also follow
 		# the inclined mount. Keep the existing trace without inventing a memory image.
 		$PhotoTrace.transform = $PhotoFrame.transform * Transform3D(Basis.IDENTITY,Vector3(0.0,0.031,0.0))
@@ -386,7 +287,7 @@ func _setup_pedestal_and_props() -> void:
 		$PhotoTrace.material_override = paper
 
 func _setup_holographic_beacon() -> void:
-	var color := Color(0.24, 0.70, 0.76, 0.08) if evidence_id == "clock" else Color(0.57, 0.39, 0.71, 0.08)
+	var color := Color(0.24, 0.70, 0.76, 0.08) if evidence_id == "clock" else Color(0.78, 0.63, 0.34, 0.08)
 
 	# 1. Soft Vertical Holographic Light Beam (Pillar)
 	_beacon_mesh = MeshInstance3D.new()
@@ -404,6 +305,8 @@ func _setup_holographic_beacon() -> void:
 	beam_mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
 	beam_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	beam_mat.albedo_color = color
+	_beam_material = beam_mat
+	_beam_color = color
 	_beacon_mesh.material_override = beam_mat
 	add_child(_beacon_mesh)
 
@@ -451,13 +354,30 @@ func _setup_holographic_beacon() -> void:
 	_beacon_light.omni_attenuation = 1.2
 	add_child(_beacon_light)
 
-func _process(delta: float) -> void:
-	if inspected or reduced_motion:
-		return
-	_pulse_time += delta * 0.75
-	var pulse := sin(_pulse_time) * 0.06 + 0.94
+func set_guidance_strength(value: float) -> void:
+	_guidance_target = clampf(value,0.0,1.0)
+	if reduced_motion:
+		_guidance_strength = _guidance_target
+		_apply_guidance()
+
+func _apply_guidance() -> void:
+	if inspected: return
+	if _beam_material:
+		var color := _beam_color
+		color.a *= _guidance_strength
+		_beam_material.albedo_color = color
+	if _trim_material:
+		_trim_material.emission_energy_multiplier = (0.20 if evidence_id == "clock" else 0.12)*_guidance_strength
 	if _beacon_light:
-		_beacon_light.light_energy = 0.35 * pulse
+		var pulse := 1.0 if reduced_motion else sin(_pulse_time)*0.06+0.94
+		_beacon_light.light_energy = 0.22*pulse*_guidance_strength
+
+func _process(delta: float) -> void:
+	if inspected: return
+	_guidance_strength = _guidance_target if reduced_motion else move_toward(_guidance_strength,_guidance_target,delta*1.6)
+	_apply_guidance()
+	if reduced_motion: return
+	_pulse_time += delta * 0.75
 	if _ring_mesh:
 		_ring_mesh.rotation.y += delta * 0.6
 		var ring_scale := 1.0 + sin(_pulse_time * 1.2) * 0.015

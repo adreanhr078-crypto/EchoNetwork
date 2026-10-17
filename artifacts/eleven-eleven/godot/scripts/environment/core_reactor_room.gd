@@ -48,8 +48,28 @@ const SAFE_ANCHOR_GAMMA := Vector3(0.0, 0.1, -41.0) # North Exit Gantry
 
 var state: RoomState = RoomState.ENTRY_BALCONY
 var current_anchor: Vector3 = SAFE_ANCHOR_ALPHA
-var reduced_motion := false
-var audio_muted := false
+var reduced_motion := false:
+	set(value):
+		if reduced_motion == value: return
+		reduced_motion = value
+		for material in _hazard_materials:
+			material.set_shader_parameter("motion_amount", 0.0 if value else 1.0)
+		if is_instance_valid(_reactor_motes):
+			_reactor_motes._air.visible = not value
+			if value: _reactor_motes._release.visible = false
+		if not value or not bridge_extended or not is_instance_valid(_hydraulic_bridge): return
+		# Live accessibility changes finish existing motion silently, including
+		# while paused. Invalidate queued callbacks before cancelling either tween.
+		_motion_generation += 1
+		if _bridge_tween and _bridge_tween.is_valid(): _bridge_tween.kill()
+		if _gate_tween and _gate_tween.is_valid(): _gate_tween.kill()
+		_hydraulic_bridge.position.y = _bridge_extended_y
+		if not gate_open: _open_exit_gate(true)
+		elif is_instance_valid(_gate) and (_gate.position.y < _gate_open_y - 0.001 or not _gate_shape.disabled): _animate_gate()
+var audio_muted := false:
+	set(value):
+		audio_muted = value
+		if value: _stop_presentation_audio()
 var player: Node3D
 
 var breaker_a_done := false
@@ -86,6 +106,20 @@ var _hazard_b_light: OmniLight3D
 
 var _reactor_core_light: OmniLight3D
 var _abyss_recovery_area: Area3D
+var _reactor_time := 0.0
+var _plasma_materials: Array[ShaderMaterial] = []
+var _core_shell_material: ShaderMaterial
+var _hazard_materials: Array[ShaderMaterial] = []
+var _hazard_sounds: Array[AudioStreamPlayer3D] = []
+var _phase_streams: Array[AudioStream] = []
+var _previous_phases := [-1,-1]
+var _reactor_motes: Node3D
+var _breaker_beacons: Array[MeshInstance3D] = []
+var _breaker_sound: AudioStreamPlayer3D
+var _bridge_sound: AudioStreamPlayer3D
+var _bridge_tween: Tween
+var _gate_tween: Tween
+var _motion_generation := 0
 
 func _ready() -> void:
 	_build_room_hull()
@@ -100,10 +134,18 @@ func _ready() -> void:
 	_build_consoles()
 	_build_service_route()
 	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-18,-44,36,44),5.6)
+	_build_presentation()
+	var finish = preload("res://scripts/environment/room_panel_finish.gd")
+	finish.apply(self,["AbyssFloor"],finish.material(Color(0.12,0.17,0.23),Vector2(6.0,4.0),0.18,0.72))
+	finish.apply(self,["EntryBalconyDeck","WestPlatform","EastPlatform","HydraulicBridge","ExitGantryDeck","EntryServiceLink","WestServiceAscent","WestServiceLanding","SouthCircuitWalkway","EastCircuitWalkway","BridgeAccessRamp","BridgeAccessLanding","ExitBridgeLink"],finish.material(Color(0.30,0.37,0.45),Vector2(3.6,2.4),0.22,0.56))
+	var steel := _material(Color(0.36,0.44,0.52),0.25,0.50)
+	for guardrail in find_children("ServiceGuardrail*","StaticBody3D",true,false):
+		for visual in guardrail.get_children():
+			if visual is MeshInstance3D: visual.material_override = steel
 
 func _build_service_route() -> void:
 	var support = preload("res://scripts/environment/room_path_support.gd")
-	var mat := _material(Color(0.28,0.32,0.38), 0.5, 0.7)
+	var mat := _material(Color(0.36,0.42,0.50), 0.35, 0.58)
 	support.add_ramp(self, "EntryServiceLink", Vector3(0,-4,-5.5), Vector3(0,-4,-7), 2.4, mat)
 	support.add_ramp(self, "WestServiceAscent", Vector3(0,-4,-7), Vector3(-9.2,-2,-11), 2.4, mat)
 	support.add_ramp(self, "WestServiceLanding", Vector3(-9.2,-2,-11), Vector3(-11,-2,-12.3), 2.4, mat)
@@ -147,6 +189,8 @@ func _update_hazard_cycles(delta: float) -> void:
 	
 	_update_hazard_visuals(_hazard_a_mesh, _hazard_a_light, _hazard_a_area, is_telegraph, is_discharge)
 	_update_hazard_visuals(_hazard_b_mesh, _hazard_b_light, _hazard_b_area, b_telegraph, b_discharge)
+	_present_hazard(0,2 if is_discharge else (1 if is_telegraph else 0))
+	_present_hazard(1,2 if b_discharge else (1 if b_telegraph else 0))
 	
 	if is_discharge and _hazard_a_area:
 		for b in _hazard_a_area.get_overlapping_bodies():
@@ -210,11 +254,11 @@ func _box(label: String, center: Vector3, size: Vector3, mat: Material, solid :=
 	return node
 
 func _build_room_hull() -> void:
-	var wall_mat := _material(Color(0.18, 0.2, 0.24), 0.3, 0.6)
+	var wall_mat := _material(Color(0.52, 0.58, 0.66), 0.18, 0.58)
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
-	var floor_mat := _material(Color(0.1, 0.12, 0.15), 0.7, 0.4)
+	var floor_mat := _material(Color(0.38, 0.46, 0.54), 0.3, 0.5)
 	floor_mat.albedo_texture = GRAPHITE
 	floor_mat.uv1_scale = Vector3(6.0, 6.0, 1.0)
 	
@@ -258,8 +302,8 @@ func _build_room_hull() -> void:
 	_box("NorthLintel", Vector3(0.0, 4.4, north_z), Vector3(2.05, 3.2, WALL_THICKNESS), wall_mat, true)
 
 func _build_entry_balcony() -> void:
-	var deck_mat := _material(Color(0.2, 0.24, 0.3), 0.8, 0.3)
-	var rail_mat := _material(Color(0.12, 0.15, 0.18), 0.9, 0.2)
+	var deck_mat := _material(Color(0.36, 0.42, 0.50), 0.35, 0.48)
+	var rail_mat := _material(Color(0.36,0.44,0.52),0.25,0.50)
 	
 	# Entry Balcony Deck: from Z = 0.0m to -6.0m, X = -3.5m to +3.5m, Y = -4.0m
 	_box("EntryBalconyDeck", Vector3(0.0, -4.1, -3.0), Vector3(7.0, 0.2, 6.0), deck_mat, true)
@@ -277,8 +321,8 @@ func _build_reactor_core() -> void:
 	core_node.name = "ReactorCore"
 	core_node.position = Vector3(0.0, -3.0, -22.0)
 	
-	var core_mat := _material(Color(0.17, 0.21, 0.24), 0.7, 0.52)
-	var plasma_mat := _material(Color(0.12,0.48,0.58),0.1,0.5,true,Color(0.15,0.62,0.75),1.1)
+	_core_shell_material = ShaderMaterial.new()
+	_core_shell_material.shader = preload("res://shaders/reactor_housing.gdshader")
 	
 	# Central cylinder mesh
 	var col_body := StaticBody3D.new()
@@ -289,7 +333,10 @@ func _build_reactor_core() -> void:
 	cyl.bottom_radius = 4.8
 	cyl.height = 14.0
 	cyl_mesh.mesh = cyl
-	cyl_mesh.material_override = core_mat
+	cyl_mesh.material_override = _core_shell_material
+	# The internal emitter was occluded by its own opaque housing. Keep all
+	# room/light shadows; only this emitter housing excludes its shadow pass.
+	cyl_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	col_body.add_child(cyl_mesh)
 	
 	var cyl_col := CollisionShape3D.new()
@@ -303,12 +350,21 @@ func _build_reactor_core() -> void:
 	# Plasma Ring Emitters
 	for i in range(3):
 		var ring := MeshInstance3D.new()
+		ring.name = "PlasmaRing_%d" % i
 		var torus := TorusMesh.new()
 		torus.inner_radius = 4.78
-		torus.outer_radius = 4.87
+		torus.outer_radius = 4.98
+		torus.rings = 64
+		torus.ring_segments = 8
 		ring.mesh = torus
 		ring.position = Vector3(0.0, -4.0 + float(i) * 3.5, 0.0)
+		var plasma_mat := ShaderMaterial.new()
+		plasma_mat.shader = preload("res://shaders/reactor_plasma_ring.gdshader")
+		plasma_mat.set_shader_parameter("direction",-1.0 if i==1 else 1.0)
+		plasma_mat.set_shader_parameter("phase_offset",float(i)*0.33)
 		ring.material_override = plasma_mat
+		ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_plasma_materials.append(plasma_mat)
 		core_node.add_child(ring)
 	
 	# Central Core Light
@@ -324,7 +380,7 @@ func _build_reactor_core() -> void:
 	add_child(core_node)
 
 func _build_west_turbine_complex() -> void:
-	var metal_mat := _material(Color(0.22, 0.25, 0.28), 0.7, 0.4)
+	var metal_mat := _material(Color(0.36, 0.42, 0.50), 0.35, 0.48)
 	
 	# West Platform: X = -11.0m, Z = -16.0m, Y = -2.0m (Size: 6.0m x 8.0m)
 	_box("WestPlatform", Vector3(-11.0, -2.1, -16.0), Vector3(6.0, 0.2, 8.0), metal_mat, true)
@@ -337,8 +393,8 @@ func _build_west_turbine_complex() -> void:
 	add_child(pipe)
 
 func _build_east_capacitor_complex() -> void:
-	var metal_mat := _material(Color(0.22, 0.25, 0.28), 0.7, 0.4)
-	var rail_mat := _material(Color(0.18, 0.2, 0.22), 0.8, 0.3)
+	var metal_mat := _material(Color(0.36, 0.42, 0.50), 0.35, 0.48)
+	var rail_mat := _material(Color(0.36,0.44,0.52),0.25,0.50)
 	
 	# East Platform: X = +11.0m, Z = -28.0m, Y = -2.0m (Size: 6.0m x 8.0m)
 	_box("EastPlatform", Vector3(11.0, -2.1, -28.0), Vector3(6.0, 0.2, 8.0), metal_mat, true)
@@ -348,7 +404,7 @@ func _build_east_capacitor_complex() -> void:
 	# Connector Gantry spanning from East walkway to Exit Gantry (X = +11.0m to +4.0m at Z = -40.0m, Y = 0.0m)
 
 func _build_hydraulic_bridge() -> void:
-	var bridge_mat := _material(Color(0.25, 0.28, 0.35), 0.85, 0.3)
+	var bridge_mat := _material(Color(0.36, 0.42, 0.50), 0.35, 0.48)
 	
 	# Central Bridge spanning from West Platform to East Platform / North Gantry
 	# Spanning across Z = -22.0m, width 3.2m, length 14.0m
@@ -373,8 +429,8 @@ func _build_hydraulic_bridge() -> void:
 	add_child(_hydraulic_bridge)
 
 func _build_exit_gantry() -> void:
-	var gantry_mat := _material(Color(0.22, 0.26, 0.32), 0.8, 0.3)
-	var rail_mat := _material(Color(0.12, 0.15, 0.18), 0.9, 0.2)
+	var gantry_mat := _material(Color(0.36, 0.42, 0.50), 0.35, 0.48)
+	var rail_mat := _material(Color(0.36,0.44,0.52),0.25,0.50)
 	var gate_mat := _material(Color(0.18, 0.2, 0.25), 0.9, 0.25, true, Color(0.0, 0.9, 1.0), 0.8)
 	
 	# North Exit Gantry at Y = 0.0m, Z = -38.0m to -44.0m, X = -4.0m to +4.0m
@@ -521,6 +577,7 @@ func activate_breaker(breaker_id: String) -> Dictionary:
 		if breaker_a_done:
 			return {"success": true, "already_active": true}
 		breaker_a_done = true
+		_present_breaker(0)
 		breaker_a_activated.emit()
 		_check_bridge_activation()
 		return {"success": true, "breaker": "breaker_a", "bridge_ready": bridge_extended}
@@ -528,6 +585,7 @@ func activate_breaker(breaker_id: String) -> Dictionary:
 		if breaker_b_done:
 			return {"success": true, "already_active": true}
 		breaker_b_done = true
+		_present_breaker(1)
 		breaker_b_activated.emit()
 		_check_bridge_activation()
 		return {"success": true, "breaker": "breaker_b", "bridge_ready": bridge_extended}
@@ -541,40 +599,53 @@ func _extend_hydraulic_bridge() -> void:
 	bridge_extended = true
 	state = RoomState.BRIDGE_EXTENDED
 	hydraulic_bridge_extended.emit()
-	
+	_animate_bridge(false)
+
+func _animate_bridge(silent: bool) -> void:
 	if reduced_motion:
 		if _hydraulic_bridge:
 			_hydraulic_bridge.position.y = _bridge_extended_y
-		_open_exit_gate()
+		_open_exit_gate(silent)
 		return
-	
 	if _hydraulic_bridge:
-		var tween := create_tween()
-		tween.tween_property(_hydraulic_bridge, "position:y", _bridge_extended_y, 1.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		tween.tween_callback(func():
-			_open_exit_gate()
+		var remaining := 1.2*clampf((_bridge_extended_y-_hydraulic_bridge.position.y)/(_bridge_extended_y-_bridge_retracted_y),0.0,1.0)
+		var generation := _motion_generation
+		_bridge_tween = create_tween()
+		_bridge_tween.tween_property(_hydraulic_bridge, "position:y", _bridge_extended_y, remaining).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_bridge_tween.tween_callback(func():
+			if generation==_motion_generation: _open_exit_gate(silent)
 		)
 
-func _open_exit_gate() -> void:
+func _open_exit_gate(silent := false) -> void:
 	if gate_open:
 		return
 	gate_open = true
+	if not silent:
+		if _reactor_motes: _reactor_motes.emit_release(Vector3(0,0,-35.8))
+		if _bridge_sound and not audio_muted: _bridge_sound.play()
 	exit_gate_opened.emit()
-	
+	_animate_gate()
+
+func _animate_gate() -> void:
+	var generation := _motion_generation
 	if reduced_motion:
 		if _gate:
 			_gate.position.y = _gate_open_y
-		if _gate_shape:
-			_gate_shape.set_deferred("disabled", true)
+		_finish_gate_motion.call_deferred(generation)
 		return
-	
 	if _gate:
-		var tween := create_tween()
-		tween.tween_property(_gate, "position:y", _gate_open_y, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tween.tween_callback(func():
-			if _gate_shape:
-				_gate_shape.set_deferred("disabled", true)
+		var remaining := 0.8*clampf((_gate_open_y-_gate.position.y)/(_gate_open_y-_gate_closed_y),0.0,1.0)
+		_gate_tween = create_tween()
+		_gate_tween.tween_property(_gate, "position:y", _gate_open_y, remaining).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_gate_tween.tween_callback(func():
+			_finish_gate_motion.call_deferred(generation)
 		)
+
+func _finish_gate_motion(generation: int) -> void:
+	# A deferred collider change from an earlier animation must never open a
+	# checkpoint restored later in that same frame.
+	if generation==_motion_generation and gate_open and _gate_shape:
+		_gate_shape.disabled = true
 
 func _on_hazard_entered(hazard_name: String, body: Node3D) -> void:
 	var phase := hazard_phase_timer if hazard_name == "HazardA" else fmod(hazard_phase_timer + CYCLE_TIME * 0.5, CYCLE_TIME)
@@ -623,6 +694,12 @@ func get_state() -> Dictionary:
 	}
 
 func restore_state(data: Dictionary) -> void:
+	_motion_generation += 1
+	if _bridge_tween and _bridge_tween.is_valid(): _bridge_tween.kill()
+	if _gate_tween and _gate_tween.is_valid(): _gate_tween.kill()
+	_stop_presentation_audio()
+	_previous_phases = [-1,-1]
+	if _reactor_motes: _reactor_motes._release.visible = false
 	if data.has("state"):
 		state = data["state"]
 	if data.has("current_anchor"):
@@ -641,3 +718,101 @@ func restore_state(data: Dictionary) -> void:
 		_gate.position.y = data["gate_pos_y"]
 	if _gate_shape and data.has("gate_col_disabled"):
 		_gate_shape.disabled = data["gate_col_disabled"]
+	_refresh_breaker_beacons()
+	if bridge_extended and not gate_open:
+		_animate_bridge(true)
+	elif gate_open and (_gate.position.y<_gate_open_y-0.001 or not _gate_shape.disabled):
+		_animate_gate()
+
+func _build_presentation() -> void:
+	_reactor_motes = preload("res://scripts/environment/room_motes.gd").new()
+	_reactor_motes.name = "ReactorAtmosphere"
+	_reactor_motes.anchors.assign([Vector3(-11,-0.5,-16),Vector3(11,-0.5,-28),Vector3(0,-2,-14.8),Vector3(0,1.2,-35.8)])
+	_reactor_motes.particles_per_anchor = 12
+	_reactor_motes.tint = Color(0.48,0.76,0.86,0.24)
+	_reactor_motes.seed_value = 111106
+	add_child(_reactor_motes)
+	_phase_streams = [null,ProceduralCinematicAudio.create_physical_signal(0.3,[0.01,0.13],111106,0.25),ProceduralCinematicAudio.create_pressure_air(0.35,111107)]
+	for index in 2:
+		var hazard: MeshInstance3D = _hazard_a_mesh if index==0 else _hazard_b_mesh
+		_hazard_materials.append(hazard.material_override)
+		_hazard_sounds.append(_make_sound("DischargeCue_%d" % index,hazard.get_parent().position,null,-12.0,8.0))
+		var point := Vector3(-12.5,-0.5,-16) if index==0 else Vector3(12.5,-0.5,-28)
+		var beacon := MeshInstance3D.new()
+		beacon.name = "BreakerStatus_%d" % index
+		var mesh := CylinderMesh.new()
+		mesh.top_radius = 0.13
+		mesh.bottom_radius = 0.13
+		mesh.height = 0.36
+		beacon.mesh = mesh
+		beacon.position = point
+		beacon.material_override = _material(Color.WHITE,0.0,0.7,true,Color(0.95,0.58,0.15),0.45)
+		beacon.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(beacon)
+		_breaker_beacons.append(beacon)
+	# Trim is attached to the moving bridge, not an extra collider or lamp.
+	var trim := _material(Color(0.2,0.55,0.65),0.1,0.7,true,Color(0.15,0.55,0.65),0.45)
+	for edge in [-1.0,1.0]:
+		var strip := MeshInstance3D.new()
+		strip.name = "BridgeEdge_%d" % int(edge)
+		strip.mesh = BoxMesh.new()
+		strip.mesh.size = Vector3(21.8,0.035,0.035)
+		strip.position = Vector3(0,0.22,edge*1.54)
+		strip.material_override = trim
+		strip.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_hydraulic_bridge.add_child(strip)
+	_breaker_sound = _make_sound("BreakerLatch",Vector3.ZERO,ProceduralCinematicAudio.create_physical_signal(0.3,[0.01],111108,0.4),-6.0,8.0)
+	_bridge_sound = _make_sound("BridgePressure",Vector3(0,0,-35.8),ProceduralCinematicAudio.create_pressure_air(0.65,111109),-10.0,18.0)
+	_refresh_breaker_beacons()
+
+func _make_sound(label: String,point: Vector3,stream: AudioStream,volume: float,distance: float) -> AudioStreamPlayer3D:
+	var sound := AudioStreamPlayer3D.new()
+	sound.name = label
+	sound.position = point
+	sound.stream = stream
+	sound.volume_db = volume
+	sound.max_distance = distance
+	add_child(sound)
+	return sound
+
+func _process(delta: float) -> void:
+	if not reduced_motion: _reactor_time += minf(delta,0.1)
+	if _core_shell_material: _core_shell_material.set_shader_parameter("motion_time",_reactor_time)
+	for material in _plasma_materials:
+		material.set_shader_parameter("motion_time",_reactor_time)
+	for material in _hazard_materials:
+		material.set_shader_parameter("motion_time",_reactor_time)
+		material.set_shader_parameter("motion_amount",0.0 if reduced_motion else 1.0)
+
+func _present_hazard(index: int,phase: int) -> void:
+	if _hazard_materials.is_empty(): return
+	_hazard_materials[index].set_shader_parameter("hazard_state",phase)
+	if _previous_phases[index]==phase: return
+	# A newly activated/restored room synchronizes silently. Subsequent phase
+	# transitions own one cached physical cue, never one cue per frame.
+	var initialized: bool = _previous_phases[index]>=0
+	_previous_phases[index] = phase
+	if initialized and phase>0 and not audio_muted:
+		_hazard_sounds[index].stream = _phase_streams[phase]
+		_hazard_sounds[index].play()
+
+func _present_breaker(index: int) -> void:
+	_refresh_breaker_beacons()
+	if _breaker_sound and not audio_muted:
+		_breaker_sound.position = _breaker_a_console.position if index==0 else _breaker_b_console.position
+		_breaker_sound.play()
+
+func _refresh_breaker_beacons() -> void:
+	if _core_shell_material: _core_shell_material.set_shader_parameter("isolation",0.5*(float(breaker_a_done)+float(breaker_b_done)))
+	for index in _breaker_beacons.size():
+		var active: bool = breaker_a_done if index==0 else breaker_b_done
+		_breaker_beacons[index].material_override.emission = Color(0.15,0.85,0.92) if active else Color(0.95,0.58,0.15)
+
+func _stop_presentation_audio() -> void:
+	for sound in _hazard_sounds:
+		if is_instance_valid(sound): sound.stop()
+	if is_instance_valid(_breaker_sound): _breaker_sound.stop()
+	if is_instance_valid(_bridge_sound): _bridge_sound.stop()
+
+func set_audio_muted(muted: bool) -> void:
+	audio_muted = muted

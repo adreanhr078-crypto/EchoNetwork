@@ -40,12 +40,12 @@ func _ready() -> void:
 		if row.climbable:
 			body.add_to_group("climbable")
 			_add_climbable_visual_cues(body, shape.size)
-	for lighting in [[Vector3(-3, 4.8, -2), Color(0.58, 0.78, 1), 1.4], [Vector3(1, 6.3, -6), Color(1, 0.65, 0.4), 1.8], [Vector3(4, 6.8, -10), Color(0.58, 0.84, 0.94), 1.3]]:
+	for lighting in [[Vector3(-3, 4.8, -2), Color(0.58, 0.78, 1), 1.4, 8.0], [Vector3(0.5, 5.6, -4.1), Color(1, 0.65, 0.4), 1.35, 10.5], [Vector3(4, 6.8, -10), Color(0.58, 0.84, 0.94), 1.3, 8.0]]:
 		var light := OmniLight3D.new()
 		light.position = lighting[0]
 		light.light_color = lighting[1]
 		light.light_energy = lighting[2]
-		light.omni_range = 8.0
+		light.omni_range = lighting[3]
 		add_child(light)
 	var animation := find_child("AnimationPlayer", true, false) as AnimationPlayer
 	if animation:
@@ -93,11 +93,13 @@ func _ready() -> void:
 	var destination_light := OmniLight3D.new()
 	destination_light.position = Vector3(0,6.8,-11.5)
 	destination_light.light_color = Color(0.8,0.9,1)
-	destination_light.light_energy = 1.25
-	destination_light.omni_range = 5
+	destination_light.position = Vector3(0.5,6.7,-11.3)
+	destination_light.light_energy = 1.35
+	destination_light.omni_range = 8.5
 	add_child(destination_light)
 	presentation = preload("res://scripts/environment/maintenance_room_presentation.gd").new()
 	add_child(presentation)
+	set_reduced_motion(_motion_reduced)
 
 func set_language(language: String) -> void:
 	if is_instance_valid(presentation): presentation.set_language(language)

@@ -24,6 +24,9 @@ uniform vec4 metallic_channel = vec4(1.0, 0.0, 0.0, 0.0);
 uniform float metallic_limit : hint_range(0.0, 1.0) = 1.0;
 uniform float albedo_gamma : hint_range(0.5, 1.0) = 1.0;
 uniform float ambient_lift : hint_range(0.0, 0.5) = 0.0;
+// Optional actor-specific energy ceilings. Zero keeps existing materials intact.
+uniform float diffuse_light_ceiling : hint_range(0.0, 4.0) = 0.0;
+uniform float specular_light_ceiling : hint_range(0.0, 1.0) = 0.0;
 
 group_uniforms CelShading;
 uniform vec4 shadow_color : source_color = vec4(0.38, 0.42, 0.56, 1.0); // Anime cool blue shadow
@@ -192,4 +195,8 @@ void light() {
 	float front_response = normalize_light_response ? smoothstep(-0.1, 0.1, NdotL) : 1.0;
 	DIFFUSE_LIGHT += front_response * diffuse_result * mix(1.0, skin_light_scale, skin_mask);
 	SPECULAR_LIGHT += specular_result * mix(1.0, 0.08, skin_mask);
+	// Contributions above are nonnegative, so a component ceiling after each
+	// addition also bounds their final sum without depending on light order.
+	if (diffuse_light_ceiling > 0.0) DIFFUSE_LIGHT = min(DIFFUSE_LIGHT, vec3(diffuse_light_ceiling));
+	if (specular_light_ceiling > 0.0) SPECULAR_LIGHT = min(SPECULAR_LIGHT, vec3(specular_light_ceiling));
 }

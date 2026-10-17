@@ -1,4 +1,24 @@
+## توجيه المالك الأحدث — 2026-10-14 / خط أساس كامل ثم التفاصيل
+
+إنجاز الرحلة المتصلة بجودة عالية أولًا، غرفةً غرفة؛ رفع التفاصيل الدقيقة في تمريرة تالية. العيوب المانعة للعب أو قراءة المهمة والكاميرا والتقدم تصلح الآن. تشطيب الساعة والوجه والعباءة والنهوض غير المؤهل تبقى OPEN ولا توقف الغرف التالية. Canon وGolden وSFX_ONLY محفوظة، ولا ادعاء اعتماد الفن أو جاهزية الثلاثين مرحلة من الخط الأساسي. الاستشارة مستمرة مع Gemini Argon High.
+
 # 11.11 Owner Product Vision and Production Charter
+
+## Owner production acceleration and Argon consultation — 2026-10-14
+
+The Owner is dissatisfied with current visual/gameplay craft and requests an
+actual Gemini Argon High consultation before continued implementation. That
+consultation returned a shorter six-bundle production order covering all30
+existing acceptance stages, now recorded in
+`internal/production/ARGON_ROOM_PRODUCTION_PLAN_2026-10-14.ar.md`. Execute one
+complete room/player journey at a time; seek evidence-based Argon help for
+unresolved failures or inadequate quality instead of random retries. This is
+execution, not a new plan-only gate or an acceptance claim. Continue through the
+authorized inside-system chapter to hospital while preserving current PART_3,
+Manhwa authority, SFX_ONLY, Frozen Golden/source keys and device/accessibility
+gates. Godot4.8-dev7 official is the current runtime; Blender is the asset and
+motion workshop. Native phone review remains deferred. No purchase, publication,
+source replacement or phase advancement is implied by an adviser response.
 
 ## Owner room-by-room execution — 2026-10-12
 
@@ -542,3 +562,13 @@ Current execution follow-up 2026-10-10: CP-20261010-01 repairs authoritative ope
 ## Owner platform and visual priority — 2026-10-12
 
 The Owner prioritizes actual PC and Android play for future Steam/GooglePlay release. Android must remain landscape. Continue the connected30-stage chapter with strong transitions, cinematic drama and purposeful effects in Godot4.8 development, while measuring a suitable phone presentation tier. The final playable character remains the adopted original V31; current preview is not final character or chapter acceptance. No store publication, paid service, phase advancement or source/Golden replacement is implied. Current device evidence and unresolved performance are recorded in internal/production/CP18_DEVICE_EXECUTION_2026-10-12.ar.md.
+
+
+## Owner visual priority — 2026-10-15 / CP29
+
+Polish existing Rooms01–07 with Argon in the Codex browser before notifying readiness for Room08. The scoped room-presentation pass and actual connected routes are recorded in internal/production/ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md. Room08 was not started. This does not advance PART_3, accept character/chapter/device quality, or resolve the measured performance limits. Keep original Canon, Golden and SFX_ONLY.
+
+
+## Owner Room08 continuation — 2026-10-15 / CP30
+
+The latest direct Owner request authorizes continuing Room08 after the scoped CP29 previous-room pass, without waiting for another go-ahead. Room08 is IN_PROGRESS: original gate/restore/accessibility contracts repaired and tested; its new art/VFX and Canon presentation await actual Argon High review after browser submission failures. Do not claim Room08 visual acceptance, final device performance, actor or chapter completion. Preserve PART_3, Golden, source animation, SFX_ONLY and the two-flag order-independent mirror gate. See internal/production/ROOM08_EXECUTION_2026-10-15.ar.md.

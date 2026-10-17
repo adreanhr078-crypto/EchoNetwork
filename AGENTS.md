@@ -143,3 +143,8 @@ When operating as or receiving directives for Gemini 3.8:
 - Validate via project tests and Godot logs (verifying clean exits and zero SCRIPT ERRORs).
 - Inspect full git diff before declaring completion; state unverified items explicitly.
 
+
+
+## Owner context and token economy — 2026-10-17
+
+The Owner strictly forbids rereading the whole conversation or full historical logs for each edit. Start from the compact CURRENT_WORK card and docs/internal/production/CURRENT_CONTEXT_CACHE.json. Reuse verified facts keyed to file hashes; read only relevant changed source sections or a specific missing checkpoint. Load applicable mandatory instructions when first needed or changed, without repeated full-document reads. Keep brief Arabic updates and bounded tool output; do not claim control over provider-side prompt caching or guaranteed token savings. Refresh the compact cache after meaningful delivery, and never treat cached observations as live account balance or current visual acceptance.

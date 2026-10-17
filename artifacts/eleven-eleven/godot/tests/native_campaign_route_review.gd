@@ -10,6 +10,7 @@ var campaign: Node
 func _run() -> void:
 	root.size=Vector2i(960,540)
 	root.unfocusable=true
+	root.unfocusable=true
 	var opening: Dictionary={"schema":Saves.OPENING_SCHEMA,"milestones":{"wake":true,"clock":true,"photo":true,"memory":true,"terminal":true,"conduit":true,"ending":true},"terminal":{"frequency":111.0,"phase":45.0,"harmonic":7.0}}
 	Saves.save_opening_checkpoint(opening,base+"_opening.json")
 	var file:=FileAccess.open(base+"_maintenance.json",FileAccess.WRITE)
@@ -24,9 +25,12 @@ func _run() -> void:
 	main.get_node("NativeCampaignController").checkpoint_path=base+"_campaign.json"
 	root.add_child(main)
 	review_main=main
-	for i in 25: await physics_frame
+	for i in 25:
+		await process_frame
+		_resume_capture_driver()
+		await physics_frame
 	main.set_audio_muted(true)
-	main.set_reduced_motion(true)
+	main.set_reduced_motion(not OS.get_cmdline_user_args().has("--standard"))
 	player=main.player
 	campaign=main.get_node("NativeCampaignController")
 	if not _check(campaign.active and campaign.current==0,"Native extension did not activate after security"): return
@@ -47,6 +51,11 @@ func _run() -> void:
 	if not _check(campaign.current==1,"Physical specimen threshold did not advance"): return
 	room=campaign.conduits[1]
 	if not await _walk(Vector3(-13.8,0,0)): return
+	if OS.get_cmdline_user_args().has("--room04-only"):
+		if not _check(campaign.progress.completed==["specimen"] and player.is_on_floor(),"Specimen handoff did not persist or land in the archive buffer"): return
+		print("PASS Room04 connected public input: security buffer, scanner cover traversal, terminal, physical gate, saved transition and archive conduit; no relocation after fixture")
+		await _finish_review()
+		return
 	room=campaign.rooms[1]
 	for point in [Vector3(-1.7,0,-3.2),Vector3(-6,0,-3.2),Vector3(-6,0,4.1),Vector3(-6,0,2.5),Vector3(-16,0,2.5),Vector3(-16,0,-4.1),Vector3(-20,0,-3),Vector3(-20,0,9),Vector3(-3.8,0,9),Vector3(-3.8,3.6,0.5),Vector3(-11,3.6,0),Vector3(-3.8,3.6,0.5),Vector3(-3.8,0,9),Vector3(-1.7,0,9),Vector3(-1.7,0,-3.2),Vector3(-9.5,0,-3.2)]:
 		if not await _walk(point): return
@@ -56,9 +65,17 @@ func _run() -> void:
 	for point in [Vector3(-1.7,0,-3.2),Vector3(-1.7,0,-12),Vector3(-11,0,-12),Vector3(-11,0,-14.8)]:
 		if not await _walk(point): return
 	if not _check(campaign.current==2,"Physical archive threshold did not advance"): return
+	if OS.get_cmdline_user_args().has("--room05-only"):
+		if not _check(campaign.progress.completed==["specimen","archive"] and rooms_have_native_authority(),"Archive transition lost native save/gate authority"): return
+		print("PASS Room04→05 public input: cover/terminal/gate, three real memory pickups, upper walkway, native decoder and physical archive exit; no relocation after fixture")
+		await _finish_review()
+		return
 	room=campaign.conduits[2]
 	if not await _walk(Vector3(0,0,-14.8)): return
 	room=campaign.rooms[2]
+	if OS.get_cmdline_user_args().has("--room06-only"):
+		review_kind="reactor-connected"
+		shot=0
 	for point in [Vector3(0,-4,-5.5),Vector3(0,-4,-7),Vector3(-3,-3.45,-8.42)]:
 		if not await _walk(point): return
 	await _safe_hazard(false)
@@ -78,16 +95,41 @@ func _run() -> void:
 	for point in [Vector3(11,-2,-30.1),Vector3(11,0.2,-35.8),Vector3(0,0.2,-35.8),Vector3(0,0,-40),Vector3(0,0,-44.8)]:
 		if not await _walk(point): return
 	if not _check(campaign.current==3,"Physical reactor threshold did not advance"): return
+	if OS.get_cmdline_user_args().has("--room06-only"):
+		if not _check(campaign.progress.completed==["specimen","archive","reactor"] and room.breaker_a_done and room.breaker_b_done and room.gate_open and not player.combat_available,"Reactor exit lost breaker/save/pre-pact authority"): return
+		print("PASS Room04→05→06 public input: scanner cover, three real memories and catwalk, two timed discharge crossings, both physical breakers, hydraulic bridge and north exit; native saves, no pre-pact power or relocation after fixture")
+		await _finish_review()
+		return
 	room=campaign.conduits[3]
 	if not await _walk(Vector3(0,0,-15.8)): return
 	room=campaign.rooms[3]
+	if OS.get_cmdline_user_args().has("--room07-only"):
+		review_kind="decon-connected"
+		shot=0
+	if OS.get_cmdline_user_args().has("--uv-route"):
+		if not await _walk(Vector3(0,0,-8.5)): return
+		if not _check(player.is_on_floor() and not room.override_done and not room.gate_open and not player.combat_available,"UV passage changed gate/override/ground/pre-pact authority"): return
+		print("PASS current public-input passage through both UV arches")
+		if not await _walk(Vector3(-8.5,0,-8.5)): return
+		if not await _walk(Vector3(-8.5,0,-2)): return
 	for point in [Vector3(-8.5,0,-2),Vector3(-8.5,0,-9),Vector3(-8.5,3.2,-15.5),Vector3(-2,3.2,-16)]:
 		if not await _walk(point): return
 	if not _use("QuarantineOverrideTerminal"): return
+	if not _check(player.get_nearest_interactable()!=room._terminal_body,"Completed quarantine terminal retained its interaction prompt"): return
 	for i in 55: await physics_frame
+	if OS.get_cmdline_user_args().has("--room07-only"):
+		await process_frame
+		await process_frame
+		if not _check(main.hud.current_directive_desc.contains("رُفع الحجر") or main.hud.current_directive_desc.contains("Quarantine is cleared"),"Quarantine objective did not guide the actual exit"): return
 	for point in [Vector3(-8.5,3.2,-16),Vector3(-8.5,0,-9),Vector3(0,0,-9),Vector3(0,0,-32.8)]:
 		if not await _walk(point): return
 	if not _check(campaign.current==4,"Physical quarantine threshold did not advance"): return
+	if OS.get_cmdline_user_args().has("--room07-only"):
+		if not _check(campaign.progress.completed==["specimen","archive","reactor","decon"] and room.override_done and room.gate_open and room._gate_shape.disabled and not player.combat_available,"Quarantine exit lost save/gate/pre-pact authority"): return
+		if not _check(campaign.rooms[2].bridge_extended and campaign.rooms[2].gate_open and campaign.rooms[2]._gate_shape.disabled,"Quarantine transition changed completed reactor state"): return
+		print("PASS Room04→05→06→07 public input: original scanner/memories/reactor route, physical decon entrance and left stair/override, cleared mist and north gate, saved fourth wing and preserved reactor; no relocation after fixture or early power")
+		await _finish_review()
+		return
 	room=campaign.conduits[4]
 	if not await _walk(Vector3(0,0,-15.8)): return
 	room=campaign.rooms[4]
@@ -112,6 +154,9 @@ func _run() -> void:
 	if not _check(room.confrontation_done and not room.contract_done and not room.breach_open,"Memory presentation auto-accepted the pact or escape"): return
 	print("PASS connected actual native route: security exit, six separate rooms, five buffers, physical gates, reachable shards/breakers/terminals, no teleport after fixture spawn, no automatic pact or premature power")
 	if OS.get_cmdline_user_args().has("--complete") and not await _complete_campaign(): return
+	await _finish_review()
+
+func _finish_review() -> void:
 	main.queue_free()
 	for i in 5: await process_frame
 	for name in ["_opening.json","_maintenance.json","_journey.json","_campaign.json","_prefs.cfg"]:
@@ -140,9 +185,14 @@ func _complete_campaign() -> bool:
 	if not _check(player.interact_with_nearest().get("collar_requested",false),"Confrontation interaction rejected"): return false
 	if not _check(window.visible and window.stats_box.get_child_count()==1,"Confrontation must require explicit continuation"): return false
 	window.stats_box.get_child(0).pressed.emit()
-	for i in 5: await physics_frame
+	# The tracker is updated in _process. Several catch-up physics ticks can
+	# occur before a single rendered/process frame on a loaded workstation.
+	for i in 5:
+		await process_frame
+		_resume_capture_driver()
+		await physics_frame
 	if not _check(room.revenge_done and not room.wish_done and not room.breach_open,"Revenge auto-accepted the wish"): return false
-	if not _check(main.hud.current_directive_desc.contains("أمنيتك") or main.hud.current_directive_desc.contains("wish to leave"),"Completed confrontation left the tracker asking for the same three attacks"): return false
+	if not _check(main.hud.current_directive_desc.contains("أمنيتك") or main.hud.current_directive_desc.contains("wish to leave"),"Completed confrontation tracker: "+main.hud.current_directive_desc): return false
 	window.stats_box.get_child(0).pressed.emit()
 	for i in 15: await physics_frame
 	if not _check(room.wish_done and room.breach_open and campaign.hospital==null,"Accepted wish must open a physical breach before transfer"): return false
@@ -192,3 +242,6 @@ func _complete_campaign() -> bool:
 	print("CAPTURE scope: virtual public input, rendered actual runtime; focus interruptions resumed via actual Pause UI=",focus_interruptions)
 	return true
 
+
+func rooms_have_native_authority() -> bool:
+	return campaign.rooms[1].archive_decoded and campaign.rooms[1].collected_shards.size()==3 and not player.combat_available

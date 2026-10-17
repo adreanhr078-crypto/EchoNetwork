@@ -1,0 +1,60 @@
+{
+  "stage": "original hero detail candidate; needs rendered review and Godot integration",
+  "objects": [
+    "ClockBody",
+    "HourHand",
+    "MinuteHand"
+  ],
+  "topology_before_join": {
+    "WatchCase": {
+      "non_manifold_edges": 0,
+      "faces": 512
+    },
+    "ClockDial": {
+      "non_manifold_edges": 0,
+      "faces": 256
+    },
+    "PocketWatchLid": {
+      "non_manifold_edges": 0,
+      "faces": 448
+    },
+    "MinuteTrack": {
+      "non_manifold_edges": 0,
+      "faces": 360
+    },
+    "InnerDialRule": {
+      "non_manifold_edges": 0,
+      "faces": 192
+    },
+    "CenterPin": {
+      "non_manifold_edges": 0,
+      "faces": 96
+    },
+    "HourHand": {
+      "non_manifold_edges": 0,
+      "faces": 16
+    },
+    "MinuteHand": {
+      "non_manifold_edges": 0,
+      "faces": 16
+    },
+    "WindingCrown": {
+      "non_manifold_edges": 0,
+      "faces": 160
+    },
+    "LidHinge": {
+      "non_manifold_edges": 0,
+      "faces": 120
+    },
+    "BowRing": {
+      "non_manifold_edges": 0,
+      "faces": 256
+    }
+  },
+  "triangle_estimate": 4592,
+  "source_angles_degrees": {
+    "HourHand": 335.5,
+    "MinuteHand": 66.0
+  },
+  "blockout_decision": "continue after framed-v2: full case/lid silhouette, support and12 hinge visible; refine lighting power in metre-scale scene"
+}

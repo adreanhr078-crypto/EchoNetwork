@@ -42,6 +42,7 @@ const RUN_FILES: Array[String] = [
 	"res://scripts/systems/native_campaign_controller.gd",
 	"res://scripts/environment/dr_kinja_lab_room.gd",
 	"res://scripts/characters/kinja_revenge_actor.gd",
+	"res://scripts/characters/kinja_surface_profile.gd",
 	"res://scripts/cinematics/kinja_trauma_pose.gd",
 	"res://scripts/ui/system_window.gd",
 	"res://scripts/ui/system_window_fracture.gd",
@@ -130,8 +131,18 @@ func _run() -> void:
 	assert(not presentation._zero.visible,"Full Zero must be absent before collapse")
 	await _capture("01-lab-before-collapse")
 	assert(room.initiate_memory_confrontation().success)
-	for i in 90: await physics_frame
 	var window=main.hud.find_child("SystemWindow",true,false)
+	# Drowning now completes before its durable event is published. Observe the
+	# actual pending decision and completed HUD fade, rather than assuming that
+	# ninety physics ticks also contain both process-driven presentations.
+	var manifestation_deadline:=Time.get_ticks_msec()+8000
+	while Time.get_ticks_msec()<manifestation_deadline:
+		if presentation._zero.visible and window.visible and presentation.active and main.hud.get_node("QuestContainer").modulate.a==0.0 and presentation.generated_zero.source_player.assigned_animation=="idle": break
+		await process_frame
+	if not (presentation._zero.visible and window.visible and presentation.active and main.hud.get_node("QuestContainer").modulate.a==0.0 and presentation.generated_zero.source_player.assigned_animation=="idle"):
+		push_error("FAIL native lab: completed drowning did not present an unobscured explicit pact within eight seconds")
+		quit(2)
+		return
 	window.decision_made.connect(func(id: String): print("FIXTURE explicit decision: ",id))
 	assert(presentation._zero.visible and window.visible and not room.contract_done)
 	assert(presentation.generated_zero.source_player.assigned_animation=="idle","Manifestation must use actual native Idle without choosing a pact")

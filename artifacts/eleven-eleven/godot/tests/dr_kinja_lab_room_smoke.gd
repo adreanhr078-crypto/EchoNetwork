@@ -151,7 +151,8 @@ func _run() -> void:
 		player.queue_free()
 	if room:
 		room.queue_free()
-	await process_frame
+	# Drain scene deletion and nested presentation cleanup before engine exit.
+	for i in 3: await process_frame
 	quit(0)
 
 func _check(condition: bool, message: String) -> bool:

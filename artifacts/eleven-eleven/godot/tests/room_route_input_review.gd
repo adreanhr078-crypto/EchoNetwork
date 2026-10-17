@@ -153,6 +153,22 @@ func _capture() -> void:
 	if DisplayServer.get_name() == "headless": return
 	await RenderingServer.frame_post_draw
 	var folder := ProjectSettings.globalize_path("res://../audits/evidence/quality-repair-20261006/room-routes/" + review_kind + "/")
+	if OS.get_cmdline_user_args().has("--review-20261014"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-production-20261014/current-campaign/"+review_kind+"/")
+		if OS.get_cmdline_user_args().has("--final-baseline"):
+			folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-production-20261014/current-campaign-final/"+review_kind+"/")
+	if OS.get_cmdline_user_args().has("--room04-only"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-production-20261014/room04-connected/"+review_kind+"/")
+	if OS.get_cmdline_user_args().has("--room05-only"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-production-20261014/room05-connected/"+review_kind+"/")
+	if OS.get_cmdline_user_args().has("--room06-only"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-resume-20261015/connected/"+review_kind+"/")
+		if OS.get_cmdline_user_args().has("--final-resume"):
+			folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-resume-20261015/connected-final/"+review_kind+"/")
+	if OS.get_cmdline_user_args().has("--room07-only"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/argon-resume-20261015/connected-room07/"+review_kind+"/")
+	if OS.get_cmdline_user_args().has("--polish-20261015"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/rooms01-07-polish-20261015/native-route/"+review_kind+"/")
 	DirAccess.make_dir_recursive_absolute(folder)
 	root.get_texture().get_image().save_png(folder + "%03d.png" % shot)
 	shot += 1

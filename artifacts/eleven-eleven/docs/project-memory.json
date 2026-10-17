@@ -1,7 +1,28 @@
 {
   "schemaVersion": 1,
   "visionVersion": "1.0",
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-16",
+  "ownerRevision20261014": {
+    "source": "Direct Owner request: consult Gemini Argon High about the project and dissatisfaction, then continue until ready, room by room",
+    "executionMode": "EXECUTION_IN_PROGRESS / CONNECTED_BASELINE_ROOM04; CP24 functional Room01-to03 and actual Windows release review verified; finer art gates OPEN",
+    "plan": "docs/internal/production/ARGON_ROOM_PRODUCTION_PLAN_2026-10-14.ar.md",
+    "consultation": "https://gemini.google.com/u/2/app/337899ae768a8a8f",
+    "actualResponses": "Ten actual Argon High responses read and saved; response10 reviews Room04 fluid/readability and defers hospital framing to its sequential pass",
+    "tools": "Godot4.8-dev7 official runtime; Blender asset/motion production",
+    "priority": "Latest Owner instruction: finish the connected chapter at high baseline quality room by room, then raise fine details. Critical playable/camera/save/Canon defects block; fine Clock/face/cape/Wake polish remains explicitly OPEN without holding following rooms.",
+    "constraints": "Original Canon, SFX_ONLY, Golden and native source keys, save/reward authority and accessibility preserved; phone deferred",
+    "phaseAdvanced": false,
+    "roomAccepted": false,
+    "chapterAccepted": false,
+    "currentRuntimeAvatar": {
+      "path": "godot/assets/characters/echo_v31_adopted_high.glb",
+      "bytes": 19794428,
+      "baseTriangles": 334529,
+      "sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+      "note": "Older 79999-triangle isolated candidate is not this adopted runtime asset."
+    },
+    "visualPriority": "Latest Owner: every room needs rich moving VFX, airborne particles and animation. Spatial sources, purposeful interaction bursts, comfortable density, local pause and Reduced Motion; no pre-pact powers."
+  },
   "ownerRevision20261009": {
     "source": "Direct Owner request to implement the 30-stage chapter plan on 2026-10-09",
     "executionMode": "EXECUTION_IN_PROGRESS; supersedes earlier planning-only instruction",
@@ -447,15 +468,13 @@
     "animationReuse": "Reuse existing Sol-arranged Godot animation assets and completed inventory; preserve originals; canonical quality acceptance remains pending"
   },
   "lastExecutionCheckpoint": {
-    "id": "CP-20261014-01",
-    "record": "docs/internal/production/ROOM01_EXECUTION_2026-10-14.ar.md",
-    "status": "ROOM01_IN_PROGRESS: actual native clue camera, explicit confirmation/cancellation, paused checkpoint interruption and abstract Flow surface texture; Wake/Walk/Canon image/character art/audio listening/performance/enjoyment OPEN",
-    "currentAvatar": "Echo V31 High adopted by CP20",
-    "characterReplaced": false,
-    "artDeviceAcceptance": false,
+    "id": "CP-20261015-04",
+    "record": "docs/internal/production/ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md",
+    "status": "ROOMS01_07_SCOPED_VISUAL_PASS",
     "phaseAdvanced": false,
-    "physicalPhoneAccepted": false,
-    "finalPostflightStatus": "See audits/evidence/room01-20261014/verification.json"
+    "chapterAccepted": false,
+    "artDeviceAcceptance": false,
+    "verification": "audits/evidence/rooms01-07-polish-20261015/verification-cp29.json"
   },
   "ownerRevision20261007": {
     "source": "Direct Owner messages in Codex on 2026-10-07",
@@ -640,5 +659,162 @@
     "phaseAdvanced": false,
     "physicalPhoneAccepted": false,
     "finalPostflightStatus": "See audits/evidence/room01-20261012/verification.json"
+  },
+  "previousExecutionCheckpointCP23": {
+    "id": "CP-20261014-01",
+    "record": "docs/internal/production/ROOM01_EXECUTION_2026-10-14.ar.md",
+    "status": "ROOM01_IN_PROGRESS: actual native clue camera, explicit confirmation/cancellation, paused checkpoint interruption and abstract Flow surface texture; Wake/Walk/Canon image/character art/audio listening/performance/enjoyment OPEN",
+    "currentAvatar": "Echo V31 High adopted by CP20",
+    "characterReplaced": false,
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "physicalPhoneAccepted": false,
+    "finalPostflightStatus": "See audits/evidence/room01-20261014/verification.json"
+  },
+  "ownerRevision20261015": {
+    "source": "Direct Owner requests in the current chat",
+    "adviser": "Continue same Gemini Argon High conversation using Codex in-app browser; Flow accounts open there",
+    "media": "Owner authorizes adding project images and generating images/video when a cinematic need justifies them; preserve SFX_ONLY, Canon and actual account/budget checks",
+    "scope": "Resume newest checkpoint and work room by room; no phase/art/device acceptance implied",
+    "actualConsultation": "Codex IAB: first account Argon quota exhausted and final Flash-Lite response retained with correct attribution; second account Argon High consulted with current Room07 code and pictures. Not a final art/device acceptance.",
+    "latestPriority": "Latest direct Owner request supersedes CP29 pause-before08: notify previous-room effects finished, then continue Room08 with Argon without another permission question. Room08 IN_PROGRESS; adviser submission recovery and art/VFX work pending, safe original-contract fixes verified. Device/actor/chapter gates OPEN."
+  },
+  "previousExecutionCheckpointCP26": {
+    "id": "CP-20261015-01",
+    "record": "docs/internal/production/ROOM06_EXECUTION_2026-10-15.ar.md",
+    "status": "ROOM06_FUNCTIONAL_BASELINE_VERIFIED_ROOM07_DIAGNOSIS",
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "chapterAccepted": false,
+    "currentAvatar": "Echo V31 High adopted by CP20",
+    "finalPostflightStatus": "PASS645/0; targeted Godot and public-input Room04-to06 PASS; see verification-cp26.json"
+  },
+  "previousExecutionCheckpointCP27": {
+    "id": "CP-20261015-02",
+    "record": "docs\\internal\\production\\ROOM07_EXECUTION_2026-10-15.ar.md",
+    "status": "ROOM07_FUNCTIONAL_BASELINE_VERIFIED_ROOM08_DIAGNOSIS_PENDING",
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "chapterAccepted": false,
+    "currentAvatar": "Echo V31 High adopted by CP20",
+    "finalPostflightStatus": "PASS645/0; Golden192; decon/reactor contracts and actual rendered public-input Room04-to07 PASS; see verification-cp27.json"
+  },
+  "previousExecutionCheckpointCP28": {
+    "id": "CP-20261015-03",
+    "record": "docs/internal/production/ROOM07_VFX_EXECUTION_2026-10-15.ar.md",
+    "status": "ROOM07_STRONG_VFX_REVIEWED_SCOPED",
+    "currentAvatar": "Echo V31 High adopted by CP20",
+    "artDeviceAcceptance": false,
+    "phaseAdvanced": false,
+    "chapterAccepted": false,
+    "verification": "audits/evidence/argon-independent-20261015/verification-cp28.json"
+  },
+  "ownerRoom08Continuation20261015": {
+    "checkpoint": "CP30 / CP-20261015-05 / IN_PROGRESS",
+    "request": "Continue Room08 directly after previous-room effects; inform Owner and continue with Argon",
+    "runtime": "Original Mirror AND Override gate preserved in either order; stale tween/deferred race, older-save beams and live Reduced Motion fixed",
+    "adviser": "New Argon High source/metrics request prepared in u4; browser submission timed out; no new High reply, no new visual system integrated",
+    "evidence": "audits/evidence/room08-20261015/verification-core.json",
+    "report": "docs/internal/production/ROOM08_EXECUTION_2026-10-15.ar.md",
+    "visualGate": "OPEN",
+    "chapterAccepted": false,
+    "phaseAdvanced": false
+  },
+  "ownerRevision20261016": {
+    "source": "Owner approved execution; latest u6 Argon High account available after u5 limit",
+    "checkpoint": "CP34 / CP-20261016-04",
+    "plan": "docs/internal/production/CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md",
+    "record": "docs/internal/production/CHAPTER_EXECUTION_CP34_2026-10-16.ar.md",
+    "entryContract": "docs/internal/production/ENTRY_SAVE_EXPORT_CONTRACT_2026-10-16.ar.md",
+    "scope": "Full chapter from cover to hospital; quality first, later PC/Android fit and release. SOLO. No purchase/publishing/staging/commit.",
+    "deviceTargets": "Measured Low HOT40 Pro; optional higher tiers and manual override for S22 Ultra-class actual variants. No device acceptance yet.",
+    "actualRuntime": "Kinja-only local cel material profile with original maps/channels and per-instance isolation; optional accumulated ceilings default zero for others. Source rig and skeletal acting unchanged. Current natural and paused/RM lab captures source-qualified.",
+    "visualBlocker": "Body occlusion repaired in two specified handoff paths; camera transition comfort/live orbit/enclosed cases, scene acting and final art remain OPEN",
+    "next": "Recover browser control, inspect balance/task, then body02 and idle/fear one at a time within original200budget. Legitimate export and local Blender/Godot qualification required. Remaining observed160; no purchase.",
+    "phaseAdvanced": false,
+    "chapterAccepted": false,
+    "physicalPhoneAccepted": false,
+    "consultation": "https://gemini.google.com/u/4/app/379a8aa339853c3b",
+    "externalReuseAuthorization": "Owner explicitly allows public 3D/anime repository study and useful code/assets download/reuse, including a suitable Kinja character replacement. Specific source rights, Argon critique and local qualification remain necessary; Echo/Golden/Canon preserved.",
+    "externalSources": "14 pinned repository source snapshots studied without executing them; Quaternius Standard CC0 archive downloaded/inspected:43 clips/65joints vs Kinja33; no motion/model replacement integrated.",
+    "kinjaRedesignAuthorization": "Latest direct Owner: full Kinja redesign or at least re-rig preferred; use Tripo if rebuilding is more economical than repair.",
+    "kinjaMotionTrial": "Isolated Hit_Chest 23 body bones/11 native samples: numerical transfer/replay pass, visual arm/coat FAIL; no export or runtime integration. Source unchanged. Reference-pose/skin calibration remains unresolved.",
+    "tripoLive": "Two distinct configured keys checked: each balance0/frozen0. No credentials retained or settings modified. No paid tasks submitted.",
+    "kinjaRebuildPlan": "Image reference created with built-in imagegen; H3.1 image candidate70 + gated Mixamo rig25 ≈95 credits. Only one candidate; inspect before paid rig. No guaranteed face/cloth quality.",
+    "activeAssetCheckpoint": "CP36 / CP-20261017-01",
+    "temporaryStudioPermission": "Owner explicitly authorized using the Free Studio account and up to200credits temporarily, after being informed of noncommercial/output limits; suggested8K and SmartMesh.",
+    "studioActual": "P2 free trial; texture20 and Mixamo Humanoid20 completed/UI inspected. Last observed160, not live after browser timeout. body01 preview completed but fighter guard unaccepted; export gated/no file.",
+    "studioEvaluationStatus": "PARTIAL_BROWSER_BLOCKED_NOT_ALL_FEATURES_TESTED"
+  },
+  "ownerRevision20261017": {
+    "assetCheckpoint": "CP36 / CP-20261017-01",
+    "runtimeCheckpoint": "CP34",
+    "tokenRule": "Do not reread full conversation for each edit; compact context cache and relevant changed sections only.",
+    "tripoEvaluation": {
+      "date": "2026-10-17",
+      "last_balance": 140,
+      "budget_authorized": 200,
+      "observed_total_spent": 60,
+      "new_spend": 20,
+      "body02": {
+        "ui_duration": 1.7,
+        "reviewed_times": [
+          0,
+          0.75,
+          1.7
+        ],
+        "verdict": "Clear torso recoil; fighter guard at both ends; unsuitable unchanged for vulnerable Kinja. No old large coat/arm wing seen in these views."
+      },
+      "idle": {
+        "ui_duration": 15.33,
+        "reviewed_times": [
+          0,
+          7.5
+        ],
+        "verdict": "Relaxed arms, plausible subtle standing motion. Sampled web preview only; no facial or engine acceptance."
+      },
+      "custom_motion": {
+        "requested_seconds": 5,
+        "observed_seconds": 4.96,
+        "cost": 20,
+        "reviewed_times": [
+          0,
+          2.5,
+          4.96
+        ],
+        "verdict": "FAIL brief adherence: raised guard despite relaxed arms/no boxing guard instruction. No reroll."
+      },
+      "h25_trial": {
+        "asset_id": "567ed4aa-afb0-43d6-bff8-93be0556f22e",
+        "status": "COMPLETED_UI_STATIC_GLB_2K_DOWNLOADED_IMPORTED",
+        "displayed_price": 0,
+        "base_ui_price": 50,
+        "last_observed_progress": 75,
+        "model_selected": "H2.5 Legacy",
+        "8k_toggle": true,
+        "8k_output_verified": false,
+        "observed_faces": 19992,
+        "observed_vertices": 12152,
+        "export_8k": "UPGRADE_GATE_NO_DOWNLOAD",
+        "export_2k": "SUCCESS_FILE_VERIFIED_2048x2048",
+        "export_quota_before": 15,
+        "export_quota_after": 14,
+        "source_download_name": "Kinja_H25_8K_temporary.glb",
+        "actual_resolution": "2K; original filename is misleading, local copy renamed",
+        "local_file": "Kinja_H25_2K_unrigged.glb",
+        "local_sha256": "c912d1c64865ae177fd0d9f79683c9d529f1dae51f6128455c87e4515573b5f5",
+        "rig_test": "Rig page redirected to existing P2 asset df36; did not claim H2.5 rigging or pay Retry"
+      },
+      "pro3000_monthly_observed": "$6/month for first12months then$20/month; account offer, not public-price guarantee",
+      "pro6000_monthly_observed": "$15 first month then$30/month; account offer",
+      "plan_quality_difference": "No superior model or animation quality stated when switching Pro3k toPro6k; observed selector changes credits/price",
+      "purchase": false,
+      "runtime_integration": false,
+      "next": "Owner-facing plan advice: Pro3000 monthly as bounded asset-production trial if desired; no purchase by agent. P2 engine acting/export still open. Next qualify legitimate P2 file/rig and one static room asset; specific Argon review before integration.",
+      "checkpoint": "CP36 / CP-20261017-01",
+      "browser_recovered": true,
+      "all_features_tested": false
+    },
+    "characterAudit": "audits/evidence/tripo-evaluation-20261017/cp36/Current-character-source-audit.json"
   }
 }

@@ -40,6 +40,10 @@ var _start_pose := Transform3D.IDENTITY
 var _end_pose := Transform3D.IDENTITY
 var _owned_controls := false
 var _quiet_hud: Array[Dictionary] = []
+var _clearance_settle_remaining:=0.0
+var _clearance_orbit:=Vector3.ZERO
+var _clearance_origin:=Vector3.ZERO
+var _last_reduced_motion:=false
 
 func _ready() -> void:
 	room = get_parent()
@@ -238,6 +242,7 @@ func _build_fracture_field() -> void:
 
 func set_stage(value: String, restoring := false) -> void:
 	stage = value
+	if restoring and value not in ["revenge","stasis"]:_clearance_settle_remaining=0.0
 	if generated_zero: generated_zero.set_stage_hint(restoring)
 	_zero.visible = value in ["manifested","accepted"]
 	if _shadow_material: _shadow_material.set_shader_parameter("pact_energy",1.0 if value=="accepted" else 0.0)
@@ -267,6 +272,7 @@ func impact_feedback(contacts: int) -> void:
 
 func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	finish(true)
+	_clearance_settle_remaining=0.0
 	main=owner
 	actor=subject
 	_kind=kind
@@ -364,6 +370,17 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	_skip.text="عودة للمشهد" if main.presentation_language=="ar" else "Return to scene"
 
 func _process(delta: float) -> void:
+	if is_instance_valid(room):
+		var reduced:bool=room.reduced_motion
+		if reduced!=_last_reduced_motion:
+			_last_reduced_motion=reduced
+			# Accessibility changes the shoulder origin after a natural return.
+			# Recheck this encounter's handoff without controlling manual look.
+			if not active and _kind=="revenge" and stage in ["revenge","stasis"] and is_instance_valid(main):
+				_clearance_origin=main.player.camera_target_rotation
+				_clearance_orbit=_clearance_origin
+				_clearance_settle_remaining=.4
+	_settle_return_clearance(delta)
 	if not room: return
 	_sync_audio_preferences()
 	if active: _hold_story_hud_quiet()
@@ -405,6 +422,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func finish(immediate := false) -> void:
 	if not active: return
+	if _kind=="revenge" and is_instance_valid(main) and _return_elapsed<0.0 and _clearance_settle_remaining<=0.0:
+		_clearance_origin=main.player.camera_target_rotation
+	_ensure_gameplay_return_clearance()
 	# Returning from a camera insert never cancels the story-owned stage or
 	# its ambience. Only a still-playing transient belongs to this return.
 	if audio_director: audio_director.stop_transients()
@@ -417,6 +437,9 @@ func finish(immediate := false) -> void:
 		return
 	active=false
 	if is_instance_valid(_previous): _previous.make_current()
+	if _kind=="revenge" and is_instance_valid(main):
+		_clearance_settle_remaining=.4
+		_clearance_orbit=main.player.camera_target_rotation
 	if is_instance_valid(_camera): _camera.queue_free()
 	if is_instance_valid(_overlay): _overlay.queue_free()
 	_camera=null
@@ -488,3 +511,72 @@ func _fit_return_camera() -> void:
 	var fraction: float=player.get_world_3d().direct_space_state.cast_motion(query)[0]
 	if fraction<1.0:
 		_camera.global_position=query.transform.origin+query.motion.normalized()*maxf(0.0,query.motion.length()*fraction-player.camera_boom.margin)
+
+func _return_clearance(player:EchoPlayer, rotation:Vector3, settled_shoulder:=false) -> float:
+	var query:=PhysicsShapeQueryParameters3D.new()
+	query.shape=player.camera_boom.shape
+	query.collision_mask=player.camera_boom.collision_mask
+	query.exclude=[player.get_rid()]
+	var basis:Basis=(player.global_basis*Basis.from_euler(rotation)).orthonormalized()
+	query.transform=Transform3D(basis,player.camera_boom.global_position)
+	if settled_shoulder:
+		# The current shoulder is still easing after a yaw/accessibility change.
+		# Qualify the final origin too, so a clear present sample cannot choose
+		# an orbit that will become obstructed as that existing easing completes.
+		var anchor:=Vector3(player.global_position.x,player.camera_boom.global_position.y,player.global_position.z)
+		var shoulder:=Vector3.ZERO if player.reduced_camera_motion else basis.x*.22
+		shoulder.y=0.0
+		query.transform=Transform3D(Basis.IDENTITY,anchor)
+		query.motion=shoulder
+		shoulder*=player.get_world_3d().direct_space_state.cast_motion(query)[0]
+		query.transform=Transform3D(basis,anchor+shoulder)
+	query.motion=basis.z*3.0
+	var space:=player.get_world_3d().direct_space_state
+	if not space.intersect_shape(query,1).is_empty():return 0.0
+	var fraction:float=space.cast_motion(query)[0]
+	return maxf(0.0,fraction*3.0-(player.camera_boom.margin if fraction<1.0 else 0.0))
+
+func _handoff_clearance(player:EchoPlayer, rotation:Vector3) -> float:
+	return minf(_return_clearance(player,rotation),_return_clearance(player,rotation,true))
+
+func _ensure_gameplay_return_clearance() -> void:
+	# A close confrontation can leave the old orbit against the other actor,
+	# retracting the gameplay lens into Echo. Resolve only this encounter's
+	# return; preserve a clear orbit and every world/actor collision mask.
+	if _kind!="revenge" or not is_instance_valid(main):return
+	var player:EchoPlayer=main.player
+	if not is_instance_valid(player) or _previous!=player.player_camera or not player.camera_boom:return
+	player.force_update_transform()
+	player.camera_boom.force_update_transform()
+	if is_instance_valid(actor):actor.force_update_transform()
+	var preferred:Vector3=player.camera_target_rotation
+	if _handoff_clearance(player,preferred)>=1.0:return
+	for degrees in [15.0,30.0,45.0,60.0,75.0,90.0]:
+		var best:Vector3=preferred
+		var best_clearance:=0.0
+		for side in [-1.0,1.0]:
+			var candidate:=Vector3(preferred.x,preferred.y+deg_to_rad(degrees)*side,0)
+			if absf(angle_difference(_clearance_origin.y,candidate.y))>PI/2+.001:continue
+			var clearance:=_handoff_clearance(player,candidate)
+			if clearance>best_clearance:
+				best=candidate
+				best_clearance=clearance
+		if best_clearance>=1.0:
+			player.set_gameplay_orbit(best)
+			player._update_camera_distance(1.0)
+			return
+
+func _settle_return_clearance(delta:float) -> void:
+	if _clearance_settle_remaining<=0.0 or active:return
+	_clearance_settle_remaining=maxf(0.0,_clearance_settle_remaining-delta)
+	if not is_instance_valid(main) or not is_instance_valid(main.player):
+		_clearance_settle_remaining=0.0
+		return
+	var player:EchoPlayer=main.player
+	# Stop immediately on a deliberate look or another cinematic owner. This
+	# short handoff window covers the next physics samples, not live orbit input.
+	if not player.camera_target_rotation.is_equal_approx(_clearance_orbit) or not player.player_camera.current:
+		_clearance_settle_remaining=0.0
+		return
+	_ensure_gameplay_return_clearance()
+	_clearance_orbit=player.camera_target_rotation

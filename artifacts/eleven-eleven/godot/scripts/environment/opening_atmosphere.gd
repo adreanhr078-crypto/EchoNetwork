@@ -44,6 +44,10 @@ var _reaction_origin := Vector2(-1.85, 1.8)
 var _reaction_age := 0.0
 var _power_state := 0.0
 var energy_fx: Node3D
+var _evidence_nodes: Dictionary = {}
+var _terminal_focus: OmniLight3D
+var _terminal_energy := 0.0
+var _terminal_guidance := 0.2
 
 func configure(main: Node3D) -> void:
 	if configured: return
@@ -82,6 +86,8 @@ func _build_room_sound() -> void:
 	if _gate_focus:
 		_gate_color = _gate_focus.light_color
 		_gate_energy = _gate_focus.light_energy
+	_terminal_focus = _main.get_node_or_null("Sector11TerminalFocus") as OmniLight3D
+	if _terminal_focus: _terminal_energy = _terminal_focus.light_energy
 	_face_fill = _main.player.find_child("EchoFaceFill", true, false) as OmniLight3D
 	_shoulder_fill = _main.player.find_child("EchoShoulderFill", true, false) as OmniLight3D
 	if _face_fill: _face_energy = _face_fill.light_energy
@@ -110,6 +116,16 @@ func _sync_room_sound_and_light(delta: float) -> void:
 		_relay.play()
 		relay_count += 1
 	_phase = next
+	# Presentation follows existing milestones without changing prerequisites,
+	# interactables, save data or reward authority.
+	if _evidence_nodes.has("clock"):
+		_evidence_nodes.clock.set_guidance_strength(1.0)
+	if _evidence_nodes.has("photo"):
+		_evidence_nodes.photo.set_guidance_strength(1.0 if next >= 2 else 0.18)
+	var terminal_target := 1.0 if next >= 3 else 0.2
+	_terminal_guidance = terminal_target if reduced_motion else move_toward(_terminal_guidance,terminal_target,delta*1.6)
+	if _terminal_focus:
+		_terminal_focus.light_energy = _terminal_energy*_terminal_guidance if _inside_room else _terminal_energy
 	var target := 1.0 if next == 5 else 0.0
 	_power_blend = target if reduced_motion else move_toward(_power_blend, target, delta * 1.4)
 	if _gate_focus:
@@ -226,12 +242,12 @@ func _finish_practical_lights() -> void:
 	# Reuse already-loaded light slots; do not add lights to each detail.
 	var violet := _main.get_node_or_null("Sector11NeonVioletRim") as OmniLight3D
 	if violet:
-		violet.light_color = Color(0.58,0.30,0.80)
-		violet.light_energy = 0.85
+		violet.light_color = Color(0.28,0.48,0.96)
+		violet.light_energy = 1.15
 	var cyan := _main.get_node_or_null("Sector11NeonCyanRim") as OmniLight3D
 	if cyan:
 		cyan.light_color = Color(0.18,0.68,0.82)
-		cyan.light_energy = 0.80
+		cyan.light_energy = 1.35
 	var strobe := _main.find_child("EmergencyStrobeChamber", true, false) as OmniLight3D
 	if strobe:
 		strobe.set_process(false)
@@ -303,6 +319,7 @@ func _bind_evidence() -> void:
 	for evidence_name in ["OpeningClock", "OpeningPhotograph"]:
 		var evidence := _main.find_child(evidence_name, true, false)
 		if not evidence: continue
+		_evidence_nodes[evidence.evidence_id] = evidence
 		if evidence.get("inspected") == true:
 			_seen_evidence[evidence.get("evidence_id")] = true
 		evidence.evidence_inspected.connect(_on_evidence_inspected)

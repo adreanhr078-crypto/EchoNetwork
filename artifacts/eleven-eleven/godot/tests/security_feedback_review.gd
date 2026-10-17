@@ -75,7 +75,29 @@ func _run() -> void:
 	camera.look_at(Vector3(0,1.8,-16.5))
 	await _shot(folder,"security-open-latch")
 	if not _check(room.restore_state(room.get_state()) and room._gate_feedback==0,"Restore replayed gate feedback"): return
+	# A saved closed state must win over an in-flight visual gate transition.
+	var closed := {"gate_open":false,"service_trace":room.service_trace,"scanner_trace":room.scanner_trace}
+	room.restore_state(closed)
+	for unused in 3: await physics_frame
+	if not _check(room.request_station("gate",actor,room._stations.gate).get("accepted",false),"Restored latch did not accept its original action"): return
+	await create_timer(0.12).timeout
+	room.restore_state(closed)
+	await create_timer(1.0).timeout
+	if not _check(not room.gate_open and not room._gate_shape.disabled and is_equal_approx(room._gate.position.y,1.4),"Stale security tween reopened restored closed gate"): return
+	if not _check(not room._security_motes._release.visible and not room._audio.playing,"Restore replayed security release feedback"): return
+	room.request_station("gate",actor,room._stations.gate)
+	await create_timer(0.12).timeout
+	paused = true
+	var mote_time: float = room._security_motes.motion_time
+	room.reduced_motion = true
+	for unused in 3: await process_frame
+	if not _check(room._gate_shape.disabled and is_equal_approx(room._gate.position.y,4.3) and not room._security_motes._air.visible and not room._security_motes._release.visible,"Paused live Reduced Motion left incomplete gate or moving dust"): return
+	if not _check(room._security_motes.motion_time==mote_time and room._scan_material.get_shader_parameter("motion_amount")==0.0,"Paused Reduced Motion advanced ornament"): return
+	room.restore_state(closed)
+	for unused in 3: await process_frame
+	if not _check(not room._gate_shape.disabled and not room.gate_open,"Stale deferred security collider defeated same-frame restore"): return
+	paused = false
 	world.queue_free()
-	await process_frame
+	for unused in 4: await process_frame
 	print("PASS security feedback: measured detector cone, no collision, actual diversion/one-time latch, pause, live Reduced Motion, unchanged threat phase and silent restore. Room art/device acceptance OPEN.")
 	quit(0)

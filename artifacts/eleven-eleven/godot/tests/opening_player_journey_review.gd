@@ -6,6 +6,8 @@ var player: EchoPlayer
 var folder: String
 var checks := 0
 var record_effects := false
+var record_profile := false
+var profile_phases := {}
 const REVIEW_SAVES = ["user://room01_journey_review.json", "user://room01_journey_review.cfg", "user://room01_maintenance_review.json", "user://room01_route_review.json", "user://room01_campaign_review.json"]
 
 func _clear_fixture_saves() -> void:
@@ -81,9 +83,12 @@ func _use_evidence(id: String) -> bool:
 		inspector.near_button.pressed.emit()
 		await _frames(2)
 		var screen: Rect2 = main.get_viewport().get_visible_rect()
-		for button in [inspector.left_button,inspector.right_button,inspector.near_button,inspector.far_button,inspector.cancel_button,inspector.confirm_button]:
-			if not _check(screen.encloses(button.get_global_rect()),"Inspection control clipped outside the viewport: "+button.text): return false
 		await _capture("inspection-"+evidence.evidence_id)
+		if record_profile and id=="OpeningClock": await _sample_profile("room01-inspection")
+		print("INSPECTION_LAYOUT ",screen," panel=",inspector.panel.get_global_rect())
+		for button in [inspector.left_button,inspector.right_button,inspector.near_button,inspector.far_button,inspector.cancel_button,inspector.confirm_button]:
+			print("INSPECTION_BUTTON ",button.text," ",button.get_global_rect())
+			if not _check(screen.encloses(button.get_global_rect()),"Inspection control clipped outside the viewport: "+button.text): return false
 		main.native_pause_menu.visible = false
 		inspector.panel.hide()
 		await _capture("inspection-reference-"+evidence.evidence_id)
@@ -106,6 +111,7 @@ func _run() -> void:
 	if args.has("--compact"): root.size = Vector2i(960,540)
 	var standard := args.has("--standard")
 	record_effects = args.has("--effects") and DisplayServer.get_name() != "headless"
+	record_profile = args.has("--profile") and DisplayServer.get_name() != "headless"
 	var version := args[0] if not args.is_empty() else "baseline"
 	folder = ProjectSettings.globalize_path("res://../audits/evidence/"+("room01-20261014" if args.has("--review-20261014") else "room01-20261012")+"/" + version + "/")
 	DirAccess.make_dir_recursive_absolute(folder)
@@ -251,14 +257,23 @@ func _run() -> void:
 	await _frames(4)
 	if not _check(not atmosphere._vent.playing and is_equal_approx(atmosphere._face_fill.light_energy, atmosphere._face_energy), "Room sound or local character light leaked beyond exit"): return
 	await _capture("05-maintenance-entry")
+	if (args.has("--maintenance") or args.has("--security")) and not await _maintenance_route(): return
+	if args.has("--security") and not await _security_route(): return
+	if record_profile:
+		var profile := FileAccess.open(folder+"profile.json",FileAccess.WRITE)
+		profile.store_string(JSON.stringify({"engine":Engine.get_version_info().string,"adapter":RenderingServer.get_video_adapter_name(),"renderer":RenderingServer.get_video_adapter_api_version(),"viewport":str(root.size),"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"method":"240 real process frame wall intervals at each actual connected route stop; screenshots outside samples; engine counters are not GPU duration or resident VRAM","phases":profile_phases},"\t"))
 	var report := FileAccess.open(folder + "journey.json", FileAccess.WRITE)
-	report.store_string(JSON.stringify({"checks":checks,"display":DisplayServer.get_name(),"engine":Engine.get_version_info().string,"physical_room_route":true,"visual_acceptance":"REQUIRES_INSPECTION","audio_listening":"UNVERIFIED","diagnostics":atmosphere.diagnostics(),"source_hashes":{
+	report.store_string(JSON.stringify({"checks":checks,"language":main.presentation_language,"viewport":str(root.size),"display":DisplayServer.get_name(),"engine":Engine.get_version_info().string,"physical_room_route":true,"visual_acceptance":"REQUIRES_INSPECTION","audio_listening":"UNVERIFIED","diagnostics":atmosphere.diagnostics(),"source_hashes":{
 		"native_journey.tscn":FileAccess.get_sha256("res://scenes/native_journey.tscn"),
 		"opening_web_room.tscn":FileAccess.get_sha256("res://scenes/opening_web_room.tscn"),
+		"opening_web_facility.tscn":FileAccess.get_sha256("res://scenes/environment/opening_web_facility.tscn"),
+		"opening_evidence.tscn":FileAccess.get_sha256("res://scenes/environment/opening_evidence.tscn"),
 		"opening_atmosphere.gd":FileAccess.get_sha256("res://scripts/environment/opening_atmosphere.gd"),
 		"opening_inspection.gd":FileAccess.get_sha256("res://scripts/cinematics/opening_inspection.gd"),
 		"opening_evidence.gd":FileAccess.get_sha256("res://scripts/environment/opening_evidence.gd"),
 		"photochemical-emulsion.jpg":FileAccess.get_sha256("res://assets/textures/opening/photochemical-emulsion.jpg"),
+		"room01_clock_hero.glb":FileAccess.get_sha256("res://assets/props/room01_clock_hero.glb"),
+		"room01_trace_frame.glb":FileAccess.get_sha256("res://assets/props/room01_trace_frame.glb"),
 		"native_pause_menu.gd":FileAccess.get_sha256("res://scripts/ui/native_pause_menu.gd"),
 		"main.gd":FileAccess.get_sha256("res://scripts/main.gd"),
 		"energy_power_conduit.gd":FileAccess.get_sha256("res://scripts/props/energy_power_conduit.gd"),
@@ -278,3 +293,129 @@ func _run() -> void:
 	_clear_fixture_saves()
 	print("PASS current Room 01 evidence input journey: ", checks)
 	quit(0)
+
+func _maintenance_route() -> bool:
+	var director = main.get_node("SystemJourneyPreview")
+	if not _check(director.room != null and player.surface_traversal_enabled,"Opening did not connect to maintenance"): return false
+	player.set_gameplay_orbit(Vector3.ZERO)
+	if not await _walk(Vector3(0,0,-23.1)): return false
+	if not _check(director.stage == 1,"Maintenance entry objective missing"): return false
+	await _capture("room02-01-first-climb")
+	if record_profile: await _sample_profile("room02-entry")
+	if not await _climb_and_mantle("first"): return false
+	if not _check(director.stage == 2,"First mantle did not advance mission"): return false
+	if not await _walk(Vector3(2.1,3.4,-25)): return false
+	player.request_jump()
+	if not await _walk(Vector3(4,3.4,-25)): return false
+	if not _check(director.stage == 3,"Actual gap crossing did not advance mission"): return false
+	await _capture("room02-02-gap-crossed")
+	if not await _walk(Vector3(4,3.4,-26.5)): return false
+	if not await _climb_and_mantle("second"): return false
+	if not _check(director.stage == 4,"Second mantle did not advance mission"): return false
+	if not await _walk(Vector3(3.25,5.4,-29.5)): return false
+	player.request_jump()
+	if not await _walk(Vector3(2.3,5.4,-30.25)): return false
+	if not _check(director.stage == 5 and not player.contract_with_zero_sealed,"Upper access missing or early pact granted"): return false
+	if not _check(director._read(director.checkpoint_path) == 5,"Upper safe landing did not persist"): return false
+	if not await _walk(Vector3(1.25,5.4,-30.1)): return false
+	if not _check(player.get_nearest_interactable() == director.room.service_interaction,"Pressure wheel unreachable"): return false
+	await _capture("room02-03-wheel-ready")
+	if record_profile: await _sample_profile("room02-pressure-wheel")
+	player.interact_with_nearest()
+	if not _check(director.room.service_opening and director.stage == 5,"Pressure interaction advanced before clearance"): return false
+	for frame in 230:
+		_resume()
+		if frame in [15,65,125]: await _capture("room02-release-%03d" % frame)
+		await physics_frame
+	if not _check(director.stage == 6 and director.room.service_open and not player._camera_suspended,"Pressure release did not return the camera and open passage"): return false
+	if not await _walk(Vector3(0,5.4,-30.1)): return false
+	if not await _walk(Vector3(0,5.4,-31.6)): return false
+	if not _check(director.stage == 7 and director._read(director.checkpoint_path) == 7,"Vestibule crossing did not persist"): return false
+	await _capture("room02-04-service-exit")
+	if not await _walk(Vector3(0,5.4,-33.3)): return false
+	if not _check(main.get_node("NativeJourneyController").security_entered and not player.combat_available,"Grounded security handoff failed or enabled early combat"): return false
+	await _capture("room03-security-entry")
+	if record_profile: await _sample_profile("room03-entry")
+	var report := FileAccess.open(folder+"maintenance.json",FileAccess.WRITE)
+	var hashes := {}
+	for path in ["res://scenes/environment/maintenance_vertical.tscn","res://scripts/environment/maintenance_vertical.gd","res://scripts/environment/maintenance_room_presentation.gd","res://scripts/systems/system_journey_preview.gd","res://scripts/cinematics/maintenance_service_cinematic.gd","res://assets/environments/maintenance_jutsu_v1.glb","res://scripts/player/surface_traversal_motor.gd","res://assets/characters/echo_v31_adopted_high.glb"]:
+		if not _check(FileAccess.file_exists(path),"Room02 source missing: "+path): return false
+		hashes[path] = FileAccess.get_sha256(path)
+	report.store_string(JSON.stringify({"checks":checks,"language":main.presentation_language,"viewport":str(root.size),"route":"actual public input from waking through two climbs, gap, pressure wheel and grounded security entry","visual_acceptance":"REQUIRES_INSPECTION","source_hashes":hashes},"\t"))
+	print("PASS connected Room02 actual input route; checks=",checks)
+	return true
+
+func _climb_and_mantle(id: String) -> bool:
+	player.set_mobile_input_vector(Vector2.ZERO,false)
+	for frame in 240:
+		_resume()
+		if player.stamina >= 60: break
+		await physics_frame
+	player.set_mobile_input_vector(Vector2(0,-1),true)
+	player.request_jump()
+	for frame in 180:
+		_resume()
+		await physics_frame
+		if player.surface_motor.hanging: break
+	if not _check(player.surface_motor.hanging,"Actual climb failed to reach ledge: "+id): return false
+	await _capture("room02-hang-"+id)
+	player.request_jump()
+	for frame in 140:
+		_resume()
+		await physics_frame
+		if not player.traversal.is_climbing(): break
+	player.set_mobile_input_vector(Vector2.ZERO,false)
+	await _frames(16)
+	await _capture("room02-mantle-"+id)
+	return _check(player.is_on_floor(),"Actual mantle failed to land: "+id)
+
+func _security_route() -> bool:
+	var controller = main.get_node("NativeJourneyController")
+	var room = controller.security
+	if not await _walk(Vector3(-3.5,5.4,-33.8)): return false
+	if not _check(player.get_nearest_interactable()==room.get_node("DivertStation/InteractionArea"),"Diversion console unreachable from Room02"): return false
+	player.interact_with_nearest()
+	await _frames(4)
+	if not _check(controller.progress.security.scanner_trace and not room.gate_open,"Diversion failed to persist independently"): return false
+	await _capture("room03-01-diversion")
+	if not await _walk(Vector3(-3.5,5.4,-40.5)): return false
+	await _capture("room03-02-cover-route")
+	if not await _walk(Vector3(-3.5,5.4,-46.8)): return false
+	if not await _walk(Vector3(-1.3,5.4,-47.2)): return false
+	if not _check(player.get_nearest_interactable()==room.get_node("GateStation/InteractionArea"),"Manual security latch unreachable"): return false
+	player.interact_with_nearest()
+	await _frames(65)
+	if not _check(room.gate_open and controller.progress.security.gate_open,"Manual latch failed or did not persist"): return false
+	await _capture("room03-03-latch-open")
+	if not await _walk(Vector3(0,5.4,-47.4)): return false
+	if not await _walk(Vector3(0,5.4,-49.45)): return false
+	await _frames(8)
+	if not _check(controller.progress.completed.has("security_completed") and not player.combat_available,"Physical security exit missing or premature combat granted"): return false
+	await _capture("room03-04-experiment-entry")
+	var report := FileAccess.open(folder+"security.json",FileAccess.WRITE)
+	report.store_string(JSON.stringify({"checks":checks,"route":"actual connected input from waking through maintenance, diversion, cover, latch and grounded security exit","source_hashes":{"native_journey_controller.gd":FileAccess.get_sha256("res://scripts/systems/native_journey_controller.gd"),"security_checkpoint_room.gd":FileAccess.get_sha256("res://scripts/environment/security_checkpoint_room.gd"),"maintenance_room_presentation.gd":FileAccess.get_sha256("res://scripts/environment/maintenance_room_presentation.gd"),"maintenance_surface_finish.gdshader":FileAccess.get_sha256("res://shaders/maintenance_surface_finish.gdshader")}},"\t"))
+	print("PASS connected Room03 actual input route; checks=",checks)
+	return true
+
+func _sample_profile(label: String) -> void:
+	await _frames(30)
+	var wall: Array[float] = []
+	var draws: Array[float] = []
+	var primitives: Array[float] = []
+	var textures: Array[float] = []
+	var last := Time.get_ticks_usec()
+	for frame in 240:
+		_resume()
+		await process_frame
+		var now := Time.get_ticks_usec()
+		wall.append((now-last)/1000.0)
+		last = now
+		draws.append(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
+		primitives.append(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME))
+		textures.append(Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED))
+	profile_phases[label] = {"samples":240,"wall_frame_ms":_profile_stats(wall),"draw_calls":_profile_stats(draws),"primitives":_profile_stats(primitives),"engine_texture_bytes":_profile_stats(textures)}
+	print("PROFILE_ROUTE ",label," ",JSON.stringify(profile_phases[label]))
+
+func _profile_stats(values: Array[float]) -> Dictionary:
+	values.sort()
+	return {"p50":values[int((values.size()-1)*0.50)],"p95":values[int((values.size()-1)*0.95)],"p99":values[int((values.size()-1)*0.99)],"max":values[-1]}

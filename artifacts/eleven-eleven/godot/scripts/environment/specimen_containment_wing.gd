@@ -10,6 +10,7 @@ extends Node3D
 ## - Bilingual dialogue and inspection logs (Arabic & English), audio mute, reduced motion, safe anchors.
 
 signal specimen_inspected(subject_id: String)
+signal specimen_record_requested(tank_index: int)
 signal terminal_accessed(log_id: String)
 signal exit_gate_opened
 signal retry_requested(anchor: Vector3)
@@ -41,8 +42,22 @@ const SAFE_ANCHOR_MIDPOINT := Vector3(-26.0, 0.1, 3.0)
 const SAFE_ANCHOR_TERMINAL := Vector3(-24.0, 0.1, -12.0)
 
 var state: RoomState = RoomState.ENTRY_VESTIBULE
-var reduced_motion := false
-var audio_muted := false
+var reduced_motion := false:
+	set(value):
+		if reduced_motion == value: return
+		reduced_motion = value
+		if is_instance_valid(_bubble_batch): _bubble_batch.visible = not value
+		if is_instance_valid(_air_motes):
+			_air_motes._air.visible = not value
+			if value: _air_motes._release.visible = false
+		if value and gate_open and is_instance_valid(_gate):
+			_cancel_gate_motion()
+			_gate.position.y = _gate_open_y
+			_sync_gate_collision.call_deferred(_gate_generation)
+var audio_muted := false:
+	set(value):
+		audio_muted = value
+		if value and is_instance_valid(_gate_release_sound): _gate_release_sound.stop()
 var player: Node3D
 
 var gate_open := false
@@ -60,12 +75,21 @@ var _gate: StaticBody3D
 var _gate_shape: CollisionShape3D
 var _gate_open_y := 4.8
 var _gate_closed_y := 1.4
+var _gate_tween: Tween
+var _gate_generation := 0
 
 var _terminal_body: StaticBody3D
 var _terminal_light: OmniLight3D
 
 var _specimen_tanks: Array[Dictionary] = []
 var _cover_plinths: Array[StaticBody3D] = []
+var _fluid_material: ShaderMaterial
+var _amber_fluid_material: ShaderMaterial
+var _bubble_material: ShaderMaterial
+var _bubble_batch: MultiMeshInstance3D
+var _fluid_time := 0.0
+var _air_motes: Node3D
+var _gate_release_sound: AudioStreamPlayer3D
 
 func _ready() -> void:
 	_build_room_geometry()
@@ -74,7 +98,33 @@ func _ready() -> void:
 	_build_scanner_system()
 	_build_terminal()
 	_build_exit_gate()
+	_air_motes = preload("res://scripts/environment/room_motes.gd").new()
+	_air_motes.name = "SpecimenAtmosphere"
+	_air_motes.anchors.assign([Vector3(-5,3.8,-2),Vector3(-14,4.8,-2),Vector3(-23,3.8,-9),Vector3(-14,4.8,-10)])
+	add_child(_air_motes)
+	_gate_release_sound = AudioStreamPlayer3D.new()
+	_gate_release_sound.name = "ContainmentGateRelease"
+	_gate_release_sound.position = Vector3(-29.7,2.8,-12)
+	_gate_release_sound.stream = RELEASE_AUDIO
+	_gate_release_sound.volume_db = -8.0
+	_gate_release_sound.max_distance = 14.0
+	add_child(_gate_release_sound)
 	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-30,-18,30,24),7.2)
+	for light in get_node("ServiceLighting").find_children("*","OmniLight3D",false,false): light.light_energy = 0.95
+	var finish = preload("res://scripts/environment/room_panel_finish.gd")
+	finish.apply(self,["Floor"],finish.material(Color(0.18,0.23,0.29),Vector2(4.8,4.8)))
+	finish.apply(self,["CoverPlinth_","TerminalShieldPlinth"],finish.material(Color(0.28,0.35,0.43),Vector2(2.2,1.8),0.22,0.55))
+
+func _process(delta: float) -> void:
+	var cone_shader := _scanner_cone.material_override as ShaderMaterial
+	cone_shader.set_shader_parameter("beam_color",_scanner_beam.light_color)
+	cone_shader.set_shader_parameter("motion_time",_fluid_time)
+	cone_shader.set_shader_parameter("motion_amount",0.0 if reduced_motion else 1.0)
+	if reduced_motion: return
+	_fluid_time += minf(delta,0.1)
+	_fluid_material.set_shader_parameter("motion_time",_fluid_time)
+	_amber_fluid_material.set_shader_parameter("motion_time",_fluid_time)
+	_bubble_material.set_shader_parameter("motion_time",_fluid_time)
 
 var _alert_timer := 0.0
 var _retry_grace := 0.0
@@ -202,23 +252,27 @@ func _open_exit_gate() -> void:
 		return
 	
 	gate_open = true
+	if _air_motes: _air_motes.emit_release(Vector3(-29.7,2.8,-12))
+	if _gate_release_sound and not audio_muted: _gate_release_sound.play()
 	state = RoomState.GATE_UNLOCKED
 	exit_gate_opened.emit()
 	passage_ready.emit()
 	
 	if reduced_motion:
-		if _gate:
-			_gate.position.y = _gate_open_y
-		if _gate_shape:
-			_gate_shape.set_deferred("disabled", true)
+		_gate.position.y = _gate_open_y
+		_sync_gate_collision.call_deferred(_gate_generation)
 	else:
-		if _gate:
-			var tween := create_tween()
-			tween.tween_property(_gate, "position:y", _gate_open_y, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_callback(func():
-				if _gate_shape:
-					_gate_shape.set_deferred("disabled", true)
-			)
+		var generation := _gate_generation
+		_gate_tween = create_tween()
+		_gate_tween.tween_property(_gate,"position:y",_gate_open_y,0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		_gate_tween.tween_callback(func(): _sync_gate_collision.call_deferred(generation))
+
+func _cancel_gate_motion() -> void:
+	_gate_generation += 1
+	if _gate_tween and _gate_tween.is_valid(): _gate_tween.kill()
+
+func _sync_gate_collision(generation: int) -> void:
+	if generation==_gate_generation: _gate_shape.disabled = gate_open
 
 func set_audio_muted(muted: bool) -> void:
 	audio_muted = muted
@@ -233,6 +287,9 @@ func get_state() -> Dictionary:
 
 func restore_state(saved: Dictionary) -> bool:
 	if not saved.is_empty() and saved.has("gate_open"):
+		_cancel_gate_motion()
+		if _gate_release_sound: _gate_release_sound.stop()
+		if _air_motes: _air_motes._release.visible = false
 		state = saved.get("state", RoomState.ENTRY_VESTIBULE)
 		gate_open = saved.get("gate_open", false)
 		terminal_read = saved.get("terminal_read", false)
@@ -241,13 +298,10 @@ func restore_state(saved: Dictionary) -> bool:
 		if gate_open:
 			if _gate:
 				_gate.position.y = _gate_open_y
-			if _gate_shape:
-				_gate_shape.disabled = true
 		else:
 			if _gate:
 				_gate.position.y = _gate_closed_y
-			if _gate_shape:
-				_gate_shape.disabled = false
+		_sync_gate_collision.call_deferred(_gate_generation)
 		return true
 	return false
 
@@ -285,11 +339,13 @@ func _box(label: String, center: Vector3, size: Vector3, mat: Material, solid :=
 	return node
 
 func _build_room_geometry() -> void:
-	var wall_mat := _material(Color(0.25, 0.28, 0.32), 0.2, 0.6)
+	# These source textures already contain their charcoal/ceramic color.
+	# Multiplying them by another very dark tint had hidden the route surfaces.
+	var wall_mat := _material(Color(0.50, 0.56, 0.64), 0.15, 0.6)
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(3.0, 2.0, 1.0)
 	
-	var floor_mat := _material(Color(0.16, 0.18, 0.22), 0.5, 0.6)
+	var floor_mat := _material(Color(0.54, 0.61, 0.69), 0.25, 0.65)
 	floor_mat.albedo_texture = GRAPHITE
 	floor_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
@@ -328,11 +384,15 @@ func _build_room_geometry() -> void:
 	_box("WestExitLintel", Vector3(west_x, 5.0, -12.0), Vector3(WALL_THICKNESS, 4.4, 2.05), metal_mat, true)
 
 func _build_specimen_tanks() -> void:
-	var tank_mat := _material(Color(0.2, 0.4, 0.45, 0.6), 0.1, 0.2)
+	var tank_mat := _material(Color(0.12, 0.28, 0.32, 0.18), 0.1, 0.22)
 	tank_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
-	var fluid_mat := _material(Color(0.0, 0.8, 0.85, 0.75), 0.0, 0.3, true, Color(0.0, 0.8, 0.85), 1.8)
-	var base_metal := _material(Color(0.15, 0.18, 0.22), 0.8, 0.3)
+	_fluid_material = ShaderMaterial.new()
+	_fluid_material.shader = preload("res://shaders/specimen_fluid.gdshader")
+	_amber_fluid_material = _fluid_material.duplicate()
+	_amber_fluid_material.set_shader_parameter("fluid_color",Color(0.36,0.18,0.055,0.45))
+	_amber_fluid_material.set_shader_parameter("fill_height",0.75)
+	var base_metal := _material(Color(0.36,0.43,0.52),0.28,0.50)
 	
 	var tank_configs := [
 		{"x": -8.0, "z": 0.0, "id": "ex_005", "name": "Subject Alpha (EX-005)", "status_en": "Cellular Necrosis / Terminal", "status_ar": "نخر خلوي حاد / منتهية"},
@@ -359,7 +419,9 @@ func _build_specimen_tanks() -> void:
 		cyl.height = 4.2
 		mesh_inst.mesh = cyl
 		mesh_inst.material_override = tank_mat
-		mesh_inst.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+		# Transparent glass/liquid cannot cast the old opaque tank silhouette.
+		# Scanner occlusion still uses the original physical cylinder.
+		mesh_inst.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		tank_body.add_child(mesh_inst)
 		
 		# Inner fluid cylinder
@@ -369,7 +431,14 @@ func _build_specimen_tanks() -> void:
 		fluid_cyl.bottom_radius = 0.95
 		fluid_cyl.height = 3.8
 		fluid_inst.mesh = fluid_cyl
-		fluid_inst.material_override = fluid_mat
+		fluid_inst.material_override = _fluid_material
+		fluid_inst.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		if cfg.id=="ex_011":
+			# Existing MISSING record is a partly drained reserved tank, not a
+			# newly invented awakening location or a generated human specimen.
+			fluid_cyl.height = 0.75
+			fluid_inst.position.y = -1.4
+			fluid_inst.material_override = _amber_fluid_material
 		tank_body.add_child(fluid_inst)
 		
 		# Collision shape
@@ -396,9 +465,89 @@ func _build_specimen_tanks() -> void:
 		
 		add_child(tank_body)
 		_specimen_tanks.append(cfg)
+		_build_record_station(tank_body,_specimen_tanks.size()-1,cfg)
+	_build_fluid_bubbles(tank_configs)
+	# Four outer mechanical stays per vessel, in one static shadow-free batch.
+	var stays := MultiMeshInstance3D.new()
+	stays.name = "ContainmentTankStays"
+	stays.multimesh = MultiMesh.new()
+	stays.multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	var stay_mesh := BoxMesh.new()
+	stay_mesh.size = Vector3(0.065,4.12,0.065)
+	stays.multimesh.mesh = stay_mesh
+	stays.multimesh.instance_count = 24
+	var stay_index := 0
+	for cfg in tank_configs:
+		for x in [-0.82,0.82]:
+			for z in [-0.82,0.82]:
+				stays.multimesh.set_instance_transform(stay_index,Transform3D(Basis.IDENTITY,Vector3(cfg.x+x,2.1,cfg.z+z)))
+				stay_index += 1
+	stays.material_override = base_metal
+	stays.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(stays)
+
+func _build_fluid_bubbles(configs: Array) -> void:
+	var bubbles := MultiMesh.new()
+	bubbles.transform_format = MultiMesh.TRANSFORM_3D
+	bubbles.use_custom_data = true
+	var bead := SphereMesh.new()
+	bead.radius = 0.035
+	bead.height = 0.07
+	bead.radial_segments = 6
+	bead.rings = 3
+	bubbles.mesh = bead
+	bubbles.instance_count = configs.size()*6
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 111104
+	for index in bubbles.instance_count:
+		var cfg: Dictionary = configs[index/6]
+		var angle := rng.randf()*TAU
+		var radius := rng.randf_range(0.18,0.65)
+		var volume_height := 0.5 if cfg.id=="ex_011" else 3.3
+		var height := rng.randf_range(0.0,volume_height)
+		var point := Vector3(float(cfg.x)+cos(angle)*radius,0.5+height,float(cfg.z)+sin(angle)*radius)
+		bubbles.set_instance_transform(index,Transform3D(Basis.IDENTITY,point))
+		bubbles.set_instance_custom_data(index,Color(rng.randf(),height,rng.randf(),volume_height))
+	_bubble_material = ShaderMaterial.new()
+	_bubble_material.shader = preload("res://shaders/specimen_bubbles.gdshader")
+	_bubble_batch = MultiMeshInstance3D.new()
+	_bubble_batch.name = "SpecimenFluidBubbles"
+	_bubble_batch.multimesh = bubbles
+	_bubble_batch.material_override = _bubble_material
+	_bubble_batch.custom_aabb = AABB(Vector3(-21,0,-13),Vector3(14,4.5,14))
+	_bubble_batch.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_bubble_batch.visible = not reduced_motion
+	add_child(_bubble_batch)
+
+func _build_record_station(tank: Node3D,index: int,cfg: Dictionary) -> void:
+	var station := preload("res://scripts/environment/specimen_record_station.gd").new()
+	station.name = "SpecimenRecordStation"
+	station.room = self
+	station.tank_index = index
+	station.position = Vector3(0,-1.05,1.16)
+	var interaction := InteractableComponent.new()
+	interaction.name = "InteractionArea"
+	interaction.verb = InteractableComponent.InteractionVerb.OPEN
+	interaction.prompt_target_name = String(cfg.id).to_upper().replace("_","-")
+	var shape := CollisionShape3D.new()
+	shape.shape = SphereShape3D.new()
+	shape.shape.radius = 1.45
+	interaction.add_child(shape)
+	station.add_child(interaction)
+	tank.add_child(station)
+	var label := Label3D.new()
+	label.name = "SpecimenIdentifier"
+	label.text = interaction.prompt_target_name
+	label.font = preload("res://assets/fonts/NotoSansArabic.ttf")
+	label.font_size = 34
+	label.pixel_size = 0.005
+	label.outline_size = 0
+	label.modulate = Color(0.94,0.69,0.34) if cfg.id=="ex_011" else Color(0.55,0.77,0.82)
+	label.position = Vector3(0,2.48,1.16)
+	tank.add_child(label)
 
 func _build_cover_plinths() -> void:
-	var metal_mat := _material(Color(0.22, 0.26, 0.3), 0.6, 0.4)
+	var metal_mat := _material(Color(0.28, 0.34, 0.4), 0.25, 0.52)
 	
 	# Staged heavy filter plinths along central traversal line (Z = -6.0m)
 	# Providing crouching cover from the ceiling scanner
@@ -413,11 +562,17 @@ func _build_cover_plinths() -> void:
 		var pos: Vector3 = plinth_positions[i]
 		var plinth := _box("CoverPlinth_%d" % i, pos, Vector3(2.2, 1.8, 1.4), metal_mat, true) as StaticBody3D
 		_cover_plinths.append(plinth)
+		var safe_edge := _material(Color(0.04,0.24,0.28),0.1,0.6,true,Color(0.04,0.30,0.34),0.2)
+		_box("CoverSafeEdge_%d" % i,pos+Vector3(0,0.92,0.71),Vector3(1.9,0.025,0.025),safe_edge)
+
+	# A physical privacy baffle gives the successful stealth route a safe
+	# reading pocket. Scanner FOV/range/grace and raycast remain untouched.
+	var shield := _box("TerminalShieldPlinth",Vector3(-23.8,1.5,-10.2),Vector3(0.5,3.0,3.2),metal_mat,true) as StaticBody3D
+	_cover_plinths.append(shield)
+	_box("TerminalShieldSafeEdge",Vector3(-24.06,2.95,-10.2),Vector3(0.025,0.035,2.9),_material(Color(0.03,0.25,0.29),0.1,0.6,true,Color(0.04,0.3,0.34),0.2))
 
 func _build_scanner_system() -> void:
 	var metal_mat := _material(Color(0.2, 0.22, 0.25), 0.8, 0.3)
-	var cone_mat := _material(Color(0.0, 0.9, 1.0, 0.15), 0.0, 0.1, true, Color(0.0, 0.9, 1.0), 1.2)
-	cone_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 	# Scanner mount on ceiling at center: X = -15.0m, Y = 6.8m, Z = -6.0m
 	var mount := _box("ScannerMount", Vector3(-15.0, 7.0, -6.0), Vector3(1.2, 0.4, 1.2), metal_mat, true)
@@ -440,10 +595,15 @@ func _build_scanner_system() -> void:
 	cone_mesh.top_radius = 0.2
 	cone_mesh.bottom_radius = 3.8
 	cone_mesh.height = 8.0
+	cone_mesh.cap_top = false
+	cone_mesh.cap_bottom = false
 	_scanner_cone.mesh = cone_mesh
 	_scanner_cone.position = Vector3(0.0, 0.0, -4.0)
 	_scanner_cone.rotation.x = PI * 0.5
-	_scanner_cone.material_override = cone_mat
+	var cone_shader := ShaderMaterial.new()
+	cone_shader.shader = preload("res://shaders/scanner_volumetric_cone.gdshader")
+	_scanner_cone.material_override = cone_shader
+	_scanner_cone.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_scanner_head.add_child(_scanner_cone)
 	
 	# Dynamic spot light shining down along -Z

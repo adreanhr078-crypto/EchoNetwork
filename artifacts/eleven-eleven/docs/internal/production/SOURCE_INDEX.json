@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-14",
+  "snapshot_date": "2026-10-16",
   "path_base": "artifacts/eleven-eleven",
-  "status": "OWNER_RESUMED_ROOM01_IN_PROGRESS",
-  "last_runtime_integration_checkpoint": "CP23 / CP-20261014-01",
+  "status": "CP36_TRIPO_SCOPED_EVALUATION_ACTING_OPEN__RUNTIME_CP34",
+  "last_runtime_integration_checkpoint": "CP34 / CP-20261016-04 / IN_PROGRESS",
   "isolated_work": "CP21 / PAUSED_NOT_INTEGRATED",
   "fresh_art_review_this_cleanup": false,
-  "visual_evidence_policy": "Scene and source hashes must match the reviewed checkpoint. Historical or unmapped screenshots are UNVERIFIED; capture current runtime after task resumes.",
+  "visual_evidence_policy": "CP34 natural and paused/RM connected lab captures match current dependencies. Material improvement is scoped; source animations/rig unchanged. CP33/32 captures historical. No current fresh-cover route, whole-scene art, chapter, GPU/device or store acceptance.",
   "current_game_card": "docs/internal/production/CURRENT_WORK.ar.md",
   "work_tree": "docs/internal/production/WORK_TREE.ar.md",
   "entries": [
@@ -19,8 +19,8 @@
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/boot.gd",
-      "sha256": "c4b89bf4730755120b12e5d36a228da52db66bcdaeb9b1d922cce858866a8a86",
-      "bytes": 469
+      "sha256": "c7a5081c49883b3b5da211f136812d7e906c34dbfcd8210dfca406b34f0037bb",
+      "bytes": 1664
     },
     {
       "group": "boot_and_progress",
@@ -31,14 +31,14 @@
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_journey_controller.gd",
-      "sha256": "7f51c3bf152844e7381cd07af9d3f15884f28eff5147a6da6b39fc025c0ffe54",
-      "bytes": 8637
+      "sha256": "1f8314f19c0665063e6c75892474409ebf640aaf7ae0234ab423053b752361bd",
+      "bytes": 8880
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_campaign_controller.gd",
-      "sha256": "27e49975f1a5a2f04969fa6a526f00e8ef52552dc59c28432331990e10374814",
-      "bytes": 24830
+      "sha256": "b09e2fad3a67f546aee342e15a70b1a0e9050deaa3bbe2956cf078ace05ebb0b",
+      "bytes": 28174
     },
     {
       "group": "boot_and_progress",
@@ -133,8 +133,8 @@
     {
       "group": "characters_and_weapons",
       "path": "godot/scripts/cinematics/pact_revenge_presentation.gd",
-      "sha256": "a02f9313540773abc96e77b8bb01f6ae0cf0a7a20e5783200b686935b4bc6cf8",
-      "bytes": 20960
+      "sha256": "4850a37789c04605efbcdc20743c80127a6366bc15380fef7d24e314440abf6b",
+      "bytes": 25580
     },
     {
       "group": "characters_and_weapons",
@@ -175,14 +175,14 @@
     {
       "group": "presentation",
       "path": "godot/shaders/security_scan_field.gdshader",
-      "sha256": "9783e10a0b33c39b0da4125c61ed4d464e9e92a3c3cd3c77205184322148d573",
-      "bytes": 763
+      "sha256": "74fce75664dddca513379f8bf49aab25d799c3bad78736fd773705b6b9fd00bc",
+      "bytes": 1249
     },
     {
       "group": "canon_and_phase",
       "path": "docs/project-memory.json",
-      "sha256": "26f6cc50dc708509b06dc81865ac7a0e195644fd48b1de8c8e2b6e25ad560d59",
-      "bytes": 38332
+      "sha256": "225e4976fe2fb53b5c40b649bb4ecf79e3b9da1cc7ef69f351dd043e548083a2",
+      "bytes": 50609
     },
     {
       "group": "canon_and_phase",
@@ -229,8 +229,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/maintenance_vertical.gd",
-      "sha256": "cb4843523c279429a400e604c0c5b7661d8ceb31db04f449407e711733c3f2b3",
-      "bytes": 8492
+      "sha256": "8081251f8619af050098de2658dc08b486fc02b722707fcf27e18436a961f7eb",
+      "bytes": 8615
     },
     {
       "group": "rooms_in_player_order",
@@ -241,8 +241,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/security_checkpoint_room.gd",
-      "sha256": "7ec5893afb12fd8e78cf734508e678909f711bcdecf8fbcb6f3a8a42a01e161c",
-      "bytes": 14406
+      "sha256": "48ab9de2f8409a48702c5ed6df43988ecd58b18040f1c1e980b82ece96158d18",
+      "bytes": 16193
     },
     {
       "group": "rooms_in_player_order",
@@ -253,8 +253,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/specimen_containment_wing.gd",
-      "sha256": "dbc23d9c4148bff8e07e84dbaf2f7e63bf6e193f9a53e7ea8eeda2311218e665",
-      "bytes": 20734
+      "sha256": "ce8eeca16cb9c32eec29bf94be255d54d7e23b9a45446cb70a26cdcc6e8ea745",
+      "bytes": 28076
     },
     {
       "group": "rooms_in_player_order",
@@ -265,8 +265,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/memory_archive_wing.gd",
-      "sha256": "938360873f3cd5895a1f236d5d0d900c27c779f16abd6204afa12af326f51113",
-      "bytes": 19649
+      "sha256": "3b49d7384582132a671c09849ea8ddea1ed4cc42f3d2d9b496b3cea9bfe33dc9",
+      "bytes": 25116
     },
     {
       "group": "rooms_in_player_order",
@@ -277,8 +277,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/core_reactor_room.gd",
-      "sha256": "8661439bba3926ebdbbf8034759626ba6d655b93cd5988b46bca903108063285",
-      "bytes": 25798
+      "sha256": "5f172caf31a83d0d58180ba7eaa91cbc3e5b808c671eda3641d604eafd636fd5",
+      "bytes": 34207
     },
     {
       "group": "rooms_in_player_order",
@@ -289,8 +289,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/decontamination_quarantine_wing.gd",
-      "sha256": "a2d69dc93af6cff884d8d8d59d9f2674e51c161cddebc2d31809b72bcc25b266",
-      "bytes": 15606
+      "sha256": "6dea0a16a36dfa803780b9101539e8e82a97f0a2a5af1b1fead9dbf39dc21cb9",
+      "bytes": 25682
     },
     {
       "group": "rooms_in_player_order",
@@ -301,8 +301,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/mirror_chamber_room.gd",
-      "sha256": "f33abc971039e37f8d29c6b6a95b81093aa5d69d95b31ff344128f3ff83c4801",
-      "bytes": 18314
+      "sha256": "fa3636943bed562db936adbdcaf9801e06c1bd204b309e48faa004cd879b8fb5",
+      "bytes": 21960
     },
     {
       "group": "rooms_in_player_order",
@@ -313,8 +313,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/dr_kinja_lab_room.gd",
-      "sha256": "adc1b7a462fa3a21a7192b3d6391795f4dd641e9f4f81950b66e5d1adaeb6453",
-      "bytes": 20560
+      "sha256": "9fdf03d34b6f80bff2cdf5c2f29e359a2bc46d44e06062140d27eeeece85ef2e",
+      "bytes": 25038
     },
     {
       "group": "rooms_in_player_order",
@@ -337,14 +337,14 @@
     {
       "group": "actual_opening_runtime",
       "path": "godot/scenes/opening_web_room.tscn",
-      "sha256": "3ec13b53f1a751609392c1f1ba83229cb5e934e2c38c43907ea46141810b49bb",
-      "bytes": 5185
+      "sha256": "65041fd8398e2ab36d0265e17b5bd3525103551853e5a240faadef3b08b0d139",
+      "bytes": 5191
     },
     {
       "group": "actual_opening_runtime",
       "path": "godot/scenes/environment/opening_web_facility.tscn",
-      "sha256": "baeb4fbe277f1fa5f2fce006f68b63f07ec0fcba1ce4e1ed723515878106d2eb",
-      "bytes": 7297
+      "sha256": "0ef29ea5d26426cc852ebc7ab2433dd1d2efe1359483abf82e1511e1a02d1fc5",
+      "bytes": 7298
     },
     {
       "group": "actual_opening_runtime",
@@ -355,14 +355,14 @@
     {
       "group": "actual_opening_runtime",
       "path": "godot/scripts/environment/opening_atmosphere.gd",
-      "sha256": "b7bee4d9234fba1c0f8e741b15ddfce5ad7df34e0e46a328dc4f30597532707e",
-      "bytes": 15351
+      "sha256": "45d500c24b23dbc2f5d339df7b4629fc76d6a62971f0eeddc08156bc7eef8207",
+      "bytes": 16296
     },
     {
       "group": "actual_opening_runtime",
       "path": "godot/scripts/environment/opening_energy_fx.gd",
-      "sha256": "1f6dbf4c3373df1e8e2e134b546b05bccafcec5579d797025ae296503bda35af",
-      "bytes": 4623
+      "sha256": "36c1ec3d95032380de08d4efdc1131f0bae1f833c2c81c4307720f5a2ecc31ff",
+      "bytes": 4625
     },
     {
       "group": "actual_opening_runtime",
@@ -391,8 +391,8 @@
     {
       "group": "actual_opening_runtime",
       "path": "godot/shaders/opening_energy_field.gdshader",
-      "sha256": "79b1168458193643e494e3b1f9956911519d81595b6fbff34e470fc5d9841022",
-      "bytes": 1912
+      "sha256": "20c5dbc3f887f9c218ebfad0637e219f8de14670da675a93bafd8bee14f86f38",
+      "bytes": 2019
     },
     {
       "group": "actual_opening_runtime",
@@ -409,8 +409,8 @@
     {
       "group": "room01_inspection",
       "path": "godot/scripts/cinematics/opening_inspection.gd",
-      "sha256": "ad620f6b3b1765747529913266586c724b2a4e4bb115be8918dc80be40fbeb54",
-      "bytes": 8857
+      "sha256": "c392d31594e249915328e78147304bedad833a1a632acc76ff81c712782c99de",
+      "bytes": 11094
     },
     {
       "group": "room01_inspection",
@@ -433,14 +433,14 @@
     {
       "group": "room01_inspection_tests",
       "path": "godot/tests/opening_inspection_review.gd",
-      "sha256": "eb575bd40147a468ef9942a2da8dd5c978d1e13fc231c6a10dbdaed3f2785997",
-      "bytes": 6673
+      "sha256": "55d93c8462a13314fe2ea6b43ef5fedd89b9c00e6cf62bc058f404f416ecfa21",
+      "bytes": 9394
     },
     {
       "group": "room01_inspection_tests",
       "path": "godot/tests/opening_player_journey_review.gd",
-      "sha256": "5556da3aec7e140e429c33dbfa5741e2cb06b47f9f447270e93cab44d065b1c0",
-      "bytes": 14808
+      "sha256": "cb017a16936e033c2f4f0faaa1d8c280a44a24aabe7a0169be94bd32a6204694",
+      "bytes": 24559
     },
     {
       "group": "room01_inspection_tests",
@@ -451,11 +451,405 @@
     {
       "group": "room01_inspection_export",
       "path": "godot/export_presets.cfg",
-      "sha256": "681224f78da6bf49676386bc3828879f9a9eaa1ae3743bd8b214dac099e10f66",
-      "bytes": 9665
+      "sha256": "af9ed58cc9f208e206596d39f399e79a4822aee9b6528f4eaa4c9f12cdbc9d0a",
+      "bytes": 9932
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/scripts/environment/opening_evidence.gd",
+      "sha256": "73498cc9fa4ea72c94b3d67a3ed6d12977db61892fa42f4ace6ff575301e8219",
+      "bytes": 18074
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/assets/props/room01_clock_hero.glb",
+      "sha256": "a45d259ee418ed8d40005364b85ff573a921c270e3878e4f105bb0b10aa87ad6",
+      "bytes": 238516
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/assets/props/room01_trace_frame.glb",
+      "sha256": "f9121c143d20394f9df25af3fa707b66819abdb67ffe0279d4d0e16e7aae7d8c",
+      "bytes": 15424
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/scripts/environment/maintenance_room_presentation.gd",
+      "sha256": "61d1aca1b2f67a7f34c5f7082b8c0d53b870998965c115e55184cff712667a7f",
+      "bytes": 11116
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/shaders/maintenance_surface_finish.gdshader",
+      "sha256": "6b1127d795048d0f692a9b014841195fc7500ae4e2c6ddf788b86bfe5447a85b",
+      "bytes": 1561
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/scripts/systems/system_journey_preview.gd",
+      "sha256": "9f98173bc2bb505ff9a8297700f81f2bf458629740d33858083b18ce77ee0ded",
+      "bytes": 9354
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/scripts/systems/native_review_probe.gd",
+      "sha256": "6089bbd4b2aa2297fb59c9634c635b8a0eda805dc675faf08142ae4ec4e13ac1",
+      "bytes": 4039
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/tests/maintenance_presentation_review.gd",
+      "sha256": "d8be08a4beac05bf19af09e12470b0889eff49d59ccd73ae8795ed004ef8aa65",
+      "bytes": 3424
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/tests/native_campaign_route_review.gd",
+      "sha256": "d2b0ff05a8a3e831ecddfad0f01c939c1ec1e792cd9bbeff9b304faf6bc28142",
+      "bytes": 17559
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/tests/room_route_input_review.gd",
+      "sha256": "3b6a74089bf503f11a352a5c9f36164ea46c295587a1fff1597ab9fb3cba7c8f",
+      "bytes": 9862
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "godot/tests/campaign_room_render_review.gd",
+      "sha256": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef",
+      "bytes": 9627
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "docs/internal/production/ARGON_ROOM_PRODUCTION_PLAN_2026-10-14.ar.md",
+      "sha256": "bbaa3cfb8d86c2248a3bed3c7d5bb8449ad74be7bce590c5df44bde9491bbbef",
+      "bytes": 9791
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "art/production/room01-hero-clock-20261014/room01-clock-hero.blend",
+      "sha256": "51ba0a39a034ff0a4748ddd50dd56a6ae43266922f3f9c3713ed08dbecceef77",
+      "bytes": 172684
+    },
+    {
+      "group": "cp24_baseline_sources",
+      "path": "art/production/room01-hero-clock-20261014/room01-trace-frame.blend",
+      "sha256": "385d66708395d9eb5bcdf86e84b5ef194f44159b6262fced8ab00e115b56edb5",
+      "bytes": 176789
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/tests/specimen_containment_wing_smoke.gd",
+      "sha256": "d344482e1480285777164fe2422f4e2dcb7dd3b5a3fd2e712c3eca76b5c6e173",
+      "bytes": 9772
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/tests/specimen_presentation_review.gd",
+      "sha256": "6a879cc0523c1d96ea40c6dff242bfa9612b130cd7a0a0ec70b0e9f9a23fc0df",
+      "bytes": 3275
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/scripts/environment/specimen_record_station.gd",
+      "sha256": "846006a6d5cc8096177aa454078ca22a5ecbffb6fdd3543d717ea52b7e10de40",
+      "bytes": 621
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/scripts/environment/room_motes.gd",
+      "sha256": "1cacf90aa58bc16c668e1589b34b715a98a6569c523b8daf45d654a26fbbed53",
+      "bytes": 2839
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/shaders/specimen_fluid.gdshader",
+      "sha256": "6933a19eda4a29081593ac3d832ae49ee017a8a8ff0fb1b4510af6303854c598",
+      "bytes": 946
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/shaders/specimen_bubbles.gdshader",
+      "sha256": "9f546656624882bc7e9da1a6c07757d5c0c51b2e1961bdb15a5c1d4b7429e189",
+      "bytes": 551
+    },
+    {
+      "group": "room04_working_sources",
+      "path": "godot/shaders/room_motes.gdshader",
+      "sha256": "1d763cabc6d85a826aab3c916f208d0a0bcdaf7b42aed075532b773d1dfc314e",
+      "bytes": 1140
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/scripts/environment/room_prop_fit.gd",
+      "sha256": "e77d197ab2ae1d9c80fb35ca5f1147e73d118ebef12c8a2e24ef4087a105c1f7",
+      "bytes": 723
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/shaders/archive_core_stream.gdshader",
+      "sha256": "fd8bbcdfb824b631139ee953661b90a38732cc024f2c4d7da9b6b4cfcfd5b0e5",
+      "bytes": 957
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/shaders/archive_ring.gdshader",
+      "sha256": "aad21cb51121bc7aeca18942f398c03ee0a5e3a794896e2e81882876c55c8f66",
+      "bytes": 459
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/shaders/scanner_volumetric_cone.gdshader",
+      "sha256": "38b1cfb92f1463cf0c7493fcd3dfca692e66c5b047e25f4e45f4ae0901ede5ee",
+      "bytes": 747
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/tests/archive_presentation_review.gd",
+      "sha256": "2898ced3ae47d4a134190e47c210fc22d1c580fbdc593098e3a14011a4407f13",
+      "bytes": 3354
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/tests/memory_archive_wing_smoke.gd",
+      "sha256": "cb6256e9ce2d5480541d8f6c41b27f609201e0f83ed19e048592351b9d642ea2",
+      "bytes": 7878
+    },
+    {
+      "group": "cp25_room04_room05_sources",
+      "path": "godot/tests/room_asset_bounds_review.gd",
+      "sha256": "9caa8c41073e7935c7710069074cbe921b74a779b6d00de69bfca67d2cd96d82",
+      "bytes": 809
+    },
+    {
+      "group": "cp26_reactor_current",
+      "path": "godot/shaders/discharge_floor_warning.gdshader",
+      "sha256": "53d3272c965fc89aeb3ef9d47f474d9fd7bf297057d4f91563d349fd00086cba",
+      "bytes": 663
+    },
+    {
+      "group": "cp26_reactor_current",
+      "path": "godot/shaders/reactor_plasma_ring.gdshader",
+      "sha256": "49b7ad3b6503ebe326281be315e64db792b5f9005288d2bc23be4341f2907533",
+      "bytes": 415
+    },
+    {
+      "group": "cp26_reactor_current",
+      "path": "godot/tests/reactor_presentation_review.gd",
+      "sha256": "e2a6e055b8a07ad4508ff4e6796e5029ff1610160e683a186005d6a9f531418a",
+      "bytes": 8514
+    },
+    {
+      "group": "cp27_decon_current",
+      "path": "godot/shaders/decon_mist.gdshader",
+      "sha256": "478ae4c7cfeaddc952d7b59864f8a12b2633e6c26d8900f4c08089800b38f6f7",
+      "bytes": 1416
+    },
+    {
+      "group": "cp27_decon_current",
+      "path": "godot/tests/decon_presentation_review.gd",
+      "sha256": "57f2d7794055562d6811b0091e216429b3b16428e73262c8579eea8986ea9b4a",
+      "bytes": 5672
+    },
+    {
+      "group": "cp27_decon_current",
+      "path": "godot/tests/decontamination_quarantine_wing_smoke.gd",
+      "sha256": "cf51d1367eb29023ed53c6afbe0b52fd0d08dca0a698024a92f606065a2c70ac",
+      "bytes": 4867
+    },
+    {
+      "group": "cp28_visual_review",
+      "path": "godot/tests/reactor_live_reduced_motion_review.gd",
+      "sha256": "171270599ef51d5c3e29702551ed0657d34c9d5b59fdf9c73e7667125c9f504e",
+      "bytes": 2398
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "godot/scripts/environment/room_panel_finish.gd",
+      "sha256": "80705ac3733fc8b3f24a3886a48ff0217f5222a35dd549f57e70425307709f82",
+      "bytes": 1819
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "godot/shaders/room_panel_finish.gdshader",
+      "sha256": "b02048a25a733feb1e6ec265c88892d17b0b58a1d464ac0e6497a8decaf9ba98",
+      "bytes": 1161
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "godot/shaders/reactor_housing.gdshader",
+      "sha256": "e0dc22b4a7584efc13efdd03e39b943f8d5fb1268e3870de0a404b7a5d07e33d",
+      "bytes": 1143
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "godot/tests/prior_rooms_restore_review.gd",
+      "sha256": "19ea43bc3e90ae5b97e817308b9e3a8b6a76c8fb28b52e909678650af0698f5b",
+      "bytes": 2300
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "godot/tests/security_feedback_review.gd",
+      "sha256": "57aa9a3151abe8ee2fc96fed17538e8bbfeb0124e25853c0dc7c778f8cd4e7ba",
+      "bytes": 6247
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "docs/PROJECT_VISION.md",
+      "sha256": "8a40119ec5c33fc8b9dda908556ca58e22e3985e738739bfa1d97fc4e6910a59",
+      "bytes": 34713
+    },
+    {
+      "group": "cp29_rooms01_07_polish",
+      "path": "docs/internal/production/ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md",
+      "sha256": "cf19ffea7d8109d7a3759b5a5739fdaa73563fbd95a346ad7943ad7611cb27a7",
+      "bytes": 6913
+    },
+    {
+      "group": "room08_verification",
+      "path": "godot/tests/mirror_presentation_review.gd",
+      "sha256": "1a2b0bd55275d9c98a39dc0e982e025650592bd9d3fce787a3df09f36e391a15",
+      "bytes": 5203
+    },
+    {
+      "group": "cp32_lab_and_mirror_recovery",
+      "path": "godot/scripts/environment/planar_inspection_mirror.gd",
+      "sha256": "4025df71d1cb8c6ed4a1ca7b5ceddbb8eb7f5bd49643043d3ce3a7e485c29d78",
+      "bytes": 3248
+    },
+    {
+      "group": "cp32_lab_and_mirror_recovery",
+      "path": "godot/tests/lab_state_recovery_review.gd",
+      "sha256": "c07f33a13bbe3f2296d2089f5c0abbc3cb817b944d64e0e916c259de37cd5122",
+      "bytes": 7815
+    },
+    {
+      "group": "cp32_lab_and_mirror_recovery",
+      "path": "godot/tests/dr_kinja_lab_room_smoke.gd",
+      "sha256": "8203d2dbb5753b7d5eef0f1a79835a32b60ddc7292c1f59c8202fb3fed252c36",
+      "bytes": 6806
+    },
+    {
+      "group": "cp32_lab_and_mirror_recovery",
+      "path": "godot/tests/pact_revenge_presentation_review.gd",
+      "sha256": "86a240445894226d5825dc3a42c35ee3c725cbafff4f12c2d662db1aacf8a4b0",
+      "bytes": 29696
+    },
+    {
+      "group": "cp32_lab_and_mirror_recovery",
+      "path": "godot/tests/lab_campaign_resume_review.gd",
+      "sha256": "4b6608af127342ab989a60f72bba023a0ac6bec11079c41bdfb4ab385b56e3dd",
+      "bytes": 4679
+    },
+    {
+      "group": "cp33_camera_return",
+      "path": "godot/tests/pact_camera_return_review.gd",
+      "sha256": "937552287a145dc853d6bcf23e8dfd69829d659cbcc224c7238d5de8d15d13bb",
+      "bytes": 3396
+    },
+    {
+      "group": "cp33_camera_return",
+      "path": "docs/internal/production/CHAPTER_EXECUTION_CP33_2026-10-16.ar.md",
+      "sha256": "97dd929e0fbd5cd958be3a1ae8012158c410a70aa2ec3f0c4b3b377d89c21112",
+      "bytes": 5848
+    },
+    {
+      "group": "cp34_external_study_and_material",
+      "path": "godot/scripts/characters/kinja_surface_profile.gd",
+      "sha256": "f7ab5f2b31a344aac000a1545b0448586c6caa4e5ff639836c2785cb2699ddd7",
+      "bytes": 2111
+    },
+    {
+      "group": "cp34_external_study_and_material",
+      "path": "godot/tests/kinja_surface_profile_review.gd",
+      "sha256": "a0d164c0b7d0208cc8ec74cf144493dd4e576621bc527766abeb42b6bd6af731",
+      "bytes": 4104
+    },
+    {
+      "group": "cp34_external_study_and_material",
+      "path": "docs/internal/production/CHAPTER_EXECUTION_CP34_2026-10-16.ar.md",
+      "sha256": "68387c9e6276787e1128bf640d5efced9d08feffafe9d89536ae547b8b0d69c4",
+      "bytes": 4231
+    },
+    {
+      "group": "cp34_external_study_and_material",
+      "path": "docs/internal/production/EXTERNAL_REPOSITORY_STUDY_2026-10-16.ar.md",
+      "sha256": "5c5fd56a85d7ed9bfa19af7bef96ec486fbd76611f3a4b558b675f8cfc67a674",
+      "bytes": 19301
+    },
+    {
+      "group": "kinja_rebuild_reference_not_runtime",
+      "path": "docs/internal/production/KINJA_REBUILD_DECISION_2026-10-16.ar.md",
+      "sha256": "1308bc6f727bfac497729d3cb7733ead4f025337b9c367541b851f2a5e72ed56",
+      "bytes": 9280
+    },
+    {
+      "group": "kinja_rebuild_reference_not_runtime",
+      "path": "art/production/kinja-replacement-20261016/kinja-front-concept-v1.png",
+      "sha256": "1464d7def87d256350237cdc5ed18bbb8bcb7d8ddad9dd71099b7a2783dd214b",
+      "bytes": 1511529
+    },
+    {
+      "group": "cp35_temporary_studio_trial",
+      "path": "docs/internal/production/KINJA_TEMPORARY_STUDIO_TRIAL_CP35_2026-10-16.ar.md",
+      "sha256": "48344868fe903d79e8bb11089f956d6a4ef39b16b7a704c127ce3867d1b9e060",
+      "bytes": 11157
+    },
+    {
+      "group": "cp35_temporary_studio_trial",
+      "path": "docs/internal/production/TRIPO_FEATURE_EVALUATION_CP35_2026-10-16.ar.md",
+      "sha256": "48344868fe903d79e8bb11089f956d6a4ef39b16b7a704c127ce3867d1b9e060",
+      "bytes": 11157
+    },
+    {
+      "group": "cp36_tripo_evaluation",
+      "path": "docs/internal/production/TRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md",
+      "sha256": "edd8ae517c44f9faa5fd06761dcf3a43b6c762fc430dcdef91fa3be2a195651d",
+      "bytes": 11062
+    },
+    {
+      "group": "current_context_cache",
+      "path": "docs/internal/production/CURRENT_CONTEXT_CACHE.json",
+      "sha256": "453a829370847fb43f41f537d1c0141c83f7f8084a0decedc7425195332c007b",
+      "bytes": 6005
     }
   ],
-  "current_runtime_review": "audits/evidence/room01-20261012/verification.json",
-  "current_rendered_evidence": "audits/evidence/room01-20261014/cp23-final-ar/journey.json",
-  "room01_acceptance": "IN_PROGRESS; scope is clue inspection/material and existing native route only"
+  "current_runtime_review": "audits/evidence/external-research-20261016/cp34/verification-cp34.json",
+  "current_rendered_evidence": "audits/evidence/external-research-20261016/cp34-current-natural/connected-native-review.json",
+  "room01_acceptance": "FUNCTIONAL_BASELINE_VERIFIED; artistic/motion/listening/independent enjoyment gates OPEN and deferred by latest Owner priority",
+  "latest_verification": "audits/evidence/external-research-20261016/cp34/verification-cp34.json",
+  "current_visual_evidence": {
+    "1": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room01-final\\diagnosis.json",
+      "sha256": "fa75fe23227b51399e31fd4a9eb4ca6d7ddc4834f42730036786e209ee15aa13"
+    },
+    "2": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room02-final\\diagnosis.json",
+      "sha256": "0dfef2933c00ac45128436a4f49ce29e5d4fd0d36c516b9ccfa074ab8c5da5e1"
+    },
+    "3": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room03-final\\diagnosis.json",
+      "sha256": "ae5b2538aed17eb94f428387c24eb10a2f349a0c6a1b36ab300f14e009cad537"
+    },
+    "4": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room04-final\\diagnosis.json",
+      "sha256": "807441ebc664645720eeafcc9061a5704368f33180e5faee97b13f0f60331b3a"
+    },
+    "5": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room05-final\\diagnosis.json",
+      "sha256": "38d66e7f421b9e85b753c2f6f6314aa8329fa2eb2058c5c9f127183c0801ffdf"
+    },
+    "6": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room06-final\\diagnosis.json",
+      "sha256": "c96e242a93a4d070feb98e3cbf3ddd22ab49ece11f69020e185af3ddb1baae59"
+    },
+    "7": {
+      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room07-final\\diagnosis.json",
+      "sha256": "72d1f6486f82e924662bb1d308819fbd1cf42238c64efbb79de76b21afb6f451"
+    }
+  },
+  "active_asset_stage": "docs/internal/production/TRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md",
+  "active_asset_evidence": "audits/evidence/tripo-evaluation-20261017/cp36/evaluation.json",
+  "context_cache": "docs/internal/production/CURRENT_CONTEXT_CACHE.json"
 }

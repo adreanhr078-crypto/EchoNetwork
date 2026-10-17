@@ -46,11 +46,21 @@ const WALL_THICKNESS := 0.5
 
 const SAFE_ANCHOR_ENTRY := Vector3(0.0, 0.1, -2.0)
 const SAFE_ANCHOR_THEATER := Vector3(0.0, 1.3, -20.0)
-const SAFE_ANCHOR_CONTRACT := Vector3(0.0, 0.1, -32.0)
+const SAFE_ANCHOR_CONTRACT := Vector3(2.2, 0.1, -32.0)
 
 var state: RoomState = RoomState.ENTRY_SURGICAL
 var current_anchor: Vector3 = SAFE_ANCHOR_ENTRY
-var reduced_motion := false
+var reduced_motion := false:
+	set(value):
+		if reduced_motion == value: return
+		reduced_motion = value
+		if not value: return
+		if _confrontation_running:
+			if _drowning_tween and _drowning_tween.is_valid(): _drowning_tween.kill()
+			_on_drowning_complete(_drowning_generation)
+		if breach_open and is_instance_valid(_breach_portal) and (_breach_portal.position.y < _breach_open_y - .001 or not _breach_shape.disabled):
+			_kill_breach_motion()
+			_animate_breach()
 var audio_muted := false
 var presentation_language := "ar"
 var player: Node3D
@@ -67,10 +77,16 @@ var _breach_shape: CollisionShape3D
 var _breach_material: StandardMaterial3D
 var _breach_closed_y := 1.4
 var _breach_open_y := 5.2
+var _breach_tween: Tween
+var _breach_generation := 0
+var _drowning_tween: Tween
+var _drowning_generation := 0
+var _confrontation_running := false
 
 var _surgical_light: SpotLight3D
 var _zero_light: OmniLight3D
 var _stasis_light: OmniLight3D
+var _stasis_digits: Label3D
 
 var _neural_terminal: StaticBody3D
 var _contract_altar: StaticBody3D
@@ -114,7 +130,7 @@ func _physics_process(_delta: float) -> void:
 	elif pz < -16.0 and py > 1.0:
 		if current_anchor != SAFE_ANCHOR_CONTRACT:
 			current_anchor = SAFE_ANCHOR_THEATER
-	elif current_anchor == SAFE_ANCHOR_ENTRY and pz < -6.0:
+	elif state == RoomState.ENTRY_SURGICAL and not confrontation_done and current_anchor == SAFE_ANCHOR_ENTRY and pz < -6.0:
 		state = RoomState.THEATER_CONFRONTATION
 
 func _material(color: Color, metal: float = 0.0, rough: float = 0.7, emission: bool = false, emission_color := Color.BLACK, energy := 1.0) -> StandardMaterial3D:
@@ -312,7 +328,7 @@ func _build_zero_contract_altar() -> void:
 	area.add_child(area_col)
 	
 	area.body_entered.connect(func(body: Node3D):
-		if body.has_method("register_nearby_interactable"):
+		if confrontation_done and not contract_done and body.has_method("register_nearby_interactable"):
 			body.register_nearby_interactable(_contract_altar)
 	)
 	area.body_exited.connect(func(body: Node3D):
@@ -326,12 +342,21 @@ func _build_zero_contract_altar() -> void:
 	_zero_light.name = "ZeroAuraLight"
 	_zero_light.position = Vector3(0.0, 2.8, -32.0)
 	_zero_light.light_color = Color(0.7, 0.05, 0.8) # Deep Violet
-	_zero_light.light_energy = 2.5
+	_zero_light.light_energy = 0.0
 	_zero_light.omni_range = 10.0
 	_zero_light.shadow_enabled = true
 	add_child(_zero_light)
 	
 	add_child(_contract_altar)
+
+func _sync_contract_interaction() -> void:
+	if not is_instance_valid(_contract_altar): return
+	var area:Area3D=_contract_altar.get_node("InteractionArea")
+	for body in area.get_overlapping_bodies():
+		if confrontation_done and not contract_done and body.has_method("register_nearby_interactable"):
+			body.register_nearby_interactable(_contract_altar)
+		elif body.has_method("unregister_nearby_interactable"):
+			body.unregister_nearby_interactable(_contract_altar)
 
 func _build_stasis_displays() -> void:
 	# North Wall 11:11 Stasis Clock Displays
@@ -353,13 +378,15 @@ func _build_stasis_displays() -> void:
 	digits.modulate=Color(0.73,0.58,0.94)
 	digits.outline_size=0
 	digits.no_depth_test=false
+	digits.visible=false
+	_stasis_digits=digits
 	add_child(digits)
 	
 	_stasis_light = OmniLight3D.new()
 	_stasis_light.name = "Stasis1111Light"
 	_stasis_light.position = Vector3(0.0, 5.0, -38.5)
 	_stasis_light.light_color = Color(0.65, 0.1, 0.9)
-	_stasis_light.light_energy = 1.0
+	_stasis_light.light_energy = 0.0
 	_stasis_light.omni_range = 14.0
 	add_child(_stasis_light)
 
@@ -387,12 +414,18 @@ func _build_exit_breach() -> void:
 	add_child(_breach_portal)
 
 func initiate_memory_confrontation() -> Dictionary:
-	if confrontation_done:
+	if confrontation_done or _confrontation_running:
 		return {"success": true, "already_confronted": true}
 	
-	confrontation_done = true
+	_kill_drowning_motion()
+	_confrontation_running = true
+	var generation := _drowning_generation
 	state = RoomState.MEMORY_DROWNING
 	memory_confrontation_started.emit()
+	# A synchronous listener may restore a different checkpoint. Its newer
+	# generation owns the room; never create motion after that rollback.
+	if generation != _drowning_generation or not _confrontation_running:
+		return {"success":true,"presentation_superseded":true}
 	
 	# Lower memory pods into liquid drowning pool
 	if reduced_motion:
@@ -400,25 +433,39 @@ func initiate_memory_confrontation() -> Dictionary:
 			_shizuka_pod.position.y = -0.5
 		if _yuki_pod:
 			_yuki_pod.position.y = -0.5
-		_on_drowning_complete()
+		_on_drowning_complete(generation)
 	else:
-		var tween := create_tween()
+		_drowning_tween = create_tween()
 		if _shizuka_pod:
-			tween.parallel().tween_property(_shizuka_pod, "position:y", -0.5, 1.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+			_drowning_tween.parallel().tween_property(_shizuka_pod, "position:y", -0.5, 1.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		if _yuki_pod:
-			tween.parallel().tween_property(_yuki_pod, "position:y", -0.5, 1.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-		tween.tween_callback(_on_drowning_complete)
+			_drowning_tween.parallel().tween_property(_yuki_pod, "position:y", -0.5, 1.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		_drowning_tween.tween_callback(_on_drowning_complete.bind(generation))
 	
 	return {"success": true, "confrontation_started": true}
 
-func _on_drowning_complete() -> void:
+func _kill_drowning_motion() -> void:
+	_drowning_generation += 1
+	_confrontation_running = false
+	if _drowning_tween and _drowning_tween.is_valid(): _drowning_tween.kill()
+	_drowning_tween = null
+
+func _on_drowning_complete(generation: int) -> void:
+	if generation != _drowning_generation or not _confrontation_running or confrontation_done: return
+	_drowning_tween = null
+	_confrontation_running = false
+	confrontation_done = true
+	if _shizuka_pod: _shizuka_pod.position.y = -0.5
+	if _yuki_pod: _yuki_pod.position.y = -0.5
 	state = RoomState.ZERO_MANIFESTED
 	set_presentation_language(presentation_language)
+	_sync_contract_interaction()
 	if story_presentation: story_presentation.set_stage("manifested")
-	memory_drowning_completed.emit()
-	zero_manifested.emit()
 	if _zero_light:
 		_zero_light.light_energy = 1.4
+	memory_drowning_completed.emit()
+	if generation != _drowning_generation or not confrontation_done: return
+	zero_manifested.emit()
 
 func accept_zero_contract() -> Dictionary:
 	if contract_done:
@@ -428,6 +475,7 @@ func accept_zero_contract() -> Dictionary:
 	
 	contract_done = true
 	state = RoomState.CONTRACT_ACCEPTED
+	_sync_contract_interaction()
 	if story_presentation: story_presentation.set_stage("accepted")
 	zero_contract_accepted.emit()
 	
@@ -461,6 +509,7 @@ func _trigger_1111_stasis() -> void:
 	
 	if _stasis_light:
 		_stasis_light.light_energy = 5.0
+	if _stasis_digits: _stasis_digits.show()
 	
 	_open_exit_breach()
 
@@ -472,22 +521,44 @@ func _open_exit_breach() -> void:
 	_breach_material.emission=Color(0.45,0.58,0.74)
 	_breach_material.emission_energy_multiplier=1.2
 	state = RoomState.BREACH_READY
+	_kill_breach_motion()
 	exit_breach_opened.emit()
-	
+	_animate_breach()
+
+func _kill_breach_motion() -> void:
+	_breach_generation += 1
+	if _breach_tween and _breach_tween.is_valid(): _breach_tween.kill()
+	_breach_tween = null
+
+func _animate_breach() -> void:
+	var generation := _breach_generation
 	if reduced_motion:
 		if _breach_portal:
 			_breach_portal.position.y = _breach_open_y
-		if _breach_shape:
-			_breach_shape.set_deferred("disabled", true)
+		_finish_breach_motion.call_deferred(generation)
 		return
 	
 	if _breach_portal:
-		var tween := create_tween()
-		tween.tween_property(_breach_portal, "position:y", _breach_open_y, 0.8).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tween.tween_callback(func():
-			if _breach_shape:
-				_breach_shape.set_deferred("disabled", true)
+		_sync_restored_breach_collision.call_deferred(generation,false)
+		var remaining := .8 * clampf((_breach_open_y - _breach_portal.position.y) / (_breach_open_y - _breach_closed_y),0.0,1.0)
+		_breach_tween = create_tween()
+		_breach_tween.tween_property(_breach_portal, "position:y", _breach_open_y, remaining).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		_breach_tween.tween_callback(func():
+			_finish_breach_motion.call_deferred(generation)
 		)
+
+func _finish_breach_motion(generation: int) -> void:
+	if generation == _breach_generation and breach_open and _breach_shape:
+		_breach_shape.disabled = true
+		_breach_tween = null
+
+func _sync_restored_breach_collision(generation: int, physically_open: bool) -> void:
+	if generation == _breach_generation and _breach_shape:
+		_breach_shape.disabled = physically_open
+
+func _exit_tree() -> void:
+	_kill_drowning_motion()
+	_kill_breach_motion()
 
 func get_safe_anchor() -> Vector3:
 	return current_anchor
@@ -506,23 +577,33 @@ func get_state() -> Dictionary:
 	}
 
 func restore_state(data: Dictionary) -> void:
-	if data.has("state"):
-		state = data["state"]
-	if data.has("current_anchor"):
-		current_anchor = data["current_anchor"]
-	if data.has("confrontation_done"):
-		confrontation_done = data["confrontation_done"]
-	if data.has("contract_done"):
-		contract_done = data["contract_done"]
-	if data.has("breach_open"):
-		breach_open = data["breach_open"] and contract_done and data.get("revenge_done",false) and data.get("wish_done",false)
-	revenge_done=data.get("revenge_done",false) and contract_done
-	wish_done=data.get("wish_done",false) and revenge_done
-	if _breach_portal and data.has("breach_pos_y"):
-		_breach_portal.position.y = data["breach_pos_y"]
-	if _breach_shape and data.has("breach_col_disabled"):
-		_breach_shape.disabled = data["breach_col_disabled"]
+	_kill_drowning_motion()
+	_kill_breach_motion()
+	confrontation_done = data.get("confrontation_done",false)
+	contract_done = confrontation_done and data.get("contract_done",false)
+	revenge_done = contract_done and data.get("revenge_done",false)
+	wish_done = revenge_done and data.get("wish_done",false)
+	# Physical access and presentation derive from the same explicit decisions.
+	# An obsolete collider/enum field cannot bypass the pact or the wish.
+	breach_open = wish_done
+	var saved_anchor:Variant=data.get("current_anchor",SAFE_ANCHOR_ENTRY)
+	current_anchor=SAFE_ANCHOR_CONTRACT if confrontation_done else SAFE_ANCHOR_ENTRY
+	if not confrontation_done and saved_anchor is Vector3 and saved_anchor.is_finite() and saved_anchor.is_equal_approx(SAFE_ANCHOR_THEATER):
+		current_anchor=SAFE_ANCHOR_THEATER
+	var entry_state:RoomState=RoomState.THEATER_CONFRONTATION if current_anchor==SAFE_ANCHOR_THEATER else RoomState.ENTRY_SURGICAL
+	state = RoomState.BREACH_READY if breach_open else (RoomState.CONTRACT_ACCEPTED if contract_done else (RoomState.ZERO_MANIFESTED if confrontation_done else entry_state))
+	if _shizuka_pod: _shizuka_pod.position.y = -.5 if confrontation_done else 1.3
+	if _yuki_pod: _yuki_pod.position.y = -.5 if confrontation_done else 1.3
+	if _zero_light: _zero_light.light_energy = 1.4 if confrontation_done else 0.0
+	if _stasis_light: _stasis_light.light_energy = 5.0 if wish_done else 0.0
+	if _stasis_digits: _stasis_digits.visible=wish_done
+	if _breach_portal:
+		_breach_portal.position.y = clampf(float(data.get("breach_pos_y",_breach_open_y)),_breach_closed_y,_breach_open_y) if breach_open else _breach_closed_y
+	var physically_open: bool = breach_open and _breach_portal.position.y >= _breach_open_y - .001
+	_sync_restored_breach_collision.call_deferred(_breach_generation,physically_open)
+	if breach_open and not physically_open: _animate_breach()
 	if story_presentation:
+		story_presentation.finish(true)
 		var restored_stage := "stasis" if wish_done else ("revenge" if revenge_done else ("accepted" if contract_done else ("manifested" if confrontation_done else "dormant")))
 		story_presentation.set_stage(restored_stage,true)
 	if _breach_material:
@@ -530,3 +611,4 @@ func restore_state(data: Dictionary) -> void:
 		_breach_material.emission=Color(0.45,0.58,0.74)
 		_breach_material.emission_energy_multiplier=1.2
 	set_presentation_language(presentation_language)
+	_sync_contract_interaction()

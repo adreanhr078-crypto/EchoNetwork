@@ -76,6 +76,9 @@ func _open_maintenance_aperture() -> void:
 	# Only this campaign adapter releases it; the isolated maintenance scene stays intact.
 	var boundary := maintenance.room.get_node("COLL_FarBoundary") as StaticBody3D
 	boundary.get_child(0).set_deferred("disabled",true)
+	# The joined render mesh still contains the original solid backstop.
+	# Match the opt-in visual opening to the physical gap below.
+	maintenance.room.presentation.open_campaign_aperture()
 	for spec in [{"x":-2.7,"width":3.6},{"x":3.2,"width":4.6}]:
 		var pier := StaticBody3D.new()
 		pier.name = "CampaignServiceAperturePier"
@@ -89,6 +92,7 @@ func _open_maintenance_aperture() -> void:
 
 func _activate_security() -> void:
 	security_entered = true
+	maintenance.room.presentation.set_presence(false)
 	maintenance.set_process(false)
 	security.player = main.player
 	main.player.surface_traversal_enabled = true
