@@ -1,3 +1,6 @@
+> **23 أكتوبر2026 — خطة بناء الإصدار:** تحليل آخر خطة (14 بوابة) وسجل الفجوات ومسار R0→R5/C1→C5 لوصول اللعبة إلى التنزيل: `artifacts/eleven-eleven/docs/internal/production/RELEASE_BUILD_PLAN_2026-10-23.ar.md`، والتدقيق الآلي `artifacts/eleven-eleven/audits/release-readiness-20261023/baseline.json`. لا تغيير runtime ولا إغلاق بوابة.
+
+---
 > **الأحدث CP36 / 17 أكتوبر2026:** تقييمTripoمحدود؛ H2.5GLB2KاستيرادساكنPASS، P2تمثيل/تصديرمحليOPEN. ابدأCURRENT_WORKثمCURRENT_CONTEXT_CACHE.json؛ لا إعادة قراءة المحادثة كاملة.
 
 ---

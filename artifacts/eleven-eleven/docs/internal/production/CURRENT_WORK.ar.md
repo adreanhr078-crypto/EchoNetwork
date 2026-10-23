@@ -1,3 +1,9 @@
+# 2026-10-23 — RELEASE_BUILD_PLAN_PLANNING_ONLY — لا تغيير runtime
+
+تخطيط إصدار فقط بطلب المالك. الخطة `RELEASE_BUILD_PLAN_2026-10-23.ar.md`: تحليل خطة16أكتوبر(14بوابة) وحالتها الفعلية، سجل فجوات G-01..G-23 بأدلة، مسارR (R0-toolchain→R1-عقدالدخول→R2-Windows RC0→R3-Android→R4-أداء→R5-Play) ومسارC (C1-حركة→C2-وجه→C3-كينجا/زيرو→C4-صوت/إتاحة→C5-غرف). التدقيق الآلي `tools/release-readiness/audit_release_readiness.py` والنتيجة `audits/release-readiness-20261023/baseline.json`: Echo68مفصلًا/0وجه/0morph، كينجا33/0حركة، زيرو41، 6ملفات حركة، 8ملفات صوت، 34أصلLFS ناقص (8مستخدمة)، 255/255 دليل تحقق غير موجود محليًا، data puzzles=0، Android preset internet=false/gradle=false/APK debug. لا PASS ولا إغلاق بوابة. التالي المطلوب: قرارات المالك D-1..D-6 ثم تثبيتGodot4.8-dev7+قوالبه وbpy وإغلاق LFS.
+
+---
+
 # المتابعة الحالية — CP36 / CP-20261017-01 — TRIPO_SCOPED_EVALUATION_ACTING_OPEN
 
 17 أكتوبر2026. استُعيد المتصفح؛ آخر runtime مؤهلCP34. لا موديل بديل مدمج أو شراء أو قبول فصل/هاتف. ابدأ CURRENT_CONTEXT_CACHE.json ثم المقاطع التي تغيرت فقط؛ المالك يمنع إعادة قراءة المحادثة كاملة عند كل تعديل.

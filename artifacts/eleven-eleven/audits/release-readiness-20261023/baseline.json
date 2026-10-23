@@ -1,0 +1,387 @@
+{
+  "generated": "2026-10-23T12:09:39+00:00",
+  "project_root": "/home/user/EchoNetwork/artifacts/eleven-eleven",
+  "source_commit": "9f4f83f0",
+  "environment": {
+    "godot_binary": null,
+    "blender_binary": null,
+    "bpy_module": false,
+    "godot_import_cache": false,
+    "export_templates_installed": false,
+    "export_template_versions": [],
+    "python": "3.11.2",
+    "node": "/usr/local/bin/node",
+    "cpu_count": 2
+  },
+  "characters": {
+    "Echo (player)": {
+      "file": "godot/assets/characters/echo_v31_adopted_high.glb",
+      "mb": 19.79,
+      "status": "OK",
+      "nodes": 70,
+      "meshes": 1,
+      "primitives": 1,
+      "materials": 1,
+      "joints": 68,
+      "finger_joints": 30,
+      "face_joints": 0,
+      "morph_targets": 0,
+      "animations": [
+        "Idle_Source_Retarget"
+      ]
+    },
+    "Kinja (antagonist)": {
+      "file": "godot/assets/characters/kinja_revenge_rig_v1.glb",
+      "mb": 2.12,
+      "status": "OK",
+      "nodes": 35,
+      "meshes": 1,
+      "primitives": 1,
+      "materials": 1,
+      "joints": 33,
+      "finger_joints": 0,
+      "face_joints": 0,
+      "morph_targets": 0,
+      "animations": []
+    },
+    "Zero (contract entity)": {
+      "file": "godot/assets/characters/zero_manifestation_idle_v1.glb",
+      "mb": 22.6,
+      "status": "OK",
+      "nodes": 43,
+      "meshes": 1,
+      "primitives": 1,
+      "materials": 1,
+      "joints": 41,
+      "finger_joints": 0,
+      "face_joints": 0,
+      "morph_targets": 0,
+      "animations": [
+        "idle"
+      ]
+    }
+  },
+  "runtime_animations": {
+    "count": 6,
+    "files": [
+      "current_echo_actions_v1.res",
+      "echo_parkour_v1.res",
+      "v31/idle_cp17.res",
+      "v31/jump_cp17.res",
+      "v31/run_cp17.res",
+      "zero/zero_pact_agree_v1.res"
+    ],
+    "coverage": {
+      "walk": [],
+      "idle": [
+        "v31/idle_cp17.res"
+      ],
+      "run": [
+        "v31/run_cp17.res"
+      ],
+      "jump": [
+        "v31/jump_cp17.res"
+      ],
+      "wake_getup": [],
+      "attack": [],
+      "dodge": [],
+      "climb": [],
+      "hit_reaction": [],
+      "interact_hand": []
+    },
+    "missing": [
+      "walk",
+      "wake_getup",
+      "attack",
+      "dodge",
+      "climb",
+      "hit_reaction",
+      "interact_hand"
+    ]
+  },
+  "audio": {
+    "files": 8,
+    "mb": 0.55,
+    "voice_files": 0,
+    "names": [
+      "contact_1.ogg",
+      "contact_2.ogg",
+      "contact_3.ogg",
+      "contract_seal.ogg",
+      "maintenance_service_release_v1.ogg",
+      "revenge_bed.ogg",
+      "stasis_release.ogg",
+      "void_bed.ogg"
+    ]
+  },
+  "lfs": {
+    "runtime_pointers": 34,
+    "runtime_pointer_files": [
+      "godot/assets/animations/golden/idle-motion.glb",
+      "godot/assets/animations/golden/jump-motion.glb",
+      "godot/assets/animations/golden/run-motion.glb",
+      "godot/assets/animations/golden/single-walk.glb",
+      "godot/assets/characters/echo_candidate_v3.glb",
+      "godot/assets/characters/echo_candidate_v3_Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_metallic-Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_roughness.png",
+      "godot/assets/characters/echo_candidate_v3_tripo_node_58194715-d599-418d-b9d6-debb38273e61_BaseColor.jpg",
+      "godot/assets/characters/echo_opening_uniform_v1.glb",
+      "godot/assets/characters/echo_opening_uniform_v10.glb",
+      "godot/assets/characters/echo_opening_uniform_v11.glb",
+      "godot/assets/characters/echo_opening_uniform_v12.glb",
+      "godot/assets/characters/echo_opening_uniform_v13.glb",
+      "godot/assets/characters/echo_opening_uniform_v14.glb",
+      "godot/assets/characters/echo_opening_uniform_v2.glb",
+      "godot/assets/characters/echo_opening_uniform_v3.glb",
+      "godot/assets/characters/echo_opening_uniform_v4.glb",
+      "godot/assets/characters/echo_opening_uniform_v5.glb",
+      "godot/assets/characters/echo_opening_uniform_v6.glb",
+      "godot/assets/characters/echo_opening_uniform_v7.glb",
+      "godot/assets/characters/echo_opening_uniform_v8.glb",
+      "godot/assets/characters/echo_opening_uniform_v9.glb",
+      "godot/assets/characters/echo_tripo_native.glb",
+      "godot/assets/characters/echo_tripo_native_Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_metallic-Echo_Tripo_Quad46K_8K_Rigged_G0_MotionSet_roughness.png",
+      "godot/assets/characters/echo_tripo_native_tripo_node_58194715-d599-418d-b9d6-debb38273e61_BaseColor.jpg",
+      "godot/assets/cinematics/echo_awakening_sector11_dialogue_cinematic.mp4",
+      "godot/assets/cinematics/opening_part1_awakening_1080p.mp4",
+      "godot/assets/props/hospital_bed.glb",
+      "godot/assets/props/japanese_moped.glb",
+      "godot/assets/props/restraint_chair.glb",
+      "godot/assets/props/server_rack.glb",
+      "godot/assets/props/tripo_monster.glb",
+      "godot/assets/props/tripo_monster_Tripo+Demo+Model_basecolor.jpg",
+      "godot/assets/props/tripo_monster_Tripo+Demo+Model_rm.png",
+      "godot/assets/props/tripo_monster_v2.glb"
+    ],
+    "runtime_pointers_referenced_by_runtime": [
+      {
+        "asset": "godot/assets/animations/golden/run-motion.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/animations/golden/single-walk.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/characters/echo_candidate_v3.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/characters/echo_opening_uniform_v13.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/props/hospital_bed.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/props/restraint_chair.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/props/server_rack.glb",
+        "referenced": true
+      },
+      {
+        "asset": "godot/assets/props/tripo_monster.glb",
+        "referenced": true
+      }
+    ],
+    "artifacts_pointers_sample_count": 0,
+    "git_lfs_installed": false
+  },
+  "res_references": {
+    "references": 527,
+    "missing": {
+      "shaders/*.gdshader": [
+        "godot/tests/anime_shading_lighting_verification.gd"
+      ]
+    },
+    "missing_count": 1
+  },
+  "export": {
+    "file_exists": true,
+    "presets": [
+      {
+        "name": "Web",
+        "platform": "Web",
+        "export_path": "../.tmp/godot-web/index.html",
+        "declared_files": 15,
+        "declared_missing": [],
+        "declared_missing_count": 0,
+        "encrypt_pck": "false",
+        "options": {
+          "custom_template/debug": "",
+          "custom_template/release": "",
+          "variant/extensions_support": "false",
+          "variant/thread_support": "false",
+          "vram_texture_compression/for_desktop": "false",
+          "vram_texture_compression/for_mobile": "false",
+          "html/export_icon": "false",
+          "html/custom_html_shell": "",
+          "html/head_include": "",
+          "html/canvas_resize_policy": "2",
+          "html/focus_canvas_on_start": "true",
+          "html/experimental_virtual_keyboard": "false",
+          "progressive_web_app/enabled": "false"
+        }
+      },
+      {
+        "name": "Windows Opening",
+        "platform": "Windows Desktop",
+        "export_path": "../.tmp/native-opening/EchoNetwork.exe",
+        "declared_files": 61,
+        "declared_missing": [],
+        "declared_missing_count": 0,
+        "encrypt_pck": null,
+        "options": {
+          "binary_format/architecture": "x86_64",
+          "binary_format/embed_pck": "false"
+        }
+      },
+      {
+        "name": "Android Opening",
+        "platform": "Android",
+        "export_path": "../.tmp/native-opening/EchoNetwork-debug.apk",
+        "declared_files": 61,
+        "declared_missing": [],
+        "declared_missing_count": 0,
+        "encrypt_pck": null,
+        "options": {
+          "gradle_build/use_gradle_build": "false",
+          "architectures/armeabi-v7a": "false",
+          "architectures/arm64-v8a": "true",
+          "architectures/x86": "false",
+          "architectures/x86_64": "false",
+          "package/unique_name": "com.echonetwork.opening",
+          "package/name": "EchoNetwork",
+          "launcher_icons/main_192x192": "res://assets/ui/app-icon.png",
+          "launcher_icons/adaptive_foreground_432x432": "res://assets/ui/app-icon.png",
+          "launcher_icons/adaptive_monochrome_432x432": "res://assets/ui/app-icon.png",
+          "version/code": "1",
+          "version/name": "0.1-opening",
+          "permissions/internet": "false"
+        },
+        "android_gate": {
+          "internet_permission": "false",
+          "gradle_build": "false",
+          "version_name": "0.1-opening",
+          "version_code": "1",
+          "package": "com.echonetwork.opening",
+          "architectures": {
+            "architectures/armeabi-v7a": "false",
+            "architectures/arm64-v8a": "true",
+            "architectures/x86": "false",
+            "architectures/x86_64": "false"
+          },
+          "has_aab_hint": false
+        }
+      }
+    ],
+    "templates": {
+      "searched": [
+        "/home/user/.local/share/godot/export_templates",
+        "/home/user/Library/Application Support/Godot/export_templates",
+        "Godot/export_templates"
+      ],
+      "found_dirs": [],
+      "versions": []
+    }
+  },
+  "evidence": {
+    "count": 255,
+    "local_pointer_count": 255,
+    "latest": [
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/room06-final/diagnosis.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/room07-before/diagnosis.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/room07-candidate-v1/diagnosis.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/room07-candidate-v2/diagnosis.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/room07-final/diagnosis.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/verification-cp29.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/rooms01-07-polish-20261015/visual-review-final.json",
+        "date": "20261015",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/chapter-execution-20261016/cp32/verification-cp32.json",
+        "date": "20261016",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/chapter-execution-20261016/cp33/verification-cp33.json",
+        "date": "20261016",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/external-research-20261016/cp34/verification-cp34.json",
+        "date": "20261016",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/kinja-rebuild-20261016/cp35/evaluation-verification.json",
+        "date": "20261016",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      },
+      {
+        "file": "audits/evidence/tripo-evaluation-20261017/cp36/verification.json",
+        "date": "20261017",
+        "local_content": "LFS_POINTER",
+        "kb": 0.1
+      }
+    ]
+  },
+  "entry_and_content": {
+    "boot_routes": [
+      "native_journey.tscn",
+      "opening_web_room.tscn"
+    ],
+    "godot_scenes": 76,
+    "godot_scripts": 195,
+    "godot_tests": 151,
+    "web_test_files": 110,
+    "e2e_specs": 3,
+    "content_collections": {
+      "chapters": 7,
+      "puzzles": 0,
+      "memories": 0,
+      "dialogues": 0,
+      "endings": 0,
+      "cinematics": 0
+    }
+  }
+}
