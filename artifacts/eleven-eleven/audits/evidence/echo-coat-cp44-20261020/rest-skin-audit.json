@@ -1,0 +1,348 @@
+[
+  {
+    "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\characters\\echo_v31_adopted_high.glb",
+    "sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "bone_count": 68,
+    "cape_bones": [
+      {
+        "name": "Cape_0_0",
+        "parent": "Hips",
+        "head": [
+          -0.1550000011920929,
+          0.01260004285722971,
+          0.5899998545646667
+        ]
+      },
+      {
+        "name": "Cape_0_1",
+        "parent": "Cape_0_0",
+        "head": [
+          -0.16232360899448395,
+          0.012600029818713665,
+          0.4549998342990875
+        ]
+      },
+      {
+        "name": "Cape_0_2",
+        "parent": "Cape_0_1",
+        "head": [
+          -0.16964730620384216,
+          0.012600037269294262,
+          0.3199997842311859
+        ]
+      },
+      {
+        "name": "Cape_1_0",
+        "parent": "Hips",
+        "head": [
+          -0.07749996334314346,
+          0.03430001065135002,
+          0.5899999737739563
+        ]
+      },
+      {
+        "name": "Cape_1_1",
+        "parent": "Cape_1_0",
+        "head": [
+          -0.08116181194782257,
+          0.03430001437664032,
+          0.4549998939037323
+        ]
+      },
+      {
+        "name": "Cape_1_2",
+        "parent": "Cape_1_1",
+        "head": [
+          -0.08482366800308228,
+          0.03430004045367241,
+          0.31999996304512024
+        ]
+      },
+      {
+        "name": "Cape_2_0",
+        "parent": "Hips",
+        "head": [
+          -1.2113052895725246e-16,
+          0.0560000017285347,
+          0.5899999737739563
+        ]
+      },
+      {
+        "name": "Cape_2_1",
+        "parent": "Cape_2_0",
+        "head": [
+          -3.1114355066045793e-16,
+          0.056000083684921265,
+          0.4549998939037323
+        ]
+      },
+      {
+        "name": "Cape_2_2",
+        "parent": "Cape_2_1",
+        "head": [
+          -1.9241075492468966e-15,
+          0.05600012093782425,
+          0.31999990344047546
+        ]
+      },
+      {
+        "name": "Cape_3_0",
+        "parent": "Hips",
+        "head": [
+          0.07749997824430466,
+          0.03430001810193062,
+          0.5899999737739563
+        ]
+      },
+      {
+        "name": "Cape_3_1",
+        "parent": "Cape_3_0",
+        "head": [
+          0.08116184175014496,
+          0.034300025552511215,
+          0.4549999535083771
+        ]
+      },
+      {
+        "name": "Cape_3_2",
+        "parent": "Cape_3_1",
+        "head": [
+          0.08482370525598526,
+          0.034300051629543304,
+          0.320000022649765
+        ]
+      },
+      {
+        "name": "Cape_4_0",
+        "parent": "Hips",
+        "head": [
+          0.1550000011920929,
+          0.012600035406649113,
+          0.5899997353553772
+        ]
+      },
+      {
+        "name": "Cape_4_1",
+        "parent": "Cape_4_0",
+        "head": [
+          0.16232362389564514,
+          0.01260001678019762,
+          0.454999715089798
+        ]
+      },
+      {
+        "name": "Cape_4_2",
+        "parent": "Cape_4_1",
+        "head": [
+          0.16964730620384216,
+          0.012600019574165344,
+          0.31999966502189636
+        ]
+      }
+    ],
+    "hips_world": [
+      -1.249000902703301e-16,
+      0.004000026732683182,
+      0.5550000071525574
+    ],
+    "meshes": [
+      {
+        "mesh": "Echo_V31_Original_Game_high",
+        "vertex_count": 198017,
+        "bounds": [
+          [
+            -0.4308503270149231,
+            -0.11364677548408508,
+            4.031605931231752e-05
+          ],
+          [
+            0.43070006370544434,
+            0.11366944015026093,
+            0.9815697073936462
+          ]
+        ],
+        "rear_below_hip_region_vertices": 4869,
+        "region_vertices_with_arm_hand_weight_over_005": 0,
+        "region_vertices_with_cape_weight_over_005": 4869,
+        "region_vertices_with_leg_weight_over_005": 0,
+        "region_weights_top": [
+          [
+            "Cape_2_1",
+            1235.658879873692
+          ],
+          [
+            "Cape_2_2",
+            919.9175219871395
+          ],
+          [
+            "Cape_3_2",
+            835.2642882181535
+          ],
+          [
+            "Cape_1_2",
+            743.6457331029233
+          ],
+          [
+            "Cape_3_1",
+            471.63185870026064
+          ],
+          [
+            "Cape_1_1",
+            422.70241546946636
+          ],
+          [
+            "Cape_4_2",
+            106.03802915592678
+          ],
+          [
+            "Cape_0_2",
+            98.77493367344141
+          ],
+          [
+            "Cape_2_0",
+            10.485774829459842
+          ],
+          [
+            "Cape_4_1",
+            10.423954603393213
+          ],
+          [
+            "Cape_0_1",
+            9.711877476380323
+          ],
+          [
+            "Cape_3_0",
+            3.846867945714621
+          ],
+          [
+            "Cape_1_0",
+            0.8979145421180874
+          ]
+        ],
+        "cape_weight_totals": {
+          "Cape_0_2": 2828.466197570757,
+          "Cape_1_2": 1498.9215113807513,
+          "Cape_0_1": 1754.680203765878,
+          "Cape_1_1": 3967.6151936060196,
+          "Cape_0_0": 1831.139005879173,
+          "Cape_1_0": 9476.523190870314,
+          "Cape_2_1": 2590.0967114398372,
+          "Cape_2_2": 921.2780622286373,
+          "Cape_2_0": 9809.604177553338,
+          "Cape_3_0": 10687.462660873818,
+          "Cape_3_1": 4000.505783557812,
+          "Cape_3_2": 1759.4454876499221,
+          "Cape_4_2": 2901.419090360112,
+          "Cape_4_1": 1824.7758041940542,
+          "Cape_4_0": 1932.9836545166763
+        }
+      },
+      {
+        "mesh": "Icosphere",
+        "vertex_count": 42,
+        "bounds": [
+          [
+            -0.9510578513145447,
+            -0.9999999403953552,
+            -1.0
+          ],
+          [
+            0.9510578513145447,
+            0.9999999403953552,
+            1.0
+          ]
+        ],
+        "rear_below_hip_region_vertices": 0,
+        "region_vertices_with_arm_hand_weight_over_005": 0,
+        "region_vertices_with_cape_weight_over_005": 0,
+        "region_vertices_with_leg_weight_over_005": 0,
+        "region_weights_top": [],
+        "cape_weight_totals": {}
+      }
+    ],
+    "scope": "Read-only rest-skin audit. Rear/lower geometric region must be visually checked before treating it as garment segmentation. No rig/weights/keys changed."
+  },
+  {
+    "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-cp39-20261019\\echo-custom-sprinting-forward-02-raw.glb",
+    "sha256": "8782ec147be22bdbee7e4148aa2b5ca3a87e7a50d47161388ccb600f67907e5b",
+    "bone_count": 66,
+    "cape_bones": [],
+    "hips_world": [
+      0.0019457237794995308,
+      -0.03307698294520378,
+      0.6012251377105713
+    ],
+    "meshes": [
+      {
+        "mesh": "tripo_node_e837742c-1283-41b9-9082-4d8b009fe328",
+        "vertex_count": 65751,
+        "bounds": [
+          [
+            -0.199718177318573,
+            -0.11484526842832565,
+            -2.2145891875879897e-07
+          ],
+          [
+            0.19971820712089539,
+            0.11484576761722565,
+            0.9962050914764404
+          ]
+        ],
+        "rear_below_hip_region_vertices": 7180,
+        "region_vertices_with_arm_hand_weight_over_005": 7180,
+        "region_vertices_with_cape_weight_over_005": 0,
+        "region_vertices_with_leg_weight_over_005": 7171,
+        "region_weights_top": [
+          [
+            "mixamorig:RightHandPinky3",
+            2583.32449015975
+          ],
+          [
+            "mixamorig:LeftHandPinky3",
+            2095.373316593468
+          ],
+          [
+            "mixamorig:RightUpLeg",
+            1210.5350861549377
+          ],
+          [
+            "mixamorig:LeftUpLeg",
+            1051.847093231976
+          ],
+          [
+            "mixamorig:RightHandThumb3",
+            153.69486625492573
+          ],
+          [
+            "mixamorig:RightHandRing3",
+            85.22521042078733
+          ]
+        ],
+        "cape_weight_totals": {}
+      },
+      {
+        "mesh": "Icosphere",
+        "vertex_count": 42,
+        "bounds": [
+          [
+            -0.9510578513145447,
+            -0.9999999403953552,
+            -1.0
+          ],
+          [
+            0.9510578513145447,
+            0.9999999403953552,
+            1.0
+          ]
+        ],
+        "rear_below_hip_region_vertices": 2,
+        "region_vertices_with_arm_hand_weight_over_005": 0,
+        "region_vertices_with_cape_weight_over_005": 0,
+        "region_vertices_with_leg_weight_over_005": 0,
+        "region_weights_top": [],
+        "cape_weight_totals": {}
+      }
+    ],
+    "scope": "Read-only rest-skin audit. Rear/lower geometric region must be visually checked before treating it as garment segmentation. No rig/weights/keys changed."
+  }
+]

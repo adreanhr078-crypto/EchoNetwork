@@ -142,6 +142,7 @@ func _ready() -> void:
 	for guardrail in find_children("ServiceGuardrail*","StaticBody3D",true,false):
 		for visual in guardrail.get_children():
 			if visual is MeshInstance3D: visual.material_override = steel
+	preload("res://scripts/environment/reactor_mechanical_dressing.gd").install(self)
 
 func _build_service_route() -> void:
 	var support = preload("res://scripts/environment/room_path_support.gd")
@@ -806,7 +807,8 @@ func _refresh_breaker_beacons() -> void:
 	if _core_shell_material: _core_shell_material.set_shader_parameter("isolation",0.5*(float(breaker_a_done)+float(breaker_b_done)))
 	for index in _breaker_beacons.size():
 		var active: bool = breaker_a_done if index==0 else breaker_b_done
-		_breaker_beacons[index].material_override.emission = Color(0.15,0.85,0.92) if active else Color(0.95,0.58,0.15)
+		preload("res://engine_visuals/HyperMaterialAdapter.gd").set_signal_color(_breaker_beacons[index].material_override,Color(0.15,0.85,0.92) if active else Color(0.95,0.58,0.15),true)
+	preload("res://scripts/environment/reactor_mechanical_dressing.gd").sync_readouts(self)
 
 func _stop_presentation_audio() -> void:
 	for sound in _hazard_sounds:

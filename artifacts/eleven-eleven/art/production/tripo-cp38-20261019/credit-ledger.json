@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-19",
+  "authorization": "Owner allocated3000Studio credits; all new models require image references",
+  "studio_balance_before": 3035,
+  "studio_balance_after": 2945,
+  "api_balance_live": 0,
+  "tasks": [
+    {
+      "operation": "image-to-model",
+      "model_ui": "H3.1",
+      "input": "hospital-visitor-chair-reference-v1.png",
+      "task_id": "56d2e661-88b0-4d05-8793-9e6b150e7304",
+      "credits_displayed": 45,
+      "observed_balance_delta": 45,
+      "status": "success",
+      "triangles": 3043
+    },
+    {
+      "operation": "image-to-model",
+      "model_ui": "H3.1",
+      "input": "hospital-vanity-reference-v1.png",
+      "task_id": "9b699fca-8bc8-46ce-bd00-ee5ba2d3f7a2",
+      "credits_displayed": 45,
+      "observed_balance_delta": 45,
+      "status": "success",
+      "triangles": 2567
+    }
+  ],
+  "total_observed_spend": 90,
+  "accounting_scope": "Studio quote and sequential visible balance deltas; API billing records are a separate zero-balance account",
+  "reused": [
+    {
+      "task_id": "73f00020-01a3-455f-9b27-290f68f58159",
+      "action": "export existing table GLB2K",
+      "new_observed_charge": 0
+    },
+    {
+      "task_id": "df36d211-a35e-498f-8c16-61d276efe882",
+      "action": "export existing Mixamo rig and one standing_relax clip",
+      "new_observed_charge": 0
+    }
+  ],
+  "input_hashes": {
+    "hospital-visitor-chair-reference-v1.png": "09b1306864d27d7f35de6b5f7c9650e5c205d402e906385852b905b3b4cbc4a7",
+    "hospital-vanity-reference-v1.png": "7d924fdd579226a87055b08d32aa7524de305ecf3038f74d90a0c35cf22c4d00"
+  }
+}

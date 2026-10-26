@@ -1,160 +1,75 @@
-# CP36 — تقييمTripo / الشخصية والفن OPEN
+<!-- MAINTENANCE_CURRENT_20261026 -->
+أحدث نقطة: غرفة02 بناء دقيق؛43فحص إدخال عام/57صورة وحفظ مكتسب/إعادة تحميل PASS؛المعمارية PASS والمواد والتكوين REFINE. كاشCURRENT_CONTEXT_CACHE وmaintenance-refinement-20261025/WORK_CACHE أولاً. لقطة نشر تطوير مصرح بها؛ثم02/07/08/10 وP05–P13. قبول الفصل والأجهزة والمتعة مفتوح.
+<!-- /MAINTENANCE_CURRENT_20261026 -->
 
-آخر runtimeCP34. ابدأCURRENT_WORKوالكاش المختصر؛ التقريرTRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md. تنزيلH2.5ساكن2Kواستيراده نجحا؛ حركةP2غيرمؤهلة محليًا. الرصيد140والاختبارما زال محدودًا. ما يلي تاريخي.
+<!-- ARCHIVE_LATEST_20261025 -->
+أحدث نقطة: CP45_STAGE13_ARCHIVE_STATIC_HIGH_ART_NATIVE48_SCOPED_PASS؛ كاش CURRENT_CONTEXT_CACHE وWORK_CACHE للأرشيف. التالي المفاعل06؛ الحركة والتمثيل وبقية الخطة مفتوحة.
+<!-- /ARCHIVE_LATEST_20261025 -->
 
----
-# CP35 — تجربة Tripo جزئية / استكمال المتصفح BLOCKED
+<!-- CP45_EXECUTION_20261024 -->
+الحالة الحالية25أكتوبر:CURRENT_WORK/cache/QUALITY_EXECUTION_QUEUE أولًا. المختبر و04قبول ثابتHighنطاقي؛04تضيفspecimen_mechanical_dressing.gd وspecimen_cp45/*.glb وspecimen_sensor_optic/specimen_reserved_glass. دليلspecimen-20261025/quality-report.json:33شرطًا وعبور عام0إعادة. الباقيP03/04–P13OPEN؛جداولالأدلةالأقدمأدناه تاريخية.
+<!-- /CP45_EXECUTION_20261024 -->
 
-آخر runtime CP34. خامة P2 وMixamo اكتملتا؛ body01 عُرضت دون قبول تمثيل. آخر رصيد مرئي160؛ التصدير مقفل، لا ملف محلي. راجع CURRENT_WORK وتقييم TRIPO_FEATURE_EVALUATION_CP35_2026-10-16.ar.md. التالي استعادة الاتصال ثم تأهيل ملف فعلي وعينة عنصر ثابت. ما يلي تاريخي.
+# شجرة العمل — CP45 / 23 أكتوبر2026
 
----
+المسارات نسبية إلى `artifacts/eleven-eleven/`. الحالة المختصرة فيCURRENT_WORK؛ لا تعتمد الصفوف التاريخية بدلها. لم تُنقل أصول أو ملفات لعب ضمن الترتيب.
 
-# CP34 — دراسة مصادر وخامة كينجا مؤهلة بنطاقها؛ تمثيل الحركة OPEN
-
-ابدأCURRENT_WORK وSOURCE_INDEX. التقرير CHAPTER_EXECUTION_CP34_2026-10-16.ar.md، ودراسة EXTERNAL_REPOSITORY_STUDY_2026-10-16.ar.md، والدليل audits/evidence/external-research-20261016/cp34/verification-cp34.json. مصدر الخامة godot/scripts/characters/kinja_surface_profile.gd، اختبارها kinja_surface_profile_review.gd.43حركةCC0 قيد التأهيل وليست مدمجة. المالك يسمح باستبدال كينجا المناسب؛ لا تبديل فعلي. ما يلي تاريخي.
-
----
-
-# CP33 — عودة كاميرا المختبر مثبتة بنطاقها؛ الفن والمدخل OPEN
-
-سلطة الحالة CURRENT_WORK.ar.md وSOURCE_INDEX.json. التقرير CHAPTER_EXECUTION_CP33_2026-10-16.ar.md، الاختبار godot/tests/pact_camera_return_review.gd، الدليل audits/evidence/chapter-execution-20261016/cp33/verification-cp33.json. المشهد الكامل/المتعة/الأجهزة مفتوحة، ومسارCP32 التاريخي لا يثبت شفرةCP33. التالي مدخل الغلاف الموثوق ثم تمثيل المختبر. ما يلي تاريخي.
-
----
-
-# CP32 — المرآة واستعادة المختبر؛ بوابة الفن OPEN
-
-المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. الخطة CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md؛ التقرير CHAPTER_EXECUTION_CP32_2026-10-16.ar.md؛ عقد الدخول ENTRY_SAVE_EXPORT_CONTRACT_2026-10-16.ar.md. الفحص الجديد godot/tests/lab_campaign_resume_review.gd يؤهل المرساة والاستئناف، وlab_state_recovery_review.gd يغطي الفيزياء والقرارات وrollback. التالي إصلاح كاميرا المواجهة المثبتة بصريًا، وليس اعتماد الفصل. ما يلي تاريخي.
-
-# CP30 — قاعة المرايا08 قيدالتطوير بإذنالمالك الجديد
-
-المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. حفظالأصل والقياسوالصور في audits/evidence/room08-20261015؛ إصلاحاتالعقودالصغيرة مثبتة، مراجعةأرجونوالفنومسار08وpostflightنهائي قيدالعمل.09لمتعدل. ما يلي تاريخي.
-
-# CP29 — تمريرة عرض 01–07؛ الإبلاغ قبل08
-
-المرجع CURRENT_WORK.ar.md وSOURCE_INDEX.json وتقرير ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md. النظام المشترك الجديد اختياري room_panel_finish، وغلاف المفاعل reactor_housing؛ تستعمله الغرف04–07 فقط. لا قبول أداء/شخصية/فصل. ما يلي تاريخي.
-
-# CP28 — مؤثرات07 ومراجعةArgon؛ 08قيدالتشخيصالتالي
-
-المصدر CURRENT_WORK.ar.md وSOURCE_INDEX.json. لا قبولفنيكامل أوأجهزة؛ أوصافCP27وماقبله تاريخية.
-
-# CP27 — تمريرة التعقيم الوظيفية مثبتة؛ التالي قاعة المرايا 08
-
-مصدر الحالة CURRENT_WORK.ar.md وSOURCE_INDEX.json؛ التقرير ROOM07_EXECUTION_2026-10-15.ar.md. الفن/الحركات/الاستماع/الأداء/الأجهزة مفتوحة. إشارات CP26 وما قبلها أدناه تاريخية.
-
-# CP26 — المفاعل مثبت وظيفياً؛ الحجر الصحي قيد التشخيص
-
-مصدر الحالة: CURRENT_WORK.ar.md وSOURCE_INDEX.json؛ التقرير ROOM06_EXECUTION_2026-10-15.ar.md. الحركات والفن والسمع والأجهزة مفتوحة. المداخل التالية محفوظة؛ إشاراتCP25وماقبلها تاريخية.
-
-# CP25 — الاحتواء مثبت وظيفياً؛ الأرشيف قيد التنفيذ
-
-المصدر الحالي: room_motes.gd + room_motes/scanner_volumetric_cone/specimen_fluid/specimen_bubbles shaders لل04؛ room_prop_fit.gd + archive_core_stream/archive_ring لل05. روابط SOURCE_INDEX وCURRENT_WORK هي سلطة الحالة؛ صورcandidateقبل الكريستال النهائي تاريخية. الحزمةCP24لمتحدث. الفن/الحركات/السمع/الأجهزةOPEN.
-
-> **الحالة الأحدث CP24 / CP-20261014-02:** خط الأساس المتصل01→02→03 مثبت، نسخةWindowsمستقلةمراجعة. العمل الآن04الاحتواء ثم بقيةالغرف؛ التفاصيلالفنيةOPENللتمريرةالأخيرة وفق توجيه المالك. التقرير verification-cp24.json في audits/evidence/argon-production-20261014 داخل التطبيق. كل ما يلي عنCP23 أقدم ومحفوظ تاريخيًا.
-
-# شجرة العمل الحالية — 11.11 — 2026-10-14
-
-**استؤنف التطوير بطلب المالك غرفةً غرفة — CP23 / CP-20261014-01.** الغرفة الأولى قيد الصقل مع V31 الحالي؛ أعمال CP21 المعزولة محفوظة ولم تدمج. الشجرة تحدد مكان العمل؛ لا تعتمد المراحل الثلاثين أو الجودة الفنية.
-
-ابدأ ببطاقة `CURRENT_WORK.ar.md` في هذا المجلد، ثم صف الغرفة أو النظام أدناه. المسارات نسبية إلى `artifacts/eleven-eleven/` ما لم يذكر جذر المستودع.
-
-```text
-EchoNetwork/
-├── PROJECT_MAP.ar.md                 ← المدخل الحالي المختصر
-├── AGENTS.md                         ← تعليمات المستودع
-├── run_game.bat                      ← تشغيل Godot المحلي
-├── tools/ + lib/ + scripts/          ← أدوات المشروع والوسائط
-├── scratch/                         ← تجارب وأعمال مساندة
-├── FlaxMigration/                   ← تجربة محرك منفصلة، خارج اللعبة الحالية
-└── artifacts/eleven-eleven/          ← التطبيق الفعلي
-    ├── godot/
-    │   ├── project.godot            ← boot.tscn
-    │   ├── scenes/
-    │   │   ├── boot.tscn            ← native_journey أو opening_web_room حسب المنصة
-    │   │   ├── native_journey.tscn  ← المسار المحلي المتصل
-    │   │   ├── environment/         ← غرف الفصل والممرات
-    │   │   ├── player/              ← اللاعب والأسلحة والمقابس
-    │   │   ├── characters/          ← غلاف V31 وكينجا
-    │   │   └── cinematics/ + ui/ + effects/
-    │   ├── scripts/
-    │   │   ├── systems/             ← التقدم والحفظ وربط الغرف
-    │   │   ├── environment/         ← التفاعل داخل الغرفة
-    │   │   ├── player/ + combat/    ← الحركة والسلاح والقتال
-    │   │   └── cinematics/ + ui/ + effects/
-    │   ├── assets/                  ← المجسمات والخامات والحركات المستخدمة
-    │   ├── shaders/                 ← الخامات والتأثيرات المتحركة
-    │   └── tests/                   ← فحوص Godot
-    ├── src/ + public/               ← الويب والقصة والمنشورات
-    ├── functions/ + workers/        ← الخدمات والسلطة الخادمية
-    ├── migrations/                 ← قاعدة البيانات
-    ├── android/ + ios/ + src-tauri/ ← أغلفة المنصات
-    ├── art/production/              ← مصادر الفن وBlender والحركات الأصلية
-    ├── art/godot/                   ← مشاريع إثبات معزولة
-    ├── docs/
-    │   ├── project-memory.json      ← الذاكرة والمرحلة الحالية
-    │   ├── internal/narrative/current/ar/manifest.json ← اختيار Canon
-    │   └── internal/production/
-    │       ├── CURRENT_WORK.ar.md   ← بطاقة واحدة للمتابعة
-    │       ├── WORK_TREE.ar.md      ← هذه الشجرة
-    │       ├── SOURCE_INDEX.json    ← المسارات الحالية وبصمات الملفات
-    │       └── archive/             ← خرائط تاريخية
-    ├── audits/evidence/             ← الأدلة حسب المهمة/checkpoint
-    ├── tools/                       ← الفحص والتصدير والتحقق
-    ├── .tmp/                        ← يحتوي أيضًا FBX مصادر، ليس كله قابلًا للحذف
-    └── dist/                        ← نواتج بناء قابلة للتوليد
-```
-
-## مسار اللاعب: غرفة واحدة في كل مرة
-
-وجود الغرفة والكود لا يعني قبول متعتها أو رسمها. عند استئناف التطوير، ابدأ بالغرفة الأولى وثبت الحركة وفهم المهمة والانتقال قبل الانتقال للغرفة التالية.
-
-| الترتيب | الغرفة | المشهد في godot/scenes/environment/ | ملف التفاعل في godot/scripts/environment/ | الحالة |
-|---|---|---|---|---|
-| 01 | الافتتاح والاستيقاظ والأدلة | `opening_web_facility.tscn` تحت `opening_native_room.tscn` ثم `native_journey.tscn` | `main.gd` + `cinematics/prologue_orchestrator.gd` + `opening_atmosphere.gd` | CP23: فحص كاميرا وتأكيد/رجوع وخامة أثر؛ رحلة/VFX فعلية. النهوض وCanonالصورة والحركة الفنية والاعتماد مفتوحة |
-| 02 | الصيانة والمسار المرتفع | `maintenance_vertical.tscn` | `maintenance_vertical.gd` | مراجعة CP20 موجودة؛ متعة المهمة والفن مفتوحان |
-| 03 | نقطة الأمن | `security_checkpoint_room.tscn` | `security_checkpoint_room.gd` | طبقة مسح CP20 موجودة؛ جودة الغرفة مفتوحة |
-| 04 | احتواء العينات | `specimen_containment_wing.tscn` | `specimen_containment_wing.gd` | القتال والفن والمتعة مفتوحة |
-| 05 | أرشيف الذاكرة | `memory_archive_wing.tscn` | `memory_archive_wing.gd` | المهمة والإيقاع والفن مفتوحة |
-| 06 | المفاعل | `core_reactor_room.tscn` | `core_reactor_room.gd` | اعتماد الفن واللعب مفتوح |
-| 07 | التعقيم والحجر | `decontamination_quarantine_wing.tscn` | `decontamination_quarantine_wing.gd` | الاعتماد مفتوح |
-| 08 | المرآة | `mirror_chamber_room.tscn` | `mirror_chamber_room.gd` | الاعتماد مفتوح |
-| 09 | مختبر كينجا، الغرق، زيرو والعقد | `dr_kinja_lab_room.tscn` | `dr_kinja_lab_room.gd` | الشخصيات موجودة؛ المواجهة والتوقيت والحركات مفتوحة |
-| 10 | المستشفى | `hospital_bedside_room.tscn` | `hospital_bedside_room.gd` | المسار موجود؛ الاعتماد مفتوح |
-
-مالكا التسلسل في `godot/scripts/systems/`: `native_journey_controller.gd` للافتتاح→الصيانة→الأمن، ثم `native_campaign_controller.gd` للعينات→الأرشيف→المفاعل→التعقيم→المرآة→المختبر→المستشفى. ملفات `*_conduit.tscn` هي الممرات. الحفظ في `native_journey_checkpoint.gd` و`native_campaign_checkpoint.gd`؛ سلطة المكافآت في الخدمات الأصلية.
-
-الغرفة الأولى المستقلة `opening_room.tscn`/`opening_room.gd` محفوظة، لكنها ليست مدخل اللعبة الفعلي. CP22 يربط الأدلة والصوت وموجة الاكتشاف وخط الطاقة ومسح الزجاج بالرحلة القائمة؛ لا ينشئ مسار تقدم آخر.
-
-## الشخصية والسلاح والعرض الحالي
-
-| العنصر | مدخل العمل الصحيح | ما يزال مفتوحًا |
+| النظام/الغرفة | المصدر الأول | الدليل/الحد |
 |---|---|---|
-| Echo المعتمد | `godot/scenes/player/echo_player.tscn` → `godot/scenes/characters/echo_v31_adopted.tscn` → `godot/assets/characters/echo_v31_adopted_high.glb` | V31 High هو اللاعب الحالي؛ نسخ v1…v13 تاريخية |
-| حركة V31 | `godot/assets/animations/v31/` + `godot/scripts/player/echo_v31_motion_adapter.gd` | Idle/Run/Jump من CP17؛ WALK مؤقتًا Run بطيء؛ هجوم/roll/wake غير مقبولة |
-| مصدر الشخصية | `art/production/echo-tripo-hd-v31-8k/` | الوجه والقبضة واعتماد العباءة مفتوحة |
-| السلاحان والغمد | `godot/assets/weapons/` + `godot/scripts/player/tripo_weapon_visuals.gd` | نماذج Tripo موجودة؛ المقابس تفتحها بعد فتح القتال |
-| كينجا | `godot/scenes/characters/dr_kinga.tscn` → `godot/assets/characters/kinja_revenge_rig_v1.glb` | موجود في المختبر؛ جودة المواجهة مفتوحة |
-| زيرو | `godot/assets/characters/zero_manifestation_profile_v1.json` → `zero_manifestation_idle_v1.glb` + `godot/assets/animations/zero/` | موجود؛ اختيار العقد الصريح شرط القوة |
-| الحوار | `godot/scripts/ui/dialogue_overlay.gd` + `system_window.gd` | الكلام والتلاشي يُراجعان داخل الغرفة الفعلية |
-| الكاميرا والمؤثرات | `godot/scripts/player/echo_player.gd`، `godot/scripts/cinematics/`، `godot/scripts/effects/`، `godot/shaders/` | فحص اللعب والأداء؛ SFX_ONLY بلا موسيقى |
+| المختبر13 الحالي | clinical_lab_architecture.gd؛lab_memory_cinema.gd؛memory_reflection_space.gd | resume-20261023b/delivery.json؛ماسح64832tri؛Forward+960×540/Compatibility720؛30lifecycle/55headless/649postflight؛الفن والأداءOPEN |
+| العقد/العرض البنفسجي الحالي | pact_revenge_presentation.gd؛ echo_contract_resonance.gd؛ zero_shadow_wing.gd؛ zero_contract_iris.gdshader؛ system_window.gd | stage10/charged-gate-20261022/delivery.json؛222/14reload؛16كشف بكل renderer؛ الفن النهائي OPEN |
+| القطع الأرضي11/الكاميرا/المستشفى12 | echo_player.gd؛ echo_v31_motion_adapter.gd؛ attack_horizontal_cp45.res؛ pact_revenge_presentation.gd | audits/evidence/chapter-cp45-20261020/stage11/native-attack-20261023/delivery.json؛73/30Hz،4380مفتاحًا،5042وضعية،223عقدًا،58Forward+،363headless/0retry؛الفن/الأجهزة/الحزمةOPEN |
+| الشخصية الحالية | godot/assets/characters/echo_v31_short_jacket.glb + scenes/characters/echo_v31_adopted.tscn | قص بموافقة المالك، نفس68عظمة/الحركات؛ stage11/short-jacket-20261022/delivery.json؛ الأصل الطويل محفوظ؛ تشطيب الفن/SteamOPEN |
+| كينجا09 | cinematics/lab_memory_trial.gd؛ earned_campaign_resume_review.gd --lab-only | stage09/report.json:60 مصورًا و66حفظًا؛ كاميرا أب أوضح، حفظ فعلي قبل العقد؛ التمثيل/الفن النهائي13 |
+| غرف الغموض08 | full_chapter_journey_review.gd --mystery-only؛ earned_campaign_resume_review.gd؛ specimen_public_route_review.gd | stage08/report.json: رحلة289 دون إعادة، استرجاع150،12سجل موضعي؛ الفن/المتعة/الأجهزة غير معتمدة |
+| التشغيل | godot/scripts/boot.gd → ui/title_entry.gd → native_journey.tscn | فيديو المالك أولًا؛ default محلي؛ الربط المهيأ اختياري |
+| افتتاح CP45 | godot/scripts/ui/school_lab_opening.gd ← opening_memory_film.gd | عرض المدرسة والمختبر والتجربة؛ أسئلة الأب حية وحفظ موضع الافتتاح فيBoot؛24 فحصًا Windows؛ مراجعة الفصل باقية |
+| البداية00 | src/App.tsx + features/opening-recovery/TitleEntry.tsx | فيديو أولًا ثم لغز الغلاف/التشظي/الفيلم؛ cover_v1 خادمي؛ لا مكافأة من العرض |
+| الربط | NativeEntryPanel.tsx + functions/api/player/_nativeEntry.ts + godot/scripts/systems/native_entry_gate.gd | migrations/0028؛ نموذج محلي؛ نشر/Firebaseحي OPEN |
+| الافتتاح01 | godot/scripts/main.gd + cinematics/opening_inspection.gd | فحص/لغز/بوابة؛ حفظ محلي فقط |
+| الصيانة02/الأمن03 | godot/scripts/systems/native_journey_controller.gd | إدخال عام وتسلق/غطاء/تشتيت |
+| الحركة07 | godot/scripts/player/surface_traversal_motor.gd + echo_v31_motion_adapter.gd + engine_visuals/EchoCapeMotion.gd | تعليق→صعود35عينة→نهوض20عينة؛ stage07/report.json؛106physics/11Forward+/32إلغاء؛ ArgonHighمؤكد؛ القبضة الدقيقة والفن13OPEN |
+| بقية الفصل | godot/scripts/systems/native_campaign_controller.gd | rooms[] + وصلات مستقلة؛ لا دمج غرف |
+| العينات04 | environment/specimen_containment_wing.gd | غطاء فعلي وتوقيت كشاف؛ لم يضعف الكشاف |
+| الأرشيف05 | environment/memory_archive_wing.gd |3ذكريات/سلم/فك ترميز |
+| المفاعل06 | environment/core_reactor_room.gd | قاطعان/توقيت خطر |
+| التطهير07 | environment/decontamination_quarantine_wing.gd | UV/سلم/تجاوز |
+| المرآة08 | environment/mirror_chamber_room.gd | شرطا المرآة والتجاوز |
+| المختبر09 | environment/dr_kinja_lab_room.gd + cinematics/lab_memory_trial.gd | محطات/حوار/رفض/مقاومة؛ تمثيل3D OPEN |
+| العقد/المواجهة | cinematics/pact_revenge_presentation.gd + characters/kinja_revenge_actor.gd | قرارات صريحة/تلامس قتال؛ فن اليد/الجسد OPEN |
+| المستشفى10 | environment/hospital_bedside_room.gd + native_campaign_controller.gd | الفيلم/الاستيقاظ/مرآةEX-011؛ الأداء النهائي OPEN |
+| اللاعب | assets/characters/echo_v31_adopted_high.glb + scripts/player/ | High الحالي؛ لا استبدال من تجربةTripo |
+| Golden | art/production/master-animation-library/golden/walk-v1/ |192ملفًا محميًا؛لا إعادةختم |
+| الواجهات | godot/scripts/ui/ + src/ui/design-system/ | مكونات واحدة، AR/EN/RM/mute |
+| مسار كامل | godot/tests/full_chapter_journey_review.gd | route/cp41-delivery/full-chapter.json؛340،0retry |
+| حفظ مكتسب/مختبر | godot/tests/earned_campaign_resume_review.gd | route/cp37-current-lab/earned-resume.json؛45حاليًا |
+| HTTP الربط | godot/tests/native_entry_transport_review.gd + src/__tests__/nativeEntry.test.ts | localfixture وليسحسابًاحيًا |
+| فحص الحزمة | godot/scripts/systems/native_review_probe.gd | quality-cp38-20261019/packed-smoke-verified.log؛22شرطًا، ليسفصلًاكاملًا |
+| الحرفة/المتبقي | docs/internal/production/CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md | الخطة30مرحلة محفوظة؛ لا نسبةإنجازمصطنعة |
 
-## اختيار دليل المراجعة
+`environment/` و`cinematics/` و`characters/` فيالصفوفأعلاه تحت `godot/scripts/`. فهرسالمصدرالحاليSOURCE_INDEX.json. الأدلةالقريبةتحتaudits/evidence/pre-tripo-20261018/cp37؛ التاريخالكاملللشجرةقبلالترتيبفيarchive/before_cp37_20261018_WORK_TREE.ar.md. لا حذفشامللـ.tmpأوGodot/app_userdata.
 
-- **CP20**: `audits/evidence/chapter-execution-20261009/cp20-v31-integration/final-verification.json` يصف دمج المراجعة. أحدث حزمة مراجعة محفوظة `EchoNetwork-CP20-reviewed.exe/.pck` في المجلد نفسه؛ لا قبول نهائي للفصل.
-- **CP22**: `audits/evidence/room01-20261012/`؛ تشغيل جديد للغرفة الأولى، محاذاة Run الحي مع الكبسولة، مؤثرات اكتشاف/طاقة/زجاج وصوت مكاني. التفاصيل والفحوص الحالية في `ROOM01_EXECUTION_2026-10-12.ar.md`؛ لا إغلاق للغرفة أو مرحلة من الفحص الوظيفي وحده.
-- **CP21 — PAUSED / NOT_INTEGRATED**: `audits/evidence/chapter-execution-20261009/cp21-v31-walk/`. تشخيص Walk واتصال القدم وRoot Motion محفوظ؛ لا يبدل المكتبات الحالية.
-- **CP17**: مرجع High/Balanced والحركات المعزولة فقط؛ صوره ليست دليلًا على غرفة اليوم.
-- **CP18/CP19 وما قبلها**: سياق تاريخي. الصور وتقارير الوكلاء القديمة تحفظ للتشخيص، ولا تتحول إلى قبول للمشهد الحالي.
-- **Golden**: `art/production/master-animation-library/golden/walk-v1/`؛ يحمي 192 ملفًا تشمل FBX تحت `.tmp/master-animation-library/sources/`. لا حذف أو إعادة ختم.
-- **التنظيف**: `audits/evidence/project-cleanup-20261012/`؛ سجل الحذف والاسترجاع والبصمات والفحوص.
+CP38: المستشفى يضيف hospital_room_dressing.gd وward_floor/linen/rain_window وward_bed_original_v1.glb وward_visitor_chair_v1.glb وward_vanity_v1.glb. اختبارات hospital_visual_review/ward_light_scope_review/ward_objective_owner_review. كينجاP2معزول فيart/production/tripo-cp38-20261019 واختبارtripo_actor_candidate_review، لا يغيرactorالحالي. سجلالكريديتوالصورالمرجعيةفيالمجلدنفسه.
 
-قبل الاستناد إلى صورة، طابق المشهد والأصل وبصماتهما في `SOURCE_INDEX.json` وبيّن نسخة المراجعة. إذا تعذر الربط، الحالة `UNVERIFIED` وتؤخذ لقطة تشغيل جديدة عند استئناف المهمة. فحص التنظيف لا يتضمن مراجعة فنية جديدة للغرف.
 
-## الاستمرار وحدود التنظيف
+CP39: SystemWindow القائم + system_notice_queue_review32 + system_personal_window_review26؛ دليل الصور route/cp39-system-v10 والبصمات الحالية. tripo_character_visual_review يراجع المصدر المعزول بوقته الأصلي، ولا يغيّر اللاعب. أصل إيكو وسجل70كريديت ورفض محاولتيRun محفوظان في echo-tripo-cp39-20261019؛ الفعل التالي باركور غرفة02، دون محاولةRun ثالثة.
 
-حُذفت caches معزولة وbytecode غير متتبعة وشجرة أدلة فارغة أُنشئت خطأ في جذر المستودع. مسارات `res://` محفوظة. الصور الفريدة والمصادر والتعديلات السابقة محفوظة، وكذلك كاش المشروع الفعلي. كاش المراجعات يعاد بـGodot import؛ `.blend1` المختلفة عن الأصل نسخ استرجاع، ليست مكررات مثبتة.
+## CP40 — تعليق الغرفة02
+مصدر V31 ثابت؛ hang_cp40.res ومحول العرض/SurfaceTraversalMotor، والدليل echo-parkour-cp40-20261019. تدلٍّ حر نهائي مرفوض عند الجدار؛ Frame0 ارتكاز ثابت فقط. CURRENT_WORK يحدد حالة regression والصعود المفتوح.
 
-الخطة: `CHAPTER_PLAYABILITY_MASTER_PLAN_2026-10-09.ar.md` في هذا المجلد. المرحلة PART_3 ثابتة؛ دمج 07 غير نهائي، و06 والحركة والفن واللعب والأجهزة مفتوحة. الأفقي إلزامي؛ الهاتف مؤجل بطلب المالك. التنفيذ فردي مستأنف: الغرفة 01 مع V31 الحقيقي ثم 02 وباقي المسار بالتتابع بعد أبواب القبول.
+## CP41 — النواة البصرية الدائمة
+`godot/engine_visuals/HyperAnimeWorldManager.gd` و`HyperMaterialAdapter.gd` و`camera/DynamicActionCameraRig.gd` و`vfx/KineticVFXOrchestrator.gd` و`shaders/`: مصدر البيئة/المواد/الكاميرا/المؤثرات. الربط في main/EchoPlayer/project.godot؛ الجودة في native_pause_menu. اختبارات hyper_anime_engine_review وhyper_anime_live_review؛ المصدر والدليل الحاليان في hyper-anime-cp41-20261019/verification-cp41.json.35+35 وحدات/19مشهد/19مستشفى/340مسار/31حزمة؛ الأداء High والفن والـmantle مفتوحة. صفوف CP38/39 أعلاه تاريخية حيث تعارض هذه الحالة.
 
-## نظام فحص الغرفة01 — CP23
 
-`godot/scripts/cinematics/opening_inspection.gd` مع `opening_evidence.gd` و`native_pause_menu.gd` و`main.gd`؛ الخامة في `godot/assets/textures/opening/` وأصلها في `art/production/room01-20261014/`. الفحوص `opening_inspection_review.gd` و`opening_player_journey_review.gd`. الدليل الحالي `audits/evidence/room01-20261014/verification.json`؛ تقرير `ROOM01_EXECUTION_2026-10-14.ar.md`.
+## CP42 / CP43
+`godot/engine_visuals/MemoryAtmosphereDirector.gd` و`shaders/memory_monitor/leak_water/leak_drops`: عشرة ألواح ذاكرة كاملة متحركة ومعلّقة في 01–08، مع الماء والصوت القريب ودون تغيير اللعب. `godot/tests/memory_atmosphere_review.gd`:47 Forward+ /47 Compatibility؛ حزمة44، مسار340 وpostflight649. الأدلة والبصمات في memory-atmosphere-cp42-20261020. مصدر Motifect رُفض لدور hang→stand؛ Tripo Ledge Mantle3s في الطابور، والرصيد2855. راجع البطاقة للتالي الدقيق.
+
+
+## CP44 — native six-piece entry / explicit garment motion
+
+Runtime: godot/engine_visuals/EchoCapeMotion.gd, scripts/player/echo_v31_motion_adapter.gd, scripts/ui/cover_recovery.gd. Evidence: audits/evidence/echo-coat-cp44-20261020/verification-cp44.json. Original68-bone V31 and original animations unchanged. Actual native motion27, public-input6.035m/turn/jump, Low fixed-view~16.6ms, fresh packed46, postflight649/649, Golden192 PASS. First Argon High review returned; refined comparison generic refusal. Run/Walk/face/hands/mantle art OPEN; CP43 source returned but failed hanging start, never auto-integrate. New multi-shot Flow opening/native father choices and chapter release gates OPEN. Latest user Windows delivery: chat outputs/11-11-CP44; previousCP42 retained.
+
+
+## CP45/13 — شاشة الساعة وجرد الجودة الحالي
+
+`dr_kinja_lab_room.gd` يملك اسم StasisClockHousing والساعة الأصلية؛ `clinical_lab_architecture.gd` و`clinical_stasis_display.gdshader` يملكان تشطيبها فقط. أدلة63/60/9 وHigh FAIL في `audits/evidence/chapter-cp45-20261020/stage13/resume-20261024c/delivery.json`. `lab_surface_probe.gd` يطابق إحداثيات viewport1920×1080 مع صورة1280×720، و`lab_stasis_story_review.gd`/`lab_stasis_reload_review.gd` يتحققان من الأمنية المكتسبة. جرد الغرف في ROOM_QUALITY_INVENTORY؛ مرشحات سابقةLow وليست قبولHigh. الكاش والبطاقة يحددان المصدر الأحدث عند تعارض الصفوف التاريخية.

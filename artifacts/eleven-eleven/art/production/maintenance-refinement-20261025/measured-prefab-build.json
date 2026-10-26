@@ -1,0 +1,541 @@
+{
+  "source": "full-room-h31-pbr4k.glb",
+  "source_sha256": "0daaeee7ff7064f006a7897c47fc8ac7e39986d8324083e184da35494a3ca01c",
+  "source_triangles": 1913491,
+  "derivative": "godot/assets/environments/maintenance_cp45/maintenance_measured_fullroom_pbr4k.glb",
+  "derivative_sha256": "2bdc6a0d2534c14b435fcf5a8cb831656e833e36698d0c0c27e813f4024a58aa",
+  "derivative_bytes": 80516640,
+  "triangles": 1553260,
+  "parts": [
+    {
+      "part": "MeasuredLeftPressureBulkhead",
+      "source_region_blender": [
+        [
+          -0.491,
+          -0.299,
+          0.045
+        ],
+        [
+          -0.34,
+          0.298,
+          0.49
+        ]
+      ],
+      "triangles": 305638,
+      "vertices": 173203,
+      "clipped_boundary_vertices": 1736,
+      "native_target_box": [
+        [
+          -4.600000098347664,
+          0.0,
+          -14.5
+        ],
+        [
+          -4.200000092387199,
+          10.600000381469727,
+          0.5
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -4.598618919603817,
+          -0.4795789185480859,
+          0.0
+        ],
+        [
+          -4.200000092387199,
+          14.423428821204295,
+          10.600000381469727
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredRightPressureBulkhead",
+      "source_region_blender": [
+        [
+          0.33,
+          -0.299,
+          0.045
+        ],
+        [
+          0.491,
+          0.298,
+          0.49
+        ]
+      ],
+      "triangles": 204100,
+      "vertices": 113947,
+      "clipped_boundary_vertices": 1313,
+      "native_target_box": [
+        [
+          5.200000092387199,
+          0.0,
+          -14.5
+        ],
+        [
+          5.600000098347664,
+          10.600000381469727,
+          0.5
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          5.200000092387199,
+          -0.4642464473618937,
+          0.0
+        ],
+        [
+          5.598552918875347,
+          11.514671612025506,
+          10.600000381469727
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredRearServiceBulkhead",
+      "source_region_blender": [
+        [
+          -0.34,
+          0.244,
+          0.045
+        ],
+        [
+          0.33,
+          0.299,
+          0.49
+        ]
+      ],
+      "triangles": 79889,
+      "vertices": 46332,
+      "clipped_boundary_vertices": 857,
+      "native_target_box": [
+        [
+          -4.5,
+          0.0,
+          -14.700000002980232
+        ],
+        [
+          5.5,
+          10.600000381469727,
+          -14.299999997019768
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -4.5,
+          14.299999997019768,
+          0.0
+        ],
+        [
+          3.8425137889918997,
+          14.682548051433168,
+          10.600000381469727
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredFirstClimbMachinery",
+      "source_region_blender": [
+        [
+          -0.286,
+          -0.211,
+          0.038
+        ],
+        [
+          0.104,
+          -0.039,
+          0.314
+        ]
+      ],
+      "triangles": 219194,
+      "vertices": 122024,
+      "clipped_boundary_vertices": 467,
+      "native_target_box": [
+        [
+          -2.5,
+          0.0,
+          -6.25
+        ],
+        [
+          2.5,
+          3.4000000953674316,
+          -5.75
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -2.5,
+          5.75,
+          0.0
+        ],
+        [
+          2.5,
+          6.25,
+          3.211056000482236
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredSecondClimbMachinery",
+      "source_region_blender": [
+        [
+          0.09,
+          0.125,
+          0.287
+        ],
+        [
+          0.31,
+          0.235,
+          0.351
+        ]
+      ],
+      "triangles": 29998,
+      "vertices": 17077,
+      "clipped_boundary_vertices": 694,
+      "native_target_box": [
+        [
+          3.0,
+          3.4000000953674316,
+          -9.649999618530273
+        ],
+        [
+          5.0,
+          5.400000095367432,
+          -9.149999618530273
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          3.0,
+          9.149999618530273,
+          3.4000000953674316
+        ],
+        [
+          5.0,
+          9.649999618530273,
+          5.400000095367432
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredGrating_COLL_UpperRest",
+      "source_region_blender": [
+        [
+          -0.265,
+          -0.18,
+          0.284
+        ],
+        [
+          0.115,
+          -0.047,
+          0.309
+        ]
+      ],
+      "triangles": 36719,
+      "vertices": 20458,
+      "clipped_boundary_vertices": 143,
+      "native_target_box": [
+        [
+          -2.5,
+          3.0000000447034836,
+          -8.200000047683716
+        ],
+        [
+          2.5,
+          3.400000050663948,
+          -5.799999952316284
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -2.5,
+          5.80866813156326,
+          3.0000000447034836
+        ],
+        [
+          1.8305928103233642,
+          8.132386223178568,
+          3.23413725522365
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredGrating_COLL_GapLanding",
+      "source_region_blender": [
+        [
+          -0.265,
+          -0.18,
+          0.284
+        ],
+        [
+          0.115,
+          -0.047,
+          0.309
+        ]
+      ],
+      "triangles": 36719,
+      "vertices": 20458,
+      "clipped_boundary_vertices": 143,
+      "native_target_box": [
+        [
+          3.0,
+          3.0000000447034836,
+          -8.200000047683716
+        ],
+        [
+          5.0,
+          3.400000050663948,
+          -5.799999952316284
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          3.0,
+          5.80866813156326,
+          3.0000000447034836
+        ],
+        [
+          4.7322371241293455,
+          8.132386223178568,
+          3.23413725522365
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredGrating_COLL_FinalRest",
+      "source_region_blender": [
+        [
+          -0.265,
+          -0.18,
+          0.284
+        ],
+        [
+          0.115,
+          -0.047,
+          0.309
+        ]
+      ],
+      "triangles": 36719,
+      "vertices": 20458,
+      "clipped_boundary_vertices": 143,
+      "native_target_box": [
+        [
+          3.0,
+          4.9999998062849045,
+          -11.799999833106995
+        ],
+        [
+          5.0,
+          5.399999812245369,
+          -9.599999785423279
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          3.0,
+          9.607945616256155,
+          4.9999998062849045
+        ],
+        [
+          4.7322371241293455,
+          11.738020495096746,
+          5.234137016805071
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredGrating_COLL_ExitDeck",
+      "source_region_blender": [
+        [
+          -0.265,
+          -0.18,
+          0.284
+        ],
+        [
+          0.115,
+          -0.047,
+          0.309
+        ]
+      ],
+      "triangles": 36719,
+      "vertices": 20458,
+      "clipped_boundary_vertices": 143,
+      "native_target_box": [
+        [
+          -3.0,
+          4.9999998062849045,
+          -12.900000214576721
+        ],
+        [
+          3.0,
+          5.399999812245369,
+          -11.700000166893005
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -3.0,
+          11.704334256516493,
+          4.9999998062849045
+        ],
+        [
+          2.1967113723880365,
+          12.866193302324147,
+          5.234137016805071
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredGrating_COLL_ServiceVestibule",
+      "source_region_blender": [
+        [
+          -0.265,
+          -0.18,
+          0.284
+        ],
+        [
+          0.115,
+          -0.047,
+          0.309
+        ]
+      ],
+      "triangles": 36719,
+      "vertices": 20458,
+      "clipped_boundary_vertices": 143,
+      "native_target_box": [
+        [
+          -1.5,
+          4.9999998062849045,
+          -14.300000190734863
+        ],
+        [
+          1.5,
+          5.399999812245369,
+          -12.800000190734863
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -1.5,
+          12.805417802548947,
+          4.9999998062849045
+        ],
+        [
+          1.0983556861940182,
+          14.257741552098352,
+          5.234137016805071
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "MeasuredEntryServiceFloor",
+      "source_region_blender": [
+        [
+          -0.49,
+          -0.297,
+          0
+        ],
+        [
+          0.49,
+          0.297,
+          0.047
+        ]
+      ],
+      "triangles": 285757,
+      "vertices": 159005,
+      "clipped_boundary_vertices": 1637,
+      "native_target_box": [
+        [
+          -4.0,
+          -0.30000001192092896,
+          -6.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -4.0,
+          -1.98886304110389,
+          -0.30000001192092896
+        ],
+        [
+          4.0,
+          5.974067040966817,
+          0.0
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    },
+    {
+      "part": "UpperPressureBayBeamCrown",
+      "source_region_blender": [
+        [
+          -0.491,
+          -0.299,
+          0.49
+        ],
+        [
+          0.491,
+          0.299,
+          0.543
+        ]
+      ],
+      "triangles": 245089,
+      "vertices": 138809,
+      "clipped_boundary_vertices": 1602,
+      "native_target_box": [
+        [
+          -4.58,
+          10.18,
+          -14.68
+        ],
+        [
+          5.58,
+          10.59,
+          0.48
+        ]
+      ],
+      "actual_blender_box": [
+        [
+          -4.541452621976616,
+          -0.35572565889677504,
+          10.18
+        ],
+        [
+          5.524086198107531,
+          14.578162447943733,
+          10.584564508402122
+        ]
+      ],
+      "normal_transform": "inverse-transpose of source world basis and measured affine scale",
+      "source_uv_retained": true
+    }
+  ],
+  "physics_objects_added": 0,
+  "scope": "Measured modular derivative of whole-room Tripo source. Source proportion remapping/clipped cut-boundaries explicit;not exact image geometry,not art/player acceptance. Original grip/contact/gate/wheel/camera/save owners remain native."
+}

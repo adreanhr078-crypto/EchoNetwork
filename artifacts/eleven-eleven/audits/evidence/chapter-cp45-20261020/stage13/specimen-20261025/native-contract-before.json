@@ -1,0 +1,470 @@
+{
+	"alert_grace": 1.0,
+	"anchors": [
+		"(-2.5, 0.1, 2.0)",
+		"(-26.0, 0.1, 3.0)",
+		"(-24.0, 0.1, -12.0)"
+	],
+	"initial_state": {
+		"discoveries": [],
+		"gate_open": false,
+		"state": 0,
+		"terminal_read": false
+	},
+	"scanner_speed": 1.2,
+	"solids": [
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "Floor/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(30.0, 0.4, 24.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-15.0, -0.2, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "Ceiling/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(30.0, 0.4, 24.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-15.0, 7.4, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "NorthWall/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(30.0, 7.2, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-15.0, 3.6, -18.2)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "SouthWallWest/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(26.2, 7.2, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-16.9, 3.6, 6.2)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "SouthWallEast/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(1.2, 7.2, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-0.6, 3.6, 6.2)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "SouthLintel/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.6, 4.2, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-2.5, 5.1, 6.2)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "EastWall/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.4, 7.2, 24.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.2, 3.6, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "WestWallNorth/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.4, 7.2, 5.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.2, 3.6, -15.5)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "WestWallSouth/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.4, 7.2, 17.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.2, 3.6, -2.5)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "WestExitLintel/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.4, 4.4, 2.05)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.2, 5.0, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_005/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 0.15, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_005/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 4.35, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_005/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 2.1, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_005/SpecimenRecordStation/InteractionArea/@CollisionShape3D@17",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 1.05, 1.16)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_007/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 0.15, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_007/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 4.35, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_007/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 2.1, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_007/SpecimenRecordStation/InteractionArea/@CollisionShape3D@23",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 1.05, 1.16)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_008/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 0.15, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_008/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 4.35, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_008/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 2.1, 0.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_008/SpecimenRecordStation/InteractionArea/@CollisionShape3D@29",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 1.05, 1.16)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_009/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 0.15, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_009/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 4.35, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_009/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 2.1, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_009/SpecimenRecordStation/InteractionArea/@CollisionShape3D@35",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-8.0, 1.05, -10.84)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_010/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 0.15, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_010/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 4.35, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_010/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 2.1, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_010/SpecimenRecordStation/InteractionArea/@CollisionShape3D@41",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-14.0, 1.05, -10.84)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankBase_ex_011/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 0.15, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TankCap_ex_011/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.5, 0.3, 2.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 4.35, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 4.19999980926514,
+			"layer": 1,
+			"mask": 1,
+			"path": "Tank_ex_011/CollisionShape3D",
+			"radius": 1.10000002384186,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 2.1, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "Tank_ex_011/SpecimenRecordStation/InteractionArea/@CollisionShape3D@47",
+			"radius": 1.45000004768372,
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-20.0, 1.05, -10.84)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "CoverPlinth_0/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.2, 1.8, 1.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-5.0, 0.9, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "CoverPlinth_1/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.2, 1.8, 1.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 0.9, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "CoverPlinth_2/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.2, 1.8, 1.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-17.0, 0.9, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "CoverPlinth_3/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(2.2, 1.8, 1.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-23.0, 0.9, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "TerminalShieldPlinth/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.5, 3.0, 3.2)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-23.8, 1.5, -10.2)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "ScannerMount/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(1.2, 0.4, 1.2)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-15.0, 7.0, -6.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "SpecimenLogTerminal/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(1.2, 1.2, 0.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-26.0, 0.6, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"height": 2.5,
+			"layer": 1,
+			"mask": 1,
+			"path": "SpecimenLogTerminal/InteractionArea/CollisionShape3D",
+			"radius": 2.40000009536743,
+			"shape": "CylinderShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-26.0, 0.6, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "ExitGateFrameTop/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.5, 0.4, 2.25)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.0, 3.2, -12.0)]"
+		},
+		{
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "ExitBlastGate/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"size": "(0.25, 2.8, 2.05)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-30.0, 1.4, -12.0)]"
+		}
+	],
+	"tank_configs": [
+		{
+			"id": "ex_005",
+			"name": "Subject Alpha (EX-005)",
+			"status_ar": "نخر خلوي حاد / منتهية",
+			"status_en": "Cellular Necrosis / Terminal",
+			"x": -8.0,
+			"z": 0.0
+		},
+		{
+			"id": "ex_007",
+			"name": "Subject Gamma (EX-007)",
+			"status_ar": "رفض عصبي تام / فاشلة",
+			"status_en": "Neural Rejection / Failed",
+			"x": -14.0,
+			"z": 0.0
+		},
+		{
+			"id": "ex_008",
+			"name": "Subject Delta (EX-008)",
+			"status_ar": "تحلل عضوي / مذاب",
+			"status_en": "Organ Liquefaction / Dissolved",
+			"x": -20.0,
+			"z": 0.0
+		},
+		{
+			"id": "ex_009",
+			"name": "Subject Epsilon (EX-009)",
+			"status_ar": "تمزق قلبي / متوفى",
+			"status_en": "Cardiac Rupture / Deceased",
+			"x": -8.0,
+			"z": -12.0
+		},
+		{
+			"id": "ex_010",
+			"name": "Subject Zeta (EX-010)",
+			"status_ar": "موت جذع الدماغ / محفوظة",
+			"status_en": "Brainstem Death / Preserved",
+			"x": -14.0,
+			"z": -12.0
+		},
+		{
+			"id": "ex_011",
+			"name": "Subject Echo (EX-011)",
+			"status_ar": "مفقودة / اختراق نشط",
+			"status_en": "MISSING / ACTIVE BREACH",
+			"x": -20.0,
+			"z": -12.0
+		}
+	]
+}

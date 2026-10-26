@@ -54,7 +54,7 @@ func show_prompt(interactable: Node) -> void:
 			verb = interactable.get_verb_string()
 		if interactable is InteractableComponent:
 			if presentation_language == "ar":
-				verb = "افحص" if interactable.verb == InteractableComponent.InteractionVerb.INSPECT else "تفاعل"
+				verb = str(interactable.get_meta("interaction_verb_ar","افحص" if interactable.verb == InteractableComponent.InteractionVerb.INSPECT else "تفاعل"))
 			target_name = interactable.prompt_target_name
 		var key := ("المس" if presentation_language == "ar" else "Tap") if touch_mode else "E"
 		prompt_label.text = "[%s] %s · %s" % [key, verb, target_name]

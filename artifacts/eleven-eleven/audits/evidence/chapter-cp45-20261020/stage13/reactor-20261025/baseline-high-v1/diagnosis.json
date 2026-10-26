@@ -1,0 +1,21 @@
+{
+	"fixture": "validated cold checkpoint and one explicit local spawn; no input or artistic acceptance",
+	"original_shadow_values_restored": true,
+	"room": "reactor",
+	"source_hashes": {
+		"res://assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"res://scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
+		"res://scenes/opening_web_room.tscn": "65041fd8398e2ab36d0265e17b5bd3525103551853e5a240faadef3b08b0d139",
+		"res://scripts/environment/core_reactor_room.gd": "0b65366e1090ffb06d07997024502b69d7d0f25fef292f6ea312aa65e0635017",
+		"res://scripts/environment/room_motes.gd": "1cacf90aa58bc16c668e1589b34b715a98a6569c523b8daf45d654a26fbbed53",
+		"res://scripts/environment/room_service_lighting.gd": "ae9579267ad299d249255369f12bf17a0b874144b9de5cb4d3a1ed1851e29609",
+		"res://scripts/environment/specimen_record_station.gd": "846006a6d5cc8096177aa454078ca22a5ecbffb6fdd3543d717ea52b7e10de40",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://shaders/room_motes.gdshader": "1d763cabc6d85a826aab3c916f208d0a0bcdaf7b42aed075532b773d1dfc314e",
+		"res://shaders/scanner_volumetric_cone.gdshader": "38b1cfb92f1463cf0c7493fcd3dfca692e66c5b047e25f4e45f4ae0901ede5ee",
+		"res://shaders/specimen_bubbles.gdshader": "9f546656624882bc7e9da1a6c07757d5c0c51b2e1961bdb15a5c1d4b7429e189",
+		"res://shaders/specimen_fluid.gdshader": "6933a19eda4a29081593ac3d832ae49ee017a8a8ff0fb1b4510af6303854c598",
+		"res://tests/campaign_room_render_review.gd": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef"
+	},
+	"temporary_shadow_comparison_lights": 6
+}

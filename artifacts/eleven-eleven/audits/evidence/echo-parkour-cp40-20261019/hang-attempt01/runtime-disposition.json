@@ -1,0 +1,21 @@
+{
+  "source_semantics": "Braced to free hang transition",
+  "full_free_hang_on_solid_wall": "REJECT_VISUAL_BODY_INTERSECTION",
+  "accepted_scoped_use": "Original frame0 braced wall-support hold, runtime metadata only; all source samples/keys preserved",
+  "raw_glb_all_joint_comparisons": 1972,
+  "runtime_library_all_joint_comparisons": 1972,
+  "source_preserved": true,
+  "geometry_fidelity": "Current original V31 retained",
+  "open": [
+    "Climb animation",
+    "Mantle animation",
+    "Cape/face/hand art",
+    "Device/fun/chapter acceptance"
+  ],
+  "evidence": [
+    "../room02-contact-rendered/hang-065.png",
+    "../room02-braced-rendered/hang-hold-side.png",
+    "godot-all-joints-review.json",
+    "godot-runtime-library-review.json"
+  ]
+}

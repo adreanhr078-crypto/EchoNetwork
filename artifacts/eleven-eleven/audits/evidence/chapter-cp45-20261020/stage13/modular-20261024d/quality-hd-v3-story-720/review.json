@@ -1,0 +1,77 @@
+{
+	"checks": 60,
+	"display": "Windows",
+	"final_progress": {
+		"completed": [
+			"specimen",
+			"archive",
+			"reactor",
+			"decon",
+			"mirror",
+			"lab",
+			"hospital"
+		],
+		"flags": {
+			"archive": {
+				"archive_decoded": true,
+				"shard_sector11": true,
+				"shard_shizuka": true,
+				"shard_yuki": true
+			},
+			"decon": {
+				"override_done": true
+			},
+			"hospital": {
+				"bed_awakened": true,
+				"mark_revealed": true
+			},
+			"lab": {
+				"confrontation_done": true,
+				"contract_done": true,
+				"revenge_done": true,
+				"wish_done": true
+			},
+			"mirror": {
+				"mirror_inspected": true,
+				"override_done": true
+			},
+			"reactor": {
+				"breaker_a_done": true,
+				"breaker_b_done": true
+			},
+			"specimen": {
+				"terminal_read": true
+			}
+		},
+		"schema": "echo-sector11-campaign-v1"
+	},
+	"renderer": "forward_plus",
+	"route_retries": 0,
+	"scope": "Actually earned pact profile -> three real native cuts -> explicit revenge continuation -> sole wish -> physical breach -> ward input/mirror. No manufactured flags or player placement. Fine fingers/acting, final art, performance/devices/live receipts/package and fresh whole-chapter acceptance remain open.",
+	"source_hashes": {
+		"res://assets/animations/v31/attack_horizontal_cp45.res": "efdcd586690ff9c4c846590eebb95cfab3121810129d86cda9ef773cf04deb78",
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://assets/cinematics/memory-screens/city-high.ogv": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+		"res://assets/cinematics/memory-screens/friends-high.ogv": "7dc0c3d05208e97f8d8c5d121d7c6cc0d19e800882e65fbd42c1059da3550bba",
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+		"res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9",
+		"res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+		"res://scripts/environment/clinical_lab_architecture.gd": "58b28007fba29f16895ea180815459c6dacb3f43bfd24bf6648a74bca9a8e068",
+		"res://scripts/environment/clinical_modular_perimeter.gd": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+		"res://scripts/environment/dr_kinja_lab_room.gd": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+		"res://scripts/environment/lab_memory_cinema.gd": "cb5e5a37a9cbade029cfa36d6eb37be2235b4822368e0538646ed46dd45be91d",
+		"res://scripts/environment/memory_reflection_space.gd": "f8cb73ead963f9f47ebf95fc8400be4220094380044969811511d36a76e971b5",
+		"res://scripts/player/echo_player.gd": "212684a55890a5dd404ef3711fda792318747b8de9e95345f8e7330cd4bc5c19",
+		"res://scripts/player/echo_v31_motion_adapter.gd": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+		"res://shaders/clinical_stasis_display.gdshader": "a15a4effd8687c2c9cfa8328100eca94ecfe8fc11135aed9469d2bef3200eac3",
+		"res://shaders/memory_water.gdshader": "41c86e1da5807058dbccc7a57be7fe850080183cf434d923dc55a36c5faa7ae3",
+		"res://tests/full_chapter_journey_review.gd": "83bdb00108334ca9d40958fd986b20bddbc9de2b4d6b08c1b000be6e7a38d945",
+		"res://tests/lab_stasis_story_review.gd": "20607ccf3a9c0d8dac7d7829242f9c8e4dfdcc102efbab73debe78e3c8d562bc",
+		"res://tests/post_contract_journey_review.gd": "ca5f87690c6d2115d0d9143d361954013d1010c2ba7ba77a1036ecd4147a120e",
+		"res://tests/zero_encounter_route_input.gd": "2e26f84fdb55ab530bde1db469e58887bd897eda58727469c6b2dc147dff4638"
+	},
+	"source_profile": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-cp45-20261020\\stage11\\native-attack-20261023/encounter-native/earned/complete"
+}

@@ -1,0 +1,28 @@
+{
+  "adviser": "Gemini Argon High / actual UI",
+  "conversation": "https://gemini.google.com/u/2/app/5422db9bd0c44657?hl=ar&pageId=none",
+  "initial_response": "argon-review-initial.ar.md",
+  "initial_reference": "Actual initial attachments retained in that Gemini conversation; local named captures were superseded by the corrected rerun. Do not match old critique to current source hashes.",
+  "resubmitted_current_images": [
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage06\\entry-room01\\06-waking.png",
+      "sha256": "0e5490fd581366ff39be7db779c52bdaf6121072ab65e58ab61a47b744e34f7b"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage06\\entry-room01\\07-memory.png",
+      "sha256": "031b29052430ad307c93b178a14ad9f717751f5d747f9457e5c1b6fe5a428836"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage06\\entry-room01\\09-exit-open.png",
+      "sha256": "df4f18841920d8c514bf72d9f1698d86a942090d7731be064921409dedddb7b8"
+    }
+  ],
+  "corrections": [
+    "Disabled device registration/HUD eligibility fixed and tested8 cases; human circuit wording.",
+    "Inspected trace label above the current1.83m avatar; frame/sill cue outlines physical open doorway.",
+    "Initial waking sample captured a departing dialogue fade; stable play now shows existing persistent objective and compass. No global dialogue contrast change based on a transient sample.",
+    "Native preloading isolated: worker-only load leaves42 RefCounted zero-count objects, synchronous load leaves0; main-thread scene load under completed sensory cut resolves current full-entry exit warnings. Video shot preloading retained."
+  ],
+  "scope": "Static adviser critique plus actual input53 and eligibility8; not human playtest or chapter/final-art/performance acceptance",
+  "second_response": "argon-review-final.ar.md / actual returned: no visible blocking defect in current3 images; motion/fun/chapter not accepted"
+}

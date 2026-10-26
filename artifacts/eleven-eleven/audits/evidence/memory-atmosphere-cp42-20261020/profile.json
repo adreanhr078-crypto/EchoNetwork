@@ -1,0 +1,107 @@
+{
+  "scope": "90 process intervals per case at three fixed views on Intel UHD, Forward+/Vulkan,1280x720; OFF/ON observations include animated-room noise. Not GPU timing, full-route or other-device acceptance.",
+  "profiles": {
+    "room01": {
+      "high_off": {
+        "decoders": 0,
+        "draws": 508.0,
+        "engine_texture_bytes": 763811328.0,
+        "p50_ms": 51.33,
+        "p95_ms": 53.856,
+        "sample_count": 90
+      },
+      "high_on": {
+        "decoders": 1,
+        "draws": 515.0,
+        "engine_texture_bytes": 763811328.0,
+        "p50_ms": 51.465,
+        "p95_ms": 56.704,
+        "sample_count": 90
+      },
+      "low_off": {
+        "decoders": 0,
+        "draws": 505.0,
+        "engine_texture_bytes": 619791488.0,
+        "p50_ms": 16.27,
+        "p95_ms": 17.582,
+        "sample_count": 90
+      },
+      "low_on": {
+        "decoders": 1,
+        "draws": 512.0,
+        "engine_texture_bytes": 620381312.0,
+        "p50_ms": 16.409,
+        "p95_ms": 18.218,
+        "sample_count": 90
+      }
+    },
+    "room02": {
+      "high_off": {
+        "decoders": 0,
+        "draws": 256.0,
+        "engine_texture_bytes": 764667392.0,
+        "p50_ms": 29.94,
+        "p95_ms": 33.131,
+        "sample_count": 90
+      },
+      "high_on": {
+        "decoders": 1,
+        "draws": 263.0,
+        "engine_texture_bytes": 764667392.0,
+        "p50_ms": 30.239,
+        "p95_ms": 32.739,
+        "sample_count": 90
+      },
+      "low_off": {
+        "decoders": 0,
+        "draws": 253.0,
+        "engine_texture_bytes": 620647552.0,
+        "p50_ms": 16.635,
+        "p95_ms": 18.331,
+        "sample_count": 90
+      },
+      "low_on": {
+        "decoders": 1,
+        "draws": 260.0,
+        "engine_texture_bytes": 620647552.0,
+        "p50_ms": 16.583,
+        "p95_ms": 18.767,
+        "sample_count": 90
+      }
+    },
+    "room03": {
+      "high_off": {
+        "decoders": 0,
+        "draws": 180.0,
+        "engine_texture_bytes": 808830592.0,
+        "p50_ms": 29.447,
+        "p95_ms": 31.634,
+        "sample_count": 90
+      },
+      "high_on": {
+        "decoders": 1,
+        "draws": 218.0,
+        "engine_texture_bytes": 808830592.0,
+        "p50_ms": 30.431,
+        "p95_ms": 32.78,
+        "sample_count": 90
+      },
+      "low_off": {
+        "decoders": 0,
+        "draws": 206.0,
+        "engine_texture_bytes": 664810752.0,
+        "p50_ms": 16.728,
+        "p95_ms": 18.088,
+        "sample_count": 90
+      },
+      "low_on": {
+        "decoders": 1,
+        "draws": 215.0,
+        "engine_texture_bytes": 664810752.0,
+        "p50_ms": 16.617,
+        "p95_ms": 17.887,
+        "sample_count": 90
+      }
+    }
+  }
+}

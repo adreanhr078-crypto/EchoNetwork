@@ -1,0 +1,13 @@
+{
+	"checks": 24,
+	"failures": 0,
+	"renderer": "Windows",
+	"resume_policy": "Replay current shot from its safe start; resume dialogue and questions exactly; no implicit readiness",
+	"sources": {
+		"res://assets/cinematics/opening-cp45/experiment.ogv": "8055825012e602e3fe67db484b154192d01213324d894e3b5ab339779dde766a",
+		"res://assets/cinematics/opening-cp45/lab-arrival.ogv": "936e5e1199edbaf5e8cf7e8c96529d69cd75667c114ee79daff6c4e9ee339c30",
+		"res://scripts/boot.gd": "6f4d02c0454d14bc51f55db677ee048e32de2964b220aec36d71960b23b38adb",
+		"res://scripts/ui/school_lab_opening.gd": "5afd309e7c51b056dba16a8531911cc5c14ece4c6a4d550221cd0af4792df279"
+	},
+	"status": "PASS"
+}

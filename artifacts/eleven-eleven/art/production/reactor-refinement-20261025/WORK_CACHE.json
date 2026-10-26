@@ -1,0 +1,132 @@
+{
+  "status": "STRUCTURAL_V8_ART_PASS_SCOPED",
+  "room_m": [
+    36,
+    44,
+    16
+  ],
+  "core": {
+    "centre": [
+      0,
+      -3,
+      -22
+    ],
+    "height": 14,
+    "original_radius_bottom": 4.8,
+    "radius_top": 4,
+    "collider_radius": 4.8
+  },
+  "anchors": [
+    [
+      0,
+      -3.9,
+      -2.5
+    ],
+    [
+      -11,
+      -1.9,
+      -16
+    ],
+    [
+      0,
+      0.1,
+      -41
+    ]
+  ],
+  "protected": "47native solids/triggers,2breakers,hydraulicbridge,gates,hazard.8/1/2.5seconds,3plasmaringclocks,save/RM/mute/Canon/SFX_ONLY/noearlypower",
+  "reference_folder": "audits\\evidence\\chapter-cp45-20261020\\stage13\\reactor-20261025\\baseline-high-v3",
+  "asset_gap": "Full measured perimeter and actual manufactured containment cage;one isolated annular crown reference/model only if geometry inspection supports it",
+  "credits_live_before": {
+    "tripo": 2825,
+    "flow": 750
+  },
+  "paid_new_jobs": [
+    {
+      "provider": "Tripo",
+      "task_id": "645b2d6a-1399-47c3-bb3e-a4acebe6ce93",
+      "operation": "H3.1Ultra200Ktarget image-guided rawgeometry",
+      "charged_credits": 30,
+      "actual_triangles": 196054,
+      "status": "Complete rawdownloaded,geometryreviewinprogress"
+    },
+    {
+      "provider": "Tripo",
+      "task_id": "645b2d6a-1399-47c3-bb3e-a4acebe6ce93",
+      "operation": "4K texture RemoveLighting",
+      "charged_credits": 20,
+      "status": "Completedsourceexported"
+    },
+    {
+      "provider": "Tripo",
+      "task_id": "645b2d6a-1399-47c3-bb3e-a4acebe6ce93",
+      "operation": "PBR",
+      "charged_credits": 5,
+      "status": "Completedsourceexported"
+    }
+  ],
+  "next": "Close current native/public/earned-reload scope,update gallery;then P04maintenance02/07/08/10 and P05–P13. No fullchapter/performance/fun claim.",
+  "reference_camera_note": "v2 actor stillforeground and not submitted;v3 entrycamera moved infront ofactualspawnz-5.5 toz-6.5,other3same. Actual4reviewed,0overlap.",
+  "flow_reference": {
+    "file": "crown-reference.jpg",
+    "sha256": "9c675b48c5eb340182996657f4950171807194a57262c15612c1c4399ff44e93",
+    "model": "Nano Banana Pro",
+    "output": "One1024square original",
+    "review": "Accepted isolated continuous annular mechanical silhouette/material only;image inner/outer ratio and sector count do not match quoted measurements. Derivative must impose9.5mouter/8.25minner/.60mheight;not exact geometry inferred from image. All4native originals retained as layout contract.",
+    "credits_before": 750,
+    "charged_credits": "UNVERIFIED:balanceincreased750to800;externalcreditactivity/refillcannotbeseparatedfromsingleimagecost",
+    "prompt": "flow-crown-prompt.txt",
+    "provider_asset_id": "cfdeaedf-ca98-4b14-a343-a3c10e0b4cce",
+    "credits_observed_after": 800
+  },
+  "tripo_live_after_geometry": 2795,
+  "raw_geometry_review": {
+    "actual_triangles": 196054,
+    "rays_all_clear": true,
+    "source_min_max_radius": [
+      0.23796026027685419,
+      0.48980978505047845
+    ],
+    "scope": "Accepted real open annulus;source ratio differs;Blender derivative imposes dimensions. No texture paid until after actual raw shape view."
+  },
+  "shared_hyper_profile": {
+    "id": "reactor_containment",
+    "actual_boundary": "Only when campaign.current2 and player inside measured reactor footprint;conduit restores actualpriorprofile",
+    "fixture_checks": 12,
+    "archive_regression": 9
+  },
+  "tripo_live_after_pbr": 2770,
+  "crown_native_verified": {
+    "triangles": 196054,
+    "maps": "Colour/Normal/RM4096each",
+    "mesh_lods": 8,
+    "measured": "outer9.5/inner8.25/height.6metres;normalJacobianapplied",
+    "source_bytes_retained": true
+  },
+  "actual_v5_public": {
+    "checks": 75,
+    "samples": 49,
+    "retries": 0,
+    "standard_motion": true,
+    "earned_coldreload": true
+  },
+  "art_v5": {
+    "architecture": "PASS",
+    "equipment": "REFINE",
+    "composition": "REFINE",
+    "record": "argon-final-v5-return.txt"
+  },
+  "current_public": {
+    "folder": "standard-public-structural-v8",
+    "checks": 75,
+    "samples": 49,
+    "retries": 0,
+    "mode": "Forward+High1280x720,standard motion,falseRM",
+    "saved_completion": [
+      "specimen",
+      "archive",
+      "reactor"
+    ],
+    "current_runtime_after_route": true
+  },
+  "current_quality_report": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json"
+}

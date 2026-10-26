@@ -1,0 +1,42 @@
+{
+  "status": "LOCAL_CONTINUITY_SHEET_INSPECTED__FINAL_ART_OPEN",
+  "bytes": 1748554,
+  "sha256": "f1c9638a65e6d2e1385fab894c239393a3d3a3825f2c806a63dbee7ae3541f40",
+  "duration_seconds": 3.2,
+  "source_clock_preview_not_fps_benchmark": true,
+  "manifest": {
+    "animation_length_seconds": 0.800000011920929,
+    "clip": "RUN",
+    "current_scene": "res://scenes/native_journey.tscn",
+    "cycles": 4,
+    "effects": "Low with native capture resolution",
+    "fps": 30,
+    "frames": 96,
+    "scope": "Controlled in-engine animation art preview at source clock, input capsule paused. Not live frame rate, traversal/contact or device performance evidence.",
+    "source_clock": "Existing CP17 native30Hz looping playback; no keys or Root Motion setting changed"
+  },
+  "source_hashes": {
+    "godot/engine_visuals/EchoCapeMotion.gd": "79c868070c14fed11f47f754040714ada0928ec86e11783e59d8fb591139b695",
+    "godot/scripts/main.gd": "1ca1b7310bcb646e01105cd6fc798ff1d12e1820cfdffb4f00ba9d4cbcae8730",
+    "godot/scripts/player/echo_v31_motion_adapter.gd": "dba970b3a0dd1307c285fe17e5a3bd6d71296e2e378df0b60acb71541efec39d",
+    "godot/tests/echo_cape_journey_review.gd": "9e54d3094beae89e9ac9bd9aa22dfd1e1792088f5359d466386eeb07dfa38138",
+    "godot/engine_visuals/shaders/hyper_anime_uber.gdshader": "c7dc8e5cf253912ee3fecc953ec903c40f6be17abcff4eded3d3ddf3da179ff3",
+    "godot/scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e"
+  },
+  "source_files_unchanged_since_first_frame": {
+    "godot/engine_visuals/EchoCapeMotion.gd": true,
+    "godot/scripts/main.gd": true,
+    "godot/scripts/player/echo_v31_motion_adapter.gd": true,
+    "godot/tests/echo_cape_journey_review.gd": true,
+    "godot/engine_visuals/shaders/hyper_anime_uber.gdshader": true,
+    "godot/scenes/native_journey.tscn": true
+  },
+  "captured_fixture": "audits/evidence/echo-coat-cp44-20261020/fixture-refined-film.gd.txt",
+  "adviser": "Initial Argon High review returned; second refined comparison returned generic refusal. Refined film inspected locally, no adviser acceptance claimed.",
+  "limitations": [
+    "In-engine source-clock run at30Hz, not live FPS or full traversal acceptance",
+    "Body Run posture unchanged; arms/torso craft remains open",
+    "Joint capsule response is not full cloth mesh collision"
+  ],
+  "source_frames_archive": "C:\\Users\\yasmo\\Documents\\Codex\\2026-10-20\\hyper-anime-aaa-thread-01a15532-c7f2\\work\\cp44\\source-frame-archive\\sequence-refined"
+}

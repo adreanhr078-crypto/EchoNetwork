@@ -47,6 +47,7 @@ var state: RoomState = RoomState.BED_RECLINED
 var current_anchor: Vector3 = SAFE_ANCHOR_BEDSIDE
 var reduced_motion := false
 var audio_muted := false
+var presentation_language := "ar"
 var player: Node3D
 
 var bed_awakened_done := false
@@ -78,6 +79,19 @@ func _ready() -> void:
 	_build_clock_1111()
 	_build_mirror_station()
 	_build_exit_door()
+	var dressing:=preload("res://scripts/environment/hospital_room_dressing.gd").new()
+	dressing.name="WardPresentation"
+	add_child(dressing)
+	dressing.configure(self)
+	set_presentation_language(presentation_language)
+
+func set_presentation_language(language: String) -> void:
+	if language not in ["ar","en"]: return
+	presentation_language=language
+	var sign:=get_node_or_null("WardExitSign") as Label3D
+	if sign:
+		sign.font=preload("res://assets/fonts/NotoSansArabic.ttf")
+		sign.text="خروج الجناح ← ميناتو–كاسومي" if language=="ar" else "WARD EXIT → MINATO-KASUMI"
 
 func _physics_process(_delta: float) -> void:
 	if not player or not is_instance_valid(player):

@@ -222,8 +222,9 @@ func update(delta: float, input_vec: Vector2, speed: float, sprint_requested: bo
 				"anim_name": "preset_biped_idle_001"
 			}
 
-	# Detect Skid Trigger: moving fast (> 4.2 m/s) and player suddenly releases input
-	if current_state == LocomotionState.SPRINT and speed > 4.2 and input_vec.length() < 0.1 and not is_skidding:
+	# A fast turn can retain sprint state while momentum briefly falls below
+	# 4.2m/s. Use the sprint-entry threshold for its release recovery as well.
+	if current_state == LocomotionState.SPRINT and speed > 3.8 and input_vec.length() < 0.1 and not is_skidding:
 		is_skidding = true
 		skid_timer = SKID_DURATION
 		current_state = LocomotionState.SKID_STOP

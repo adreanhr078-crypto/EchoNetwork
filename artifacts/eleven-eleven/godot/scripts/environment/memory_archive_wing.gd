@@ -96,6 +96,7 @@ func _ready() -> void:
 	finish.apply(self,["CatwalkBridge","CatwalkStairSupport","CatwalkStairLanding"],finish.material(Color(0.30,0.37,0.45),Vector2(3.6,2.4),0.22,0.56))
 	finish.apply(self,["CatwalkRail"],finish.material(Color(0.35,0.43,0.52),Vector2(1.6,0.8),0.24,0.54))
 	finish.environment_fill(self,"ArchiveUpperFill",Vector3(-11,5.4,0),Color(0.58,0.76,0.92),0.80,8.0)
+	preload("res://scripts/environment/archive_mechanical_dressing.gd").install(self)
 
 func _material(color: Color, metal: float = 0.0, rough: float = 0.7, emission: bool = false, emission_color := Color.BLACK, energy := 1.0) -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()

@@ -1,0 +1,20 @@
+{
+	"actor_source_fingers": false,
+	"actual_skeleton_to_world": "Transform3D(-1.2905261e-07, 0, -2.9523795, 0, 2.9523795, 0, 2.9523795, 0, -1.2905261e-07, -9.449884e-05, -0.0005767202, -0.00028899583)",
+	"actual_skeleton_to_world_scale": "Vector3(2.9523795, 2.9523795, 2.9523795)",
+	"explicit_pact_uses_source_agree": true,
+	"max_key_difference": 0.0,
+	"native_duration": 15.3666667938232,
+	"native_keys": 56826,
+	"native_material_presentation": {
+		"metallic_cap": 0.16,
+		"reason": "Source defaults to full metal. Local multipliers tuned (metallic_cap: 0.16, roughness_factor_min: 0.50) to enhance distant limb and torso readability against the obsidian facility background in 30fps captures; source colour, normal and ORM images remain untouched.",
+		"roughness_factor_min": 0.5
+	},
+	"native_reduced_pause_exact": true,
+	"native_tracks": 123,
+	"restored_pact_keeps_ambient_idle": true,
+	"source_bytes_unchanged": true,
+	"source_sha256": "a3593b7106f7fabc5de60340f9f2b55c17f238847314da8fd6eb67d096dad464",
+	"status": "CONNECTED_ASSET_IMPORT_FIDELITY_PASS_VISUAL_GATE_OPEN"
+}

@@ -1,0 +1,34 @@
+{
+  "four_individual_references": [
+    {
+      "role": "entry",
+      "file": "assembled-entry.png",
+      "sha256": "46af3fcc8d476f14395db161f9a60f5ec32853d2d48d1fac5412663cc86d77de",
+      "review": "accepted as measured current native layout reference; not final-art or chapter acceptance"
+    },
+    {
+      "role": "reverse",
+      "file": "assembled-reverse.png",
+      "sha256": "497331ffb7df891a9317237ce0e7a64adaf9f3abaa9512d64631b1988b404754",
+      "review": "accepted as measured current native layout reference; not final-art or chapter acceptance"
+    },
+    {
+      "role": "lateral",
+      "file": "assembled-lateral.png",
+      "sha256": "3466119b2dd1a8408657c72936f62fb0f1120cb92f26c014d2f51c89631e34cd",
+      "review": "accepted as measured current native layout reference; not final-art or chapter acceptance"
+    },
+    {
+      "role": "hero",
+      "file": "assembled-hero.png",
+      "sha256": "b32ec4e433a813bab7e9f5a4a50652305d1b5a8149ba4eb4251c81e850fd95e7",
+      "review": "accepted as measured current native layout reference; not final-art or chapter acceptance"
+    }
+  ],
+  "actual_submission_plan": [
+    "assembled-lateral.png",
+    "assembled-four-view-contract.jpg"
+  ],
+  "provider_limit": "Veo current mode max3individual inputs; two inputs retain all four native views via a contact sheet and one full starting view.",
+  "note": "No rejected Flow layout concept is used as geometry authority."
+}

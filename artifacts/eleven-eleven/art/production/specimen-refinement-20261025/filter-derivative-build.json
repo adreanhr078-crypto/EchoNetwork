@@ -1,0 +1,45 @@
+{
+  "source": "filter-h31-pbr4k.glb",
+  "source_sha256": "3dbb5a411178ba4bdb3d5c974ecd15b3d8e3ac315e28c624af55954a04789e82",
+  "output": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb",
+  "output_sha256": "91da6947b48a5d4ba4af2f53ce4db91ce069db1e5a8c904f5a595b78e8395d50",
+  "triangles": 19635,
+  "surfaces": 1,
+  "target_native_m": [
+    2.2,
+    1.8,
+    1.4
+  ],
+  "pivot": "bottom centre; native+Z service doors",
+  "source_blender_extent": [
+    0.9786683320999146,
+    0.6568910479545593,
+    0.767974853515625
+  ],
+  "blender_scale": [
+    2.247952461242676,
+    2.131251335144043,
+    2.3438267707824707
+  ],
+  "images": [
+    {
+      "source_name": "tripo_image_85858860-6550-4af3-9da4-f7b8730535dd_0",
+      "role": "basecolor",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "source_name": "tripo_image_85858860-6550-4af3-9da4-f7b8730535dd_2",
+      "role": "normal",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "source_name": "tripo_image_85858860-6550-4af3-9da4-f7b8730535dd_1",
+      "role": "rm",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "scope": "Visual-only measured fitting; raw source retained. No physics,interaction,scanner or story changes. Native visual review pending."
+}

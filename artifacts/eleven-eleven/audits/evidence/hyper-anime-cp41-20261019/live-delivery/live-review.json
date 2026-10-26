@@ -1,0 +1,17 @@
+{
+	"adapter": "Intel(R) UHD Graphics",
+	"checks": 19,
+	"converted_materials": 288,
+	"display": "Windows",
+	"renderer": "forward_plus",
+	"scope": "actual native scene integration and staged room02 contact render; connected progression verified separately",
+	"source_hashes": {
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "26b86ef97e91461ca9d9fc060605c8f043224d69d15bc9d31fc39606d41da6fa",
+		"res://engine_visuals/camera/DynamicActionCameraRig.gd": "c367ee8494cc9124ddd50055a7c7ba9fb24d354cda56e357d38a9e7ed033f1c2",
+		"res://engine_visuals/shaders/hyper_anime_uber.gdshader": "c7dc8e5cf253912ee3fecc953ec903c40f6be17abcff4eded3d3ddf3da179ff3",
+		"res://engine_visuals/vfx/KineticVFXOrchestrator.gd": "d233764d671be800753020282526c415f73598999b44b8141784f31e33f0ca6d",
+		"res://scripts/main.gd": "e1cb32af6e70d50902c7c77c7cb3505a9803ab854255648e8f3f5bdeb1218ad7",
+		"res://scripts/player/echo_player.gd": "b1fba02f5c2efb8247de8c84fbb7a061f1aa819d43484cab6dc57068066c66e0"
+	},
+	"status": "PASS"
+}

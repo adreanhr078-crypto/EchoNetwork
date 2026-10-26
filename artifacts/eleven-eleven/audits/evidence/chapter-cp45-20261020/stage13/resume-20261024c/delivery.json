@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-24",
+  "checkpoint": "CP45_STAGE13_STASIS_NATIVE_PASS_ART_AND_HIGH_PERFORMANCE_FAIL_OPEN",
+  "scope": "Stasis display craft, actual state/reload proof, High performance diagnosis and preliminary10-room inventory. Entire14-package plan remains open.",
+  "previous_delivery": "audits/evidence/chapter-cp45-20261020/stage13/execution-20261024/delivery.json",
+  "implemented": [
+    "Actual rendered pixel/triangle probe identified the black band as the original10x2.4m stasis clock housing, not missing wall geometry; corrected framebuffer-to-stretched-viewport ray coordinates.",
+    "Named existing clock mesh,applied static local clinical standby finish with14%edge feather; original geometry,digits,visibility timing,collider and wish/exit ownership unchanged.",
+    "Display finish initializes from actual wish state and follows its earned presentation; no early11:11 reveal,fictional countdown,new audio or animation.",
+    "Added earned-wish story and isolated byte-reload checks; actual public melee/revenge/wish/physical hospital path retained.",
+    "Created preliminary evidence cards for10 rooms from inspected actual captures; Room01 retained,no speculative whole-room rebuild.",
+    "Measured High and a single-variable fill-shadow control at1280x720/native internal scale; retained production High because disabling fills alone does not establish playable performance."
+  ],
+  "verification": {
+    "lab_lifecycle": 63,
+    "public_post_contract_to_ward": 60,
+    "route_retries": 0,
+    "earned_wish_reload": 9,
+    "runtime_errors_in_successful_final_runs": 0,
+    "golden_protected_files": 192,
+    "postflight_checks": 649,
+    "lifecycle_story_scope": "63/60 passed before the final static edge-vignette only. Their sole current production hash delta is that shader; subsequent9-check earned reload and both180-frame High profiles compile/render the final vignette. No state/camera/collision source changed afterwards.",
+    "skin_identifier_pixels": 218,
+    "scope": "No final art,fun,device/live-server/package/full-chapter acceptance."
+  },
+  "source_hash_deltas": {
+    "lifecycle": [
+      "res://shaders/clinical_stasis_display.gdshader"
+    ],
+    "story": [
+      "res://shaders/clinical_stasis_display.gdshader"
+    ],
+    "high_baseline_fixture_only": [
+      "res://tests/lab_performance_review.gd"
+    ]
+  },
+  "measurements": {
+    "scope": "180 consecutive presented-process-frame intervals per measured view, after warmup; no GPU timestamps, other devices or full-route acceptance.",
+    "device": "Intel(R) UHD Graphics",
+    "renderer": "forward_plus",
+    "framebuffer": [
+      1280,
+      720
+    ],
+    "high_render_scale": 1.0,
+    "high": [
+      {
+        "buffer_bytes": 111939980,
+        "draw_calls": 4551,
+        "frames": 180,
+        "max_ms": 123.851,
+        "name": "entry",
+        "p50_ms": 105.51,
+        "p95_ms": 119.123,
+        "p99_ms": 123.801,
+        "texture_bytes": 1506253952,
+        "video_bytes": 1801794944
+      },
+      {
+        "buffer_bytes": 114050092,
+        "draw_calls": 2561,
+        "frames": 180,
+        "max_ms": 128.215,
+        "name": "theater",
+        "p50_ms": 82.869,
+        "p95_ms": 119.615,
+        "p99_ms": 125.856,
+        "texture_bytes": 1506253952,
+        "video_bytes": 1806002304
+      },
+      {
+        "duration_ms": 3066.026,
+        "name": "native-walk-to-theater",
+        "scope": "Public movement/collision elapsed time; not a frame percentile"
+      },
+      {
+        "buffer_bytes": 114077284,
+        "draw_calls": 3951,
+        "frames": 180,
+        "max_ms": 165.008,
+        "name": "gameplay-camera",
+        "p50_ms": 133.909,
+        "p95_ms": 148.299,
+        "p99_ms": 157.509,
+        "texture_bytes": 1506516096,
+        "video_bytes": 1806291776
+      }
+    ],
+    "high_service_shadows_disabled_control": [
+      {
+        "buffer_bytes": 114037132,
+        "draw_calls": 1075,
+        "frames": 180,
+        "max_ms": 114.002,
+        "name": "entry",
+        "p50_ms": 64.398,
+        "p95_ms": 94.877,
+        "p99_ms": 101.766,
+        "texture_bytes": 1506253952,
+        "video_bytes": 1805989248
+      },
+      {
+        "buffer_bytes": 114050092,
+        "draw_calls": 1156,
+        "frames": 180,
+        "max_ms": 105.685,
+        "name": "theater",
+        "p50_ms": 75.503,
+        "p95_ms": 98.822,
+        "p99_ms": 105.185,
+        "texture_bytes": 1506253952,
+        "video_bytes": 1806002304
+      },
+      {
+        "duration_ms": 2809.58,
+        "name": "native-walk-to-theater",
+        "scope": "Public movement/collision elapsed time; not a frame percentile"
+      },
+      {
+        "buffer_bytes": 114077284,
+        "draw_calls": 1107,
+        "frames": 180,
+        "max_ms": 134.53,
+        "name": "gameplay-camera",
+        "p50_ms": 104.357,
+        "p95_ms": 124.92,
+        "p99_ms": 133.54,
+        "texture_bytes": 1506516096,
+        "video_bytes": 1806291776
+      }
+    ],
+    "diagnostic_scope": "Only six ceiling-fill Omni shadows disabled in the control; focal surgical/Zero shadows, tier, normal maps and post-FX retained. Production High still keeps original six fill shadows.",
+    "high_result": "FAIL_ON_THIS_INTEL_UHD; gameplay p50=133.909ms (~7.47fps),p95=148.299ms. Control p50=104.357ms,p95=124.920ms; draw calls3951->1107,still below a playable budget.",
+    "fixture_change_between_runs": "Added optional --budget-service-shadows diagnostic flag and report field; all recorded production source hashes match between the two High runs.",
+    "previous_low": "Earlier scoped Low/Vulkan gameplay p95=38.176ms; Compatibility Low33.152ms. These are older snapshots, not a fresh current Low acceptance."
+  },
+  "adviser": {
+    "model": "Argon High",
+    "url": "https://gemini.google.com/u/2/app/91fd0018533811f3",
+    "evidence": "audits/evidence/chapter-cp45-20261020/stage13/resume-20261024c/argon-current-review.txt",
+    "image_confirmed": "theater-review.jpg explicitly recognized",
+    "result": "FAIL_ART: remaining jagged/flat clock surround,source wall/arm blotches and inconsistent equipment contact shadows.",
+    "implemented_after_review": "Static14%screen-edge feather.",
+    "rejected": "Lower coating thresholds/desaturation washed out structural contrast without fixing geometry; candidate and captures preserved,architecture shader restored byte-for-byte.",
+    "inferences_not_accepted": "Do not treat UV/atlas damage or a missing doorway as established causes. Warm full moving Canon films are retained."
+  },
+  "inventory": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+  "remaining": [
+    "Lab wall/frame/arm geometry/material cleanup and contact lighting.",
+    "Measured playable performance tier and target-device acceptance.",
+    "Four High views plus moving player review for earlier-room candidates.",
+    "P05-P13 acting,grip/combo-Iai,opening,wish/hospital,audio/UI,live receipts,whole-player acceptance and new final package."
+  ],
+  "failures_retained": [
+    "Initial physical/logical pixel mismatch in probe corrected; first diagnostic retained.",
+    "Unset shader default returnednull to first lifecycle fixture; display initialization made explicit,63-check rerun passed.",
+    "An async snapshot override mismatched its synchronous driver; fixture corrected,actual60-check path passed.",
+    "Washed coating candidate rejected and source restored; no art PASS invented."
+  ],
+  "new_generation_jobs": 0,
+  "new_generation_spend": 0,
+  "no_purchase_commit_push_publication": true,
+  "usage_last_observed": {
+    "five_hour_used_percent": 21,
+    "weekly_used_percent": 31,
+    "note": "Observed before delivery; provider usage,not a savings guarantee."
+  },
+  "source_hashes": {
+    "godot/scripts/environment/clinical_lab_architecture.gd": "99514adafe2b75b86a00547b787c09740f2991449231e8ea5217a5452620e5a6",
+    "godot/shaders/clinical_architecture_surface.gdshader": "e2833ee28ee81e76fabfb8b3dd27e1df51b53034e0be4fe1b21cb3240ac94782",
+    "godot/tests/lab_performance_review.gd": "7190628e84d650083e5edd584c906f5b4e7fa9809754c8364486f3dcc4eb1043",
+    "godot/tests/lab_presentation_lifecycle_review.gd": "ca06d3961f3d6042eba2250c0a27d48153b0bec94a963b2d2c4bf4778326f5da",
+    "godot/tests/lab_rebuild_views_review.gd": "f4ec350c97f5d14881e1a36e979dd4eddd4c4f3695c29b74412a0bac69d39606",
+    "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed.glb": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533",
+    "godot/export_presets.cfg": "721940fae2586fcd628cc58fc8ab934e8667633aa542b0bbaab6a303777c45d3",
+    "art/production/build_lab_packed_perimeter_20261024.py": "110bc3a4c2fee1ec12e1ee66fe63ccbddbc29c7218eb90bf3f7b289983ecfceb",
+    "godot/assets/props/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import": "2ee6236cce005d3b681e0b89a6d0b4f593fa2fdf9abd05cd244cbc14041439e3",
+    "godot/assets/props/medical_wall_unit_tripo_20261008_NormalGL_5affa583-0772-4141-8287-cb4ff9efa62b.png.import": "86edee9dfb503a1ceb1936c377a895cc08a927dd52f517dc7ddb755182de0473",
+    "godot/assets/props/medical_wall_unit_tripo_20261008_ORM_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import": "e6b5c54c0a93a8e6595db75b35edfeb4c1a5c6ae2a45bc864aee03b29baa21ab",
+    "godot/assets/weapons/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import": "495c0391f9edd8cf031a228e846d74db142ad1f3eb8404f20d20f43c61673063",
+    "godot/assets/weapons/shadow_katana_tripo_20261008_NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740.png.import": "010bd8b2c2484787aba98e0d99ccff4892de01d399b60bc6faedfb0730cd1713",
+    "godot/assets/weapons/shadow_katana_tripo_20261008_Color_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import": "3060f11b76c910488d8e1a52d8ac675e096124e873f0a1bb9db4045ddba9a2c9",
+    "godot/assets/weapons/standard_katana_tripo_20261008_ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import": "f34e60323efc8042bfaa25cab47541c7c7dc3b0d0248e3ccd6fb8dbdadd9635c",
+    "godot/assets/weapons/standard_katana_tripo_20261008_NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.png.import": "3a6275670a7819561c2f60a13b8326d951d7cb0bfa8aee96456f15d65fa98936",
+    "godot/assets/weapons/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import": "4e7ee959cec6393ab4e0210c1d367d237865de174c9976edf0c1d0c8b1fd5e07",
+    "godot/assets/characters/echo_v31_short_jacket_echo_original_high_basecolor.jpg.import": "7becdc4744151bc92f661646c6416eba2433c05f821a475193948740856186d8",
+    "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_basecolor.jpg.import": "6cf0440299a8ba4d10479a369d50e0880a8fe8ce941cbb4ddb116f7e4cab53bc",
+    "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_rm.png.import": "c3113882863c416590c0c9f2e335b36fdd0c5d750d5470f3ad9d4d943a761e24",
+    "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_normal.jpg.import": "ab674cc7946a6a7bb972e2bdc16fef950050164f943fed7d679c3e623734b85d",
+    "godot/assets/characters/kinja_revenge_rig_v1_Color_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import": "a110268e99f035a4102f79f8ec1161c0c8e4daa37ef22a31692945d094b052bb",
+    "godot/assets/characters/kinja_revenge_rig_v1_NormalGL_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import": "ebe71782db86ee0e0d044ea680e294fdd3f1dbde0886d08bc301d21f4ae61e84",
+    "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_basecolor.jpg.import": "3fc7f31494dd2aa6de9ac1b8234e154a45ec35d8121fdcf3e3e1d974df6d9872",
+    "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_normal.jpg.import": "41a8dd5b0b076300abd39376716d9fc2d7febed848b8e97bfe5b34e9e92a883c",
+    "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_rm.jpg.import": "fb1cc74295a4bd729ee2e24e1927e8b81972998ff085db34893e925543c406aa",
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+    "godot/scripts/player/echo_skin_identifier.gd": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585",
+    "godot/shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+    "godot/tests/opening_player_journey_review.gd": "53de8291f58036c49a4b1fefc6d3988f6ec27e65e8ac39fc6be123c7618fac93",
+    "godot/tests/full_chapter_journey_review.gd": "10fe7042105b28e322d0ed08dc4b11dcaf546c051d234275e8ed11db89c115ea",
+    "godot/scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
+    "godot/scenes/player/echo_player.tscn": "31ab502257b5a15a894b636e7e5c5b96c5fa4f3bb8f288b57f23cbeaae186372",
+    "godot/scripts/environment/dr_kinja_lab_room.gd": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+    "godot/shaders/clinical_stasis_display.gdshader": "a15a4effd8687c2c9cfa8328100eca94ecfe8fc11135aed9469d2bef3200eac3",
+    "godot/tests/lab_surface_probe.gd": "2ec136cdb1763c3099b364801f0980ce6a323b938134053403ac99b3b85d8ce7",
+    "godot/tests/lab_stasis_story_review.gd": "20607ccf3a9c0d8dac7d7829242f9c8e4dfdcc102efbab73debe78e3c8d562bc",
+    "godot/tests/lab_stasis_reload_review.gd": "a49378da72f6e8321dfb72a0e0ad52979e96005b9bd5a339ae606d8849970440",
+    "godot/tests/post_contract_journey_review.gd": "a4e5ec925d3b7321c9e6a1e6f92e21fa5ea52442038c7d775c11ab2a6a58056d",
+    "docs/internal/production/ROOM_QUALITY_INVENTORY.json": "36b029fe236ce91cc3a1d50631629b57fddfe075c0e0b32a36c0a106541e4526",
+    "docs/internal/production/ROOM_QUALITY_INVENTORY.ar.md": "f94e00995fdaaf9e427d47aa52cde2e9d4ae0bbfc2279171c6e4e454778e84e7"
+  },
+  "next": "P02: clean the actual wall planes and stasis frame geometry with a small measured editable kit candidate; retain intact memory films and original clock timing. Compare four native High views and the public lab journey before accepting. P03 cards are preliminary Low-image inventory, not final High acceptance. Do not repeat washed coating or rebuild Room01."
+}

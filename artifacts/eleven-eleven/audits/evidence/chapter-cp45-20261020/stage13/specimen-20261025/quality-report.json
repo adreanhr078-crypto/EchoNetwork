@@ -1,0 +1,100 @@
+{
+  "checkpoint": "CP45_STAGE13_SPECIMEN_STATIC_HIGH_ART_NATIVE_SCOPED_PASS",
+  "time": "2026-10-25T07:34:55.170667",
+  "implementation": [
+    "Four measured TripoH3.1 biofilter visuals with shared19635tri mesh and4096colour/RM+2048normal maps",
+    "Twelve native-footprint machined caps;shared measured wall panels,fitted privacy faces,cable trays and ceiling terminations",
+    "Visible native scanner housing/optic,measured terminal casing and low-glare instrument surface;original native actors own detection/interaction",
+    "EX011 original0.75m amber fluid/position retained;corrected source_color encoding and readable transparent empty glass",
+    "Both original portals framed outside their original clear apertures;no added solids or gameplay grants"
+  ],
+  "checks": {
+    "native_contract_checks": 33,
+    "native_contract_failures": [],
+    "static_high_views": 4,
+    "view_camera_overlaps": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "public_samples": 10,
+    "scanner_retries": 0,
+    "saved_completion": [
+      "specimen"
+    ],
+    "camera_current": true,
+    "no_pre_pact_power": true,
+    "golden_protected_files": 192,
+    "golden_status": "PASS current command;no motion edits"
+  },
+  "art_review": {
+    "reviewer": "Gemini Argon High actual returned four-image review",
+    "architecture": "PASS_SCOPED_STATIC",
+    "equipment": "PASS_SCOPED_STATIC",
+    "composition": "PASS_SCOPED_STATIC",
+    "file": "art/production/specimen-refinement-20261025/argon-readability-return.txt",
+    "note": "Adviser mistakenly called12caps12tanks;source and contract confirm6vessels and12caps."
+  },
+  "renderer": "Godot4.8-dev7 Forward+ High1280x720,IntelUHD",
+  "provider_spend": {
+    "tripo": 90,
+    "flow": 100
+  },
+  "balances_observed": {
+    "tripo": 2880,
+    "flow": 750
+  },
+  "cinematic": "Actual Veo8s720p24 video decoded;visual fluid/camera drift rejected for runtime,audio listening unverified;kept as production reference only",
+  "open": [
+    "moving acting",
+    "audio and SFX qualification",
+    "player fun/stealth pacing",
+    "performance on stronger hardware",
+    "full connected fresh chapter",
+    "final package",
+    "02/03/10High inventory and remainingP04–P13 craft"
+  ],
+  "source_hashes": {
+    "godot/scripts/environment/specimen_containment_wing.gd": "f01e8b204f97412f9a3aa19cbf0dc283487d665317d81f4709910d469c89f919",
+    "godot/scripts/environment/specimen_mechanical_dressing.gd": "addd51140390e1bea4c139e01457188bfa0825dab0f4b04a581e0f0dcaba7cd3",
+    "godot/shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+    "godot/tests/specimen_dressing_public_review.gd": "5c264b75f1dcf8bc9e527a8ff26776b46e2c66898d86b75a948e7a5fff692c98",
+    "godot/tests/campaign_room_render_review.gd": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef",
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+    "godot/assets/environments/specimen_cp45/specimen_ceiling_tray.glb": "93b6f20b332e497d086a724648d54d161335728d518e59f0956c5ca5ec26e6ba",
+    "godot/assets/environments/specimen_cp45/specimen_ceiling_tray.glb.import": "5671f415449da5f9986546ec8679802123c39bd1d1d7a78906815fe8578f605d",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb": "91da6947b48a5d4ba4af2f53ce4db91ce069db1e5a8c904f5a595b78e8395d50",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb.import": "ad29cbee967246de81be1b2ef3496c81ad7797c0620663c301e17e8b35a4fc38",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_basecolor_4096.jpg": "0f572f7e9a67442167e1b33156da5b946d21fe0ac86d0fee7337778efe3fcdfe",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_basecolor_4096.jpg.import": "74f04f43cb1c8ba30cb44f53da02bb63b805df6ce789db55ff12145572238c77",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_normal_2048.png": "40d1189b3e99e5c9b4ee75f216d928ab630cd32f2ab977ccfea73ac32411eb37",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_normal_2048.png.import": "7e2e4ec2eb3d1e2b55ddbf98fc748a0f410a411b7db11deb2a05f4b21d023224",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_rm_4096.png": "7c4b4ced85e7cb955b5a805d6408ecd6bc155c9195541babb6453f82a3b0cdbe",
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_rm_4096.png.import": "1f6de30fca4a25d4230e939a2336e90c18b2d0c01586ec92bb77f63ec3125d8d",
+    "godot/assets/environments/specimen_cp45/specimen_seal_cap.glb": "9fe930be7fd1aa88e7808169a08bbe3088b05c5cc18bf9ef3c511b6521151355",
+    "godot/assets/environments/specimen_cp45/specimen_seal_cap.glb.import": "a4a42ec9b956f2710a366c43128c14653c81c5ec80d2ed8b1731f9e32bf5224a",
+    "godot/assets/environments/specimen_cp45/specimen_sensor_housing.glb": "8ba03952456c644dcc201aa5addb4489d3083f7926930c053d4d79d14201cb67",
+    "godot/assets/environments/specimen_cp45/specimen_sensor_housing.glb.import": "b6a35dfc37281b648ede24b4a5bfcc60c877b1132c68f70cde2376c6f077f4a9",
+    "godot/assets/environments/specimen_cp45/specimen_terminal_case.glb": "3ab5401235168a92a5180df696b8d2e3e64f4a01042848952c1ceb7ff63dceba",
+    "godot/assets/environments/specimen_cp45/specimen_terminal_case.glb.import": "fae24483834e8b015d6b2461c0c9076f200f4760429eb32784667b6e02705cb4",
+    "godot/assets/environments/specimen_cp45/specimen_trim_unit.glb": "de2fb573f68b5db7c03cb6561e4aa13a33966121f9f60ed17642e57d22a648a5",
+    "godot/assets/environments/specimen_cp45/specimen_trim_unit.glb.import": "7e8dec1eab629a969a70acaca668788645d7d02a48b41490b6c4429f61672645",
+    "godot/assets/environments/specimen_cp45/specimen_wall_service_panel.glb": "f793094ac025d292b3727465aa160a35e1b2a3eaecdf7af39cfca0fd3a13cdd3",
+    "godot/assets/environments/specimen_cp45/specimen_wall_service_panel.glb.import": "830887645799229a668c86c670749cb111c3f331925a88a0f82417d762fab118",
+    "godot/shaders/specimen_sensor_optic.gdshader": "2d2e310851fa1c3ef044914e880d0502b40d9076404fd35fe675f4c3c6448b8c",
+    "godot/shaders/specimen_reserved_glass.gdshader": "e0d2b3b525b0e693ca5cd8998541c6d6e8afec4b9b8b968fad01aff0bbf4b9a1",
+    "godot/shaders/clinical_diagnostic_display.gdshader": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+    "godot/tests/specimen_dressing_contract_review.gd": "a9384f0f0db9c745485dcb4cf0f9910dc863301688afc95459e4c9d5010fadb8",
+    "art/production/build_specimen_mechanical_20261025.py": "4eb057def42c692704bb34523807152ae291f665556df0d7ae7ffe396c59c246",
+    "art/production/build_specimen_filter_20261025.py": "0e08edd4c8d8f4150e2b08ae91f766c6ed96a83b724d3a073565ee8d2f43507a",
+    "art/production/build_specimen_readability_20261025.py": "3449e40da026038945a206a9cbd84db5dca360dc956a08be97feb17da22517f6"
+  },
+  "evidence_files": {
+    "views": "readability-high-v1/four-high-views.json",
+    "public_route": "readability-public-canonical-window/connected-public-review.json",
+    "native_contract": "dressing-contract-review.json"
+  },
+  "scope": "Scoped specimen static environment craft and native behavior. No whole room/fun/chapter/device AAA acceptance.",
+  "pilot_regression_note": "New retry counter exposed the old cold diagnostic pilot waiting at(-23,0,3)/3.4rad and silently retrying. The child pilot now follows the already-evidenced fresh-chapter cover waypoint(-13,0,3) and1.1rad window. Native scanner/solids remain byte/contract protected. Failed diagnostic runs retained;final actual route reports0retries."
+}

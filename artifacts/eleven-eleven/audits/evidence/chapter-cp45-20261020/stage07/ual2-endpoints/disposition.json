@@ -1,0 +1,8 @@
+{
+  "status": "REJECT_FOR_HANG_TO_STAND_ROLE",
+  "source_sha256": "814eee878f82934992d3ea746c539df25e981487109c591f5efbb8dd03286f99",
+  "action": "ClimbUp_1m",
+  "reason": "Original first pose is grounded stride with hands below head, not a hanging start. Endpoint-only diagnostic; not a full motion qualification. No source keys edited or runtime asset integrated.",
+  "native_fps": 30,
+  "native_sample_count": 21
+}

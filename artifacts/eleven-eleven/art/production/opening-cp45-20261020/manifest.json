@@ -1,0 +1,47 @@
+{
+  "checkpoint": "CP45",
+  "date": "2026-10-20",
+  "source_provenance": "Flow project 658007d8-ddc0-4e64-8b56-be8f7ea373e8; CP45 OPENING LAB ARRIVAL and CP45 OPENING EXPERIMENT",
+  "model": "Omni1.1Flash720p8s16:9x1",
+  "live_balance_before": 461,
+  "displayed_cost_each": 12,
+  "attempts": 2,
+  "purchase": false,
+  "audio_policy": "Generated audio discarded; existing city physical ambience and existing create_pressure_air only. Japanese acting remains OPEN.",
+  "experiment_edit": "Preserved complete8s raw; runtime uses source2..8s to remove unintended standing-to-reclining cut. No motion keys or Golden changed.",
+  "review": "Contact sheets at1Hz examined: same school uniform, hair/face, father coat/glasses and lab continuity; no Zero or powers, no text/subtitles baked into new clips. Not final acting/art acceptance.",
+  "files": [
+    {
+      "path": "art/production/memory-atmosphere-cp42-20261020/flow-raw/city.mp4",
+      "sha256": "3d7268e53687e7d95d82afb2d02b1aba68eb0c2ad23292ae04ad935f203ac64a",
+      "duration": 8.042667
+    },
+    {
+      "path": "art/production/opening-cp45-20261020/flow-raw/lab-arrival.mp4",
+      "sha256": "abae74e52872bdca26834dc58a5d4f573a9540aac5d39a4be4d3460f58873e5f",
+      "duration": 8.0
+    },
+    {
+      "path": "art/production/opening-cp45-20261020/flow-raw/experiment.mp4",
+      "sha256": "b3848098c83cb6c4baa289de9ec0abc51a5f103cbf97751fa5b1295ff53fcbb4",
+      "duration": 8.0
+    },
+    {
+      "path": "godot/assets/cinematics/opening-cp45/lab-arrival.ogv",
+      "sha256": "936e5e1199edbaf5e8cf7e8c96529d69cd75667c114ee79daff6c4e9ee339c30",
+      "duration": 8.0
+    },
+    {
+      "path": "godot/assets/cinematics/opening-cp45/experiment.ogv",
+      "sha256": "8055825012e602e3fe67db484b154192d01213324d894e3b5ab339779dde766a",
+      "duration": 6.0
+    },
+    {
+      "path": "public/manhwa/echo-network-final-2026-09-v1/page-006.webp",
+      "sha256": "214ae65dc825e6f636ca1827c1ff15d27b9de95074d13b20e99e78b23e9d4acc",
+      "duration": null
+    }
+  ],
+  "live_balance_after": 437,
+  "observed_spent": 24
+}

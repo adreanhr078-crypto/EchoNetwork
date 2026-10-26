@@ -1,0 +1,386 @@
+{
+	"adapter": "Intel(R) UHD Graphics",
+	"audio_muted": true,
+	"checks": 10,
+	"engine": "4.8-dev7 (official)",
+	"focal_shadow": true,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"msaa": 0,
+	"reduced_motion": false,
+	"reflection_frozen_for_diagnosis": false,
+	"render_scale": 0.649999976158142,
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"buffer_bytes": 94677496,
+			"draw_calls": 862,
+			"frames": 180,
+			"max_ms": 68.529,
+			"name": "entry",
+			"p50_ms": 22.651,
+			"p95_ms": 30.067,
+			"p99_ms": 32.771,
+			"texture_bytes": 1327266432,
+			"video_bytes": 1607362560
+		},
+		{
+			"buffer_bytes": 94690456,
+			"draw_calls": 894,
+			"frames": 180,
+			"max_ms": 40.094,
+			"name": "theater",
+			"p50_ms": 24.469,
+			"p95_ms": 33.106,
+			"p99_ms": 36.55,
+			"texture_bytes": 1327266432,
+			"video_bytes": 1607375616
+		},
+		{
+			"duration_ms": 2143.638,
+			"name": "native-walk-to-theater",
+			"scope": "Public movement/collision elapsed time; not a frame percentile"
+		},
+		{
+			"buffer_bytes": 94717648,
+			"draw_calls": 315,
+			"frames": 180,
+			"max_ms": 48.678,
+			"name": "gameplay-camera",
+			"p50_ms": 31.225,
+			"p95_ms": 41.477,
+			"p99_ms": 44.731,
+			"texture_bytes": 1327528576,
+			"video_bytes": 1607665088
+		}
+	],
+	"scene_inventory": {
+		"largest_shader_textures": [
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/GeneratedZeroModelSlot/MeasuredGeneratedSource/zero_manifestation_idle_v1/Armature/Skeleton3D/tripo_node_b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+				"height": 8192,
+				"path": "res://assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+				"width": 8192
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/NeuralChairTripo/tripo_node_1f176b8d-ac5c-4ce7-a7e4-7c06289e1cf4",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_basecolor.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/ClinicalWestCladding",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_2-tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_1.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/SegmentedTripoScanner/ClinicalScannerP2Measured",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_rm_4k.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/SegmentedTripoScanner/ClinicalScannerP2Measured",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_normal_4k.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/SegmentedTripoScanner/ClinicalScannerP2Measured",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_basecolor_4k.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/ClinicalWallEquipment/tripo_node_5affa583-0772-4141-8287-cb4ff9efa62b",
+				"height": 4096,
+				"path": "res://assets/props/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/ClinicalWallEquipment/tripo_node_5affa583-0772-4141-8287-cb4ff9efa62b",
+				"height": 4096,
+				"path": "res://assets/props/medical_wall_unit_tripo_20261008_NormalGL_5affa583-0772-4141-8287-cb4ff9efa62b.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/ClinicalWallEquipment/tripo_node_5affa583-0772-4141-8287-cb4ff9efa62b",
+				"height": 4096,
+				"path": "res://assets/props/medical_wall_unit_tripo_20261008_ORM_5affa583-0772-4141-8287-cb4ff9efa62b.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/TripoVisual/tripo_node_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+				"height": 4096,
+				"path": "res://assets/weapons/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/TripoVisual/tripo_node_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+				"height": 4096,
+				"path": "res://assets/weapons/shadow_katana_tripo_20261008_NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/TripoVisual/tripo_node_c9cae674-2f4d-49b5-8632-59f2a5caa740",
+				"height": 4096,
+				"path": "res://assets/weapons/shadow_katana_tripo_20261008_Color_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/TripoVisual/tripo_node_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+				"height": 4096,
+				"path": "res://assets/weapons/standard_katana_tripo_20261008_ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/TripoVisual/tripo_node_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+				"height": 4096,
+				"path": "res://assets/weapons/standard_katana_tripo_20261008_NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/TripoVisual/tripo_node_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a",
+				"height": 4096,
+				"path": "res://assets/weapons/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/EchoV31BodyAndCoat/ContractIris",
+				"height": 4096,
+				"path": "res://assets/characters/echo_v31_short_jacket_echo_original_high_basecolor.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/GeneratedZeroModelSlot/MeasuredGeneratedSource/zero_manifestation_idle_v1/Armature/Skeleton3D/tripo_node_b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+				"height": 4096,
+				"path": "res://assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/GeneratedZeroModelSlot/MeasuredGeneratedSource/zero_manifestation_idle_v1/Armature/Skeleton3D/tripo_node_b830dbdf-e0d3-48c1-af9a-545326ebb7e1",
+				"height": 4096,
+				"path": "res://assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/EchoV31BodyAndCoat",
+				"height": 4096,
+				"path": "",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/ClinicalWestCladding",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_normal_6037cb6e-b606-4cfc-871e-423ca1295ea7.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/ClinicalWestCladding",
+				"height": 4096,
+				"path": "res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_rgb_2af462e7-0c28-4844-8ad1-2a2b3f4d8d52.jpg",
+				"width": 4096
+			},
+			{
+				"first_owner": "/root/Main/Campaign_mirror/SurveillancePresentation/ApprovedMirrorMemory",
+				"height": 2700,
+				"path": "res://assets/canon/mirror-page009-approved.webp",
+				"width": 1800
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/NeuralChairTripo/tripo_node_1f176b8d-ac5c-4ce7-a7e4-7c06289e1cf4",
+				"height": 2048,
+				"path": "res://assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_normal.jpg",
+				"width": 2048
+			},
+			{
+				"first_owner": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/NeuralChairTripo/tripo_node_1f176b8d-ac5c-4ce7-a7e4-7c06289e1cf4",
+				"height": 2048,
+				"path": "res://assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_rm.png",
+				"width": 2048
+			}
+		],
+		"roots": {
+			"CampaignBuffer_0": {
+				"meshes": 8,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"CampaignBuffer_1": {
+				"meshes": 10,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"CampaignBuffer_2": {
+				"meshes": 8,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"CampaignBuffer_3": {
+				"meshes": 8,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"CampaignBuffer_4": {
+				"meshes": 8,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"CampaignBuffer_5": {
+				"meshes": 8,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 8,
+				"visible_surfaces": 8
+			},
+			"Campaign_archive": {
+				"meshes": 120,
+				"multimesh_batches": 2,
+				"multimesh_instances": 80,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"Campaign_decon": {
+				"meshes": 87,
+				"multimesh_batches": 5,
+				"multimesh_instances": 109,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"Campaign_lab": {
+				"meshes": 344,
+				"multimesh_batches": 5,
+				"multimesh_instances": 126,
+				"visible_meshes": 209,
+				"visible_surfaces": 264
+			},
+			"Campaign_mirror": {
+				"meshes": 74,
+				"multimesh_batches": 6,
+				"multimesh_instances": 82,
+				"visible_meshes": 66,
+				"visible_surfaces": 66
+			},
+			"Campaign_reactor": {
+				"meshes": 133,
+				"multimesh_batches": 2,
+				"multimesh_instances": 72,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"Campaign_specimen": {
+				"meshes": 66,
+				"multimesh_batches": 5,
+				"multimesh_instances": 172,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"EchoPlayer": {
+				"meshes": 24,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 9,
+				"visible_surfaces": 9
+			},
+			"FloatingPod": {
+				"meshes": 3,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"Floor": {
+				"meshes": 1,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"MaintenanceVertical": {
+				"meshes": 64,
+				"multimesh_batches": 3,
+				"multimesh_instances": 30,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"OpeningAtmosphere": {
+				"meshes": 6,
+				"multimesh_batches": 6,
+				"multimesh_instances": 133,
+				"visible_meshes": 1,
+				"visible_surfaces": 1
+			},
+			"PsychologicalMemoryAtmosphere": {
+				"meshes": 5,
+				"multimesh_batches": 1,
+				"multimesh_instances": 16,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			},
+			"Sector11Capsule": {
+				"meshes": 2,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 2,
+				"visible_surfaces": 7
+			},
+			"Sector11Facility": {
+				"meshes": 77,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 57,
+				"visible_surfaces": 67
+			},
+			"Sector11OpeningShell": {
+				"meshes": 62,
+				"multimesh_batches": 0,
+				"multimesh_instances": 0,
+				"visible_meshes": 62,
+				"visible_surfaces": 119
+			},
+			"SecurityCheckpointRoom": {
+				"meshes": 114,
+				"multimesh_batches": 3,
+				"multimesh_instances": 76,
+				"visible_meshes": 0,
+				"visible_surfaces": 0
+			}
+		},
+		"scope": "Scene graph references, including hidden roots; not per-texture VRAM attribution.",
+		"unique_active_materials": 431,
+		"unique_shader_textures": 46
+	},
+	"scope": "Two fixed views and a real walked gameplay camera in the earned lab. 180 consecutive presented-frame intervals after warmup per view; no GPU timing, full chapter, fun or other-device acceptance.",
+	"service_shadow_count": 0,
+	"service_shadows_budgeted_for_diagnosis": false,
+	"source_hashes": {
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+		"res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9",
+		"res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scripts/environment/clinical_lab_architecture.gd": "e9ea1ca85aafee63b20c2d5a91a4fe686b0b00d53dcd9b3d70acb4512b85049c",
+		"res://scripts/environment/clinical_modular_perimeter.gd": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+		"res://scripts/environment/lab_memory_cinema.gd": "80ac27d14897f04d7feef3f43c0f928fb1cb213beba873e21a97668e87e2aba4",
+		"res://scripts/environment/memory_reflection_space.gd": "038b7c7064e39f356a536e211abc44e4e922051be25e6d68bc5cd3a9ebe4cb42",
+		"res://scripts/player/echo_skin_identifier.gd": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585",
+		"res://shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://tests/lab_performance_review.gd": "11537b35a0d794ac430e30e013f85a2a1e34e749b39b59a1897230490b0cfd5a"
+	},
+	"tier": "low",
+	"video_players": 2,
+	"water_active": true
+}

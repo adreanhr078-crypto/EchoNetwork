@@ -1,0 +1,32 @@
+{
+  "scope": "Actual originalGLB connected-component measurements;not guessing a lighting fix",
+  "original_platform_skin_max_y": 3.4060002267360687,
+  "native_platform_contact_y": 3.400000050663948,
+  "old_replacement_mask_pad": 0.002,
+  "current_platform_mask_top_pad": 0.01,
+  "title_mask_only_original_void_material": true,
+  "physics_or_motion_edits": false,
+  "correction": "Earlier header hypotheses/components used translation only and missed source node Y scale1.325;actual source header7.33..9.63m is now fully masked. Adjacent portal/ceiling skins retained for measured material continuity,not claimed as cause.",
+  "actual_title_bounds_with_node_scale": [
+    [
+      -1.3499999046325684,
+      7.329999227861151,
+      -12.869999885559082
+    ],
+    [
+      1.3499999046325684,
+      9.629999107977085,
+      -12.449999809265137
+    ]
+  ],
+  "old_title_component_local_min_translation_only": [
+    -1.3499999046325684,
+    6.832074880599976,
+    -12.869999885559082
+  ],
+  "old_title_component_local_max_translation_only": [
+    1.3499999046325684,
+    8.567923784255981,
+    -12.449999809265137
+  ]
+}

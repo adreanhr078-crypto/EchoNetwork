@@ -1,0 +1,20 @@
+{
+  "candidate": {
+    "take_id": "8dd34e2b14939c747d1b9787:0:b0913491",
+    "file_sha256": "8dd34e2b14939c747d1b9787c4d02fb117884889a20e4476c1608b5e66efdb15",
+    "source_take": "Armature|mixamo.com|Layer0",
+    "rig": "Armature",
+    "rig_hash": "b09134910fb5b329b8d733ab7caa6f1e40e694662de6a41de1a3055d7cbe8a4e",
+    "original_filename": "Crouched To Standing.fbx",
+    "fps": 30,
+    "source_frame_range": [1, 20]
+  },
+  "entry": {
+    "sha256": "8dd34e2b14939c747d1b9787c4d02fb117884889a20e4476c1608b5e66efdb15",
+    "working_copy": "art/production/echo-mixamo-pull-over-cp45-20261021/Crouched To Standing.fbx"
+  },
+  "origin": "Adobe Mixamo original download through existing owner-authorized session;30FPS,no key reduction,full20samples",
+  "source_review": "../standing-source-render/source-render.json",
+  "semantic_scope": "Actual source skin reviewed in12 front/side captures: crouch-to-upright support transition; seam requires measured V31 test",
+  "runtime_integrated": false
+}

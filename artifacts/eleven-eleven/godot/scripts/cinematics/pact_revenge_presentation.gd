@@ -1,5 +1,9 @@
 extends Node3D
 
+signal encounter_changed
+signal encounter_choice_requested(choice: String)
+signal encounter_completed
+
 ## Local, editable presentation of the existing laboratory beats. This node
 ## never accepts a pact, ends a confrontation, grants power or records progress.
 const PactAudio = preload("res://scripts/audio/pact_audio_director.gd")
@@ -44,6 +48,30 @@ var _clearance_settle_remaining:=0.0
 var _clearance_orbit:=Vector3.ZERO
 var _clearance_origin:=Vector3.ZERO
 var _last_reduced_motion:=false
+var encounter_started := false
+var encounter_live := false
+var _encounter_power_staged := false
+var contract_cinematic_shot:="mark"
+var _contract_camera_shape:SphereShape3D
+var encounter_step := 0
+var encounter_questions := 0
+var encounter_deferred := false
+var encounter_answer := -1
+var encounter_look := Vector2.ZERO
+var _encounter_generation := 0
+var _encounter_window_generation := -1
+var _encounter_language := ""
+var _encounter_layer: CanvasLayer
+var _encounter_skip: Button
+var _encounter_power: Button
+var _encounter_look_hint: Label
+var _encounter_base := Transform3D.IDENTITY
+var _encounter_model_visible := true
+var _encounter_model_hidden := false
+var _encounter_mark: Node3D
+var _encounter_power_observed := false
+var _encounter_power_elapsed := 0.0
+var _encounter_save_failed := false
 
 func _ready() -> void:
 	room = get_parent()
@@ -82,59 +110,12 @@ func _bar(label: String, point: Vector3, size: Vector3, mat: Material) -> MeshIn
 	return _visual(label, mesh, point, mat)
 
 func _build_laboratory_details() -> void:
-	var structure := _material(Color(0.08,0.12,0.17))
-	var steel := _material(Color(0.29,0.35,0.42))
-	var cyan := _material(Color(0.07,0.66,0.79), 0.8)
-	_signal_material = _material(Color(0.66,0.08,0.22), 0.5)
-	# Keep the authored collision and central player routes completely intact.
-	# Repeated structural ribs, insets and warm circuit traces add depth to the
-	# existing envelope; every new component is decorative and noncolliding.
-	for z in [-6.0,-12.0,-18.0,-24.0,-30.0,-36.0]:
-		for side in [-1.0,1.0]:
-			_bar("WallRib", Vector3(side*15.7,4.4,z), Vector3(0.36,8.7,0.65), structure)
-			_bar("WallInset", Vector3(side*15.48,3.8,z+2.0), Vector3(0.05,3.2,3.4), steel)
-			_bar("InsetSignal", Vector3(side*15.43,4.2,z+2.0), Vector3(0.045,0.055,2.8), cyan)
-			_bar("CeilingRib", Vector3(side*8.0,9.64,z), Vector3(15.6,0.25,0.38), structure)
-	for side in [-1.0,1.0]:
-		for z in [-10.0,-14.0,-18.0,-22.0,-26.0,-30.0,-34.0]:
-			_bar("FloorSignal",Vector3(side*9.8,0.037,z),Vector3(0.05,0.018,2.6),cyan)
-			_bar("FloorPanelSeam",Vector3(side*7.9,0.027,z),Vector3(6.0,0.014,0.045),structure)
-		_bar("TheaterWarning",Vector3(side*5.85,1.215,-20.0),Vector3(0.065,0.02,10.8),_signal_material)
-		for z in [-16.0,-24.0]:
-			var capsule := CylinderMesh.new()
-			capsule.top_radius = 0.31
-			capsule.bottom_radius = 0.31
-			capsule.height = 1.9
-			_visual("ObservationColumn",capsule,Vector3(side*11.7,0.95,z),structure)
-			var ring := TorusMesh.new()
-			ring.inner_radius = 0.29
-			ring.outer_radius = 0.35
-			_visual("ColumnIndicator",ring,Vector3(side*11.7,1.53,z),cyan)
-	# A medical instrument tray ties the later fracture feedback to the lab.
-	for x in [-4.0,4.0]:
-		_bar("InstrumentTray",Vector3(x,2.04,-20.7),Vector3(1.2,0.065,0.72),steel)
-		for dx in [-0.42,0.42]:
-			_bar("TraySupport",Vector3(x+dx,1.63,-20.7),Vector3(0.07,0.8,0.07),structure)
-		for i in 4:
-			_bar("Instrument",Vector3(x-0.36+i*0.23,2.095,-20.7),Vector3(0.045,0.025,0.42),steel)
-	# The north wall must still read as an observation chamber behind Zero.
-	# Large subdued panels and a thin seam keep the giant's silhouette legible.
-	for x in [-11.5,-7.2,7.2,11.5]:
-		_bar("NorthObservationInset",Vector3(x,4.0,-39.76),Vector3(3.7,5.8,0.04),steel)
-		_bar("NorthObservationMullion",Vector3(x+2.0,4.0,-39.69),Vector3(0.12,6.3,0.14),structure)
-		_bar("NorthReadout",Vector3(x,2.0,-39.69),Vector3(2.9,0.04,0.05),cyan)
-	for x in [-6.0,6.0]:
-		_bar("AltarFloorPath",Vector3(x,0.04,-33.0),Vector3(0.04,0.018,10.0),cyan)
-	for data in [[Vector3(-5.0,4.4,-28.0),Color(0.7,0.81,1.0)],[Vector3(4.0,3.8,-30.0),Color(1.0,0.66,0.48)]]:
-		var light:=OmniLight3D.new()
-		light.name="StoryFill"
-		light.position=data[0]
-		light.light_color=data[1]
-		light.light_energy=4.0
-		light.omni_range=17.0
-		light.omni_attenuation=0.7
-		light.shadow_enabled=false
-		add_child(light)
+	var architecture:=preload("res://scripts/environment/clinical_lab_architecture.gd").new()
+	architecture.name="ClinicalLabArchitecture"
+	add_child(architecture)
+	architecture.build(room)
+	# Existing story state still owns these warning colors and animations.
+	_signal_material=_material(Color(.66,.08,.22),.5)
 
 func _build_zero() -> void:
 	_zero = Node3D.new()
@@ -396,6 +377,9 @@ func _process(delta: float) -> void:
 	_impact=maxf(0.0,_impact-delta)
 	for i in _shards.size():
 		_shards[i].position.y=0.08 if still else 0.08+sin(_phase*8.0+i)*_impact*0.12
+	if encounter_live:
+		_tick_encounter(delta)
+		return
 	if not active: return
 	if not is_instance_valid(main) or main.reduced_motion:
 		finish(true)
@@ -420,7 +404,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		finish()
 
+func restore_presentation_clock(value: float) -> void:
+	# A cursor can resume framing only. Gameplay flags and choice callbacks
+	# remain owned by the room/campaign, never by elapsed presentation time.
+	if active and is_finite(value):
+		_elapsed = clampf(value, 0.0, _duration)
+
 func finish(immediate := false) -> void:
+	if encounter_started: _cancel_encounter()
 	if not active: return
 	if _kind=="revenge" and is_instance_valid(main) and _return_elapsed<0.0 and _clearance_settle_remaining<=0.0:
 		_clearance_origin=main.player.camera_target_rotation
@@ -539,18 +530,22 @@ func _return_clearance(player:EchoPlayer, rotation:Vector3, settled_shoulder:=fa
 func _handoff_clearance(player:EchoPlayer, rotation:Vector3) -> float:
 	return minf(_return_clearance(player,rotation),_return_clearance(player,rotation,true))
 
-func _ensure_gameplay_return_clearance() -> void:
+func _ensure_gameplay_return_clearance(combat_action:=false) -> void:
 	# A close confrontation can leave the old orbit against the other actor,
 	# retracting the gameplay lens into Echo. Resolve only this encounter's
 	# return; preserve a clear orbit and every world/actor collision mask.
-	if _kind!="revenge" or not is_instance_valid(main):return
+	if (not combat_action and _kind!="revenge") or not is_instance_valid(main):return
 	var player:EchoPlayer=main.player
-	if not is_instance_valid(player) or _previous!=player.player_camera or not player.camera_boom:return
+	if not is_instance_valid(player) or (not combat_action and _previous!=player.player_camera) or not player.camera_boom:return
+	if combat_action and (get_tree().paused or player.control_locked or not player.player_camera.current or player._camera_suspended or player._camera_look_cooldown>0.0):return
 	player.force_update_transform()
 	player.camera_boom.force_update_transform()
 	if is_instance_valid(actor):actor.force_update_transform()
 	var preferred:Vector3=player.camera_target_rotation
 	if _handoff_clearance(player,preferred)>=1.0:return
+	var fallback:=preferred
+	var fallback_clearance:=0.0
+	var readable_length:=2.4 if combat_action else 1.0
 	for degrees in [15.0,30.0,45.0,60.0,75.0,90.0]:
 		var best:Vector3=preferred
 		var best_clearance:=0.0
@@ -561,10 +556,19 @@ func _ensure_gameplay_return_clearance() -> void:
 			if clearance>best_clearance:
 				best=candidate
 				best_clearance=clearance
-		if best_clearance>=1.0:
+		if best_clearance>fallback_clearance:
+			fallback=best
+			fallback_clearance=best_clearance
+		if best_clearance>=readable_length:
 			player.set_gameplay_orbit(best)
 			player._update_camera_distance(1.0)
 			return
+	# A genuinely tight space retains the widest measured safe fallback;
+	# normal confrontation space should show both bodies rather than stop at
+	# the first one-metre ray that barely clears the other actor's capsule.
+	if combat_action and fallback_clearance>=1.0:
+		player.set_gameplay_orbit(fallback)
+		player._update_camera_distance(1.0)
 
 func _settle_return_clearance(delta:float) -> void:
 	if _clearance_settle_remaining<=0.0 or active:return
@@ -580,3 +584,409 @@ func _settle_return_clearance(delta:float) -> void:
 		return
 	_ensure_gameplay_return_clearance()
 	_clearance_orbit=player.camera_target_rotation
+
+func encounter_snapshot() -> Dictionary:
+	if not encounter_started: return {}
+	return {"step": encounter_step, "questions": encounter_questions, "deferred": encounter_deferred, "look": [encounter_look.x, encounter_look.y], "answer": encounter_answer}
+
+func awaits_encounter_consent() -> bool:
+	return encounter_live and encounter_step == 5 and encounter_questions == 7 and not room.contract_done
+
+func retain_encounter_consent() -> void:
+	if not awaits_encounter_consent(): return
+	_encounter_save_failed = true
+	_refresh_encounter_window()
+
+func begin_encounter(owner: Node, cursor: Dictionary = {}, restoring := false) -> void:
+	if encounter_live:
+		_refresh_encounter_window()
+		return
+	if not encounter_started:
+		finish(true)
+		_encounter_power_staged = false
+		main = owner
+		encounter_started = true
+		encounter_step = 6 if room.contract_done else 0
+		encounter_questions = 7 if room.contract_done else 0
+		encounter_deferred = false
+		encounter_answer = -1
+		encounter_look = Vector2.ZERO
+		if preload("res://scripts/systems/native_campaign_checkpoint.gd").valid_encounter_cursor(cursor, room.contract_done):
+			encounter_step = int(cursor.step)
+			encounter_questions = int(cursor.questions)
+			encounter_deferred = cursor.deferred
+			encounter_look = Vector2(cursor.look[0], cursor.look[1])
+			encounter_answer = int(cursor.get("answer", -1))
+		_encounter_model_visible = main.player.get_node("ModelRoot").visible
+		if not main.player.combat_action_started.is_connected(_observe_encounter_power): main.player.combat_action_started.connect(_observe_encounter_power)
+	if encounter_step == 8:
+		_apply_encounter_stage(true)
+		return
+	if restoring and encounter_deferred:
+		_apply_encounter_stage(true)
+		return
+	encounter_deferred = false
+	encounter_live = true
+	_encounter_power_observed = false
+	_encounter_power_elapsed = 0
+	_encounter_generation += 1
+	_previous = get_viewport().get_camera_3d()
+	_camera = Camera3D.new()
+	_camera.name = "ZeroEncounterCamera"
+	_camera.near = .035
+	if is_instance_valid(_previous): _camera.environment = _previous.environment
+	add_child(_camera)
+	_encounter_layer = CanvasLayer.new()
+	_encounter_layer.layer = 96
+	add_child(_encounter_layer)
+	_encounter_skip = _encounter_button("SkipEncounterPresentation", _skip_encounter)
+	_encounter_power = _encounter_button("TryPactPower", Callable())
+	_encounter_power.button_down.connect(_begin_encounter_power)
+	_encounter_power.button_up.connect(_release_encounter_power)
+	_encounter_look_hint = Label.new()
+	_encounter_look_hint.name = "EncounterLookHint"
+	_encounter_look_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_encounter_look_hint.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	_encounter_look_hint.offset_left = 24
+	_encounter_look_hint.offset_right = -24
+	_encounter_look_hint.offset_top = 84
+	_encounter_look_hint.offset_bottom = 132
+	_encounter_look_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_encounter_look_hint.add_theme_font_override("font", preload("res://assets/fonts/NotoSansArabic.ttf"))
+	_encounter_look_hint.add_theme_font_size_override("font_size", 24)
+	_encounter_layer.add_child(_encounter_look_hint)
+	_elapsed = 0
+	_quiet_story_hud()
+	_apply_encounter_stage(restoring)
+	_refresh_encounter_window()
+	encounter_changed.emit()
+
+func _encounter_button(label: String, callback: Callable) -> Button:
+	var button := Button.new()
+	button.name = label
+	button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	button.offset_left = -290
+	button.offset_right = -24
+	button.offset_top = -102
+	button.offset_bottom = -38
+	button.add_theme_font_override("font", preload("res://assets/fonts/NotoSansArabic.ttf"))
+	if callback.is_valid(): button.pressed.connect(callback)
+	_encounter_layer.add_child(button)
+	return button
+
+func _encounter_window() -> Node:
+	return main.hud.find_child("SystemWindow", true, false)
+
+func _encounter_text(ar: String, en: String) -> String:
+	return ar if main.presentation_language == "ar" else en
+
+func _refresh_encounter_window() -> void:
+	if not encounter_live: return
+	_encounter_language = main.presentation_language
+	_encounter_skip.text = _encounter_text("تجاوز العرض", "Skip presentation")
+	_encounter_skip.visible = encounter_step < 5 or encounter_step == 6
+	_encounter_power.text = _encounter_text("اضغط ثم ارفع: اختبار السحب", "Hold, then release: test the draw")
+	_encounter_power.visible = encounter_step == 7
+	_encounter_look_hint.visible = encounter_step < 6
+	_encounter_look_hint.text = _encounter_text("للنظر: اسحب خارج البطاقة؛ بالفأرة اضغط الزر الأيمن أثناء السحب.", "Look: right-drag with the mouse, or touch-drag outside the card.")
+	if encounter_step == 7: return
+	var titles := ["في القاع", "…", "الصوت", "زيرو", "قبل القرار", "عقد زيرو", "EX-011"]
+	var titles_en := ["At the bottom", "…", "The voice", "Zero", "Before the choice", "Zero's pact", "EX-011"]
+	var messages := ["ما زلت هنا.", "…", "أنت كنت تحاول أن تبقى إنسانًا.", "هذا شكلي الحقيقي. أنا لست إنسانًا… ولا ذكرى.", "اسأل قبل أن تختار.", "لن أحتل جسدك… إلا إذا تركتني. الثمن هو أن أكون معك… إلى النهاية.", "حين لامسته… اختفى الشكل، وبقيت اللعنة. العلامة ما زالت على الجلد."]
+	var messages_en := ["You are still here.", "…", "You were trying to remain human.", "This is my true form. I am neither human… nor a memory.", "Ask before you choose.", "I will not inhabit your body… unless you let me. The price is that I remain with you… until the end.", "When he touched it… the form vanished, and the curse remained. The mark is still on the skin."]
+	var choices: Array = []
+	var title: String = _encounter_text(titles[encounter_step], titles_en[encounter_step])
+	var message: String = _encounter_text(messages[encounter_step], messages_en[encounter_step])
+	if encounter_step == 5 and _encounter_save_failed: message += "\n\n" + _encounter_text("تعذر الحفظ. لم يُقبل العقد؛ يمكنك إعادة المحاولة.", "Saving failed. The pact was not accepted; you may retry.")
+	if encounter_step == 4:
+		if encounter_answer >= 0:
+			var replies := ["الثمن هو أن أكون معك… إلى النهاية.", "أنا لم آخذ منك شيئًا. أنا فقط… أعطيك ما بقي.", "أنا لن أحتل جسدك… إلا إذا تركتني. وإذا ضعفت… سأكمل أنا الطريق."]
+			var replies_en := ["The price is that I remain with you… until the end.", "I took nothing from you. I am only… giving you what remains.", "I will not inhabit your body… unless you let me. If you weaken… I will finish the journey."]
+			message = _encounter_text(replies[encounter_answer], replies_en[encounter_answer])
+			choices.append({"id": "QUESTIONS", "text": _encounter_text("متابعة", "Continue")})
+		else:
+			var questions := ["ما الثمن؟", "لماذا أنا؟", "كيف أثق بك؟"]
+			var questions_en := ["What is the price?", "Why me?", "How can I trust you?"]
+			for index in 3:
+				choices.append({"id": "QUESTION_%d" % index, "text": ("✓ " if encounter_questions & (1 << index) else "") + _encounter_text(questions[index], questions_en[index])})
+			if encounter_questions == 7: choices.append({"id": "NEXT", "text": _encounter_text("إلى القرار", "Make the choice")})
+	elif encounter_step == 5:
+		choices = [{"id": "CONFIRM_ZERO_PACT", "text": _encounter_text("أعطني ما أحتاجه. لا يهم.", "Give me what I need. It does not matter.")}, {"id": "DEFER_ZERO_PACT", "text": _encounter_text("ليس الآن", "Not yet")}]
+	else:
+		choices.append({"id": "NEXT", "text": _encounter_text("متابعة", "Continue")})
+	_encounter_generation += 1
+	var window := _encounter_window()
+	window.show_decision(title, message, choices, _choose_encounter.bind(_encounter_generation))
+	window.set_inspection_layout()
+	_encounter_window_generation = window._window_generation
+	main._on_opening_dialogue_started()
+
+func _choose_encounter(choice: String, generation: int) -> void:
+	if not encounter_live or generation != _encounter_generation or get_tree().paused: return
+	_encounter_window_generation = -1
+	if encounter_step == 4:
+		if choice.begins_with("QUESTION_") and encounter_answer < 0:
+			var index := int(choice.trim_prefix("QUESTION_"))
+			if index < 0 or index > 2 or choice != "QUESTION_%d" % index: return
+			encounter_questions |= 1 << index
+			encounter_answer = index
+		elif choice == "QUESTIONS" and encounter_answer >= 0: encounter_answer = -1
+		elif choice == "NEXT" and encounter_questions == 7 and encounter_answer < 0:
+			_set_encounter_step(5)
+			return
+		else: return
+		_refresh_encounter_window()
+		encounter_changed.emit()
+		return
+	if encounter_step == 5:
+		if choice in ["CONFIRM_ZERO_PACT", "DEFER_ZERO_PACT"]: encounter_choice_requested.emit(choice)
+		return
+	if choice == "NEXT" and encounter_step in [0, 1, 2, 3, 6]: _set_encounter_step(encounter_step + 1)
+
+func _set_encounter_step(value: int) -> void:
+	encounter_step = value
+	_encounter_save_failed = false
+	encounter_answer = -1
+	_elapsed = 0
+	_encounter_generation += 1
+	_apply_encounter_stage(false)
+	_refresh_encounter_window()
+	encounter_changed.emit()
+
+func confirm_encounter_contract() -> void:
+	if encounter_live and encounter_step == 5 and room.contract_done: _set_encounter_step(6)
+
+func defer_encounter() -> void:
+	if not encounter_live or encounter_step != 5 or room.contract_done: return
+	encounter_deferred = true
+	_close_encounter_view()
+	encounter_changed.emit()
+
+func _skip_encounter() -> void:
+	if not encounter_live or get_tree().paused: return
+	if encounter_step < 5: _set_encounter_step(4)
+	elif encounter_step == 6: _set_encounter_step(7)
+
+func _apply_encounter_stage(restoring: bool) -> void:
+	if is_instance_valid(room.narrative_trial): room.narrative_trial.reflection_space.pact_view_active = encounter_live and encounter_step < 7
+	set_stage("accepted" if encounter_step >= 6 else ("manifested" if encounter_step >= 3 else "dormant"), restoring)
+	if encounter_step == 1 and audio_director: audio_director.set_stage("dormant", true, false)
+	elif encounter_step == 2 and audio_director: audio_director.set_stage("manifested", restoring, false)
+	if encounter_step >= 7: _zero.hide()
+	var model: Node3D = main.player.get_node("ModelRoot")
+	if encounter_live and encounter_step < 3:
+		model.hide()
+		_encounter_model_hidden = true
+	elif _encounter_model_hidden:
+		model.visible = _encounter_model_visible
+		_encounter_model_hidden = false
+	if not encounter_live: return
+	_clear_encounter_mark()
+	if encounter_step == 6:
+		_encounter_mark = preload("res://scripts/cinematics/skin_mark_inspection_camera.gd").new()
+		add_child(_encounter_mark)
+		if not _encounter_mark.begin(model, _previous):
+			_encounter_mark.queue_free()
+			_encounter_mark = null
+		contract_cinematic_shot="mark"
+		var wing:Node=main.player.find_child("ZeroShadowWing",true,false)
+		if wing:
+			if restoring or room.reduced_motion:wing.complete_cinematic_emergence()
+			else:wing.restart_cinematic_emergence()
+	if encounter_step == 7:
+		_close_encounter_window()
+		_encounter_window().dismiss_task_assignments()
+		_restore_encounter_camera()
+		if not _encounter_power_staged:
+			# The altar view leaves Echo facing the near exit wall. Stage the
+			# first playable draw down the lab lane, with the orbit behind him;
+			# the ordinary swept capsule and camera collision remain authoritative.
+			var direction: Vector3=room.global_basis*Vector3.FORWARD
+			direction.y=0
+			direction=direction.normalized()
+			main.player.visual_root.rotation.y=atan2(direction.x,direction.z)+main.player.model_forward_yaw_offset
+			var orbit: Vector3=main.player.camera_target_rotation
+			orbit.y=atan2(-direction.x,-direction.z)
+			main.player.set_gameplay_orbit(orbit)
+			_encounter_power_staged=true
+		var wing:Node=main.player.find_child("ZeroShadowWing",true,false)
+		if wing:wing.complete_cinematic_emergence()
+		_restore_story_hud()
+		main._release_gameplay_modal_controls()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+	main._on_opening_dialogue_started()
+	_camera.fov = 48 if encounter_step < 4 else 40
+	if encounter_step < 3:
+		_camera.global_position = main.player.global_position + Vector3.UP * [.55, .7, .9][encounter_step]
+		_camera.look_at(room.to_global(Vector3(0, 2.3, -35.5)))
+	elif encounter_step < 5:
+		_camera.global_position = room.to_global(Vector3(2.1, 1.35, -29.5))
+		_camera.look_at(room.to_global(Vector3(0, 3.35, -35.5)))
+	elif encounter_step == 5:
+		var center: Vector3 = main.player.global_position.lerp(_zero.global_position, .55) + Vector3.UP * 1.6
+		_camera.global_position = center + Vector3(7, 2.4, 4)
+		_camera.look_at(center + Vector3.UP * .5)
+	else:
+		_camera.global_position = main.player.global_position + Vector3(-.65, 1.78, .9)
+		_camera.look_at(main.player.global_position + Vector3.UP * 1.5)
+	_encounter_base = _camera.global_transform
+	if not is_instance_valid(_encounter_mark): _camera.make_current()
+
+func _tick_encounter(delta: float) -> void:
+	_elapsed += minf(delta,.1) if encounter_step==6 else delta
+	sync_encounter_preferences()
+	if encounter_step < 7:
+		main.player.control_locked = true
+		_hold_story_hud_quiet()
+		if not _encounter_window().visible: _refresh_encounter_window()
+		if not is_instance_valid(_encounter_mark):
+			_camera.global_transform = _encounter_base
+			if encounter_step == 0 and not room.reduced_motion: _camera.global_position.y += .18 * (1 - smoothstep(0, 1, minf(_elapsed / .9, 1)))
+			_camera.rotate_object_local(Vector3.UP, -encounter_look.x)
+			_camera.rotate_object_local(Vector3.RIGHT, -encounter_look.y)
+	if encounter_step == 6 and (room.reduced_motion or _elapsed >= 1.8): _zero.hide()
+	if encounter_step == 6:_tick_contract_cinematic()
+	if encounter_step == 7 and _encounter_power_observed:
+		_encounter_power_elapsed += delta
+		_encounter_power.disabled = true
+		if _encounter_power_elapsed >= .8 and not main.player.is_attacking:
+			encounter_step = 8
+			_close_encounter_view()
+			encounter_changed.emit()
+			encounter_completed.emit()
+
+func _tick_contract_cinematic() -> void:
+	if not is_instance_valid(_camera) or not is_instance_valid(_encounter_mark):return
+	var owns:bool=_camera.current or _encounter_mark.camera.current
+	if not owns:return
+	if room.reduced_motion or _elapsed<.65:
+		contract_cinematic_shot="mark"
+		_encounter_mark.camera.make_current()
+		return
+	var wing:Node=main.player.find_child("ZeroShadowWing",true,false)
+	var eye:Node=main.player.find_child("ZeroEyeSingularity",true,false)
+	if not wing or not eye or not wing.mount_valid or not eye.mount_valid:return
+	var rig:Skeleton3D=wing.attachment.skeleton
+	for name in ["LeftShoulder","RightShoulder","LeftHand"]:
+		if rig.find_bone(name)<0:return
+	var left:Vector3=(rig.to_global(rig.get_bone_global_pose(rig.find_bone("LeftShoulder")).origin)-rig.to_global(rig.get_bone_global_pose(rig.find_bone("RightShoulder")).origin)).normalized()
+	var forward:Vector3=(main.player.visual_root.global_basis*main.player.model_local_forward).normalized()
+	var center:Vector3=main.player.global_position+Vector3.UP*1.25+left*.25
+	var desired:Vector3
+	if _elapsed<1.9:
+		contract_cinematic_shot="wing"
+		desired=center-forward*3.0+left*2.0+Vector3.UP*.65
+		_camera.fov=42
+	elif _elapsed<2.75:
+		contract_cinematic_shot="eye"
+		center=eye.global_position
+		desired=center+forward*.40+left*.055+Vector3.UP*.015
+		_camera.fov=28
+	elif _elapsed<3.6:
+		contract_cinematic_shot="hand"
+		center=rig.to_global(rig.get_bone_global_pose(rig.find_bone("LeftHand")).origin)
+		desired=center+forward*.48+left*.26+Vector3.UP*.17
+		_camera.fov=36
+	else:
+		contract_cinematic_shot="portrait"
+		desired=center+forward*2.9+left*1.7+Vector3.UP*.40
+		_camera.fov=42
+	desired=center+Basis(Vector3.UP,-encounter_look.x)*(desired-center)
+	center+=Vector3.UP*encounter_look.y*.08
+	var probe:=PhysicsShapeQueryParameters3D.new()
+	if not _contract_camera_shape:
+		_contract_camera_shape=SphereShape3D.new();_contract_camera_shape.radius=.08
+	probe.shape=_contract_camera_shape;probe.transform=Transform3D(Basis.IDENTITY,center);probe.motion=desired-center
+	probe.collision_mask=main.player.collision_mask;probe.exclude=[main.player.get_rid()]
+	var fractions:PackedFloat32Array=main.player.get_world_3d().direct_space_state.cast_motion(probe)
+	_camera.global_position=center+(desired-center)*maxf(0.0,fractions[0]-.015)
+	if _camera.global_position.distance_to(center)<.2:
+		_encounter_mark.camera.make_current()
+		return
+	_camera.look_at(center)
+	_camera.make_current()
+
+func sync_encounter_preferences() -> void:
+	if not encounter_live: return
+	_sync_audio_preferences()
+	if _encounter_language != main.presentation_language: _refresh_encounter_window()
+	if encounter_step == 0 and room.reduced_motion and is_instance_valid(_camera): _camera.global_transform = _encounter_base
+
+func _input(event: InputEvent) -> void:
+	if not encounter_live or encounter_step >= 6 or get_tree().paused: return
+	var relative := Vector2.ZERO
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT): relative = event.relative
+	elif event is InputEventScreenDrag:
+		if _encounter_window().panel.get_global_rect().has_point(event.position): return
+		relative = event.relative
+	if relative == Vector2.ZERO: return
+	encounter_look.x = clampf(encounter_look.x + relative.x * .0018, -.5, .5)
+	encounter_look.y = clampf(encounter_look.y + relative.y * .0018, -.3, .3)
+	get_viewport().set_input_as_handled()
+
+func _begin_encounter_power() -> void:
+	if not encounter_live or encounter_step != 7 or not room.contract_done or get_tree().paused: return
+	main.player.sheath_weapon()
+	main.player.start_iai_charge()
+
+func _release_encounter_power() -> void:
+	if encounter_live and encounter_step == 7 and room.contract_done and not get_tree().paused: main.player.execute_iai_slash()
+
+func _observe_encounter_power(action_name: String) -> void:
+	if action_name=="melee" and encounter_step==8 and not encounter_live and room.contract_done and not room.revenge_done:
+		# The power lane can leave the approach orbit behind Kinja. At an
+		# actual attack only, reuse the existing bounded clearance solver if
+		# the actor would retract the lens into Echo. Clear/manual views keep
+		# their owner; no collision masks or gameplay flags are changed.
+		_clearance_origin=main.player.camera_target_rotation
+		_ensure_gameplay_return_clearance(true)
+		return
+	if action_name not in ["melee", "iai"] or not encounter_live or encounter_step != 7 or not room.contract_done: return
+	_encounter_power_observed = true
+	_encounter_power_elapsed = 0
+
+func _close_encounter_window() -> void:
+	if not is_instance_valid(main) or main.is_queued_for_deletion(): return
+	var window := _encounter_window()
+	if window._window_generation == _encounter_window_generation and window.visible: window.close_window()
+	_encounter_window_generation = -1
+
+func _clear_encounter_mark() -> void:
+	if not is_instance_valid(_encounter_mark): return
+	if is_instance_valid(_encounter_mark.camera) and _encounter_mark.camera.current: _encounter_mark.restore_camera()
+	_encounter_mark.queue_free()
+	_encounter_mark = null
+
+func _close_encounter_view() -> void:
+	var owned_camera: bool = (is_instance_valid(_camera) and _camera.current) or (is_instance_valid(_encounter_mark) and is_instance_valid(_encounter_mark.camera) and _encounter_mark.camera.current)
+	encounter_live = false
+	if is_instance_valid(room) and is_instance_valid(room.narrative_trial): room.narrative_trial.reflection_space.pact_view_active = false
+	_encounter_generation += 1
+	_close_encounter_window()
+	_clear_encounter_mark()
+	if owned_camera: _restore_encounter_camera()
+	if is_instance_valid(_camera):
+		_camera.queue_free()
+	_camera = null
+	_previous = null
+	if is_instance_valid(_encounter_layer): _encounter_layer.queue_free()
+	_encounter_layer = null
+	_encounter_skip = null
+	_encounter_power = null
+	_encounter_look_hint = null
+	if is_instance_valid(main) and not main.is_queued_for_deletion():
+		if _encounter_model_hidden: main.player.get_node("ModelRoot").visible = _encounter_model_visible
+		_encounter_model_hidden = false
+		_restore_story_hud()
+		main._release_gameplay_modal_controls()
+
+func _restore_encounter_camera() -> void:
+	if is_instance_valid(_previous) and not _previous.is_queued_for_deletion():
+		_previous.make_current()
+	elif is_instance_valid(main) and is_instance_valid(main.player) and is_instance_valid(main.player.player_camera):
+		main.player.player_camera.make_current()
+
+func _cancel_encounter() -> void:
+	_close_encounter_view()
+	encounter_started = false

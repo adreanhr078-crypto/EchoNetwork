@@ -1,0 +1,31 @@
+{
+  "units": "metres",
+  "source": "Original procedural hard-surface construction; no external mesh or character source",
+  "modules": [
+    {
+      "name": "neural_chair",
+      "vertices": 4448,
+      "triangles": 8764,
+      "sha256": "2b0f3d0c9d89052ccf8638175bf53cb98ec3710215c5b2d30d360f1339ccedcc"
+    },
+    {
+      "name": "surgical_scan_gantry",
+      "vertices": 9856,
+      "triangles": 19560,
+      "sha256": "059f367d07c8fb6325829e5035139e1bfc233ce3f8c56097a60dd0bd7d557bed"
+    },
+    {
+      "name": "clinical_wall_module",
+      "vertices": 2624,
+      "triangles": 5192,
+      "sha256": "e4e52cce3ad8c1db4ea15da6a90720c7a8848504bfd239d3c6cddf26ca00978f"
+    },
+    {
+      "name": "diagnostic_cart",
+      "vertices": 3008,
+      "triangles": 5924,
+      "sha256": "995877772c3e951a730941d78024d0580050396a4efcee1ab749ce4720b98009"
+    }
+  ],
+  "native_review": "OPEN"
+}

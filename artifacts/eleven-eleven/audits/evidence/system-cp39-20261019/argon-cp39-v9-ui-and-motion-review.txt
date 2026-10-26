@@ -1,0 +1,468 @@
+Browser tab: 1, Title: "ترقية واجهة SystemWindow لعالم 11.11 - Google Gemini", URL: "https://gemini.google.com/u/2/app/8b081a94f32325d0?hl=ar&pageId=none".
+0 AXWebArea ترقية واجهة SystemWindow لعالم 11.11 - Google Gemini, URL: gemini.google.com/u/2/app/8b081a94f32325d0?hl=ar&pageId=none
+	1 container
+		2 container
+			3 button (collapsed) Description: فتح الشريط الجانبي, Secondary Actions: Expand
+			4 container شريط التنقّل الجانبي
+				5 container
+					6 container قائمة الإجراءات الرئيسية
+						7 link Description: محادثة جديدة, Value: gemini.google.com/app
+					8 container قائمة الإجراءات الإضافية
+						9 pop up button Description: البحث في المحادثات, ID: base-ui-_r_2_
+						10 link Description: المكتبة, Value: gemini.google.com/u/2/library
+						11 link Description: الصور, Value: gemini.google.com/images
+						12 container مجدوَل
+							13 link Description: مجدوَل, Value: gemini.google.com/scheduled
+						14 link Description: تخصيص, Value: gemini.google.com/customize
+					15 link Description: حساب Google:‏ انتيقرافيتي ‏([account-redacted]), Value: accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+					16 pop up button (collapsed) Description: الإعدادات, Secondary Actions: Expand
+			17 container xap-skip-link-target
+				18 container
+					19 heading محادثة مع Gemini, Value: 1
+						20 text محادثة مع Gemini
+					21 container
+						22 container ca249d63ff15f210
+							23 container
+								24 heading Value: 5, أنت قلت Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN و…
+									25 text أنت قلت  Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN و…
+								26 text Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN وReducedMotion وكتم؛ سأحسن المكون نفسه لا أبني HUDموازيًا. Canon PART_3 وEX-011 وV31 وGolden وSFX_ONLY ثابتة، لا قوى قبل عقد زيرو. الحفظ المحلي يؤكد مهام الفصل فقط، أماXP/المستوى/المكافآت الحسابية فعند وصول إيصال الخادم الحقيقي؛ العرض لا يخترع خبرة أو قوة. اقترح لغة بصرية سينمائية أصلية وطبقات أنواع الرسائل وتسلسل/زمن ظهورها وحدود الحركة والتوهج والصوت، بحيث تبقى منطقة اللعب والأهداف مقروءة. اعط أولويات محددة قابلة للاختبار، لا عباراتAAAأو اعتماد قنشن بلا لعب مستقل.
+								27 button توسيع
+							664 heading قال Gemini, Value: 6
+								665 text قال Gemini
+							666 container model-response-message-contentr_ca249d63ff15f210
+								667 container
+									668 text ترتكز ترقية مكون  SystemWindow  الحالي على تحويله من إطار إشعارات تقليدي إلى  عدسة نظام سردية (Diegetic Tactical Glass)  تجمع بين رهبة نوافذ  Solo Leveling  والهوية الهندسية الصارمة لعالم  11.11 ، مع ربط صارم بين الطبقة البصرية ومصدر الحقيقة (حفظ محلي للفصل مقابل إيصال خادم موثق) دون بناء أي HUD موازٍ.
+								669 heading 1. اللغة البصرية السينمائية: توليفة Solo Leveling × 11.11, Value: 2
+									670 text 1. اللغة البصرية السينمائية: توليفة Solo Leveling × 11.11
+								671 container
+									672 text بدلاً من الزخارف الفانتازية المزدحمة، تعتمد نافذة  SystemWindow  على  الزجاج التكتيكي المظلم ذي الحواف المقطوعة  مع بصمة  11.11  المعمارية:
+								673 heading 2. طبقات أنواع الرسائل وبوابة التحقق (Authority & Layering), Value: 2
+									674 text 2. طبقات أنواع الرسائل وبوابة التحقق (Authority & Layering)
+								675 container
+									676 text يرتبط كل نوع داخل  SystemWindow  بمصدر بيانات محدد؛ فلا يُسمح للواجهة بعرض أي تقدم حسابي أو قوة قبل تحقق شرطي العقد وإيصال الخادم:
+								677 heading 3. التسلسل الزمني وإدارة الطابور (Sequencing & Timing), Value: 2
+									678 text 3. التسلسل الزمني وإدارة الطابور (Sequencing & Timing)
+								679 container
+									680 text يعمل  SystemWindow  كآلة حالة أحادية العرض (Single-Active-Slot Queue) لمنع تراكب النوافذ فوق بعضها:
+								681 heading 4. حدود الحركة والتوهج والصوت (Guardrails), Value: 2
+									682 text 4. حدود الحركة والتوهج والصوت (Guardrails)
+								683 text لضمان عدم تحول النافذة إلى عنصر مشتت أثناء اللعب الفعلي، تُضبط الحدود القصوى للمؤثرات كالتالي:
+								684 heading 5. أولويات محددة قابلة للاختبار (Testable QA & Engineering Priorities), Value: 2
+									685 text 5. أولويات محددة قابلة للاختبار (Testable QA & Engineering Priorities)
+								686 container
+									687 text تُعتمد هذه المعايير كاختبارات قبول مباشرة (Pass/Fail) على مكون  SystemWindow :
+						375 container 854d7562bb39fe9a
+							376 container
+								377 button عرض الصورة التي تم تحميلها في عرض مبسّط
+									378 image معاينة للصورة التي تم تحميلها
+								379 button عرض الصورة التي تم تحميلها في عرض مبسّط
+									380 image معاينة للصورة التي تم تحميلها
+								381 button عرض الصورة التي تم تحميلها في عرض مبسّط
+									382 image معاينة للصورة التي تم تحميلها
+							383 container
+								384 heading Value: 5, أنت قلت راجع الصور الثلاث المرفقة من Godot الحالي CP39 v7 بصريًا، وليست تصورات مولدة. توجيه المالك: النافذة …
+									385 text أنت قلت  راجع الصور الثلاث المرفقة من Godot الحالي CP39 v7 بصريًا، وليست تصورات مولدة. توجيه المالك: النافذة …
+								386 text راجع الصور الثلاث المرفقة من Godot الحالي CP39 v7 بصريًا، وليست تصورات مولدة. توجيه المالك: النافذة أمام إيكو إلى جانبه بأسلوب ظهور برمجي ممتع وهادئ، دون حجب الشخصية أو تعطيل اللعب. تتبع موضع صدره بإزاحة جانبية؛ ReducedMotion يثبتها إلى الجانب. البطاقات 410px، الجزئية وXP أصغر360px؛ دخول220ms وخروج180ms، جزئي2.4s صامت، خبرة2.8s صامتة، مهمة جديدة3.2s، اكتمال3.5s. التقدم السريع يحدث نفس البطاقة دون تكرار الدخول/الصوت؛ الحوارات والقرارات تتقدمها. صور المهمة من تقدم فصل محفوظ؛ الحالة تقرأ HP والتحمل الفعليين. لا ربط خبرة حساب حية ولا منح قوى من UI. Golden تعني مرجع Walk المحمي ولا تعني لونًا أو مكافأة. أعطني نقدًا بصريًا محددًا لما تراه بالصور: موضع/حجم/قراءة العربية والإنجليزية/ازدحام/تماسك. افصل PASS المرئي عن الحركة/الصوت/المرح التي لا يمكن اعتمادها من صور ثابتة. اقترح فقط 1-3 إصلاحات لازمة إن وجدت؛ لا تعلن AAA أو Genshin أو جودة المشروع من هذه اللقطات.
+								387 button توسيع
+							388 button نَسْخ الطلب
+							389 button تعديل
+							390 container
+								391 heading قال Gemini, Value: 6
+									392 text قال Gemini
+								393 container model-response-message-contentr_854d7562bb39fe9a
+									688 container
+										689 text فيما يلي المراجعة البصرية الدقيقة للقطات الثلاث الملتقطة فعلياً من محرك Godot للإصدار  CP39 v7 ، مع الالتزام بتعريف  Golden  كمرجع Walk المحمي، وفصل ما يثبته الفحص البصري الثابت عما يتطلب فحصاً تشغيلياً حياً.
+									690 heading 1. النقد البصري التفصيلي للقطات الثلاث, Value: 3
+										691 text 1. النقد البصري التفصيلي للقطات الثلاث
+									692 content list
+										693 container
+											694 text الموضع والإزاحة الجانبية (Position & Lateral Offset):
+											695 content list
+												696 container p-rc_33b4d8f98f9648f8-53
+													697 text تتموضع نافذة 
+													698 text SystemWindow
+													699 text  في اللقطات الثلاث إلى يمين شخصية "إيكو" في النصف الأيمن من الشاشة وعلى مستوى موازٍ لمنطقة الصدر/الجذع
+													700 text .
+													701 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												702 container p-rc_33b4d8f98f9648f8-54
+													703 text تحافظ النافذة على مسافة فصل أفقية واضحة عن كتف وذراع "إيكو" سواء أثناء خطوة المشي
+													704 text  أو أثناء الوقوف الثابت
+													705 text ، مما يمنع حجب الشخصية أو إعاقة الرؤية الأمامية للممر والغرفة
+													706 text .
+													707 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg, JPG: personal-status-ar.jpg, JPG: personal-task-en.jpg" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر.
+										708 container
+											709 text الحجم والتناسب (Size & Proportions):
+											710 content list
+												711 container p-rc_33b4d8f98f9648f8-55
+													712 text يظهر عرض البطاقة القياسي (
+													713 text 410px
+													714 text ) متوازناً مع أبعاد شاشة اللعب؛ فهو كبير بما يكفي لقراءة العنوان وشريط التقدم دون ابتلاع خلفية المشهد (السرير، النافذة، وإضاءة الغرفة تظل مقروءة حول الإطار)
+													715 text .
+													716 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												717 container p-rc_33b4d8f98f9648f8-56
+													718 text ملاحظة حدود اللقطات:  الصور الثلاث تعرض فقط بطاقة "مهمة مكتملة" (عربي/إنجليزي) وبطاقة "الحالة" بالحجم القياسي
+													719 text ، ولا تتضمن لقطة لبطاقات التقدم الجزئي أو الـ XP ذات العرض الأصغر (
+													720 text 360px
+													721 text ).
+													722 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										723 container
+											724 text قراءة العربية والإنجليزية (AR/EN Readability & Bilingual Parity):
+											725 content list
+												726 container p-rc_33b4d8f98f9648f8-57
+													727 text الوضوح والتباين:  الخلفية الداكنة شبه المعتمة للبطاقة تمنح تبايناً عالياً للنص الأبيض والأزرق السيان (
+													728 text Cyan
+													729 text ) أمام الخلفية الفاتحة نسبياً لجدران الغرفة والسرير
+													730 text .
+													731 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												732 container p-rc_33b4d8f98f9648f8-58
+													733 text انعكاس الاتجاه (RTL / LTR):  ينعكس تخطيط الترويسة بنجاح بين اللغتين؛ ففي العربية يظهر وسم الحالة/المهمة (
+													734 text مهمة مكتملة // 11:11
+													735 text  و
+													736 text الحالة // [ I ]
+													737 text ) على اليسار ومعرف (
+													738 text إيكو // ECHO
+													739 text ) مع خطَّي البصمة العموديين (
+													740 text ||
+													741 text ) على اليمين
+													742 text ، بينما ينعكس في الإنجليزية ليصبح خطا (
+													743 text ||
+													744 text ) ومعرف (
+													745 text ECHO // 11.11
+													746 text ) على اليسار و(
+													747 text TASK COMPLETE // 11:11
+													748 text ) على اليمين
+													749 text .
+													750 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												751 container p-rc_33b4d8f98f9648f8-59
+													752 text الدمج النصي والرقمي:  الأرقام والرموز اللاتينية المدمجة داخل العربية (
+													753 text 200 / 200
+													754 text ، 
+													755 text 100 / 100
+													756 text ، 
+													757 text EX-011
+													758 text ، 
+													759 text 3 / 3
+													760 text ) مصطفة بشكل سليم دون انكسار في اتجاه القراءة (
+													761 text BiDi
+													762 text )
+													763 text .
+													764 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										765 container
+											766 text الازدحام وتوزيع العناصر (Crowding & Layout Density):
+											767 content list
+												768 container p-rc_33b4d8f98f9648f8-60
+													769 text في لقطتَي الحالة والنسخة الإنجليزية، تبدو الشاشة نظيفة جداً مع اقتصار الـ HUD العلوي على البوصلة (
+													770 text NE | E | SE
+													771 text ) وزرَّي (
+													772 text الحالة [I]
+													773 text  / 
+													774 text توقف
+													775 text )
+													776 text .
+													777 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												778 container p-rc_33b4d8f98f9648f8-61
+													779 text في لقطة المشي الأولى، يظهر تنبيه التحكم (
+													780 text الحركة المعتادة [R]
+													781 text ) في أعلى اليسار بالتزامن مع بطاقة المهمة المكتملة
+													782 text ؛ ورغم عدم تعارضه مع 
+													783 text SystemWindow
+													784 text ، إلا أن طرفه السفلي يلامس الحافة العلوية لمجسم ساعة الحائط (
+													785 text 11:11
+													786 text ) من زاوية الكاميرا هذه
+													787 text .
+													788 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-task-follow.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												789 container p-rc_33b4d8f98f9648f8-62
+													790 text داخل بطاقة الحالة العربية، يتركز النص المكون من 4 أسطر قصيرة في أقصى اليمين بينما يظل النصف الأيسر من مساحة البطاقة فارغاً تماماً
+													791 text .
+													792 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: personal-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										793 container
+											794 text التماسك البصري والالتزام بالقواعد (Visual Cohesion & Rule Compliance):
+											795 content list
+												796 container p-rc_33b4d8f98f9648f8-63
+													797 text تتناغم لغة الإطار (الحواف السيان، أقواس الزوايا الأربعة، الخطان العموديان 
+													798 text ||
+													799 text ، والنقاط الثلاث السفلية 
+													800 text ...
+													801 text ) مع لون ساعة الحائط 
+													802 text 11:11
+													803 text  ومؤشر البوصلة العلوي
+													804 text .
+													805 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												806 container p-rc_33b4d8f98f9648f8-64
+													807 text تلتزم بطاقة الحالة (
+													808 text حالة إيكو
+													809 text ) بصرامة بعدم اختراع خبرة أو قوى؛ إذ تقتصر على (
+													810 text الارتباط بزيرو: مُثبت
+													811 text ، 
+													812 text الصحة: 200 / 200
+													813 text ، 
+													814 text التحمل: 100 / 100
+													815 text ، 
+													816 text الهدف: EX-011
+													817 text )
+													818 text .
+													819 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: personal-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+									820 heading 2. فصل الاعتماد البصري (Visual PASS) عما لا يُعتمد من صور ثابتة, Value: 3
+										821 text 2. فصل الاعتماد البصري (Visual PASS) عما لا يُعتمد من صور ثابتة
+									822 table
+										823 row
+											824 cell
+												825 text النطاق
+											826 cell
+												827 text العناصر المحققة / غير المحققة
+											828 cell
+												829 text حالة الاعتماد من اللقطات المرفقة
+										830 row
+											831 cell
+												832 text ما يجتاز بصرياً (Visual PASS)
+											833 cell
+												834 container p-rc_33b4d8f98f9648f8-65
+													835 text • عدم حجب شخصية "إيكو" أثناء المشي أو الوقوف
+													836 text .
+													837 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												838 container p-rc_33b4d8f98f9648f8-66
+													839 text • وضوح القراءة والتباين في العربية والإنجليزية
+													840 text .
+													841 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												842 text • انعكاس البصمة (`
+										843 row
+											844 cell
+												845 text ما لا يمكن اعتماده من صور ثابتة (Requires Runtime QA)
+											846 cell
+												847 container
+													848 text • سلاسة تتبع موضع الصدر أثناء الحركة الفعلية وتثبيت  ReducedMotion .
+												849 container
+													850 text • أزمنة الدخول ( 220ms ) والخروج ( 180ms ) ومدة البقاء ( 2.4s  /  2.8s  /  3.2s  /  3.5s ).
+												851 container
+													852 text • البطاقات المصغرة ( 360px ) للتقدم الجزئي والـ XP (غير معروضة بالصور).
+												853 text • التحديث اللحظي في نفس البطاقة دون تكرار حركة الدخول أو الصوت.
+												854 text • صمت البطاقات الجزئية/XP، وكتم الصوت، وأولوية الحوارات والقرارات.
+												855 text • إحساس الهدوء والمتعة أثناء اللعب الفعلي.
+											856 cell
+												857 text معلق (يتطلب اختبار تشغيل داخل المحرك)
+									858 heading 3. الإصلاحات البصرية اللازمة فقط (1–3 إصلاحات محددة), Value: 3
+										859 text 3. الإصلاحات البصرية اللازمة فقط (1–3 إصلاحات محددة)
+									860 content list
+										861 container
+											862 text زيادة الهامش الداخلي الأفقي للمتن (
+											863 text Body Inline Padding
+											864 text ) بمقدار 
+											865 text 8px–10px
+											866 text :
+											867 content list
+												868 container
+													869 container p-rc_33b4d8f98f9648f8-67
+														870 text المشكلة المرئية:  في النسخة الإنجليزية، يبدأ سطر (
+														871 text All three memory fragments are recovered.
+														872 text ) قريباً جداً من الحافة اليسرى للإطار على نفس خط قوس الزاوية تقريباً
+														873 text ، وفي بطاقة الحالة العربية يقترب سطر (
+														874 text الهدف: EX-011
+														875 text ) من قوس الزاوية السفلي الأيمن
+														876 text .
+														877 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-en.jpg وJPG: personal-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												878 container
+													879 text الإصلاح:  توسيع الـ 
+													880 text Margin/Padding
+													881 text  الداخلي لحاوية النص بحيث يبدأ المتن داخل حدود أقواس الزوايا الداخلية وليس بمحاذاتها.
+										882 container
+											883 text معالجة الفراغ الأيسر في بطاقة "الحالة" وتوحيد محاذاة العنوان:
+											884 content list
+												885 container
+													886 container p-rc_33b4d8f98f9648f8-68
+														887 text المشكلة المرئية:  عنوان البطاقة (
+														888 text حالة إيكو
+														889 text  / 
+														890 text استعادة شظايا الذاكرة
+														891 text  / 
+														892 text Recover the memory fragments
+														893 text ) يتمركز في المنتصف بينما يصطف النص تحته إلى الطرف
+														894 text ، ما يخلق فراغاً غير مستغل في النصف الأيسر من بطاقة الحالة العربية
+														895 text .
+														896 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg, JPG: personal-status-ar.jpg, JPG: personal-task-en.jpg" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر.
+												897 container
+													898 text الإصلاح:  إما محاذاة العنوان مع بداية اتجاه القراءة (
+													899 text inline-start
+													900 text ) ليتطابق مع المتن، أو توزيع أسطر بطاقة الحالة الأربعة بنظام العمودين (التسمية يميناً والقيمة 
+													901 text 200 / 200
+													902 text  أو 
+													903 text EX-011
+													904 text  يساراً) لملء عرض الـ 
+													905 text 410px
+													906 text  بتوازن هندسي.
+										907 container
+											908 text توحيد صيغة معرف الترويسة بين العربية والإنجليزية لمنع تكرار 
+											909 text 11:11
+											910 text :
+											911 content list
+												912 container
+													913 container p-rc_33b4d8f98f9648f8-69
+														914 text المشكلة المرئية:  الترويسة في العربية تعرض (
+														915 text إيكو // ECHO
+														916 text ) في جهة و(
+														917 text 11:11
+														918 text ) في الجهة المقابلة
+														919 text ، بينما في الإنجليزية تعرض (
+														920 text ECHO // 11.11
+														921 text ) على اليسار و(
+														922 text TASK COMPLETE // 11:11
+														923 text ) على اليمين، ما يؤدي لتكرار الرقم مرتين في نفس السطر وبفاصل نقطي مختلف (
+														924 text .
+														925 text  مقابل 
+														926 text :
+														927 text )
+														928 text .
+														929 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: personal-task-follow.jpg وJPG: personal-task-en.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+												930 container
+													931 text الإصلاح:  توحيد الرمز التعريفي في اللغتين ليحمل نفس البنية دون تكرار الرقم في طرفي الترويسة (مثلاً إبقاء 
+													932 text ECHO
+													933 text  أو 
+													934 text إيكو // ECHO
+													935 text  في طرف، و
+													936 text 11:11
+													937 text  في طرف الحالة المقابل فقط).
+								644 checkbox Description: ردّ جيد, Value: 0
+								645 checkbox Description: ردّ سيئ, Value: 0
+								647 button نسخ
+								648 button عرض خيارات أكثر
+						938 container 9ee0851fb5b599d1
+							939 container
+								940 button عرض الصورة التي تم تحميلها في عرض مبسّط
+									941 image معاينة للصورة التي تم تحميلها
+								942 button عرض الصورة التي تم تحميلها في عرض مبسّط
+									943 image معاينة للصورة التي تم تحميلها
+								944 button عرض الفيديو الذي تم تحميله في عرض مبسّط
+									945 container
+										946 image معاينة الفيديو المحمَّل
+									947 text 0:05
+							948 container
+								949 heading Value: 5, أنت قلت هذه مراجعة متابعة بمرفقات جديدة: صورتا UI CP39 v9 بعد إصلاحاتك (هامش28px، عنوان بمحاذاة بداية القراء…
+									950 text أنت قلت  هذه مراجعة متابعة بمرفقات جديدة: صورتا UI CP39 v9 بعد إصلاحاتك (هامش28px، عنوان بمحاذاة بداية القراء…
+								951 text هذه مراجعة متابعة بمرفقات جديدة: صورتا UI CP39 v9 بعد إصلاحاتك (هامش28px، عنوان بمحاذاة بداية القراءة، ECHO دون تكرار الرقم، وترويسة إنجليزية بسطر واحد). تحقق هل عولجت العيوب المرئية فقط. أما ملف الفيديو5s فهو مصدر Tripo Custom Run attempt01 مرفوض مبدئيًا: يبدأ وينتهي واقفًا، اليدان على الخصر، أقرب لإحماء/مشي في المكان من جري بذرعين متبادلتين. قارنت كل120عينة24Hz و66عظمة بين Blender وGodot:7920 مقارنةPASS، max4.325ميكرومتر و0.001531درجة؛ إذن عيب الدلالة في المصدر لا الاستيراد. الهيكل66عظمة يتضمن أصابع دون عين/فك/معطف مستقل، وخامات2K بعدRetopo؛ الأصل8K محفوظ ولم يُستبدلV31/Golden. بدأت محاولة ثانية وحيدة بوصف sprint forward مستمر، pumping arms، مع إبقاءroot travel الأصلي. لا محاولة ثالثة عمياء. راجع الفيديو كحركة: اذكر العيوب المرئية وقبول/رفض استعماله كRun، وما يلزم لفحص محاولة2. لا تستنتج أن الهيكلة القديمة سيئة أو تعتمد ترقية اللاعب من مجرد تطابق الأرقام. اختصر.
+								952 button توسيع
+							953 button نَسْخ الطلب
+							954 button تعديل
+							955 container
+								956 heading قال Gemini, Value: 6
+									957 text قال Gemini
+								958 container model-response-message-contentr_9ee0851fb5b599d1
+									959 heading 1. مراجعة واجهة CP39 v9 (التحقق البصري فقط), Value: 3
+										960 text 1. مراجعة واجهة CP39 v9 (التحقق البصري فقط)
+									961 container p-rc_a14c6909498b5c83-78
+										962 text الحالة: PASS (مرئي كامل للإصلاحات الثلاثة)
+										963 text .
+										964 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+									965 content list
+										966 container p-rc_a14c6909498b5c83-79
+											967 text الهامش الداخلي (
+											968 text 28px
+											969 text ):  ابتعد المتن والعنوان بوضوح عن أقواس الزوايا والحواف الجانبية في النسختين الإنجليزية والعربية
+											970 text .
+											971 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										972 container p-rc_a14c6909498b5c83-80
+											973 text محاذاة العنوان (
+											974 text inline-start
+											975 text ):  اصطف عنوان 
+											976 text Recover the memory fragments
+											977 text  يساراً مع المتن
+											978 text ، واصطف عنوان 
+											979 text حالة إيكو
+											980 text  يميناً فوق بنود الحالة مباشرة
+											981 text ، مما أنهى التضارب البصري بين تمركز العنوان ومحاذاة النص.
+											982 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										983 container p-rc_a14c6909498b5c83-81
+											984 text الترويسة ومنع التكرار:  استقرت الترويسة الإنجليزية في سطر واحد نظيف (
+											985 text ECHO
+											986 text  يساراً مقابل 
+											987 text TASK COMPLETE // 11:11
+											988 text  يميناً) دون تكرار الرقم 
+											989 text 11.11
+											990 text ، مع ثبات تناظر 
+											991 text ECHO // إيكو
+											992 text  في النسخة العربية
+											993 text .
+											994 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+									995 heading 2. مراجعة فيديو الحركة (Tripo Custom Run — Attempt 01), Value: 3
+										996 text 2. مراجعة فيديو الحركة (Tripo Custom Run — Attempt 01)
+									997 container p-rc_a14c6909498b5c83-82
+										998 text الحكم: REJECT (مرفوض للاستخدام كحركة 
+										999 text Run
+										1000 text )
+										1001 text .
+تطابق الأرقام بين Blender وGodot (
+										1002 text 7920 PASS
+										1003 text ) يثبت سلامة قناة التصدير والاستيراد فقط، لكنه لا يبرر ترقية اللاعب أو استبدال 
+										1004 text V31
+										1005 text /
+										1006 text Golden
+										1007 text ، ولا يعني سوء الهيكلة السابقة.
+										1008 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "MP4: Echo-Tripo-custom-running-review.mp4". اضغط على Enter لفتح مربّع حوار المصادر.
+									1009 text العيوب الحركية المرئية في المقطع (5 ثوانٍ):
+									1010 content list
+										1011 container
+											1012 container p-rc_a14c6909498b5c83-83
+												1013 text غياب دورة الجري المتصلة (Non-Loopable Pose Transitions):  تبدأ الشخصية من الوقوف وترفع يديها في الثانية 
+												1014 text 00:00
+												1015 text ، ثم تعود لإنزال اليدين والوقوف التام في الثانية 
+												1016 text 00:04
+												1017 text ، ما يجعل المقطع غير صالح للتكرار (
+												1018 text Loop
+												1019 text ) كحركة تنقل مستمرة
+												1020 text .
+												1021 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "MP4: Echo-Tripo-custom-running-review.mp4". اضغط على Enter لفتح مربّع حوار المصادر.
+										1022 container
+											1023 container p-rc_a14c6909498b5c83-84
+												1024 text تثبيت الذراعين على الخصر (Pinned Arms):  طوال الثواني 
+												1025 text 00:01–00:03
+												1026 text  تبقى اليدان مثبتتين على الخصر دون أي تبادل حركي مع الرجلين
+												1027 text .
+												1028 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "MP4: Echo-Tripo-custom-running-review.mp4". اضغط على Enter لفتح مربّع حوار المصادر.
+										1029 container
+											1030 container p-rc_a14c6909498b5c83-85
+												1031 text ضعف الدفع الأمامي وتشوه المعطف السفلي:  تقتصر حركة الرجلين على ثني خفيف للركبتين في المكان أقرب للإحماء منه للجري، مع انشداد أطراف المعطف السفلية للداخل تبعاً لعظام الفخذين والركبتين في الثانية 
+												1032 text 00:01–00:02
+												1033 text  نظراً لعدم وجود عظام معطف مستقلة
+												1034 text .
+												1035 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "MP4: Echo-Tripo-custom-running-review.mp4". اضغط على Enter لفتح مربّع حوار المصادر.
+									1036 heading 3. ما يلزم لفحص المحاولة الثانية (Attempt 02) قبل أي اعتماد, Value: 3
+										1037 text 3. ما يلزم لفحص المحاولة الثانية (Attempt 02) قبل أي اعتماد
+									1038 container
+										1039 text لفحص مخرجات ( sprint forward  +  pumping arms  +  root travel ) في المحاولة الثانية والوحيدة:
+									1040 content list
+										1041 container
+											1042 text اتصال الإطار الأول بالأخير (Mid-Stride Loop):  التأكد من أن المقطع يبدأ وينتهي داخل طور الجري نفسه دون وقفة بداية أو نهاية.
+										1043 container
+											1044 text تبادل الذراعين والأرجل (Contralateral Arm Swing):  تحقق بصري من تأرجح الذراعين بحرية عكس حركة القدمين وعدم التصاق الكفين بالجذع أو الخصر.
+										1045 container
+											1046 text اختبار شد المعطف مع اتساع الخطوة (Skinned Coat Stretch):  فحص أقصى تباعد بين الفخذين أثناء الـ 
+											1047 text Sprint
+											1048 text  للتأكد من أن غياب عظام المعطف المستقلة وخامات 
+											1049 text 2K
+											1050 text  لا يسببان تمزقاً بصرياً حاداً بين الساقين.
+										1051 container
+											1052 text انتظام سرعة الجذر (
+											1053 text Root Travel
+											1054 text  Linearity):  التحقق من أن إزاحة الجذر للأمام خطية ومطابقة لملامسة القدم للأرض دون انزلاق (
+											1055 text Foot Sliding
+											1056 text ) عند ربطها بحركة اللاعب في Godot.
+								1057 checkbox Description: ردّ جيد, Value: 0
+								1058 checkbox Description: ردّ سيئ, Value: 0
+								1059 button إعادة
+								1060 button نسخ
+								1061 button عرض خيارات أكثر
+					649 container
+						651 container
+							652 container
+								653 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 
+
+									1062 text Geminiاسأل 
+							655 pop up button (collapsed) Description: التحميل والأدوات, Secondary Actions: Expand
+							656 container
+								657 pop up button (collapsed) Description: فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع, Secondary Actions: Expand
+								658 container
+									659 button إملاء (^⇧D)
+						660 text ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+			661 button فتح قائمة الإجراءات الخاصة بالمحادثة
+		1063 text Defining the Objective
+		663 container Notifications
+
+The focused UI element is 653 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 

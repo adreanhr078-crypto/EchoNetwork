@@ -17,7 +17,8 @@ const FLAGS := {
 static func initial() -> Dictionary:
 	return {"schema":SCHEMA,"completed":[],"flags":{}}
 static func validate(raw: Variant) -> Dictionary:
-	if not raw is Dictionary or raw.size()!=3 or raw.get("schema")!=SCHEMA: return {}
+	if not raw is Dictionary or raw.get("schema")!=SCHEMA: return {}
+	if raw.size()!=3 and not (raw.size()==4 and raw.has("presentation")): return {}
 	var completed: Variant=raw.get("completed")
 	var flags: Variant=raw.get("flags")
 	if not completed is Array or completed.size()>EVENTS.size() or not flags is Dictionary: return {}
@@ -41,7 +42,48 @@ static func validate(raw: Variant) -> Dictionary:
 	for room in completed:
 		for key in FLAGS[room]:
 			if not flags.get(room,{}).get(key,false): return {}
+	if raw.has("presentation") and not valid_presentation(raw.presentation, completed, flags): return {}
 	return raw.duplicate(true)
+
+static func valid_presentation(value: Variant, completed: Array, flags: Dictionary) -> bool:
+	# Optional, non-authoritative resume cursor. Old v1 saves remain valid.
+	if not value is Dictionary or completed.size()!=5: return false
+	if value.size() != 2 and not (value.size() == 3 and value.has("encounter")): return false
+	if value.get("beat") not in ["pact","accepted","revenge","wish"]: return false
+	var elapsed: Variant = value.get("elapsed")
+	if not (elapsed is float or elapsed is int) or not is_finite(float(elapsed)) or elapsed<0 or elapsed>90: return false
+	var lab: Dictionary = flags.get("lab",{})
+	if not lab.get("confrontation_done",false) or lab.get("wish_done",false): return false
+	if value.has("encounter"):
+		if value.beat not in ["pact", "accepted"] or not valid_encounter_cursor(value.encounter, lab.get("contract_done", false)): return false
+	match value.beat:
+		"pact": return not lab.get("contract_done",false)
+		"accepted","revenge": return lab.get("contract_done",false) and not lab.get("revenge_done",false)
+		"wish": return lab.get("revenge_done",false)
+	return false
+
+static func valid_encounter_cursor(value: Variant, accepted: bool) -> bool:
+	if not value is Dictionary or (value.size() != 4 and not (value.size() == 5 and value.has("answer"))): return false
+	if not _whole(value.get("step"), 0, 8) or not _whole(value.get("questions"), 0, 7): return false
+	if not value.get("deferred") is bool: return false
+	var look: Variant = value.get("look")
+	if not look is Array or look.size() != 2: return false
+	for index in 2:
+		if not (look[index] is int or look[index] is float) or not is_finite(float(look[index])): return false
+		if absf(float(look[index])) > (.5 if index == 0 else .3): return false
+	var step := int(value.step)
+	var questions := int(value.questions)
+	if accepted != (step >= 6): return false
+	if step < 4 and questions != 0: return false
+	if step >= 5 and questions != 7: return false
+	if value.has("answer"):
+		if not _whole(value.answer, -1, 2): return false
+		var answer := int(value.answer)
+		if answer >= 0 and (step != 4 or not (questions & (1 << answer))): return false
+	return not value.deferred or (step == 5 and not accepted)
+
+static func _whole(value: Variant, minimum: int, maximum: int) -> bool:
+	return (value is int or value is float) and is_finite(float(value)) and value >= minimum and value <= maximum and float(value) == floorf(float(value))
 static func advance(raw: Dictionary, room: String) -> Dictionary:
 	var clean:=validate(raw)
 	if clean.is_empty(): return {}

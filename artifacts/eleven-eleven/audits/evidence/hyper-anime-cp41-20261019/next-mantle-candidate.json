@@ -1,0 +1,23 @@
+{
+  "status": "IDENTIFIED_NOT_VISUALLY_QUALIFIED_NOT_INTEGRATED",
+  "source_id": "motifect:3",
+  "source": "Animations/climb_ledge.fbx",
+  "sha256": "36036518968c47857c982d5634e5c1f171f57c6d2653501795caccc7521f9ff0",
+  "take_id": "36036518968c47857c982d56:0:3ecc9cb6",
+  "original_frame_range": [
+    1.0,
+    210.0
+  ],
+  "native_timing": {
+    "fbx_version": 7700,
+    "time_mode": 6,
+    "native_fps": 30,
+    "evidence": "Read directly using pinned native_timing.py; no FPS relabeling"
+  },
+  "metadata_warning": [
+    "hips"
+  ],
+  "next": "Inspect original climb_ledge source action and Hips root mapping before any bake. Filename/metadata are not semantic or contact acceptance. Do not use Climbing Up Wall as a pull-over.",
+  "inventory_sha256": "6f6ffade3e0e50c135684a26cc3d798f1b42e9698996b0b4d218970026237764",
+  "reviews_sha256": "37e530b698c12a6cf9e94a86af7a5694a4c535f1e53fa91f3b2fbe3ffc87cc95"
+}

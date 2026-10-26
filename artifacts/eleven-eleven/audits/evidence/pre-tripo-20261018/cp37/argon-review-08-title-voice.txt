@@ -1,0 +1,373 @@
+    - text: )، كما يصلح كصورة ثابتة (
+        - code: Still
+        - text: ) لوضع
+        - code: Reduced Motion
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: memory-collapse-take01.mp4 وMP4: memory-collapse-take01.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 1
+  - 'heading "4. القرار النهائي: قبول المشهد البصري مع إصلاح صوتي محلي (دون Reroll)" [level=3]'
+  - list:
+    - paragraph:
+      - text: لا حاجة لإعادة التوليد (
+      - code: No Reroll
+      - text: "):"
+      - text: الشق البصري في الفيديو يؤدي الغرض الدرامي ضمن نطاق "الذاكرة الذاتية والغرق" وينتهي بكادر مثالي لقرار الصعود
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: memory-collapse-take01.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: MP4
+    - paragraph:
+      - text: "الإصلاح المحدد المطلوب قبل الدمج (في الصوت فقط): بما أن بقية اللعبة"
+      - code: SFX_ONLY
+      - text: بلا تمثيل صوتي ياباني، وبما أن جملة
+      - code: 上へは行かなきゃな
+      - text: جاءت في الثانية
+      - code: 00:01–00:03
+      - text: بنبرة عادية بلاحقة
+      - code: な
+      - superscript
+      - text: ، فلديك خياران هندسيان محليان بـ
+      - code: ffmpeg
+      - text: "دون صرف رصيد إضافي:"
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: memory-collapse-take01.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: MP4
+    - list:
+      - paragraph:
+        - text: الخيار الأنظف والأصدق للـ Canon (
+        - code: SFX_ONLY
+        - text: "):"
+        - text: استبدال الثواني
+        - code: 00:01.0–00:03.4
+        - text: في مسار الصوت بموجة الماء والانغمار فقط (إزالة الصوت البشري المتعثر)، والاعتماد على ظهور الترجمة الحية
+        - code: AR/EN
+        - text: («أحتاج… أعلى… / I need… to go up…») عند الثانية
+        - code: 00:04.5
+        - text: فوق صوت القاع المكتوم. هذا يمنع وجود جملة صوتية يتيمة في اللعبة كلها ويزيل عيب
+        - code: な
+        - text: .
+      - paragraph:
+        - text: "إذا أصررت على إبقاء الصوت الياباني: قص اللاحقة"
+        - code: な
+        - text: في نهاية
+        - code: 00:03.2
+        - text: ، وإزاحة مقطع الكلام زمنياً ليبدأ عند
+        - code: 00:04.5
+        - text: (تحت الماء) مع تمريره بفلتر
+        - code: lowpass
+        - text: خفيف ليناسب الانغمار
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: memory-collapse-take01.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+  - paragraph: أرسل كود الربط عند جاهزيته لمراجعته على هذا الأساس.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "عرض الفيديو الذي تم تحميله في عرض مبسّط":
+    - img "معاينة الفيديو المحمَّل"
+    - img: play_arrow
+    - generic: 0:10
+  - button "echo-reach-take01.wav":
+    - generic: WAV
+    - generic: echo-reach-take01
+  - heading "أنت قلت راجع الملفين المرفقين فعليًا.1) gemini_generated_video_b57c8418.mp4 هو اختيار المالك لشاشة البداية ا…" [level=5]
+  - paragraph: "راجع الملفين المرفقين فعليًا.1) gemini_generated_video_b57c8418.mp4 هو اختيار المالك لشاشة البداية المتكررة،1280×720/24fps/10ث، قبل auth والغرف. افحص آخر/أول كادر: هل الحلقة سلسة حقًا أم فيها قفزة؟ استمع للصوت: هل يحتوي موسيقى/آلات/كلام؟ أريد تفريغًا أمينًا لا تخمينًا. سأبقي المصدر دون فلتر/قص مع Tap to Start وأزرار شفافة، وRM صورة ثابتة.2) WAV echo-reach-take01 من Gemini3.8FlashTTS بصوتBrio المجاني، النص المطلوب <gasp> 上へ……行かなきゃ……. استمع كاملًا: فرغ ما نُطق فعلًا وتوقيتاته، أي هلوسة/حروف إضافية؟ هل نفس/هلع مقنع لغريق أم نبرة هادئة؟ صالح لإحلال كلامFlow المبكر ووضعه4.5ث؟ تصحيح: SFX_ONLY يمنع الموسيقى والآلات فقط؛ الأداء الياباني مطلوب ومسموح. لا تدّع سماع ملف لم تقرأه، ولا تطلب شراء/توليد جديد بلا عيب محدد. المالك يسمح رفع جودة الغرف بشاشات ذاكرة وماء متوافق مع الفيديو مع الحفاظ على قابلية اللعب وCanon. أعطني أولًا أحكام هذين الملفين بشكل مختصر."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: "فيما يلي الفحص الفعلي والحكم المختصر للملفين المرفقين:"
+  - paragraph
+  - heading "1. حكم فيديو شاشة البداية ( gemini_generated_video_b57c8418.mp4 )" [level=3]:
+    - text: 1. حكم فيديو شاشة البداية (
+    - code: gemini_generated_video_b57c8418.mp4
+    - text: )
+  - superscript
+  - paragraph
+  - list:
+    - paragraph:
+      - text: فحص الحلقة البصرية (أول كادر
+      - code: 00:00
+      - text: مقابل آخر كادر
+      - code: 00:09–00:10
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: الحلقة ليست سلسة بل فيها قفزة بصرية واضحة (Hard Jump Cut) عند الإعادة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+      - paragraph:
+        - text: رغم أن الإضاءة تعود في الثانية
+        - code: 00:09
+        - text: من القمر الأحمر (
+        - code: 00:04–00:08
+        - text: ) إلى القمر الأزرق/الأبيض المشابه للبداية
+        - superscript
+        - text: ، إلا أن تكوين المشهد في آخر كادر يختلف جذرياً عن الكادر الأول
+        - superscript
+        - text: ":"
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: gemini_generated_video_b57c8418.mp4 وMP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 1
+      - list:
+        - paragraph:
+          - text: في
+          - code: 00:00
+          - text: توجد أبراج مدينة كثيفة وأغصان ساكورا بيضاء في أعلى اليمين وضباب كثيف فوق الماء
+          - superscript
+          - text: ، بينما في
+          - code: 00:09
+          - text: تختفي الأبراج وأغصان الساكورا والضباب تماماً وتبقى بوابة «توري» (
+          - code: Torii
+          - text: ) في منتصف الخلفية
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: gemini_generated_video_b57c8418.mp4 وMP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: MP4
+            - generic: + 1
+        - paragraph:
+          - text: شاشات الذكريات العائمة تتغير مواقعها وأحجامها وصورها بين
+          - code: 00:09
+          - text: و
+          - code: 00:00
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: MP4
+        - paragraph:
+          - text: موقع قدم الشخصية وتموجات الماء المضيئة تحتها في
+          - code: 00:00
+          - text: لا يتطابق مع نهاية الخطوة في
+          - code: 00:09
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: MP4
+    - paragraph:
+      - text: تفريغ الصوت وفحص قيد
+      - code: SFX_ONLY
+      - text: ":"
+    - list:
+      - paragraph:
+        - generic: "الكلام: لا يوجد أي كلام أو صوت بشري"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+      - paragraph:
+        - text: الموسيقى والآلات (عيب مثبت يكسر
+        - code: SFX_ONLY
+        - text: "):"
+        - text: المسار الصوتي يحتوي على موسيقى تصويرية وآلات واضحة طوال الـ 10 ثوانٍ (نبض إيقاعي إلكتروني متكرر
+        - code: Synth Pulse/Arpeggio
+        - text: ، مع أوتار/بادز سينمائية ممتدة
+        - code: Sustained Pads/Strings
+        - text: وتدرج نغمي) ممزوجة بصوت خطوات في الماء
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+    - paragraph: "الحكم التنفيذي:"
+    - list:
+      - paragraph:
+        - text: إذا أردت إبقاء الفيديو دون فلتر أو قص للصورة، فالقفزة البصرية عند الثانية
+        - code: "10"
+        - text: ستكون ملحوظة كإعادة تشغيل للمشهد
+        - superscript
+        - text: ؛ لكن
+        - text: لا يجوز تشغيل مساره الصوتي كما هو تحت قيد
+        - code: SFX_ONLY
+        - text: لوجود الموسيقى والآلات فيه
+        - superscript
+        - text: ، ويجب كتم صوت الفيديو (
+        - code: volume_linear = 0.0
+        - text: أو تجريد مسار الصوت) والاكتفاء بمؤثر صوتي محلي (ماء/رياح) في Godot.
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: gemini_generated_video_b57c8418.mp4 وMP4: gemini_generated_video_b57c8418.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 1
+  - paragraph
+  - heading "2. حكم ملف الصوت الياباني ( echo-reach-take01.wav )" [level=3]:
+    - text: 2. حكم ملف الصوت الياباني (
+    - code: echo-reach-take01.wav
+    - text: )
+  - superscript
+  - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: gemini_generated_video_b57c8418.mp4 وWAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+    - generic: MP4
+    - generic: + 1
+  - paragraph
+  - list:
+    - paragraph: "التفريغ الحرفي لما نُطق فعلياً مع التوقيت:"
+    - list:
+      - paragraph:
+        - code: 00:00.0
+        - text: –
+        - code: 00:00.7
+        - text: ":"
+        - text: نطق المولّد وسم
+        - code: <gasp>
+        - text: "حرفياً ككلمة إنجليزية مسموعة:"
+        - code: "\"gasp\""
+        - text: («غاسب») بدلاً من أداء صوت شهقة
+        - superscript
+        - text: "!"
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+      - paragraph:
+        - code: 00:00.8
+        - text: –
+        - code: 00:01.4
+        - text: ":"
+        - code: 「上へ……」
+        - text: (Ue e...)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+      - paragraph:
+        - code: 00:01.4
+        - text: –
+        - code: 00:01.9
+        - text: ":"
+        - text: سكتة قصيرة (
+        - code: "0.5"
+        - text: ثانية)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+      - paragraph:
+        - code: 00:01.9
+        - text: –
+        - code: 00:02.9
+        - text: ":"
+        - code: 「行かなきゃ……」
+        - text: (ikanakya...)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+      - paragraph:
+        - code: 00:02.9
+        - text: –
+        - code: 00:03.5
+        - text: ":"
+        - text: صمت حتى نهاية الملف
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+    - paragraph: "فحص الهلوسة والحروف الإضافية:"
+    - list:
+      - paragraph:
+        - text: الجملة اليابانية نفسها نظيفة تماماً ومطابقة للمطلوب (
+        - code: 上へ……行かなきゃ……
+        - text: ) وخالية من حرفَي
+        - code: は
+        - text: و
+        - code: な
+        - text: اللذين أضافهما Flow سابقاً
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: memory-collapse-take01.mp4 وWAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 1
+      - paragraph:
+        - text: العيب الوحيد في الحروف هو قراءة كلمة
+        - code: gasp
+        - text: الإنجليزية بصوت عالٍ في أول
+        - code: "0.7"
+        - text: ثانية
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+    - paragraph: "فحص الأداء والنبرة (هلع غريق أم هدوء؟):"
+    - list:
+      - paragraph:
+        - generic: النبرة هادئة ومستقرة جداً (أداء قراءة استوديو جاف)؛ لا يوجد فيها أي اختناق أو لهاث أو هلع غريق، بل هي أهدأ انفعالياً من نبرة فيديو Flow الأصلي
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: memory-collapse-take01.mp4 وWAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 1
+    - paragraph:
+      - text: الحكم لصلاحية الإحلال عند الثانية
+      - code: 4.5s
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: غير صالح للدمج الخام بسبب نطق كلمة
+        - code: "\"gasp\""
+        - text: في بدايته
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"WAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: WAV
+      - paragraph:
+        - text: يصلح فقط بشرط قص أول
+        - code: "0.8"
+        - text: ثانية
+        - text: (لأخذ المقطع
+        - code: 00:00.8–00:03.0
+        - text: ومدته
+        - code: "2.2"
+        - text: ثانية فيركب بدقة بين
+        - code: 00:04.5
+        - text: و
+        - code: 00:06.7
+        - text: في فيديو الغرق)
+        - superscript
+        - text: ، مع دمج مؤثر شهقة مائية حقيقية قبله وتمريره بفلتر كتم مائي (
+        - code: Low-pass
+        - text: ) لتعويض برود النبرة
+        - superscript
+        - text: ؛ أو إعادة توليده مجاناً في TTS بدون وسم
+        - code: <gasp>
+        - text: النصي.
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"MP4: memory-collapse-take01.mp4 وWAV: echo-reach-take01.wav وWAV: echo-reach-take01.wav\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: MP4
+          - generic: + 2
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Assessing Vocal Delivery
+- region "Notifications"
+- generic: إملاء (^⇧D)

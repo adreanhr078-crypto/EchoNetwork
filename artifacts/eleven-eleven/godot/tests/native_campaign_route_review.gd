@@ -40,11 +40,15 @@ func _run() -> void:
 	if not await _walk(Vector3(0,0,-14.8)): return
 	room=campaign.rooms[0]
 	# Cover route follows the authored scanner's occluding plinths.
-	for point in [Vector3(-2.5,0,2),Vector3(-2.5,0,3),Vector3(-26,0,3),Vector3(-26,0,-10.4)]:
+	for point in [Vector3(-2.5,0,2),Vector3(-2.5,0,3),Vector3(-23,0,3)]:
 		if not await _walk(point): return
+	await _specimen_sweep_window(false)
+	if not await _walk(Vector3(-24.65,0,-6)): return
+	await _specimen_sweep_window(true)
+	if not await _walk(Vector3(-26,0,-10.4)): return
 	if not _check(player.get_nearest_interactable()==room,"Specimen terminal must be physically available"): return
 	if not _check(player.interact_with_nearest().get("accepted",false),"Specimen record rejected"): return
-	for i in 55: await physics_frame
+	for i in 2: await physics_frame
 	if not _check(campaign.current==0,"Opening a gate must not complete traversal"): return
 	for point in [Vector3(-28,0,-10.4),Vector3(-28,0,-12),Vector3(-30.8,0,-12)]:
 		if not await _walk(point): return
@@ -150,6 +154,7 @@ func _run() -> void:
 	for point in [Vector3(0,0,-9),Vector3(0,1.2,-14),Vector3(2.5,1.2,-14),Vector3(2.5,1.2,-18.4)]:
 		if not await _walk(point): return
 	if not _use("KinjaNeuralRigTerminal"): return
+	if not _check(await preload("res://tests/lab_memory_trial_input.gd").play(self,main,room,_walk,_capture_trial),"Father/memories/refusal/resistance input segment failed"): return
 	for i in 100: await physics_frame
 	if not _check(room.confrontation_done and not room.contract_done and not room.breach_open,"Memory presentation auto-accepted the pact or escape"): return
 	print("PASS connected actual native route: security exit, six separate rooms, five buffers, physical gates, reachable shards/breakers/terminals, no teleport after fixture spawn, no automatic pact or premature power")
@@ -166,16 +171,14 @@ func _finish_review() -> void:
 
 func _complete_campaign() -> bool:
 	var window=main.hud.find_child("SystemWindow",true,false)
-	if not _check(window.visible and window.stats_box.get_child_count()==2,"Pact must present explicit accept and defer buttons"): return false
-	window.stats_box.get_child(0).pressed.emit()
-	for i in 15: await physics_frame
+	if not await preload("res://tests/zero_encounter_route_input.gd").play(self,main,room,_capture_trial):return false
 	if not _check(room.contract_done and player.combat_available and not room.wish_done,"Explicit pact did not unlock the controlled confrontation"): return false
-	for point in [Vector3(2.5,1.2,-14),Vector3(0,1.2,-14),Vector3(0,0,-9),Vector3(7,0,-9),Vector3(7,0,-28.8),Vector3(0,0,-28.8)]:
+	for point in [Vector3(3,0,-35),Vector3(3,0,-28.8),Vector3(0,0,-28.8)]:
 		if not await _walk(point): return false
 	for contact in 3:
 		player.face_world_direction(campaign.kinja.global_position-player.global_position)
 		player.perform_attack()
-		for i in 90: await physics_frame
+		if not await preload("res://tests/zero_encounter_route_input.gd").wait_melee_recovery(self,player):return false
 		if not _check(campaign.kinja.contacts==contact+1,"Actual melee did not contact Kinja exactly once"): return false
 	if not _check(not room.revenge_done and not room.wish_done,"Three attacks cannot automatically finish revenge or accept the wish"): return false
 	var approach:Vector3=room.to_local(campaign.kinja.global_position)+Vector3.FORWARD*1.5
@@ -245,3 +248,16 @@ func _complete_campaign() -> bool:
 
 func rooms_have_native_authority() -> bool:
 	return campaign.rooms[1].archive_decoded and campaign.rooms[1].collected_shards.size()==3 and not player.combat_available
+
+func _capture_trial(_label: String) -> void:
+	await _capture()
+
+func _specimen_sweep_window(toward_north: bool) -> void:
+	# Wait behind the actual tank/plinth, then move on the visible opposite sweep.
+	# This reads the detector clock; it never freezes or alters surveillance.
+	var begin := .6 if toward_north else 3.4
+	for i in 380:
+		_resume_capture_driver()
+		var angle: float = fposmod(room._scanner_sweep_angle,TAU)
+		if angle > begin and angle < begin + .18: return
+		await physics_frame

@@ -1,0 +1,63 @@
+{
+	"framebuffer": [
+		1280,
+		720
+	],
+	"profile_kind": "actual earned completed profile reloaded;diagnostic camera only",
+	"progress_unchanged": true,
+	"render_scale": 1.0,
+	"renderer": "forward_plus",
+	"room": "hospital",
+	"scope": "Actual current native High fixed-camera inventory only. No moving acting,audio,fun,device performance or room/chapter acceptance.",
+	"source_hashes": {
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
+		"res://scripts/environment/hospital_bedside_room.gd": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+		"res://scripts/main.gd": "3b0a56251bdf0d94f2e83de71e684dcdb3a33314c21f0d4644d3e2b16a171181",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://scripts/systems/native_journey_controller.gd": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+		"res://tests/remaining_rooms_high_inventory.gd": "920eb09571485dcfd4c241ebb396e937965c3f2c4f92d2eb6fa103add8888ad5"
+	},
+	"source_profile_hashes": {
+		"campaign.json": "d733d5567edb0b2801eae84cdedd0da016e3f290e3edc50e7b622775069e62e6",
+		"maintenance.json": "f103761e331b9065a84761c6c5ed4337374fb7ede007c8b18073d323ae33fbdc",
+		"opening.json": "391b38d00ad7011ce16854b119bb2ab94b9da0c8ff3e6c98e7e92d1679bbc1b8",
+		"preferences.cfg": "80b250856d77de7817dcca3aff259b9467dbd7579123373f07064f623da625c0",
+		"route.json": "87478cb6a6a932647ff39d76d75c2be78e20a7972fdafedc8c5c1a5b8b03f918"
+	},
+	"tier": "high",
+	"views": [
+		{
+			"file": "entry.png",
+			"local_camera": "(2.599998, 1.65, 2.2)",
+			"local_target": "(-1.0, 1.0, -0.6)",
+			"sha256": "55aa69dd1385d8efbe4f66bc81df02e1eacfe7d94da8bc9f927071c1cd5385c5",
+			"solid_overlap_count": 0,
+			"view": "entry"
+		},
+		{
+			"file": "reverse.png",
+			"local_camera": "(-0.25, 1.15, 1.5)",
+			"local_target": "(-1.5, 0.9, -0.8)",
+			"sha256": "81a0dd43ab94cb6344faab9bf3d5163d239352c52438e2bc25e449a0c1fb3e99",
+			"solid_overlap_count": 1,
+			"view": "reverse"
+		},
+		{
+			"file": "lateral.png",
+			"local_camera": "(2.599998, 1.7, -2.3)",
+			"local_target": "(-1.5, 1.2, 0.0)",
+			"sha256": "209e2d38fec4804e58d80742df4c0f8d69c978933c65f4503a70da4f0f81647f",
+			"solid_overlap_count": 0,
+			"view": "lateral"
+		},
+		{
+			"file": "hero.png",
+			"local_camera": "(1.599998, 1.65, -0.7)",
+			"local_target": "(3.0, 1.45, -1.0)",
+			"sha256": "1c5d6c8968fb123c426b6f668909a7b3e4bae4cc5efbd66892d461cfda671694",
+			"solid_overlap_count": 0,
+			"view": "hero"
+		}
+	]
+}

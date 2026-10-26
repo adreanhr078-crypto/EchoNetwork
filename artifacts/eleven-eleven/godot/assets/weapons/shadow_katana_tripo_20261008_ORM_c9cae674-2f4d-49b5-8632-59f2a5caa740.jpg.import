@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tix67p1a21cr"
-path="res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.ctex"
+path.bptc="res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.bptc.ctex"
+path.astc="res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "e7cb6f7ce40fb454fc96b22cba41238e"
@@ -14,12 +16,13 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/weapons/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg"
-dest_files=["res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.ctex"]
+dest_files=["res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.bptc.ctex", "res://.godot/imported/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg-e087e3e64d477997a8bde3b977416285.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -28,6 +31,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

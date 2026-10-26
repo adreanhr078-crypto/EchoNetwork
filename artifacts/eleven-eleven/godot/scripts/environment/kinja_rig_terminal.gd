@@ -5,6 +5,8 @@ extends StaticBody3D
 
 func trigger_interaction(_interactor: Node = null) -> Dictionary:
 	var room := get_parent()
+	if room and room.get("narrative_trial") != null and room.campaign_decisions:
+		return room.narrative_trial.begin()
 	if room and room.has_method("initiate_memory_confrontation"):
 		return room.initiate_memory_confrontation()
 	return {"success": false, "reason": "no_room_parent"}

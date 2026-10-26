@@ -1,0 +1,131 @@
+extends SkeletonModifier3D
+
+## Explicit V31 garment driver: five verified Hips-owned chains, never hands.
+## Owner authorized a dedicated coat repair on 2026-10-20. Source/rest/skin
+## and every body animation track remain untouched; this is a post-mixer pose.
+const Profile = preload("res://scripts/player/echo_rig_profile.gd")
+var body: CharacterBody3D
+var configured := false
+var _chains: Array[PackedInt32Array] = []
+var _angles := PackedFloat32Array()
+var _speeds := PackedFloat32Array()
+var _last_position := Vector3.ZERO
+var _clock := 0.0
+var _legs: Array[PackedInt32Array] = []
+var collision_corrections := 0
+var callback_count := 0
+var last_delta := 0.0
+var last_reset_reason := ""
+
+func configure(owner_body: CharacterBody3D) -> bool:
+	var skeleton := get_skeleton()
+	if not skeleton or Profile.identify(skeleton).get("id") != Profile.V31_ID: return false
+	body=owner_body
+	_chains.clear()
+	_legs.clear()
+	for column in 5:
+		_chains.append(PackedInt32Array([skeleton.find_bone("Cape_%d_0"%column),skeleton.find_bone("Cape_%d_1"%column),skeleton.find_bone("Cape_%d_2"%column)]))
+	for side in ["Left","Right"]:
+		_legs.append(PackedInt32Array([skeleton.find_bone(side+"UpLeg"),skeleton.find_bone(side+"Leg"),skeleton.find_bone(side+"Foot")]))
+	_angles.resize(15)
+	_speeds.resize(15)
+	_last_position=body.global_position
+	configured=true
+	return true
+
+func reset_motion() -> void:
+	_angles.fill(0.0)
+	_speeds.fill(0.0)
+	_clock=0.0
+	if is_instance_valid(body): _last_position=body.global_position
+
+func _process_modification_with_delta(delta: float) -> void:
+	callback_count+=1
+	last_delta=delta
+	if not configured or not is_instance_valid(body) or get_tree().paused: return
+	# SkeletonModifier3D may evaluate at zero delta during initialization or
+	# an immediate pose refresh. That is not a teleport or a spring reset.
+	if delta<=0.0: return
+	var suspended: bool = body.get("reduced_motion")==true or body.get("control_locked")==true or body.get("opening_recovery_active")==true or body.get("_camera_suspended")==true or body.get("is_dodging")==true
+	var motor: Object=body.get("surface_motor")
+	if motor and (motor.get("hanging")==true or motor.get("_mantle_visual_active")==true): suspended=true
+	if suspended or delta>0.5 or body.global_position.distance_to(_last_position)>2.0:
+		last_reset_reason="ownership_or_accessibility" if suspended else "hitch_or_teleport"
+		reset_motion()
+		return
+	last_reset_reason=""
+	_last_position=body.global_position
+	_clock+=delta
+	var skeleton:=get_skeleton()
+	var local_velocity: Vector3 = skeleton.global_basis.orthonormalized().inverse()*body.velocity
+	# Rear of this inspected garment is local -Z. Backward motion never drives
+	# cloth through the knees; inertia relaxes toward gravity instead.
+	var speed := clampf(local_velocity.z,0.0,10.0)
+	var hyper:=get_node_or_null("/root/HyperAnimeWorldManager")
+	var wind_clock:float=float(hyper.get("visual_time")) if hyper else _clock
+	var gust:=sin(wind_clock*0.37)*0.6
+	var hips:=skeleton.get_bone_global_pose(skeleton.find_bone("Hips"))
+	var hip_basis:=hips.basis.orthonormalized()
+	# The inspected roots run from -X to +X. Read each animated foot in hip
+	# space rather than guessing which imported Left/Right name is positive X.
+	var rear_steps:=PackedFloat32Array()
+	var foot_sides:=PackedFloat32Array()
+	for leg in _legs:
+		var foot:=hip_basis.inverse()*(skeleton.get_bone_global_pose(leg[2]).origin-hips.origin)
+		var leg_length:=skeleton.get_bone_rest(leg[1]).origin.length()+skeleton.get_bone_rest(leg[2]).origin.length()
+		rear_steps.append(clampf(-foot.z/maxf(leg_length,0.01),0.0,1.0))
+		foot_sides.append(signf(foot.x))
+	for column in 5:
+		var side:float=float(column-2)/2.0
+		var local_step:=0.0
+		for leg_index in _legs.size():
+			local_step+=rear_steps[leg_index]*lerpf(0.25,1.0,(side*foot_sides[leg_index]+1.0)*0.5)
+		for row in 3:
+			var slot:=column*3+row
+			# A rear leg excites its own panel most; the opposite panel receives a
+			# quarter of that impulse. Softer distal links retain follow-through.
+			var air:float=(1.2+speed*1.15)*(0.36+row*0.20)*(1.0+row*0.175)
+			var step:float=local_step*(1.2+row*0.9)
+			var target:=deg_to_rad(air+step+gust*sin(_clock*1.6+column*0.5))
+			# Exact critically damped spring toward this frame's target. Stable at
+			# different frame rates, with no Euler integration or energy growth.
+			var omega:=13.0-row*2.3
+			var offset:=float(_angles[slot])-target
+			var term:=float(_speeds[slot])+omega*offset
+			var decay:=exp(-omega*delta)
+			_angles[slot]=clampf(target+(offset+term*delta)*decay,0.0,deg_to_rad(12.0))
+			_speeds[slot]=(float(_speeds[slot])-omega*term*delta)*decay
+			var bone:int=_chains[column][row]
+			var current:=skeleton.get_bone_global_pose(bone)
+			var parent:=skeleton.get_bone_parent(bone)
+			var parent_basis:=skeleton.get_bone_global_pose(parent).basis.orthonormalized()
+			var axis:=parent_basis.inverse()*(hip_basis*Vector3.RIGHT)
+			var source_rotation:=skeleton.get_bone_pose_rotation(bone)
+			skeleton.set_bone_pose_rotation(bone,(Quaternion(axis.normalized(),_angles[slot])*source_rotation).normalized())
+			# A bounded capsule response keeps the cloth joint tip outside the
+			# measured animated thighs/shins without moving any limb or anchor.
+			current=skeleton.get_bone_global_pose(bone)
+			var tip:Vector3
+			if row<2: tip=skeleton.get_bone_global_pose(_chains[column][row+1]).origin
+			else:
+				var previous:=skeleton.get_bone_global_pose(_chains[column][row-1]).origin
+				tip=current.origin+(current.origin-previous)
+			var corrected:=tip
+			for leg in _legs:
+				for segment in 2:
+					var a:=skeleton.get_bone_global_pose(leg[segment]).origin
+					var b:=skeleton.get_bone_global_pose(leg[segment+1]).origin
+					var near:=Geometry3D.get_closest_point_to_segment(corrected,a,b)
+					var separation:=corrected-near
+					var radius:float=a.distance_to(b)*0.26
+					if separation.length()<radius:
+						var outward:=separation.normalized() if separation.length()>0.0001 else hip_basis*Vector3.FORWARD
+						corrected=near+outward*radius
+			if not corrected.is_equal_approx(tip):
+				var from:Vector3=(tip-current.origin).normalized()
+				var to:Vector3=(corrected-current.origin).normalized()
+				var correction:=Quaternion(from,to)
+				if correction.get_angle()>deg_to_rad(18.0): correction=Quaternion.IDENTITY.slerp(correction,deg_to_rad(18.0)/correction.get_angle())
+				var local_correction:=parent_basis.get_rotation_quaternion().inverse()*correction*parent_basis.get_rotation_quaternion()
+				skeleton.set_bone_pose_rotation(bone,(local_correction*skeleton.get_bone_pose_rotation(bone)).normalized())
+				collision_corrections+=1

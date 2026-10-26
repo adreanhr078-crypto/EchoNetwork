@@ -1,0 +1,64 @@
+{
+	"checks": 13,
+	"contacts": [
+		{
+			"height": 0.0333462655544281,
+			"left": true,
+			"run": false
+		},
+		{
+			"height": 0.012434066273272,
+			"left": false,
+			"run": true
+		},
+		{
+			"height": 0.029603635892272,
+			"left": true,
+			"run": true
+		},
+		{
+			"height": 0.0588903278112412,
+			"left": false,
+			"run": true
+		},
+		{
+			"height": 0.0424842573702335,
+			"left": true,
+			"run": true
+		},
+		{
+			"height": 0.0510364212095737,
+			"left": false,
+			"run": true
+		},
+		{
+			"height": 0.0333137884736061,
+			"left": true,
+			"run": false
+		},
+		{
+			"height": 0.0352381877601147,
+			"left": false,
+			"run": false
+		}
+	],
+	"failures": [],
+	"maximum_contact_phase_error": 0.0164641234690299,
+	"maximum_foot_contact_height_m": 0.0588903278112412,
+	"run_library_sha256": "4f372cf4967c5e55ed6a263804084199ca7926aad03fd3b4af39132f3f1dae38",
+	"source_keys_modified": false,
+	"status": "PASS",
+	"switches": [
+		{
+			"from": "WALK",
+			"phase_error": 0.0112355946464209,
+			"to": "RUN"
+		},
+		{
+			"from": "RUN",
+			"phase_error": 0.0164641234690299,
+			"to": "WALK"
+		}
+	],
+	"walk_library_sha256": "6ccb005099c223243a60329bd43b07689b12a4f14993ff619eb28e7a7ad1936e"
+}

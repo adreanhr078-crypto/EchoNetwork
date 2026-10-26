@@ -1,0 +1,39 @@
+{
+	"checks": 91,
+	"display": "headless",
+	"scope": "Actual earned save bytes; scoped resume and public-input trial; no account grant or independent human/fun/art/device acceptance",
+	"source_hashes": {
+		"assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"assets/cinematics/lab-memory-bottom-v1.webp": "5b6209476d1b1440124b140ca0c91810d794b76b012610dc8f5c4ea6c5d708d0",
+		"assets/cinematics/lab-memory-collapse-v1.ogv": "69d84882007a07946ff8add7fb6232792216d9cf85e46b0add0a62b3ac391766",
+		"assets/cinematics/lab-memory-water-v1.ogg": "aeb8bf9ce26209ef6cce38066e44a431ba70d03d3fb668d907745311c0fc0257",
+		"assets/props/memory_stasis_frame_clean_v1.glb": "024d2a93409b8715751a0ad4ec6e074b66b550432abb7f18d74f8968ce8a6fcf",
+		"assets/props/ward_bed_original_v1.glb": "fd6e4e366922f2f03b275ed73419258fdac6cdc76c7f37fe3c6893e53388a94f",
+		"assets/textures/lab-memory/shizuka-pdf041.webp": "9ace49c850f6a8153ab53929f4e6413e2021806f55df260fd7d556254fbae2fb",
+		"assets/textures/lab-memory/yuki-pdf041.webp": "2bc8a7c345780b5ae1bdafe09f83e07c5af53c591ac984811e592b999008e5a7",
+		"scripts/cinematics/lab_memory_trial.gd": "0d47302420a9bb116260f455d40137d83f66f310409bd70b0b0f1119ab3c8cff",
+		"scripts/cinematics/pact_revenge_presentation.gd": "4850a37789c04605efbcdc20743c80127a6366bc15380fef7d24e314440abf6b",
+		"scripts/environment/dr_kinja_lab_room.gd": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f",
+		"scripts/environment/hospital_bedside_foundation.gd": "987e2f59b53a43ce92fb92662a3016b511c399e1032a5192cd841383cae289c6",
+		"scripts/environment/hospital_bedside_room.gd": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+		"scripts/environment/hospital_room_dressing.gd": "aae6f3d8989aa8fcd6e61f2d216b816c33f1fe271dbedf052f253f5298253c87",
+		"scripts/environment/kinja_rig_terminal.gd": "5f2f7338e27095e1cbcf9649e652f03dfd31b828a96f7bb97b8cd10bacefe8bb",
+		"scripts/environment/memory_reflection_space.gd": "298488795067e20ea439921e71285d85d30b6a4f27d3edbcff47af0f2256d628",
+		"scripts/main.gd": "ffa4dbcf4e9279153d5b0cd423690d331d53bc7ad3bdafaa5b38a47ceee47329",
+		"scripts/systems/native_campaign_controller.gd": "9444defd09ca7b9c4f0c2acab6f850ee812c7f769e76318627f9629fb0b1678b",
+		"scripts/ui/opening_memory_film.gd": "60f63f6118f51e5e2a297106e6badf6c05a1cbadc6a1845379284c35e3f2a1ea",
+		"shaders/lab_memory_abyss.gdshader": "f8c48fd7e846ddf0aa9c619374bab1075677116a0324992a3d90bf809374ed41",
+		"shaders/memory_water.gdshader": "282bbedb162be0a8d4699ef6c651f2e2b3cdd670f803ee94e063801083482b60",
+		"shaders/ward_floor.gdshader": "a74d47726ea05ba57b4bb7bcec6af7f3705d5626e84916e660f4b8f95336dc91",
+		"shaders/ward_linen.gdshader": "a221f55033ccefe606baf9e8793b091e514fe73b4cf1e7dcfe6972ccf2910921",
+		"shaders/ward_rain_window.gdshader": "9416ecfb596e6ffe66effc0c94a0974f11e53f82e2893664d1836567768779a3",
+		"tests/earned_campaign_resume_review.gd": "c1dd20d4d28d1380bf24405a03bc802780f74dc2a3a10294a08c7e7dfb4c2296",
+		"tests/lab_memory_trial_input.gd": "2fe2104660d008c02ec1b5d914f56af7cc233a838d253a213f4a89287e838ce1"
+	},
+	"stages": [
+		"before-trial",
+		"manifested",
+		"wish",
+		"complete"
+	]
+}

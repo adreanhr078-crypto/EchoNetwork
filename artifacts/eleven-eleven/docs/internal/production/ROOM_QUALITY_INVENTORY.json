@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "status": "LAB_SECURITY_SPECIMEN_ARCHIVE_STATIC_NATIVE_SCOPED_PASS_OTHER_CRAFT_OPEN",
+  "scope": "Current High fixed-camera inventory02–08/10;01 owner baseline retained.04/03 and lab have separate scoped static art/native proof. Fixed stills do not establish moving acting,fun,audio,performance or full chapter.",
+  "baseline_route": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024",
+  "baseline_checks": 367,
+  "baseline_retries": 0,
+  "rooms": [
+    {
+      "room": "01",
+      "name_ar": "الاستيقاظ",
+      "status": "KEEP_OWNER_BASELINE",
+      "observed_ar": "المعلم الرئيسي والمخرج والمحطات مقروءة؛ الغرفة محفوظة بحسب تقييم المالك.",
+      "next_ar": "صقل تسليم التحكم والافتتاح فقط إذا أثبتت مراجعة High خللاً.",
+      "interaction_ar": "فحص الساعة والصورة، ضبط الإشارة وفتح الخروج",
+      "capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/view-00.png",
+      "capture_sha256": "c9b81e437eb7a7695ef5b474a8192c81949cad5f0dabd54271563cafd5064cfb",
+      "current_source": "godot/scripts/environment/opening_room.gd",
+      "current_source_sha256": "66cb8c07c71c341d4a106427abf76ad0c8346080cd64a19589dee60582ecd0b9",
+      "four_high_views": false,
+      "human_fun_acceptance": "OPEN"
+    },
+    {
+      "room": "02",
+      "name_ar": "الصيانة",
+      "status": "PRECISION_NATIVE_SCOPED_PASS_ART_REFINE",
+      "observed_ar": "بناء دقيق وخرائط4K؛43 شرط إدخال عام/57صورة وإعادة تحميل الحفظ الفعلي PASS. المعمارية PASS؛الظل وعمق الفراغ والتوهج بحاجة صقل.",
+      "next_ar": "إغلاق عيوب المواد والتكوين ثم فحص اللقطات الحالية والحركة؛قبول اليد والصوت والمتعة والفصل مفتوح.",
+      "interaction_ar": "تسلقان وعبور فجوة وصمام ضغط وخروج فعلي",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/precision-high-v6/entry.png",
+      "capture_sha256": "9bc4813f7def7d45e1ae5d4812c335bc1b878f3e2b5c40b3d2994348ab13985f",
+      "current_source": "godot/scripts/environment/maintenance_vertical.gd",
+      "current_source_sha256": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/precision-high-v6/four-high-views.json",
+        "scope": "Four current native High views;ArchPASS/MaterialsREFINE/CompositionREFINE. Native43/57 and earned reload separately PASS;whole acceptance OPEN."
+      },
+      "current_high_inventory_date": "2026-10-26",
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/quality-report.json"
+    },
+    {
+      "room": "03",
+      "name_ar": "الأمن",
+      "status": "PASS_SCOPED_STATIC_HIGH_ART_NATIVE23_PUBLIC19_RETRY0_FULL_ACCEPTANCE_OPEN",
+      "observed_ar": "ستة أغطية Tripo مقاسة، هندسة البوابة والماسح والطرفيات وحواف التسلق وألواح الجدار صُقلت؛ السواد الطامس والقرص اللامع البدائي عولجا دون ساعة افتراضية.",
+      "next_ar": "مراجعة الحركة والصوت والمتعة ضمن الرحلة المتصلة؛ الفن الثابت والعبور المحلي اجتازا نطاقهما.",
+      "interaction_ar": "تحويل المراقبة، عبور الغطاء وتشغيل المزلاج",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-high-v3/entry.png",
+      "capture_sha256": "a6dbfd2a1fce4097fc6911401796fdb503adbd9af49263645de1df3b6b245b42",
+      "current_source": "godot/scripts/environment/security_checkpoint_room.gd",
+      "current_source_sha256": "48ae838444e4b46007c443d1c94dcd758b341aa9eb6c226a8b0807564f056e94",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "high_review": {
+        "status": "PASS_SCOPED",
+        "advisor": "Argon High actual four native architecture-high-v2 images;all3 art axes PASS",
+        "advisor_return": "art/production/security-refinement-20261025/argon-architecture-v2-return.txt",
+        "final_delta": "v3 extends the same continuous shell finish to two original lintels;own current High review confirms removal of hard white stepped-specular disc. No invented clock/alarm mesh or story.",
+        "latest_views": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-high-v3/four-high-views.json"
+      },
+      "current_high_inventory_date": "2026-10-25",
+      "native_review": {
+        "colliders_unchanged": 23,
+        "detector_state_and_cone_unchanged": true,
+        "public_checks": 19,
+        "public_retries": 0,
+        "public_report": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-public-high-v3/public-route-review.json",
+        "feedback": "PASS actual diversion,one-time latch,pause/liveRM,unchanged threat phase,stale tween/collider restore,mute/silent restore"
+      }
+    },
+    {
+      "room": "04",
+      "name_ar": "العينات",
+      "status": "PASS_SCOPED_STATIC_HIGH_ART_NATIVE33_PUBLIC10_RETRY0_FULL_ACCEPTANCE_OPEN",
+      "observed_ar": "صُقلت المرشحات والخزانات والجدران وحاجز الخصوصية والماسح والطرفية والبوابتان. مراجعة ArgonHigh للصور الحالية PASS نطاقي للعمارة والمعدات والتكوين؛33 شرطًا أصليًا وعبور عام High720 إلى الأرشيف بلا إعادة.",
+      "next_ar": "قبول الحركة والصوت ومتعة التسلل والحزمة باقٍ؛لا إعادة بناء تلقائية أخرى للفن الثابت.",
+      "interaction_ar": "تجاوز مراقبة متحركة والوصول فعلياً لسجل EX-011",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/readability-high-v1/entry.png",
+      "capture_sha256": "36aa01112d77d29a5a89ef8d81b91c2db244b359b0b86dafce97962e52f201f0",
+      "current_source": "godot/scripts/environment/specimen_containment_wing.gd",
+      "current_source_sha256": "f01e8b204f97412f9a3aa19cbf0dc283487d665317d81f4709910d469c89f919",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_specimen.png",
+      "previous_capture_sha256": "44dfa9578855eb50e22f48f75e7fa7d5473b2f23548ac7a51280c4972b7e0047",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/readability-high-v1/four-high-views.json",
+        "scope": "actual four native High views;source/asset hashes in quality-report;static art only"
+      },
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/quality-report.json"
+    },
+    {
+      "room": "05",
+      "name_ar": "الأرشيف",
+      "status": "CURRENT_GRAPHITE_STATIC_HIGH_ART_NATIVE51_SCOPED_PASS_OWNER_FINAL_OPEN",
+      "observed_ar": "الجرافيت والمعدن المعتّق والذاكرة الذهبية مصححة بطلب المالك،ومراجعة الفن الثابت الحالية اجتازت؛51شرط عبور حقيقي بالحركة العادية و0إعادة وحفظ مكتسب بارد،مع استعادة Hyper بعد الخروج. قبول المالك النهائي والحركة والفصل مفتوح.",
+      "next_ar": "تصحيح الجرافيت الحالي مثبت؛رأي المالك النهائي والحركة والصوت والمتعة ضمن رحلة الفصل باقية.",
+      "interaction_ar": "ثلاث شظايا ذاكرة، صعود وفك التسلسل",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-graphite-high-v7/entry.png",
+      "capture_sha256": "115945799d6b03b35562224c8fb3e7634c3021b62f0f787a32a21472deba6565",
+      "current_source": "godot/scripts/environment/memory_archive_wing.gd",
+      "current_source_sha256": "5cf78f2f88a525994c00542947b49a9b20d4b23167879f1506abafb442e05931",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_archive.png",
+      "previous_capture_sha256": "584a23adf70d3fd07cc0488ac32f52c519fe1152760158d26e957e9f09044c7a",
+      "high_review": {
+        "status": "PASS_SCOPED_3_AXES",
+        "adviser": "Actual ArgonHigh response for4readability-high-v5 native images",
+        "response": "art/production/archive-refinement-20261025/argon-readability-v5-return.txt",
+        "views": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/readability-high-v5/four-high-views.json",
+        "own_review": "All4current native stills and actual public deck/exit captures inspected;no camera solid overlaps. Film frame differences are actual full playback,not changed sources."
+      },
+      "native_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/readability-public-high-v5/connected-public-review.json",
+        "checks": 48,
+        "samples": 30,
+        "retries": 0,
+        "completed": [
+          "specimen",
+          "archive"
+        ],
+        "mode": "High720;existing public pilot Reduced Motion enabled;not fresh chapter or standard-motion acceptance",
+        "earned_profile": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/readability-public-high-v5/earned",
+        "earned_reload": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/earned-reload-final/earned-reload-review.json",
+        "cold_reload": "PASS exact current actual5-file earned profile;3memories,decoder/gate,current2,camera/control,no power,silent restore",
+        "feedback": "PASS existing archive presentation:6rack fits,visual-only shard motion,pause/RM,no progress mutation,single/muted bursts,silent restore,decoder guidance"
+      },
+      "current_palette_report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json"
+    },
+    {
+      "room": "06",
+      "name_ar": "المفاعل",
+      "status": "STRUCTURAL_HIGH_ART_PASS_SCOPED_NATIVE75_SCOPED_FULL_ACCEPTANCE_OPEN",
+      "observed_ar": "هندسة محيط وقفص وتاج4K،جمالونات وفلنجات وممرات شبكية وحواف واضحة؛الحالةالفنية الحاليةPASS_SCOPED",
+      "next_ar": "إغلاق الفن الحالي والعبور والاستئناف ثم بقية الحرفة والتمثيل؛الفصل/المتعة مفتوحة.",
+      "interaction_ar": "قاطعان وتوقيت عبور منطقة التفريغ",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/structural-high-v8/entry.png",
+      "capture_sha256": "240b820926ba885f636231084022eef42b6c600f104b92d2b930934fbb42a884",
+      "current_source": "godot/scripts/environment/core_reactor_room.gd",
+      "current_source_sha256": "ddd7c04c9b4bc90f9f4a2242f48a2a3703dcf571d825ae3ca3f2a103c8c1dc9f",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_reactor.png",
+      "previous_capture_sha256": "9c56764f049a441c4607490149ba6d86d99a31a2442b6c805edb9e40377bbc7b",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/structural-high-v8/four-high-views.json",
+        "static_art": "PASS_SCOPED",
+        "camera_qualification": "4actualHigh1280x720/nooverlap/progressunchanged",
+        "moving_fun_audio": "OPEN"
+      },
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json"
+    },
+    {
+      "room": "07",
+      "name_ar": "التطهير والحجر",
+      "status": "UV_READABILITY_AND_EQUIPMENT_POLISH_REQUIRED",
+      "observed_ar": "تراكم إضاءة وحقولUVشديد في زاويةentry، والتجهيزات الأسطوانية وحواف الجسر بسيطة. اللقطة داخل اتجاه الحقل لا تثبت أن جميع زوايا اللاعب محجوبة.",
+      "next_ar": "مقطع لاعب فعلي لدورة التحذير/الخطر قبل تعديل الشفافية، ثم تحسين محلي للمعدات والحواف دون تغيير توقيت الخطر أو التسلق.",
+      "interaction_ar": "عبور UV، صعود وتشغيل تجاوز الحجر",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/decon/entry.png",
+      "capture_sha256": "94761d395cc48373a85a16a651cd47d31cb05b885d715387060667ff756c601a",
+      "current_source": "godot/scripts/environment/decontamination_quarantine_wing.gd",
+      "current_source_sha256": "6dea0a16a36dfa803780b9101539e8e82a97f0a2a5af1b1fead9dbf39dc21cb9",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_decon.png",
+      "previous_capture_sha256": "eb8ca71bc648d145f1452fd6dd4e13490c5f3c7298c620bc251646ffd342f866",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/decon/four-high-views.json",
+        "fixture": "Explicit cold checkpoint/spawn;not an earned journey",
+        "views_observed": 4,
+        "camera_qualification": "All four observed;no solid overlap",
+        "moving_readability": "OPEN",
+        "human_fun_acceptance": "OPEN",
+        "ui_overlay": "Small runtime HUD buttons remain in v1 captures;do not use these as paid-generation inputs without clean native recapture."
+      }
+    },
+    {
+      "room": "08",
+      "name_ar": "المرآة والمراقبة",
+      "status": "ARCHITECTURE_AND_CONSOLE_POLISH_REQUIRED",
+      "observed_ar": "مسار الليزر والمنصة والمراقبة واضح، لكن الخلفيات والحواجز كتل مسطحة قليلة التفاصيل؛ الخروج المقروء محفوظ.",
+      "next_ar": "تجهيزات مراقبة وإطارات وكسوة وحواف انتقائية. حفظ الليزر والتوقيت والهدف والنص والبوابة، ثم مقطع حركة وكاميرا فعلية.",
+      "interaction_ar": "فحص المرآة مستقل عن تجاوز قفل الأمن",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/mirror/entry.png",
+      "capture_sha256": "2299b052c2a698211bc9ff9f5dd9856fa8a2ef904b2db769337ce40a38443a86",
+      "current_source": "godot/scripts/environment/mirror_chamber_room.gd",
+      "current_source_sha256": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/mirror-actual-inspection.png",
+      "previous_capture_sha256": "057425dc549dce65c1185e89436b5e5e070256864054364e029f2ad6aac4264e",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/mirror/four-high-views.json",
+        "fixture": "Explicit cold checkpoint/spawn;not an earned journey",
+        "views_observed": 4,
+        "camera_qualification": "All four observed;no solid overlap",
+        "moving_readability": "OPEN",
+        "human_fun_acceptance": "OPEN",
+        "ui_overlay": "Small runtime HUD buttons remain in v1 captures;do not use these as paid-generation inputs without clean native recapture."
+      }
+    },
+    {
+      "room": "09",
+      "name_ar": "مختبر كينجا",
+      "status": "STATIC_HIGH_ART_SCOPED_PASS_DYNAMIC_ACTING_AND_CHAPTER_OPEN",
+      "observed_ar": "عمارة ومعدات وتكوين High مقبولة نطاقياً بمراجعة الصور الحالية؛105 عرض/فيديو و60 مساراً و9 حفظ. التمثيل والصوت والمتعة والفصل والأجهزة الأقوى خارج هذا القبول.",
+      "next_ar": "P05/P06/P07 للتمثيل والعقد والقتال؛لا إعادة صقل عمياء للدفعة الفنية المقبولة.",
+      "interaction_ar": "الذاكرة والمقاومة، زيرو وقبول/تأجيل، قتال وأمنية ثم فتحة فعلية",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/modular-20261024d/quality-hd-v4-native-views/01-entry.png",
+      "capture_sha256": "5ec7246338367c1229691342719df58f304af92ac5b16c2ca61b0791cdb9a47a",
+      "current_source": "godot/scripts/environment/dr_kinja_lab_room.gd",
+      "current_source_sha256": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/modular-20261024d/quality-hd-v4-native-views/review.json",
+        "adviser": "audits/evidence/chapter-cp45-20261020/stage13/modular-20261024d/argon-hd-v4-return.txt",
+        "scope": "Earned lab static High art and native functional scope only;no whole-game acceptance."
+      }
+    },
+    {
+      "room": "10",
+      "name_ar": "المستشفى",
+      "status": "HIGH_STATIC_HEADWALL_MATERIAL_AND_ACTING_REVIEW_OPEN",
+      "observed_ar": "السرير والكرسي والنافذة والمرآة موجودة فعليًا مع إيكو الحالي؛الأثاث ليس غائبًا. الجدران/منطقة رأس السرير والأداء الجسدي واليقظة تحتاج صقلاً انتقائيًا؛الحكم المتحرك منفصل.",
+      "next_ar": "قرب الوجه/السرير والنهوض والعلامة وإضاءة النافذة؛ فحص الصوت والحركة مستقل.",
+      "interaction_ar": "استيقاظ ثم تفاعل المرآة والعلامة؛ القتال خارج الخدمة",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/hospital-v2/entry.png",
+      "capture_sha256": "e9d1a3e399980ff6f2148ce8dce6766e1ef4380696114c063ef755203cb2fc2a",
+      "current_source": "godot/scripts/environment/hospital_bedside_room.gd",
+      "current_source_sha256": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+      "four_high_views": true,
+      "human_fun_acceptance": "OPEN",
+      "high_review": {
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/hospital-v2/four-high-views.json",
+        "scope": "Actual current native High fixed-camera inventory only. No moving acting,audio,fun,device performance or room/chapter acceptance."
+      },
+      "current_high_inventory_date": "2026-10-25"
+    }
+  ],
+  "interactive_assessment": {
+    "present": "Distinct inspections, traversal, stealth/timing, records, sequence puzzle, breakers, quarantine, mirror, memory resistance, explicit pact, real melee, wish, physical transfer and ward interaction.",
+    "open": "Premium anime craft is not established: sustained face/eye/hand acting, meaningful environmental reaction, pacing, cue/audio mix, combat grip/contact and whole-player acceptance remain open.",
+    "rule": "Generated film is a presentation resource; it does not replace interactive movement, choice, state ownership or gameplay."
+  },
+  "high_review_evidence": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e",
+  "previous_baseline_provenance": "41 recorded source paths still match; three lab paths changed. Earlier room scripts were not individually hashed by that route report; this inventory records their current hashes without claiming those prove old capture identity.",
+  "baseline_provenance": "Older367 route evidence predates current lab/HD work. Current04–08 High records are explicit cold visual fixtures;lab has separate current earned103->105/60/9 proof. No fresh whole-route claim.",
+  "high_remaining_inventory_report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/inventory-review.json"
+}

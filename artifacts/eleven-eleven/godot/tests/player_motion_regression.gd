@@ -63,7 +63,7 @@ func _drive(stick: Vector2, frames: int) -> void:
 		max_rate = maxf(max_rate, player.animation_player.speed_scale)
 		_check(absf(player.visual_root.position.y) < 0.001, "Locomotion must preserve grounding without bob/sink")
 		if i>20 and Vector2(player.velocity.x,player.velocity.z).length()>0.4:
-			var facing:=player.visual_root.global_basis.x
+			var facing:Vector3=player.visual_root.global_basis*player.rig_profile.get("local_forward",Vector3.RIGHT)
 			facing.y=0.0
 			var travel:=Vector3(player.velocity.x,0,player.velocity.z)
 			_check(facing.normalized().dot(travel.normalized())>0.98,"Actual avatar front opposes settled movement")

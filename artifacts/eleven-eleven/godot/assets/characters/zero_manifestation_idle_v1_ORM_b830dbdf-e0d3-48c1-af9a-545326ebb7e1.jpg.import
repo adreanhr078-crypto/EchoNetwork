@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgbppnett1ops"
-path="res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.ctex"
+path.s3tc="res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.s3tc.ctex"
+path.etc2="res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "65454678d5183060fc9c7d79eeed3ee8"
@@ -14,12 +16,13 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg"
-dest_files=["res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.ctex"]
+dest_files=["res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.s3tc.ctex", "res://.godot/imported/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg-8a2e67a82ae70279d7c0f427a9106398.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -28,6 +31,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

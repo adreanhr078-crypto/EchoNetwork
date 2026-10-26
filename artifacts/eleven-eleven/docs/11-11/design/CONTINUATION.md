@@ -2911,3 +2911,216 @@ Owner authorized Free Studio200credits temporarily and now requested broad featu
 ## CP36 / CP-20261017-01 — Tripo scoped evaluation
 
 Browser recovered. P2body02 and idle sampled; body02 guard unsuitable unchanged. Text-motion20 completed but failed relaxed-arm/no-guard brief in sampled frames; balance140, totalobserved60/200. Free H2.5trial generated19992tri/12152verts; 8Kexport gated, 2KGLB downloaded and headless Godot imported with one surface/albedo2048/no rig/no animations. Rig page redirected to oldP2; not a new H2.5rig. Current source GLBs audited: Echo68/30finger; Kinja33/0finger; Zero41/0finger, all no eye/jaw named joints or morph targets. Prioritize Kinja rebuild, Echo targeted face/hand/cape, Zero pact-hand qualification; city NPC primitives are future asset candidates. Pro3000monthly is bounded asset trial advice, not a purchase or animation guarantee; no measured superiority over Higgsfield+Blender. Strict Owner token/context rule appended toAGENTS; compact CURRENT_CONTEXT_CACHE.json introduced. No runtime integration, agent, commit, publish or purchase. Preserve Golden/Canon/SFX_ONLY. Report and next actions in CURRENT_WORK; all-feature request remains partial, P2 local acting and chapter/device gates OPEN.
+
+
+## CP37 / CP-20261018-02 — title entry integrated, chapter IN_PROGRESS
+
+Latest Owner instruction replaces the cover puzzle prerequisite with their supplied
+10-second moon/memory video. Exact MP4 retained for web; same-resolution24fps
+Theora native derivative SSIM0.991934. No image tint/crop. Original music remains
+preserved but disabled; separate reviewed water SFX only. Transparent controls,
+live AR/EN, Reduced Motion poster and native keyboard start. The original take
+has a composition jump when repeated, so no seamless-loop claim.
+
+Server title_v2 entry is idempotent and awards nothing. Legacy cover receipts
+remain valid; new entry does not claim cover completion. Room chronology and
+account-bound S256 single-use native codes remain enforced. Actual SQLite and
+title Boot tests pass; postflight-title-final.log passes650tests/content/types/build.
+UI sizing and root handoff refinements after those checks require final scoped
+review/export. Actual local browser auth is unconfigured; no live-account claim.
+
+Tripo95of130 observed spent: frame40 downloaded, isolated four-angle material
+inspection found lumpy geometry, no blind runtime integration; table55 H3.1
+task73f00020-01a3-455f-9b27-290f68f58159 pending official download/qualification.
+Last observed balance35. Flow subjective memory8s reviewed by Argon High:
+visual scoped acceptance, original voice rejected. Free GeminiTTS take01 rejected
+for spoken gasp/calm delivery; corrected styled take02 saved, review unconfirmed
+when browser transport closed. No purchase/deploy/commit/stage/subagent work.
+
+Next: finish title review/build, recover browser for actual voice/table review,
+integrate only qualified film/audio/props, improve lab memory screens and water
+while preserving collision, public input, Canon and Golden. Full local route341
+checks/0recovery remains scoped evidence, not final chapter/art/device acceptance.
+
+
+## CP-20261018-03 / entry and lab / IN_PROGRESS
+
+# المتابعة الحالية — CP37 / CP-20261018-03 — IN_PROGRESS
+
+آخر توجيه: فيديو المالك أولًا → لغز غلاف المانهوا → تكسّر الشاشة → الفيلم → استيقاظ إيكو؛ رحلة غموض/أكشن/دراما نفسية متصلة حتى المستشفى. نكمل المتاح قبل الاشتراك، دون شراء/نشر/commit؛ لا ندعي أن المتبقي Tripo وحده. العمل فردي؛ تحديثات «يكمل».
+
+- **PASS وظيفي حالي:** `route/cp37-final-connected-v2/full-chapter.json`؛341شرطًا مرسومًا،0تعافٍ/نقل، غرفة01→10 بنفس المشهد وإدخال عام، العقد/القتال/الأمنية والخروج الفعلي/فيلم المستشفى/EX-011. بصمات تشمل الماء/الفيلم/الإطار. لا إثبات حساب حي أو فن فصل أو متعة مستقلة.
+- **البداية:** فيديو المالك10ث كاملًا، نسخةMP4حرفية وTheora1280×720/24 SSIM0.991934، عناصر شفافة وRM؛ المصدرليسseamless. Web يستعملcover_v1 الحقيقي فقط مع حراسة تبديل الحساب؛ title_v2 غير المنشور حُذف. Native لغز16قطعة فعلي+تراجع/مرجع/AR/EN/لوحة مفاتيح،32شظية من الغلاف نفسه وفيلم24.25ث1080p استُعيد منLFS بعد تطابقSHA256. `cover-entry-rendered-v3.log`:10PASS؛ `title-cover-boot-headless-v2.log`:14PASS. اختبارTitleالأخير مرسومًا وصل11PASS ثم تبدلالسائقANGLE وتوقف تحميل المشهد تحت ضغط الجهاز؛ لم يُحسبPASS، وأوقفت عمليتي الاختبار32324/29660 فقط بعد التحقق.
+- **المختبر:** تعريف الأب → محطتا يوكي/شيزوكا منPDF41 مع كاميرا فحص تترك الوجه ظاهرًا فوق الحوار → رفض التضحية → إدراجFlowذاتي8ث → قرار صعود صريح → ظهور زيرو والعقد القائم الصريح. لا قوة مبكرة. الفيلم/تجاوزه/RM لا تنفذ القرار. rollback يوقف الوسائط فورًا ويمنع callbackقديمًا، مع إعادةHUD/الكاميرا/التحكم.
+- **الصورة والصوت:** ماء planar أصلي768×960/30Hz في مرحلة الذاكرة فقط؛ إيقافه خلف الفيلم وخارج المرحلة. إطار أصلي نظيف بدل هندسةTripoالمشوّهة:3608مثلثات/3أسطح/0ملمس/112432بايت، مصدرBlenderقابل للتحرير وأربع زواياGodot فُحصت، كطفل للكبسولة بلا تغيير تصادم/الهبوط. الفيلم يحذف الكلام الخاطئ الأصلي، يستعمل الماء المؤهل فقط وترجمةAR/EN4.5–6.7؛10شروطوسائط فعليةPASS تشملPause/unmute/rollback. take02الياباني محفوظ ولم يؤهل، لا نزعم إنجاز التمثيل الصوتي.
+- **الحفظ:** `memory-final-earned-v1.log`:57شرطًا مرسومًا، منها rollback أثناء الإدراج واستجابةمتأخرة. هذا قبل تحسين كاميرا الذكرى الأخير؛ المسار341اللاحق يفحص الكاميرا الحالية. أربع حالات حفظ مكتسبة تاريخيًا70PASS؛ يعاد الاختبار الموجّه بعد تغييرات المستشفى.
+- **الأساس:** `postflight-cover-water.log`649اختبارًا وTypeScript/build/content PASS؛ `golden-current-final.log`192PASS. فشل تشغيل full-chapter الأول كان نسيان flagsالأمن/الصيانة فيمشغّل الاختبار؛ صارfull-chapterيتضمنهما تلقائيًا، وإعادةv2نجحت341، لم نخفف شروط الغرف.
+- **حزمة محلية:** تصديرWindows اكتمل إلى outputs/11-11-CP37/EchoNetwork.exe+pck،111754240/400483468بايت. ليست النسخة النهائية؛ فحص الحزمة الجديدة والمشهد المرئي النهائي ما زالاOPEN. default محلي؛ S256/كود أحادي5دقائق شرطه إيصال cover_v1 فعلي؛4اختباراتSQLite،HTTPمحلي سابقPASS. عنوانالخدمة/Firebaseحي غير مهيأين.
+- **الخدمات:** Tripo صُرف95 من130؛ آخر رصيد مرصود35. الإطار الخام غير مؤهل هندسيًا؛ الطاولة task73f00020-01a3-455f-9b27-290f68f58159 أُرسلت55 وتنزيلها غيرمتحقق. FlowFastطلبواحد20؛QualityرفضIngredientsبلاصرف100. لا شراء. كل محاولات CUAلاستعادةGemini/Tripoبالتبويبات المحددة انتهتtimeout؛ توقف تكرارها. لا افتراض رفع/إرسالtake02 أو تنزيلالطاولة.
+
+**التالي الآن — تمريرة المستشفى10:** صور المسار الحالي تثبت أنالغرفة native مازالت مسطحة/مكعبات مقارنة بالفيلم، ووجه إيكو مفرط الإضاءة. `hospital_bedside_foundation.gd`furniture_only لا يضيف كسوة الغرفة؛ EchoFaceFill/ShoulderFill يُعادان لطاقة المنشأة خارج الغرفة01، مع ضوءالمرآة. افحص baselineبأربع زوايا فعلية وبياناتالإضاءة، ثم أصلح الكسوة/الكتان/الشباك/ملفالإضاءة بالأصول الحالية مع إبقاء غلافالتصادم6.4×5.8×3.2 والمرآة/العلامة/الحفظ/Golden. يوجد hospital_bed.glb2.16MB غيرمؤهل لهذهالمواضع؛ لا تستبدل تصادم السرير أو تدّع أداء نهوض. سيتطلب أي تعديل إعادة الحزمة وفحص المستشفى والحفظ. لا توقف عند هذا التوثيق؛ واصل العمل المحلي.
+
+الخطة العامة: CHAPTER_QUALITY_EXECUTION_PLAN_2026-10-16.ar.md؛ التفاصيل PRE_TRIPO_EXECUTION_2026-10-18.ar.md؛ الفهرس SOURCE_INDEX.json. أداء الياباني/الوجه واليد والجسد والعقد والنهوض/المتعة المستقلة/الأداء والأجهزة والحساب الحي تبقىOPENبدليلها، وليست كلها متوقفة على اشتراكTripo.
+
+Worker: individual; no subagents, staging, commit, push, purchase or deployment. Browser CUA timed out repeatedly; pending table/voice not claimed received. Current local Windows export is a review artifact and must be rebuilt after the pending hospital art pass.
+
+
+## CP38 / CP-20261019-01 — hospital and subscription recovery / IN_PROGRESS
+
+# المتابعة الحالية — CP38 / CP-20261019-01 — IN_PROGRESS
+
+آخر توجيه: استئناف «أكمل مهام الرحلة قبل Tripo» بعد اشتراك المالك، رفع جودة اللعبة بصورة متماسكة وغرفةً غرفة. **كل مجسم جديد من صورة مرجعية**. Gemini عبر المتصفح الخاص بوضع Argon مرتفع؛ رصيده المحدود لا يبرر التحايل على الحدود. العمل فردي، بلا staging/commit/push أو نشر. تحديثات «يكمل».
+
+- **PASS وظيفي حالي:** `audits/evidence/pre-tripo-20261018/cp37/route/cp38-final-connected/full-chapter.json`؛341 شرطًا مرسومًا،0تعافٍ/0مقاطعة تركيز، بعد تعديلات الأثاث والكاميرا. رحلة01→10 والعقد الصريح وثلاث ضربات/القبضة/الأمنية والخروج والمستشفى. ليس اعتماد فن أو متعة أو جهاز أو حساب حي.
+- **المستشفى الحالي:** سرير CP37 الأصلي12304مثلثًا، أرضية/كتان/مطر أصلي، كرسي Tripo3043مثلثًا ومغسلة2567مثلثًا، سطح واحد لكل منهما ومشتقات1K. المصدران الخامان والصورتان وملفاBlender محفوظة. أربع زوايا Godot فُحصت؛16تصادمًا مطابقة قبل/بعد. `hospital/cp38-furniture-v1/`. الطاولة73f00020 منصة فحص مختبر ولم تُدمج هنا.
+- **واجهة وحفظ:** إصلاح تسرب هدف الأمن إلى المستشفى عند تبديل اللغة خلالPause. مالك الهدف الحالي يستعيده فورًا. حفظ مكتسب/مشي فعلي للمرآة/AR/EN/إعادة التحكم/EX-011 على الجلد24PASS في `route/cp38-final-camera/`. لا تقدم أو مكافأة من العرض.
+- **الكاميرا والأداء:** كاميرا المستشفى كانتfar4000؛ أصبحت16م مع استعادة الأصل عند الخروج أو التحرير، وفحص العلامة يرث المدى. قياس الجهاز الحالي دونfixedFPS: draw849→638،p50 نحو22.672→19.782ms،p95 نحو33.127→27.417ms.240عينة، ليستGPUtimer أو اعتماد جهاز. ذاكرة خامات933399755بايت ما زالت مرتفعة وتحتاج تتبعًا للموارد.
+- **المراجعة:** Argon مرتفع أعاد مراجعة فعلية للصور/المصادر؛ لا عيب مانع مرئي في الأثاث/الرقبة ضمن الصور المرفقة. حفظ الرد في `audits/evidence/quality-cp38-20261019/argon-cp38-review.txt`. لا قبول فصل من رأيه أو الاختبارات.
+- **التحقق:** preflightPASS؛ postflight النهائي649اختبارًا،types/build/contentPASS؛ Golden192PASS قبل/بعد؛diff-checkPASS. الحزمة المحلية الجديدة CP38.exe+pck صدرت، ثم Boot الحقيقي والحركة والفحص وتحميل الأصول22PASS،exit0. أصول الأثاث صريحة في محدد الموارد لكلPresetsالثلاثة. لا Android/Webbuild جديد ولا نشر.
+- **Tripo:** Studio3035قبل العمل→2945بعده؛ كرسي45+مغسلة45=90فقط. CLI/APIالمهيأ0متاح، رصيد مستقل عنStudio؛ استُخدمStudio فعليًا. KinjaP2 والطاولة الموجودان نُزلا دون رسم جديد مرصود. سجلدقيق `art/production/tripo-cp38-20261019/credit-ledger.json`، بلا بياناتاعتماد.
+- **كينجا، معزول:** P2Mixamo66عظمة وأصابع،41841مثلثًا؛ لاeye/jaw/morph. standing_relax423عينة/24Hz، الخام محفوظ،27918مقارنةBlender↔GodotPASS بأقصىموضع0.000000556م/دوران0.000221درجة. مشغّل الاختبارactive=false كان خاطئًا وأُصلح قبلPASS؛ سجلFAILمحفوظ. لا استبدالruntimeبعد. الحالي33عظمة+10معطف؛ يحتاج محولطبقةحركة فوقالحركةالأصلية ومحاورصحيحة/قبضة/أصابع/معطفوتماس. لا تعديلGolden/V31.
+
+**التالي الآن:** تتبع تماس القدمين/حلقة standing_relax قبل أي تصحيحجذر؛ انزياحالحوض وحده ليس دليلانزلاق. بناء مرشح كينجا منفصل وفحص رد الضربات/القبضة وصورداخل المحرك ثم Argon، مع بقاءالمصدرالحالي حتىاجتيازالبوابة. بالتوازيالسببي لاحقًا خفضذاكرةالخاماتوالإخفاءبدلالتفريغ. لا توقف عند توثيقالمرحلة.
+
+الخطة السباعية الجديدة `TRIPO_QUALITY_EXECUTION_2026-10-19.ar.md` تكمل خطة30مرحلة وCanon/PART_3/SFX_ONLY. البدايةالحالية: فيديوالمالك→لغزالغلاف16قطعة→التشظي32→الفيلم→استيقاظإيكو. ماءالمختبر/الفيلم/قرارالصعودوالعقدمنCP37محفوظة. الياباني/الوجهواليدوالجسدوالغرقوالعقدوالنهوضوالتحكم/الباركورالمصقولوشاشاتالنظاموالفنوالمرحوالأجهزةوالخدمةالحيةتبقىOPEN؛ ليستكلهاحاجزTripo. راجعSOURCE_INDEXلاصورقديمة.
+
+Worker: individual. No agents, staging, commit, push or deployment. All prior dirty work preserved. Current Windows build is a local review artifact; chapter and acting gates remain open.
+
+
+## CP38 / CP-20261019-02 — VRAM and actual title verification
+
+CP38 متابعة مؤكدة: خفضت إعدادات استيراد خامات زيرو الثلاث فقط إلى VRAM Compressed، مع بقاء اللون8K والنورمال/ORM4K وبايتات الصور وGLB ومفاتيح الحركة كما هي. فُحصت صور جسم/وجه/جذع ثابتة قبل/بعد. قياس المشهد المعزول438861056→103316779بايت، وفي المستشفى المكتسب933399755→597855478بايت. لا ادعاء لتطابق كل بكسل أو اعتماد أداء جهاز. حزمةWindowsأعيدت،24PASSتؤكد اللون8Kمضغوطًا فعليًا؛pck391039600بايت. مسار كامل مرسوم341/0، حفظ24، وبداية فعلية فيديو→غلاف→فيلمRM→رحلة14PASS؛ تعثرالعنوان السابق لم يعد النتيجة الحالية. Golden192 وpostflight649PASS. إعدادات الخامات الجديدة مضمنة في بصمات المسار والحفظ.
+
+دراسة كينجا P2 الإضافية معزولة،15PASS: تقييم المصدر أولًا ثم ردود جذع/يد دونT-pose أو تراكم، بلا تغيير للساقين، وRMلا يعيد ضربة قديمة. الحوض ينقل الوزن؛ لا تُقفل إزاحته تلقائيًا. اتصال الياقة/اليد والمعطف والوجه والتعريض في المختبر ما زالوا OPEN.
+
+آخر توجيه المالك19أكتوبر: مواصلة رفع الجودة واستخدام الأدوات المتاحة، وشاشة نظام شخصية سينمائية لإيكو للمهام والخبرة والقوة بأجواء مانهوّا وهوية أصلية. التالي الحالي هو CP39: تحسين SystemWindow القائم وربطه بالتقدم المؤكد، دونHUDموازٍ أوخبرة/قوة مختلقة، مع استمرار تأهيل الشخصيات/الباركور. مراجعة Argon الجديدة أُرسلت فعليًا مع دراستي كينجا/زيرو؛ النتيجة لم تُقرأ بعد. جميع مراحل الجودة والفصل ما زالتIN_PROGRESS.
+
+Worker individual; no commit/stage/push/publication; next CP39 personal SystemWindow.
+
+
+## CP39 — personal system working checkpoint / IN_PROGRESS
+
+# المتابعة الحالية — CP39 / واجهة إيكو الشخصية — IN_PROGRESS
+
+آخر توجيه المالك19أكتوبر: استمرار رفع جودة 11.11 نحو مرجع الفيديو/Genshin في الحرفة، وتأهيل إيكو والباركور والشخصيات، وشاشات نظام سينمائية بأجواء مانهوّا وهوية أصلية. كل مجسم Tripo جديد من صورة مرجعية. لا ادعاء لقبول Genshin أو الفصل من اختبارات محلية. العمل فردي، بلا commit/stage/push/نشر؛ تحديثات «يكمل».
+
+**العمل الحالي CP39:** تعديل SystemWindow القائم، لا HUD موازٍ: إشعارات مهام من حفظ ناجح فقط، عدادات خطوات حقيقية، طابور لا يقاطع القرارات/الحوار، تجميع التقدم السريع ومنع التكرار، توقف زمن القراءة معPause، مؤثر صوتي قصير وكتم بلا إعادة صوت قديم، AR/EN وReducedMotion، بصمة11.11 وزجاج داكن وسيان للتقدم مع بقاء القرارات قرمزية. إصلاح عمر FontFile وإزالة الأرقام الثابتة المختلقة من شاشات المستوى/العنصر.
+
+زر «الحالة [I]» وIالفعلي يفتحان نافذة إيكو السلبية: HP/التحمل من اللاعب، العقد من تقدم الفصل، والهدف الحالي. لا توقف الحركة ولا تتجاوز قرارًا. XP عرض بيانات فقط؛ صورXPفيfixtureاختبارية ولا يوجد ربطXPحسابحي أو منح خبرة/قوى منUI. لا قدرة قبل عقد زيرو.
+
+**الأدلة الجزئية الحالية:** system_notice_queue_review22PASS؛ fixtureمرسومv2للحفظ المكتسب/المشي/حالةI/اللغة/عدم تجاوز القرار24PASS. v2قبل تعديل هامش12px لإزالة شريط تمرير زائد في بطاقة المهمة؛ يلزم إعادة صور v3 لهذا الهامش. full-route-cp39-system.log قيد التشغيل، وكذلكpostflightCP39وفحصnative-canvas/lifetime. لا تمنح قبولًا من هذه البطاقة قبل فحص النتائج. المصادر الرئيسية: system_window.gd،system_signal_glass.gd،gameplay_hud.gd،main.gd،native_pause_menu.gd،native_campaign_controller.gd.
+
+**القاعدة المحفوظة CP38 / CP-20261019-02:** مسار341/0، حفظ24، عنوان→غلاف→فيلمRM→رحلة14، حزمةWindows24،postflight649،Golden192. مستشفى مع كرسي3043مثلثًا ومغسلة2567مثلثًا من صورتين؛16تصادمًا محفوظة. نداءات الرسم849→638بعدحصرمدىكاميراالغرفة16م؛ ذاكرةالخامات933399755→597855478بايت منضغطGPUلخاماتزيرو فقط معإبقاء8K/4K/4Kوالصوروالحركة الأصلية.مقارنة زيرو56826مفتاحًا PASS بخطأ0. حزمةCP38محلية تحتoutputsهذهالمحادثة؛ تسبق تغييراتUIالحالية. لا تعتمدصورCP38كقبولUIالجديد.
+
+كينجاP2معزول:66عظمة/أصابع،standing_relax423عينة24Hz،27918مقارنةPASSودراسةإضافية15PASS. لا دمجruntime؛ الوجه/المعطف/اليدوالياقةوالتعريضوالتماسفيالمختبرOPEN. الحوضنقلوزن،لاتقفلإزاحتهعميانيًا. Studioآخررصيد2945بعد45كرسي+45مغسلة؛API0مستقل. لا صرفجديدفيCP39حتىالآن.
+
+Geminiاستُعيدبالمتصفحالخاصبعداختفاءالتبويباتعندوصولتوجيهالمالك؛ ردArgonمرتفعفعليعنمعماريةUIمحفوظwork/argon-cp39-system-review.txtوصورتهoutputs/argon-cp39-system-review.png. ليسهذاقبولًابصريًالكينجا/زيرو؛ الردكانتصميمًاوتوصيات. لاتتبعافتراضاتهعنGoldenكلونأوتوقيعreceiptIdكدليلتشفير. يلزممراجعةصورUIالحاليةبعدv3.
+
+**التالي الدقيق:** اقرأنتائجالفحوصالمعلقة،أصلحأيFAILدونتخفيفالشروط؛أعدv3للمهمة/الحالة/XPالاختباري/القراروأرسلصورًاومصادرمطابقةلأرجون. أعدالمساروالحزمةوالتحققالنهائيالمتأثرثمحدّثالفهرس. بعدقبولواجهةCP39المحدودانتقللتأهيلباركورإيكوبأفعالواحدةمعTripo/Blenderومقارنةالمصدرقبلالدمج. لا تستبدلV31أوGolden؛ Canon/PART_3/SFX_ONLYوالأداءوالأجهزةوالصوتاليابانيوالتمثيلوالفنوالمرحوالخدمةالحيةمازالتبواباتمفتوحة.
+
+Worker individual. UI prototype is in the worktree; do not equate partial checks with completed integration.
+
+
+## CP39 / CP-20261019-03 — personal system local integration and original Echo source
+
+# المتابعة الحالية — CP39 / CP-20261019-03
+
+**واجهة إيكو مدمجة محليًا؛ رفع جودة اللعبة مستمر.** النافذة أمام إيكو إلى جانبه وتتبع صدره مع إبقاء المركز والشخصية مكشوفين. دخول220ms وخروج180ms؛ التقدم الجزئي2.4s وXP2.8s صامتان، مهمة جديدة3.2s واكتمال3.5s. تحديث الخطوات داخل البطاقة نفسها، بلا إعادة ظهور أو صوت متكرر. القرارات/الحوارات أعلى أولوية، حتى رسائل المستوى/العنصر القديمة؛ إيقاف الصوت عند إغلاق النافذة أو قطعها. I/زر الحالة يقرآن HP والتحمل والهدف والعقد دون إيقاف التحكم. AR/EN وReducedMotion والكتم محفوظة. الحالة لا تمنح قوة، وXP عرض بيانات فقط بلا ربط حساب حي.
+
+**أدلة CP39 الحالية:** مسار كامل headless340/0retry، صور واجهةv10 بالحفظ المكتسب26، طابور/أولوية32، حزمة Windows فعلية28، postflight649 وGolden192. مراجعة أرجون مرتفع لصورv9: PASS لإصلاحات الهوامش والمحاذاة والترويسة؛ الحركة/الصوت/المرح ليست قبولًا من صور ثابتة. v10 التصميم نفسه بعد إصلاح أولوية الرسائل القديمة/إيقاف الصوت، أُعيد رسمه وفحصه محليًا. المسار المرسوم343 قبل هذه اللمسات محفوظ كتاريخ، ولا يُستبدل به دليل المصادر النهائية. الأدلة والفهرس: audits/evidence/system-cp39-20261019/verification-cp39.json. الحزمة المحلية outputs/11-11-CP39 في محادثة h-lg-l، ولم تُنشر.
+
+**إيكو قبل الهيكلة سُلّم:** الأصل GLB بلا skins أو animations؛1,954,040مثلثًا، SHA256 b03583c44998cf144d40a901c011a06f878de29a10852c2c751494596e2e9b67. النسخة مطابقة بايتًا للمصدر في art/production/echo-tripo-hd-v31-8k. لا تعدّل هذا الأصل أو Golden.
+
+**Tripo CP39 معزول:** asset a1ef7bf8-d616-4431-b2ea-9c01257af46d. المصدر كثيف جدًا للهيكلة، فاختُبرت Retopo Quad هدف50k →45,460وجهًا/90,896مثلثًا، ثم Mixamo66عظمة. المصدر8K محفوظ لكن المشتق Studio2K. صُرفت10شبكة+20هيكلة+20CustomRun1+20CustomRun2=70؛ آخر رصيد2875. API0 منفصل تاريخيًا عن هذا الرصيد. لا شراء جديد ولا محاولة ثالثة عمياء.
+
+CustomRun1 وSprintingForward2: كل منهما120عينة24Hz/66عظمة/7920مقارنة Blender↔Godot PASS. لكن المصدرين يبدآن وينتهيان بالوقوف؛ الأول يداه على الخصر، والثاني لا يحقق دفع الذراعين المطلوب. المعطف يتبع الفخذين. مرفوضان كجري متصل، ولم يُستبدل اللاعب. الحالي68عظمة وفيه15Cape مستقلة وأصابع؛ لا دليل أن الهيكلة القديمة سبب المشكلة. الأصل/GLB/Blends/المراجع/الصور/سجل الكريديت تحت art/production/echo-tripo-cp39-20261019. أرجون شاهد فيديو المحاولة1 وأكد REJECT. Blender الخلفي الخاص بهذه المحادثة حُفظ ثم أُغلق لتخفيف الذاكرة؛ لا تمس أي جلسة Blender أخرى.
+
+**التالي الدقيق:** تأهيل باركور إيكو بفعل واحد ومقارنته بالمرجع الحالي داخل الغرفة02. لا إعادة محاولات CustomRun؛ قيّم Tripo للأفعال المنتهية/تمثيل الشخصيات بعد مراجعة مصدر محدد. أي نقل حركة يبقى معزولًا وبوقته الأصلي، ثم فحص التلامس/المعطف/الوجه/اليد والأداء قبل الدمج. KinjaP2 ودراسته السابقة15PASS معزولان أيضًا. Canon/PART_3/EX-011 على الجلد/SFX_ONLY وV31 وGolden محفوظة. لا قوة قبل عقد زيرو، ولا موسيقى. بوابات الفن/المرح/الأجهزة/الأداء/الصوت الياباني والتمثيل والحساب الحي مفتوحة؛ لا قبول Genshin أو فصل كامل. العمل فردي، بلا commit/stage/push/نشر، والتحديث «يكمل».
+
+Commands: Godot tests/system_notice_queue_review.gd; system_personal_window_review.gd; full_chapter_journey_review.gd; exported --review-cp24 --review-smoke; npm run agent:postflight; python tools/animation-library/golden_reference.py. Worker individual. No staged files, commit, push, deployment or purchase.
+
+## CP40 — تعليق الغرفة02
+CP40 قيد التنفيذ: وضعية ارتكاز V31 أصلية دون قص المصدر؛1972 مطابقة كاملة و110 فحص تلامس مرسوم. نهاية free-hang مرفوضة لاختراق الجدار. regression الفصل/الصعود مفتوحان؛ المرجع الحالي docs/internal/production/CURRENT_WORK.ar.md. لا توليد Run ثالثًا ولا تغيير Golden.
+
+
+## CP41 / CP-20261020-01 — Hyper Anime core
+**مهارة Hyper Anime محفوظة ومطبقة؛ النواة مدمجة محليًا في Godot4.8.dev7.** النسخة الدائمة في `.codex/skills/hyper_anime_aaa_engine/` ونسخة المستخدم العامة `hyper-anime-aaa-engine`. توجيه المالك الأصلي محفوظ كمرجع، وAGENTS/.cursorrules يلزمان به في العمل البصري.
+
+المحاور الخمسة: بيئة Forward+ وأربعة presets، محول مواد وشيدرات cel/سطح تفاعلي، كاميرا نوابض70..92 تستبقي التصادم/الدوران/ملكية المشاهد، تسارع أسي وميل، ومؤثرات GPU مجمعة/16بصمة سطحية. جرى تحويل288مادة في لقطة المشهد الفعلية، مع حفظ الصور/قنواتORM والمواد المخصصة وإشارات الغرف المتحركة. الضباب الداخلي مقيّد لئلا يرث المستشفى كثافة0.05 الافتراضية. حُفظ اختيار الجودة Low/Medium/High/Ultra في قائمة الإيقاف AR/EN؛ Reduced Motion والإيقاف وملكية time_scale لها حراسة. الرياح الإضافية على ملحقات مؤهلة فقط؛ لا ادعاء بإصلاح المعطف/الأصابع/الوجه.
+
+**PASS تقني محدد النطاق:** مسار إدخال عام محلي340/0retry حتى المرآة، وحدات مرسومة35Forward+ و35Compatibility، المشهد الفعلي19، مستشفى من حفظ مكتسب19، حزمةWindows31، postflight649 وGolden192. الكاميرا30/60/120 واجتياز الصيانة وتلامس CP40 المرسوم110 ناجحة. الأدلة: `audits/evidence/hyper-anime-cp41-20261019/verification-cp41.json`، المسار `pre-tripo-20261018/cp37/route/cp41-delivery/full-chapter.json`. هذه ليست قبول فصل/مرح/أجهزة/AAA. تجربة route-delivery الأولى ناقصة --full-chapter فشلت في إعداد الاختبار وحُفظت؛ التشغيل الصحيح نجح دون تعديل اللعب.
+
+**الأداء OPEN:** Intel UHD / Vulkan Forward+، قياس90فاصلًا عند نقطة ثابتة في الغرفة01: High p50=58.948ms وp95=67.207ms، Low p50=17.743ms وp95=24.095ms؛ لا تمثل كامل الرحلة. High يحتاج تحسينًا؛ fallback Compatibility يعطّل الميزات غير المدعومة وله تحذير بدء SSAA، دون أخطاء سكربت/شيدر في التشغيل المؤهل. راجع profile وحدوده، ولا تُعمم هذه الأرقام على أجهزة أخرى.
+
+**CP40 محفوظ ومغلق regression وظيفيًا:** Frame0 الأصلي لوضعية Braced فقط عند الجدار، مكتبةV31/Golden ثابتة،110فحص تلامس. نهاية free-hang مرفوضة لاختراق الجدار. Climbing Up Wall.fbx في `echo-parkour-cp40-20261019/climb-attempt01` مؤهل نقلًا معزولًا ب61عينة30Hz/2s؛ هو دورة صعود متبادلة لا حركة pull-over/وقوف فوق الحافة. لم يُدمج كـmantle.
+
+**التالي الدقيق:** تأهيل حركة pull-over منفصلة من المصادر القائمة أولًا، ومعاينة المصدر/اليدين/الجسد/المعطف، ثم نقل Golden المعزول والتحقق قبل دمج غرفة02. لا محاولة CustomRun ثالثة عمياء. بالتوازي المنطقي تُراجع حرفة إضاءة الغرفة01 وأداء High قبل قبولها؛ لا انتقال شامل للغرف ولا قبول من الأرقام وحدها. أرجون مرتفع أعاد مراجعة معمارية فعلية؛ الحكم المستقل على الصور الجديدة UNVERIFIED. الفن/المتعة/الأجهزة/الصوت الياباني/الحساب والإيصالات الحية OPEN. لا موسيقى، لا قوة قبل العقد، EX-011 على الجلد وCanon/PART_3 ثابتة. كريديت إضافي0؛ لا شراء/نشر/commit/stage/push. العمل فردي والتحديث «يكمل».
+
+Commands: hyper_anime_engine_review (Forward+/Compatibility), hyper_anime_live_review, full_chapter_journey_review --full-chapter --en, exported --review-cp24 --review-smoke; agent:postflight; golden_reference.py. Exact evidence and hashes in verification-cp41.json. No workers/commit/stage/push/deployment/purchase.
+
+
+مرشح المصدر التالي محدد: Motifect `Animations/climb_ledge.fbx`، take `36036518968c47857c982d56:0:3ecc9cb6`،210عينة؛ قرئت بيانات FBX الأصلية فأثبتت30Hz. اسم الملف لا يثبت pull-over؛ metadata تفتقد تعرّف hips، ولذلك فحص الجذر ودلالة الحركة بصريًا يسبقان أي bake. لا دمج بعد. الدليل `next-mantle-candidate.json`.
+
+
+## CP42 / CP-20261020-02 — intact moving memories; CP43 source gate
+**توجيه المالك الأخير: صور ذاكرة كاملة تتحرك وتطفو مثل فيديو الافتتاح؛ لا تُقطّع الصورة.** أُزيل البديل المكسّر من runtime وحُفظ كدليل رفض في work المحادثة. توجد الآن 10 ألواح كاملة بلا هيكل تلفاز في الغرف 01–08، مع اختلاف الميل والمقاس والعمق. المصدران من Flow، مبنيان على الصفحة 03 المعتمدة، ويعاد تشغيلهما باستمرار. صوت Stereo مكاني لأقرب ذاكرة ضمن 5 أمتار فقط. Low يجمع المشهدين في decoder واحد / 15fps؛ الأعلى يستخدم decoderين بحد أقصى / 24fps، بلا SubViewport لكل شاشة. توجد تسربات محدودة في 01/02/03/04/07؛ الأرشيف والمفاعل والمرآة جافة، والمختبر والمستشفى محفوظان. التموج وFoley الماء يتبعان contact الخطوة الأصلي. الإيقاف وReduced Motion والكتم محفوظة؛ لا colliders أو progression flags جديدة. نواة Hyper Anime CP41 مستمرة في المشهد الحقيقي.
+
+**PASS تقني محدد النطاق:** 47 فحصًا مرسومًا Forward+ و47 Compatibility، مسار إدخال عام محلي 340 / صفر retry حتى المستشفى والمرآة، تشغيل حزمة Windows جديدة 44 مع PACKED_INSPECTION_REACHED وفك فيديو فعلي، postflight:649/0FAIL، وGolden:192. البصمات والأدلة في `audits/evidence/memory-atmosphere-cp42-20261020/verification-cp42.json`؛ المسار في `pre-tripo-20261018/cp37/route/cp42-delivery/full-chapter.json`. صور 04–08 هي fixtures على المشاهد الفعلية؛ اختبار التقدم منفصل. التحذيران المعروفان: SSAA عند بدء Compatibility، وحجم web chunks.
+
+**الأداء:** Intel UHD / Vulkan / 1280×720؛ 90 فاصلًا لكل حالة عند ثلاث نقاط ثابتة. Low مع الجو: p50 للغرف 01/02/03 يساوي 16.409 / 16.583 / 16.617ms؛ High:51.465 / 30.239 / 30.431ms. ملف profile يحوي OFF/ON وp95 وdraws ومقياس نسيج المحرك. ضجيج الغرف المتحركة موجود؛ ليست GPU timing ولا رحلة كاملة أو قبول جهاز i5 آخر. المالك يسمح بـHigh للأجهزة الأقوى وLow لجهازه؛ لا خفض عام لهدف الفن.
+
+**CP43 — مصدر حركة الحافة:** فُحص Motifect climb_ledge.fbx الأصلي، 30Hz / 210 عينة. Hips هو armature OBJECT المتحرك وليس bone؛ لا mapping مخترع. تبدأ القدمان على الأرض وتنتهيان أعلى 0.762م خلال 6.967s؛ حركة step-up من الوقوف، لا تناسب hang→stand. لم تُخبز أو تُدمج. المصدر وGolden سليمَان؛ التشخيص المرسوم في `audits/evidence/echo-mantle-cp43-20261020/source-inspection/source-disposition.json`.
+
+**Tripo حي:** قُدّمت محاولة واحدة مخصصة لمدة 3 ثوانٍ باسم Ledge Mantle، على مشتق إيكو المعزول asset `a1ef7bf8-d616-4431-b2ea-9c01257af46d`. خُصم 20 كريديت، والرصيد المشاهد 2855. الواجهة ما زالت Retargeting / 0% / Cancel Queuing بعد تحديث واحد؛ لا Task ID ظاهر ولا ملف عاد بعد. لا تعد الإرسال ولا تلغ مهام المالك. رصيد API منفصل؛ لم يُفحص رصيد Higgsfield حيًا هنا. Argon في حساب u/2 مقفول حتى 20 أكتوبر 16:09 المعروضة في المتصفح؛ Flash-Lite ليس مراجعة Argon. مراجعة فيديو المصدر من الجلسة السابقة محفوظة ومنسوبة؛ مراجعة الفن النهائية الحالية OPEN.
+
+**التالي الدقيق:** افحص مهمة Ledge Mantle الموجودة في Tripo، داخل Animate → AI Animation. بعد اكتمالها صدّر GLB إلى المجلد المعزول واحتفظ بوقت الفعل وعيناته الأصلية. شاهد المصدر كاملًا، وافحص اليدين والجسد والمعطف قبل Golden transfer أو دمج الغرفة 02. إن لم يصلح، احفظ السبب ولا تعمل reroll أعمى. بعد إغلاق فعل الصعود تبدأ تمريرة العباءة المخصصة؛ العباءة لم تُصلح بعد. لا CustomRun ثالثة، ولا قدرة قبل العقد. Canon / PART_3 / EX-011 على الجلد / SFX_ONLY / Golden / V31 محفوظة. لا commit أو stage أو push أو نشر أو شراء.
+
+الفن والمتعة والأجهزة والتمثيل الياباني والحساب والإيصالات الحية OPEN؛ لا ادعاء قبول AAA أو تجاوز Genshin. النسخة في outputs/11-11-CP42 لهذه المحادثة؛ README يوضح اختيار الجودة. يوجد فيديو صامت 5.9 ثوانٍ من Godot Low بفواصل الالتقاط الأصلية؛ معاينة للمظهر وليست benchmark. العمل فردي؛ التحديث «يكمل».
+
+Commands: memory_atmosphere_review Forward+/Compatibility47each; full_chapter_journey_review cp42-delivery --full-chapter --en340; exported --review-cp24 --review-smoke --review-no-capture44; agent:postflight649; golden_reference.py192. Individual work; no stage/commit/push/purchase/deployment.
+
+
+## CP44 / 2026-10-20 — garment and easy cover checkpoint
+
+Six-piece native cover12/title14 rendered checks; explicit15-bone cape driver actual-player PASS and native_journey26/exit0; Golden192 PASS. See CURRENT_WORK and audits/evidence/echo-coat-cp44-20261020/verification-cp44.json for current postflight and exact hashes. Tripo ledge source returned72samples24Hz; rejected for hanging role because it starts standing. No extra spend/new model/source-key change. Continuous coat art/performance, true mantle, new2–3shot interactive opening and chapter craft OPEN. Browser later timed out; no fresh Argon result. CP42 Windows package remains previous unless a separately verified CP44 package is delivered.
+
+
+## CP44 final evidence refresh / 2026-10-20
+
+Supersedes provisional CP44 browser/postflight/package fields above: Argon High first review actually returned; refined follow-up generic refusal, no second acceptance. Dedicated15-bone garment refined only, all body source/rest/skin preserved. Final actual sequence27, public-input6.035m/151physics/turn/jump/landing, Low fixedroom01 ON/OFF/ON p5016.726/16.635/16.636ms. Previous~630ms arose with external Studio3D GPU pressure; Assets navigation restored performance without game quality downgrade. Fresh CP44 Windows EXE/PCK functional46 headless checks, no capture/performance acceptance. Golden192 and full postflight649/649 PASS. Read current verification/source hashes; Run arm/torso craft, Walk, face/hands/attacks, true hang-start mantle, new2–3shot Flow/native father choices and chapter/account/device/voice/fun/art remain OPEN. No extra spend, source keys, reward grants, commit/stage/push or publication.
+
+## CP45 stage07 / 2026-10-21 — native hang-to-stand and garment support
+
+Stage07 scoped PASS; continue stage08 immediately. Original Adobe BracedHangToCrouch35 + CrouchedToStanding20 native30Hz, frozen transfer and all68-joint Godot replay PASS;3245 resource keys preserved. Existing SurfaceTraversalMotor/AnimationPlayer own106physics samples and one completion,11 rendered Forward+ checks.32 abort/drop/unload/pause/RM/recovery checks; maintenance/security/save/discovery regressions PASS. Cape uses only15 authored garment joints;53 body joints unchanged, deterministic static support, measured positive leg-tip and15mm actual-platform clearance. Final visible pelvis step4.382cm, capsule7.756cm; no teleport. Full-mesh/fine palm/heel/Idle stance/final face and chapter art/device/voice/account acceptance remain OPEN.
+
+Report and exact hashes: audits/evidence/chapter-cp45-20261020/stage07/report.json. ArgonHigh verified before/after a fresh u6 review returned limited07 PASS; u2 fallback to Flash-Lite is explicitly not counted as High approval. Three export lists include the new resources; no new package, spend, staging, commit or publication. Golden192/9 pipeline tests PASS. Last comprehensive postflight remains stage06 649/649; next full run after11, then14, per Owner. Existing dirty work preserved in stage07/resume-20261021/before; current card replaced with prior copy archived. Work remains solo. Next: complete specimen/archive/reactor/decon/mirror varied player slices and their local gates, then09–14 strictly in order.
+
+
+## CP45 /2026-10-23 — native cut and second regression junction
+
+CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN. Original73sample/30Hz/4380key grounded cut integrated unchanged on V31;5042 actual pose checks. Pausable physics contact and blade intersection align0.933333s. Existing bounded camera solver restores3m while preserving manual look/masks.223 Zero checks/14 reloads;58 rendered Forward+ earned pact to ward;fresh headless363/0retry. Golden192 and serial postflight649PASS. Exact hashes/rejected sources/earlier failed attempts: `audits/evidence/chapter-cp45-20261020/stage11/native-attack-20261023/delivery.json`. Fine fingers, distinct combo/Iai acting, room palette/material/face/Japanese audio13 and performance/devices/live receipts/fresh package14 OPEN. No new spend/staging/commit/publication. Current economical cache/card supersede old checkpoints.
+
+
+## CP45 stage13 — measured lab scanner/perimeter,2026-10-23
+
+Current report: `audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/delivery.json`. Measured shell clearance repaired from actual lateral occlusion; original Tripo64832tri/51-part scanner separated with sourceUVs,glass/exoskeletons/bezel/deck fascias integrated. Local material hierarchy and paused/RM diagnostic instruments;36 raised tile nodes removed,pixel-covered narrow floor joints. Four fixed HighForward+960x540 and Compatibility1280x720 views reviewed. Lifecycle30,earned pact-to-ward headless55/0retry,state recovery0fail,Golden192,postflight649/649 PASS. Earlier1280x720Vulkan failures retained; current720p/performance/art/chapter remain OPEN. ArgonHigh image critique returned; unsupported PBR/OOM certainty not accepted. Tripo3025->3020(PBR5completedUI/exportblocked),Flow473->458(Omni1.1Flash10s720p15completedUI,local acquisition/fulltake/audio open). Resume existing IDs; no newpurchase/accountswitch/staging/commit/publication. SOLO. Current card/cache contain next gate.
+
+Flow acquisition recovered after initial browser failures: originalOmni10s1280x720 H264/AAC saved at `audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4`,SHA256=84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e. Full decode PASS;40samples4fps and5sharp frames inspected. Reference-only;start differs from platform brief,fulltake/audio acceptance OPEN,no native video integration or further credit charge.
+
+
+## 2026-10-24 CP45_STAGE13_LAB_STATIC_HIGH_ART_HD105_PASS_P03_PARTIAL
+
+Quality first by explicit owner direction;current-device speed is nonblocking. Native720p24 full memory films,measuredP2 wall/scanner kit and local architecture/equipment/composition scopedPASS.105 lifecycle,60 actual post-contract-to-ward with0 retries,9 earned reload andGolden192PASS. P03 current High cold inventory04–08,01kept;02/03/10 and moving/acting/audio/fun/whole chapter/package remainopen. Read CURRENT_WORK/cache/queue and stage13/modular-20261024d/quality-report.json;do not replay history.
+
+
+## 2026-10-25 — CP45_STAGE13_SPECIMEN_STATIC_HIGH_ART_NATIVE_SCOPED_PASS
+العينات04:فن ثابتHigh نطاقيPASS مع ArgonHigh،33شرطًا و10صور إدخال عام و0إعادة؛نفس التصادم والكشاف/السجلات/الحفظ. تفاصيلالتوليد90Tripo/100Flow،ورفض فيديو السوائل للعبة،والحدود فيspecimen-20261025/quality-report.json. التاليHigh02/03/10والحركة ثم بقيةP04–P13؛لا توقف على سرعةجهازالتطوير ولا قبولفصلأوفنحركةمنصور.
+
+
+## 25 أكتوبر2026 — CP45_STAGE13_ARCHIVE_STATIC_HIGH_ART_NATIVE48_SCOPED_PASS
+المحيط112لوحاً/8مجموعات وقاعدة195893مثلثاً وثلاث خرائط4K و7LODs وممشى/شدادات/طرفية فعلية. ArgonHigh ثابت3محاورPASS؛29تصادماً محفوظاً و48شرطاً/30صورة/0إعادة و5ملفات حفظ مكتسبة/تحميل باردPASS.55Tripo و0Flow-image مرصود،الرصيد2825/750. تقرير audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/quality-report.json. التالي المفاعل06 وبقيةP04–P13؛ لا قبول حركة/صوت/متعة/فصل من الفن الثابت.
+
+
+## CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED — 2026-10-25
+
+Room06 actual Forward+High4 native views:3-axis scoped static artPASS;47 originalcolliders/13gratings/14clearventrays/196054tri crown/all3maps4K/8LODs. Currentstandard public04→05→06:75checks/49uniqueimages/0retries;actualearned5filecoldreloadPASS. Same plasma radii/positions/nativeclock;wholeframelessmemorydirector retainedbyte-identical. NoGolden/motionchanges/commit/push. Currentlocalreport:audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json. NextP04maintenance02/07/08/10 thenP05–P13;movingacting/audio/fun/wholechapter/package/strongerhardwareOPEN. GitHub recoveryseparate,remotequotanotfreed. Resumecompactcachefirst.

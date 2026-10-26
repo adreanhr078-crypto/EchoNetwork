@@ -1,0 +1,45 @@
+{
+	"scope": "Read-only diagnosis;no final art or gameplay acceptance.",
+	"targets": [
+		{
+			"base_color": "<null>",
+			"class": "ShaderMaterial",
+			"minimum_roughness": "<null>",
+			"node": "/root/Main/Campaign_lab/KinjaNeuralRigTerminal/Prop/EchoSignalConsole_Root/EchoSignalConsole_Static_Graphite",
+			"override": false,
+			"shader": "",
+			"shadow_color": "(0.4, 0.32, 0.62, 1.0)",
+			"source_metadata": true
+		},
+		{
+			"base_color": "<null>",
+			"class": "ShaderMaterial",
+			"minimum_roughness": "<null>",
+			"node": "/root/Main/Campaign_lab/KinjaNeuralRigTerminal/Prop/EchoSignalConsole_Root/EchoSignalConsole_Static_Titanium",
+			"override": false,
+			"shader": "",
+			"shadow_color": "(0.4, 0.32, 0.62, 1.0)",
+			"source_metadata": true
+		},
+		{
+			"base_color": "<null>",
+			"class": "ShaderMaterial",
+			"minimum_roughness": "<null>",
+			"node": "/root/Main/Campaign_lab/@Node3D@1104/IntactMemoryCinema/IntactMemoryScreenFrame/MemoryScreenRearCasing",
+			"override": true,
+			"shader": "",
+			"shadow_color": "(0.4, 0.32, 0.62, 1.0)",
+			"source_metadata": true
+		},
+		{
+			"base_color": "(0.66, 0.67, 0.68, 1.0)",
+			"class": "ShaderMaterial",
+			"minimum_roughness": "<null>",
+			"node": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/ScannerCeramicIdentificationLip",
+			"override": true,
+			"shader": "res://shaders/clinical_architecture_surface.gdshader",
+			"shadow_color": "<null>",
+			"source_metadata": false
+		}
+	]
+}

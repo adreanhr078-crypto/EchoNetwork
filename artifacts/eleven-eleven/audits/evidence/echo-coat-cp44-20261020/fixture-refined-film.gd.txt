@@ -1,0 +1,159 @@
+extends SceneTree
+var folder:=""
+var checks:=0
+func _initialize() -> void: _run.call_deferred()
+func check(ok:bool,label:String) -> void:
+	checks+=1
+	if not ok: push_error(label);quit(1);assert(ok,label)
+func capture(label:String) -> void:
+	for i in 3: await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(folder+"/"+label+".png")
+func _run() -> void:
+	folder=OS.get_cmdline_user_args()[0]
+	DirAccess.make_dir_recursive_absolute(folder)
+	root.content_scale_size=Vector2i(1280,720)
+	root.content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT
+	var main=load("res://scenes/native_journey.tscn").instantiate()
+	main.native_checkpoint_path="user://cp44_cape_opening.json"
+	main.native_preferences_path="user://cp44_cape.cfg"
+	main.get_node("SystemJourneyPreview").checkpoint_path="user://cp44_cape_maintenance.json"
+	main.get_node("NativeJourneyController").checkpoint_path="user://cp44_cape_route.json"
+	main.get_node("NativeCampaignController").checkpoint_path="user://cp44_cape_campaign.json"
+	root.add_child(main)
+	main.set_audio_muted(true)
+	for i in 5: await process_frame
+	var player:EchoPlayer=main.player
+	player.finish_opening_recovery()
+	var dialogue:Node=main.hud.find_child("DialogueOverlay",true,false)
+	while dialogue.is_active: dialogue.advance_dialogue()
+	main.native_pause_menu.resume_button.pressed.emit()
+	main.set_reduced_motion(false)
+	main.set_visual_quality("low")
+	player.control_locked=false
+	player.set_physics_process(false)
+	player.set_process(false)
+	player.set_process_unhandled_input(false)
+	var avatar:Node3D=player.get_node("ModelRoot/EchoOpeningUniform")
+	var cape:Node=avatar.find_child("EchoCapeMotion",true,false)
+	check(cape!=null and cape.configured and cape.active,"Actual journey missing active garment driver")
+	check(root.get_node("HyperAnimeWorldManager").main==main,"Shared chromatic pipeline missing")
+	var env:Environment=root.get_node("HyperAnimeWorldManager").environment
+	check(is_equal_approx(env.adjustment_saturation,1.38) and is_equal_approx(env.adjustment_contrast,1.22),"Authored chromatic grade missing")
+	var material_count:=0
+	for mesh in avatar.find_children("*","MeshInstance3D",true,false):
+		for surface in mesh.mesh.get_surface_count():
+			check(mesh.get_active_material(surface) is ShaderMaterial,"Visible Echo uses default material")
+			material_count+=1
+	check(material_count>0,"No actual Echo surfaces checked")
+	var camera:=Camera3D.new();camera.fov=34;main.add_child(camera)
+	camera.global_position=player.global_position+Vector3(2.0,1.2,-3.2)
+	camera.look_at(player.global_position+Vector3(0,1.0,0));camera.make_current()
+	# The inspection camera owns this fixture after the opening has closed.
+	# Releasing the opening camera lease is independent of stopping body input.
+	player._camera_suspended=false
+	player.animation_player.play("RUN",0)
+	player.velocity=Vector3(0,0,7)
+	if OS.get_cmdline_user_args().has("--profile-cape"):
+		await profile_cape(cape)
+		quit(0)
+		return
+	for i in 35: await process_frame
+	print("CAPE_CALLBACK ",cape.callback_count," delta=",cape.last_delta," clock=",cape._clock," reason=",cape.last_reset_reason," locked=",player.control_locked," recovery=",player.opening_recovery_active," suspended=",player._camera_suspended)
+	check(cape._clock>0.0 and Array(cape._angles).max()>0.01,"Real SkeletonModifier callback did not drive coat")
+	var warm_clock:float=cape._clock
+	cape._process_modification_with_delta(0.0)
+	check(cape._clock==warm_clock,"Immediate zero-delta pose refresh discarded cloth inertia")
+	await capture("actual-journey-run")
+	if OS.get_cmdline_user_args().has("--sequence"):
+		await render_sequence(main,player,cape,avatar)
+	var clock:float=cape._clock
+	main.native_pause_menu.set_session_paused(true)
+	for i in 4: await process_frame
+	check(cape._clock==clock,"Paused journey advanced garment clock")
+	main.native_pause_menu.resume_button.pressed.emit()
+	main.set_reduced_motion(true)
+	for i in 4: await process_frame
+	check(cape._angles.count(0.0)==15,"Actual Reduced Motion left garment sway active")
+	await capture("actual-journey-reduced-motion")
+	main.set_reduced_motion(false)
+	player.control_locked=true
+	for i in 3: await process_frame
+	check(cape._angles.count(0.0)==15,"Cinematic ownership retained garment motion")
+	player.control_locked=false
+	player.surface_motor.hanging=true
+	for i in 3: await process_frame
+	check(cape._angles.count(0.0)==15,"Authored wall contact acquired secondary motion")
+	player.surface_motor.hanging=false
+	var file:=FileAccess.open(folder+"/review.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"status":"SCOPED_ACTUAL_JOURNEY_PASS","checks":checks,"renderer":RenderingServer.get_current_rendering_method(),"device":RenderingServer.get_video_adapter_name(),"current_scene":"res://scenes/native_journey.tscn","gameplay_progression_granted":false,"visual_acceptance":"REQUIRES_CAPTURE_REVIEW","whole_character_animation_accepted":false},"\t"));file.close()
+	print("CAPE_JOURNEY checks=",checks," PASS")
+	quit(0)
+
+func render_sequence(main:Node,player:EchoPlayer,cape:Node,avatar:Node3D) -> void:
+	var ap:AnimationPlayer=player.animation_player
+	var skeleton:Skeleton3D=avatar.find_child("Skeleton3D",true,false)
+	var input_poses:={}
+	for bone in skeleton.get_bone_count():
+		if skeleton.get_bone_name(bone).begins_with("Cape_"): input_poses[bone]=skeleton.get_bone_pose(bone)
+	var previous_mode:=ap.callback_mode_process
+	ap.callback_mode_process=AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	cape.active=false
+	cape.reset_motion()
+	var sequence:=folder+"/sequence"
+	DirAccess.make_dir_recursive_absolute(sequence)
+	main.hud.visible=false
+	var hyper:Node=root.get_node("HyperAnimeWorldManager")
+	hyper.set_process(false)
+	var previous_scale:=root.scaling_3d_scale
+	root.scaling_3d_scale=1.0
+	var clip:Animation=ap.get_animation("RUN")
+	var cycle_count:=int(round(clip.length*30.0))
+	check(cycle_count>10 and cycle_count<240,"Existing Run cycle exceeds bounded review")
+	var count:=cycle_count*4
+	# Settle inertia before the first recorded cycle; keep it continuous over
+	# four source-clock loops instead of repeating an accelerating first loop.
+	for warm in 60:
+		for bone in input_poses: skeleton.set_bone_pose(bone,input_poses[bone])
+		ap.play("RUN",0);ap.seek(0.0,true);ap.pause()
+		hyper.visual_time=float(warm)/30.0
+		cape._process_modification_with_delta(1.0/30.0)
+	for index in count:
+		for bone in input_poses: skeleton.set_bone_pose(bone,input_poses[bone])
+		var native_time:=float(index%cycle_count)/30.0
+		ap.play("RUN",0);ap.seek(native_time,true);ap.pause()
+		hyper.visual_time=float(index+60)/30.0
+		RenderingServer.global_shader_parameter_set("hyper_visual_time",hyper.visual_time)
+		cape._process_modification_with_delta(1.0/30.0)
+		for unused in 2: await process_frame
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_jpg(sequence+"/run-%04d.jpg"%index,0.9)
+	var file:=FileAccess.open(sequence+"/manifest.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"frames":count,"cycles":4,"fps":30,"animation_length_seconds":clip.length,"clip":"RUN","source_clock":"Existing CP17 native30Hz looping playback; no keys or Root Motion setting changed","scope":"Controlled in-engine animation art preview at source clock, input capsule paused. Not live frame rate, traversal/contact or device performance evidence.","current_scene":"res://scenes/native_journey.tscn","effects":"Low with native capture resolution"},"\t"));file.close()
+	root.scaling_3d_scale=previous_scale
+	hyper.set_process(true)
+	main.hud.visible=true
+	for bone in input_poses: skeleton.set_bone_pose(bone,input_poses[bone])
+	cape.active=true
+	ap.callback_mode_process=previous_mode
+	ap.play("RUN",0)
+	for i in 3: await process_frame
+	print("CAPE_SEQUENCE frames=",count," source_fps=30; not performance evidence")
+
+func profile_cape(cape:Node) -> void:
+	var cases:=[]
+	for label in ["on_before","off","on_after"]:
+		cape.active=label!="off"
+		for warm in 15: await process_frame
+		var intervals:=[]
+		var previous:=Time.get_ticks_usec()
+		for frame in 60:
+			await process_frame
+			var current:=Time.get_ticks_usec()
+			intervals.append(float(current-previous)/1000.0)
+			previous=current
+		var sorted:=intervals.duplicate();sorted.sort()
+		cases.append({"case":label,"samples":60,"p50_ms":sorted[30],"p95_ms":sorted[57],"max_ms":sorted[-1],"intervals_ms":intervals})
+	var report:={"status":"MEASURED_SCOPED_ONLY","cases":cases,"renderer":RenderingServer.get_current_rendering_method(),"device":RenderingServer.get_video_adapter_name(),"scale":root.scaling_3d_scale,"engine_max_fps":Engine.max_fps,"engine_time_scale":Engine.time_scale,"os_low_processor_usage_mode":OS.low_processor_usage_mode,"window_has_focus":root.has_focus(),"driver_sha256":FileAccess.get_sha256("res://engine_visuals/EchoCapeMotion.gd"),"scope":"One fixed actual room01 camera, live original Run, Low1280x720, ON/OFF/ON 60 actual intervals each. Host/background conditions and animated-room variance apply; not complete-route or device acceptance."}
+	var file:=FileAccess.open(folder+"/frame-profile.json",FileAccess.WRITE);file.store_string(JSON.stringify(report,"\t"));file.close()
+	for entry in cases:print("CAPE_FRAME_PROFILE ",entry.case," p50=",entry.p50_ms," p95=",entry.p95_ms)

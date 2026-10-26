@@ -1,0 +1,76 @@
+tent_copy
+  - button "الإبلاغ عن الناتج":
+    - img: flag
+  - generic: موافقة
+  - group "معرض خيارات الوسائط":
+    - button "فتح الفيديو في المحرِّر":
+      - img: play_circle
+  - paragraph:
+    - text: I have started generating the 8-second 16:9 video
+    - strong: SPECIMEN_SLOW_LATERAL_E
+    - text: using
+    - strong: Veo 3.1 - Quality
+    - text: .
+  - paragraph: Your video has been scheduled and is waiting in the queue due to high demand. Feel free to check back in a few minutes to check its status!
+  - button "ردّ جيّد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: content_copy
+  - button "الإبلاغ عن الناتج":
+    - img: flag
+  - generic: ما المطلوب إنشاؤه؟
+  - textbox "ما المطلوب إنشاؤه؟":
+    - paragraph
+  - button "إضافة المكوّنات إلى مربّع الطلب":
+    - img: add
+  - button "تعليمات الوكيل":
+    - img: article_spark
+  - button "الإعدادات":
+    - img: tune
+  - button "بدء الإنشاء" [disabled]:
+    - img: arrow_forward
+  - paragraph: قد ترتكب أداة Google Flow أخطاء، لذا ننصحك بالتحقّق من نتائجها
+- dialog "إعدادات الحساب":
+  - img "Google"
+  - button "إغلاق لوحة الحساب" [active]:
+    - img: close
+  - generic: "11.11"
+  - generic: 11.11echonetwork@gmail.com
+  - link "تبديل الحساب":
+    - /url: https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fflow.google.com%2F
+  - generic "عرض الوحدات":
+    - img: movie_filter_auto
+    - link "‫750 وحدة من الرصيد في Google Flow":
+      - /url: https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fone.google.com%2Fai%2Factivity%3Futm_source%3Dflow%26utm_medium%3Dweb%26utm_campaign%3Dflow_ai_credits_page&Email=11.11echonetwork%40gmail.com
+      - generic: ‫750 وحدة من الرصيد في Google Flow
+    - link "ترقية":
+      - /url: https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fone.google.com%2Fai%3Futm_source%3Dflow%26utm_medium%3Dweb%26utm_campaign%3Dflow_account_menu_upgrade&Email=11.11echonetwork%40gmail.com
+      - generic: ترقية
+  - button "إنشاء أفاتار":
+    - img: person
+    - generic: إنشاء أفاتار
+  - link "إدارة الاشتراك":
+    - /url: https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fone.google.com%2Fsettings%3Futm_source%3Dflow%26utm_medium%3Dweb%26utm_campaign%3Dflow_manage_membership%26expand%3Dupgrade&Email=11.11echonetwork%40gmail.com
+    - generic: إدارة الاشتراك
+  - button "الخروج من جميع الحسابات":
+    - generic: الخروج من جميع الحسابات
+  - img: frame_spark
+  - generic: العلامة المائية المرئية
+  - switch "العلامة المائية المرئية"
+  - link "الخصوصية":
+    - /url: https://policies.google.com/privacy?hl=ar
+  - generic: ·
+  - link "بنود الخدمة":
+    - /url: https://policies.google.com/terms?hl=ar
+  - generic: ·
+  - link "التراخيص":
+    - /url: /licenses.txt
+  - text: هذا الموقع الإلكتروني محميّ بخدمة reCAPTCHA، وتنطبق عليه
+  - link "سياسة الخصوصية":
+    - /url: https://policies.google.com/privacy
+  - text: و
+  - link "بنود الخدمة":
+    - /url: https://policies.google.com/terms
+  - text: من Google.

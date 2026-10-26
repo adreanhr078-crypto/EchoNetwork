@@ -1,0 +1,27 @@
+{
+  "status": "REJECT_FOR_HANG_TO_STAND_ROLE",
+  "source_sha256": "082cabb361e1c2769e5ecc218ad314383a4f6419ea2f62f7c770ddcdca8930b3",
+  "native_fps": 24,
+  "native_samples": 120,
+  "first_time": 0.0416666679084301,
+  "last_time": 5.0,
+  "source_keys_changed": false,
+  "reviewed": "All14 front/side exact native skeletal projections inspected in current turn. Original GLB global matrices and true STEP semantics, no interpolation/resampling.",
+  "start": "Standing with both hands below shoulders/head and both feet on the same low plane; not hanging despite explicit first-frame request.",
+  "initial_hands_y": [
+    0.5373132321552607,
+    0.5518467865286493
+  ],
+  "initial_head_y": 0.8861505625962544,
+  "initial_feet_y": [
+    0.08744907509400934,
+    0.08666515621965526
+  ],
+  "end": "Stands on a raised plane after a standing step-up; cannot be silently used for a hanging pull-over.",
+  "runtime_integrated": false,
+  "additional_attempts_submitted": 0,
+  "credit_spent": 20,
+  "live_balance_before": 2855,
+  "live_balance_after": 2835,
+  "next": "Inspect official Adobe/Mixamo BracedHangToCrouch, instead of another blind generation or modified source keys."
+}

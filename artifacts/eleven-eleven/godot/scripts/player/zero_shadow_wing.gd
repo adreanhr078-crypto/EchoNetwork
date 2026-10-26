@@ -21,6 +21,8 @@ var local_time := 0.0
 var reveal := 0.0
 var current_intensity := 0.0
 var mount_valid := false
+var resonance:Node3D
+var emergence_hold:=0.0
 
 func _ready() -> void:
 	base_scale = base_scale.clamp(Vector3.ONE * 0.25, Vector3.ONE) if base_scale.is_finite() else Vector3.ONE
@@ -39,6 +41,10 @@ func _ready() -> void:
 			for bone in feather_skeleton.get_bone_count(): rest_rotations.append(feather_skeleton.get_bone_pose_rotation(bone))
 	mount_valid = attachment.configure(self, "wing") and is_instance_valid(feather_skeleton) and feather_skeleton.get_bone_count() == 16 and not material_instances.is_empty()
 	if mount_valid: _create_tip_trails()
+	resonance=preload("res://scripts/player/echo_contract_resonance.gd").new()
+	resonance.name="ContractResonance"
+	add_child(resonance)
+	resonance.configure(attachment)
 	dismiss_wing()
 
 func _process(delta: float) -> void:
@@ -57,7 +63,8 @@ func _process(delta: float) -> void:
 		reveal = 1.0
 	else:
 		local_time += step
-		reveal = minf(1.0, reveal + step / 0.58)
+		if emergence_hold>0:emergence_hold=maxf(0.0,emergence_hold-step)
+		else:reveal = minf(1.0, reveal + step / 1.1)
 	wing_mesh.scale = attachment.get_emergence_scale(reveal, base_scale)
 	wing_mesh.rotation = attachment.get_emergence_rotation(reveal)
 	_animate_feathers(reduced)
@@ -69,6 +76,7 @@ func _process(delta: float) -> void:
 	if wing_light:
 		wing_light.light_energy = attachment.get_wing_glow_energy(minf(0.30 * current_intensity, 0.55), local_time)
 	_update_tip_trails(reduced)
+	if resonance:resonance.present(local_time,reveal,current_intensity,reduced)
 
 func manifest_wing(intensity: float = 1.0) -> void:
 	if not mount_valid or not attachment.update_socket():
@@ -85,6 +93,7 @@ func manifest_wing(intensity: float = 1.0) -> void:
 	attachment.update_socket()
 	wing_mesh.scale = attachment.get_emergence_scale(reveal, base_scale)
 	wing_mesh.rotation = attachment.get_emergence_rotation(reveal)
+	if resonance:resonance.configure(attachment);resonance.present(local_time,reveal,current_intensity,attachment.motion_is_reduced())
 	if wing_light:
 		wing_light.visible = true
 		wing_light.light_energy = attachment.get_wing_glow_energy(minf(0.30 * current_intensity, 0.55), local_time)
@@ -93,12 +102,25 @@ func manifest_wing(intensity: float = 1.0) -> void:
 func supports_cinematic_framing() -> bool:
 	return mount_valid and is_instance_valid(feather_skeleton) and feather_skeleton.get_bone_count() == 16 and attachment.skeleton.global_basis.get_scale().length() <= 3.25
 
+func restart_cinematic_emergence(delay:float=.65) -> void:
+	if not is_wing_manifested or not attachment.contract_is_sealed():return
+	local_time=0.0
+	emergence_hold=0.0 if attachment.motion_is_reduced() else clampf(delay,0.0,1.0)
+	reveal=1.0 if attachment.motion_is_reduced() else .02
+
+func complete_cinematic_emergence() -> void:
+	if not is_wing_manifested or not attachment.contract_is_sealed():return
+	emergence_hold=0.0
+	reveal=1.0
+
 func dismiss_wing() -> void:
 	is_wing_manifested = false
 	visible = false
 	reveal = 0.0
 	local_time = 0.0
 	current_intensity = 0.0
+	emergence_hold=0.0
+	if resonance:resonance.hide()
 	attachment.set_manifested(false)
 	attachment.reset_oscillation()
 	if is_instance_valid(wing_mesh):

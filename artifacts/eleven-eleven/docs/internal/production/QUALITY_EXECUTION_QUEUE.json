@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE",
+  "master_plan": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+  "scope": "Remaining CP45 craft/acceptance through hospital; package IDs are quality work, not claims that earlier gameplay is missing.",
+  "active_packages": [
+    "P04"
+  ],
+  "packages": [
+    {
+      "id": "P00",
+      "task": "baseline_and_live_services",
+      "status": "SCOPED_PASS"
+    },
+    {
+      "id": "P01",
+      "task": "lab_720_memory_and_frame_time",
+      "status": "MEASURED_DEVICE_FAIL_NONBLOCKING_OWNER_QUALITY_FIRST"
+    },
+    {
+      "id": "P02",
+      "task": "lab_architecture_materials_and_art",
+      "status": "PASS_SCOPED_STATIC_HIGH_ART_HD105_ROUTE60_RELOAD9_DYNAMIC_CHAPTER_OPEN"
+    },
+    {
+      "id": "P03",
+      "task": "rooms_01_08_quality_inventory",
+      "status": "CURRENT_HIGH_STATIC_02_03_04_08_10_DONE_MOVING_AND_FUN_OPEN",
+      "evidence": "docs/internal/production/ROOM_QUALITY_INVENTORY.json"
+    },
+    {
+      "id": "P04",
+      "task": "only_evidenced_room_repairs",
+      "status": "SECURITY_SPECIMEN_ARCHIVE_SCOPED_PASS_REACTOR_STRUCTURAL_ART_PASS_SCOPED",
+      "evidence": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json"
+    },
+    {
+      "id": "P05",
+      "task": "kinja_memory_and_acting",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P06",
+      "task": "zero_interactive_pact_craft",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P07",
+      "task": "grip_combos_iai_and_contact",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P08",
+      "task": "opening_and_control_handoff",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P09",
+      "task": "wish_and_hospital_craft",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P10",
+      "task": "audio_localization_ui",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P11",
+      "task": "performance_save_live_services",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P12",
+      "task": "whole_chapter_player_acceptance",
+      "status": "PLANNED"
+    },
+    {
+      "id": "P13",
+      "task": "fresh_final_package",
+      "status": "PLANNED"
+    }
+  ],
+  "active_evidence": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025",
+  "next_gate": "P04 finish02 bounded art refinements,then07/08/10;P05–P13 remain OPEN.",
+  "completed_scoped": [
+    "Existing Tripo packed8K/4K exports recovered at unchanged3020 credits; no duplicate generation.",
+    "Same102923 perimeter triangles,135 surfaces->1,three real4K PBR maps; original raw source and original derivative preserved.",
+    "14 measured3D texture imports plus3 atlas maps use high-quality VRAM compression; source image bytes/resolutions preserved. V31 body atlas deliberately restored to original lossless import for EX-011.",
+    "Pause-safe quality_changed signal; Low/Medium service-fill shadow budget with focal surgical shadow retained; High restores all original shadows and normal detail.",
+    "SharedRM sampling,local clinical coating,correct double-sided interior normals,0.9m floor scale,neutral equipment shadow tone; native lintel/door dressing follows existing gate without new wall/collision or progression.",
+    "CPU skin classifier decodes private compressed images before texel access; current original V31 atlas stamps218 real skin pixels. No floating substitute or source motion changes.",
+    "Compact project map/cache/source index,canonical master plan,and14-package execution queue saved.",
+    "Actual rendered pixel/triangle probe identified the black band as the original10x2.4m stasis clock housing, not missing wall geometry; corrected framebuffer-to-stretched-viewport ray coordinates.",
+    "Named existing clock mesh,applied static local clinical standby finish with14%edge feather; original geometry,digits,visibility timing,collider and wish/exit ownership unchanged.",
+    "Display finish initializes from actual wish state and follows its earned presentation; no early11:11 reveal,fictional countdown,new audio or animation.",
+    "Added earned-wish story and isolated byte-reload checks; actual public melee/revenge/wish/physical hospital path retained.",
+    "Created preliminary evidence cards for10 rooms from inspected actual captures; Room01 retained,no speculative whole-room rebuild.",
+    "Measured High and a single-variable fill-shadow control at1280x720/native internal scale; retained production High because disabling fills alone does not establish playable performance.",
+    "Image-guided P2 wall quad1377/2505tri reduced2265tri; genuine4K PBR,shared120 tiles in4 MultiMesh batches; authored clean service frame and gate,original collider/story retained.",
+    "Current canonical Forward+720 lifecycle70 PASS; whole memory films,pause,Reduced Motion,tier restoration,EX011 skin218 unchanged.",
+    "Two explicitly2-reference VeoQuality8s720 clips downloaded and fully decoded. HUD/morphing disqualifies final playback; audio listening unverified. Reference-only,not game cutscenes.",
+    "Security03:shared six measured Tripo cabinets,beveled scanner/gate/stations,inset/traversal geometry;Argon High static3axes PASS;23native colliders/cone unchanged,19touch checks/3cold spawns/0retry;pause/RM/mute feedback PASS.No new paid generation.",
+    "Archive05 full measured TripoP2 perimeter112tiles/8batches;full195893 H3.1 hero/genuine4K colour-normal-RM/7LODs;real deck/rails/stringers/roof ties/native-clock decoder;Argon High static3axes PASS;29colliders unchanged,48public checks/30samples/0retry and5actual earned files/cold reloadPASS;55Tripo/0Flow-image observed."
+  ],
+  "failures_retained": [
+    "Early source-datum and parent-transform failures are retained in build logs.",
+    "Early720p allocation crashes and a compressed-skin/fixture-path regression are retained; final61/58 gates are clean.",
+    "Initial Argon image reads failed; standardJPEG succeeded. Final art remains open.",
+    "Initial physical/logical pixel mismatch in probe corrected; first diagnostic retained.",
+    "Unset shader default returnednull to first lifecycle fixture; display initialization made explicit,63-check rerun passed.",
+    "An async snapshot override mismatched its synchronous driver; fixture corrected,actual60-check path passed.",
+    "Washed coating candidate rejected and source restored; no art PASS invented."
+  ],
+  "external": {
+    "tripo": {
+      "observed_credits": 2825,
+      "new_generation_jobs": 2,
+      "free_P2_trials_used": 2,
+      "observed_charge": 50,
+      "features_used": [
+        "image-guidedP2 quad",
+        "UV",
+        "RemoveLighting4K",
+        "PBR",
+        "measured Blender derivative",
+        "Godot integration"
+      ],
+      "prior_observed_credits": 2970,
+      "balance_scope": "Observed after archive packet25Oct;requery live before next paid job",
+      "archive_packet_actual_charge": 55
+    },
+    "flow": {
+      "observed_credits": 750,
+      "account_context": "u/3",
+      "new_video_jobs": 2,
+      "observed_video_charge": 200,
+      "image_charge_observed": 0,
+      "new_paid_job_for_HD_restore": false,
+      "prior_observed_credits": 850,
+      "balance_scope": "Observed after archive packet25Oct;requery live before next paid job",
+      "archive_image_observed_charge": 0
+    }
+  },
+  "token_policy": "Read current card/cache/active queue gate only; source hashes invalidate stale evidence. No provider-side quota guarantee.",
+  "delivery_report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/quality-report.json",
+  "usage_last_observed": {
+    "five_hour_used_percent": 74,
+    "weekly_used_percent": 55,
+    "scope": "Shared account;last observed during this work,not task-local consumption or a guarantee."
+  },
+  "room_inventory": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+  "owner_quality_priority": {
+    "date": "2026-10-24",
+    "instruction_ar": "أعلى جودة ممكنة حتى لو احتاجت عتاداً أقوى؛ بطء الجهاز الحالي لا يوقف المهمة.",
+    "effect": "Continue High art/acting/interaction work. Preserve measured IntelUHD failures without treating them as a stop gate. Other-device performance stays UNVERIFIED. No automatic graphics downgrade or processor purchase."
+  },
+  "next_exact": "Publish owner-authorized development checkpoint and verify actual remote SHA;then02 art refinements/07/08/10.",
+  "archive_palette_current": {
+    "checkpoint": "CP45_STAGE13_ARCHIVE_GRAPHITE_HIGH_NATIVE51_SCOPED_PASS",
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json",
+    "scope": "PASS_SCOPED_STATIC_ART_AND_NATIVE_51",
+    "remaining": [
+      "owner final visual approval",
+      "moving acting and complete memory playback acceptance",
+      "audio audition",
+      "performance on stronger hardware",
+      "full chapter/fun/package"
+    ]
+  }
+}

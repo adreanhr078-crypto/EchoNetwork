@@ -1,0 +1,184 @@
+ container
+								1588 heading Value: 5, أنت قلت أرجون مرتفع، مراجعة محدودة قبل دمج مصدر حركة المرحلة07. المرفق لوحة أصل Adobe Mixamo Braced Hang To …
+									1589 text أنت قلت  أرجون مرتفع، مراجعة محدودة قبل دمج مصدر حركة المرحلة07. المرفق لوحة أصل Adobe Mixamo Braced Hang To …
+								1590 text أرجون مرتفع، مراجعة محدودة قبل دمج مصدر حركة المرحلة07. المرفق لوحة أصل Adobe Mixamo Braced Hang To Crouch،35عينة native30Hz/1.133ث، الصف الأول أمام والثاني جانب، الأعمدة1/8/15/21/28/35 بنفس الكاميرا الثابتة. الأصل محفوظ SHA ec61818d927decfc379508c90d245ac0ba534b04cd4f5547711e0f8255d59c2a، لم نعدل مفاتيح أو ندمج بعد. الهدف تعلق مدعوم باليدين ثم صعود الحافة والنهوض؛ لا step-up من الوقوف ولا teleport. أرى أنه يبدأ معلقًا وينتهي قرفصاء فوق الحافة ويحتاج حركة نهوض أصلية منفصلة، يجري فحص Crouched To Standing. قيّم صلاحية المصدر لدور الصعود فقط وعيوب الدعم/اليدين/الطور الحرجة، ولا تمنح قبول تماس حافة بلا هندسة أو قبول Echo/العباءة من رجل المصدر. النقل Frozen Golden على V31/68عظمة بنفس الساعة دون IK أو تحرير مفاتيح؛ اختبار التصادم/اليدين/القدمين والانتقالات داخل Godot بوابة لاحقة. هل يوجد مانع واضح من تجربة النقل المعزول لهذا الأصل؟ رد مختصر ومحدد.
+								1591 button توسيع
+							1592 button نَسْخ الطلب
+							1593 button تعديل
+							1594 container
+								1595 container
+									1596 heading قال Gemini, Value: 6
+										1597 text قال Gemini
+									1598 container model-response-message-contentr_cdce4674453455e7
+										1599 container p-rc_fae5d2d37a14fc29-170
+											1600 text القرار التنفيذي: لا يوجد أي مانع  من بدء تجربة النقل المعزول (
+											1601 text Frozen Golden
+											1602 text ) لهذا الأصل على هيكل 
+											1603 text V31
+											1604 text  (68 عظمة)؛ اللوحة تثبت صعوداً فيزيائياً حقيقياً بارتفاع وإزاحة أمامية كاملة للحوض من التعلق المسنود (
+											1605 text 0001
+											1606 text ) إلى القرفصاء المستقرة فوق مستوى الحافة (
+											1607 text 0035
+											1608 text ) دون step-up من الوقوف
+											1609 text .
+											1610 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+										1611 heading تقييم أطوار الصعود وعيوب الدعم/اليدين الحرجة للمراقبة في البوابة القادمة, Value: 3
+											1612 text تقييم أطوار الصعود وعيوب الدعم/اليدين الحرجة للمراقبة في البوابة القادمة
+										1613 content list
+											1614 container
+												1615 text تطابق منسوب الحافة بين اليدين والقدمين (
+												1616 text 0001
+												1617 text ←
+												1618 text 0035
+												1619 text ):
+												1620 content list
+													1621 container
+														1622 container p-rc_fae5d2d37a14fc29-171
+															1623 text تحدد الكفان في 
+															1624 text 0001-side
+															1625 text  منسوب الحافة العلوي، وتثبتان في نفس المستوى الرأسي تقريباً خلال السحب (
+															1626 text 0008
+															1627 text ) والدفع (
+															1628 text 0015
+															1629 text )، ثم تستقر القدمان في 
+															1630 text 0028
+															1631 text  و
+															1632 text 0035
+															1633 text  على نفس خط الارتفاع الأفقي الذي كانت تمسك به اليدان في 
+															1634 text 0001
+															1635 text .
+															1636 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													1637 container
+														1638 container p-rc_fae5d2d37a14fc29-172
+															1639 text نقطة الفحص بعد النقل (بدون IK):  في 
+															1640 text 0008-front
+															1641 text  تفترق المرفقان للخارج مع تقارب طفيف للكفين أثناء السحب؛ وبما أن النقل يتم دون تعديل مفاتيح أو IK، يجب قياس مقدار انزلاق الكفين (
+															1642 text Hand Drift
+															1643 text ) الناتج عن فرق عرض الكتفين وطول الذراع بين رجل المصدر وهيكل 
+															1644 text V31
+															1645 text .
+															1646 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+											1647 container
+												1648 text طور الدفع العمودي وتدلي الساقين بمحاذاة الجدار (
+												1649 text 0015
+												1650 text ):
+												1651 content list
+													1652 container
+														1653 container p-rc_fae5d2d37a14fc29-173
+															1654 text في 
+															1655 text 0015-front
+															1656 text  و
+															1657 text 0015-side
+															1658 text  يرتكز الوزن على الكفين المفرودتين بجانب الوركين بينما تتدلى الساقان باستقامة للأسفل قبل رفعهما في 
+															1659 text 0021
+															1660 text .
+															1661 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													1662 container
+														1663 container p-rc_fae5d2d37a14fc29-174
+															1664 text الخطر الحرج:  في هذا الطور تفقد القدمان إسناد الجدار من 
+															1665 text 0001
+															1666 text  وتمر الركبتان ومشطا القدمين قريباً جداً من مستوى الوجه العمودي للحافة؛ يلزم التحقق داخل Godot من عدم اختراق الساقين للجدار عند انتقال مركز الكتلة للأمام بين 
+															1667 text 0015
+															1668 text  و
+															1669 text 0021
+															1670 text .
+															1671 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+											1672 container
+												1673 text فجوة رفع اليدين وتأخر الساق اليسرى (
+												1674 text 0021
+												1675 text ←
+												1676 text 0028
+												1677 text ):
+												1678 content list
+													1679 container
+														1680 container p-rc_fae5d2d37a14fc29-175
+															1681 text في 
+															1682 text 0021-side
+															1683 text  تترك اليدان الحافة مبكراً بينما ترتكز القدم اليمنى وحدها على السطح العلوي وتبقى الساق اليسرى معلقة في الخلف/الأسفل، وفي 
+															1684 text 0028-side
+															1685 text  تنزل اليد اليسرى المتدلية إلى مستوى مقارب لمستوى القدمين
+															1686 text .
+															1687 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													1688 container
+														1689 container p-rc_fae5d2d37a14fc29-176
+															1690 text الخطر الحرج:  يجب أن تعبر كبسولة التصادم (
+															1691 text CollisionShape
+															1692 text ) حافة الجدار قبل العينة 
+															1693 text 0021
+															1694 text  حتى لا تعلق بالركبة اليسرى المتأخرة، مع التحقق في 
+															1695 text 0028-side
+															1696 text  من عدم غوص أصابع اليد اليسرى لـ 
+															1697 text V31
+															1698 text  داخل سطح المنصة
+															1699 text .
+															1700 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+											1701 container
+												1702 text توافق وضع نهاية القرفصاء مع حركة النهوض (
+												1703 text 0035
+												1704 text ):
+												1705 content list
+													1706 container
+														1707 container p-rc_fae5d2d37a14fc29-177
+															1708 text تنتهي الحركة في 
+															1709 text 0035-front
+															1710 text  و
+															1711 text 0035-side
+															1712 text  بقرفصاء منخفضة غير متناظرة (القدم اليسرى متقدمة قليلاً واليد اليمنى مرتكزة على الركبة اليمنى مع انحناء الجذع للأمام)
+															1713 text .
+															1714 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													1715 container
+														1716 container p-rc_fae5d2d37a14fc29-178
+															1717 text شرط الربط:  يجب فحص تطابق الإطار الأول من 
+															1718 text Crouched To Standing
+															1719 text  مع وضعية 
+															1720 text 0035
+															1721 text  لضمان عدم حدوث قفزة مفصلية (
+															1722 text Pose Pop
+															1723 text ) في الجذع أو القدمين عند وصل المقطعين بلا تحرير مفاتيح
+															1724 text .
+															1725 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+										1726 heading حدود الاعتماد الحالية, Value: 3
+											1727 text حدود الاعتماد الحالية
+										1728 content list
+											1729 container p-rc_fae5d2d37a14fc29-179
+												1730 text يُعتمد هذا الأصل  كتجربة نقل معزولة لدور الصعود فقط
+												1731 text .
+												1732 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+											1733 container p-rc_fae5d2d37a14fc29-180
+												1734 text يظل تماس الكفين والقدمين الفعلي مع هندسة الحافة، وسلوك عباءة وأصابع 
+												1735 text V31
+												1736 text  أثناء طيّ الركبة الحاد في 
+												1737 text 0008
+												1738 text  و
+												1739 text 0028
+												1740 text ، والربط مع 
+												1741 text Crouched To Standing
+												1742 text  داخل Godot 
+												1743 text OPEN
+												1744 text  لحين معاينة مخرجات النقل على 
+												1745 text V31
+												1746 text .
+												1747 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+								1748 checkbox Description: ردّ جيد, Value: 0
+								1749 checkbox Description: ردّ سيئ, Value: 0
+								1750 button إعادة
+								1751 button المشاركة والتصدير
+								1752 button نسخ
+								1753 button عرض خيارات أكثر
+					1472 container
+						1473 container
+							1474 container
+								1475 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 
+
+									1754 text Geminiاسأل 
+							1477 pop up button (collapsed) Description: التحميل والأدوات, Secondary Actions: Expand
+							1755 container
+								1756 button إملاء (^⇧D)
+						1480 text ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+			1481 container
+				1482 button محادثة جديدة
+				1483 button فتح قائمة الإجراءات الخاصة بالمحادثة
+		1757 text Determining animation transfer risks
+		1484 container Notifications
+
+The focused UI element is 1475 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 

@@ -105,6 +105,7 @@ signal attack_hit(damage: int, is_crit: bool)
 signal weapon_sheathed()
 signal iai_charged()
 signal iai_executed(damage: int)
+signal combat_action_started(action_name: String)
 signal shadow_step_executed(from_pos: Vector3, to_pos: Vector3)
 signal nearby_interactable_changed(interactable: Node)
 signal opening_recovery_completed()
@@ -261,6 +262,7 @@ var visual_root: Node3D:
 	set(val):
 		_visual_root = val
 var animation_player: AnimationPlayer = null
+var action_camera_rig: DynamicActionCameraRig
 var player_camera: Camera3D = null
 var camera_boom: SpringArm3D = null
 @export var mouse_look_sensitivity: float = 0.0022
@@ -294,6 +296,7 @@ var _gait_bob_phase: float = 0.0
 
 func suspend_gameplay_camera() -> void:
 	if not camera_boom or _camera_suspended: return
+	if action_camera_rig: action_camera_rig.tick_lens(0.0,true)
 	camera_target_rotation = camera_boom.rotation
 	_camera_suspended = true
 	_camera_return_remaining = 0.0
@@ -310,7 +313,7 @@ func resume_gameplay_camera(duration: float = 0.35) -> void:
 	if _camera_return_duration == 0.0:
 		camera_boom.rotation = camera_target_rotation
 		_camera_last_rotation = camera_boom.rotation
-		player_camera.fov = 65.0
+		player_camera.fov = base_fov
 
 func set_gameplay_orbit(rotation: Vector3) -> void:
 	if not rotation.is_finite() or not camera_boom: return
@@ -326,12 +329,14 @@ func _process(delta: float) -> void:
 	if not camera_boom.rotation.is_equal_approx(_camera_last_rotation):
 		camera_target_rotation = Vector3(camera_boom.rotation.x, camera_boom.rotation.y, 0)
 	_camera_look_cooldown = maxf(0.0, _camera_look_cooldown - delta)
-	var target_anchor := global_position.y + 1.4
+	var action_offset := action_camera_rig.follow_offset(delta,control_locked or traversal.is_climbing() or _camera_return_remaining>0.0) if action_camera_rig else Vector3.ZERO
+	var target_anchor := global_position.y + 1.4 + action_offset.y
 	_camera_anchor_y = lerpf(_camera_anchor_y, target_anchor, 1.0 - exp(-18.0 * delta))
 	_camera_anchor_y = clampf(_camera_anchor_y, target_anchor - 0.2, target_anchor + 0.2)
 	# Anchor follows the capsule; local animation recoil never drives it.
 	camera_boom.position.y = _camera_anchor_y - global_position.y
 	var shoulder := Vector3.ZERO if traversal.is_climbing() or reduced_camera_motion else camera_boom.global_basis.x * 0.22
+	shoulder += Vector3(action_offset.x,0,action_offset.z)
 	shoulder.y = 0.0
 	var shoulder_query := PhysicsShapeQueryParameters3D.new()
 	shoulder_query.shape = camera_boom.shape
@@ -359,7 +364,7 @@ func _process(delta: float) -> void:
 		camera_boom.rotation.x = lerp_angle(_camera_return_rotation.x, wanted.x, weight)
 		camera_boom.rotation.y = lerp_angle(_camera_return_rotation.y, wanted.y, weight)
 		camera_boom.rotation.z = lerp_angle(_camera_return_rotation.z, 0, weight)
-		if player_camera.current: player_camera.fov = lerpf(_camera_return_fov, 65.0, weight)
+		if player_camera.current: player_camera.fov = base_fov if reduced_camera_motion else lerpf(_camera_return_fov, base_fov, weight)
 	else:
 		camera_boom.rotation.x = lerp_angle(camera_boom.rotation.x, wanted.x, weight)
 		camera_boom.rotation.y = lerp_angle(camera_boom.rotation.y, wanted.y, weight)
@@ -367,6 +372,9 @@ func _process(delta: float) -> void:
 		_update_camera_fov(delta)
 	_camera_last_rotation = camera_boom.rotation
 	_update_camera_distance(delta)
+	if action_camera_rig:
+		action_camera_rig.set_reduced_motion(reduced_camera_motion)
+		action_camera_rig.tick_lens(delta,control_locked or _camera_suspended or _camera_return_remaining>0.0 or not player_camera.current)
 
 func _landing_camera_assist() -> float:
 	if is_on_floor() or velocity.y >= -2.0 or traversal.is_climbing() or control_locked: return 0.0
@@ -422,6 +430,7 @@ func _update_camera_fov(delta: float) -> void:
 	if reduced_camera_motion:
 		player_camera.fov = base_fov
 		return
+	if action_camera_rig: return
 	var moving := Vector2(velocity.x, velocity.z).length() > 1.8
 	var sprinting := mobile_sprint_active and moving and stamina > 5.0
 	var target_fov := sprint_fov if sprinting else base_fov
@@ -577,6 +586,7 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		return
 	var previous_anim := current_anim
 	var gait_phase := -1.0
+	var previous_clip: Animation
 	const LOCOMOTION_CLIPS := [
 		"WALK", "RUN",
 		"preset_walk", "preset_run",
@@ -585,17 +595,34 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		"preset:biped:walk.001", "preset:biped:run.001"
 	]
 	if animation_player.is_playing() and previous_anim in LOCOMOTION_CLIPS and resolved_anim in LOCOMOTION_CLIPS:
-		var previous_clip: Animation = animation_player.get_animation(previous_anim)
+		previous_clip = animation_player.get_animation(previous_anim)
 		if previous_clip and previous_clip.length > 0.0:
 			gait_phase = fposmod(animation_player.current_animation_position / previous_clip.length, 1.0)
 	current_anim = resolved_anim
 	animation_player.play(resolved_anim, blend_time)
-	# Both locomotion takes start on the same contact. Preserve that contact
-	# when changing pace instead of restarting on an unrelated foot.
+	# Sources can begin on different feet. Map the measured support landmarks
+	# while changing pace; no source keys or root-motion settings are changed.
 	if gait_phase >= 0.0:
 		var target_clip: Animation = animation_player.get_animation(resolved_anim)
 		if target_clip and target_clip.length > 0.0:
-			animation_player.seek(gait_phase * target_clip.length)
+			animation_player.seek(_locomotion_contact_phase(gait_phase, previous_clip, target_clip) * target_clip.length)
+
+func _locomotion_contact_phase(phase: float, source: Animation, target: Animation) -> float:
+	if not source or not target: return phase
+	var from: Variant = source.get_meta("source_foot_contacts", {})
+	var to: Variant = target.get_meta("source_foot_contacts", {})
+	if not from is Dictionary or not to is Dictionary: return phase
+	for landmarks: Dictionary in [from, to]:
+		for side: String in ["left", "right"]:
+			var value: Variant = landmarks.get(side)
+			if not (value is float or value is int) or not is_finite(float(value)) or float(value)<0.0 or float(value)>=1.0: return phase
+	var from_span := fposmod(float(from.left)-float(from.right),1.0)
+	var to_span := fposmod(float(to.left)-float(to.right),1.0)
+	if minf(from_span,to_span)<.05 or maxf(from_span,to_span)>.95: return phase
+	var relative := fposmod(phase-float(from.right),1.0)
+	if relative<from_span:
+		return fposmod(float(to.right)+relative/from_span*to_span,1.0)
+	return fposmod(float(to.left)+(relative-from_span)/(1.0-from_span)*(1.0-to_span),1.0)
 
 func _play_opening_recovery() -> void:
 	# Restore/skip can finish the recovery before this deferred call executes.
@@ -680,6 +707,8 @@ func _physics_process(delta: float) -> void:
 
 	_tick_dash_input(delta)
 	var requested_jump := _requested_traversal_jump or Input.is_action_just_pressed("jump")
+	if _grounded_melee_active and requested_jump:
+		_cancel_attack()
 	var requested_roll_input := _requested_roll or Input.is_action_just_pressed("dodge")
 	if requested_roll_input:
 		dodge_buffer_timer = DODGE_BUFFER_DURATION
@@ -844,6 +873,13 @@ func _physics_process(delta: float) -> void:
 		_suppress_attack_until_release = false
 
 	var input_dir := resolve_movement_input()
+	if _grounded_melee_active and is_attacking:
+		if _grounded_melee_length-_attack_recovery >= _grounded_melee_cancel_at and input_dir.length()>.1:
+			_cancel_attack()
+		else:
+			# This original source is planted. Do not add a generic combo lunge
+			# or locomotion underneath its authored foot pivot and weight shift.
+			input_dir=Vector2.ZERO
 	var direction := movement_world_direction(input_dir)
 	is_sprinting = is_sprinting and direction.length() > 0.1
 
@@ -862,6 +898,7 @@ func _physics_process(delta: float) -> void:
 	var loco_data: Dictionary = locomotion_controller.update(delta, input_dir, horizontal_speed, is_sprinting, is_attacking)
 	if is_attacking and not locomotion_controller.root_motion_active and _attack_recovery <= 0:
 		is_attacking = false
+		_grounded_melee_active = false
 
 	combat_activity_timer = maxf(0.0, combat_activity_timer - delta)
 	locomotion_controller.set_combat_stance(combat_available and (combat_activity_timer > 0.0 or not is_sheathed))
@@ -877,23 +914,32 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0.0, 18.0 * delta)
 	elif direction.length() > 0.1:
 		var acceleration: float = GROUND_ACCEL if is_on_floor() else AIR_ACCEL
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, acceleration * delta)
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, acceleration * delta)
+		var horizontal := preload("res://engine_visuals/vfx/KineticVFXOrchestrator.gd").exponential_velocity(Vector2(velocity.x,velocity.z),Vector2(direction.x,direction.z)*current_speed,acceleration/current_speed if current_speed>0.1 else acceleration,delta)
+		velocity.x = horizontal.x
+		velocity.z = horizontal.y
 		# Rotate visual model towards move direction unless locked-on
 		if not is_locked_on or not lock_target:
-			var target_yaw: float = atan2(direction.x, direction.z) + model_forward_yaw_offset
+			# Face the current physical travel through an inertial turn; aiming
+			# immediately at the new stick direction makes the planted feet slide
+			# sideways while the capsule still carries its previous momentum.
+			var facing_travel := Vector3(horizontal.x,0.0,horizontal.y)
+			var target_yaw: float = atan2(facing_travel.x, facing_travel.z) + model_forward_yaw_offset
 			var yaw_delta: float = wrapf(target_yaw - visual_root.rotation.y, -PI, PI)
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_yaw, 14.0 * delta)
 			# This avatar faces +X: bank around X, pitch around Z. The old
 			# axes pitched the whole body into the floor while turning.
-			var target_bank: float = clampf(-yaw_delta * (horizontal_speed / SPRINT_SPEED) * 0.08, -0.045, 0.045)
+			var target_bank: float = preload("res://engine_visuals/vfx/KineticVFXOrchestrator.gd").momentum_lean(yaw_delta,horizontal_speed/SPRINT_SPEED) if not reduced_camera_motion else 0.0
 			visual_root.rotation.x = lerp_angle(visual_root.rotation.x, target_bank, 1.0 - exp(-8.0 * delta))
 		else:
 			visual_root.rotation.x = lerp_angle(visual_root.rotation.x, 0.0, 1.0 - exp(-12.0 * delta))
 	else:
 		var braking: float = GROUND_BRAKE if is_on_floor() else AIR_ACCEL
-		velocity.x = move_toward(velocity.x, 0.0, braking * delta)
-		velocity.z = move_toward(velocity.z, 0.0, braking * delta)
+		var horizontal := preload("res://engine_visuals/vfx/KineticVFXOrchestrator.gd").exponential_velocity(Vector2(velocity.x,velocity.z),Vector2.ZERO,braking/SPRINT_SPEED,delta)
+		# Idle begins below0.2m/s; settle the final sub-step of braking so the
+		# planted Idle does not visibly glide while an exponential tail decays.
+		if horizontal.length()<0.15: horizontal=Vector2.ZERO
+		velocity.x=horizontal.x
+		velocity.z=horizontal.y
 		visual_root.rotation.x = lerp_angle(visual_root.rotation.x, 0.0, 1.0 - exp(-12.0 * delta))
 	_move_and_detect_landing()
 	if is_on_floor():
@@ -943,6 +989,9 @@ func _physics_process(delta: float) -> void:
 			play_anim(clip, target_blend_time)
 			if animation_player:
 				var ref_speed: float = AUTHORED_RUN_SPEED if clip == "RUN" else AUTHORED_WALK_SPEED
+				var avatar := visual_root.get_node_or_null("EchoOpeningUniform") if visual_root else null
+				if avatar and avatar.has_method("locomotion_reference_speed"):
+					ref_speed = avatar.locomotion_reference_speed(clip, ref_speed)
 				animation_player.speed_scale = clampf(actual_speed / ref_speed, 0.4, 3.5) if (clip in ["WALK", "RUN"]) else 1.0
 
 			# Handle Character Soul Idle Barks (Genshin Idle System)
@@ -1128,7 +1177,7 @@ func update_iai_charge(delta: float) -> void:
 				glow.light_energy = 5.5
 
 func execute_iai_slash(charge_ratio: float = -1.0) -> void:
-	if opening_recovery_active or control_locked or not combat_available:
+	if opening_recovery_active or control_locked or not combat_available or is_attacking or _attack_recovery > 0 or is_dodging:
 		is_charging_iai = false
 		iai_charge = 0.0
 		return
@@ -1146,6 +1195,13 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 
 	# If charged >= 0.7 -> FULL CHARGED IAI SLASH: BLINK DASH + 180 (or 240) CRITICAL DAMAGE
 	if eff_ratio >= 0.7:
+		is_attacking = true
+		_attack_sequence += 1
+		var native_slash: bool = animation_player != null and animation_player.has_animation("ATTACK_1")
+		_attack_recovery = animation_player.get_animation("ATTACK_1").length if native_slash else .9
+		play_anim("ATTACK_1", 0.08)
+		if animation_player: animation_player.speed_scale = 1.0
+		combat_action_started.emit("iai")
 		var parent = get_parent()
 		var dash_dist: float = 5.5
 		var dash_dir: Vector3 = (visual_root.global_basis * Vector3(sin(-model_forward_yaw_offset), 0, cos(-model_forward_yaw_offset))).normalized() if visual_root else -transform.basis.z
@@ -1154,69 +1210,88 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 			dash_dir = -transform.basis.z
 		dash_dir = dash_dir.normalized()
 
-		var start_pos: Vector3 = position
-
-		# Spawn Ghost Trail phantoms along trajectory (Purple/Black if Shadow Katana)
-		if parent:
-			var trail_col: Color = Color(0.18, 0.03, 0.38, 0.9) if is_shadow_katana_equipped else Color(0.0, 0.94, 1.0, 0.8)
-			for i in range(3):
-				GhostTrailSpawner.spawn_ghost(parent, visual_root, 0.35, trail_col)
+		var start_pos: Vector3 = global_position
 
 		if is_shadow_katana_equipped:
 			set_zero_eye_active(true, 2.2)
 
 		# Spawn Solo Leveling Sumi Ink Shadow Wave Projectile
-		if parent:
+		if parent and not reduced_motion:
 			var wave = ShadowWaveProjectile.new()
-			var base_pos: Vector3 = global_position if is_inside_tree() else position
-			wave.position = base_pos + Vector3(0, 1.0, 0)
+			wave.position = start_pos + Vector3(0, 1.0, 0)
 			wave.direction = dash_dir
+			# The swept body and one verified contact own this attack's damage.
+			# A trailing visual must not add contacts or pass damage through cover.
+			wave.visual_only = true
 			parent.add_child(wave)
 
-		# Instant Blink Dash forward
-		position += dash_dir * dash_dist
-		if is_inside_tree():
-			move_and_slide()
-
-		var end_pos: Vector3 = position
+		# A blocked sweep never grants extra reach through its solid obstacle.
+		var dash_collision: KinematicCollision3D
+		if is_inside_tree(): dash_collision = move_and_collide(dash_dir * dash_dist)
+		var end_pos: Vector3 = global_position
+		# Place bounded snapshots along the distance the capsule really swept.
+		if parent and not reduced_motion:
+			var trail_col: Color = Color(0.32, 0.035, 0.70, 0.14) if contract_with_zero_sealed else Color(0.12, 0.62, 0.85, 0.14)
+			for i in 3:
+				GhostTrailSpawner.spawn_ghost(parent, visual_root, 0.35, trail_col, (start_pos-end_pos)*float(i+1)/4.0)
 
 		# Flash massive heavy slash arc
 		var slash_arc = find_child("SlashArc", true, false)
 		if slash_arc:
-			slash_arc.visible = true
-			slash_arc.scale = Vector3(2.5, 2.5, 2.5)
+			_present_slash_arc(slash_arc, 1.05)
 			slash_arc.rotation.z = 0.785
 			var tree = get_tree() if is_inside_tree() else null
 			if tree:
-				tree.create_timer(0.25).timeout.connect(func():
-					if slash_arc:
-						slash_arc.visible = false
-						slash_arc.scale = Vector3(1.0, 1.0, 1.0)
-				)
+				tree.create_timer(0.25).timeout.connect(_close_slash_arc.bind(slash_arc.get_instance_id(), true))
 
 		# Apply massive damage to enemies in trajectory (between start and end)
 		var iai_dmg: int = 180
-		if parent:
-			for child in parent.get_children():
-				if child != self and child.has_method("take_damage"):
-					var diff_start: Vector3 = child.position - start_pos
-					diff_start.y = 0.0
-					var diff_end: Vector3 = child.position - end_pos
-					diff_end.y = 0.0
-					if diff_start.length() <= (dash_dist + 4.0) or diff_end.length() <= 6.0:
-						child.take_damage(iai_dmg)
-						register_hit_landed(iai_dmg)
-						var hit_pos: Vector3 = (start_pos + child.position) * 0.5 + Vector3(0, 1.0, 0)
-						ImpactSpawner.spawn_katana_sparks(parent, hit_pos, Vector3.UP, true)
-						ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3(0, 0.4, 0), iai_dmg, true)
-						if player_camera:
-							ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.35)
-						trigger_hit_stop(0.16)
-						emit_signal("iai_executed", iai_dmg)
-						break
+		var target := _iai_contact_target(start_pos, end_pos, dash_dir, dash_collision.get_collider() if dash_collision else null)
+		if target:
+			target.take_damage(iai_dmg)
+			register_hit_landed(iai_dmg)
+			var hit_pos: Vector3 = target.global_position + Vector3.UP
+			ImpactSpawner.spawn_katana_sparks(parent, hit_pos, Vector3.UP, true)
+			ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3.UP * .4, iai_dmg, true)
+			if player_camera and not reduced_camera_motion:
+				ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.35)
+			trigger_hit_stop(0.16)
+			emit_signal("iai_executed", iai_dmg)
 	else:
 		# Quick tap -> Regular combo attack
 		perform_attack()
+
+func _iai_collider_matches(candidate: Node, collider: Object) -> bool:
+	return collider is Node and (collider == candidate or candidate.is_ancestor_of(collider) or collider.is_ancestor_of(candidate))
+
+func _iai_contact_target(start: Vector3, end: Vector3, forward: Vector3, blocker: Object = null) -> Node3D:
+	if not is_inside_tree(): return null
+	var travelled := start.distance_to(end)
+	var nearest: Node3D
+	var nearest_distance := INF
+	for candidate in get_tree().get_nodes_in_group("damageable"):
+		if not candidate is Node3D or candidate == self or not candidate.has_method("take_damage"): continue
+		var offset: Vector3 = candidate.global_position - start
+		if absf(offset.y) > 1.3: continue
+		offset.y = 0
+		var along := offset.dot(forward)
+		# An actual enemy body hit by the capsule owns its contact; a wall
+		# cannot lend the same extension to an enemy beyond the stopping point.
+		var reach := travelled + (1.2 if blocker == null or _iai_collider_matches(candidate, blocker) else 0.0)
+		if along < 0 or along > reach or along >= nearest_distance: continue
+		if (offset - forward * along).length() > 1.2: continue
+		var contact_origin := start + forward * clampf(along, 0.0, travelled)
+		var occluded := false
+		for height in [.45, 1.0]:
+			var query := PhysicsRayQueryParameters3D.create(contact_origin + Vector3.UP * height, candidate.global_position + Vector3.UP * height, collision_mask, [get_rid()])
+			var hit := get_world_3d().direct_space_state.intersect_ray(query)
+			if not hit.is_empty() and not _iai_collider_matches(candidate, hit.collider):
+				occluded = true
+				break
+		if occluded: continue
+		nearest = candidate
+		nearest_distance = along
+	return nearest
 
 var is_shadow_katana_equipped: bool = false
 var contract_with_zero_sealed: bool = false
@@ -1348,12 +1423,16 @@ var combo_step_timer: float = 0.0
 var is_attacking: bool = false
 var _attack_sequence := 0
 var _attack_recovery := 0.0
+var _grounded_melee_active := false
+var _grounded_melee_length := 0.0
+var _grounded_melee_cancel_at := 0.0
 
 func _cancel_attack() -> void:
 	if not is_attacking and _attack_recovery <= 0: return
 	_attack_sequence += 1
 	_attack_recovery = 0.0
 	is_attacking = false
+	_grounded_melee_active = false
 var is_sheathed: bool = false
 
 const KATANA_READY_TRANSFORM := Transform3D(Basis(Vector3(0.965926, -0.258819, 0), Vector3(0.258819, 0.965926, 0), Vector3(0, 0, 1)), Vector3(0.42, 0.75, 0.15))
@@ -1362,6 +1441,8 @@ const KATANA_SHEATHED_TRANSFORM := Transform3D(Basis(Vector3(0.866, 0, -0.5), Ve
 func perform_attack() -> void:
 	if opening_recovery_active or control_locked or not combat_available or _attack_recovery > 0 or is_dodging:
 		return
+	var grounded:bool=animation_player!=null and animation_player.has_animation("MELEE_HORIZONTAL")
+	if grounded and not is_on_floor():return
 	if is_sheathed:
 		unsheath_weapon()
 	is_attacking = true
@@ -1370,7 +1451,13 @@ func perform_attack() -> void:
 	combo_step_timer = 0.85
 
 	var forward_dir: Vector3 = visual_root.global_basis * model_local_forward if visual_root else -global_basis.z
-	locomotion_controller.trigger_combo_root_motion(current_step, forward_dir)
+	_grounded_melee_active=grounded
+	if grounded:
+		locomotion_controller.cancel_root_motion()
+		velocity.x=0.0
+		velocity.z=0.0
+	else:
+		locomotion_controller.trigger_combo_root_motion(current_step, forward_dir)
 
 	# Play Authored Character Attack Animation on Skeleton & Trigger Wing on Finisher
 	var anim_clip := "ATTACK_1"
@@ -1385,6 +1472,9 @@ func perform_attack() -> void:
 				if combat_activity_timer <= 0.5:
 					dismiss_zero_wing()
 			)
+	if grounded:anim_clip="MELEE_HORIZONTAL"
+	if animation_player and animation_player.current_animation==anim_clip:
+		animation_player.stop(true)
 	play_anim(anim_clip, 0.08)
 	_attack_sequence += 1
 	var sequence := _attack_sequence
@@ -1392,11 +1482,21 @@ func perform_attack() -> void:
 	# Until this rig's Golden gate passes, preserve the native idle/walk speed.
 	# A missing attack must not speed up an unrelated fallback animation.
 	var clip_length:float=animation_player.get_animation(anim_clip).length if verified_clip else 0.9
-	_attack_recovery = clampf(clip_length*0.72,0.65,1.15)
+	_attack_recovery = clip_length if verified_clip else 0.65
+	_grounded_melee_length=clip_length
+	_grounded_melee_cancel_at=float(animation_player.get_animation(anim_clip).get_meta("melee_cancel_seconds",clip_length)) if grounded else clip_length
 	combo_step_timer = _attack_recovery+0.7
-	if verified_clip: animation_player.speed_scale=clip_length/_attack_recovery
+	if verified_clip: animation_player.speed_scale=1.0
+	combat_action_started.emit("melee")
 	if is_inside_tree():
-		get_tree().create_timer(_attack_recovery*0.52).timeout.connect(_apply_melee_contact.bind(current_step,sequence))
+		# Damage follows the same pausable physics clock as native playback and
+		# recovery. An always-processing timer could hit while the world is paused.
+		var contact_at:float=float(animation_player.get_animation(anim_clip).get_meta("melee_contact_seconds",clip_length*.52)) if grounded else _attack_recovery*.52
+		get_tree().create_timer(contact_at, false, true).timeout.connect(_apply_melee_contact.bind(current_step,sequence))
+		if grounded:
+			get_tree().create_timer(maxf(0.0,contact_at-.08), false, true).timeout.connect(_present_melee_swing.bind(current_step,sequence))
+		else:
+			_present_melee_swing(current_step,sequence)
 
 	# AAA Japanese combat voice — step-matched anime action yell
 	if spatial_voice_manager:
@@ -1408,6 +1508,8 @@ func perform_attack() -> void:
 		var vpos: Vector3 = global_position if is_inside_tree() else position
 		spatial_voice_manager.play_voice(voice_id, vpos)
 
+func _present_melee_swing(current_step:int, sequence:int) -> void:
+	if not is_inside_tree() or sequence!=_attack_sequence or not is_attacking or control_locked or not combat_available or is_dodging:return
 	# Razor-sharp Katana swing whoosh audio
 	if is_inside_tree():
 		var whoosh_audio := AudioStreamPlayer.new()
@@ -1420,8 +1522,8 @@ func perform_attack() -> void:
 	# Flash Katana Slash Arc Ribbon Mesh with step-based angle
 	var slash_arc = find_child("SlashArc", true, false)
 	if slash_arc:
-		slash_arc.visible = true
-		if current_step == 1:
+		_present_slash_arc(slash_arc, .8)
+		if _grounded_melee_active or current_step == 1:
 			slash_arc.rotation.z = 0.0 # Horizontal sweep
 		elif current_step == 2:
 			slash_arc.rotation.z = 0.785 # 45-deg rising slash
@@ -1429,7 +1531,7 @@ func perform_attack() -> void:
 			slash_arc.rotation.z = 1.57 # Downward heavy cleave
 		var tree = get_tree() if is_inside_tree() else null
 		if tree:
-			tree.create_timer(0.2).timeout.connect(func(): if slash_arc: slash_arc.visible = false)
+			tree.create_timer(0.2, false, true).timeout.connect(_close_slash_arc.bind(slash_arc.get_instance_id(), false))
 
 	# Dynamic secondary motion impulse to Katana tassel
 	var tassel = find_child("TasselRoot", true, false)
@@ -1477,6 +1579,23 @@ func trigger_hit_stop(duration: float = 0.06) -> void:
 		tree.create_timer(duration * 0.05).timeout.connect(func():
 			Engine.time_scale = 0.2 if perfect_dodge_surge else 1.0
 		)
+
+func _present_slash_arc(arc: MeshInstance3D, world_radius: float) -> void:
+	arc.visible = not reduced_motion
+	var inherited: Vector3=arc.get_parent_node_3d().global_basis.get_scale().abs()
+	var scale_factor:=maxf(.001,maxf(inherited.x,maxf(inherited.y,inherited.z)))
+	arc.scale=Vector3.ONE*world_radius/(1.35*scale_factor)
+	if not arc.material_override is ShaderMaterial or arc.material_override.shader != preload("res://engine_visuals/shaders/signal_cut.gdshader"):
+		var material:=ShaderMaterial.new()
+		material.shader=preload("res://engine_visuals/shaders/signal_cut.gdshader")
+		material.set_shader_parameter("signal_color",Color(.45,.06,.95) if is_shadow_katana_equipped else Color(.12,.62,.85))
+		arc.material_override=material
+
+func _close_slash_arc(instance_id: int, reset_scale: bool) -> void:
+	var arc := instance_from_id(instance_id) as Node3D
+	if not is_instance_valid(arc): return
+	arc.visible = false
+	if reset_scale: arc.scale = Vector3.ONE
 
 func toggle_lock_on(target: Node3D = null) -> void:
 	if is_locked_on and lock_target and lock_target.has_method("set_targeted"):
@@ -1827,10 +1946,10 @@ func register_nearby_interactable(interactable: Node) -> void:
 			emit_signal("nearby_interactable_changed", interactable)
 
 func unregister_nearby_interactable(interactable: Node) -> void:
-	var was_nearest: bool = get_nearest_interactable() == interactable
 	nearby_interactables.erase(interactable)
-	if was_nearest:
-		emit_signal("nearby_interactable_changed", get_nearest_interactable())
+	# Disabling a component changes eligibility before its unregister callback.
+	# Always refresh the current prompt, including that completed-device case.
+	emit_signal("nearby_interactable_changed", get_nearest_interactable())
 
 func get_nearest_interactable() -> Node:
 	if nearby_interactables.is_empty():
@@ -1840,6 +1959,7 @@ func get_nearest_interactable() -> Node:
 	var min_dist: float = 999.0
 	for item in nearby_interactables:
 		if is_instance_valid(item):
+			if item is InteractableComponent and not item.is_enabled:continue
 			var item_pos = get_interaction_focus(item)
 			var d = (item_pos - my_pos).length()
 			if d < min_dist:
@@ -2048,3 +2168,13 @@ func _update_procedural_head_look(delta: float) -> void:
 func _get_gait_bob_offset(delta: float, speed: float) -> float:
 	# Compatibility for diagnostics: locomotion owns its authored pelvis motion.
 	return 0.0
+
+func enable_hyper_visuals() -> void:
+	if action_camera_rig or not player_camera or not camera_boom: return
+	action_camera_rig = preload("res://engine_visuals/camera/DynamicActionCameraRig.gd").new()
+	action_camera_rig.name = "DynamicActionCameraRig"
+	add_child(action_camera_rig)
+	action_camera_rig.configure(self,player_camera,camera_boom)
+	base_fov=70.0
+	sprint_fov=82.0
+	action_camera_rig.set_reduced_motion(reduced_camera_motion)

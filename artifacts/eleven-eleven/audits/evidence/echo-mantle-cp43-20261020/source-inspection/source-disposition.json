@@ -1,0 +1,16 @@
+{
+  "status": "REJECT_FOR_HANG_TO_STAND_MANTLE",
+  "source_take": "36036518968c47857c982d56:0:3ecc9cb6",
+  "source_sha256": "36036518968c47857c982d5634e5c1f171f57c6d2653501795caccc7521f9ff0",
+  "native_fps": 30,
+  "samples": 210,
+  "duration_seconds": 6.966666666666667,
+  "measured_foot_height_gain_m": 0.7621589601039886,
+  "source_start": "Both feet on original ground, hands below shoulders; no initial overhead hang",
+  "source_end": "Both feet on a surface about 0.76m higher; body stands",
+  "semantic": "Slow standing step-up with hand assistance; not the current hanging pull-over",
+  "mapping_diagnosis": "Original Hips root was imported as the animated armature OBJECT. Root bones are Spine1/LeftLeg/RightLeg; no Hips bone exists. Do not invent a pelvis mapping or discard object motion.",
+  "runtime_integrated": false,
+  "source_keys_modified": false,
+  "next": "Evaluate a true hanging pull-over source; retain this source only for a distinct low ledge step-up if needed."
+}

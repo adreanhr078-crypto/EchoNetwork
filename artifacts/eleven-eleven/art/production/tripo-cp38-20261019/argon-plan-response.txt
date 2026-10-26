@@ -1,0 +1,558 @@
+ إلى المستشفى. مراجعة نصية محدودة الآن وليست قبول صور: رحلة01→10 سابقة341شرطًا، الم…" [level=5]'
+  - paragraph: "أرجون، نتابع CP37 إلى المستشفى. مراجعة نصية محدودة الآن وليست قبول صور: رحلة01→10 سابقة341شرطًا، المستشفى6.4×5.8×3.2م؛ WardPresentation يستبدل كسوة مرئية فقط، سرير أصلي12304مثلثات، نافذة مطر متوقفةمعPause/RM، انعكاسSubViewport، عزل أضواء المنشأة عن المستشفى أصلح تسطيح وجهإيكو لكن المعاينةالكاملةمفتوحة. المالك وفرStudioTripo3000كريديت ويريد قفزةفيالفن/التحكم/الباركور/تمثيلKinjaوZero. GoldenWalk/V31/EX-011/Canon/SFX_ONLY ثابتة. APITripoيفحص0متاح؛سأفحصStudio منفصلًا. أعطني أولويات إنتاج عملية قصيرة لخمس حزم متتابعة، مع ميزانية تجريبيةTripo≤600لاصرف3000عشوائيًا، ومايفيد منrig/retarget/parts/LOD ومايحتاجBlender. اذكر مخاطرة كلحزمة ودليل قبولها. لاتدّع فحص صورلمتصلك. لااستيرادGitHubدونمراجعة."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "1) ضوابط الحوكمة الفنية وميزانية Tripo Studio التجريبية ( كريديت)" [level=2]:
+    - text: 1) ضوابط الحوكمة الفنية وميزانية Tripo Studio التجريبية (
+    - math:
+      - generic: ≤
+      - generic: "600"
+    - generic: ≤
+    - generic: "600"
+    - text: كريديت)
+  - paragraph:
+    - text: أثبّت أولاً أن هذه المراجعة نصية وهندسية فقط؛ لم تُرفق صور لنسخة المستشفى
+    - code: CP37
+    - text: ولن أمنح أي قبول بصري للغرفة 10 أو لعلاج تسطيح وجه Echo قبل معاينة اللقطات الفعلية.
+  - paragraph: "قبل صرف أي كريديت من رصيد Tripo Studio (3,000 كريديت) بعد التحقق منه منفصلاً عن الـ API، نحسم تقسيم الأدوار بين Tripo Studio وBlender 5.2 / Godot 4.8-dev7 بناءً على وقائع المشروع المثبتة في المصادر:"
+  - heading "ما يفيد فيه Tripo Studio مقابل ما يمنع استعماله فيه (حمايةً لـ V31 والذاكرة)" [level=3]
+  - table:
+    - rowgroup:
+      - row "المجال التقني قرار الاستخدام في Tripo Studio السبب الهندسي ومهمة Blender / Godot المكملة":
+        - columnheader "المجال التقني"
+        - columnheader "قرار الاستخدام في Tripo Studio"
+        - columnheader "السبب الهندسي ومهمة Blender / Godot المكملة"
+    - rowgroup:
+      - 'row "هيكلة وتحريك Echo ( Rig / Retarget ) ممنوع (0 كريديت) أثبت فحص echo_opening_uniform_v13.glb أن الترقيم التلقائي tripo::* يولد هيكلاً غير متماثل من 22 عظمة يفتقر للمعصم الأيسر والأصابع ولا يطابق هيكل V31 ذا الـ 68 عظمة . كل حركات V31 ( Wake / Walk / Climb / Attack ) تُعالج حصرياً في Blender + Godot مع حماية ملفات Golden الـ 192 . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt, TXT: Engineering-Context-02.txt, TXT: Engineering-Context-02.txt\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "هيكلة وتحريك Echo ( Rig / Retarget )":
+          - text: هيكلة وتحريك Echo (
+          - code: Rig / Retarget
+          - text: )
+        - cell "ممنوع (0 كريديت)":
+          - generic: ممنوع (0 كريديت)
+        - 'cell "أثبت فحص echo_opening_uniform_v13.glb أن الترقيم التلقائي tripo::* يولد هيكلاً غير متماثل من 22 عظمة يفتقر للمعصم الأيسر والأصابع ولا يطابق هيكل V31 ذا الـ 68 عظمة . كل حركات V31 ( Wake / Walk / Climb / Attack ) تُعالج حصرياً في Blender + Godot مع حماية ملفات Golden الـ 192 . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt, TXT: Engineering-Context-02.txt, TXT: Engineering-Context-02.txt\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: أثبت فحص
+            - code: echo_opening_uniform_v13.glb
+            - text: أن الترقيم التلقائي
+            - code: tripo::*
+            - text: يولد هيكلاً غير متماثل من 22 عظمة يفتقر للمعصم الأيسر والأصابع ولا يطابق هيكل
+            - code: V31
+            - text: ذا الـ 68 عظمة
+            - superscript
+            - text: . كل حركات
+            - code: V31
+            - text: (
+            - code: Wake / Walk / Climb / Attack
+            - text: ) تُعالج حصرياً في Blender + Godot مع حماية ملفات
+            - code: Golden
+            - text: الـ 192
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt, TXT: Engineering-Context-02.txt, TXT: Engineering-Context-02.txt\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 3
+      - row "أجزاء ومجسمات Kinja و Zero ( Parts / Actor Silhouettes ) مسموح بحدود ( كريديت) يُستخدم Tripo Studio لتوليد/تحديث أجزاء عالية التفصيل لـ Dr. Kinja أو تجسد Zero أو منصة التقييد في المختبر ( Room 09 )، ثم تُربط في Blender بهيكل بشري قياسي يقبل الـ Retargeting دون تشوه.":
+        - cell "أجزاء ومجسمات Kinja و Zero ( Parts / Actor Silhouettes )":
+          - text: أجزاء ومجسمات
+          - code: Kinja
+          - text: و
+          - code: Zero
+          - text: (
+          - code: Parts / Actor Silhouettes
+          - text: )
+        - cell "مسموح بحدود ( كريديت)":
+          - text: مسموح بحدود (
+          - math:
+            - generic: ≤
+            - generic: "300"
+          - generic: ≤
+          - generic: "300"
+          - text: كريديت)
+        - cell "يُستخدم Tripo Studio لتوليد/تحديث أجزاء عالية التفصيل لـ Dr. Kinja أو تجسد Zero أو منصة التقييد في المختبر ( Room 09 )، ثم تُربط في Blender بهيكل بشري قياسي يقبل الـ Retargeting دون تشوه.":
+          - text: يُستخدم Tripo Studio لتوليد/تحديث أجزاء عالية التفصيل لـ
+          - code: Dr. Kinja
+          - text: أو تجسد
+          - code: Zero
+          - text: أو منصة التقييد في المختبر (
+          - code: Room 09
+          - text: )، ثم تُربط في Blender بهيكل بشري قياسي يقبل الـ Retargeting دون تشوه.
+      - 'row "الأصول البارزة وتقسيم الأجزاء ( Hero Props / Parts / LOD ) مسموح بحدود ( كريديت) يُستخدم لبناء أصول Hero معمارية/طبية مقسمة ( Parts ) مع تفعيل خيار Low-Poly / Quad Retopology (LOD) داخل Tripo Studio، ثم إلزامياً في Blender: تقليص/دمج الخامات من 4096x4096 (التي رفعت كل سيف من Tripo سابقاً إلى ~256 MiB غير مضغوطة ) إلى 1024/2048 أو مواد Stylized PBR مشتركة قبل إدخالها إلى Godot. اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-01.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "الأصول البارزة وتقسيم الأجزاء ( Hero Props / Parts / LOD )":
+          - text: الأصول البارزة وتقسيم الأجزاء (
+          - code: Hero Props / Parts / LOD
+          - text: )
+        - cell "مسموح بحدود ( كريديت)":
+          - text: مسموح بحدود (
+          - math:
+            - generic: ≤
+            - generic: "300"
+          - generic: ≤
+          - generic: "300"
+          - text: كريديت)
+        - 'cell "يُستخدم لبناء أصول Hero معمارية/طبية مقسمة ( Parts ) مع تفعيل خيار Low-Poly / Quad Retopology (LOD) داخل Tripo Studio، ثم إلزامياً في Blender: تقليص/دمج الخامات من 4096x4096 (التي رفعت كل سيف من Tripo سابقاً إلى ~256 MiB غير مضغوطة ) إلى 1024/2048 أو مواد Stylized PBR مشتركة قبل إدخالها إلى Godot. اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-01.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: يُستخدم لبناء أصول Hero معمارية/طبية مقسمة (
+            - code: Parts
+            - text: ") مع تفعيل خيار Low-Poly / Quad Retopology (LOD) داخل Tripo Studio، ثم إلزامياً في Blender: تقليص/دمج الخامات من"
+            - code: 4096x4096
+            - text: (التي رفعت كل سيف من Tripo سابقاً إلى
+            - code: ~256 MiB
+            - text: غير مضغوطة
+            - superscript
+            - text: ) إلى
+            - code: 1024/2048
+            - text: أو مواد Stylized PBR مشتركة قبل إدخالها إلى Godot.
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-01.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+  - 'heading "2) خطة الإنتاج العملية: 5 حزم متتابعة (بميزانية تجريبية من أصل 3,000)" [level=2]':
+    - text: "2) خطة الإنتاج العملية: 5 حزم متتابعة (بميزانية تجريبية"
+    - math:
+      - generic: ≤
+      - generic: "600"
+    - generic: ≤
+    - generic: "600"
+    - text: من أصل 3,000)
+  - paragraph: "نحتفظ بـ 2,400 كريديت كاحتياطي مغلق لا يُمس إلا بعد نجاح هذه الحزم الخمس وإثبات العائد البصري والأدائي:"
+  - table:
+    - rowgroup:
+      - row "الحزمة بالترتيب نطاق التنفيذ الفعلي (Godot 4.8 + Blender + Tripo) ميزانية Tripo القصوى المخاطرة الرئيسية (Main Risk) دليل القبول الصارم (Acceptance Evidence)":
+        - columnheader "الحزمة بالترتيب"
+        - columnheader "نطاق التنفيذ الفعلي (Godot 4.8 + Blender + Tripo)"
+        - columnheader "ميزانية Tripo القصوى"
+        - columnheader "المخاطرة الرئيسية (Main Risk)"
+        - columnheader "دليل القبول الصارم (Acceptance Evidence)"
+    - rowgroup:
+      - row:
+        - 'cell "الحزمة 1: إغلاق المستشفى وفحص EX-011 (Room 10 & Neck Mark Closure)"':
+          - paragraph:
+            - text: "الحزمة 1: إغلاق المستشفى وفحص"
+            - code: EX-011
+          - paragraph: (Room 10 & Neck Mark Closure)
+        - 'cell "• تثبيت WardPresentation ( 6.4×5.8×3.2m ) والسرير الأصلي ( 12,304 مثلثاً) ونافذة المطر وعزل أضواء المنشأة. • إصلاح عيوب لقطة 089.jpg الأربع: منع تداخل ساعة الحائط 11:11 مع صندوق المهمة العلوي، رفع زاوية skin_mark_inspection_camera.gd لكشف وسم EX-011 كاملاً فوق ياقة المعطف، محاذاة نص SystemWindow لليمين (RTL)، وضبط reflection_depth للمرآة . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Room04-Engineering-10.txt وJPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: • تثبيت
+            - code: WardPresentation
+            - text: (
+            - code: 6.4×5.8×3.2m
+            - text: ) والسرير الأصلي (
+            - code: 12,304
+            - text: مثلثاً) ونافذة المطر وعزل أضواء المنشأة.
+          - paragraph:
+            - text: • إصلاح عيوب لقطة
+            - code: 089.jpg
+            - text: "الأربع: منع تداخل ساعة الحائط"
+            - code: 11:11
+            - text: مع صندوق المهمة العلوي، رفع زاوية
+            - code: skin_mark_inspection_camera.gd
+            - text: لكشف وسم
+            - code: EX-011
+            - text: كاملاً فوق ياقة المعطف، محاذاة نص
+            - code: SystemWindow
+            - text: لليمين (RTL)، وضبط
+            - code: reflection_depth
+            - text: للمرآة
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Room04-Engineering-10.txt وJPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+        - cell "0 كريديت (Blender + Godot فقط)":
+          - paragraph: 0 كريديت
+          - paragraph: (Blender + Godot فقط)
+        - 'cell "استنزاف الإطارات عند تفعيل SubViewport المرآة مع مجسم السرير و V31 ، أو بقاء حجب الياقة للوسم . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: استنزاف الإطارات عند تفعيل
+            - code: SubViewport
+            - text: المرآة مع مجسم السرير و
+            - code: V31
+            - text: ، أو بقاء حجب الياقة للوسم
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+        - 'cell "• 4 زوايا للمستشفى + لقطة فحص EX-011 نظيفة بلا تداخل HUD أو قص للياقة . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. • عقد استرجاع/Pause/RM للمطر والانعكاس والفيلم hospital-awakening-v1.ogv . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: • 4 زوايا للمستشفى + لقطة فحص
+            - code: EX-011
+            - text: نظيفة بلا تداخل HUD أو قص للياقة
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+          - paragraph:
+            - text: • عقد استرجاع/Pause/RM للمطر والانعكاس والفيلم
+            - code: hospital-awakening-v1.ogv
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+      - row:
+        - 'cell "الحزمة 2: قفزة التحكم والباركور وإحساس الحركة (Controls, Parkour & Locomotion Feel)"':
+          - paragraph: "الحزمة 2: قفزة التحكم والباركور وإحساس الحركة"
+          - paragraph: (Controls, Parkour & Locomotion Feel)
+        - 'cell "• في echo_player.gd ونظام التسلق ( traversal / surface_motor ) : إضافة نافذة سماح القفز ( Coyote Time 0.12s + Jump Buffer 0.15s )، تنعيم الالتصاق بالحواف ( Mantle/Ledge Snap ) في الغرف 02, 03, 05, 06 ، وضبط استجابة CameraBoom للسرعة والتسلل . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Room02-Engineering-08.txt وTXT: Room02-Engineering-08.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • في Blender/Godot: حسم حركة Wake أصلية 30fps (Mixamo Binary متوافقة مع native_timing.py ) وفحص تعويض Walk/Run وتوجيه الرأس LookAtModifier3D دون لمس Golden . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: • في
+            - code: echo_player.gd
+            - text: ونظام التسلق (
+            - code: traversal / surface_motor
+            - text: )
+            - superscript
+            - text: ": إضافة نافذة سماح القفز ("
+            - code: Coyote Time 0.12s
+            - text: +
+            - code: Jump Buffer 0.15s
+            - text: )، تنعيم الالتصاق بالحواف (
+            - code: Mantle/Ledge Snap
+            - text: ) في الغرف
+            - code: 02, 03, 05, 06
+            - text: ، وضبط استجابة
+            - code: CameraBoom
+            - text: للسرعة والتسلل
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Room02-Engineering-08.txt وTXT: Room02-Engineering-08.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 2
+          - paragraph:
+            - text: "• في Blender/Godot: حسم حركة"
+            - code: Wake
+            - text: أصلية 30fps (Mixamo Binary متوافقة مع
+            - code: native_timing.py
+            - text: ) وفحص تعويض
+            - code: Walk/Run
+            - text: وتوجيه الرأس
+            - code: LookAtModifier3D
+            - text: دون لمس
+            - code: Golden
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+        - cell "0 كريديت (Godot + Blender Retarget)":
+          - paragraph: 0 كريديت
+          - paragraph: (Godot + Blender Retarget)
+        - 'cell "تغير مسار القفز الفيزيائي بما يكسر شروط الرحلة الآلية (الـ 341 شرطاً) أو يخل بـ Golden الـ 192 . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-02.txt وTXT: Room02-Engineering-08.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: تغير مسار القفز الفيزيائي بما يكسر شروط الرحلة الآلية (الـ 341 شرطاً) أو يخل بـ
+            - code: Golden
+            - text: الـ 192
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-02.txt وTXT: Room02-Engineering-08.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+        - cell "• بقاء رحلة الإدخال العام 01 -> 10 ( PASS ) دون أي teleport. • قياس انزلاق القدم ( Foot Slide ) وتوثيق سلاسة انتقال Idle -> Run -> Climb -> Mantle .":
+          - paragraph:
+            - text: • بقاء رحلة الإدخال العام
+            - code: 01 -> 10
+            - text: (
+            - code: PASS
+            - text: ) دون أي teleport.
+          - paragraph:
+            - text: • قياس انزلاق القدم (
+            - code: Foot Slide
+            - text: ) وتوثيق سلاسة انتقال
+            - code: Idle -> Run -> Climb -> Mantle
+            - text: .
+      - row:
+        - 'cell "الحزمة 3: المختبر وتمثيل Kinja و Zero والعقد (Room 09, Kinja/Zero Acting & Shadow Combat)"':
+          - paragraph:
+            - text: "الحزمة 3: المختبر وتمثيل"
+            - code: Kinja
+            - text: و
+            - code: Zero
+            - text: والعقد
+          - paragraph: (Room 09, Kinja/Zero Acting & Shadow Combat)
+        - 'cell "• إخراج dr_kinja_lab_room ( Room 09 ) ومراحلها: منصة الفحص الغرق/اليأس تجسد Zero والقرار الصريح للعقد ( CONFIRM_ZERO_PACT ) تفعيل طبقة الظل فوق EX-011 وفتح السيف ( set_combat_available(true) ) 3 ضربات لكينجا بتأثير بصري/صوتي قوي ثم إمساك الياقة وأمنية الخروج . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • استخدام Tripo Studio (عند الحاجة بعد فحص المجسم الحالي) لترقية تفاصيل منصة الفحص أو أجزاء Kinja / Zero مع تنظيفها في Blender."':
+          - paragraph:
+            - text: • إخراج
+            - code: dr_kinja_lab_room
+            - text: (
+            - code: Room 09
+            - text: ") ومراحلها: منصة الفحص"
+            - math:
+              - generic: ←
+            - generic: ←
+            - text: الغرق/اليأس
+            - math:
+              - generic: ←
+            - generic: ←
+            - text: تجسد
+            - code: Zero
+            - text: والقرار الصريح للعقد (
+            - code: CONFIRM_ZERO_PACT
+            - text: )
+            - math:
+              - generic: ←
+            - generic: ←
+            - text: تفعيل طبقة الظل فوق
+            - code: EX-011
+            - text: وفتح السيف (
+            - code: set_combat_available(true)
+            - text: )
+            - math:
+              - generic: ←
+            - generic: ←
+            - text: 3 ضربات لكينجا بتأثير بصري/صوتي قوي ثم إمساك الياقة وأمنية الخروج
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+          - paragraph:
+            - text: • استخدام Tripo Studio (عند الحاجة بعد فحص المجسم الحالي) لترقية تفاصيل منصة الفحص أو أجزاء
+            - code: Kinja / Zero
+            - text: مع تنظيفها في Blender.
+        - cell "كريديت (منصة الفحص / أجزاء Kinja وZero + Retopology)":
+          - paragraph:
+            - math:
+              - generic: ≤
+              - generic: "300"
+            - generic: ≤
+            - generic: "300"
+            - text: كريديت
+          - paragraph: (منصة الفحص / أجزاء Kinja وZero + Retopology)
+        - 'cell "تضخم ذاكرة الخامات عند فتح السيوف ( standard_katana + shadow_katana + kinja + zero ) على Intel UHD . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-02.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: تضخم ذاكرة الخامات عند فتح السيوف (
+            - code: standard_katana
+            - text: +
+            - code: shadow_katana
+            - text: +
+            - code: kinja
+            - text: +
+            - code: zero
+            - text: ) على
+            - code: Intel UHD
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-02.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+        - 'cell "• 4 زوايا للمختبر + لقطات مراحل: المواجهة، ظهور زيرو، الضربات الثلاث، إمساك الياقة، والشق المضيء ( breach ) . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • إثبات أن التخطي لا يبرم العقد أبداً وأن القوى مغلقة قبله . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: "• 4 زوايا للمختبر + لقطات مراحل: المواجهة، ظهور زيرو، الضربات الثلاث، إمساك الياقة، والشق المضيء ("
+            - code: breach
+            - text: )
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+          - paragraph:
+            - text: • إثبات أن التخطي لا يبرم العقد أبداً وأن القوى مغلقة قبله
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+      - row:
+        - 'cell "الحزمة 4: الأصول البارزة ( Hero Parts ) وضغط LOD / VRAM (Targeted Hero Assets & Memory Budget)"':
+          - paragraph:
+            - text: "الحزمة 4: الأصول البارزة ("
+            - code: Hero Parts
+            - text: ) وضغط
+            - code: LOD / VRAM
+          - paragraph: (Targeted Hero Assets & Memory Budget)
+        - 'cell "• في Blender: ضغط خامات الأسلحة ( standard_katana و shadow_katana ذات الصور الست بحجم 4096×4096 وتقدير ~512 MiB ) إلى 1024/2048 لإسقاط قفزة engine_texture_bytes ( 855 MB ). اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Argon-current-source.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • في Tripo Studio + Blender: توليد 3–4 أصول Hero مقسمة ( Parts مع LOD ) للمحطات الأكثر ظهوراً أمام الكاميرا (أجهزة العناية قرب سرير المستشفى، بوابة الشق/المختبر، أو حاضنة الكريو) بسطوح مشطوفة ومواد Stylized مشتركة."':
+          - paragraph:
+            - text: "• في Blender: ضغط خامات الأسلحة ("
+            - code: standard_katana
+            - text: و
+            - code: shadow_katana
+            - text: ذات الصور الست بحجم
+            - code: 4096×4096
+            - text: وتقدير
+            - code: ~512 MiB
+            - superscript
+            - text: ) إلى
+            - code: 1024/2048
+            - text: لإسقاط قفزة
+            - code: engine_texture_bytes
+            - text: (
+            - code: 855 MB
+            - superscript
+            - text: ).
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Argon-current-source.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+          - paragraph:
+            - text: "• في Tripo Studio + Blender: توليد 3–4 أصول Hero مقسمة ("
+            - code: Parts
+            - text: مع
+            - code: LOD
+            - text: ) للمحطات الأكثر ظهوراً أمام الكاميرا (أجهزة العناية قرب سرير المستشفى، بوابة الشق/المختبر، أو حاضنة الكريو) بسطوح مشطوفة ومواد Stylized مشتركة.
+        - cell "كريديت (3–4 أصول Hero مقسمة مع LOD)":
+          - paragraph:
+            - math:
+              - generic: ≤
+              - generic: "300"
+            - generic: ≤
+            - generic: "300"
+            - text: كريديت
+          - paragraph: (3–4 أصول Hero مقسمة مع LOD)
+        - cell "استيراد خامات 4K مدمجة من Tripo مباشرة إلى Godot دون تمريرها عبر مصفاة Blender لخفض الحجم."
+        - 'cell "• انخفاض ملموس ومقاس في engine_texture_bytes عن 855 MB . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Argon-current-source.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • مطابقة التصادمات ( _collisions ) وثبات أو تحسن draws / p95_ms ."':
+          - paragraph:
+            - text: • انخفاض ملموس ومقاس في
+            - code: engine_texture_bytes
+            - text: عن
+            - code: 855 MB
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Argon-current-source.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+          - paragraph:
+            - text: • مطابقة التصادمات (
+            - code: _collisions
+            - text: ) وثبات أو تحسن
+            - code: draws / p95_ms
+            - text: .
+      - row:
+        - 'cell "الحزمة 5: صقل V31 النهائي واعتماد الفصل المستقل (V31 Face/Cape Polish & Chapter Gold Gate)"':
+          - paragraph:
+            - text: "الحزمة 5: صقل"
+            - code: V31
+            - text: النهائي واعتماد الفصل المستقل
+          - paragraph: (V31 Face/Cape Polish & Chapter Gold Gate)
+        - 'cell "• في Blender: على نسخة معزولة من echo_v31_adopted_high.glb ، إنجاز مهمة البند 06 المؤجلة: تعيين سطح الجفن/العين وتأليف رمشة نظيفة، وقبضة اليد للسيف/العجلة، ومعالجة تداخل العباءة ( Cape_* ) دون المساس بـ Golden . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • بناء نسخة Windows المستقلة النهائية ( EXE + PCK ) ومراجعة السماع البشري للصوت ( SFX_ONLY )."':
+          - paragraph:
+            - text: "• في Blender: على نسخة معزولة من"
+            - code: echo_v31_adopted_high.glb
+            - text: ، إنجاز مهمة البند
+            - code: "06"
+            - text: "المؤجلة: تعيين سطح الجفن/العين وتأليف رمشة نظيفة، وقبضة اليد للسيف/العجلة، ومعالجة تداخل العباءة ("
+            - code: Cape_*
+            - text: ) دون المساس بـ
+            - code: Golden
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-01.txt وTXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+              - generic: + 1
+          - paragraph:
+            - text: • بناء نسخة Windows المستقلة النهائية (
+            - code: EXE + PCK
+            - text: ) ومراجعة السماع البشري للصوت (
+            - code: SFX_ONLY
+            - text: ).
+        - cell "0 كريديت (Blender + Godot)":
+          - paragraph: 0 كريديت
+          - paragraph: (Blender + Godot)
+        - 'cell "تشوه أوزان الجلد ( Skin Weights ) عند تعديل الرأس/الأصابع/العباءة إذا لم تُفحص على عينات CP17 الـ 25/58/74 . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: تشوه أوزان الجلد (
+            - code: Skin Weights
+            - text: ) عند تعديل الرأس/الأصابع/العباءة إذا لم تُفحص على عينات
+            - code: CP17
+            - text: الـ 25/58/74
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+        - 'cell "• اجتياز فحص مطابقة السطح ( sampled_surface_max_m ) في Blender وGodot . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر. • عمل البناء المستقل من اللغز الأول حتى المستشفى بثبات كامل."':
+          - paragraph:
+            - text: • اجتياز فحص مطابقة السطح (
+            - code: sampled_surface_max_m
+            - text: ) في Blender وGodot
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: Engineering-Context-03.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: TXT
+          - paragraph: • عمل البناء المستقل من اللغز الأول حتى المستشفى بثبات كامل.
+  - heading "3) الإجراءات الثلاثة المباشرة الآن والملفات المطلوبة منك" [level=2]
+  - paragraph: "لا تصرف أي كريديت في Tripo Studio في هذه اللحظة قبل أن نقفل تشخيص الحزمة 1 (المستشفى Room 10) والحزمة 3 (المختبر Room 09 + Kinja/Zero):"
+  - list:
+    - paragraph:
+      - text: أرسل أدلة الحزمة 1 (المستشفى
+      - code: CP37
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: أرفق ورقة الزوايا الأربع الحالية لغرفة المستشفى (
+        - code: hospital_bedside_room
+        - text: ) + لقطة فحص الرقبة المحدثة (
+        - code: EX-011
+        - text: المقابلة للقطة
+        - code: 089.jpg
+        - text: السابقة
+        - superscript
+        - text: ) + الكود المصدري الحالي لـ
+        - code: hospital_bedside_room.gd
+        - text: و
+        - code: WardPresentation
+        - text: و
+        - code: skin_mark_inspection_camera.gd
+        - text: مع قياس الـ 240 إطاراً (
+        - code: draws / primitives / p50 / p95
+        - text: ).
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 089.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph:
+      - text: أرسل تشخيص الحزمة 3 (المختبر
+      - code: Room 09
+      - text: وتمثيل
+      - code: Kinja
+      - text: و
+      - code: Zero
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: أرفق الكود المصدري لـ
+        - code: dr_kinja_lab_room.gd
+        - text: و
+        - code: pact_revenge_presentation.gd
+        - superscript
+        - text: + 4 لقطات تشخيصية من المختبر الحالي (منصة الفحص، ظهور
+        - code: Zero
+        - text: ، مواجهة
+        - code: Kinja
+        - text: ، وشق الخروج) لنحدد بالضبط أي أصل أو حركة في المختبر يحتاج تدخل Tripo Studio (ضمن سقف الـ 300 كريديت) وأيها يُحسم في Blender / Godot.
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: Engineering-Context-02.txt وTXT: Room04-Engineering-10.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+          - generic: + 1
+    - paragraph: "تحقق من رصيد وإمكانات حساب Tripo Studio الفعلي:"
+    - list:
+      - paragraph:
+        - text: افحص واجهة Tripo Studio وأخبرني بالرصيد الفعلي المتاح وخيارات التصدير المتوفرة في الحساب (
+        - code: Parts Segmentation
+        - text: ","
+        - code: Quad/Low-Poly Retopology
+        - text: ","
+        - code: FBX/GLB
+        - text: ) لنوجه أول طلب توليد بدقة جراحية دون هدر.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Prioritizing Resource Allocation
+- region "Notifications"

@@ -1,0 +1,15 @@
+{
+  "status": "FAILED_NATIVE_GPU_DEVICE_LOSS",
+  "completed_native_samples": 52,
+  "last_completed_sample": "room02-03-wheel-ready",
+  "observed_error": "Vulkan device was lost;last known BLIT_PASS/UI_PASS;engine reportsdriver/hardware/TDR possibilities",
+  "exact_cause": "UNPROVEN",
+  "free_physical_ram_after_stopping_own_failed_processes_mib": 699,
+  "total_physical_ram_mib": 7896,
+  "native_motion_or_physics_change": false,
+  "readback": {
+    "fixture": "maintenance_dressing_public_review.gd",
+    "line": 87
+  },
+  "next": "One fresh serial High/Forward+/1280x720 native run after required art refinements and releasing completed browser tab;no quality reduction. Device/performance acceptance remainsOPEN."
+}

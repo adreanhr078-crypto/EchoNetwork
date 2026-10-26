@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "status": "SCOPED_NATIVE_INPUT_PASS_STATIC_ART_REFINE",
+  "current_native_views": "precision-high-v6",
+  "native_high": {
+    "renderer": "forward_plus",
+    "resolution": [
+      1280,
+      720
+    ],
+    "tier": "high",
+    "render_scale": 1.0,
+    "views_inspected": 4,
+    "solid_camera_overlaps": 0,
+    "progress_unchanged": true
+  },
+  "art": {
+    "architecture": "PASS",
+    "materials": "REFINE",
+    "composition": "REFINE"
+  },
+  "public_input": {
+    "run": "precision-public-v2",
+    "checks": 43,
+    "actual_sampled_pngs": 57,
+    "elapsed_seconds": 138.96,
+    "source_unchanged": true,
+    "fixture_scope": "Declared completed-opening cold profile plus one initial actor anchor,then actual public input;not fresh chapter",
+    "key_angle_and_profile_restored": true,
+    "actual_capsule_width": 0.800000011920929,
+    "old_side_gap_width": 0.625,
+    "full_moving_hand_art_acceptance": "OPEN"
+  },
+  "earned_reload": {
+    "run": "precision-earned-reload-v2",
+    "five_actual_earned_files": true,
+    "passed": true,
+    "source_unchanged": true
+  },
+  "native_contract": {
+    "run": "precision-contract-v2",
+    "native_colliders_unchanged": 16,
+    "native_climb_cues_unchanged": 11,
+    "original_solid_supported_instances": 108,
+    "original_nonphysical_header_supported_instances": 9,
+    "grating_bars": 391,
+    "grating_batches": 5,
+    "PBR_maps_4k": true,
+    "native_rear_aperture_owner_verified": true
+  },
+  "presentation": {
+    "run": "precision-presentation-v2",
+    "passed": true,
+    "scope": "pause/liveReducedMotion/AR_EN/silentrestore/noauthority"
+  },
+  "shadow_lease": {
+    "run": "precision-shadow-v1",
+    "checks": 7,
+    "passed": true
+  },
+  "golden": {
+    "protected_files": 192,
+    "status": "PASS",
+    "receipt": "golden-after-precision-receipt.json"
+  },
+  "source_candidate": {
+    "Tripo_task": "7016e200-a2b0-4763-85f7-d40881176fb3",
+    "paid_credits": 55,
+    "source_triangles": 1913491,
+    "status": "REFERENCE_ONLY_NATIVE_ART_REFINE",
+    "rejected_runtime_glb_loaded": false,
+    "production_depends_on_rejected_glb": false
+  },
+  "device_limit": {
+    "prior_run": "precision-public-v1",
+    "error": "Vulkan device lost at sample52",
+    "exact_cause": "UNPROVEN",
+    "current_fresh_native_run_passed": true,
+    "claim_driver_fixed": false,
+    "stronger_device_acceptance": "OPEN"
+  },
+  "remaining": [
+    "Material/shadow/stray decorative light cleanup",
+    "Fall-void existing-geometry depth readability",
+    "Owner visual acceptance",
+    "Moving hand/acting/audio/fun",
+    "full chapter",
+    "stronger hardware/performance",
+    "package"
+  ],
+  "publication": "Owner authorizes normal GitHub checkpoint;Luna preflight complete/attributes140text files verified;no staging/push yet;rawDOM/private/recovery/caches/failedderivatives stay local"
+}

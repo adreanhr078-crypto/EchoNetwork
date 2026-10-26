@@ -1,0 +1,345 @@
+{
+  "time": "2026-10-25T06:44:28.856458",
+  "preflight": "npm run agent:preflight PASS (3 checks)",
+  "hashes": [
+    {
+      "path": "art/production/build_lab_modular_architecture_20261024.py",
+      "match": true,
+      "actual": "9d93a46daa33bf75bb0b27638ec58ee43326f6e63416de205978ee9f440d3af5"
+    },
+    {
+      "path": "art/production/build_lab_packed_perimeter_20261024.py",
+      "match": true,
+      "actual": "110bc3a4c2fee1ec12e1ee66fe63ccbddbc29c7218eb90bf3f7b289983ecfceb"
+    },
+    {
+      "path": "art/production/build_lab_scanner_p2_20261024.py",
+      "match": true,
+      "actual": "db8d1b5ddc4733a4399694e838c2a1670260148f0ee137d9a96890067adf3027"
+    },
+    {
+      "path": "art/production/encode_lab_memory_native720_20261024.py",
+      "match": true,
+      "actual": "e88a257f00359cc6eb4838f1beb42162487992f19bae9df919c4e1995e6225b9"
+    },
+    {
+      "path": "art/production/refine_lab_service_frame_20261024.py",
+      "match": true,
+      "actual": "480f2d7cfb560db02db9c6969fd21b0d74951c470ac1d76e40c03cd8c1b2b721"
+    },
+    {
+      "path": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+      "match": true,
+      "actual": "a6f5931eb5a227b757388ac3ff5bc665eb467ace4470b8cfd6b99190d653fd20"
+    },
+    {
+      "path": "docs/internal/production/ROOM_QUALITY_INVENTORY.ar.md",
+      "match": true,
+      "actual": "020df7c1e07311e337ed67c9d719fd6367a1a37f47a491db79e350ed1b578643"
+    },
+    {
+      "path": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+      "match": true,
+      "actual": "f97a110f312f9318c7e065e55ce67ed7bda392db7a9ac599ea502a59884de1ec"
+    },
+    {
+      "path": "godot/assets/characters/echo_v31_short_jacket_echo_original_high_basecolor.jpg.import",
+      "match": true,
+      "actual": "7becdc4744151bc92f661646c6416eba2433c05f821a475193948740856186d8"
+    },
+    {
+      "path": "godot/assets/characters/kinja_revenge_rig_v1_Color_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import",
+      "match": true,
+      "actual": "a110268e99f035a4102f79f8ec1161c0c8e4daa37ef22a31692945d094b052bb"
+    },
+    {
+      "path": "godot/assets/characters/kinja_revenge_rig_v1_NormalGL_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import",
+      "match": true,
+      "actual": "ebe71782db86ee0e0d044ea680e294fdd3f1dbde0886d08bc301d21f4ae61e84"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/city-high.ogv",
+      "match": true,
+      "actual": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/city-low.ogv",
+      "match": true,
+      "actual": "85b7afdea5981d8300f30ead78cb1b1c47c19f9020cc7b944de849f488b62a27"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/city-poster.webp",
+      "match": true,
+      "actual": "a2b763abda0d9ffa101f0426e01f41e89e7a5579b1d8af41c55e157111d9b5b5"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/friends-high.ogv",
+      "match": true,
+      "actual": "7dc0c3d05208e97f8d8c5d121d7c6cc0d19e800882e65fbd42c1059da3550bba"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/friends-low.ogv",
+      "match": true,
+      "actual": "7d7f0045f0096b5e0a80cc23e461982b5ada956c4d4d9541a7b8d58ca6116243"
+    },
+    {
+      "path": "godot/assets/cinematics/memory-screens/friends-poster.webp",
+      "match": true,
+      "actual": "c026f5709ad0e9146ee2ff08e1320bc3ee0efa3456ca8805ded30788de438918"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed.glb",
+      "match": true,
+      "actual": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_basecolor.jpg.import",
+      "match": true,
+      "actual": "3fc7f31494dd2aa6de9ac1b8234e154a45ec35d8121fdcf3e3e1d974df6d9872"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_normal.jpg.import",
+      "match": true,
+      "actual": "41a8dd5b0b076300abd39376716d9fc2d7febed848b8e97bfe5b34e9e92a883c"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_rm.jpg.import",
+      "match": true,
+      "actual": "fb1cc74295a4bd729ee2e24e1927e8b81972998ff085db34893e925543c406aa"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb",
+      "match": true,
+      "actual": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_basecolor_4k.png.import",
+      "match": true,
+      "actual": "8d5467e7f96b032df65cf414249db85af09b8a2476b8712ff9ed3284c0b27767"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_normal_4k.jpg.import",
+      "match": true,
+      "actual": "0899e15c488f837556f0cd917f8efd250021d8798ab3f4af0d96973593b18666"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_rm_4k.jpg.import",
+      "match": true,
+      "actual": "961423fc27b13fc62d9ed8dd772d91d407a2c43b27c690b07575897e254288dd"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb",
+      "match": true,
+      "actual": "bda78e7f00fc01369bfb1e8c8e0acd65288edc687cf20c6e87a38cf902297a98"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb",
+      "match": true,
+      "actual": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_2-tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_1.png.import",
+      "match": true,
+      "actual": "fa4f8c78e3dcdccdff1258dad412c0a7ef27b767a2c8bba5e4a6f314eee166bc"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_normal_6037cb6e-b606-4cfc-871e-423ca1295ea7.jpg.import",
+      "match": true,
+      "actual": "cbdbb1892b5f3f28f3b4cfef4401edc3b740ab9daad60f90aedba71186fb864f"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_rgb_2af462e7-0c28-4844-8ad1-2a2b3f4d8d52.jpg.import",
+      "match": true,
+      "actual": "192c1c79613eea08537a9ca5b6e017b23bad4141d15e5237ff5cbf496db1caf6"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_basecolor.jpg.import",
+      "match": true,
+      "actual": "6cf0440299a8ba4d10479a369d50e0880a8fe8ce941cbb4ddb116f7e4cab53bc"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_normal.jpg.import",
+      "match": true,
+      "actual": "ab674cc7946a6a7bb972e2bdc16fef950050164f943fed7d679c3e623734b85d"
+    },
+    {
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_rm.png.import",
+      "match": true,
+      "actual": "c3113882863c416590c0c9f2e335b36fdd0c5d750d5470f3ad9d4d943a761e24"
+    },
+    {
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import",
+      "match": true,
+      "actual": "2ee6236cce005d3b681e0b89a6d0b4f593fa2fdf9abd05cd244cbc14041439e3"
+    },
+    {
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_NormalGL_5affa583-0772-4141-8287-cb4ff9efa62b.png.import",
+      "match": true,
+      "actual": "86edee9dfb503a1ceb1936c377a895cc08a927dd52f517dc7ddb755182de0473"
+    },
+    {
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_ORM_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import",
+      "match": true,
+      "actual": "e6b5c54c0a93a8e6595db75b35edfeb4c1a5c6ae2a45bc864aee03b29baa21ab"
+    },
+    {
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_Color_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import",
+      "match": true,
+      "actual": "3060f11b76c910488d8e1a52d8ac675e096124e873f0a1bb9db4045ddba9a2c9"
+    },
+    {
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740.png.import",
+      "match": true,
+      "actual": "010bd8b2c2484787aba98e0d99ccff4892de01d399b60bc6faedfb0730cd1713"
+    },
+    {
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import",
+      "match": true,
+      "actual": "495c0391f9edd8cf031a228e846d74db142ad1f3eb8404f20d20f43c61673063"
+    },
+    {
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import",
+      "match": true,
+      "actual": "4e7ee959cec6393ab4e0210c1d367d237865de174c9976edf0c1d0c8b1fd5e07"
+    },
+    {
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.png.import",
+      "match": true,
+      "actual": "3a6275670a7819561c2f60a13b8326d951d7cb0bfa8aee96456f15d65fa98936"
+    },
+    {
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import",
+      "match": true,
+      "actual": "f34e60323efc8042bfaa25cab47541c7c7dc3b0d0248e3ccd6fb8dbdadd9635c"
+    },
+    {
+      "path": "godot/engine_visuals/HyperAnimeWorldManager.gd",
+      "match": true,
+      "actual": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1"
+    },
+    {
+      "path": "godot/export_presets.cfg",
+      "match": true,
+      "actual": "f8fc63f8e817c0b049b4eb25add6cd79759735cd4c3d09f3633f474ad0d066cf"
+    },
+    {
+      "path": "godot/scenes/native_journey.tscn",
+      "match": true,
+      "actual": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e"
+    },
+    {
+      "path": "godot/scenes/player/echo_player.tscn",
+      "match": true,
+      "actual": "31ab502257b5a15a894b636e7e5c5b96c5fa4f3bb8f288b57f23cbeaae186372"
+    },
+    {
+      "path": "godot/scripts/environment/clinical_lab_architecture.gd",
+      "match": true,
+      "actual": "16d5753c1607426aa7ea8ac3f300a5bca8764ae2c2f0d3624a8ac267130f3f5e"
+    },
+    {
+      "path": "godot/scripts/environment/clinical_modular_perimeter.gd",
+      "match": true,
+      "actual": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273"
+    },
+    {
+      "path": "godot/scripts/environment/dr_kinja_lab_room.gd",
+      "match": true,
+      "actual": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a"
+    },
+    {
+      "path": "godot/scripts/environment/lab_memory_cinema.gd",
+      "match": true,
+      "actual": "cb5e5a37a9cbade029cfa36d6eb37be2235b4822368e0538646ed46dd45be91d"
+    },
+    {
+      "path": "godot/scripts/environment/memory_reflection_space.gd",
+      "match": true,
+      "actual": "f8cb73ead963f9f47ebf95fc8400be4220094380044969811511d36a76e971b5"
+    },
+    {
+      "path": "godot/scripts/player/echo_skin_identifier.gd",
+      "match": true,
+      "actual": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585"
+    },
+    {
+      "path": "godot/shaders/clinical_architecture_surface.gdshader",
+      "match": true,
+      "actual": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e"
+    },
+    {
+      "path": "godot/shaders/clinical_porcelain_floor.gdshader",
+      "match": true,
+      "actual": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235"
+    },
+    {
+      "path": "godot/shaders/clinical_stasis_display.gdshader",
+      "match": true,
+      "actual": "a15a4effd8687c2c9cfa8328100eca94ecfe8fc11135aed9469d2bef3200eac3"
+    },
+    {
+      "path": "godot/shaders/memory_water.gdshader",
+      "match": true,
+      "actual": "41c86e1da5807058dbccc7a57be7fe850080183cf434d923dc55a36c5faa7ae3"
+    },
+    {
+      "path": "godot/tests/full_chapter_journey_review.gd",
+      "match": true,
+      "actual": "83bdb00108334ca9d40958fd986b20bddbc9de2b4d6b08c1b000be6e7a38d945"
+    },
+    {
+      "path": "godot/tests/lab_material_state_review.gd",
+      "match": true,
+      "actual": "bb48734b1e4cfc714ff54afd155b1ba0c4bac2cb28959c53df93da4493da79d7"
+    },
+    {
+      "path": "godot/tests/lab_performance_review.gd",
+      "match": true,
+      "actual": "c784572e07a59267941d8e7ea42f8a0c5b4bf8be198c52a4acb917d4efd3c5ac"
+    },
+    {
+      "path": "godot/tests/lab_presentation_lifecycle_review.gd",
+      "match": true,
+      "actual": "2c3dfd5c9091be55184379dd75a2cd5d0b2ccd487f8958feaacab375cb32a5a9"
+    },
+    {
+      "path": "godot/tests/lab_rebuild_views_review.gd",
+      "match": true,
+      "actual": "5f0a33441d88925c36943d58951c158265a69cf3a949f553646f8d45c911dae2"
+    },
+    {
+      "path": "godot/tests/lab_stasis_reload_review.gd",
+      "match": true,
+      "actual": "16b39d76d33903ae3dff4393a225b266a384d76462a9ca4badef617a62757b09"
+    },
+    {
+      "path": "godot/tests/lab_stasis_story_review.gd",
+      "match": true,
+      "actual": "20607ccf3a9c0d8dac7d7829242f9c8e4dfdcc102efbab73debe78e3c8d562bc"
+    },
+    {
+      "path": "godot/tests/lab_surface_probe.gd",
+      "match": true,
+      "actual": "9aefda005b759615d8fd1b4e1cd848f986c0937e5d0a9a1b0cec460e6d6ae7f9"
+    },
+    {
+      "path": "godot/tests/opening_player_journey_review.gd",
+      "match": true,
+      "actual": "53de8291f58036c49a4b1fefc6d3988f6ec27e65e8ac39fc6be123c7618fac93"
+    },
+    {
+      "path": "godot/tests/post_contract_journey_review.gd",
+      "match": true,
+      "actual": "ca5f87690c6d2115d0d9143d361954013d1010c2ba7ba77a1036ecd4147a120e"
+    },
+    {
+      "path": "godot/tests/room_four_high_views_review.gd",
+      "match": true,
+      "actual": "dd340694b977a10f5b9fa556f094840c375a0fcd31602bb689cd740509d87378"
+    }
+  ],
+  "matches": 67,
+  "total": 67,
+  "next": "isolated biological-filter visual; native colliders/state/records remain authoritative",
+  "owner": "silent productive continuation; quality High; current-device speed nonblocking; no purchased plan"
+}

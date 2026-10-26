@@ -1,0 +1,174 @@
+- link "Skip to main content":
+  - /url: "#main-content"
+- main:
+  - navigation:
+    - button "الصفحة الرئيسية":
+      - img: home
+    - heading "أكتوبر 24 - 08:13" [level=1]
+    - textbox "نص قابل للتعديل":
+      - /placeholder: ""
+      - text: أكتوبر 24 - 08:13
+  - button "خيارات إضافية للمشروع":
+    - img: more_vert
+  - button "بحث":
+    - img: search
+  - textbox "بحث"
+  - button "خيارات الفلترة والترتيب":
+    - img: filter_list
+  - button "قائمة إضافة الوسائط":
+    - img: add
+  - button "مساعدة بشأن المنتج":
+    - img: help
+  - button "الإعدادات":
+    - img: settings_2
+  - button "خيارات إضافية":
+    - img: more_vert
+  - button "تفاصيل الحساب" [active]:
+    - generic "PRO tier": PRO
+    - 'button "حساب Google: 11.11 (11.11echonetwork@gmail.com), اشتراك Google"':
+  - navigation "التنقّل في المشروع":
+    - button "كل الوسائط":
+      - img: dashboard
+      - generic: كل الوسائط
+    - button "الصور":
+      - img: image
+      - generic: الصور
+    - button "الفيديوهات":
+      - img: videocam
+      - generic: الفيديوهات
+    - button "الشخصيات":
+      - img: accessibility_new
+      - generic: الشخصيات
+    - button "المشاهد":
+      - img: movie
+      - generic: المشاهد
+    - button "العناصر المحمَّلة":
+      - img: drive_folder_upload
+      - generic: العناصر المحمَّلة
+    - separator
+    - link "المكتبة إنشاء مجموعة":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124
+      - img: folder
+      - generic: المكتبة
+      - button "إنشاء مجموعة":
+        - img: add
+    - separator
+    - link "الأدوات":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124/tools
+      - img: apps_spark_2
+      - generic: الأدوات
+    - link "المهملات":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124/trash
+      - img: delete
+      - generic: المهملات
+    - button "تصغير":
+      - img: left_panel_close
+      - generic: تصغير
+  - group "native-four-view-contract.jpg":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Biological filtration cover cabi…":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Preservation room concept art":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Sci-fi specimen preservation roo…":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Specimen preservation room conce…":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Specimen preservation room side …":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "native-specimen-hero.png":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "native-specimen-lateral.png":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "native-specimen-reverse.png":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "native-specimen-entry.png":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Clinical scanner ring rendered":
+    - img "مربّع يعرض صورة مستخدم"
+  - button "فتح سجلّ الجلسات":
+    - img: menu
+  - heading "Specimen Preservation Room Concept" [level=2]
+  - button "بدء جلسة جديدة":
+    - img: edit_square
+  - button "إغلاق":
+    - img: close
+  - generic "المكوِّنات المرفقة":
+    - button "مكوّن الصورة":
+      - img "صورة المكوّن"
+    - button "مكوّن الصورة":
+      - img "صورة المكوّن"
+    - button "مكوّن الصورة":
+      - img "صورة المكوّن"
+    - button "مكوّن الصورة":
+      - img "صورة المكوّن"
+  - generic: "Create exactly FOUR separate 16:9 Nano Banana Pro reference images for the SAME original 11.11 specimen preservation room, named SPECIMEN_ENTRY_E, SPECIMEN_REVERSE_E, SPECIMEN_LATERAL_E, SPECIMEN_HERO_E. NO video in this request. Use the FOUR attached native Godot views as measured geometry anchors, matching each corresponding camera. They show existing gameplay geometry, not finished art. Preserve ALL six empty cylindrical glass vessels, their layout, the four opaque filter cabinets and the privacy baffle. Never add humans or creatures inside the vessels. Keep the intact warm rectangular memory image in its native position; never fragment or reinterpret its people. Remove any tiny foreground player/HUD from the reference artwork only. Measured shell: X=-30..0m, Z=-18..6m, height7.2m. Tank centres(x,z)=(-8,0),(-14,0),(-20,0),(-8,-12),(-14,-12),(-20,-12), radius1.1m,height4.2m. Existing square base/cap footprints2.5x2.5m stay, enrich them with beveled circular sealing collars, bolted steel sockets, a narrow gasket, and integrated service connections. EX011 at(-20,-12) is EMPTY and mostly DRAINED, with only0.75m amber fluid near the floor. Other five tanks keep cyan fluid and sparse bubbles. No new story labels or text. The four central opaque biological filter cover cabinets remain exactly2.2m wide x1.8m high x1.4m deep, at(-5,-6),(-11,-6),(-17,-6),(-23,-6). Refine their box mass into believable sealed bio-filtration equipment with planar pale ceramic upper shell, dark titanium plinth, recessed side service grilles with a solid backing, functional bevels and fasteners, two filter-cartridge service doors, one fine cyan safe-edge stripe. NO large holes through the cabinets, no transparent cover, no glowing magical machinery. Keep their silhouette fully opaque and their feet within existing footprint. Terminal privacy baffle at(-23.8,1.5,-10.2), size0.5x3x3.2m stays solid and in place; give it a fitted modular seam and edge trim without widening it. Elevate the ROOM architecture with restrained ceramic wall service panels and graphite frame rhythm, mechanically credible ceiling rail connections and cable trays. Preserve clear routes and every doorway. Avoid a uniform cobalt wash: neutral cool-white service lighting reveals pale ceramic, muted graphite, layered roughness and precise material transitions; cyan remains controlled in vessels/scanner. Keep rich indigo shadow bounce without losing object readability. Premium original anime game hard-surface craft with clean form hierarchy, not photoreal horror or another franchise. No extra furniture, no debris, no drifting architecture, no changed floor plan. Generate entry first as a continuity anchor, then reuse that accepted room design and each attached corresponding camera for reverse, lateral and hero. Four distinct image files, NOT a collage. Do not generate additional assets or videos yet."
+  - paragraph: I will generate four 16:9 reference images using Nano Banana Pro corresponding to the four viewports provided in your reference context.
+  - paragraph: Because your default setting is 1x, I'll generate 4 images to match your explicit request for 4 reference views.
+  - group "معرض خيارات الوسائط":
+    - button "فتح الصورة في المحرِّر":
+      - img "Option 1"
+    - button "فتح الصورة في المحرِّر":
+      - img "Option 2"
+    - button "فتح الصورة في المحرِّر":
+      - img "Option 3"
+    - button "فتح الصورة في المحرِّر":
+      - img "Option 4"
+  - paragraph: "I have generated all four 16:9 reference artwork views for specimen preservation room 11.11:"
+  - list:
+    - strong: SPECIMEN_ENTRY_E
+    - text: ": Entry perspective anchor featuring the ceramic wall panels, graphite framing, and initial row of vessels."
+    - strong: SPECIMEN_REVERSE_E
+    - text: ": Reverse angle looking back across the room layout and ceiling service structures."
+    - strong: SPECIMEN_LATERAL_E
+    - text: ": Side profile showcasing the vessel alignment, bio-filter cabinet massing, and drained tank EX011."
+    - strong: SPECIMEN_HERO_E
+    - text: ": Focal hero angle emphasizing the intact warm memory panel, ceramic/titanium equipment, and indigo shadow depth."
+  - button "ردّ جيّد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: content_copy
+  - button "الإبلاغ عن الناتج":
+    - img: flag
+  - generic "المكوِّنات المرفقة":
+    - button "مكوّن الصورة":
+      - img "صورة المكوّن"
+  - generic: "Generate ONE Nano Banana Pro16:9 isolated object product reference named SPECIMEN_FILTER_MODULE_E, suitable for image-to-3D. The attached specimen room entry concept supplies only the ceramic/graphite material language. This is ONE broad biological filtration cover cabinet, exactly2.2m WIDTH x1.8m HEIGHT x1.4m DEPTH. Landscape-proportioned cuboid, not a tall fridge, not multiple objects. Show a full three-quarter FRONT and right-side view, orthographic-like neutral grey studio background, soft even neutral light, no environment, no people, no text, no floor shadows baked into surfaces. Opaque rectangular technical cabinet: planar light cool-grey ceramic upper shell across the entire broad2.2m front; gently chamfered edges, closed flat top suitable for a cover prop; lower graphite/titanium0.35m-high plinth; two clearly separated sealed front filter-cartridge access doors with small recessed handles and four precise fasteners each; one recessed right-side vent grille with closely spaced slats over SOLID dark backing (never a through-hole), a narrow flush cyan status strip along the front near the plinth, two small amber service indicators. No hoses sticking out, no wheels, no handles extending the footprint, no transparent walls, no glowing haze, no organic forms, no sculpted dirt, no logos. Premium original anime game hard-surface engineering. Front silhouette remains a solid2.2x1.8m rectangle and the full object must fit its2.2x1.8x1.4m gameplay cover volume. Clean complete single object with visible depth and crisp functional details. Create no other image or video."
+  - paragraph: I'm going to generate the isolated product reference image for the SPECIMEN_FILTER_MODULE_E bio-filtration cover cabinet using Nano Banana Pro.
+  - paragraph: Because your default setting is 1x, I'll generate 1 image.
+  - group "معرض خيارات الوسائط":
+    - button "فتح الصورة في المحرِّر":
+      - img "Option 1"
+  - paragraph:
+    - text: I have created the isolated object reference image for
+    - strong: SPECIMEN_FILTER_MODULE_E
+    - text: .
+  - list:
+    - strong: Proportions
+    - text: ": 2.2m W × 1.8m H × 1.4m D landscape cuboid."
+    - strong: Presentation
+    - text: ": Three-quarter front and right-side view set against a neutral grey studio background with soft studio lighting."
+    - strong: Details
+    - text: ": Cool-grey ceramic upper shell with chamfered edges, dark titanium plinth, two front access doors with recessed hardware, right-side slatted grille on solid backing, and a flush cyan status accent."
+  - button "ردّ جيّد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: content_copy
+  - button "الإبلاغ عن الناتج":
+    - img: flag
+  - generic: ما المطلوب إنشاؤه؟
+  - textbox "ما المطلوب إنشاؤه؟":
+    - paragraph
+  - button "إضافة المكوّنات إلى مربّع الطلب":
+    - img: add
+  - button "تعليمات الوكيل":
+    - img: article_spark
+  - button "الإعدادات":
+    - img: tune
+  - button "بدء الإنشاء" [disabled]:
+    - img: arrow_forward
+  - paragraph: قد ترتكب أداة Google Flow أخطاء، لذا ننصحك بالتحقّق من نتائجها

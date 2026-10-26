@@ -1,0 +1,18 @@
+{
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\lab-clinical-kit-20261023\\tripo\\lab-full-room-textured-8k.glb",
+  "source_sha256": "3f37b289b7b196bca6b84fcd3983920a9fb5ef118c09c4ffda86c24ffbe147b9",
+  "derivative": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\lab-clinical-kit-20261023\\tripo\\architecture-derivative\\clinical_perimeter_tripo.glb",
+  "sha256": "ed7ff54cbeab1b94f5cb8559ad69650db287f6e62ab6d480243e56a4ea9a4559",
+  "source_triangles": 176515,
+  "retained_triangles": 102923,
+  "materials": 135,
+  "source_parts": 174,
+  "native_extent_target_m": [
+    31.4,
+    39.2,
+    9.7
+  ],
+  "measurement": "Source X/Y extent .9033576846/.978551209; piecewise measured fit: inner sidewallsX+-14.8,outer+-15.7,northinnerY19.0,outer19.6,south-19.6; floorZ=.04,heightscale42. Environment-only approximation, not exact reconstruction.",
+  "selection": "Perimeter face centres absX>.335 orY>.385,aboveZ=.039; clear north opening any vertexY>.375,absX<.05,Z<.19. Native central equipment/floor/water/colliders retained separately.",
+  "scope": "Candidate architectural derivative; visual seams, openings, scale, lighting and native route require review."
+}

@@ -1,0 +1,244 @@
+{
+	"actor_art": "OPEN",
+	"audio_listening": "UNVERIFIED",
+	"checks": 340,
+	"display": "headless",
+	"final_progress": {
+		"completed": [
+			"specimen",
+			"archive",
+			"reactor",
+			"decon",
+			"mirror",
+			"lab",
+			"hospital"
+		],
+		"flags": {
+			"archive": {
+				"archive_decoded": true,
+				"shard_sector11": true,
+				"shard_shizuka": true,
+				"shard_yuki": true
+			},
+			"decon": {
+				"override_done": true
+			},
+			"hospital": {
+				"bed_awakened": true,
+				"mark_revealed": true
+			},
+			"lab": {
+				"confrontation_done": true,
+				"contract_done": true,
+				"revenge_done": true,
+				"wish_done": true
+			},
+			"mirror": {
+				"mirror_inspected": true,
+				"override_done": true
+			},
+			"reactor": {
+				"breaker_a_done": true,
+				"breaker_b_done": true
+			},
+			"specimen": {
+				"terminal_read": true
+			}
+		},
+		"schema": "echo-sector11-campaign-v1"
+	},
+	"language": "ar",
+	"local_story_notice_ids": [
+		"chapter:entered:specimen",
+		"chapter:specimen:record:1",
+		"chapter:entered:archive",
+		"chapter:archive:fragments:1",
+		"chapter:archive:fragments:2",
+		"chapter:archive:fragments:3",
+		"chapter:archive:decode:1",
+		"chapter:entered:reactor",
+		"chapter:reactor:breakers:1",
+		"chapter:reactor:breakers:2",
+		"chapter:entered:decon",
+		"chapter:decon:override:1",
+		"chapter:entered:mirror",
+		"chapter:mirror:inspection:1",
+		"chapter:mirror:inspection:2",
+		"chapter:entered:lab",
+		"chapter:lab:memory:1",
+		"chapter:lab:pact:1",
+		"chapter:lab:revenge:1",
+		"chapter:lab:wish:1",
+		"chapter:hospital:wake:1",
+		"chapter:hospital:mark:1"
+	],
+	"physical_devices": "UNVERIFIED",
+	"room_trace": [
+		{
+			"completed": [],
+			"position": "(-0.000372, 5.400827, -64.63016)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_0"
+		},
+		{
+			"completed": [],
+			"position": "(-0.000024, 5.400827, -68.81378)",
+			"pre_pact": true,
+			"room": "Campaign_specimen"
+		},
+		{
+			"completed": [
+				"specimen"
+			],
+			"position": "(-41.12716, 5.400848, -82.99969)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_1"
+		},
+		{
+			"completed": [
+				"specimen"
+			],
+			"position": "(-43.08955, 5.400848, -86.05523)",
+			"pre_pact": true,
+			"room": "Campaign_archive"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive"
+			],
+			"position": "(-52.49976, 5.400665, -111.6147)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_2"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive"
+			],
+			"position": "(-52.49998, 5.400665, -117.3314)",
+			"pre_pact": true,
+			"room": "Campaign_reactor"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor"
+			],
+			"position": "(-52.49998, 9.399856, -171.6157)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_3"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor"
+			],
+			"position": "(-60.8309, 9.400848, -173.9405)",
+			"pre_pact": true,
+			"room": "Campaign_decon"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon"
+			],
+			"position": "(-52.50002, 9.400836, -219.6195)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_4"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon"
+			],
+			"position": "(-45.45956, 9.400936, -221.9335)",
+			"pre_pact": true,
+			"room": "Campaign_mirror"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon",
+				"mirror"
+			],
+			"position": "(-52.49987, 9.400838, -271.6171)",
+			"pre_pact": true,
+			"room": "CampaignBuffer_5"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon",
+				"mirror"
+			],
+			"position": "(-52.49998, 9.400838, -280.8137)",
+			"pre_pact": true,
+			"room": "Campaign_lab"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon",
+				"mirror",
+				"lab"
+			],
+			"position": "(101.4218, 0.000684, 1.18)",
+			"pre_pact": false,
+			"room": "HospitalBedsideRoom"
+		}
+	],
+	"route_retries": 0,
+	"scope": "Fresh local save, one live scene, public virtual movement and real puzzle/inspection/decision controls; no server cover receipt and no human playtest",
+	"source_hashes": {
+		"assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import": "167ad650aa6502489177e56df931ec13e43c75a6cb2415425f315da928305be9",
+		"assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png.import": "461229d7459eb57ad7087d8dc86cb966c44dea0bda5f323bdbcc7ccdf2868247",
+		"assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import": "c5e7a63801427e93f2da4f37654923f917b7119135b0eb9f7fae9d110027875e",
+		"res://assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"res://assets/cinematics/lab-memory-bottom-v1.webp": "5b6209476d1b1440124b140ca0c91810d794b76b012610dc8f5c4ea6c5d708d0",
+		"res://assets/cinematics/lab-memory-collapse-v1.ogv": "69d84882007a07946ff8add7fb6232792216d9cf85e46b0add0a62b3ac391766",
+		"res://assets/cinematics/lab-memory-water-v1.ogg": "aeb8bf9ce26209ef6cce38066e44a431ba70d03d3fb668d907745311c0fc0257",
+		"res://assets/props/memory_stasis_frame_clean_v1.glb": "024d2a93409b8715751a0ad4ec6e074b66b550432abb7f18d74f8968ce8a6fcf",
+		"res://assets/props/ward_bed_original_v1.glb": "fd6e4e366922f2f03b275ed73419258fdac6cdc76c7f37fe3c6893e53388a94f",
+		"res://assets/props/ward_vanity_v1.glb": "32a71a323353105c6705122d0941b5e02cf2a28801e8b15535edef896e29c6af",
+		"res://assets/props/ward_visitor_chair_v1.glb": "8e2d48c0fedb6b19be1b4dace843792ba81c87f0788dc95fef957f2145922470",
+		"res://assets/textures/lab-memory/shizuka-pdf041.webp": "9ace49c850f6a8153ab53929f4e6413e2021806f55df260fd7d556254fbae2fb",
+		"res://assets/textures/lab-memory/yuki-pdf041.webp": "2bc8a7c345780b5ae1bdafe09f83e07c5af53c591ac984811e592b999008e5a7",
+		"res://scripts/characters/kinja_revenge_actor.gd": "05ecd9d296fc9f134502d15c127cbb5a4ca6dec88c439987a96a7f1b0e306009",
+		"res://scripts/cinematics/lab_memory_trial.gd": "0d47302420a9bb116260f455d40137d83f66f310409bd70b0b0f1119ab3c8cff",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "4850a37789c04605efbcdc20743c80127a6366bc15380fef7d24e314440abf6b",
+		"res://scripts/environment/dr_kinja_lab_room.gd": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f",
+		"res://scripts/environment/hospital_bedside_room.gd": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+		"res://scripts/environment/hospital_room_dressing.gd": "ed5563d9a8e8dc07d03413d97403c02b35c7fa08e0bba06ab5ec189801259b34",
+		"res://scripts/environment/kinja_rig_terminal.gd": "5f2f7338e27095e1cbcf9649e652f03dfd31b828a96f7bb97b8cd10bacefe8bb",
+		"res://scripts/environment/memory_reflection_space.gd": "298488795067e20ea439921e71285d85d30b6a4f27d3edbcff47af0f2256d628",
+		"res://scripts/environment/planar_inspection_mirror.gd": "4025df71d1cb8c6ed4a1ca7b5ceddbb8eb7f5bd49643043d3ce3a7e485c29d78",
+		"res://scripts/main.gd": "e4a0cf9abf31b37fad3f989dc8c5f8ea0617875411776a12656ad6887f914600",
+		"res://scripts/systems/native_campaign_checkpoint.gd": "9cdda2c11111c5c7692a8e571bfd0f03ba825e9615ba58d40444f8958a59b397",
+		"res://scripts/systems/native_campaign_controller.gd": "6203f41ac05407eabaae5977a155d274aac48eca1dd85c858f6d8d2909dcd86d",
+		"res://scripts/systems/native_journey_controller.gd": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+		"res://scripts/ui/gameplay_hud.gd": "74fb6ea4546f8060eb19820aabdb25c27a36c8673f1370a7fb70644c838f53de",
+		"res://scripts/ui/native_pause_menu.gd": "51b7898e569cab6ed9f08e92ce4c2a2b0a4297f70b02583f606fa7e0bdb060de",
+		"res://scripts/ui/opening_memory_film.gd": "60f63f6118f51e5e2a297106e6badf6c05a1cbadc6a1845379284c35e3f2a1ea",
+		"res://scripts/ui/system_signal_glass.gd": "e3db5a47f74f2ba19017d09527bd9d7d7d6296c32308d25dc1815d1a7b9dddc9",
+		"res://scripts/ui/system_window.gd": "4090fed724e1dbacc0172af98dccdd9015d7302a225317da35d21703af3caa88",
+		"res://shaders/lab_memory_abyss.gdshader": "f8c48fd7e846ddf0aa9c619374bab1075677116a0324992a3d90bf809374ed41",
+		"res://shaders/memory_water.gdshader": "282bbedb162be0a8d4699ef6c651f2e2b3cdd670f803ee94e063801083482b60",
+		"res://shaders/ward_floor.gdshader": "b53883b4205dafc253ab879f07a1f9872a6109a2b2f97264665ff48978c281bb",
+		"res://tests/full_chapter_journey_review.gd": "725dec284fa4babdf4ebcd71fc2d0a19689ae2033b3ebb816d52c31f51d404f5",
+		"res://tests/lab_memory_trial_input.gd": "2fe2104660d008c02ec1b5d914f56af7cc233a838d253a213f4a89287e838ce1",
+		"res://tests/opening_player_journey_review.gd": "e7577ebd7433f5828ab1165d9eb21110a2d83b6dadc8790ffef869d81e346e61"
+	}
+}

@@ -1,0 +1,98 @@
+- link "Skip to main content":
+  - /url: "#main-content"
+- main:
+  - navigation:
+    - button "الصفحة الرئيسية":
+      - img: home
+    - heading "أكتوبر 24 - 08:13" [level=1]
+    - textbox "نص قابل للتعديل":
+      - /placeholder: ""
+      - text: أكتوبر 24 - 08:13
+  - button "خيارات إضافية للمشروع":
+    - img: more_vert
+  - button "بحث":
+    - img: search
+  - textbox "بحث"
+  - button "خيارات الفلترة والترتيب":
+    - img: filter_list
+  - button "قائمة إضافة الوسائط":
+    - img: add
+  - button "مساعدة بشأن المنتج":
+    - img: help
+  - button "الإعدادات":
+    - img: settings_2
+  - button "خيارات إضافية":
+    - img: more_vert
+  - button "تفاصيل الحساب":
+    - generic "PRO tier": PRO
+    - 'button "حساب Google: 11.11 (11.11echonetwork@gmail.com), اشتراك Google"':
+  - navigation "التنقّل في المشروع":
+    - button "كل الوسائط":
+      - img: dashboard
+      - generic: كل الوسائط
+    - button "الصور":
+      - img: image
+      - generic: الصور
+    - button "الشخصيات":
+      - img: accessibility_new
+      - generic: الشخصيات
+    - button "المشاهد":
+      - img: movie
+      - generic: المشاهد
+    - separator
+    - link "المكتبة إنشاء مجموعة":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124
+      - img: folder
+      - generic: المكتبة
+      - button "إنشاء مجموعة":
+        - img: add
+    - separator
+    - link "الأدوات":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124/tools
+      - img: apps_spark_2
+      - generic: الأدوات
+    - link "المهملات":
+      - /url: /u/3/project/4b4e7520-f838-495f-b1fa-e1b115131124/trash
+      - img: delete
+      - generic: المهملات
+    - button "تصغير":
+      - img: left_panel_close
+      - generic: تصغير
+  - group "profile-theater.png":
+    - img "مربّع يعرض صورة مستخدم"
+    - img: stacks
+  - group "profile-lateral.png":
+    - img "مربّع يعرض صورة مستخدم"
+    - img: stacks
+  - group "profile-reverse.png":
+    - img "مربّع يعرض صورة مستخدم"
+    - img: stacks
+  - group "profile-entry.png":
+    - img "مربّع يعرض صورة مستخدم"
+    - img: stacks
+  - group "Lateral view of clinical laboratory":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Reverse view of clinical laboratory":
+    - img "مربّع يعرض صورة مستخدم"
+  - group "Examination station in clinical …":
+    - img "مربّع يعرض صورة مستخدم"
+  - button "المكوّن":
+    - img "صورة المكوّن"
+    - img: cancel
+  - button "محو الطلب":
+    - img: close
+  - button "توسيع":
+    - img: expand_content
+  - textbox "ما المطلوب إنشاؤه؟" [active]:
+    - paragraph: Create ONE new separate image asset named CLINICAL_WALL_MODULE_D. Use the attached lab ENTRY image ONLY as material/design reference. Render a single isolated modular wall-cladding UNIT as a clean3D product concept on a plain neutral grey background, front three-quarter view showing its shallow thickness, no environment or other objects. Exactly square front3m wide x3m high, shallow0.20m deep. Two large planar pale neutral-white ceramic inset panels, precise dark graphite peripheral frame and thin straight center seam, a recessed brushed titanium lower service vent, a narrow restrained pale-cyan service strip near the top and one tiny amber indicator. Clean hard-surface precision, gently machined bevels, real seams and a few recessed fasteners. This is a repeating structural WALL PANEL, NOT a doorway or whole room. Straight square outer silhouette, tileable side edges. Orthographic product-like view with soft neutral studio lighting and visible planar surfaces suitable for image-to-3D modeling. No baked dramatic shadows, no painted dirt, no melted forms, no text or symbols, no floor, no characters, no glowing haze. Premium original anime-game material craft. Nano Banana Pro, one16:9 image only, do not create any other asset.
+  - button "إضافة المكوّنات إلى مربّع الطلب":
+    - img: add
+  - button "الوكيل" [pressed]:
+    - generic: الوكيل
+  - button "تعليمات الوكيل":
+    - img: article_spark
+  - button "الإعدادات":
+    - img: tune
+  - button "بدء الإنشاء":
+    - img: arrow_forward
+  - paragraph: قد ترتكب أداة Google Flow أخطاء، لذا ننصحك بالتحقّق من نتائجها

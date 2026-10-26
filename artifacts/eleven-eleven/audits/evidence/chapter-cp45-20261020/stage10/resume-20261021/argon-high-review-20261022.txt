@@ -1,0 +1,431 @@
+ن: ظهور Zero الضخم، سؤال الثمن، EX-011 على الجلد. الاختبار Windows178 تحققًا/14reload؛ بعد إصلاح إشعار قديم179 headless، وليس قبول فن نهائي. افحص النص المرفق لقرار صريح/تأجيل/فشل حفظ/استعادة كاميرا، واذكر عيبًا مانعًا محددًا إن وجد. الفحص وجد أيضًا أن charged Iai القديم ينقل اللاعب عبر الجدران ويضرب خلفه؛ التصحيح الجاري يستخدم swept capsule ثم أقرب هدف في الممر مع خط رؤية ويمنع تكرار ضرر الموجة. راجع نقصًا ملموسًا في هذا التصحيح لا إعادة كتابة النظام. أخيرًا لوحة native-contact هي محاولةTripo واحدة20credits،72عينة24Hz/2.958s دون أي تعديل مفاتيح، ما زالت معزولة. هل الحركة تشبه ضربة كاتانا يمينية أم لكمة/حركة لا تصلح؟ لا تعتبر الهيكل دليل تشوه الجلد؛ فحص Blender للجلد جارٍ. أعط حكمًا محدودًا وأعلى3إصلاحات لازمة فقط. Canon/SFX_ONLY/Golden/V31 محفوظة؛ لا موسيقى ولا صلاحية قبل العقد ولا إعادة تصميم/توليد أعمى."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: "الحكم المحدود (Stage 10 & Stage 11):"
+  - list:
+    - paragraph:
+      - text: "بوابة 10 (مشهد Zero والعقد وعلامة الجلد): اللقطات الفعلية في Godot 4.8 توثّق ظهور Zero الضخم ("
+      - code: beat-03.jpg
+      - text: )، وسؤال الثمن قبل القرار (
+      - code: question-0.jpg
+      - text: )، وظهور علامة
+      - code: EX-011
+      - text: على جلد الرقبة (
+      - code: beat-06-integration.jpg
+      - text: ) مع الحفاظ على
+      - code: SFX_ONLY
+      - text: وعدم منح أي صلاحية قبل العقد
+      - superscript
+      - text: . غير أن البوابة
+      - text: تتضمن عيبًا برمجيًا مانعًا في خطوة اختبار السحب (
+      - code: encounter_step == 7
+      - text: ) وثغرة في مسار التأجيل/إعادة الدخول
+      - text: يجب إغلاقهما قبل قفل البوابة 10 (دون منح قبول فصل كامل أو فن نهائي)
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: beat-03.jpg, JPG: question-0.jpg, JPG: beat-06-integration.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 4
+    - paragraph:
+      - text: "بوابة 11 (تصحيح Charged Iai وحركة Tripo): تصحيح"
+      - code: execute_iai_slash
+      - text: يمنع تكرار ضرر الموجة (
+      - code: wave.visual_only = true
+      - text: ) ويحرك اللاعب عبر
+      - code: move_and_collide
+      - text: ، لكنه يترك نقصًا ملموسًا في مدى الضربة وخط الرؤية خلف الأغطية المنخفضة والزوايا
+      - superscript
+      - text: . أما لوحة
+      - code: native-contact.jpg
+      - text: (72 عينة / 24Hz) فهي لكمة أمامية بوقفة ملاكمة ولا تصلح كضربة كاتانا يمينية (مرفوضة لبوابة القتال 11)، مع عدم اعتبار عرض الهيكل دليلًا على تشوه الجلد
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: adviser-code.txt وTXT: adviser-code.txt وJPG: native-contact.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: TXT
+        - generic: + 2
+  - heading "1. فحص بوابة 10 (القرار الصريح / التأجيل / فشل الحفظ / استعادة الكاميرا)" [level=3]
+  - list:
+    - paragraph: "القرار الصريح وفشل الحفظ (سليمان):"
+    - list:
+      - paragraph:
+        - text: لا يُقبل العقد إلا في
+        - code: encounter_step == 5
+        - text: بعد الإجابة عن الأسئلة الثلاثة (
+        - code: encounter_questions == 7
+        - text: ) عبر
+        - code: awaits_encounter_consent()
+        - text: ، وزر التجاوز (
+        - code: _skip_encounter
+        - text: ) ينقل العرض إلى الخطوة
+        - code: "4"
+        - text: فقط ولا يتخطى الأسئلة أو القرار
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: عند فشل الحفظ في
+        - code: _accept_pact()
+        - text: (
+        - code: if not _store(next)
+        - text: )، يُستدعى
+        - code: retain_encounter_consent()
+        - text: الذي يبقي اللاعب في الخطوة
+        - code: "5"
+        - text: ويعرض رسالة فشل الحفظ دون منح قبول تلقائي للعقد أو تفعيل عين/جناح Zero
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+    - paragraph: "العيب المانع الأول في بوابة 10 (تعطل اختبار السحب في الخطوة 7 عند الشحن الفعلي):"
+    - list:
+      - paragraph:
+        - text: في
+        - code: encounter_step == 7
+        - text: ، يطلب الزر من اللاعب
+        - code: "\"اضغط ثم ارفع: اختبار السحب\""
+        - text: ، وعند الضغط يستدعي
+        - code: _begin_encounter_power()
+        - text: دالة
+        - code: start_iai_charge()
+        - text: ، لكن عند الرفع يستدعي
+        - code: _release_encounter_power()
+        - text: دالة
+        - code: main.player.execute_iai_slash(0.0)
+        - text: بقيمة صفرية ثابتة بدل شحنة اللاعب الفعلية، ما يجبره على ضربة عادية (
+        - code: perform_attack()
+        - text: ) بدل السحب المشحون
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: الأخطر أنه إذا نفّذ اللاعب سحب
+        - code: Iai
+        - text: مشحونًا فعليًا عبر أزرار اللعب (بعد فك قفل التحكم في الخطوة 7 بـ
+        - code: main._release_gameplay_modal_controls()
+        - text: )، فإن
+        - code: execute_iai_slash
+        - text: يطلق الإشارة
+        - code: combat_action_started.emit("iai")
+        - text: ، بينما ترفض
+        - code: _observe_encounter_power(action_name)
+        - text: أي إشارة غير
+        - code: "\"melee\""
+        - text: (
+        - code: "if action_name != \"melee\": return"
+        - text: )، فلا يُحتسب اختبار السحب وتظل المواجهة معلّقة في الخطوة 7
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+    - paragraph: "العيب الثاني في بوابة 10 (التأجيل وإعادة الدخول واستعادة الكاميرا):"
+    - list:
+      - paragraph:
+        - text: عند اختيار
+        - code: "\"DEFER_ZERO_PACT\""
+        - text: ، تغلق
+        - code: defer_encounter()
+        - text: العرض (
+        - code: encounter_live = false
+        - text: ) مع بقاء
+        - code: encounter_started = true
+        - text: ؛ وعند استعادة الحفظ (
+        - code: _show_pact(true)
+        - text: ) يُعيَّن
+        - code: _pending_story_decision = "pact"
+        - text: قبل استدعاء
+        - code: begin_encounter
+        - text: التي تخرج فورًا عند
+        - code: "if restoring and encounter_deferred: return"
+        - text: دون فتح نافذة القرار، فيبقى
+        - code: _pending_story_decision
+        - text: معلقًا
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: كما أن إعادة استدعاء
+        - code: begin_encounter
+        - text: بعد التأجيل في نفس الجلسة تتخطى كتلة
+        - code: "if not encounter_started:"
+        - text: فلا تستدعي
+        - code: finish(true)
+        - text: قبل التقاط
+        - code: _previous = get_viewport().get_camera_3d()
+        - text: ، وفي
+        - code: _close_encounter_view()
+        - text: لا يوجد مسار احتياطي (
+        - code: main.player.player_camera.make_current()
+        - text: ) إذا لم تعد
+        - code: _previous
+        - text: صالحة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+  - heading "2. فحص النقص الملموس في تصحيح Charged Iai" [level=3]
+  - list:
+    - paragraph:
+      - text: امتداد المدى
+      - code: 1.2m
+      - text: "خلف الجدار بعد توقف الكبسولة:"
+      - text: في
+      - code: _iai_contact_target()
+      - text: يُحسب المدى بـ
+      - code: var reach := start.distance_to(end) + 1.2
+      - text: حتى لو توقفت
+      - code: move_and_collide(dash_dir * dash_dist)
+      - text: بسبب اصطدام مباشر بجدار أو عائق صلب، ما يسمح بفحص أهداف تقع خلف نقطة توقف اللاعب بمسافة تصل إلى
+      - code: "1.2"
+      - text: متر
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: TXT
+    - paragraph:
+      - text: ثغرة شعاع الرؤية (
+      - code: intersect_ray
+      - text: ) من نقطة البداية (
+      - code: start + Vector3.UP
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: الشعاع ينطلق على ارتفاع ثابت
+        - code: 1.0m
+        - text: (
+        - code: Vector3.UP
+        - text: ) من
+        - code: start
+        - text: إلى
+        - code: candidate.global_position + Vector3.UP
+        - text: دون ضبط
+        - code: query.collision_mask
+        - text: ؛ فإذا أوقف عائقٌ منخفض (أقل من
+        - code: 1.0m
+        - text: ) كبسولةَ اللاعب عند
+        - code: end
+        - text: ، يمر الشعاع فوق العائق ويصيب الهدف خلفه
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: إذا تحرك اللاعب بمقدار
+        - code: 5.5m
+        - text: إلى
+        - code: end
+        - text: ، فإن فحص الشعاع من
+        - code: start
+        - text: فقط قد يخترق زاوية جدار قطرية أوقفت الكبسولة، أو يفشل إذا كان هناك عائق بين
+        - code: start
+        - text: والهدف رغم أن
+        - code: end
+        - text: أصبحت مكشوفة أمام الهدف
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: الشرط
+        - code: not candidate.is_ancestor_of(hit.collider)
+        - text: لا يغطي حالة أن يكون
+        - code: candidate
+        - text: عقدة فرعية داخل
+        - code: CharacterBody3D
+        - text: الأب (
+        - code: hit.collider.is_ancestor_of(candidate)
+        - text: )، ما قد يحجب الضرر عن الهدف نفسه
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+    - paragraph:
+      - text: "موضع الأشباح والموجة البصرية:"
+      - code: GhostTrailSpawner.spawn_ghost
+      - text: يُستدعى 3 مرات قبل
+      - code: move_and_collide
+      - text: في نفس موضع
+      - code: start_pos
+      - text: بدل توزيعه بين
+      - code: start_pos
+      - text: و
+      - code: end_pos
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: TXT
+  - heading "3. تقييم لوحة native-contact.jpg (محاولة Tripo المعزولة)" [level=3]:
+    - text: 3. تقييم لوحة
+    - code: native-contact.jpg
+    - text: (محاولة Tripo المعزولة)
+  - list:
+    - paragraph:
+      - generic: "التشخيص الحركي: الحركة تشبه لكمة مستقيمة (Jab / Straight Punch) من وقفة ملاكمة ولا تصلح كضربة كاتانا يمينية"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: native-contact.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph: "الأدلة من اللقطات السبع (أمامي وجانبي):"
+    - list:
+      - paragraph:
+        - text: اللقطات
+        - code: 1/72
+        - text: و
+        - code: 9/72
+        - text: و
+        - code: 15/72
+        - text: ":"
+        - text: اليدان مرفوعتان أمام الصدر بانثناء مرفقين ضيق كوقفة ملاكمة دفاعية، لا وقفة إمساك أو سحب كاتانا
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: native-contact.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: اللقطة
+        - code: 29/72
+        - text: (
+        - code: t=1.2083s
+        - text: "):"
+        - text: في المسقط الجانبي (
+        - code: side native 29/72
+        - text: ) والأمامي (
+        - code: front native 29/72
+        - text: )، تندفع الذراع خطيًا للأمام من الكتف في مسار لكمة مستقيمة بينما تبقى اليد الأخرى مضمومة عند الصدر/الذقن، دون أي قوس قطع (Slash Arc) أفقي أو قطري يعبر الجذع
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: native-contact.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: اللقطات
+        - code: 44/72
+        - text: إلى
+        - code: 72/72
+        - text: ":"
+        - text: في
+        - code: 44/72
+        - text: تنثني الذراع عائدةً نحو الرأس (High Guard) دون متابعة قطع (Follow-through)، ثم تعود في
+        - code: 58/72
+        - text: و
+        - code: 72/72
+        - text: إلى وقفة الملاكمة الابتدائية مع زمن كلي مفرط الطول (
+        - code: 2.958s
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: native-contact.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+  - heading "أعلى 3 إصلاحات لازمة فقط" [level=3]
+  - list:
+    - paragraph:
+      - text: إصلاح خطوة اختبار السحب (
+      - code: encounter_step == 7
+      - text: ) في
+      - code: adviser-code.txt
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: في
+        - code: "_observe_encounter_power(action_name: String)"
+        - text: اقبل
+        - code: action_name in ["melee", "iai"]
+        - text: بدل حصرها في
+        - code: "\"melee\""
+        - text: ، وفي
+        - code: _release_encounter_power()
+        - text: مرّر شحنة اللاعب الفعلية (
+        - code: main.player.execute_iai_slash()
+        - text: أو
+        - code: execute_iai_slash(main.player.iai_charge)
+        - text: ) حتى لا يتعطل إتمام الخطوة 7 عند تنفيذ سحب مشحون
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+    - paragraph: "تحصين التأجيل وإعادة الدخول واستعادة الكاميرا في بوابة 10:"
+    - list:
+      - paragraph:
+        - text: في
+        - code: _show_pact(restoring)
+        - text: لا تضبط
+        - code: _pending_story_decision = "pact"
+        - text: إذا كان
+        - code: restoring and cursor.get("deferred", false)
+        - text: ، وفي
+        - code: begin_encounter()
+        - text: تأكد من استدعاء
+        - code: finish(true)
+        - text: وتحديث
+        - code: _previous
+        - text: عند إعادة الدخول بعد التأجيل، وفي
+        - code: _close_encounter_view()
+        - text: أضف fallback إلى
+        - code: main.player.player_camera.make_current()
+        - text: إذا لم تعد
+        - code: _previous
+        - text: صالحة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+    - paragraph:
+      - text: إحكام فحص الغطاء وخط الرؤية في
+      - code: execute_iai_slash()
+      - text: و
+      - code: _iai_contact_target()
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: احفظ نتيجة
+        - code: var wall_hit := move_and_collide(dash_dir * dash_dist)
+        - text: ؛ وإذا توقفت الكبسولة بعائق غير قابل للضرر فلا تضف
+        - code: + 1.2
+        - text: بعد
+        - code: end_pos
+        - text: (أو اشترط خط رؤية خاليًا من
+        - code: end_pos + Vector3.UP * 0.5
+        - text: و
+        - code: start_pos + Vector3.UP * 0.5
+        - text: مع ضبط
+        - code: query.collision_mask = collision_mask
+        - text: وقبول
+        - code: hit.collider.is_ancestor_of(candidate)
+        - text: ) لضمان عدم ضرب أهداف خلف الأغطية المنخفضة أو الزوايا
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: adviser-code.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "الانتقال إلى الأسفل":
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اكتب @ للتطبيقات المرتبطة والمهارات والمزيد
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- region "Notifications"

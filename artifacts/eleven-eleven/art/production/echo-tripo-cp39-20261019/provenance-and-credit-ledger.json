@@ -1,0 +1,64 @@
+{
+  "scope": "Isolated rerig of the original Echo V31 source, no runtime replacement",
+  "original": {
+    "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-tripo-hd-v31-8k\\Echo_Tripo_HD_v31_8K_Source.glb",
+    "delivered": "C:\\Users\\yasmo\\Documents\\Codex\\2026-10-19\\h-lg-l\\outputs\\echo-original-before-rig\\Echo_Tripo_HD_v31_8K_ORIGINAL_UNRIGGED.glb",
+    "sha256": "b03583c44998cf144d40a901c011a06f878de29a10852c2c751494596e2e9b67",
+    "bytes": 60361356,
+    "triangles": 1954040,
+    "meshes": 1,
+    "skins": 0,
+    "animations": 0,
+    "images": 3,
+    "note": "Byte-identical original V31 Tripo source; no rig, no animation, no new edit. Source-review images historical, not evidence of runtime rig quality."
+  },
+  "studio_asset_id": "a1ef7bf8-d616-4431-b2ea-9c01257af46d",
+  "upload_orientation_degrees": {
+    "x": 0,
+    "y": 90,
+    "z": 0
+  },
+  "preserve_original_uv": true,
+  "tasks": [
+    {
+      "step": "original upload",
+      "credits": 0
+    },
+    {
+      "step": "original auto-rig blocked by polygon limit",
+      "credits_observed": 0
+    },
+    {
+      "step": "standard retopology, smart mesh OFF, quad target50000",
+      "credits_observed": 10,
+      "result_faces_UI": 45460,
+      "result_vertices_UI": 45550
+    },
+    {
+      "step": "humanoid auto rig, Mixamo",
+      "credits_observed": 20,
+      "status": "Studio exposes Skeleton and animation; downloaded rig still UNVERIFIED"
+    },
+    {
+      "step": "Text to Motion, Running in Place, 5s",
+      "credits_observed": 20,
+      "source_sha256": "a74d37ceeca742f5da0fd225e1918411ab650455e68505bb9900151d2876fc8e",
+      "samples": 120,
+      "native_fps": 24,
+      "numerical_replay": {
+        "compared_joints": 7920,
+        "maximum_position_error_m": 4.32503475167323e-06,
+        "pass": true
+      },
+      "appearance": "REJECTED as runner: starts/ends standing, hands on hips during mid clip, marching/heel lift rather than alternating arm drive. Coat follows thighs with intersections. Generated source, not import mismatch."
+    },
+    {
+      "step": "Text to Motion Sprinting Forward attempt02,5s",
+      "credits_observed": 20,
+      "source_sha256": "8782ec147be22bdbee7e4148aa2b5ca3a87e7a50d47161388ccb600f67907e5b",
+      "status": "Source replayPASS7920; continuous Run and complete hero rig qualityFAIL; isolated; no third retry"
+    }
+  ],
+  "last_studio_balance": 2875,
+  "rig_and_motion_integration": "OPEN; inspect geometry, bone/skin counts, textures, native timing, coat, face, contact and Golden before adoption"
+}

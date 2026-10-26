@@ -1,0 +1,16 @@
+{
+  "asset": "Memory stasis frame CP37 clean derivative",
+  "intent": "midground interactive memory prop in actual laboratory",
+  "route": "EXISTING Tripo silhouette reference -> original parametric hard-surface construction",
+  "source": "../tripo-raw/memory-frame-ce58afa5.glb",
+  "reason": "Raw mesh has dented organic chrome surfaces; material darkening did not repair geometry.",
+  "claim": "Original editable reconstruction inspired by the owned generated frame; not mesh retopology or a Tripo quality acceptance.",
+  "units": "metres, Blender Z up, export Godot Y up, origin bottom centre",
+  "dimensions": [1.76, 1.76, 2.6],
+  "construction": "Two continuous open-centre annular ring skins and two lofted side rails, glass remains the existing native cylinder. No people or text.",
+  "primary_materials": ["matte graphite metal", "restrained ivory ceramic", "thin cyan inset status trim"],
+  "budget": {"triangles_max": 6000, "draw_calls_target": 3, "textures": 0},
+  "preserve": ["all default background scene objects", "original glass mesh", "pod drop/reset transforms", "interaction stations", "collisions", "Canon", "Golden", "avatar"],
+  "gates": ["coarse silhouette front and side", "measured proportions", "depth/contact", "camera read", "detail", "manifold/normals/count/export", "four actual native angles", "actual memory trial input"],
+  "status": "SPEC_ONLY_NO_RUNTIME_FRAME_INTEGRATION"
+}

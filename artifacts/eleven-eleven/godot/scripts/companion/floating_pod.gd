@@ -6,6 +6,7 @@ signal tactical_scan_completed(target: Node3D)
 
 @export var follow_target: Node3D
 @export var aim_target: Node3D
+@export var chapter_enabled := true
 
 var float_offset: Vector3 = Vector3(0.45, 1.8, 0.25)
 var current_time: float = 0.0
@@ -15,10 +16,22 @@ var reduced_motion := false
 @onready var searchlight: SpotLight3D = $Searchlight if has_node("Searchlight") else null
 
 func _ready() -> void:
+	set_chapter_enabled(chapter_enabled)
 	if searchlight:
 		searchlight.shadow_enabled = false
 	_set_guide_shadow_casting($GuideCore)
 	_apply_companion_cel_shading()
+
+func set_chapter_enabled(enabled: bool) -> void:
+	chapter_enabled = enabled
+	visible = enabled
+	set_process(enabled)
+	if not enabled:
+		follow_target = null
+		aim_target = null
+		scan_cooldown = 0.0
+	var light := get_node_or_null("Searchlight") as SpotLight3D
+	if light: light.visible = enabled
 
 func _apply_companion_cel_shading() -> void:
 	var guide_core = get_node_or_null("GuideCore")
@@ -45,6 +58,7 @@ func _set_guide_shadow_casting(node: Node) -> void:
 		_set_guide_shadow_casting(child)
 
 func _process(delta: float) -> void:
+	if not chapter_enabled: return
 	current_time += delta
 	if not reduced_motion and has_node("OuterHalo"):
 		$OuterHalo.rotate_object_local(Vector3.FORWARD, delta * 0.7)
@@ -91,6 +105,7 @@ func _clear_player_face(target_pos: Vector3) -> Vector3:
 	return target_pos
 
 func trigger_scan() -> void:
+	if not chapter_enabled: return
 	scan_cooldown = 8.0
 	emit_signal("pulse_emitted")
 	if not aim_target:

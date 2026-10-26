@@ -1,0 +1,181 @@
+{
+  "status": "NATIVE_SCOPED_PASS_CINEMATIC_NOT_ACCEPTED",
+  "dimensions_m": [
+    30,
+    24,
+    7.2
+  ],
+  "x": [
+    -30,
+    0
+  ],
+  "z": [
+    -18,
+    6
+  ],
+  "entry": [
+    -2.5,
+    0.1,
+    2
+  ],
+  "exit": [
+    -30,
+    0,
+    -12
+  ],
+  "tanks": [
+    [
+      -8,
+      0
+    ],
+    [
+      -14,
+      0
+    ],
+    [
+      -20,
+      0
+    ],
+    [
+      -8,
+      -12
+    ],
+    [
+      -14,
+      -12
+    ],
+    [
+      -20,
+      -12
+    ]
+  ],
+  "tank_radius_m": 1.1,
+  "tank_height_m": 4.2,
+  "cover_dimensions_m": [
+    2.2,
+    1.8,
+    1.4
+  ],
+  "cover_centers": [
+    [
+      -5,
+      0.9,
+      -6
+    ],
+    [
+      -11,
+      0.9,
+      -6
+    ],
+    [
+      -17,
+      0.9,
+      -6
+    ],
+    [
+      -23,
+      0.9,
+      -6
+    ]
+  ],
+  "protected": "native hull, solids, scanner FOV/range/grace/raycast, all six IDs and logs, partly drained EX011, memory images, camera/save/accessibility",
+  "references": [
+    {
+      "role": "entry",
+      "path": "native-specimen-entry.png",
+      "sha256": "6e2901dcc6afef02a04f44580717f3614582d70a7771b3b0b40549902635e45c",
+      "scope": "actual native High diagnostic camera; not earned-route acceptance"
+    },
+    {
+      "role": "reverse",
+      "path": "native-specimen-reverse.png",
+      "sha256": "9126cfc33b78807e0bcaec77b920c94cb4632469dc3d814d1388a8398979f0d4",
+      "scope": "actual native High diagnostic camera; not earned-route acceptance"
+    },
+    {
+      "role": "lateral",
+      "path": "native-specimen-lateral.png",
+      "sha256": "5a552390d0d99bcb507dc1e3c7ba5487619f96efc45b4b890ef61e2c1f0f0369",
+      "scope": "actual native High diagnostic camera; not earned-route acceptance"
+    },
+    {
+      "role": "hero",
+      "path": "native-specimen-hero.png",
+      "sha256": "0ebb4123a08859473d8fc9d8a544ffae8aefd959476a9a27389a3191273b0644",
+      "scope": "actual native High diagnostic camera; not earned-route acceptance"
+    }
+  ],
+  "balances_preflight": {
+    "tripo": 2970,
+    "flow": 850
+  },
+  "generation_jobs": [
+    {
+      "provider": "tripo-studio",
+      "task_id": "61b98dfd-8f1a-49f8-9b60-179279d5b3e1",
+      "model": "H3.1 Best Quality",
+      "ultra_mesh": true,
+      "target_faces": 200000,
+      "texture": false,
+      "parts": false,
+      "privacy": "Private",
+      "charged_credits": 30,
+      "balance_before": 2970,
+      "balance_after": 2940,
+      "status": "complete",
+      "reference": "filter-reference.jpg"
+    },
+    {
+      "provider": "tripo-studio",
+      "task_id": "61b98dfd-8f1a-49f8-9b60-179279d5b3e1",
+      "task_id_scope": "visible Studio asset id; processing-stage UUID not exposed by observed UI",
+      "stage": "retopo-smart-triangle-20000",
+      "charged_credits": 35,
+      "balance_before": 2940,
+      "balance_after": 2905,
+      "status": "complete"
+    },
+    {
+      "provider": "tripo-studio",
+      "task_id": "61b98dfd-8f1a-49f8-9b60-179279d5b3e1",
+      "task_id_scope": "visible Studio asset id; processing-stage UUID not exposed by observed UI",
+      "stage": "texture4k-remove-lighting",
+      "charged_credits": 20,
+      "balance_before": 2905,
+      "balance_after": 2885,
+      "status": "complete"
+    },
+    {
+      "provider": "tripo-studio",
+      "task_id": "61b98dfd-8f1a-49f8-9b60-179279d5b3e1",
+      "task_id_scope": "visible Studio asset id; processing-stage UUID not exposed by observed UI",
+      "stage": "pbr",
+      "charged_credits": 5,
+      "balance_before": 2885,
+      "balance_after": 2880,
+      "status": "complete"
+    },
+    {
+      "provider": "google-flow-video",
+      "task_id": "3e8d0b7b-4c55-4788-9dd6-59e6708de534",
+      "model": "Veo3.1-Quality",
+      "charged_credits": 100,
+      "balance_before": 850,
+      "balance_after": 750,
+      "status": "complete-visual-rejected-for-runtime",
+      "actual_submission": [
+        "assembled-lateral.png",
+        "assembled-four-view-contract.jpg"
+      ],
+      "reference_count_individual_files": 4,
+      "submission_contact_sheet": true
+    }
+  ],
+  "balances_latest_observed": {
+    "tripo": 2880,
+    "flow": 750
+  },
+  "tripo_total_charged_this_packet": 90,
+  "flow_image_charge_observed": 0,
+  "pbr_output_note": "Provider exported genuine4096 basecolour/RM and2048 normal despite4K current selection. Preserve source resolutions; no invented4K normal acceptance."
+}

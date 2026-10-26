@@ -1,0 +1,76 @@
+{
+	"checks": 287,
+	"pact_confirmed": false,
+	"records": [
+		{
+			"completed": [
+				"specimen"
+			],
+			"earned_snapshot": "earned/after-specimen",
+			"position": "(-28.28077, 5.400683, -83.00169)",
+			"room": "specimen"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive"
+			],
+			"earned_snapshot": "earned/after-archive",
+			"position": "(-52.50222, 5.400832, -97.77127)",
+			"room": "archive"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor"
+			],
+			"earned_snapshot": "earned/after-reactor",
+			"position": "(-52.49993, 9.400822, -156.7756)",
+			"room": "reactor"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon"
+			],
+			"earned_snapshot": "earned/after-decon",
+			"position": "(-52.49994, 9.400835, -204.7839)",
+			"room": "decon"
+		},
+		{
+			"completed": [
+				"specimen",
+				"archive",
+				"reactor",
+				"decon",
+				"mirror"
+			],
+			"earned_snapshot": "earned/after-mirror",
+			"position": "(-52.49956, 9.400836, -256.8204)",
+			"room": "mirror"
+		}
+	],
+	"retries": 1,
+	"scope": "Stage08 physical mystery rooms only; final chapter/fun/art/device approval separate",
+	"source_hashes": {
+		"scenes/environment/core_reactor_room.tscn": "56efbd22f22eed1ad3bf77e14280ac86c5d9d6c54c5e37e21f22fe2a83cf51e7",
+		"scenes/environment/decontamination_quarantine_wing.tscn": "9626c043e8f2c3f25b937ddd576c2405b4412f6e0fa4ad7d1b2b5968a4b3bd04",
+		"scenes/environment/dr_kinja_lab_room.tscn": "14251083d2f0c7ccf37703e9810b4eb818bc35e1dc0d888fda1217d0e79505af",
+		"scenes/environment/memory_archive_wing.tscn": "c5c518d9a382e1c0e8ff274b1d7178adbf2bca9cf620547fdc844191c99ea596",
+		"scenes/environment/mirror_chamber_room.tscn": "458ea359c5c7db9b6541253eaa186fab91df69d05bd87043e523fbdd3828f441",
+		"scenes/environment/specimen_containment_wing.tscn": "abac1bbcd6081fc15343d87130171bc5d121d22cc48f35459a533aaf6281b13d",
+		"scripts/environment/core_reactor_room.gd": "0b65366e1090ffb06d07997024502b69d7d0f25fef292f6ea312aa65e0635017",
+		"scripts/environment/decontamination_quarantine_wing.gd": "6dea0a16a36dfa803780b9101539e8e82a97f0a2a5af1b1fead9dbf39dc21cb9",
+		"scripts/environment/dr_kinja_lab_room.gd": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f",
+		"scripts/environment/memory_archive_wing.gd": "3b49d7384582132a671c09849ea8ddea1ed4cc42f3d2d9b496b3cea9bfe33dc9",
+		"scripts/environment/mirror_chamber_room.gd": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+		"scripts/environment/specimen_containment_wing.gd": "ce8eeca16cb9c32eec29bf94be255d54d7e23b9a45446cb70a26cdcc6e8ea745",
+		"scripts/systems/native_campaign_checkpoint.gd": "ca1aeca6c9e0002fc5019b35c4ac8053d7ad0ae0912bd75f90507ab52b43992d",
+		"scripts/systems/native_campaign_controller.gd": "a73142c4ed4cf1e91128f39e82c879a6fc8cc1c2ad50270ed0aa3626ef2fe6d1",
+		"tests/full_chapter_journey_review.gd": "88ca0442fb6b8c25a6a1dd35ee5c70d1268b357394bc3ad28ebdda390a64bf7c"
+	},
+	"status": "IN_PROGRESS"
+}

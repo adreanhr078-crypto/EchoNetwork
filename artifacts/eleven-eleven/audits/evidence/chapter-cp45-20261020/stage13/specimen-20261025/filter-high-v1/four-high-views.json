@@ -1,0 +1,55 @@
+{
+	"framebuffer": [
+		1280,
+		720
+	],
+	"progress_unchanged": true,
+	"reduced_motion": false,
+	"render_scale": 1.0,
+	"renderer": "forward_plus",
+	"room": "specimen",
+	"scope": "Four fixed actual native High cameras in a validated cold checkpoint with an explicit actor spawn. Camera-overlap review remains mandatory. No public route,moving acting,sound,performance,fun or final art acceptance.",
+	"source_hashes": {
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scripts/environment/specimen_containment_wing.gd": "c0e5115dab1bca6a49a2caa90dd645d087efd0937a56c32dc009cf59c63ce1ce",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://tests/campaign_room_render_review.gd": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef",
+		"res://tests/room_four_high_views_review.gd": "dd340694b977a10f5b9fa556f094840c375a0fcd31602bb689cd740509d87378"
+	},
+	"tier": "high",
+	"views": [
+		{
+			"file": "entry.png",
+			"local_camera": "(-3.0, 2.2, 3.0)",
+			"local_target": "(-15.0, 2.0, -5.0)",
+			"sha256": "d35898c8769986f3fdb0f3e0786692f16800c447ad217cd9dc26ab0cb8a3aa07",
+			"solid_overlap_count": 0,
+			"view": "entry"
+		},
+		{
+			"file": "reverse.png",
+			"local_camera": "(-27.0, 2.4, -14.0)",
+			"local_target": "(-12.0, 2.0, 0.0)",
+			"sha256": "1e5cc027a31fc93593f4efda0e732b6d7e82a605bb4bc6dc95e58a5ac189a9ad",
+			"solid_overlap_count": 0,
+			"view": "reverse"
+		},
+		{
+			"file": "lateral.png",
+			"local_camera": "(-27.0, 3.0, 3.0)",
+			"local_target": "(-12.0, 1.8, -7.0)",
+			"sha256": "086cd68d3f4fc7404239a203081e8db3cfa1bd38342b706267007e68ebbbb973",
+			"solid_overlap_count": 0,
+			"view": "lateral"
+		},
+		{
+			"file": "hero.png",
+			"local_camera": "(-21.8, 2.5, -8.199997)",
+			"local_target": "(-20.0, 2.1, -12.0)",
+			"sha256": "4dd41ad77efbdef0513cda4dc50c5d8b76c48dd3330acbb646a563001b10654e",
+			"solid_overlap_count": 0,
+			"view": "hero"
+		}
+	]
+}

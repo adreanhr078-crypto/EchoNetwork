@@ -1,0 +1,98 @@
+{
+	"checks": 8,
+	"framebuffer": "(1280, 720)",
+	"probes": [
+		{
+			"hits": [
+				{
+					"distance": 36.326286315918,
+					"material": {
+						"base_color": "(0.8323, 0.8434, 0.8489, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "false",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/MeasuredServiceFrameAndGallery/ClinicalCleanFrameAndGallery",
+					"room_hit": "(0.0, 8.007732, -0.020538)",
+					"surface": 3
+				},
+				{
+					"distance": 36.3470230102539,
+					"material": {
+						"class": "ShaderMaterial",
+						"shader": ""
+					},
+					"node": "/root/Main/Campaign_lab/SouthLintel/@MeshInstance3D@829",
+					"room_hit": "(0.0, 8.010592, 0.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(640.0, 255.0)"
+		},
+		{
+			"hits": [
+				{
+					"distance": 36.1431617736816,
+					"material": {
+						"base_color": "(0.8323, 0.8434, 0.8489, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "false",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/MeasuredServiceFrameAndGallery/ClinicalCleanFrameAndGallery",
+					"room_hit": "(0.0, 6.436082, -0.020538)",
+					"surface": 3
+				},
+				{
+					"distance": 36.1637954711914,
+					"material": {
+						"class": "ShaderMaterial",
+						"shader": ""
+					},
+					"node": "/root/Main/Campaign_lab/SouthLintel/@MeshInstance3D@829",
+					"room_hit": "(0.0, 6.438044, 0.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(640.0, 280.0)"
+		},
+		{
+			"hits": [
+				{
+					"distance": 36.0124855041504,
+					"material": {
+						"base_color": "(0.8323, 0.8434, 0.8489, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "false",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/PactRevengePresentation/ClinicalLabArchitecture/MeasuredTripoClinicalPerimeter/MeasuredServiceFrameAndGallery/ClinicalCleanFrameAndGallery",
+					"room_hit": "(0.0, 4.541914, -0.020538)",
+					"surface": 3
+				},
+				{
+					"distance": 36.0330429077148,
+					"material": {
+						"class": "ShaderMaterial",
+						"shader": ""
+					},
+					"node": "/root/Main/Campaign_lab/SouthLintel/@MeshInstance3D@829",
+					"room_hit": "(0.0, 4.542794, 0.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(640.0, 310.0)"
+		}
+	],
+	"renderer": "forward_plus",
+	"viewport": "(1920.0, 1080.0)"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS_SOURCE_BODY_RIG_MOTION_BINARY_INTEGRITY",
+  "source_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+  "variant_sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+  "unchanged_original_vertices": 198017,
+  "unchanged_protected_body_or_mixed_seam_triangles": 228339,
+  "unchanged_native_animation_accessors": 206,
+  "unchanged_joints_and_inverse_binds": 68,
+  "new_boundary_vertices": 7381,
+  "maximum_weight_normalization_error": 1.7881393432617188e-07,
+  "visual_boundary": "Binary integrity proves no added deformation in original body/face skin or source motion. Critical garment poses and runtime contacts still require visual inspection."
+}

@@ -352,6 +352,14 @@ export function completeStoryPuzzle(
   }).then((response) => response.reward);
 }
 
+export async function issueNativeEntryGrant(challenge: string, expectedUid: string): Promise<{code:string;expiresAt:number}> {
+  const result=await authorizedRequest<{code:string;expiresAt:number;scope:string}>('/native-entry/issue',{
+    method:'POST',body:JSON.stringify({challenge}),
+  },expectedUid);
+  if(result.scope!=='native-chapter-entry'||!/^[A-Za-z0-9_-]{43}$/.test(result.code)||!Number.isFinite(result.expiresAt)) throw invalidResponse('/native-entry/issue');
+  return result;
+}
+
 export function completeOpeningRecovery(
   imageOrder: readonly number[],
 ): Promise<OpeningRecoveryApiResponse> {

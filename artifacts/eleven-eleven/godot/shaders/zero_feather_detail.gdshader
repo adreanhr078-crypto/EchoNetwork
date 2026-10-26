@@ -41,7 +41,7 @@ void fragment() {
     float strands = 0.96 + 0.04 * sin(local_time * 1.8 + UV.y * 7.0);
     float breath = reduced_motion ? 1.0 : strands;
     float rim = pow(1.0 - max(dot(NORMAL, VIEW), 0.0), 3.5);
-    EMISSION = ALBEDO * 0.10 + vec3(0.20, 0.025, 0.39) * (purple * 0.36 + rim * 0.028) * intensity * breath;
+    EMISSION = ALBEDO * 0.10 + vec3(0.40, 0.035, 0.90) * (purple * 0.72 + rim * 0.16) * intensity * breath;
     // Camera proximity affects this presentation only. It cannot hide a wall,
     // collider, or actor, and prevents a close gameplay camera entering feathers.
     ALPHA = painted.a * smoothstep(0.10, 0.38, camera_distance);

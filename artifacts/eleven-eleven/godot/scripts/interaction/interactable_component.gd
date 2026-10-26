@@ -25,7 +25,17 @@ signal unfocused()
 @export var verb: InteractionVerb = InteractionVerb.INSPECT
 @export var prompt_target_name: String = "Object"
 @export var interaction_range: float = 2.4
-@export var is_enabled: bool = true
+@export var is_enabled: bool = true:
+	set(value):
+		if is_enabled==value:return
+		is_enabled=value
+		if not is_node_ready():return
+		if not value:
+			if is_instance_valid(current_interactor):_on_body_exited(current_interactor)
+		else:
+			# A checkpoint or puzzle can enable a device while the player is
+			# already inside its area; no leave/re-enter dance is required.
+			for body in get_overlapping_bodies():_on_body_entered(body)
 
 var is_focused: bool = false
 var current_interactor: Node3D = null
@@ -57,6 +67,12 @@ func get_verb_string() -> String:
 
 func get_full_prompt() -> String:
 	return "[E] " + get_verb_string() + " — " + prompt_target_name
+
+func get_interaction_verb(language:String) -> String:
+	return str(get_meta("interaction_verb_"+language,get_verb_string()))
+
+func _exit_tree() -> void:
+	if is_instance_valid(current_interactor):_on_body_exited(current_interactor)
 
 func trigger_interaction(interactor: Node3D) -> Dictionary:
 	if not is_enabled:

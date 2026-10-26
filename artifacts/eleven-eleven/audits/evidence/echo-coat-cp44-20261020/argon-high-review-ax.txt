@@ -1,0 +1,300 @@
+CP44 observed Gemini UI / Argon High; trimmed to this review only.
+								2141 heading Value: 5, أنت قلت أرجون مرتفع، مراجعة حِرفة مستقلة ومحدودة لـ CP44 فقط. أرفقت فيديو echo-cape-preview.mp4 كاملًا (3.2ث…
+									2142 text أنت قلت  أرجون مرتفع، مراجعة حِرفة مستقلة ومحدودة لـ CP44 فقط. أرفقت فيديو echo-cape-preview.mp4 كاملًا (3.2ث…
+								2143 text أرجون مرتفع، مراجعة حِرفة مستقلة ومحدودة لـ CP44 فقط. أرفقت فيديو echo-cape-preview.mp4 كاملًا (3.2ث، أربع دورات ركض) ولوحة مراحل مأخوذة منه. شاهد الحركة نفسها لا الصورة المصغرة. هذا تصوير Godot للمشهد الفعلي بزمن المصدر30Hz مع إيقاف إدخال الكبسولة وكاميرا فحص؛ ليس تسجيل FPS ولا دليل قبول ملاصقة القدم أثناء عبور فعلي.
+								2144 text المستخدم يريد إيكو قويًا في الأنيميشن، واقترح إعادة توليد الشخصية بوضعية ذراعين واضحة أو هيكلة العباءة مع حفظ الهوية. فحصنا الأصل: مشتق Tripo66عظمة بلا سلاسل عباءة يحمل أوزان أصابع/أرجل في المنطقة الخلفية السفلية؛ أما لاعب V31المعتمد68عظمة ففيه15عظمة عباءة مستقلة تحتHips. اخترنا إبقاء الهوية والمصدر وتفعيل السلاسل الخمس بزنبرك تحليلي بعدMixer، مع استجابة للسرعة/الهواء وكبسولات تقريبية للساقين. لم نغيّر skin/rest أو مفتاحًا من حركات الجسم أو Golden. يتوقف التعديل أثناءRM/الكاميرا السينمائية/التعليق/الصعود والتدحرج. الـRun هنا هو المصدر الموجود؛ لا ندّعي اعتماده كأفضل ركض أو اعتماد الوجه والأيدي/Walk/الهجوم.
+								2145 text أريد حكمًا صريحًا مع timestamps: هل العباءة ما زالت تتبع اليدين؟ هل هناك انغماس أو انتفاخ/انقلاب/قفزة ظاهرة في الذيل؟ هل وزنها واستجابتها مقنعان أم ما زالت جامدة؟ وهل هناك عيب واضح في الركض نفسه يمكن تمييزه من هذا المنظور؟ أعطِ أول تعديل أو تعديلين لهما فائدة ملموسة، وحدد ما لا يمكن الحكم عليه. لا تمنح قبول AAA/فصل كامل/أداء من هذا الفيديو، ولا تقترح تحرير source keys أو إعادة توليد الوجه بلا سبب مثبت. لا حاجة لمراجعة الشاشات أو08 أوالقصة في هذه الرسالة.
+								2146 button توسيع
+							2147 button نَسْخ الطلب
+							2148 button تعديل
+							2149 container
+								2150 container
+									2151 heading قال Gemini, Value: 6
+										2152 text قال Gemini
+									2153 container model-response-message-contentr_2eb01481107e7d8e
+										2154 heading 1) الحكم الفني الصريح على CP44 ( echo-cape-preview.mp4 و cape-continuity-sheet.jpg ), Value: 2
+											2155 text 1) الحكم الفني الصريح على 
+											2156 text CP44
+											2157 text  (
+											2158 text echo-cape-preview.mp4
+											2159 text  و
+											2160 text cape-continuity-sheet.jpg
+											2161 text )
+										2162 container p-rc_e8612c84895a0404-239
+											2163 text قراركم الهندسي بالإبقاء على مجسم 
+											2164 text V31
+											2165 text  المعتمد (68 عظمة متضمنة 15 عظمة عباءة موزعة على 5 سلاسل تحت 
+											2166 text Hips
+											2167 text ) بدلاً من الرجوع إلى مشتق الـ 66 عظمة هو القرار الصحيح؛ فالمعاينة الفورية للفيديو الكامل (
+											2168 text 00:00–00:03
+											2169 text ) ولوحة المراحل الـ 12 (
+											2170 text 0.000s
+											2171 text  إلى 
+											2172 text 2.933s
+											2173 text ) تثبت النتائج التالية بالـ Timestamps:
+											2174 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										2175 content list
+											2176 container
+												2177 text هل ما زالت العباءة تتبع اليدين؟ (PASS — زال الخلل تماماً):
+												2178 content list
+													2179 container p-rc_e8612c84895a0404-240
+														2180 text في جميع مراحل تبادل الذراعين (
+														2181 text 0.000s / frame 1
+														2182 text ، و
+														2183 text 0.267s / frame 9
+														2184 text ، و
+														2185 text 0.533s / frame 17
+														2186 text ، و
+														2187 text 1.333s / frame 41
+														2188 text )، تتحرك الذيل والحواف الجانبية للعباءة باستقلالية تامة عن المعصمين والأصابع
+														2189 text . لا يوجد أي شدّ أو تمطيط للمنطقة الخلفية السفلية باتجاه اليدين كما كان يحدث في أوزان مشتق الـ 66 عظمة.
+														2190 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cape-continuity-sheet.jpg وMP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+											2191 container
+												2192 text الانغماس أو الانتفاخ أو الانقلاب أو القفز اللحظي (
+												2193 text Popping / Inversion
+												2194 text ):
+												2195 content list
+													2196 container p-rc_e8612c84895a0404-241
+														2197 text الثبات والاتصال (
+														2198 text PASS
+														2199 text ):  عبر الدورات الأربع الكاملة (
+														2200 text frames 1..89
+														2201 text )، لا يوجد أي انقلاب للمضلعات (
+														2202 text Inversion
+														2203 text ) ولا أي قفزة إطار حادة (
+														2204 text Frame Pop
+														2205 text ) عند نقاط تكرار الدورة
+														2206 text .
+														2207 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cape-continuity-sheet.jpg وMP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+													2208 container p-rc_e8612c84895a0404-242
+														2209 text دفع الساقين (
+														2210 text Leg Clearance
+														2211 text ):  عند أقصى رفس خلفي للساق اليمنى (
+														2212 text 00:01
+														2213 text ، 
+														2214 text 0.267s / frame 9
+														2215 text ، 
+														2216 text 1.067s / frame 33
+														2217 text ، 
+														2218 text 1.867s / frame 57
+														2219 text ، 
+														2220 text 2.667s / frame 81
+														2221 text ) وللساق اليسرى (
+														2222 text 0.533s / frame 17
+														2223 text ، 
+														2224 text 1.333s / frame 41
+														2225 text ، 
+														2226 text 2.133s / frame 65
+														2227 text ، 
+														2228 text 2.933s / frame 89
+														2229 text )، تدفع كبسولة الساق ذيل العباءة للخلف بنجاح فيمنع اختراق الحذاء للقماش
+														2230 text ؛ غير أن كعب الحذاء الأيمن عند قمة الرفس (
+														2231 text 1.067s / frame 33
+														2232 text  و
+														2233 text 2.667s / frame 81
+														2234 text ) يلامس الحافة الداخلية للذيل على مسافة حرجة جداً.
+														2235 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4, JPG: cape-continuity-sheet.jpg, JPG: cape-continuity-sheet.jpg" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر.
+											2236 container
+												2237 text الوزن والاستجابة مقابل الجمود (
+												2238 text Weight & Stiffness
+												2239 text ):
+												2240 content list
+													2241 container
+														2242 container p-rc_e8612c84895a0404-243
+															2243 text العباءة لها وزن معطف جلدي ثقيل مستقر،  لكنها ما زالت تبدو جامدة جزئياً كـ "قمع/جرس واحد" (
+															2244 text Monolithic Cone
+															2245 text )  لسببين واضحين في اللقطات
+															2246 text :
+															2247 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+														2248 content list
+															2249 container
+																2250 container p-rc_e8612c84895a0404-244
+																	2251 text ضعف التمايز الجانبي بين السلاسل الخمس:  عندما ترفس الساق اليمنى للخلف في 
+																	2252 text 0.267s / frame 9
+																	2253 text  و
+																	2254 text 1.867s / frame 57
+																	2255 text  بينما الساق اليسرى للأمام، يرتفع الذيل الخلفي كقطعة واحدة شبه مستوية بدلاً من أن يندفع الشق الأيمن للخلف والأعلى أكثر من الشق الأيسر
+																	2256 text .
+																	2257 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+															2258 container
+																2259 container p-rc_e8612c84895a0404-245
+																	2260 text ضعف الموجة المتأخرة (
+																	2261 text Phase Lag / Whip
+																	2262 text ) على العظمة الطرفية الثالثة:  بين قمة الدفع (
+																	2263 text 0.267s / frame 9
+																	2264 text ) ولحظة تقاطع الساقين (
+																	2265 text 0.533s / frame 17
+																	2266 text )، ينثني منتصف المعطف وحافته السفلية بنفس الزاوية والطور تقريباً، مما يفقد الحافة السفلية تموج المتابعة الحر (
+																	2267 text Follow-through
+																	2268 text )
+																	2269 text .
+																	2270 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+											2271 container
+												2272 text عيب واضح في حركة الركض (
+												2273 text Run
+												2274 text ) نفسها من هذا المنظور:
+												2275 content list
+													2276 container p-rc_e8612c84895a0404-246
+														2277 text في 
+														2278 text 00:00–00:03
+														2279 text  ولا سيما في 
+														2280 text 0.000s / frame 1
+														2281 text  و
+														2282 text 0.267s / frame 9
+														2283 text  و
+														2284 text 1.067s / frame 33
+														2285 text  و
+														2286 text 2.667s / frame 81
+														2287 text ،  الذراعان والمرفقان مثنيان بزاوية حادة ومضمومان عالياً بملاصقة القفص الصدري  (تظهر القبضة اليمنى معلقة قرب مستوى الصدر/الترقوة في 
+														2288 text frame 9
+														2289 text  و
+														2290 text frame 33
+														2291 text )، مع  جمود وانتصاب عمودي مفرط في الجذع والكتفين  لا يتناسب مع الرفس الخلفي العالي للساقين في 
+														2292 text 00:01
+														2293 text .
+														2294 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4, JPG: cape-continuity-sheet.jpg, MP4: echo-cape-preview.mp4" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر.
+										2295 heading 2) التعديلان العمليان ذوا الفائدة الملموسة المباشرة (دون لمس مفاتيح المصدر أو Golden ), Value: 2
+											2296 text 2) التعديلان العمليان ذوا الفائدة الملموسة المباشرة (دون لمس مفاتيح المصدر أو 
+											2297 text Golden
+											2298 text )
+										2299 heading التعديل 1: فك التماثل بين السلاسل الخمس وإضافة تأخر طوري ( Tip Lag ) في محرك العباءة التحليلي, Value: 3
+											2300 text التعديل 1: فك التماثل بين السلاسل الخمس وإضافة تأخر طوري (
+											2301 text Tip Lag
+											2302 text ) في محرك العباءة التحليلي
+										2303 content list
+											2304 container
+												2305 text عزل تأثير كبسولة كل ساق على السلاسل المقابلة لها:
+												2306 content list
+													2307 container
+														2308 container p-rc_e8612c84895a0404-247
+															2309 text اجعل السلسلتين اليمنى واليمنى-الوسطى تستجيبان بنسبة 
+															2310 text 100%
+															2311 text  لدفع كبسولة الساق اليمنى و
+															2312 text 25%
+															2313 text  فقط للساق اليسرى (والعكس للسلاسل اليسرى)، مع زيادة نصف قطر كبسولة الساق السفلية (
+															2314 text Calf
+															2315 text ) بمقدار 
+															2316 text 2–3cm
+															2317 text  لتأمين مسافة أمان واضحة عن الحذاء في 
+															2318 text 1.067s / frame 33
+															2319 text . هذا سيكسر مظهر "القمع الموحد" فوراً ويُظهر التواءً طبيعياً لأجنحة المعطف مع كل خطوة
+															2320 text .
+															2321 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cape-continuity-sheet.jpg وMP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+											2322 container
+												2323 text تدرج المرونة والطور على طول السلسلة (
+												2324 text Root -> Mid -> Tip
+												2325 text ):
+												2326 content list
+													2327 container
+														2328 container p-rc_e8612c84895a0404-248
+															2329 text خفّض صلابة الزنبرك (
+															2330 text Stiffness
+															2331 text ) على العظمة الثالثة الطرفية (
+															2332 text Tip
+															2333 text ) بنسبة 
+															2334 text 30%
+															2335 text  عن عظمة الجذر (
+															2336 text Root
+															2337 text )، واضرب زاوية انحناء العظمة الطرفية في معامل 
+															2338 text 1.35x
+															2339 text  مع استجابتها للسرعة العمودية للحوض (
+															2340 text Pelvis Y-velocity
+															2341 text ) بتأخر طوري بسيط، لكي تواصل الحافة السفلية ارتدادها في 
+															2342 text 0.533s / frame 17
+															2343 text  و
+															2344 text 1.333s / frame 41
+															2345 text  بعد هبوط الساق
+															2346 text .
+															2347 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+													2348 container
+														2349 container p-rc_e8612c84895a0404-249
+															2350 text تأكد من أن معامل دفع الهواء (
+															2351 text Air Drag
+															2352 text ) يقرأ  سرعة حالة الركض المعيارية  كحد أدنى عندما تكون سرعة الكبسولة في العالم صفراً (كما في المعاينات الثابتة أو الدوران الضيق)
+															2353 text .
+															2354 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										2355 heading التعديل 2: تعديل وضعية الجذع والذراعين بعد الـ Mixer ( Post-Mixer Additive Posture ) أثناء الركض, Value: 3
+											2356 text التعديل 2: تعديل وضعية الجذع والذراعين بعد الـ Mixer (
+											2357 text Post-Mixer Additive Posture
+											2358 text ) أثناء الركض
+										2359 content list
+											2360 container p-rc_e8612c84895a0404-250
+												2361 text دون تعديل أي مفتاح أنيميشن أصلي في ملفات 
+												2362 text Golden
+												2363 text : أضف في مرحلة ما بعد الـ Mixer (عند زيادة وزن 
+												2364 text Run
+												2365 text )  ميلاً أمامياً خفيفاً للجذع  (
+												2366 text +5°
+												2367 text  إلى 
+												2368 text +7°
+												2369 text  موزعة على 
+												2370 text Spine / Chest
+												2371 text  مع تعويض عكسي للرقبة ليبقى النظر للأمام)، و فكّ انقباض المرفقين  بفتح زاوية الساعد (
+												2372 text -10°
+												2373 text  إلى 
+												2374 text -12°
+												2375 text  من ثني المرفق الحاد مع إبعاد طفيف للعضد عن الصدر) لإنهاء مظهر الذراعين الملتصقتين بالصدر المرصود في 
+												2376 text 0.267s / frame 9
+												2377 text  و
+												2378 text 1.067s / frame 33
+												2379 text .
+												2380 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										2381 heading 3) حدود المراجعة: ما لا يمكن الحكم عليه من هذا الفيديو (يبقى OPEN ), Value: 2
+											2382 text 3) حدود المراجعة: ما لا يمكن الحكم عليه من هذا الفيديو (يبقى 
+											2383 text OPEN
+											2384 text )
+										2385 container p-rc_e8612c84895a0404-251
+											2386 text التزاماً بصرامة المعايير، هذا الفيديو (
+											2387 text echo-cape-preview.mp4
+											2388 text ) يُثبت نجاح تفعيل سلاسل العباءة الخمس في 
+											2389 text V31
+											2390 text  ومنع تشوه اليدين، لكن  لا يُمنح منه أي قبول  للبنود التالية التي تبقى مفتوحة:
+											2391 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "MP4: echo-cape-preview.mp4". اضغط على Enter لفتح مربّع حوار المصادر.
+										2392 content list
+											2393 container
+												2394 container p-rc_e8612c84895a0404-252
+													2395 text تماس القدم بالأرض ومنع الانزلاق (
+													2396 text Foot Sliding / Grounding
+													2397 text ):  الكبسولة متوقفة عن التحرك في الفضاء (
+													2398 text in-place preview
+													2399 text )؛ لذا يستحيل الحكم على تطابق سرعة الخطوة مع سرعة الكبسولة الفعلية على الأرض والمنحدرات
+													2400 text .
+													2401 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: cape-continuity-sheet.jpg وMP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+											2402 container
+												2403 container p-rc_e8612c84895a0404-253
+													2404 text استجابة العباءة لتغير التسارع الفعلي والقفز والالتفاف:  تحتاج إلى اختبار عبور حي تتحرك فيه الكبسولة وتلتف وتقفز وتهبط
+													2405 text .
+													2406 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+											2407 container
+												2408 container p-rc_e8612c84895a0404-254
+													2409 text جودة الوجه والأيدي وحركات 
+													2410 text Walk / Wake / Climb / Combat
+													2411 text  وأداء الإطارات (
+													2412 text FPS
+													2413 text ):  الكاميرا خلفية بحتة والتسجيل بزمن مصدر ثابت 
+													2414 text 30Hz
+													2415 text ، فتبقى هذه البنود مفتوحة لتمريرتها المخصصة.
+													2416 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "MP4: echo-cape-preview.mp4 وJPG: cape-continuity-sheet.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+								2417 checkbox Description: ردّ جيد, Value: 0
+								2418 checkbox Description: ردّ سيئ, Value: 0
+								2419 button إعادة
+								2420 button المشاركة والتصدير
+								2421 button نسخ
+								2422 button عرض خيارات أكثر
+					1683 container
+						1685 container
+							1686 container
+								1687 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 
+
+									2423 text Geminiاسأل 
+							1689 pop up button (collapsed) Description: التحميل والأدوات, Secondary Actions: Expand
+							2424 container
+								2425 button إملاء (^⇧D)
+						1692 text ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+			1693 container
+				1694 button محادثة جديدة
+				1695 button فتح قائمة الإجراءات الخاصة بالمحادثة
+		2426 text Refining animation parameters
+		1696 container Notifications
+
+The focused UI element is 1687 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 

@@ -1,0 +1,135 @@
+{
+  "checkpoint": "CP45_STAGE07_2026-10-21",
+  "status": "PASS_SCOPED_STAGE07",
+  "chapter_accepted": false,
+  "official_phase_advanced": false,
+  "scope": "Room02 human hanging-to-standing traversal and existing Room03 protection baseline; fine hands/feet/face, independent fun, devices, chapter art, voice and final release remain open",
+  "source_qualification": {
+    "pull_samples": 35,
+    "stand_samples": 20,
+    "native_fps": 30,
+    "mapped_joints": 52,
+    "total_target_joints": 68,
+    "exact_resource_keys_compared": 3245,
+    "pull_replay": "braced-transfer/godot-all-joints.json",
+    "stand_replay": "standing-transfer/godot-all-joints.json",
+    "seam": "native-source-seam.json",
+    "source_keys_modified": false
+  },
+  "native_forward": {
+    "report": "native-mantle-verified/review.json",
+    "renderer": "Forward+ / Vulkan / Intel UHD / Low1280x720",
+    "checks": 11,
+    "physics_samples": 106,
+    "completion_events": 1,
+    "max_visible_hip_step_m": 0.0438164062798023,
+    "max_capsule_step_m": 0.0775585174560547,
+    "minimum_cape_leg_capsule_clearance_m": 0.0000773374218003673,
+    "minimum_cape_actual_platform_clearance_m": 0.0150001049041748,
+    "non_cape_joints_unchanged": true,
+    "static_pose_deterministic": true,
+    "visuals_reviewed": true,
+    "not_a_frame_rate_benchmark": true
+  },
+  "native_compatibility": "native-mantle-clock-fixed/review.json",
+  "abort_checks": {
+    "count": 32,
+    "log": "resume-20261021/native-abort-matched-clock.log",
+    "cases": "drop/unload at pull and standing phases; pause; live Reduced Motion; no stale support, false completion, early power or abrupt visible recovery"
+  },
+  "regression_logs": [
+    "resume-20261021/maintenance_traversal_smoke-final.log",
+    "resume-20261021/traversal_abort_review-final.log",
+    "resume-20261021/traversal_reliability_smoke-final.log",
+    "resume-20261021/traversal_timeout_review-final.log",
+    "resume-20261021/native_journey_checkpoint_smoke-final.log",
+    "resume-20261021/native_security_route_input_smoke-final.log",
+    "resume-20261021/maintenance-checkpoint-final.log",
+    "security-verified/stdout.log",
+    "cape-locomotion-regression/stdout.log"
+  ],
+  "golden": {
+    "protected_files": 192,
+    "status": "PASS",
+    "pipeline_unit_tests": 9
+  },
+  "adviser": {
+    "model": "4 Argon",
+    "thinking": "High",
+    "ui_verified_before_and_after": true,
+    "url": "https://gemini.google.com/u/6/app/49b95e86d3a75385",
+    "response": "argon-high-verified-review.txt",
+    "proof": "argon-high-verified.png",
+    "verdict": "Limited stage07 PASS; no blocking support/garment defect in reviewed actual Godot captures",
+    "u2_fallback_not_counted_as_high_approval": true,
+    "provenance": "adviser-provenance.json"
+  },
+  "remaining_art": [
+    "Fine palm/finger alignment after initial support",
+    "Heel placement near the visible lip and small sole offsets",
+    "Rapid wide-stance to Idle foot closure; no pelvis teleport",
+    "All-triangle garment clearance, final face/acting and whole-chapter/device performance"
+  ],
+  "export_resource_lists_updated": 3,
+  "full_postflight": "Not rerun between stage06 and stage11, per Owner's explicit scheduling",
+  "new_package": false,
+  "new_tripo_spend": 0,
+  "source_hashes": [
+    {
+      "path": "godot/scripts/player/surface_traversal_motor.gd",
+      "sha256": "ca9bdaebe8b5bd2b460310976704c36fe2691c505f54d6cc3e22e9228434a347",
+      "bytes": 23553
+    },
+    {
+      "path": "godot/scripts/player/echo_v31_motion_adapter.gd",
+      "sha256": "972ebeeb81cad3b3747e18b75d27e79e6953501a297183a82c03b7bcff2efa2e",
+      "bytes": 8064
+    },
+    {
+      "path": "godot/engine_visuals/EchoCapeMotion.gd",
+      "sha256": "ce9794e945b23636b63eaf3049e8f110f404263f67703fd3ef13910ab8c8b242",
+      "bytes": 12094
+    },
+    {
+      "path": "godot/export_presets.cfg",
+      "sha256": "bafd5e483f3ca3533ec433af0b67e2dc93ae97981f7e4a216e40ed6ebad48735",
+      "bytes": 15653
+    },
+    {
+      "path": "godot/assets/animations/v31/mantle_cp45.res",
+      "sha256": "41111911a7e8128f0911345275ede95ab789c55210bbf18c32c7ac44c38a5b0b",
+      "bytes": 65949
+    },
+    {
+      "path": "godot/assets/animations/v31/stand_cp45.res",
+      "sha256": "bfc1b198641b7e337c7fd29f6fbf455f097e6901a66c40d54617248f1e65b289",
+      "bytes": 44887
+    },
+    {
+      "path": "godot/tests/v31_native_mantle_review.gd",
+      "sha256": "af21468874f4fbb5a20b49563404f582f22f7478df634f6521224df103ca80f2",
+      "bytes": 10737
+    },
+    {
+      "path": "godot/tests/v31_native_mantle_abort_review.gd",
+      "sha256": "ed7d863094ddb8a02c6595bc4153671413617b506e5c1666934c8a85142d6d21",
+      "bytes": 4710
+    },
+    {
+      "path": "tools/animation-library/v31_parkour_motion.py",
+      "sha256": "9ee7f0c061aa4877f8d773b70e207166187c8f12a4b5158c9447db78f5a5c4df",
+      "bytes": 17192
+    },
+    {
+      "path": "tools/animation-library/render_v31_locomotion.py",
+      "sha256": "b035f07a9bd046df7efc89ff394100e0cca52f0409436e03e1070c1e84ed5a25",
+      "bytes": 4016
+    },
+    {
+      "path": "tools/animation-library/render_fbx_source.py",
+      "sha256": "bb9b3791399122889f3f28d9cc273ca27d4b66cc96091cb3593b2c1d49b68b6b",
+      "bytes": 3993
+    }
+  ],
+  "next": "Stage08: complete and verify specimen/archive/reactor/decontamination/mirror player slices in order; stages09-14 remain open"
+}

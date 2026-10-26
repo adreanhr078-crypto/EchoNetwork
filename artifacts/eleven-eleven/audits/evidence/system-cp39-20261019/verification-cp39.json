@@ -1,0 +1,49 @@
+{
+  "checkpoint": "CP39 / CP-20261019-03",
+  "runtime_scope": "Personal system UI, local story feedback, original source delivery; not whole game acceptance",
+  "functional_headless_checks": 340,
+  "rendered_ward_ui_checks": 26,
+  "queue_priority_checks": 32,
+  "packed_checks": 28,
+  "foundation_tests": 649,
+  "golden_protected_files": 192,
+  "final_route": "audits\\evidence\\pre-tripo-20261018\\cp37\\route\\cp39-priority-final\\full-chapter.json",
+  "final_visual": "audits\\evidence\\pre-tripo-20261018\\cp37\\route\\cp39-system-v10\\system-review.json",
+  "argon_visual": "v9 three layout fixes PASS; v10 identical visual design plus legacy modal-priority/audio-stop fix re-rendered locally",
+  "original_echo_sha256": "b03583c44998cf144d40a901c011a06f878de29a10852c2c751494596e2e9b67",
+  "tripo_CP39_credits": 70,
+  "studio_balance_last_observed": 2875,
+  "custom_animations": {
+    "attempt01": "REJECT continuous Run; raw replay7920PASS24Hz",
+    "attempt02": "REJECT continuous Run; raw replay7920PASS24Hz"
+  },
+  "runtime_avatar": "V31 unchanged,68 bones including15 Cape controls; new Tripo66joint candidate isolated",
+  "source_hashes": {
+    "godot/scripts/ui/system_window.gd": "00d26638572a6a6397d96457ff204f4c3d9bf830207186d0a1ae2f7af1c42798",
+    "godot/scripts/ui/system_signal_glass.gd": "e3db5a47f74f2ba19017d09527bd9d7d7d6296c32308d25dc1815d1a7b9dddc9",
+    "godot/scripts/ui/gameplay_hud.gd": "74fb6ea4546f8060eb19820aabdb25c27a36c8673f1370a7fb70644c838f53de",
+    "godot/scripts/main.gd": "e4a0cf9abf31b37fad3f989dc8c5f8ea0617875411776a12656ad6887f914600",
+    "godot/scripts/ui/native_pause_menu.gd": "51b7898e569cab6ed9f08e92ce4c2a2b0a4297f70b02583f606fa7e0bdb060de",
+    "godot/scripts/systems/native_campaign_controller.gd": "6203f41ac05407eabaae5977a155d274aac48eca1dd85c858f6d8d2909dcd86d",
+    "godot/scripts/systems/native_review_probe.gd": "495b1db517c6984859c3f9c0ab8e00829cc5a29472259b653a5240a84445844e",
+    "godot/tests/system_notice_queue_review.gd": "fc7234569b155f9a31aac3e724c667af32c6b2c0570c5e10a7ccf2ad8430c1d6",
+    "godot/tests/system_personal_window_review.gd": "699f57597925d6d4ca1ec517c43edffa9cb774518265a62fe03971c8bc9c170a",
+    "godot/tests/full_chapter_journey_review.gd": "725dec284fa4babdf4ebcd71fc2d0a19689ae2033b3ebb816d52c31f51d404f5",
+    "godot/tests/tripo_character_visual_review.gd": "684e215a24062ba1845141251789b7227109764aa811d92b37838df98da3903a"
+  },
+  "artifacts": {
+    "EchoNetwork.exe": {
+      "bytes": 111754240,
+      "sha256": "763f35e79cdf227089d6985681455131203fe710623e75e60d8d5942b626b4da"
+    },
+    "EchoNetwork.pck": {
+      "bytes": 391093264,
+      "sha256": "2487aab98a0c021c32c84556aef71c957d7db10a487da46e751516ebeaac3e6b"
+    }
+  },
+  "remaining": [
+    "Finite character acting/parkour source qualification and complete rig/coat/face/hand review",
+    "Live account XP/level receipts",
+    "Independent fun, actor/room art, device/performance, voice/acting gates"
+  ]
+}

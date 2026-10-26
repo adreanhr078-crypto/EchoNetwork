@@ -1,0 +1,563 @@
+CURRENT SCOPE: CP45 stage10 actual Windows178/14reloads; notice fix headless179. Stage11 attack remains unqualified. Source keys and Golden untouched. No whole chapter/art acceptance.
+---Existing encounter---
+	if is_instance_valid(actor):actor.force_update_transform()
+	var preferred:Vector3=player.camera_target_rotation
+	if _handoff_clearance(player,preferred)>=1.0:return
+	for degrees in [15.0,30.0,45.0,60.0,75.0,90.0]:
+		var best:Vector3=preferred
+		var best_clearance:=0.0
+		for side in [-1.0,1.0]:
+			var candidate:=Vector3(preferred.x,preferred.y+deg_to_rad(degrees)*side,0)
+			if absf(angle_difference(_clearance_origin.y,candidate.y))>PI/2+.001:continue
+			var clearance:=_handoff_clearance(player,candidate)
+			if clearance>best_clearance:
+				best=candidate
+				best_clearance=clearance
+		if best_clearance>=1.0:
+			player.set_gameplay_orbit(best)
+			player._update_camera_distance(1.0)
+			return
+
+func _settle_return_clearance(delta:float) -> void:
+	if _clearance_settle_remaining<=0.0 or active:return
+	_clearance_settle_remaining=maxf(0.0,_clearance_settle_remaining-delta)
+	if not is_instance_valid(main) or not is_instance_valid(main.player):
+		_clearance_settle_remaining=0.0
+		return
+	var player:EchoPlayer=main.player
+	# Stop immediately on a deliberate look or another cinematic owner. This
+	# short handoff window covers the next physics samples, not live orbit input.
+	if not player.camera_target_rotation.is_equal_approx(_clearance_orbit) or not player.player_camera.current:
+		_clearance_settle_remaining=0.0
+		return
+	_ensure_gameplay_return_clearance()
+	_clearance_orbit=player.camera_target_rotation
+
+func encounter_snapshot() -> Dictionary:
+	if not encounter_started: return {}
+	return {"step": encounter_step, "questions": encounter_questions, "deferred": encounter_deferred, "look": [encounter_look.x, encounter_look.y], "answer": encounter_answer}
+
+func awaits_encounter_consent() -> bool:
+	return encounter_live and encounter_step == 5 and encounter_questions == 7 and not room.contract_done
+
+func retain_encounter_consent() -> void:
+	if not awaits_encounter_consent(): return
+	_encounter_save_failed = true
+	_refresh_encounter_window()
+
+func begin_encounter(owner: Node, cursor: Dictionary = {}, restoring := false) -> void:
+	if encounter_live:
+		_refresh_encounter_window()
+		return
+	if not encounter_started:
+		finish(true)
+		main = owner
+		encounter_started = true
+		encounter_step = 6 if room.contract_done else 0
+		encounter_questions = 7 if room.contract_done else 0
+		encounter_deferred = false
+		encounter_answer = -1
+		encounter_look = Vector2.ZERO
+		if preload("res://scripts/systems/native_campaign_checkpoint.gd").valid_encounter_cursor(cursor, room.contract_done):
+			encounter_step = int(cursor.step)
+			encounter_questions = int(cursor.questions)
+			encounter_deferred = cursor.deferred
+			encounter_look = Vector2(cursor.look[0], cursor.look[1])
+			encounter_answer = int(cursor.get("answer", -1))
+		_encounter_model_visible = main.player.get_node("ModelRoot").visible
+		if not main.player.combat_action_started.is_connected(_observe_encounter_power): main.player.combat_action_started.connect(_observe_encounter_power)
+	if encounter_step == 8:
+		_apply_encounter_stage(true)
+		return
+	if restoring and encounter_deferred:
+		_apply_encounter_stage(true)
+		return
+	encounter_deferred = false
+	encounter_live = true
+	_encounter_power_observed = false
+	_encounter_power_elapsed = 0
+	_encounter_generation += 1
+	_previous = get_viewport().get_camera_3d()
+	_camera = Camera3D.new()
+	_camera.name = "ZeroEncounterCamera"
+	_camera.near = .035
+	if is_instance_valid(_previous): _camera.environment = _previous.environment
+	add_child(_camera)
+	_encounter_layer = CanvasLayer.new()
+	_encounter_layer.layer = 96
+	add_child(_encounter_layer)
+	_encounter_skip = _encounter_button("SkipEncounterPresentation", _skip_encounter)
+	_encounter_power = _encounter_button("TryPactPower", Callable())
+	_encounter_power.button_down.connect(_begin_encounter_power)
+	_encounter_power.button_up.connect(_release_encounter_power)
+	_encounter_look_hint = Label.new()
+	_encounter_look_hint.name = "EncounterLookHint"
+	_encounter_look_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_encounter_look_hint.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	_encounter_look_hint.offset_left = 24
+	_encounter_look_hint.offset_right = -24
+	_encounter_look_hint.offset_top = 84
+	_encounter_look_hint.offset_bottom = 132
+	_encounter_look_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_encounter_look_hint.add_theme_font_override("font", preload("res://assets/fonts/NotoSansArabic.ttf"))
+	_encounter_look_hint.add_theme_font_size_override("font_size", 24)
+	_encounter_layer.add_child(_encounter_look_hint)
+	_elapsed = 0
+	_quiet_story_hud()
+	_apply_encounter_stage(restoring)
+	_refresh_encounter_window()
+	encounter_changed.emit()
+
+func _encounter_button(label: String, callback: Callable) -> Button:
+	var button := Button.new()
+	button.name = label
+	button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	button.offset_left = -290
+	button.offset_right = -24
+	button.offset_top = -102
+	button.offset_bottom = -38
+	button.add_theme_font_override("font", preload("res://assets/fonts/NotoSansArabic.ttf"))
+	if callback.is_valid(): button.pressed.connect(callback)
+	_encounter_layer.add_child(button)
+	return button
+
+func _encounter_window() -> Node:
+	return main.hud.find_child("SystemWindow", true, false)
+
+func _encounter_text(ar: String, en: String) -> String:
+	return ar if main.presentation_language == "ar" else en
+
+func _refresh_encounter_window() -> void:
+	if not encounter_live: return
+	_encounter_language = main.presentation_language
+	_encounter_skip.text = _encounter_text("تجاوز العرض", "Skip presentation")
+	_encounter_skip.visible = encounter_step < 5 or encounter_step == 6
+	_encounter_power.text = _encounter_text("اضغط ثم ارفع: اختبار السحب", "Hold, then release: test the draw")
+	_encounter_power.visible = encounter_step == 7
+	_encounter_look_hint.visible = encounter_step < 6
+	_encounter_look_hint.text = _encounter_text("للنظر: اسحب خارج البطاقة؛ بالفأرة اضغط الزر الأيمن أثناء السحب.", "Look: right-drag with the mouse, or touch-drag outside the card.")
+	if encounter_step == 7: return
+	var titles := ["في القاع", "…", "الصوت", "زيرو", "قبل القرار", "عقد زيرو", "EX-011"]
+	var titles_en := ["At the bottom", "…", "The voice", "Zero", "Before the choice", "Zero's pact", "EX-011"]
+	var messages := ["ما زلت هنا.", "…", "أنت كنت تحاول أن تبقى إنسانًا.", "هذا شكلي الحقيقي. أنا لست إنسانًا… ولا ذكرى.", "اسأل قبل أن تختار.", "لن أحتل جسدك… إلا إذا تركتني. الثمن هو أن أكون معك… إلى النهاية.", "حين لامسته… اختفى الشكل، وبقيت اللعنة. العلامة ما زالت على الجلد."]
+	var messages_en := ["You are still here.", "…", "You were trying to remain human.", "This is my true form. I am neither human… nor a memory.", "Ask before you choose.", "I will not inhabit your body… unless you let me. The price is that I remain with you… until the end.", "When he touched it… the form vanished, and the curse remained. The mark is still on the skin."]
+	var choices: Array = []
+	var title: String = _encounter_text(titles[encounter_step], titles_en[encounter_step])
+	var message: String = _encounter_text(messages[encounter_step], messages_en[encounter_step])
+	if encounter_step == 5 and _encounter_save_failed: message += "\n\n" + _encounter_text("تعذر الحفظ. لم يُقبل العقد؛ يمكنك إعادة المحاولة.", "Saving failed. The pact was not accepted; you may retry.")
+	if encounter_step == 4:
+		if encounter_answer >= 0:
+			var replies := ["الثمن هو أن أكون معك… إلى النهاية.", "أنا لم آخذ منك شيئًا. أنا فقط… أعطيك ما بقي.", "أنا لن أحتل جسدك… إلا إذا تركتني. وإذا ضعفت… سأكمل أنا الطريق."]
+			var replies_en := ["The price is that I remain with you… until the end.", "I took nothing from you. I am only… giving you what remains.", "I will not inhabit your body… unless you let me. If you weaken… I will finish the journey."]
+			message = _encounter_text(replies[encounter_answer], replies_en[encounter_answer])
+			choices.append({"id": "QUESTIONS", "text": _encounter_text("متابعة", "Continue")})
+		else:
+			var questions := ["ما الثمن؟", "لماذا أنا؟", "كيف أثق بك؟"]
+			var questions_en := ["What is the price?", "Why me?", "How can I trust you?"]
+			for index in 3:
+				choices.append({"id": "QUESTION_%d" % index, "text": ("✓ " if encounter_questions & (1 << index) else "") + _encounter_text(questions[index], questions_en[index])})
+			if encounter_questions == 7: choices.append({"id": "NEXT", "text": _encounter_text("إلى القرار", "Make the choice")})
+	elif encounter_step == 5:
+		choices = [{"id": "CONFIRM_ZERO_PACT", "text": _encounter_text("أعطني ما أحتاجه. لا يهم.", "Give me what I need. It does not matter.")}, {"id": "DEFER_ZERO_PACT", "text": _encounter_text("ليس الآن", "Not yet")}]
+	else:
+		choices.append({"id": "NEXT", "text": _encounter_text("متابعة", "Continue")})
+	_encounter_generation += 1
+	var window := _encounter_window()
+	window.show_decision(title, message, choices, _choose_encounter.bind(_encounter_generation))
+	window.set_inspection_layout()
+	_encounter_window_generation = window._window_generation
+	main._on_opening_dialogue_started()
+
+func _choose_encounter(choice: String, generation: int) -> void:
+	if not encounter_live or generation != _encounter_generation or get_tree().paused: return
+	_encounter_window_generation = -1
+	if encounter_step == 4:
+		if choice.begins_with("QUESTION_") and encounter_answer < 0:
+			var index := int(choice.trim_prefix("QUESTION_"))
+			if index < 0 or index > 2 or choice != "QUESTION_%d" % index: return
+			encounter_questions |= 1 << index
+			encounter_answer = index
+		elif choice == "QUESTIONS" and encounter_answer >= 0: encounter_answer = -1
+		elif choice == "NEXT" and encounter_questions == 7 and encounter_answer < 0:
+			_set_encounter_step(5)
+			return
+		else: return
+		_refresh_encounter_window()
+		encounter_changed.emit()
+		return
+	if encounter_step == 5:
+		if choice in ["CONFIRM_ZERO_PACT", "DEFER_ZERO_PACT"]: encounter_choice_requested.emit(choice)
+		return
+	if choice == "NEXT" and encounter_step in [0, 1, 2, 3, 6]: _set_encounter_step(encounter_step + 1)
+
+func _set_encounter_step(value: int) -> void:
+	encounter_step = value
+	_encounter_save_failed = false
+	encounter_answer = -1
+	_elapsed = 0
+	_encounter_generation += 1
+	_apply_encounter_stage(false)
+	_refresh_encounter_window()
+	encounter_changed.emit()
+
+func confirm_encounter_contract() -> void:
+	if encounter_live and encounter_step == 5 and room.contract_done: _set_encounter_step(6)
+
+func defer_encounter() -> void:
+	if not encounter_live or encounter_step != 5 or room.contract_done: return
+	encounter_deferred = true
+	_close_encounter_view()
+	encounter_changed.emit()
+
+func _skip_encounter() -> void:
+	if not encounter_live or get_tree().paused: return
+	if encounter_step < 5: _set_encounter_step(4)
+	elif encounter_step == 6: _set_encounter_step(7)
+
+func _apply_encounter_stage(restoring: bool) -> void:
+	if is_instance_valid(room.narrative_trial): room.narrative_trial.reflection_space.pact_view_active = encounter_live and encounter_step < 7
+	set_stage("accepted" if encounter_step >= 6 else ("manifested" if encounter_step >= 3 else "dormant"), restoring)
+	if encounter_step == 1 and audio_director: audio_director.set_stage("dormant", true, false)
+	elif encounter_step == 2 and audio_director: audio_director.set_stage("manifested", restoring, false)
+	if encounter_step >= 7: _zero.hide()
+	var model: Node3D = main.player.get_node("ModelRoot")
+	if encounter_live and encounter_step < 3:
+		model.hide()
+		_encounter_model_hidden = true
+	elif _encounter_model_hidden:
+		model.visible = _encounter_model_visible
+		_encounter_model_hidden = false
+	if not encounter_live: return
+	_clear_encounter_mark()
+	if encounter_step == 6:
+		_encounter_mark = preload("res://scripts/cinematics/skin_mark_inspection_camera.gd").new()
+		add_child(_encounter_mark)
+		if not _encounter_mark.begin(model, _previous):
+			_encounter_mark.queue_free()
+			_encounter_mark = null
+	if encounter_step == 7:
+		_close_encounter_window()
+		_encounter_window().dismiss_task_assignments()
+		if is_instance_valid(_previous): _previous.make_current()
+		_restore_story_hud()
+		main._release_gameplay_modal_controls()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+	main._on_opening_dialogue_started()
+	_camera.fov = 48 if encounter_step < 4 else 40
+	if encounter_step < 3:
+		_camera.global_position = main.player.global_position + Vector3.UP * [.55, .7, .9][encounter_step]
+		_camera.look_at(room.to_global(Vector3(0, 2.3, -35.5)))
+	elif encounter_step < 5:
+		_camera.global_position = room.to_global(Vector3(2.1, 1.35, -29.5))
+		_camera.look_at(room.to_global(Vector3(0, 3.35, -35.5)))
+	elif encounter_step == 5:
+		var center: Vector3 = main.player.global_position.lerp(_zero.global_position, .55) + Vector3.UP * 1.6
+		_camera.global_position = center + Vector3(7, 2.4, 4)
+		_camera.look_at(center + Vector3.UP * .5)
+	else:
+		_camera.global_position = main.player.global_position + Vector3(-.65, 1.78, .9)
+		_camera.look_at(main.player.global_position + Vector3.UP * 1.5)
+	_encounter_base = _camera.global_transform
+	if not is_instance_valid(_encounter_mark): _camera.make_current()
+
+func _tick_encounter(delta: float) -> void:
+	_elapsed += delta
+	sync_encounter_preferences()
+	if encounter_step < 7:
+		main.player.control_locked = true
+		_hold_story_hud_quiet()
+		if not _encounter_window().visible: _refresh_encounter_window()
+		if not is_instance_valid(_encounter_mark):
+			_camera.global_transform = _encounter_base
+			if encounter_step == 0 and not room.reduced_motion: _camera.global_position.y += .18 * (1 - smoothstep(0, 1, minf(_elapsed / .9, 1)))
+			_camera.rotate_object_local(Vector3.UP, -encounter_look.x)
+			_camera.rotate_object_local(Vector3.RIGHT, -encounter_look.y)
+	if encounter_step == 6 and (room.reduced_motion or _elapsed >= 1.8): _zero.hide()
+	if encounter_step == 7 and _encounter_power_observed:
+		_encounter_power_elapsed += delta
+		_encounter_power.disabled = true
+		if _encounter_power_elapsed >= .8 and not main.player.is_attacking:
+			encounter_step = 8
+			_close_encounter_view()
+			encounter_changed.emit()
+			encounter_completed.emit()
+
+func sync_encounter_preferences() -> void:
+	if not encounter_live: return
+	_sync_audio_preferences()
+	if _encounter_language != main.presentation_language: _refresh_encounter_window()
+	if encounter_step == 0 and room.reduced_motion and is_instance_valid(_camera): _camera.global_transform = _encounter_base
+
+func _input(event: InputEvent) -> void:
+	if not encounter_live or encounter_step >= 6 or get_tree().paused: return
+	var relative := Vector2.ZERO
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT): relative = event.relative
+	elif event is InputEventScreenDrag:
+		if _encounter_window().panel.get_global_rect().has_point(event.position): return
+		relative = event.relative
+	if relative == Vector2.ZERO: return
+	encounter_look.x = clampf(encounter_look.x + relative.x * .0018, -.5, .5)
+	encounter_look.y = clampf(encounter_look.y + relative.y * .0018, -.3, .3)
+	get_viewport().set_input_as_handled()
+
+func _begin_encounter_power() -> void:
+	if not encounter_live or encounter_step != 7 or not room.contract_done or get_tree().paused: return
+	main.player.sheath_weapon()
+	main.player.start_iai_charge()
+
+func _release_encounter_power() -> void:
+	if encounter_live and encounter_step == 7 and room.contract_done and not get_tree().paused: main.player.execute_iai_slash(0.0)
+
+func _observe_encounter_power(action_name: String) -> void:
+	if action_name != "melee" or not encounter_live or encounter_step != 7 or not room.contract_done: return
+	_encounter_power_observed = true
+	_encounter_power_elapsed = 0
+
+func _close_encounter_window() -> void:
+	if not is_instance_valid(main) or main.is_queued_for_deletion(): return
+	var window := _encounter_window()
+	if window._window_generation == _encounter_window_generation and window.visible: window.close_window()
+	_encounter_window_generation = -1
+
+func _clear_encounter_mark() -> void:
+	if not is_instance_valid(_encounter_mark): return
+	if is_instance_valid(_encounter_mark.camera) and _encounter_mark.camera.current: _encounter_mark.restore_camera()
+	_encounter_mark.queue_free()
+	_encounter_mark = null
+
+func _close_encounter_view() -> void:
+	encounter_live = false
+	if is_instance_valid(room) and is_instance_valid(room.narrative_trial): room.narrative_trial.reflection_space.pact_view_active = false
+	_encounter_generation += 1
+	_close_encounter_window()
+	_clear_encounter_mark()
+	if is_instance_valid(_camera):
+		if _camera.current and is_instance_valid(_previous): _previous.make_current()
+		_camera.queue_free()
+	_camera = null
+	_previous = null
+	if is_instance_valid(_encounter_layer): _encounter_layer.queue_free()
+	_encounter_layer = null
+	_encounter_skip = null
+	_encounter_power = null
+	_encounter_look_hint = null
+	if is_instance_valid(main) and not main.is_queued_for_deletion():
+		if _encounter_model_hidden: main.player.get_node("ModelRoot").visible = _encounter_model_visible
+		_encounter_model_hidden = false
+		_restore_story_hud()
+		main._release_gameplay_modal_controls()
+
+func _cancel_encounter() -> void:
+	_close_encounter_view()
+	encounter_started = false
+---Existing campaign consent---
+func _window() -> Node:
+	return main.hud.find_child("SystemWindow",true,false)
+
+func _show_pact(restoring := false) -> void:
+	if current!=5 or not active or not rooms[5].confrontation_done or rooms[5].contract_done: return
+	_pending_story_decision = "pact"
+	var cursor: Dictionary = progress.get("presentation", {}).get("encounter", {})
+	rooms[5].story_presentation.begin_encounter(main, cursor, restoring)
+
+func _save_encounter() -> void:
+	_ui_signature = ""
+	if active and current == 5 and not save_now(): push_warning("Zero encounter checkpoint was not stored; no automatic consent is granted")
+
+func _finish_encounter() -> void:
+	if current != 5 or not rooms[5].contract_done or rooms[5].revenge_done: return
+	_ensure_kinja()
+	kinja.active = true
+	_ui_signature = ""
+	save_now()
+
+func _accept_pact(choice: String) -> void:
+	if current != 5 or not rooms[5].story_presentation.awaits_encounter_consent(): return
+	var presentation: Node = rooms[5].story_presentation
+	if choice == "DEFER_ZERO_PACT":
+		_pending_story_decision = ""
+		presentation.defer_encounter()
+		return
+	if choice != "CONFIRM_ZERO_PACT": return
+	var next := progress.duplicate(true)
+	var lab: Dictionary = next.flags.get("lab", {}).duplicate(true)
+	lab["confrontation_done"] = true
+	lab["contract_done"] = true
+	next.flags["lab"] = lab
+	var cursor: Dictionary = presentation.encounter_snapshot()
+	cursor.step = 6
+	cursor.answer = -1
+	cursor.deferred = false
+	next["presentation"] = {"beat": "accepted", "elapsed": 0, "encounter": cursor}
+	if not _store(next):
+		presentation.retain_encounter_consent()
+		return
+	_pending_story_decision = ""
+	rooms[5].accept_zero_contract()
+	_capture_progress()
+
+func _ensure_kinja() -> void:
+	if not is_instance_valid(kinja):
+		kinja=load("res://scenes/characters/dr_kinga.tscn").instantiate()
+		kinja.set_script(preload("res://scripts/characters/kinja_revenge_actor.gd"))
+		kinja.position=Vector3(0,0.1,-27)
+		rooms[5].add_child(kinja)
+		kinja.player=main.player
+		kinja.pressure_changed.connect(func(count: int):
+			_ui_signature=""
+			rooms[5].story_presentation.impact_feedback(count))
+		kinja.collar_requested.connect(_collar_confrontation)
+
+func _start_revenge(restoring:=false) -> void:
+	if current!=5 or not rooms[5].contract_done or rooms[5].revenge_done: return
+	_ensure_kinja()
+	var presentation: Node = rooms[5].story_presentation
+	var cursor: Dictionary = progress.get("presentation", {}).get("encounter", {})
+	var pending: bool = presentation.encounter_started and presentation.encounter_step < 8
+	var resuming: bool = restoring and not cursor.is_empty()
+	kinja.active = not pending and not (resuming and int(cursor.step) < 8)
+	main.player.set_combat_available(true)
+	if not main.player.contract_with_zero_sealed: main.player.awaken_zero_pact(0.65)
+	main.player.unsheath_weapon()
+	# The optional insert is presentation only; reduced motion immediately
+	# retains the same explicit decision and controlled confrontation.
+	if pending: presentation.confirm_encounter_contract()
+	elif resuming: presentation.begin_encounter(main, cursor, true)
+	elif not restoring: presentation.begin("accepted",main,kinja)
+
+func _collar_confrontation() -> void:
+	if current!=5 or not kinja or kinja.contacts<3 or not rooms[5].contract_done: return
+	rooms[5].story_presentation.begin("revenge",main,kinja)
+	_window().show_decision(main.opening_text("إيكو","Echo"),main.opening_text("الآن تريد أن تتكلم؟ بعد كل شيء؟","Now you want to talk? After everything?"),[{"id":"RELEASE_KINJA","text":main.opening_text("أنا أتذكر كل شيء.","I remember everything.")}],func(choice: String):
+---Charged attack cover fix under verification---
+func execute_iai_slash(charge_ratio: float = -1.0) -> void:
+	if opening_recovery_active or control_locked or not combat_available or is_attacking or _attack_recovery > 0 or is_dodging:
+		is_charging_iai = false
+		iai_charge = 0.0
+		return
+	if is_sheathed:
+		unsheath_weapon()
+	var eff_ratio: float = charge_ratio if charge_ratio >= 0.0 else iai_charge
+	is_charging_iai = false
+	iai_charge = 0.0
+
+	var katana = find_child("KatanaBlade", true, false)
+	if katana:
+		var glow = katana.find_child("BladeGlowLight", true, false) as OmniLight3D
+		if glow:
+			glow.light_energy = 1.8
+
+	# If charged >= 0.7 -> FULL CHARGED IAI SLASH: BLINK DASH + 180 (or 240) CRITICAL DAMAGE
+	if eff_ratio >= 0.7:
+		is_attacking = true
+		_attack_sequence += 1
+		var native_slash: bool = animation_player != null and animation_player.has_animation("ATTACK_1")
+		_attack_recovery = animation_player.get_animation("ATTACK_1").length if native_slash else .9
+		play_anim("ATTACK_1", 0.08)
+		if animation_player: animation_player.speed_scale = 1.0
+		combat_action_started.emit("iai")
+		var parent = get_parent()
+		var dash_dist: float = 5.5
+		var dash_dir: Vector3 = (visual_root.global_basis * Vector3(sin(-model_forward_yaw_offset), 0, cos(-model_forward_yaw_offset))).normalized() if visual_root else -transform.basis.z
+		dash_dir.y = 0.0
+		if dash_dir.length_squared() < 0.01:
+			dash_dir = -transform.basis.z
+		dash_dir = dash_dir.normalized()
+
+		var start_pos: Vector3 = global_position
+
+		# Spawn Ghost Trail phantoms along trajectory (Purple/Black if Shadow Katana)
+		if parent:
+			var trail_col: Color = Color(0.18, 0.03, 0.38, 0.9) if is_shadow_katana_equipped else Color(0.0, 0.94, 1.0, 0.8)
+			for i in range(3):
+				GhostTrailSpawner.spawn_ghost(parent, visual_root, 0.35, trail_col)
+
+		if is_shadow_katana_equipped:
+			set_zero_eye_active(true, 2.2)
+
+		# Spawn Solo Leveling Sumi Ink Shadow Wave Projectile
+		if parent:
+			var wave = ShadowWaveProjectile.new()
+			wave.position = start_pos + Vector3(0, 1.0, 0)
+			wave.direction = dash_dir
+			# The swept body and one verified contact own this attack's damage.
+			# A trailing visual must not add contacts or pass damage through cover.
+			wave.visual_only = true
+			parent.add_child(wave)
+
+		# Instant Blink Dash forward
+		if is_inside_tree(): move_and_collide(dash_dir * dash_dist)
+		var end_pos: Vector3 = global_position
+
+		# Flash massive heavy slash arc
+		var slash_arc = find_child("SlashArc", true, false)
+		if slash_arc:
+			slash_arc.visible = true
+			slash_arc.scale = Vector3(2.5, 2.5, 2.5)
+			slash_arc.rotation.z = 0.785
+			var tree = get_tree() if is_inside_tree() else null
+			if tree:
+				tree.create_timer(0.25).timeout.connect(_close_slash_arc.bind(slash_arc.get_instance_id(), true))
+
+		# Apply massive damage to enemies in trajectory (between start and end)
+		var iai_dmg: int = 180
+		var target := _iai_contact_target(start_pos, end_pos, dash_dir)
+		if target:
+			target.take_damage(iai_dmg)
+			register_hit_landed(iai_dmg)
+			var hit_pos: Vector3 = target.global_position + Vector3.UP
+			ImpactSpawner.spawn_katana_sparks(parent, hit_pos, Vector3.UP, true)
+			ImpactSpawner.spawn_damage_number(parent, hit_pos + Vector3.UP * .4, iai_dmg, true)
+			if player_camera and not reduced_camera_motion:
+				ImpactSpawner.trigger_screen_shake(player_camera, 0.22, 0.35)
+			trigger_hit_stop(0.16)
+			emit_signal("iai_executed", iai_dmg)
+	else:
+		# Quick tap -> Regular combo attack
+		perform_attack()
+
+func _iai_contact_target(start: Vector3, end: Vector3, forward: Vector3) -> Node3D:
+	if not is_inside_tree(): return null
+	var reach := start.distance_to(end) + 1.2
+	var nearest: Node3D
+	var nearest_distance := INF
+	for candidate in get_tree().get_nodes_in_group("damageable"):
+		if not candidate is Node3D or candidate == self or not candidate.has_method("take_damage"): continue
+		var offset: Vector3 = candidate.global_position - start
+		if absf(offset.y) > 1.3: continue
+		offset.y = 0
+		var along := offset.dot(forward)
+		if along < 0 or along > reach or along >= nearest_distance: continue
+		if (offset - forward * along).length() > 1.2: continue
+		var query := PhysicsRayQueryParameters3D.create(start + Vector3.UP, candidate.global_position + Vector3.UP)
+		query.exclude = [get_rid()]
+		var hit := get_world_3d().direct_space_state.intersect_ray(query)
+		if not hit.is_empty() and hit.collider != candidate and not candidate.is_ancestor_of(hit.collider): continue
+		nearest = candidate
+		nearest_distance = along
+	return nearest
+
+var is_shadow_katana_equipped: bool = false
+var contract_with_zero_sealed: bool = false
+
+func equip_shadow_katana() -> void:
+	is_shadow_katana_equipped = true
+	set_combat_available(true)
+	var standard_katana = find_child("KatanaBlade", true, false)
+	var shadow_katana = find_child("ShadowKatana", true, false)
+	if standard_katana:
+		standard_katana.visible = false
+	if shadow_katana:
+		if _hand_weapon_socket and shadow_katana.get_parent() != _hand_weapon_socket:
+			shadow_katana.owner = null
+			shadow_katana.get_parent().remove_child(shadow_katana)
+			_hand_weapon_socket.add_child(shadow_katana)
+		shadow_katana.transform = _weapon_attach_transform
+		shadow_katana.visible = not is_sheathed
+	# Strict narrative constraint: Shadow Katana equip does NOT manifest Zero's eye or wing.
+	# Zero's Singularity and Monarch Wing appear strictly after the Zero Pact is forged.
+
+func awaken_zero_pact(intensity: float = 1.6) -> void:
+	contract_with_zero_sealed = true
+	set_zero_eye_active(true, intensity)

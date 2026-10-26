@@ -51,4 +51,4 @@ static func update(panel:Node3D, language:String, inspected:bool, unlocked:bool)
 	panel.get_node("Readout0").text=("EX-011 / تم الفحص" if inspected else "EX-011 / لم يتم الفحص") if ar else ("EX-011 / INSPECTED" if inspected else "EX-011 / NOT INSPECTED")
 	panel.get_node("Readout1").text=("الوصول / مفتوح" if unlocked else "الوصول / مقفل") if ar else ("ACCESS / UNLOCKED" if unlocked else "ACCESS / LOCKED")
 	panel.get_node("Readout2").text="القطاع 11 / السجل المحلي" if ar else "SECTOR 11 / LOCAL RECORD"
-	panel.get_node("Status1").material_override.albedo_color=Color(0.24,0.55,0.46) if unlocked else Color(0.68,0.2,0.19)
+	preload("res://engine_visuals/HyperMaterialAdapter.gd").set_signal_color(panel.get_node("Status1").material_override,Color(0.24,0.55,0.46) if unlocked else Color(0.68,0.2,0.19))

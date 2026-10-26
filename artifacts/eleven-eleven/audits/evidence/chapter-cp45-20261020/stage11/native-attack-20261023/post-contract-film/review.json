@@ -1,0 +1,63 @@
+{
+	"checks": 58,
+	"display": "Windows",
+	"final_progress": {
+		"completed": [
+			"specimen",
+			"archive",
+			"reactor",
+			"decon",
+			"mirror",
+			"lab",
+			"hospital"
+		],
+		"flags": {
+			"archive": {
+				"archive_decoded": true,
+				"shard_sector11": true,
+				"shard_shizuka": true,
+				"shard_yuki": true
+			},
+			"decon": {
+				"override_done": true
+			},
+			"hospital": {
+				"bed_awakened": true,
+				"mark_revealed": true
+			},
+			"lab": {
+				"confrontation_done": true,
+				"contract_done": true,
+				"revenge_done": true,
+				"wish_done": true
+			},
+			"mirror": {
+				"mirror_inspected": true,
+				"override_done": true
+			},
+			"reactor": {
+				"breaker_a_done": true,
+				"breaker_b_done": true
+			},
+			"specimen": {
+				"terminal_read": true
+			}
+		},
+		"schema": "echo-sector11-campaign-v1"
+	},
+	"renderer": "gl_compatibility",
+	"route_retries": 0,
+	"scope": "Actually earned pact profile -> three real native cuts -> explicit revenge continuation -> sole wish -> physical breach -> ward input/mirror. No manufactured flags or player placement. Fine fingers/acting, final art, performance/devices/live receipts/package and fresh whole-chapter acceptance remain open.",
+	"source_hashes": {
+		"res://assets/animations/v31/attack_horizontal_cp45.res": "efdcd586690ff9c4c846590eebb95cfab3121810129d86cda9ef773cf04deb78",
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "8f46f0aa42f2365ae245fecb485b539e90992ff79ac1f98dcd7b7dca47edabd5",
+		"res://scripts/player/echo_player.gd": "3829c52daec23d7438922f0509ce0072d05cec578d03cc653fde0d7655259143",
+		"res://scripts/player/echo_v31_motion_adapter.gd": "1dd7115807095ac7668735db09ae76c3755fdfa7ca3c5bb892d264730919c4ee",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://tests/full_chapter_journey_review.gd": "628de02f30d0a9989ded7cf065d27a8b3e4c69794d33b7af6a13c130ffcc80ef",
+		"res://tests/post_contract_journey_review.gd": "5371ff14e44f3f7a6996ff74a20e309367f96061627790d3f446ca137e14a539",
+		"res://tests/zero_encounter_route_input.gd": "2e26f84fdb55ab530bde1db469e58887bd897eda58727469c6b2dc147dff4638"
+	},
+	"source_profile": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven/audits/evidence/chapter-cp45-20261020/stage11/native-attack-20261023/encounter-native/earned/complete"
+}

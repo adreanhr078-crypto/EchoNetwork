@@ -1,0 +1,7 @@
+{
+  "observed": "SSRoff changes local patch by<.05/255 perchannel,mainDirectionalShadowOff changes15..21/255",
+  "inference": "Patch depends on the existing directional shadow,not an SSR reflection-probe artifact. Exact casting geometry/cascade attribution notproven.",
+  "product_fix": "Room-only static1.25degree directional angular softness,priorvalue restored at native departure/teardown;SSR/shadows remain enabled",
+  "no_quality_mode_reduction": true,
+  "diagnostic_images": "precision-high-v5/diagnostic-*.png;not acceptanceimages"
+}

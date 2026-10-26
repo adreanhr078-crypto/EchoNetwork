@@ -1,0 +1,213 @@
+- main:
+  - navigation:
+    - link:
+      - /url: /
+    - button "3D Workspace":
+      - link "3D Workspace":
+        - /url: /workspace/generate
+        - paragraph: 3D Workspace
+    - link "Home":
+      - /url: /
+      - paragraph: Home
+    - link "Assets":
+      - /url: /assets
+      - paragraph: Assets
+    - link "Creator Hub":
+      - /url: https://studio.tripo3d.ai/creator-hub/mission-tripossible/
+      - paragraph: Creator Hub
+    - button "Resources":
+      - paragraph: Resources
+  - button "Creator level and rewards":
+    - img "Lv.1"
+  - button:
+  - link "Help Center":
+    - /url: https://www.tripo3d.ai/help
+  - button "30":
+    - generic: "30"
+  - link:
+    - /url: /referral
+  - paragraph: "2885"
+  - button "Upgrade":
+    - generic: Upgrade
+    - img "loading"
+  - button "DCC Bridge":
+    - paragraph: DCC Bridge
+    - region:
+  - 'button "Smart Mesh P2.0: Quads & Edit"'
+  - link "Image":
+    - /url: /workspace/generate-image/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Image
+  - link "Model":
+    - /url: /workspace/generate/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Model
+  - link "Segment":
+    - /url: /workspace/segmentation/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Segment
+  - link "Fill Parts":
+    - /url: /workspace/fill-parts/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Fill Parts
+  - link "Retopo":
+    - /url: /workspace/retopology/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Retopo
+  - link "Smart UV":
+    - /url: /workspace/smart-uv/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Smart UV
+  - link "Texture":
+    - /url: /workspace/texture/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Texture
+  - link "Edit":
+    - /url: /workspace/texture-edit/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Edit
+  - link "Upscale":
+    - /url: /workspace/texture-upscale/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Upscale
+  - link "PBR":
+    - /url: /workspace/texture-pbr/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: PBR
+  - link "Rig":
+    - /url: /workspace/rigging/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Rig
+  - link "Animate":
+    - /url: /workspace/animate/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+    - generic: Animate
+  - button "Scan to download Tripo App":
+    - generic: App
+  - heading "3D Model Texture Generator" [level=2]
+  - button
+  - button
+  - button
+  - button
+  - button
+  - paragraph: Create Your Own Texture Style
+  - button
+  - button "None":
+    - text: None
+  - paragraph: Remove Lighting
+  - button
+  - switch [checked]
+  - paragraph: Texture Resolution
+  - button
+  - button "2K"
+  - button "4K" [pressed]
+  - button "8K": 8K
+  - button "Generate Texture 20":
+    - text: Generate Texture
+    - generic: "20"
+  - button [disabled]
+  - button [disabled]
+  - button
+  - button
+  - button "3D Print":
+    - paragraph: 3D Print
+  - button "Share":
+    - generic: Share
+    - img "coupon"
+  - button "Export":
+    - generic: Export
+  - button "reference":
+    - img "reference"
+  - button:
+  - button:
+  - button [pressed]:
+  - button:
+  - button [pressed]:
+  - button:
+  - button:
+  - button:
+  - paragraph: Topology
+  - paragraph: Triangle
+  - paragraph: Faces
+  - paragraph: 19635 / 19635
+  - paragraph: Vertices
+  - paragraph: 16946 / 16946
+  - button:
+    - button
+  - button
+  - button
+  - tablist:
+    - tab "Assets" [selected]:
+      - generic: Assets
+    - tab "Property":
+      - generic: Property
+  - tabpanel "Assets":
+    - tablist:
+      - tab [selected]
+      - tab
+    - button
+    - button "Manage":
+      - generic: Manage
+    - generic: Upload 3D Model
+    - generic: OBJ, FBX, STL, GLB Size ≤150MB
+    - button "Choose File"
+    - link "futuristic cabinet 3d model 10-25 06:59":
+      - /url: /workspace/texture/61b98dfd-8f1a-49f8-9b60-179279d5b3e1
+      - img "futuristic cabinet 3d model"
+      - paragraph: 10-25 06:59
+      - button
+      - button
+      - button
+    - link "ring-shaped robot 3d model 10-24 19:58":
+      - /url: /workspace/texture/e1084751-9560-4789-b7ac-37d5f7b481eb
+      - img "ring-shaped robot 3d model"
+      - paragraph: 10-24 19:58
+      - button
+      - button
+      - button
+    - link "modern fridge 3d model 10-24 15:22":
+      - /url: /workspace/texture/ff0a64ad-e100-46b6-aa5f-a0c99e492d54
+      - img "modern fridge 3d model"
+      - paragraph: 10-24 15:22
+      - button
+      - button
+      - button
+    - link "futuristic lab 3d model 10-23 18:34":
+      - /url: /workspace/texture/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-2ddda695-37ca-4246-9203-ac1ad986a217
+      - img "futuristic lab 3d model"
+      - paragraph: 10-23 18:34
+      - button
+      - button
+      - button
+    - link "futuristic operating table 3d model 10-23 22:54":
+      - /url: /workspace/texture/futuristic-operating-table-with-robotic-arms-and-circular-platform-hi-69598855-5b7b-42c8-a391-1f2540cf8d85
+      - img "futuristic operating table 3d model"
+      - paragraph: 10-23 22:54
+      - button
+      - button
+      - button
+    - link "futuristic reclining chair 3d model 10-23 17:49":
+      - /url: /workspace/texture/robotic-reclining-chair-with-lavender-cushions-metallic-frame-expose-d36fb2a0-0b6d-41e5-933c-8e651cc3c30f
+      - img "futuristic reclining chair 3d model"
+      - paragraph: 10-23 17:49
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/texture/51cadb51-317a-4990-805b-df8226199dce
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/texture/895255e6-6ecd-4d02-b0f2-f27d4078f369
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/texture/58c01833-5626-448a-a843-7a95e9eff7c8
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/texture/aabba660-68ed-4049-aa25-ab95c2fe8d06
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+- region "Notifications alt+T":
+  - list

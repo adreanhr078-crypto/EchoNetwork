@@ -1,0 +1,186 @@
+{
+  "city-high.ogv": {
+    "bytes": 1920494,
+    "sha256": "4d35dad959dee011e203a0d01824bc1b7aa92c2188f39b37c5324537bc51d58c",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "theora",
+          "codec_type": "video",
+          "width": 960,
+          "height": 540,
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "city-low.ogv": {
+    "bytes": 434148,
+    "sha256": "85b7afdea5981d8300f30ead78cb1b1c47c19f9020cc7b944de849f488b62a27",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "theora",
+          "codec_type": "video",
+          "width": 512,
+          "height": 288,
+          "r_frame_rate": "15/1"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "city-poster.webp": {
+    "bytes": 33116,
+    "sha256": "a2b763abda0d9ffa101f0426e01f41e89e7a5579b1d8af41c55e157111d9b5b5"
+  },
+  "city.ogg": {
+    "bytes": 113133,
+    "sha256": "de27855ac634e4bf3327e167ab6b3562628d1cb76d26eac3553fa6b6ed162f37",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "channels": 2,
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "friends-high.ogv": {
+    "bytes": 1760973,
+    "sha256": "c0b4633bb4fe07b29ae44db7ebe63cf4c8c640f35b499d319606b26368150790",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "theora",
+          "codec_type": "video",
+          "width": 960,
+          "height": 540,
+          "r_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "friends-low.ogv": {
+    "bytes": 462901,
+    "sha256": "7d7f0045f0096b5e0a80cc23e461982b5ada956c4d4d9541a7b8d58ca6116243",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "theora",
+          "codec_type": "video",
+          "width": 512,
+          "height": 288,
+          "r_frame_rate": "15/1"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "friends-poster.webp": {
+    "bytes": 19122,
+    "sha256": "c026f5709ad0e9146ee2ff08e1320bc3ee0efa3456ca8805ded30788de438918"
+  },
+  "friends.ogg": {
+    "bytes": 108904,
+    "sha256": "a4f523f9dc361ab2d1c2536f561ccde26c717633d3cd0a2ba109c474de5bcded",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "channels": 2,
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "pipe-drip.ogg": {
+    "bytes": 13662,
+    "sha256": "d22ea593463904c1d1fbf7fd839791e8e68db192dc746c04c1a6821ca156627c",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "channels": 2,
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  },
+  "reel-low.ogv": {
+    "bytes": 834545,
+    "sha256": "8a30097df6f13ab422fad0718c1c1283f91919399f972629ca81c2419d2621de",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "theora",
+          "codec_type": "video",
+          "width": 512,
+          "height": 288,
+          "r_frame_rate": "15/1"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    }
+  },
+  "reel.ogg": {
+    "bytes": 212182,
+    "sha256": "6da01a9029cac15d320d27c929b19d1bcf354b62a2faad0797165d4cd2659580",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vorbis",
+          "codec_type": "audio",
+          "channels": 2,
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "16.000000"
+      }
+    }
+  }
+}

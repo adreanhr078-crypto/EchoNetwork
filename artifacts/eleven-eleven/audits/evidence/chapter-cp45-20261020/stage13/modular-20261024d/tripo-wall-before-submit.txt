@@ -1,0 +1,193 @@
+- main:
+  - navigation:
+    - link:
+      - /url: /
+    - button "3D Workspace":
+      - link "3D Workspace":
+        - /url: /workspace/generate
+        - paragraph: 3D Workspace
+    - link "Home":
+      - /url: /
+      - paragraph: Home
+    - link "Assets":
+      - /url: /assets
+      - paragraph: Assets
+    - link "Creator Hub":
+      - /url: https://studio.tripo3d.ai/creator-hub/mission-tripossible/
+      - paragraph: Creator Hub
+    - button "Resources":
+      - paragraph: Resources
+  - button "Creator level and rewards":
+    - img "Lv.1"
+  - button:
+  - link "Help Center":
+    - /url: https://www.tripo3d.ai/help
+  - button "15":
+    - generic: "15"
+  - link:
+    - /url: /referral
+  - paragraph: "3020"
+  - button "Upgrade":
+    - generic: Upgrade
+    - img "loading"
+  - button "DCC Bridge":
+    - paragraph: DCC Bridge
+    - region:
+  - 'button "Smart Mesh P2.0: Quads & Edit"'
+  - link "Image":
+    - /url: /workspace/generate-image
+    - generic: Image
+  - link "Model":
+    - /url: /workspace/generate
+    - generic: Model
+  - link "Segment":
+    - /url: /workspace/segmentation
+    - generic: Segment
+  - link "Fill Parts":
+    - /url: /workspace/fill-parts
+    - generic: Fill Parts
+  - link "Retopo":
+    - /url: /workspace/retopology
+    - generic: Retopo
+  - link "Smart UV":
+    - /url: /workspace/smart-uv
+    - generic: Smart UV
+  - link "Texture":
+    - /url: /workspace/texture
+    - generic: Texture
+  - link "Edit":
+    - /url: /workspace/texture-edit
+    - generic: Edit
+  - link "Upscale":
+    - /url: /workspace/texture-upscale
+    - generic: Upscale
+  - link "PBR":
+    - /url: /workspace/texture-pbr
+    - generic: PBR
+  - link "Rig":
+    - /url: /workspace/rigging
+    - generic: Rig
+  - link "Animate":
+    - /url: /workspace/animate
+    - generic: Animate
+  - button "Scan to download Tripo App":
+    - generic: App
+  - heading "Generate Model" [level=2]
+  - button "HD Model"
+  - button "Smart Mesh": Smart Mesh
+  - button
+  - button
+  - button
+  - button
+  - button
+  - button
+  - button:
+  - button "Generate Multi-Views":
+    - generic: Generate Multi-Views
+  - paragraph: General Settings
+  - paragraph: Topology
+  - paragraph: Members Only
+  - paragraph: Privacy
+  - button
+  - combobox:
+    - generic: Private
+  - paragraph: Number of Generation
+  - button "1" [pressed]
+  - button "2"
+  - button "4"
+  - paragraph: AI Model
+  - combobox:
+    - paragraph:
+      - text: P2.0
+      - generic: Trial ×2
+  - button "Generate 100 0":
+    - text: Generate
+    - generic: "100"
+    - generic: "0"
+  - paragraph: Generate Topo-Ready Mesh in Seconds!
+  - paragraph: Realtime Mesh Editing - Coming Soon
+  - button:
+    - button
+  - button
+  - button
+  - tablist:
+    - tab "Assets" [selected]:
+      - generic: Assets
+    - tab "Property":
+      - generic: Property
+  - tabpanel "Assets":
+    - tablist:
+      - tab [selected]
+      - tab
+    - button
+    - button "Manage":
+      - generic: Manage
+    - generic: Upload 3D Model
+    - generic: OBJ, FBX, STL, GLB Size ≤150MB
+    - button "Choose File"
+    - link "futuristic lab 3d model 10-23 18:34":
+      - /url: /workspace/generate/futuristic-sci-fi-laboratory-interior-with-central-circular-platform-a-2ddda695-37ca-4246-9203-ac1ad986a217
+      - img "futuristic lab 3d model"
+      - paragraph: 10-23 18:34
+      - button
+      - button
+      - button
+    - link "futuristic operating table 3d model 10-23 22:54":
+      - /url: /workspace/generate/futuristic-operating-table-with-robotic-arms-and-circular-platform-hi-69598855-5b7b-42c8-a391-1f2540cf8d85
+      - img "futuristic operating table 3d model"
+      - paragraph: 10-23 22:54
+      - button
+      - button
+      - button
+    - link "futuristic reclining chair 3d model 10-23 17:49":
+      - /url: /workspace/generate/robotic-reclining-chair-with-lavender-cushions-metallic-frame-expose-d36fb2a0-0b6d-41e5-933c-8e651cc3c30f
+      - img "futuristic reclining chair 3d model"
+      - paragraph: 10-23 17:49
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/generate/51cadb51-317a-4990-805b-df8226199dce
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/generate/895255e6-6ecd-4d02-b0f2-f27d4078f369
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/generate/58c01833-5626-448a-a843-7a95e9eff7c8
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+    - link "Tripo Demo Model 10-22 12:41":
+      - /url: /workspace/generate/aabba660-68ed-4049-aa25-ab95c2fe8d06
+      - img "Tripo Demo Model"
+      - paragraph: 10-22 12:41
+      - button
+      - button
+      - button
+- region "Notifications alt+T":
+  - list
+- dialog "Topology":
+  - generic: Topology
+  - button [active]
+  - paragraph: We'll automatically save your settings for next time
+  - paragraph: Topology
+  - button
+  - button "Quad New" [pressed]:
+    - text: Quad
+    - generic: New
+  - button "Triangle": Triangle
+  - paragraph: Polycount
+  - generic: "500"
+  - generic: "25000"
+  - slider
+  - textbox: "1200"

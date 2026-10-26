@@ -1,7 +1,7 @@
 extends Node3D
 
 const ShaderApplicator = preload("res://scripts/combat/shader_applicator.gd")
-const CelShader = preload("res://shaders/anime_cel.gdshader")
+const CelShader = preload("res://engine_visuals/shaders/hyper_anime_uber.gdshader")
 const OutlineShader = preload("res://shaders/anime_outline.gdshader")
 const GameClockScript = preload("res://scripts/systems/game_clock.gd")
 const WeatherSystemScript = preload("res://scripts/systems/weather_system.gd")
@@ -14,6 +14,7 @@ const OpeningInspectionScript = preload("res://scripts/cinematics/opening_inspec
 
 @export var native_session_enabled := false
 @export var maintenance_preview_enabled := false
+@export var chapter_companion_enabled := false
 var native_checkpoint_path := SaveManagerScript.OPENING_SAVE_PATH
 var native_preferences_path := "user://presentation_v1.cfg"
 var _restoring_native_session := false
@@ -23,6 +24,7 @@ var _web_configuration_accepted := false
 var _opening_initialization_ready := false
 var _web_process_mode_before: ProcessMode = Node.PROCESS_MODE_INHERIT
 var presentation_language := "ar"
+var opening_transfer_presented := false
 var native_pause_menu: Node = null
 var opening_inspection: Node = null
 
@@ -54,6 +56,11 @@ func _release_web_configuration_gate() -> void:
 	_start_opening_cinematic()
 
 func _start_opening_cinematic() -> void:
+	if opening_transfer_presented and player and player.get("opening_recovery_active"):
+		# The played cover/transfer already introduced Echo. Begin his waking
+		# dialogue directly rather than replaying the old orbit over the film.
+		player.finish_opening_recovery.call_deferred()
+		return
 	if player and opening_cinematic and player.get("opening_recovery_active") and not reduced_motion:
 		opening_cinematic.play(player)
 
@@ -108,6 +115,8 @@ func refresh_opening_language() -> void:
 	var journey := get_node_or_null("SystemJourneyPreview")
 	if journey and journey.room:
 		journey.refresh_objective()
+	var campaign := get_node_or_null("NativeCampaignController")
+	if campaign: campaign.sync_preferences()
 
 func queue_native_checkpoint() -> void:
 	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session or _checkpoint_queued:
@@ -232,9 +241,12 @@ func _save_native_preferences() -> void:
 	if not native_session_enabled or OS.has_feature("web") or _restoring_native_session:
 		return
 	var preferences := ConfigFile.new()
+	# Retain independently owned entry presentation flags and other settings.
+	preferences.load(native_preferences_path)
 	preferences.set_value("presentation", "muted", audio_muted)
 	preferences.set_value("presentation", "reduced_motion", reduced_motion)
 	preferences.set_value("presentation", "language", presentation_language)
+	preferences.set_value("presentation", "visual_quality", visual_quality)
 	preferences.set_value("controls", "settings", get_control_preferences())
 	if preferences.save(native_preferences_path) != OK:
 		push_warning("Presentation preferences could not be saved.")
@@ -253,6 +265,8 @@ func _load_native_preferences() -> void:
 		set_audio_muted(muted)
 	if motion is bool:
 		set_reduced_motion(motion)
+	var quality: Variant=preferences.get_value("presentation","visual_quality","high")
+	if quality is String and quality in ["low","medium","high","ultra"]: set_visual_quality(quality)
 	var controls: Variant = preferences.get_value("controls", "settings", {})
 	if controls is Dictionary: set_control_preferences(controls)
 	_restoring_native_session = false
@@ -303,16 +317,43 @@ var _evidence_memory_pending: bool = false
 var _boundary_memory_pending: bool = false
 var audio_muted: bool = false
 var reduced_motion: bool = false
+var visual_quality := "high"
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M:
+	if not chapter_companion_enabled and event.is_action_pressed("companion_scan") and not event.is_echo():
+		show_environment_help()
+		get_viewport().set_input_as_handled()
+	elif event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_I:
+		if toggle_personal_system(): get_viewport().set_input_as_handled()
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M:
 		set_audio_muted(not audio_muted)
 	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
 		set_reduced_motion(not reduced_motion)
 
+func show_environment_help() -> void:
+	if not player or not hud or get_tree().paused or player.control_locked or player.opening_recovery_active: return
+	var campaign := get_node_or_null("NativeCampaignController")
+	if campaign and campaign.active and campaign.current >= campaign.rooms.size(): return
+	hud.show_tutorial_toast("ENVIRONMENT_HELP", "E", opening_text("قراءة المكان", "Read the room"), opening_text("اقترب من جهاز أو دليل، وانتظر علامة التفاعل. التفاصيل متاحة بالفحص؛ المساعدة لا تختار الإجابة.", "Approach a device or a trace and look for the interaction prompt. Inspect it for details; help never chooses an answer."), 5.0)
+
+func toggle_personal_system() -> bool:
+	if not player or not hud or get_tree().paused or player.control_locked or is_intro_playing: return false
+	var window:Node=hud.find_child("SystemWindow",true,false)
+	if not window:return false
+	if window._status_view:
+		window.close_window()
+		return true
+	if window.visible and window._modal:return false
+	var bound:bool=player.contract_with_zero_sealed
+	var campaign:=get_node_or_null("NativeCampaignController")
+	if campaign and campaign.active:bound=bool(campaign.progress.flags.get("lab",{}).get("contract_done",false))
+	return window.show_personal_status({"hp":player.hp,"max_hp":player.MAX_HP,"stamina":player.stamina,"max_stamina":player.MAX_STAMINA,"pact_confirmed":bound,"objective":hud.current_directive_title})
+
 func set_audio_muted(muted: bool) -> void:
 	audio_muted = muted
 	AudioServer.set_bus_mute(0, muted)
+	var campaign := get_node_or_null("NativeCampaignController")
+	if campaign: campaign.sync_preferences()
 	_save_native_preferences()
 	var touch_ui = hud.find_child("MobileTouchControls", true, false) if hud else null
 	if touch_ui: touch_ui.refresh_labels(presentation_language,audio_muted,reduced_motion)
@@ -320,6 +361,9 @@ func set_audio_muted(muted: bool) -> void:
 		hud.show_tutorial_toast("TOAST_AUDIO", "M", opening_text("الصوت مكتوم", "Sound muted") if muted else opening_text("الصوت يعمل", "Sound on"), opening_text("يمكن تغيير الصوت في أي وقت.", "Sound can be changed at any time."), 2.5)
 
 func set_reduced_motion(enabled: bool) -> void:
+	get_node("/root/HyperAnimeWorldManager").set_reduced_motion(enabled)
+	get_node("/root/KineticVFXOrchestrator").set_reduced_motion(enabled)
+	if player and player.action_camera_rig: player.action_camera_rig.set_reduced_motion(enabled)
 	reduced_motion = enabled
 	var opening_atmosphere := get_node_or_null("OpeningAtmosphere")
 	if opening_atmosphere: opening_atmosphere.set_reduced_motion(enabled)
@@ -351,6 +395,8 @@ func set_reduced_motion(enabled: bool) -> void:
 	if dialogue:
 		dialogue.reduced_motion = enabled
 		if enabled and dialogue.is_active: dialogue.finish_typing()
+	var campaign := get_node_or_null("NativeCampaignController")
+	if campaign: campaign.sync_preferences()
 	_save_native_preferences()
 	if enabled:
 		if opening_cinematic and opening_cinematic.has_method("finish"):
@@ -367,11 +413,16 @@ func set_reduced_motion(enabled: bool) -> void:
 func _on_nearby_interactable_changed(target: Node) -> void:
 	if not is_instance_valid(player) or not is_instance_valid(hud) or is_queued_for_deletion() or player.opening_recovery_active: return
 	var touch = hud.find_child("MobileTouchControls", true, false)
+	if player.control_locked:
+		if touch: touch.set_interaction_available(false)
+		hud.hide_interaction_prompt()
+		return
 	if touch: touch.set_interaction_available(is_instance_valid(target))
 	if is_instance_valid(target): hud.show_interaction_prompt(target)
 	else: hud.hide_interaction_prompt()
 
 func _ready() -> void:
+	_enable_hyper_visuals.call_deferred()
 	# Debug-only, explicitly requested; no instrumentation runs in a normal session.
 	var frame_capture_script = preload("res://scripts/diagnostics/player_frame_capture.gd")
 	if frame_capture_script.requested():
@@ -436,9 +487,11 @@ func _ready() -> void:
 		if boss.has_signal("boss_defeated"):
 			boss.boss_defeated.connect(trigger_victory_sequence)
 
-	# 3. Setup Companion Targets
-	if companion and player:
-		companion.set("follow_target", player)
+	# Reversible chapter policy. The legacy companion remains available to a
+	# future authored mission, but owns no scan, target or light in this chapter.
+	if companion:
+		companion.set_chapter_enabled(chapter_companion_enabled)
+		if chapter_companion_enabled and player: companion.follow_target = player
 
 	# 4. Setup Boss Target
 	if boss and player:
@@ -466,8 +519,11 @@ func _ready() -> void:
 			touch_ui.lock_on_tapped.connect(player.toggle_lock_on)
 			touch_ui.mute_tapped.connect(func(): set_audio_muted(not audio_muted))
 			touch_ui.motion_tapped.connect(func(): set_reduced_motion(not reduced_motion))
-			if companion and companion.has_method("trigger_scan"):
+			touch_ui.set_environment_help(not chapter_companion_enabled)
+			if chapter_companion_enabled and companion and companion.has_method("trigger_scan"):
 				touch_ui.scan_tapped.connect(companion.trigger_scan)
+			else:
+				touch_ui.scan_tapped.connect(show_environment_help)
 
 	# 6. Initialize HUD State
 	var system_window = hud.find_child("SystemWindow",true,false) if hud else null
@@ -543,7 +599,7 @@ func _on_opening_recovery_completed() -> void:
 	if hud and hud.has_method("start_dialogue"):
 		hud.start_dialogue([
 			opening_line("أين... أنا؟", "Where... is this?"),
-			opening_line("الاتصال مستقر. سأساعدك على قراءة إشارات النظام. افحص الساعة المتوقفة أولاً.", "Link stable. I will help interpret System signals. Inspect the stopped clock first.", true)
+			opening_line("الساعة... توقفت. عليّ أن أفحصها.", "The clock... it stopped. I should look closer.")
 		])
 	if player:
 		player.emit_signal("nearby_interactable_changed", player.call("get_nearest_interactable"))
@@ -609,6 +665,14 @@ func apply_stylized_shaders() -> void:
 			0.85,
 			0.12
 		)
+		for mesh in avatar.find_children("*","MeshInstance3D",true,false):
+			for surface in mesh.mesh.get_surface_count():
+				var material: Material=mesh.get_active_material(surface)
+				if material is ShaderMaterial and material.shader==CelShader:
+					material.set_shader_parameter("skin_light_scale",0.26)
+					material.set_shader_parameter("backlight_intensity",0.035)
+					material.set_shader_parameter("diffuse_light_ceiling",1.65)
+					material.set_shader_parameter("specular_light_ceiling",0.22)
 
 	# Boss Monster: Threat Anime Toon Cel Shading + Crimson Abyss Rim + Dark Outlines
 	if boss and boss.has_node("ModelRoot"):
@@ -654,7 +718,7 @@ func activate_specimen_encounter() -> void:
 		player.set_combat_available(true)
 	if player:
 		boss.set("target_player", player)
-	if companion:
+	if companion and chapter_companion_enabled:
 		companion.set("aim_target", boss)
 	if hud:
 		hud.update_boss_hp(boss.get("hp"), boss.get("MAX_HP"))
@@ -885,6 +949,7 @@ func _release_gameplay_modal_controls() -> void:
 		player._suppress_attack_until_release = true
 	if not blocked:
 		if hud: hud.restore_touch_controls()
+		if player: _on_nearby_interactable_changed(player.get_nearest_interactable())
 		if player and not player.touch_input_enabled: Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func trigger_kinga_encounter() -> void:
@@ -967,3 +1032,23 @@ func _on_npc_spoke(npc_id: String, dialogue_line: String) -> void:
 				"text": dialogue_line
 			}
 		])
+
+func _enable_hyper_visuals() -> void:
+	if not is_instance_valid(player): return
+	player.enable_hyper_visuals()
+	get_node("/root/HyperAnimeWorldManager").attach_scene(self,player)
+	get_node("/root/KineticVFXOrchestrator").attach_player(self,player)
+	get_node("/root/HyperAnimeWorldManager").set_quality(visual_quality)
+	if not get_node_or_null("MemoryAtmosphereDirector"):
+		var atmosphere=preload("res://engine_visuals/MemoryAtmosphereDirector.gd").new()
+		atmosphere.name="MemoryAtmosphereDirector"
+		add_child(atmosphere)
+		atmosphere.configure(self)
+
+func set_visual_quality(tier: String) -> bool:
+	if tier not in ["low","medium","high","ultra"]: return false
+	visual_quality=tier
+	get_node("/root/HyperAnimeWorldManager").set_quality(tier)
+	_save_native_preferences()
+	if native_pause_menu: native_pause_menu.refresh_labels()
+	return true

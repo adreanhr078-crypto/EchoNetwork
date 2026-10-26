@@ -1,0 +1,20 @@
+{
+  "status": "PASS_SOURCE_SEMANTICS_ONLY",
+  "take_id": "c1ed64d6c975194967304af7:0:13373cc7",
+  "source_sha256": "c1ed64d6c975194967304af72912a06f593ed59d5c61f3263fb7132e83d951a2",
+  "diagnosis_sha256": "319959439a5187ba08bc83df77b8edbf9d68af17de980c81dbf88ac92d4ea685",
+  "observed": [
+    "Native first sample already has running contact; no initial static rest-pose jump in inspected samples.",
+    "Source displays forward torso lean and alternating relaxed forearm swing, addressing the prior upright Jog/held elbows.",
+    "Alternating legs include flight and support; arms do not hold a fighting guard.",
+    "Source review only; target shoulder, hand/cape deformation, feet and actual public-input movement require later gates."
+  ],
+  "reviewed_frames": {
+    "back-0000.png": "158a4167a26116246d25106ad9532467ae0372eb1a557cff77c26feeb9ea3745",
+    "back-0006.png": "bba9896805315c21dc4aa4e8f3c917803d650a43a8f85de29ae2fdcfa5e2a412",
+    "side-0013.png": "3e8c356ada79bc74019a6849e50f957fc4ceab3c80263df16c22ac88d7d4affc",
+    "side-0023.png": "83c2cff4812c6fcf7c0c7d92dcbf024c08667a7398e2aab737f7987ef9553985"
+  },
+  "reviewed_contact_sheet_sha256": "50d75b407b5464ad14fb8e58f4bb34929d4044028e3cc39762232c9dd58921f0",
+  "reviewed_current_source_captures": 18
+}

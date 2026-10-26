@@ -1,0 +1,6 @@
+{
+  "parent": "tools\\animation-library\\v31_parkour_motion.py",
+  "parent_sha256": "e9f740e755970200b1328ebad1346f37c21ddc2df24ae3649c0cd11f97ef3e49",
+  "driver": "tools\\animation-library\\v31_locomotion_motion.py",
+  "change": "Only accepted clip-name parser values; frozen transfer/rest/alignment/export guarded by assert_transfer_equal"
+}

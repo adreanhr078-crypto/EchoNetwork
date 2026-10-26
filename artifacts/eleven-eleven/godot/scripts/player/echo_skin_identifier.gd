@@ -36,6 +36,17 @@ func _attach_identifier() -> void:
 		push_warning("EX-011: authored skin atlas unavailable; no cloth placement")
 		return
 	var atlas := texture.get_image()
+	if atlas == null or atlas.is_empty():
+		push_warning("EX-011: authored skin atlas cannot be read; no guessed placement")
+		return
+	# A GPU-compressed source must be decoded before the exposed-skin
+	# classifier reads texels, not only later when drawing the stamped copy.
+	# Decode a private CPU image; the imported atlas and rig stay immutable.
+	if atlas.is_compressed():
+		atlas = atlas.duplicate() as Image
+		if atlas.decompress() != OK:
+			push_warning("EX-011: authored skin atlas could not be decoded")
+			return
 	var source := body.mesh.surface_get_arrays(0)
 	var vertices: PackedVector3Array = source[Mesh.ARRAY_VERTEX]
 	var uv: PackedVector2Array = source[Mesh.ARRAY_TEX_UV]

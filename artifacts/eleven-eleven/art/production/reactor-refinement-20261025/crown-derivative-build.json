@@ -1,0 +1,55 @@
+{
+  "source": "crown-h31-pbr4k.glb",
+  "source_sha256": "a27fe199ab79e9387df1a3f0ce9f7f8f3f1638e699d14c9245c9e38183ea6401",
+  "output": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k.glb",
+  "output_sha256": "4c14305e4d6e1d6a5391da64aad3c4da722dbd9116789d1f31a61176e322ac09",
+  "triangles": 196054,
+  "surfaces": 1,
+  "measured_metres": {
+    "outer_diameter": 9.5,
+    "inner_clear_diameter": 8.25,
+    "height": 0.6
+  },
+  "actual_radius_min_max": [
+    4.125000012198739,
+    4.750000012233978
+  ],
+  "source_extent": [
+    0.9792176485061646,
+    0.9784852266311646,
+    0.10030364990234375
+  ],
+  "source_radius_min_max": [
+    0.23796026027685419,
+    0.48980978505047845
+  ],
+  "radial_scale": 2.4816405770937355,
+  "radial_offset": 3.534468162361172,
+  "height_scale": 5.9818361603407615,
+  "normal_transform": "Explicit inverse-transpose radial Jacobian;loop normals/UV topology preserved;new tangent basis exported",
+  "pivot": "Bottom centre;GodotYup",
+  "images": [
+    {
+      "role": "basecolor",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "role": "normal",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "role": "rm",
+      "size": [
+        4096,
+        4096
+      ]
+    }
+  ],
+  "scope": "Measured visual annulus inside original4.8m collider,no newphysics;radialcompression changes fastener proportions,not exact image reconstruction. Actual native art/LOD/play acceptance separate."
+}

@@ -1,0 +1,31 @@
+{
+	"contacts": 0,
+	"contract_done": true,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"motion": true,
+	"renderer": "forward_plus",
+	"scope": "Four fixed art cameras in actual earned native room; HUD hidden only by this fixture. No art/traversal/performance acceptance.",
+	"source_hashes": {
+		"res://assets/cinematics/memory-screens/city-high.ogv": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+		"res://assets/cinematics/memory-screens/friends-high.ogv": "7dc0c3d05208e97f8d8c5d121d7c6cc0d19e800882e65fbd42c1059da3550bba",
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+		"res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9",
+		"res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+		"res://scripts/cinematics/lab_memory_trial.gd": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+		"res://scripts/environment/clinical_lab_architecture.gd": "58b28007fba29f16895ea180815459c6dacb3f43bfd24bf6648a74bca9a8e068",
+		"res://scripts/environment/clinical_modular_perimeter.gd": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+		"res://scripts/environment/lab_memory_cinema.gd": "cb5e5a37a9cbade029cfa36d6eb37be2235b4822368e0538646ed46dd45be91d",
+		"res://scripts/environment/memory_reflection_space.gd": "f8cb73ead963f9f47ebf95fc8400be4220094380044969811511d36a76e971b5",
+		"res://shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+		"res://shaders/clinical_diagnostic_display.gdshader": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://shaders/clinical_vitrine_glass.gdshader": "4e00429079cc990234be027c3dfdec7fabbe911ae2e0d1e1d7dbfba8cacef04a",
+		"res://shaders/memory_water.gdshader": "41c86e1da5807058dbccc7a57be7fe850080183cf434d923dc55a36c5faa7ae3",
+		"res://tests/lab_rebuild_views_review.gd": "5f0a33441d88925c36943d58951c158265a69cf3a949f553646f8d45c911dae2"
+	},
+	"wish_done": false
+}

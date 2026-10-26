@@ -1,0 +1,1382 @@
+- main:
+  - button "فتح الشريط الجانبي":
+    - text: side_nav_expand
+  - navigation "شريط التنقّل الجانبي":
+    - navigation "قائمة الإجراءات الرئيسية":
+      - link "محادثة جديدة":
+        - /url: /app
+        - img: gemini_chat
+    - navigation "قائمة الإجراءات الإضافية":
+      - button "البحث في المحادثات":
+        - generic: search
+      - link "المكتبة":
+        - /url: library
+        - img: features
+      - link "الصور":
+        - /url: /images
+        - img: image_create
+      - generic "مجدوَل":
+        - link "مجدوَل":
+          - /url: /scheduled
+          - img: schedule
+      - link "تخصيص":
+        - /url: /customize
+        - img: settings_alt
+    - link "حساب Google:‏ انتيقرافيتي ‏([redacted])":
+      - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+    - button "الإعدادات":
+      - img: settings
+  - heading "محادثة مع Gemini" [level=1]
+  - heading "أنت قلت Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN و…" [level=5]
+  - paragraph: Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN وReducedMotion وكتم؛ سأحسن المكون نفسه لا أبني HUDموازيًا. Canon PART_3 وEX-011 وV31 وGolden وSFX_ONLY ثابتة، لا قوى قبل عقد زيرو. الحفظ المحلي يؤكد مهام الفصل فقط، أماXP/المستوى/المكافآت الحسابية فعند وصول إيصال الخادم الحقيقي؛ العرض لا يخترع خبرة أو قوة. اقترح لغة بصرية سينمائية أصلية وطبقات أنواع الرسائل وتسلسل/زمن ظهورها وحدود الحركة والتوهج والصوت، بحيث تبقى منطقة اللعب والأهداف مقروءة. اعط أولويات محددة قابلة للاختبار، لا عباراتAAAأو اعتماد قنشن بلا لعب مستقل.
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: ترتكز ترقية مكون
+    - code: SystemWindow
+    - text: الحالي على تحويله من إطار إشعارات تقليدي إلى عدسة نظام سردية (Diegetic Tactical Glass) تجمع بين رهبة نوافذ Solo Leveling والهوية الهندسية الصارمة لعالم 11.11، مع ربط صارم بين الطبقة البصرية ومصدر الحقيقة (حفظ محلي للفصل مقابل إيصال خادم موثق) دون بناء أي HUD موازٍ.
+  - 'heading "1. اللغة البصرية السينمائية: توليفة Solo Leveling × 11.11" [level=2]'
+  - paragraph:
+    - text: بدلاً من الزخارف الفانتازية المزدحمة، تعتمد نافذة
+    - code: SystemWindow
+    - text: "على الزجاج التكتيكي المظلم ذي الحواف المقطوعة مع بصمة 11.11 المعمارية:"
+  - list:
+    - paragraph:
+      - text: "بصمة 11.11 الهندسية (Twin-Bar Signature): يبدأ كل إطار بخطين عموديين متوازيين فائقي الدقة ("
+      - code: 2px
+      - text: لكل خط بمسافة فصل
+      - code: 4px
+      - text: تمثل الرقم
+      - code: "11"
+      - text: ) على الحافة البادئة للنافذة (
+      - code: inset-inline-start
+      - text: )، ويتكرر نفس النمط المصغر في زاوية الإغلاق المقابلة (
+      - code: 11:11
+      - text: ).
+    - paragraph: "الانقسام البصري قبل وبعد \"عقد زيرو\" (Pre/Post-Zero Visual Gate):"
+    - list:
+      - paragraph:
+        - text: "قبل عقد زيرو: تقتصر النافذة على الوضع الخام البارد (Clinical Slate)؛ خلفية داكنة معتمة نسبياً ("
+        - code: "#090D14"
+        - text: بشفافية
+        - code: 80%
+        - text: )، وحدود رمادية-فولاذية (
+        - code: "#3A4B5C"
+        - text: ) خالية تماماً من أي جزيئات طاقة أو توهج توحي بامتلاك قوى خارقة.
+      - paragraph:
+        - text: بعد عقد زيرو (ضمن سياق
+        - code: PART_3
+        - text: و
+        - code: EX-011
+        - text: و
+        - code: V31
+        - text: "):"
+        - text: يتفعل الرنين البصري للنظام؛ تكتسب الحواف خط مسح ضوئي (Scanline) أزرق جليدي حاد للعمليات القياسية، وتتحول إلى تدرج
+        - code: Golden
+        - text: الموثق حصراً عند استلام إيصالات الخادم لحدثَي
+        - code: level
+        - text: و
+        - code: reward
+        - text: .
+    - paragraph: "حماية منطقة اللعب (Playfield Safe-Zone):"
+    - list:
+      - paragraph:
+        - text: يُحظر ظهور
+        - code: SystemWindow
+        - text: في المنطقة المركزية (
+        - code: 60%
+        - text: الوسطى من الشاشة المخصصة للشخصية، التصويب، وقراءة حركة الأعداء).
+      - paragraph:
+        - text: تتمركز النافذة في الربع العلوي (أعلى الوسط للإعلانات الكبرى، أو أعلى الحافة الجانبية لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ) بمساحة لا تتجاوز
+        - code: 16%
+        - text: من إجمالي الشاشة، مع خاصية
+        - code: "pointer-events: none"
+        - text: على الحاوية لضمان عدم اعتراض أي مدخلات لعب أو قتال.
+    - paragraph:
+      - text: التوافق ثنائي اللغة (
+      - code: HUD AR/EN
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: استخدام الخصائص المنطقية (
+        - code: inline-start
+        - text: /
+        - code: inline-end
+        - text: ) لقلب خطَّي
+        - code: "11.11"
+        - text: واتجاه المسح الضوئي تلقائياً بين العربية (RTL) والإنجليزية (LTR) في نفس المكون.
+      - paragraph:
+        - text: تثبيت ارتفاع السطر عند
+        - code: "1.45"
+        - text: مع محاذاة baseline مزدوجة تسمح بدمج المعرفات التقنية (
+        - code: EX-011
+        - text: ،
+        - code: V31
+        - text: ) داخل النص العربي دون اهتزاز عمودي.
+  - heading "2. طبقات أنواع الرسائل وبوابة التحقق (Authority & Layering)" [level=2]
+  - paragraph:
+    - text: يرتبط كل نوع داخل
+    - code: SystemWindow
+    - text: "بمصدر بيانات محدد؛ فلا يُسمح للواجهة بعرض أي تقدم حسابي أو قوة قبل تحقق شرطي العقد وإيصال الخادم:"
+  - table:
+    - rowgroup:
+      - row "نوع الرسالة مصدر الصلاحية المسموح السلوك قبل \"عقد زيرو\" البنية البصرية واللون البصمة الصوتية ( SFX_ONLY )":
+        - columnheader "نوع الرسالة"
+        - columnheader "مصدر الصلاحية المسموح"
+        - columnheader "السلوك قبل \"عقد زيرو\""
+        - columnheader "البنية البصرية واللون"
+        - columnheader "البصمة الصوتية ( SFX_ONLY )":
+          - text: البصمة الصوتية (
+          - code: SFX_ONLY
+          - text: )
+    - rowgroup:
+      - row "info محلي (Client) أو خادم مسموح (إرشادات/تنبيهات نظام مجردة) شريط أفقي مدمج، حد 1px فولاذي هادئ، بدون ترويسة علوية نبضة زجاجية مكتومة قصيرة (أقل من 120ms )":
+        - cell "info":
+          - code: info
+        - cell "محلي (Client) أو خادم"
+        - cell "مسموح (إرشادات/تنبيهات نظام مجردة)"
+        - cell "شريط أفقي مدمج، حد 1px فولاذي هادئ، بدون ترويسة علوية":
+          - text: شريط أفقي مدمج، حد
+          - code: 1px
+          - text: فولاذي هادئ، بدون ترويسة علوية
+        - cell "نبضة زجاجية مكتومة قصيرة (أقل من 120ms )":
+          - text: نبضة زجاجية مكتومة قصيرة (أقل من
+          - code: 120ms
+          - text: )
+      - row "quest الحفظ المحلي يؤكد مهام الفصل فقط ( PART_3 ) مسموح للمهام السردية/الفصلية فقط دون عرض مكافآت قوى إطار متوسط، عمودا 11.11 مضاءان، انتقال حالة المهمة إلى \"مؤكد محلياً\" قفل ميكانيكي مزدوج النبضة يطابق خطَّي 11.11 ( 260ms )":
+        - cell "quest":
+          - code: quest
+        - cell "الحفظ المحلي يؤكد مهام الفصل فقط ( PART_3 )":
+          - text: الحفظ المحلي يؤكد مهام الفصل فقط (
+          - code: PART_3
+          - text: )
+        - cell "مسموح للمهام السردية/الفصلية فقط دون عرض مكافآت قوى"
+        - cell "إطار متوسط، عمودا 11.11 مضاءان، انتقال حالة المهمة إلى \"مؤكد محلياً\"":
+          - text: إطار متوسط، عمودا
+          - code: "11.11"
+          - text: مضاءان، انتقال حالة المهمة إلى "مؤكد محلياً"
+        - cell "قفل ميكانيكي مزدوج النبضة يطابق خطَّي 11.11 ( 260ms )":
+          - text: قفل ميكانيكي مزدوج النبضة يطابق خطَّي
+          - code: "11.11"
+          - text: (
+          - code: 260ms
+          - text: )
+      - row "reward إيصال الخادم الحقيقي حصراً محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة إطار موسع مع شارة تحقق البيانات، لمسة Golden على شريط العنوان رنين كريستالي حاد متبوع بثقل ترددي منخفض ( 500ms )":
+        - cell "reward":
+          - code: reward
+        - cell "إيصال الخادم الحقيقي حصراً":
+          - generic: إيصال الخادم الحقيقي حصراً
+        - cell "محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة":
+          - generic: محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة
+        - cell "إطار موسع مع شارة تحقق البيانات، لمسة Golden على شريط العنوان":
+          - text: إطار موسع مع شارة تحقق البيانات، لمسة
+          - code: Golden
+          - text: على شريط العنوان
+        - cell "رنين كريستالي حاد متبوع بثقل ترددي منخفض ( 500ms )":
+          - text: رنين كريستالي حاد متبوع بثقل ترددي منخفض (
+          - code: 500ms
+          - text: )
+      - row "level إيصال الخادم الحقيقي حصراً (XP/المستوى) محجوب بالكامل (تُسقط الواجهة أي حدث level قبل توقيع عقد زيرو) فتح عمودي سينمائي من خط المنتصف، إطار Golden كامل مع رمز V31 / EX-011 نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي ( 650ms )":
+        - cell "level":
+          - code: level
+        - cell "إيصال الخادم الحقيقي حصراً (XP/المستوى)":
+          - generic: إيصال الخادم الحقيقي حصراً (XP/المستوى)
+        - cell "محجوب بالكامل (تُسقط الواجهة أي حدث level قبل توقيع عقد زيرو)":
+          - text: محجوب بالكامل (تُسقط الواجهة أي حدث
+          - code: level
+          - text: قبل توقيع عقد زيرو)
+        - cell "فتح عمودي سينمائي من خط المنتصف، إطار Golden كامل مع رمز V31 / EX-011":
+          - text: فتح عمودي سينمائي من خط المنتصف، إطار
+          - code: Golden
+          - text: كامل مع رمز
+          - code: V31
+          - text: /
+          - code: EX-011
+        - cell "نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي ( 650ms )":
+          - text: نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي (
+          - code: 650ms
+          - text: )
+  - button "مزيد من الخيارات":
+    - img: more_horiz
+  - heading "3. التسلسل الزمني وإدارة الطابور (Sequencing & Timing)" [level=2]
+  - paragraph:
+    - text: يعمل
+    - code: SystemWindow
+    - text: "كآلة حالة أحادية العرض (Single-Active-Slot Queue) لمنع تراكب النوافذ فوق بعضها:"
+  - list:
+    - paragraph: "ترتيب الأولويات ودمج الأحداث (Priority & Coalescing):"
+    - list:
+      - paragraph:
+        - text: "عند إنهاء مهمة فصل: تُعرض نافذة"
+        - code: quest
+        - text: فوراً بناءً على الحفظ المحلي لإعطاء استجابة لحظية للاعب.
+      - paragraph:
+        - text: "فصل الانتظار (Non-Blocking Receipt): لا يظهر أي مؤشر تحميل (Spinner) بانتظار الخادم. يستمر اللعب طبيعياً، وفور وصول إيصال الخادم الحقيقي، يدخل حدثا"
+        - code: level
+        - text: ثم
+        - code: reward
+        - text: إلى الطابور.
+      - paragraph:
+        - text: إذا وصل أكثر من إيصال
+        - code: reward
+        - text: خلال نافذة
+        - code: 300ms
+        - text: ، يدمجها
+        - code: SystemWindow
+        - text: في بطاقة عرض واحدة متعددة الأسطر بدلاً من تكرار فتح النافذة.
+    - paragraph: "الميزانية الزمنية للظهور (بالمللي ثانية):"
+    - list:
+      - paragraph:
+        - text: الدخول (Unfold -
+        - code: 180ms
+        - text: "):"
+        - text: يبدأ بخط ضوئي أفقي رفيع ينفتح عمودياً (
+        - code: scaleY
+        - text: من
+        - code: "0.02"
+        - text: إلى
+        - code: "1.0"
+        - text: ) بمنحنى تسارع
+        - code: cubic-bezier(0.16, 1, 0.3, 1)
+        - text: يحاكي انفتاح شق النظام في Solo Leveling ولكن بفرملة هندسية حادة.
+      - paragraph: "الثبات للقراءة (Hold):"
+      - list:
+        - paragraph:
+          - code: info
+          - text: ":"
+          - code: 2400ms
+        - paragraph:
+          - code: quest
+          - text: ":"
+          - code: 3200ms
+        - paragraph:
+          - code: reward
+          - text: ":"
+          - code: 3800ms
+        - paragraph:
+          - code: level
+          - text: ":"
+          - code: 4200ms
+      - paragraph:
+        - text: الخروج (Collapse -
+        - code: 140ms
+        - text: "):"
+        - text: انكماش نحو خطَّي
+        - code: "11.11"
+        - text: الجانبيين مع تلاشي الشفافية إلى الصفر.
+      - paragraph:
+        - text: الفراغ البصري بين رسالتين (Cooldown -
+        - code: 220ms
+        - text: "):"
+        - text: فترة صمت بصري إجبارية بين إغلاق نافذة وفتح التالية في الطابور لإراحة عين اللاعب وإبقاء الأهداف في الخلفية مقروءة.
+  - heading "4. حدود الحركة والتوهج والصوت (Guardrails)" [level=2]
+  - paragraph: "لضمان عدم تحول النافذة إلى عنصر مشتت أثناء اللعب الفعلي، تُضبط الحدود القصوى للمؤثرات كالتالي:"
+  - list:
+    - paragraph: "حدود التوهج والتباين (Luminance & Readability):"
+    - list:
+      - paragraph:
+        - text: يُمنع التوهج الكلي للخلفية؛ يقتصر التوهج (Box-Shadow / Outer Glow) على حواف خطَّي
+        - code: "11.11"
+        - text: بنصف قطر لا يتجاوز
+        - code: 8px
+        - text: لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ، و
+        - code: 14px
+        - text: لطبقة
+        - code: Golden
+        - text: في
+        - code: level
+        - text: /
+        - code: reward
+        - text: .
+      - paragraph:
+        - text: تعتيم خلفية النافذة ثابت بين
+        - code: 76%
+        - text: و
+        - code: 84%
+        - text: مع تمويه خلفي خفيف (
+        - code: "backdrop-filter: blur(5px)"
+        - text: ) يحافظ على رؤية الأجسام المتحركة خلف النافذة مع ضمان نسبة تباين للنص لا تقل عن
+        - code: 7:1
+        - text: .
+      - paragraph: صفر وميض للشاشة الكاملة (Zero Full-Screen Flash) وصفر اهتزاز للكاميرا ناتج عن واجهة المستخدم.
+    - paragraph:
+      - text: وضع تقليل الحركة (
+      - code: ReducedMotion
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: إلغاء حركة الانفتاح العمودي (
+        - code: scaleY
+        - text: )، إلغاء خط المسح الضوئي المتحرك، وإلغاء عدادات الأرقام المتسلسلة (Tick-up numbers) لـ XP.
+      - paragraph:
+        - text: استبدالها بظهور وتلاشٍ مباشر عبر الشفافية فقط (
+        - code: Opacity Fade
+        - text: خلال
+        - code: 100ms
+        - text: ) مع عرض الرقم النهائي الموثق من الخادم فوراً.
+    - paragraph:
+      - text: قيود الصوت (
+      - code: SFX_ONLY
+      - text: ووضع الكتم
+      - code: Mute
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: الالتزام الصارم بـ
+        - code: SFX_ONLY
+        - text: ": حظر تام للمقاطع الموسيقية القصيرة (Stingers/Fanfares) أو الأصوات البشرية، والاكتفاء بمؤثرات تصميم صوتي تقني-فيزيائي (نقرات زجاجية، نبضات كهرومغناطيسية منخفضة التردد)."
+      - paragraph:
+        - text: "سقف الصوت الموحد:"
+        - code: "-16 LUFS"
+        - text: لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ، و
+        - code: "-14 LUFS"
+        - text: لـ
+        - code: level
+        - text: /
+        - code: reward
+        - text: مع قطع الترددات المتوسطة (
+        - code: 1kHz - 3kHz
+        - text: ) بعمق
+        - code: "-3dB"
+        - text: أثناء القتال لئلا تطغى على المؤثرات الصوتية لتحذيرات الأعداء.
+      - paragraph:
+        - text: عند تفعيل
+        - code: Mute
+        - text: ": يتم تخطي استدعاء محرك الصوت برمجياً بالكامل (Early Return قبل إنشاء عقدة الصوت)، مع تعويض بصري طفيف يتمثل في نبضة إضاءة وحيدة لخطَّي"
+        - code: "11.11"
+        - text: عند تثبيت الرسالة.
+  - heading "5. أولويات محددة قابلة للاختبار (Testable QA & Engineering Priorities)" [level=2]
+  - paragraph:
+    - text: تُعتمد هذه المعايير كاختبارات قبول مباشرة (Pass/Fail) على مكون
+    - code: SystemWindow
+    - text: ":"
+  - list:
+    - paragraph: "الأولوية 1 — اختبار رفض القوة والخبرة غير الموثقة (Authority Rejection Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تمرير حدث"
+        - code: level
+        - text: أو
+        - code: reward
+        - text: أو زيادة
+        - code: XP
+        - text: إلى
+        - code: SystemWindow
+        - text: محلياً بدون توقيع إيصال الخادم (
+        - code: serverReceiptId == null
+        - text: )، أو أثناء كون حالة العقد قبل زيرو (
+        - code: preZeroContract == true
+        - text: ).
+      - paragraph: "معيار النجاح: يرفض المكون الرسم تماماً (0 إطارات معروضة)، ولا يحدث أي تغيير في شريط المستوى أو الصوت."
+    - paragraph: "الأولوية 2 — اختبار ثبات القراءة وعدم حجب اللعب (Occlusion & Input Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تفعيل جميع الأنواع الأربعة ("
+        - code: info
+        - text: ،
+        - code: quest
+        - text: ،
+        - code: reward
+        - text: ،
+        - code: level
+        - text: ) أثناء تحريك الكاميرا والتصويب المستمر.
+      - paragraph:
+        - text: "معيار النجاح: عدم تقاطع صندوق"
+        - code: SystemWindow
+        - text: مع دائرة المركز (
+        - code: 60%
+        - text: الوسطى)، وعدم فقدان أي نقرة أو مدخل حركة (
+        - code: 0%
+        - text: Input Drop).
+    - paragraph: "الأولوية 3 — اختبار ضغط الطابور ومنع التكدس (Burst Queue Stress Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: ضخ 8 أحداث متتالية في نفس الإطار الزمني (4"
+        - code: info
+        - text: + 1
+        - code: quest
+        - text: محلي + 2
+        - code: reward
+        - text: موثق + 1
+        - code: level
+        - text: موثق).
+      - paragraph:
+        - text: "معيار النجاح: ظهور نافذة واحدة فقط في كل لحظة، دمج حدثَي"
+        - code: reward
+        - text: في نافذة واحدة، التزام الفاصل الزمني (
+        - code: 220ms
+        - text: ) بين النوافذ، وتفريغ الطابور بالكامل دون تجميد الواجهة.
+    - paragraph:
+      - text: الأولوية 4 — اختبار التناظر اللغوي (
+      - code: HUD AR/EN
+      - text: "Parity Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تبديل اللغة بين العربية والإنجليزية أثناء عرض رسالة"
+        - code: quest
+        - text: تحتوي على رموز
+        - code: PART_3
+        - text: و
+        - code: EX-011
+        - text: و
+        - code: V31
+        - text: .
+      - paragraph:
+        - text: "معيار النجاح: انعكاس موقع خطَّي"
+        - code: "11.11"
+        - text: تلقائياً، بقاء المعرفات اللاتينية بالترتيب الصحيح، وعدم تغير ارتفاع النافذة بأكثر من
+        - code: 2px
+        - text: .
+    - paragraph:
+      - text: الأولوية 5 — اختبار الامتثال الصارم لـ
+      - code: ReducedMotion
+      - text: و
+      - code: Mute
+      - text: و
+      - code: SFX_ONLY
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تشغيل المكون مع تفعيل"
+        - code: ReducedMotion
+        - text: و
+        - code: Mute
+        - text: ، وفحص ملفات الصوت المرتبطة بالمكون.
+      - paragraph:
+        - text: "معيار النجاح: صفر تغير في خصائص"
+        - code: transform
+        - text: الهندسية أثناء
+        - code: ReducedMotion
+        - text: ، صفر استدعاءات لمحرك الصوت أثناء
+        - code: Mute
+        - text: ، وألا يتجاوز طول أي ملف صوتي مرتبط بالمكون
+        - code: 700ms
+        - text: لضمان شرط
+        - code: SFX_ONLY
+        - text: .
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - 'heading "أنت قلت راجع الصور الثلاث المرفقة من Godot الحالي CP39 v7 بصريًا، وليست تصورات مولدة. توجيه المالك: النافذة …" [level=5]'
+  - paragraph: "راجع الصور الثلاث المرفقة من Godot الحالي CP39 v7 بصريًا، وليست تصورات مولدة. توجيه المالك: النافذة أمام إيكو إلى جانبه بأسلوب ظهور برمجي ممتع وهادئ، دون حجب الشخصية أو تعطيل اللعب. تتبع موضع صدره بإزاحة جانبية؛ ReducedMotion يثبتها إلى الجانب. البطاقات 410px، الجزئية وXP أصغر360px؛ دخول220ms وخروج180ms، جزئي2.4s صامت، خبرة2.8s صامتة، مهمة جديدة3.2s، اكتمال3.5s. التقدم السريع يحدث نفس البطاقة دون تكرار الدخول/الصوت؛ الحوارات والقرارات تتقدمها. صور المهمة من تقدم فصل محفوظ؛ الحالة تقرأ HP والتحمل الفعليين. لا ربط خبرة حساب حية ولا منح قوى من UI. Golden تعني مرجع Walk المحمي ولا تعني لونًا أو مكافأة. أعطني نقدًا بصريًا محددًا لما تراه بالصور: موضع/حجم/قراءة العربية والإنجليزية/ازدحام/تماسك. افصل PASS المرئي عن الحركة/الصوت/المرح التي لا يمكن اعتمادها من صور ثابتة. اقترح فقط 1-3 إصلاحات لازمة إن وجدت؛ لا تعلن AAA أو Genshin أو جودة المشروع من هذه اللقطات."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: فيما يلي المراجعة البصرية الدقيقة للقطات الثلاث الملتقطة فعلياً من محرك Godot للإصدار CP39 v7، مع الالتزام بتعريف Golden كمرجع Walk المحمي، وفصل ما يثبته الفحص البصري الثابت عما يتطلب فحصاً تشغيلياً حياً.
+  - heading "1. النقد البصري التفصيلي للقطات الثلاث" [level=3]
+  - list:
+    - paragraph: "الموضع والإزاحة الجانبية (Position & Lateral Offset):"
+    - list:
+      - paragraph:
+        - text: تتموضع نافذة
+        - code: SystemWindow
+        - text: في اللقطات الثلاث إلى يمين شخصية "إيكو" في النصف الأيمن من الشاشة وعلى مستوى موازٍ لمنطقة الصدر/الجذع
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: تحافظ النافذة على مسافة فصل أفقية واضحة عن كتف وذراع "إيكو" سواء أثناء خطوة المشي
+        - superscript
+        - text: أو أثناء الوقوف الثابت
+        - superscript
+        - text: ، مما يمنع حجب الشخصية أو إعاقة الرؤية الأمامية للممر والغرفة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg, JPG: personal-status-ar.jpg, JPG: personal-task-en.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 4
+    - paragraph: "الحجم والتناسب (Size & Proportions):"
+    - list:
+      - paragraph:
+        - text: يظهر عرض البطاقة القياسي (
+        - code: 410px
+        - text: ) متوازناً مع أبعاد شاشة اللعب؛ فهو كبير بما يكفي لقراءة العنوان وشريط التقدم دون ابتلاع خلفية المشهد (السرير، النافذة، وإضاءة الغرفة تظل مقروءة حول الإطار)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - generic: "ملاحظة حدود اللقطات: الصور الثلاث تعرض فقط بطاقة \"مهمة مكتملة\" (عربي/إنجليزي) وبطاقة \"الحالة\" بالحجم القياسي"
+        - superscript
+        - text: ، ولا تتضمن لقطة لبطاقات التقدم الجزئي أو الـ XP ذات العرض الأصغر (
+        - code: 360px
+        - text: ).
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+    - paragraph: "قراءة العربية والإنجليزية (AR/EN Readability & Bilingual Parity):"
+    - list:
+      - paragraph:
+        - text: "الوضوح والتباين: الخلفية الداكنة شبه المعتمة للبطاقة تمنح تبايناً عالياً للنص الأبيض والأزرق السيان ("
+        - code: Cyan
+        - text: ) أمام الخلفية الفاتحة نسبياً لجدران الغرفة والسرير
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: "انعكاس الاتجاه (RTL / LTR): ينعكس تخطيط الترويسة بنجاح بين اللغتين؛ ففي العربية يظهر وسم الحالة/المهمة ("
+        - code: مهمة مكتملة // 11:11
+        - text: و
+        - code: الحالة // [ I ]
+        - text: ) على اليسار ومعرف (
+        - code: إيكو // ECHO
+        - text: ) مع خطَّي البصمة العموديين (
+        - code: "||"
+        - text: ) على اليمين
+        - superscript
+        - text: ، بينما ينعكس في الإنجليزية ليصبح خطا (
+        - code: "||"
+        - text: ) ومعرف (
+        - code: ECHO // 11.11
+        - text: ) على اليسار و(
+        - code: TASK COMPLETE // 11:11
+        - text: ) على اليمين
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: "الدمج النصي والرقمي: الأرقام والرموز اللاتينية المدمجة داخل العربية ("
+        - code: 200 / 200
+        - text: ،
+        - code: 100 / 100
+        - text: ،
+        - code: EX-011
+        - text: ،
+        - code: 3 / 3
+        - text: ) مصطفة بشكل سليم دون انكسار في اتجاه القراءة (
+        - code: BiDi
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+    - paragraph: "الازدحام وتوزيع العناصر (Crowding & Layout Density):"
+    - list:
+      - paragraph:
+        - text: في لقطتَي الحالة والنسخة الإنجليزية، تبدو الشاشة نظيفة جداً مع اقتصار الـ HUD العلوي على البوصلة (
+        - code: NE | E | SE
+        - text: ) وزرَّي (
+        - code: الحالة [I]
+        - text: /
+        - code: توقف
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: في لقطة المشي الأولى، يظهر تنبيه التحكم (
+        - code: الحركة المعتادة [R]
+        - text: ) في أعلى اليسار بالتزامن مع بطاقة المهمة المكتملة
+        - superscript
+        - text: ؛ ورغم عدم تعارضه مع
+        - code: SystemWindow
+        - text: ، إلا أن طرفه السفلي يلامس الحافة العلوية لمجسم ساعة الحائط (
+        - code: 11:11
+        - text: ) من زاوية الكاميرا هذه
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-task-follow.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: داخل بطاقة الحالة العربية، يتركز النص المكون من 4 أسطر قصيرة في أقصى اليمين بينما يظل النصف الأيسر من مساحة البطاقة فارغاً تماماً
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: personal-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph: "التماسك البصري والالتزام بالقواعد (Visual Cohesion & Rule Compliance):"
+    - list:
+      - paragraph:
+        - text: تتناغم لغة الإطار (الحواف السيان، أقواس الزوايا الأربعة، الخطان العموديان
+        - code: "||"
+        - text: ، والنقاط الثلاث السفلية
+        - code: ...
+        - text: ) مع لون ساعة الحائط
+        - code: 11:11
+        - text: ومؤشر البوصلة العلوي
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: تلتزم بطاقة الحالة (
+        - code: حالة إيكو
+        - text: ) بصرامة بعدم اختراع خبرة أو قوى؛ إذ تقتصر على (
+        - code: "الارتباط بزيرو: مُثبت"
+        - text: ،
+        - code: "الصحة: 200 / 200"
+        - text: ،
+        - code: "التحمل: 100 / 100"
+        - text: ،
+        - code: "الهدف: EX-011"
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: personal-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+  - heading "2. فصل الاعتماد البصري (Visual PASS) عما لا يُعتمد من صور ثابتة" [level=3]
+  - table:
+    - rowgroup:
+      - row "النطاق العناصر المحققة / غير المحققة حالة الاعتماد من اللقطات المرفقة":
+        - columnheader "النطاق"
+        - columnheader "العناصر المحققة / غير المحققة"
+        - columnheader "حالة الاعتماد من اللقطات المرفقة"
+    - rowgroup:
+      - 'row "ما يجتاز بصرياً (Visual PASS) • عدم حجب شخصية \"إيكو\" أثناء المشي أو الوقوف . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. • وضوح القراءة والتباين في العربية والإنجليزية . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. • انعكاس البصمة (`"':
+        - cell "ما يجتاز بصرياً (Visual PASS)":
+          - generic: ما يجتاز بصرياً (Visual PASS)
+        - 'cell "• عدم حجب شخصية \"إيكو\" أثناء المشي أو الوقوف . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. • وضوح القراءة والتباين في العربية والإنجليزية . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. • انعكاس البصمة (`"':
+          - paragraph:
+            - text: • عدم حجب شخصية "إيكو" أثناء المشي أو الوقوف
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 2
+          - paragraph:
+            - text: • وضوح القراءة والتباين في العربية والإنجليزية
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-status-ar.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 2
+          - paragraph: "• انعكاس البصمة (`"
+        - cell
+      - row "ما لا يمكن اعتماده من صور ثابتة (Requires Runtime QA) • سلاسة تتبع موضع الصدر أثناء الحركة الفعلية وتثبيت ReducedMotion . • أزمنة الدخول ( 220ms ) والخروج ( 180ms ) ومدة البقاء ( 2.4s / 2.8s / 3.2s / 3.5s ). • البطاقات المصغرة ( 360px ) للتقدم الجزئي والـ XP (غير معروضة بالصور). • التحديث اللحظي في نفس البطاقة دون تكرار حركة الدخول أو الصوت. • صمت البطاقات الجزئية/XP، وكتم الصوت، وأولوية الحوارات والقرارات. • إحساس الهدوء والمتعة أثناء اللعب الفعلي. معلق (يتطلب اختبار تشغيل داخل المحرك)":
+        - cell "ما لا يمكن اعتماده من صور ثابتة (Requires Runtime QA)":
+          - generic: ما لا يمكن اعتماده من صور ثابتة (Requires Runtime QA)
+        - cell "• سلاسة تتبع موضع الصدر أثناء الحركة الفعلية وتثبيت ReducedMotion . • أزمنة الدخول ( 220ms ) والخروج ( 180ms ) ومدة البقاء ( 2.4s / 2.8s / 3.2s / 3.5s ). • البطاقات المصغرة ( 360px ) للتقدم الجزئي والـ XP (غير معروضة بالصور). • التحديث اللحظي في نفس البطاقة دون تكرار حركة الدخول أو الصوت. • صمت البطاقات الجزئية/XP، وكتم الصوت، وأولوية الحوارات والقرارات. • إحساس الهدوء والمتعة أثناء اللعب الفعلي.":
+          - paragraph:
+            - text: • سلاسة تتبع موضع الصدر أثناء الحركة الفعلية وتثبيت
+            - code: ReducedMotion
+            - text: .
+          - paragraph:
+            - text: • أزمنة الدخول (
+            - code: 220ms
+            - text: ) والخروج (
+            - code: 180ms
+            - text: ) ومدة البقاء (
+            - code: 2.4s
+            - text: /
+            - code: 2.8s
+            - text: /
+            - code: 3.2s
+            - text: /
+            - code: 3.5s
+            - text: ).
+          - paragraph:
+            - text: • البطاقات المصغرة (
+            - code: 360px
+            - text: ) للتقدم الجزئي والـ XP (غير معروضة بالصور).
+          - paragraph: • التحديث اللحظي في نفس البطاقة دون تكرار حركة الدخول أو الصوت.
+          - paragraph: • صمت البطاقات الجزئية/XP، وكتم الصوت، وأولوية الحوارات والقرارات.
+          - paragraph: • إحساس الهدوء والمتعة أثناء اللعب الفعلي.
+        - cell "معلق (يتطلب اختبار تشغيل داخل المحرك)":
+          - generic: معلق (يتطلب اختبار تشغيل داخل المحرك)
+  - heading "3. الإصلاحات البصرية اللازمة فقط (1–3 إصلاحات محددة)" [level=3]
+  - list:
+    - paragraph:
+      - text: زيادة الهامش الداخلي الأفقي للمتن (
+      - code: Body Inline Padding
+      - text: ) بمقدار
+      - code: 8px–10px
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: "المشكلة المرئية: في النسخة الإنجليزية، يبدأ سطر ("
+        - code: All three memory fragments are recovered.
+        - text: ) قريباً جداً من الحافة اليسرى للإطار على نفس خط قوس الزاوية تقريباً
+        - superscript
+        - text: ، وفي بطاقة الحالة العربية يقترب سطر (
+        - code: "الهدف: EX-011"
+        - text: ) من قوس الزاوية السفلي الأيمن
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-en.jpg وJPG: personal-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "الإصلاح: توسيع الـ"
+        - code: Margin/Padding
+        - text: الداخلي لحاوية النص بحيث يبدأ المتن داخل حدود أقواس الزوايا الداخلية وليس بمحاذاتها.
+    - paragraph: "معالجة الفراغ الأيسر في بطاقة \"الحالة\" وتوحيد محاذاة العنوان:"
+    - list:
+      - paragraph:
+        - text: "المشكلة المرئية: عنوان البطاقة ("
+        - code: حالة إيكو
+        - text: /
+        - code: استعادة شظايا الذاكرة
+        - text: /
+        - code: Recover the memory fragments
+        - text: ) يتمركز في المنتصف بينما يصطف النص تحته إلى الطرف
+        - superscript
+        - text: ، ما يخلق فراغاً غير مستغل في النصف الأيسر من بطاقة الحالة العربية
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg, JPG: personal-status-ar.jpg, JPG: personal-task-en.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 3
+      - paragraph:
+        - text: "الإصلاح: إما محاذاة العنوان مع بداية اتجاه القراءة ("
+        - code: inline-start
+        - text: ) ليتطابق مع المتن، أو توزيع أسطر بطاقة الحالة الأربعة بنظام العمودين (التسمية يميناً والقيمة
+        - code: 200 / 200
+        - text: أو
+        - code: EX-011
+        - text: يساراً) لملء عرض الـ
+        - code: 410px
+        - text: بتوازن هندسي.
+    - paragraph:
+      - text: توحيد صيغة معرف الترويسة بين العربية والإنجليزية لمنع تكرار
+      - code: 11:11
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: "المشكلة المرئية: الترويسة في العربية تعرض ("
+        - code: إيكو // ECHO
+        - text: ) في جهة و(
+        - code: 11:11
+        - text: ) في الجهة المقابلة
+        - superscript
+        - text: ، بينما في الإنجليزية تعرض (
+        - code: ECHO // 11.11
+        - text: ) على اليسار و(
+        - code: TASK COMPLETE // 11:11
+        - text: ) على اليمين، ما يؤدي لتكرار الرقم مرتين في نفس السطر وبفاصل نقطي مختلف (
+        - code: .
+        - text: مقابل
+        - code: ":"
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: personal-task-follow.jpg وJPG: personal-task-en.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "الإصلاح: توحيد الرمز التعريفي في اللغتين ليحمل نفس البنية دون تكرار الرقم في طرفي الترويسة (مثلاً إبقاء"
+        - code: ECHO
+        - text: أو
+        - code: إيكو // ECHO
+        - text: في طرف، و
+        - code: 11:11
+        - text: في طرف الحالة المقابل فقط).
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الفيديو الذي تم تحميله في عرض مبسّط":
+    - img "معاينة الفيديو المحمَّل"
+    - img: play_arrow
+    - generic: 0:04
+  - 'heading "أنت قلت هذه مراجعة متابعة بمرفقات جديدة: صورتا UI CP39 v9 بعد إصلاحاتك (هامش28px، عنوان بمحاذاة بداية القراء…" [level=5]'
+  - paragraph: "هذه مراجعة متابعة بمرفقات جديدة: صورتا UI CP39 v9 بعد إصلاحاتك (هامش28px، عنوان بمحاذاة بداية القراءة، ECHO دون تكرار الرقم، وترويسة إنجليزية بسطر واحد). تحقق هل عولجت العيوب المرئية فقط. أما ملف الفيديو5s فهو مصدر Tripo Custom Run attempt01 مرفوض مبدئيًا: يبدأ وينتهي واقفًا، اليدان على الخصر، أقرب لإحماء/مشي في المكان من جري بذرعين متبادلتين. قارنت كل120عينة24Hz و66عظمة بين Blender وGodot:7920 مقارنةPASS، max4.325ميكرومتر و0.001531درجة؛ إذن عيب الدلالة في المصدر لا الاستيراد. الهيكل66عظمة يتضمن أصابع دون عين/فك/معطف مستقل، وخامات2K بعدRetopo؛ الأصل8K محفوظ ولم يُستبدلV31/Golden. بدأت محاولة ثانية وحيدة بوصف sprint forward مستمر، pumping arms، مع إبقاءroot travel الأصلي. لا محاولة ثالثة عمياء. راجع الفيديو كحركة: اذكر العيوب المرئية وقبول/رفض استعماله كRun، وما يلزم لفحص محاولة2. لا تستنتج أن الهيكلة القديمة سيئة أو تعتمد ترقية اللاعب من مجرد تطابق الأرقام. اختصر."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "1. مراجعة واجهة CP39 v9 (التحقق البصري فقط)" [level=3]
+  - paragraph:
+    - generic: "الحالة: PASS (مرئي كامل للإصلاحات الثلاثة)"
+    - superscript
+    - text: .
+    - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: JPG
+      - generic: + 1
+  - list:
+    - paragraph:
+      - text: الهامش الداخلي (
+      - code: 28px
+      - text: "):"
+      - text: ابتعد المتن والعنوان بوضوح عن أقواس الزوايا والحواف الجانبية في النسختين الإنجليزية والعربية
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - text: محاذاة العنوان (
+      - code: inline-start
+      - text: "):"
+      - text: اصطف عنوان
+      - code: Recover the memory fragments
+      - text: يساراً مع المتن
+      - superscript
+      - text: ، واصطف عنوان
+      - code: حالة إيكو
+      - text: يميناً فوق بنود الحالة مباشرة
+      - superscript
+      - text: ، مما أنهى التضارب البصري بين تمركز العنوان ومحاذاة النص.
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - text: "الترويسة ومنع التكرار: استقرت الترويسة الإنجليزية في سطر واحد نظيف ("
+      - code: ECHO
+      - text: يساراً مقابل
+      - code: TASK COMPLETE // 11:11
+      - text: يميناً) دون تكرار الرقم
+      - code: "11.11"
+      - superscript
+      - text: ، مع ثبات تناظر
+      - code: ECHO // إيكو
+      - text: في النسخة العربية
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: cp39-v9-task-en.jpg وJPG: cp39-v9-status-ar.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+  - heading "2. مراجعة فيديو الحركة (Tripo Custom Run — Attempt 01)" [level=3]
+  - paragraph:
+    - text: "الحكم: REJECT (مرفوض للاستخدام كحركة"
+    - code: Run
+    - text: )
+    - superscript
+    - text: . تطابق الأرقام بين Blender وGodot (
+    - code: 7920 PASS
+    - text: ) يثبت سلامة قناة التصدير والاستيراد فقط، لكنه لا يبرر ترقية اللاعب أو استبدال
+    - code: V31
+    - text: /
+    - code: Golden
+    - text: ، ولا يعني سوء الهيكلة السابقة.
+    - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: Echo-Tripo-custom-running-review.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: MP4
+  - paragraph: "العيوب الحركية المرئية في المقطع (5 ثوانٍ):"
+  - list:
+    - paragraph:
+      - text: "غياب دورة الجري المتصلة (Non-Loopable Pose Transitions): تبدأ الشخصية من الوقوف وترفع يديها في الثانية"
+      - code: 00:00
+      - text: ، ثم تعود لإنزال اليدين والوقوف التام في الثانية
+      - code: 00:04
+      - text: ، ما يجعل المقطع غير صالح للتكرار (
+      - code: Loop
+      - text: ) كحركة تنقل مستمرة
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: Echo-Tripo-custom-running-review.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: MP4
+    - paragraph:
+      - text: "تثبيت الذراعين على الخصر (Pinned Arms): طوال الثواني"
+      - code: 00:01–00:03
+      - text: تبقى اليدان مثبتتين على الخصر دون أي تبادل حركي مع الرجلين
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: Echo-Tripo-custom-running-review.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: MP4
+    - paragraph:
+      - text: "ضعف الدفع الأمامي وتشوه المعطف السفلي: تقتصر حركة الرجلين على ثني خفيف للركبتين في المكان أقرب للإحماء منه للجري، مع انشداد أطراف المعطف السفلية للداخل تبعاً لعظام الفخذين والركبتين في الثانية"
+      - code: 00:01–00:02
+      - text: نظراً لعدم وجود عظام معطف مستقلة
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"MP4: Echo-Tripo-custom-running-review.mp4\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: MP4
+  - heading "3. ما يلزم لفحص المحاولة الثانية (Attempt 02) قبل أي اعتماد" [level=3]
+  - paragraph:
+    - text: لفحص مخرجات (
+    - code: sprint forward
+    - text: +
+    - code: pumping arms
+    - text: +
+    - code: root travel
+    - text: ") في المحاولة الثانية والوحيدة:"
+  - list:
+    - paragraph: "اتصال الإطار الأول بالأخير (Mid-Stride Loop): التأكد من أن المقطع يبدأ وينتهي داخل طور الجري نفسه دون وقفة بداية أو نهاية."
+    - paragraph: "تبادل الذراعين والأرجل (Contralateral Arm Swing): تحقق بصري من تأرجح الذراعين بحرية عكس حركة القدمين وعدم التصاق الكفين بالجذع أو الخصر."
+    - paragraph:
+      - text: "اختبار شد المعطف مع اتساع الخطوة (Skinned Coat Stretch): فحص أقصى تباعد بين الفخذين أثناء الـ"
+      - code: Sprint
+      - text: للتأكد من أن غياب عظام المعطف المستقلة وخامات
+      - code: 2K
+      - text: لا يسببان تمزقاً بصرياً حاداً بين الساقين.
+    - paragraph:
+      - text: انتظام سرعة الجذر (
+      - code: Root Travel
+      - text: "Linearity):"
+      - text: التحقق من أن إزاحة الجذر للأمام خطية ومطابقة لملامسة القدم للأرض دون انزلاق (
+      - code: Foot Sliding
+      - text: ) عند ربطها بحركة اللاعب في Godot.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - 'heading "أنت قلت CP40: فحص حي يثبت أن لاعب V31 الحالي68عظمة لا يملك أي PARKOUR_HANG/CLIMB/MANTLE؛ متحكم التصادم يحرك …" [level=5]'
+  - paragraph: "CP40: فحص حي يثبت أن لاعب V31 الحالي68عظمة لا يملك أي PARKOUR_HANG/CLIMB/MANTLE؛ متحكم التصادم يحرك الجسم بينما يظل Idle. لا نستنتج تلف الهيكلة ولا نستبدل الشخصية. أؤهل الآن مصدر Mixamo محلي Braced To Free Hang:29عينة30Hz أصلي، انتقال .933s من ركب مثنية إلى تعليق حر، ليس loop. نقل rest-space مطابق AST لمرجع Walk المحمي، بلا IK أو تعديل مفاتيح أو resampling، على نفس GLB الحالي68/Cape15/أصابع30. المعاينة المصدرية بينت اليدين فوق الرأس والانتقال إلى ساقين متدليتين. قبل الدمج سأقارن كل عظمة في Godot وأقيس التلامس مع حافة الغرفة02. اقترح بدقة 3بوابات لقبول التعليق وتوظيف هذا المقطع كدخول finite ثم hold على نهايته؛ افصل جواز الاستخدام من قبول بصري لم تشاهد مرفقاته بعد. نريد تعليقًا مقنعًا دون capsule teleport أو إزاحة مفاتيح المصدر. لا تطلب كسر Golden أو نسخ legacy v13 المحلي. اختصر."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: توظيف مقطع
+    - code: Braced To Free Hang
+    - text: (
+    - code: 29 عينة
+    - text: عند
+    - code: 30Hz
+    - text: بزمن
+    - code: 0.933s
+    - text: ) كحركة دخول منتهية (
+    - code: Finite Entry
+    - text: ) يتبعها تثبيت على الإطار الأخير (
+    - code: Terminal Hold
+    - text: ) يغلق فجوة بقاء الشخصية في وضع
+    - code: Idle
+    - text: أثناء التعليق دون المساس بمرجع
+    - code: Golden
+    - text: أو استدعاء
+    - code: legacy v13
+    - text: .
+  - heading "البوابات الثلاث لقبول التعليق وتوظيف المقطع" [level=3]
+  - paragraph: "1. بوابة التطابق الرياضي وسلامة السلاسل الفرعية (68 عظمة × 29 عينة):"
+  - list:
+    - paragraph:
+      - text: "معيار الفحص: اجتياز مقارنة العظام في Godot عبر"
+      - code: 1,972
+      - text: نقطة فحص (
+      - code: 68 عظمة × 29 عينة
+      - text: ) بنقل
+      - code: rest-space
+      - text: مطابق لـ AST دون
+      - code: resampling
+      - text: أو تعديل مفاتيح.
+    - paragraph:
+      - text: "شرط السلاسل غير النشطة: التحقق من ثبات عظام الأصابع ("
+      - code: 30 عظمة
+      - text: ) في وضع القبض أو الراحة دون انعكاس محاور، وثبات عظام المعطف (
+      - code: Cape15
+      - text: ) في وضعها المرجعي دون التواء ناتج عن رفع الذراعين فوق الرأس.
+  - paragraph:
+    - text: 2. بوابة التلامس مع حافة الغرفة 02 دون
+    - code: Capsule Teleport
+    - text: "أو إزاحة مفاتيح:"
+  - list:
+    - paragraph:
+      - text: "الحساب المرجعي الثابت: قياس متجه الإزاحة الصافي في الفضاء المحلي ("
+      - math:
+        - generic: Δ
+        - generic: Grip
+      - text: Δ
+      - generic: Grip
+      - text: ) بين نقطة أصل الكبسولة (
+      - code: Root/Capsule Origin
+      - text: ) ومنتصف عظام المعصمين/الكفين عند العينة النهائية (
+      - code: Frame 28
+      - text: ) في Godot.
+    - paragraph:
+      - text: "الالتحام المتصل (Smooth Anchor Convergence): بدلاً من القفز اللحظي للكبسولة ("
+      - code: Teleport
+      - text: ) أو تحريك مفاتيح المصدر، يوجّه متحكم التصادم الكبسولة نحو نقطة الهدف (
+      - code: LedgeEdge -
+      - math:
+        - generic: Δ
+        - generic: Grip
+      - text: Δ
+      - generic: Grip
+      - text: ) بسرعة خطية محكومة خلال أول
+      - code: 150ms–200ms
+      - text: من بداية انتقال الـ
+      - code: 0.933s
+      - text: (طور انثناء الركبتين)، بحيث يستقر الكفان على حافة الغرفة 02 بالتزامن مع فرد الساقين.
+  - paragraph:
+    - text: 3. بوابة التشغيل المنتهي والتثبيت (
+    - code: Finite Entry
+    - math:
+      - generic: →
+    - generic: →
+    - code: Frame 28 Hold
+    - text: "):"
+  - list:
+    - paragraph:
+      - text: "ضبط الاستيراد والحالة: تعيين المقطع على"
+      - code: Loop Mode = None
+      - text: (
+      - code: LOOP_NONE
+      - text: )، وتشغيله مرة واحدة عند دخول حالة
+      - code: PARKOUR_HANG
+      - text: بدلاً من بقاء
+      - code: Idle
+      - text: .
+    - paragraph:
+      - text: "التثبيت النهائي: عند وصول المؤشر إلى"
+      - code: t = 0.933s
+      - text: (العينة
+      - code: 29/Frame 28
+      - text: )، يتم إيقاف تقدم الزمن (
+      - code: speed_scale = 0
+      - text: أو تثبيت الحالة على الإطار الأخير) ليعمل وضع التدلي الحر النهائي كحالة
+      - code: Hang Hold
+      - text: مستقرة إلى أن يصدر أمر النزول أو التسلق.
+  - heading "فصل جواز الاستخدام التقني عن القبول البصري" [level=3]
+  - table:
+    - rowgroup:
+      - row "النطاق الحالة الحالية المحددات":
+        - columnheader "النطاق"
+        - columnheader "الحالة الحالية"
+        - columnheader "المحددات"
+    - rowgroup:
+      - row "جواز الاستخدام التقني (Technical Eligibility) مؤهل للتنفيذ (PASS مشروط بـ 1972 مقارنة) المقطع صالح معمارياً كدخول Finite متبوع بـ Hold على هيكل V31 الحالي ( 68/Cape15/30 ) دون IK أو تعديل مفاتيح أو استبدال للشخصية.":
+        - cell "جواز الاستخدام التقني (Technical Eligibility)":
+          - generic: جواز الاستخدام التقني (Technical Eligibility)
+        - cell "مؤهل للتنفيذ (PASS مشروط بـ 1972 مقارنة)":
+          - generic: مؤهل للتنفيذ (PASS مشروط بـ 1972 مقارنة)
+        - cell "المقطع صالح معمارياً كدخول Finite متبوع بـ Hold على هيكل V31 الحالي ( 68/Cape15/30 ) دون IK أو تعديل مفاتيح أو استبدال للشخصية.":
+          - text: المقطع صالح معمارياً كدخول
+          - code: Finite
+          - text: متبوع بـ
+          - code: Hold
+          - text: على هيكل
+          - code: V31
+          - text: الحالي (
+          - code: 68/Cape15/30
+          - text: ) دون
+          - code: IK
+          - text: أو تعديل مفاتيح أو استبدال للشخصية.
+      - 'row "القبول البصري في الغرفة 02 (Visual Acceptance) معلق (لم تُعاين مرفقاته بعد) لا يُعتمد بصرياً إلا بعد معاينة لقطات/فيديو Godot للتأكد من: 1) انطباق الكفين على حافة الغرفة 02 دون اختراق الجدار، 2) سلامة تشوه الكتفين عند رفع الذراعين، 3) عدم تقاطع Cape15 مع الساقين المتدليتين في إطار التثبيت الأخير."':
+        - cell "القبول البصري في الغرفة 02 (Visual Acceptance)":
+          - generic: القبول البصري في الغرفة 02 (Visual Acceptance)
+        - cell "معلق (لم تُعاين مرفقاته بعد)":
+          - generic: معلق (لم تُعاين مرفقاته بعد)
+        - 'cell "لا يُعتمد بصرياً إلا بعد معاينة لقطات/فيديو Godot للتأكد من: 1) انطباق الكفين على حافة الغرفة 02 دون اختراق الجدار، 2) سلامة تشوه الكتفين عند رفع الذراعين، 3) عدم تقاطع Cape15 مع الساقين المتدليتين في إطار التثبيت الأخير."':
+          - text: "لا يُعتمد بصرياً إلا بعد معاينة لقطات/فيديو Godot للتأكد من: 1) انطباق الكفين على حافة الغرفة 02 دون اختراق الجدار، 2) سلامة تشوه الكتفين عند رفع الذراعين، 3) عدم تقاطع"
+          - code: Cape15
+          - text: مع الساقين المتدليتين في إطار التثبيت الأخير.
+  - button "مزيد من الخيارات":
+    - img: more_horiz
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - heading "أنت قلت 3ميكرومتر وreplay2.69ميكرومتر، 29عينة30Hz. أضفت مرجع68عظمة كاملًا يشمل Root/Cape لقياس1972عظمة/عينة …" [level=5]
+  - paragraph: "3ميكرومتر وreplay2.69ميكرومتر، 29عينة30Hz. أضفت مرجع68عظمة كاملًا يشمل Root/Cape لقياس1972عظمة/عينة في Godot. راجع بصريًا أهلية هذا الفعل المنتهي ثم hold، شكل اليدين/الكتفين والمعطف، لا تمنح قبول تلامس غرفة02 فهي لم ترفق بعد. ملاحظة قياسية: موضع اليد النهائي ~1.18m على GLB قبل scale1.83، أي~2.16m فوق أصل الجسم بينما HANG_HEIGHT1.5m في المتحكم؛ يجب فحص محاذاة عرض النموذج إلى حافة الفيزياء، لا نقل المفاتيح ولا توجيه capsule لما يختـرق الجدار. المعطف مستقل لكن حركته الفنية ما زالت مفتوحة. هل تمنع الصور تجربة دمج معزولة؟ حدد عيبًا مرئيًا إن وجد، وافصل بقية البوابات. اختصر."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - 'heading "1. القرار المباشر: أهلية الدمج المعزول" [level=3]'
+  - paragraph:
+    - text: الصور لا تمنع تجربة الدمج المعزولة (PASS للأهلية البصرية المعزولة لإطار التثبيت
+    - code: "0028"
+    - text: )
+    - superscript
+    - text: . تتطابق وضعية النموذج مع الهيكل المرجعي الأزرق في المنظرين الأمامي والجانبي، وتشكل وقفة تدلٍّ حر مقنعة تصلح كإطار
+    - code: Hold
+    - text: بعد انتهاء الدخول (
+    - code: Finite Entry
+    - text: )
+    - superscript
+    - text: .
+    - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg, JPG: side-0028.jpg, JPG: back-0028.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: JPG
+      - generic: + 3
+  - heading "2. المراجعة البصرية لإطار التثبيت ( 0028 )" [level=3]:
+    - text: 2. المراجعة البصرية لإطار التثبيت (
+    - code: "0028"
+    - text: )
+  - list:
+    - paragraph:
+      - generic: "اليدان والذراعان: الكفان مضمومان في قبضة تعليق واضحة أعلى الرأس مع انثناء طفيف متوازن في المرفقين، واتساع أفقي سليم بين الذراعين يتطابق مع عظام الهيكل المرجعي"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg وJPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - generic: "الكتفان والرقبة: اتصال الذراعين بالكتفين عند الرفع الكامل نظيف وخالٍ من الانبعاج أو الالتواء القسري في الـ Mesh، مع ميلان طبيعي للرأس للخلف باتجاه مستوى القبضتين"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg وJPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - generic: "المعطف والساقان: في المنظر الأمامي ينسدل المعطف بتناظر نظيف حول الفخذين والركبتين دون اختراق للساقين المتدليتين"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: back-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+  - paragraph: "العيوب/الملاحظات المرئية الطفيفة (لا تمنع الدمج المعزول):"
+  - list:
+    - paragraph:
+      - generic: "جمود silhouette المعطف جانبياً: في المنظر الجانبي، يظهر المعطف كقمع صلب بارز للأمام عند منطقة الركبة بينما تتراجع الساقان للخلف وتلامسان حافته الخلفية السفلية"
+      - superscript
+      - text: (نتيجة طبيعية لبقاء عظام
+      - code: Cape15
+      - text: في الوضع المرجعي قبل إضافة حركتها الفنية).
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph:
+      - generic: "تقارب مؤخرة الرأس من الياقة: يؤدي ميلان الرأس للخلف للنظر نحو اليدين إلى تلامس بسيط بين مؤخرة الشعر وحافة الياقة الخلفية المرتفعة"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+  - heading "3. فصل حالة البوابات" [level=3]
+  - table:
+    - rowgroup:
+      - row "البوابة الحالة المحددات والإجراء اللازم":
+        - columnheader "البوابة"
+        - columnheader "الحالة"
+        - columnheader "المحددات والإجراء اللازم"
+    - rowgroup:
+      - 'row "1. التطابق الرياضي والأهلية المعزولة ( 1972 فحصاً) PASS خطأ 3 µm / 2.69 µm عبر 29 عينة ( 30Hz ) مع سلامة تشوه الكتفين واليدين في إطار التثبيت 0028 . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg وJPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "1. التطابق الرياضي والأهلية المعزولة ( 1972 فحصاً)":
+          - text: 1. التطابق الرياضي والأهلية المعزولة (
+          - code: "1972"
+          - text: فحصاً)
+        - cell "PASS":
+          - generic: PASS
+        - 'cell "خطأ 3 µm / 2.69 µm عبر 29 عينة ( 30Hz ) مع سلامة تشوه الكتفين واليدين في إطار التثبيت 0028 . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg وJPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: خطأ
+            - code: 3 µm
+            - text: /
+            - code: 2.69 µm
+            - text: عبر
+            - code: 29 عينة
+            - text: (
+            - code: 30Hz
+            - text: ) مع سلامة تشوه الكتفين واليدين في إطار التثبيت
+            - code: "0028"
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: back-0028.jpg وJPG: side-0028.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+      - row "2. محاذاة العرض لحافة الفيزياء ( Visual Offset ) جاهزة للتجربة المعزولة تعويض فارق الارتفاع بين موضع اليد الفعلي بعد التحجيم ( ~2.16m ) وثابت المتحكم ( HANG_HEIGHT = 1.5m ) عبر إزاحة عقدة العرض البصري للنموذج ( Visual Node Offset بمقدار ~ -0.66m رأسياً مع إزاحة أفقية سطحية) أثناء PARKOUR_HANG فقط، دون لمس مفاتيح الحركة أو دفع الـ Capsule داخل الجدار.":
+        - cell "2. محاذاة العرض لحافة الفيزياء ( Visual Offset )":
+          - text: 2. محاذاة العرض لحافة الفيزياء (
+          - code: Visual Offset
+          - text: )
+        - cell "جاهزة للتجربة المعزولة":
+          - generic: جاهزة للتجربة المعزولة
+        - cell "تعويض فارق الارتفاع بين موضع اليد الفعلي بعد التحجيم ( ~2.16m ) وثابت المتحكم ( HANG_HEIGHT = 1.5m ) عبر إزاحة عقدة العرض البصري للنموذج ( Visual Node Offset بمقدار ~ -0.66m رأسياً مع إزاحة أفقية سطحية) أثناء PARKOUR_HANG فقط، دون لمس مفاتيح الحركة أو دفع الـ Capsule داخل الجدار.":
+          - text: تعويض فارق الارتفاع بين موضع اليد الفعلي بعد التحجيم (
+          - code: ~2.16m
+          - text: ) وثابت المتحكم (
+          - code: HANG_HEIGHT = 1.5m
+          - text: ) عبر إزاحة عقدة العرض البصري للنموذج (
+          - code: Visual Node Offset
+          - text: بمقدار
+          - code: ~ -0.66m
+          - text: رأسياً مع إزاحة أفقية سطحية) أثناء
+          - code: PARKOUR_HANG
+          - text: فقط، دون لمس مفاتيح الحركة أو دفع الـ
+          - code: Capsule
+          - text: داخل الجدار.
+      - row "3. قبول تلامس الغرفة 02 معلق (لم يُمنح) لا يُعتمد إلا بعد إرفاق لقطات Godot داخل الغرفة 02 للتحقق من انطباق القبضتين على الحافة الفعلية وعدم تقاطع المعطف أو الحذاء مع الجدار.":
+        - cell "3. قبول تلامس الغرفة 02":
+          - generic: 3. قبول تلامس الغرفة 02
+        - cell "معلق (لم يُمنح)":
+          - generic: معلق (لم يُمنح)
+        - cell "لا يُعتمد إلا بعد إرفاق لقطات Godot داخل الغرفة 02 للتحقق من انطباق القبضتين على الحافة الفعلية وعدم تقاطع المعطف أو الحذاء مع الجدار."
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - 'heading "أنت قلت صورتان فعليتان من Godot: hang-065 هي تجربة النهاية الحرة المرفوضة؛ لاحظ اختفاء أجزاء الجذع داخل الجد…" [level=5]'
+  - paragraph: "صورتان فعليتان من Godot: hang-065 هي تجربة النهاية الحرة المرفوضة؛ لاحظ اختفاء أجزاء الجذع داخل الجدار رغم نجاح فحص المعصمين. hang-hold-side هي الإصلاح: الجدار مصمت، لذلك نستخدم وضعية الارتكاز الأصلية Frame0 فقط كحالة ثابتة، وكل29عينة ومفاتيح المصدر محفوظة. لا نزعم تشغيل finite entry أو free-hang على هذا الجدار. محاذاة عقدة العرض بعد mixer، لا تعديل عظام/كبسولة. أضفت فحص الجذع؛ النتيجة110PASS، فراغ جسم تقديري15.25cm، فرق اليدين عمودي0.154mm وعند مستوى الجدار0.77cm، تحريرJump/عودة origin والسرعة1 سليمة. مصدر GLB والمكتبة على اللاعب كلاهما1972 مقارنةPASS عند كل الوقت الأصلي. هل يظهر في الجانب المصحح اختراق جسم/يدين جوهري؟ اذكر قبولًا محدودًا لوضعية الارتكاز أو إصلاحًا محددًا. الصعود نفسه/المعطف/جودة الفصل ما زالت مفتوحة. اختصر."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "1. الفحص البصري للاختراق في اللقطة المصححة ( hang-hold-side )" [level=3]:
+    - text: 1. الفحص البصري للاختراق في اللقطة المصححة (
+    - code: hang-hold-side
+    - text: )
+  - paragraph:
+    - generic: لا يظهر أي اختراق جوهري للجسم أو اليدين في الجانب المصحح
+    - superscript
+    - text: ":"
+    - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: JPG
+  - list:
+    - paragraph:
+      - text: "الجذع والرأس: بينما غاص الجذع والفخذان داخل الجدار المصمت في تجربة التدلي الحر المرفوضة ("
+      - code: hang-065
+      - text: )
+      - superscript
+      - text: ، تُبقي وضعية الارتكاز (
+      - code: Frame 0
+      - text: ) في (
+      - code: hang-hold-side
+      - text: ) الرأس والكتفين والجذع والحوض خارج مستوى السطح الرمادي للجدار بالكامل بمسافة فصل مرئية واضحة تطابق فراغ الـ
+      - code: 15.25cm
+      - text: المقاس
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: hang-065.jpg وJPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - generic: "اليدان والذراعان: تمتد الذراعان للأعلى بزاوية سليمة وتستقر القبضتان مباشرة على الحافة العلوية (البرتقالية/السيان) دون غوص في جسم الجدار"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph:
+      - generic: "الساقان والقدمان: تنثني الركبة للأمام وترتكز القدم بوضوح على العارضة الأفقية الداكنة البارزة من الجدار دون اختراق الصفيحة الرمادية الخلفية"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+  - 'heading "2. الحكم: قبول محدود لوضعية الارتكاز ( Limited Acceptance )" [level=3]':
+    - text: "2. الحكم: قبول محدود لوضعية الارتكاز ("
+    - code: Limited Acceptance
+    - text: )
+  - paragraph: "لا يلزم إجراء أي إصلاح إضافي على إزاحة عقدة العرض الحالية لهذه الحالة، ويُمنح قبول محدود وفق الحدود التالية:"
+  - list:
+    - paragraph:
+      - text: "النطاق المقبول (PASS محدود): اعتماد"
+      - code: Frame 0
+      - text: كحالة تعليق ارتكازي ثابتة (
+      - code: Static Braced Hang Hold
+      - text: ) على الجدران المصمتة في الغرفة 02 عبر محاذاة عقدة العرض بعد الـ Mixer
+      - superscript
+      - text: ، مع بقاء الـ
+      - code: 29 عينة
+      - text: الأصلية محفوظة دون تعديل عظام أو كبسولة، وثبات سلامة تحرير
+      - code: Jump
+      - text: وعودة الـ
+      - code: Origin
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph: "النطاق المفتوح (خارج هذا الاعتماد):"
+    - list:
+      - paragraph:
+        - text: حركة الصعود (
+        - code: CLIMB / MANTLE
+        - text: "):"
+        - text: لم تُفحص أو تُعتمد بعد.
+      - paragraph:
+        - text: المعالجة الفنية للمعطف (
+        - code: Cape15
+        - text: "):"
+        - text: المعطف خالٍ من اختراق الجدار لكنه ينسدل ككتلة عمودية صلبة أسفل الركبة المثنية
+        - superscript
+        - text: ، وتظل حركته الفنية مفتوحة.
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: الانتقال الحر (
+        - code: Finite Entry
+        - text: /
+        - code: Free Hang
+        - text: "):"
+        - text: غير مفعّل على هذا الجدار المصمت
+        - superscript
+        - text: ، وتظل جودة الفصل الإجمالية مفتوحة للتقييم عند اكتمال بقية عناصره.
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: hang-065.jpg وJPG: hang-hold-side.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Evaluating the Braced Pose
+- generic: إملاء (^⇧D)
+- region "Notifications"

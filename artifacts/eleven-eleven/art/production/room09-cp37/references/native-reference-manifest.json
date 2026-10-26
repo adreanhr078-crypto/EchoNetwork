@@ -1,0 +1,43 @@
+{
+	"dimensions_m": [
+		32,
+		40,
+		10
+	],
+	"references": [
+		{
+			"camera": "(0.0, 2.2, -1.5)",
+			"file": "01-entry-wide.png",
+			"fov": 60.0,
+			"id": "01-entry-wide",
+			"sha256": "174ab7bf527e2594b2ecf22745ddf995367fe96fe3e5596a47bc10b7e22c0a53",
+			"target": "(0.0, 1.7, -21.0)"
+		},
+		{
+			"camera": "(0.0, 3.3, -27.0)",
+			"file": "02-reverse-wide.png",
+			"fov": 60.0,
+			"id": "02-reverse-wide",
+			"sha256": "ea70fbb42dd5781bebd2a481d8beaf38e868381d4633bda0aa301fd7fe8db93f",
+			"target": "(0.0, 1.8, -3.0)"
+		},
+		{
+			"camera": "(-13.0, 3.2, -16.0)",
+			"file": "03-lateral.png",
+			"fov": 60.0,
+			"id": "03-lateral",
+			"sha256": "e18a855764215bdeb3033d6b119b40b135e22c4e8c8b413bbc846b888f7e9ffb",
+			"target": "(3.0, 1.5, -21.0)"
+		},
+		{
+			"camera": "(3.6, 2.2, -16.5)",
+			"file": "04-memory-pod-detail.png",
+			"fov": 60.0,
+			"id": "04-memory-pod-detail",
+			"sha256": "c36d0b5535990a997e5621d4fdd1ea03740a46bd9d8ad9c04047c11cdf41837f",
+			"target": "(7.0, 1.35, -20.0)"
+		}
+	],
+	"scope": "Art references, HUD/player/guide hidden for capture only; no artistic/gameplay acceptance",
+	"source_sha256": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f"
+}

@@ -1,0 +1,70 @@
+{
+  "checkpoint": "CP41 / CP-20261020-01",
+  "status": "CP41_CORE_INTEGRATED_TECHNICAL_PASS_ART_PERFORMANCE_OPEN",
+  "source_hashes": {
+    "artifacts/eleven-eleven/godot/engine_visuals/HyperAnimeWorldManager.gd": "26b86ef97e91461ca9d9fc060605c8f043224d69d15bc9d31fc39606d41da6fa",
+    "artifacts/eleven-eleven/godot/engine_visuals/HyperMaterialAdapter.gd": "e5d7410be2b4304cac37159586a7b18110d98755afdaa3c8bb4f4ecc75bafdd9",
+    "artifacts/eleven-eleven/godot/engine_visuals/camera/DynamicActionCameraRig.gd": "c367ee8494cc9124ddd50055a7c7ba9fb24d354cda56e357d38a9e7ed033f1c2",
+    "artifacts/eleven-eleven/godot/engine_visuals/vfx/KineticVFXOrchestrator.gd": "d233764d671be800753020282526c415f73598999b44b8141784f31e33f0ca6d",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/chromatic_sky.gdshader": "e297f90120690f4b3cc420b518f53373865cd76521e77106440b76eaa5bd4fd1",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/hyper_anime_uber.gdshader": "c7dc8e5cf253912ee3fecc953ec903c40f6be17abcff4eded3d3ddf3da179ff3",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/impact_screen.gdshader": "9b429fdb51194129358c6cd7664c02365a5eae47cb2636596a98b5d900e6aeb4",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/kinetic_particle.gdshader": "6661a57a7f0009600929f1d797f81fd6099ccb0ff8e4d2468eab99eb58cc3480",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/kinetic_ribbon.gdshader": "5e764496ce230e0d5745e88f27398ec43285d4648b3d20f9fe17248ce0cb8fe8",
+    "artifacts/eleven-eleven/godot/engine_visuals/shaders/reactive_surface_pro.gdshader": "35026794c1173c76e380019532199bb6c30ae84e8a4c2f0262dd1a28b35e6c45",
+    "artifacts/eleven-eleven/godot/tests/hyper_anime_engine_review.gd": "6f104473e2c465306f29b508635445859741d732275d75377deb7c5c32d902ec",
+    "artifacts/eleven-eleven/godot/tests/hyper_anime_live_review.gd": "82962dd3b6501061ed6826bd47070441cc40b34ae73bcc4709465ad84dbb93c8",
+    "artifacts/eleven-eleven/godot/scripts/systems/native_review_probe.gd": "f701ed3c59d285cc041c99b95c3f1e24d98f4ba2db735241fbe30d1aa568ee1c",
+    "artifacts/eleven-eleven/godot/scripts/ui/native_pause_menu.gd": "cfcb893adb18e236d95f0699960929b81d370dacaafe624458b4c8bfe1fd4ad7",
+    "artifacts/eleven-eleven/godot/project.godot": "9cc9859056aa13273c1076ac8b24211f83c700a69c5400b16f40d370c3f56077",
+    "artifacts/eleven-eleven/godot/scripts/main.gd": "e1cb32af6e70d50902c7c77c7cb3505a9803ab854255648e8f3f5bdeb1218ad7",
+    "artifacts/eleven-eleven/godot/scripts/player/echo_player.gd": "b1fba02f5c2efb8247de8c84fbb7a061f1aa819d43484cab6dc57068066c66e0",
+    "artifacts/eleven-eleven/godot/scripts/environment/core_reactor_room.gd": "0b65366e1090ffb06d07997024502b69d7d0f25fef292f6ea312aa65e0635017",
+    "artifacts/eleven-eleven/godot/scripts/environment/mirror_chamber_room.gd": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+    "artifacts/eleven-eleven/godot/scripts/environment/surveillance_display.gd": "6c505a790cb6c7b857ca7c06bfd88895da3cb35eb31c87c860e643275162b576",
+    "AGENTS.md": "755db3e8627ee96bf828acc377ce374c0d16a1e7d38300890d77a1f11ae67343",
+    ".cursorrules": "a022037fc2f1a57fc69f66011097225f8311bbcbf7d33e9496c544912bc570c6",
+    ".codex/skills/hyper_anime_aaa_engine/SKILL.md": "784a41cfa82aef53950c3a4e5de62f1ad2e1b51c1db0c8a74b9d087a122fabec",
+    ".codex/skills/hyper_anime_aaa_engine/references/owner-directive.md": "2feeedc74670de5ec6dc94caf5dac77dc436b555baba6943351527edf9e45e32"
+  },
+  "build": {
+    "EchoNetwork.exe": {
+      "sha256": "763f35e79cdf227089d6985681455131203fe710623e75e60d8d5942b626b4da",
+      "bytes": 111754240
+    },
+    "EchoNetwork.pck": {
+      "sha256": "9e776eac73d3cb79e74817ebafe5502a1ca1a5635284591d0bc0eb99dffa5924",
+      "bytes": 391295644
+    }
+  },
+  "route": {
+    "checks": 340,
+    "retries": 0,
+    "report": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\pre-tripo-20261018\\cp37\\route\\cp41-delivery\\full-chapter.json"
+  },
+  "evidence_hashes": {
+    "module-delivery/module-review.json": "edfb0acdb71eb8f31aaa6a292992ffad486a82eeaec1118efd07c277ddb1b990",
+    "module-delivery/shader-world.png": "755079eb7627decfe2c16145e83248205dee49db87ff105b543326d580244e7f",
+    "compatibility-delivery/module-review.json": "e105d18fbdc6bba732b248998331bbc4696e42592f81857abf0c6ad66110edd7",
+    "compatibility-delivery/shader-world.png": "3f9b0271bf503684646d5de1f1c5110d81f2d5cdeda04f611a206cf01ed5bca8",
+    "live-delivery/echo-current-front.png": "8151a144280cc91b7258d1b3e9678278242597a2f5995dc36f69a1afa915ec65",
+    "live-delivery/live-review.json": "82f0c7fbd8cb47d4e991d209bb6190c869cf1b2b71e134a9c4c8873d64a83c74",
+    "live-delivery/pause-quality-ar.png": "995c0fa23d126a099492c8b6e662ea6ddb5c888c53ae4024863c64c000c25ecc",
+    "live-delivery/pause-quality-en.png": "a9aad8cca9a8e96a6d0626db234666b1d2e2f4f19a53186c22cdae76b8a61e64",
+    "live-delivery/room01-current.png": "28b34176d6af53c9d478c4943e97db75873f51747e4a48501d976390a65ca4c3",
+    "live-delivery/room02-braced-contact.png": "a9c99b4d3a9ffbe8fcfa3c27b0520aa953b818056564cc940f7d3d87002243de",
+    "live-delivery/room02-braced-current.png": "6765f02dea7b7b8c1762c0f7eee6b9738d498e323caf0b9fa370fc84e36044c4",
+    "ward-current/earned-resume.json": "f178cc6f53b605605acb00eb13060abbd83a48d32bfa8e19f81cb477f2030323",
+    "ward-current/restored-complete.png": "9970727beb120c728ad7220f1fb619a93d32ea7feecc89851394f71a070f6f89",
+    "ward-current/ward-mirror-approach.png": "6fe139504afd5d9f5d9bc760be57639be8070c6b5e7b7eb8b3c82cb1573befa1",
+    "ward-current/ward-presentation-before-walk.png": "df426e1b6fdc5b5780200ba549ef36ba177c9e768cce5e2b38d0eda1a8ad4ba1"
+  },
+  "scope": "Technical integration and scoped rendered reviews; final art/fun/chapter/devices/mantle/live-account acceptance OPEN",
+  "notes": [
+    "Initial route command omitted --full-chapter and failed test setup; corrected command passed without gameplay change.",
+    "Compatibility startup SSAA warning is retained; unsupported effects disabled.",
+    "Latest camera-interior fog calibration was drawn and checked in earned ward; live/module captures refreshed afterward.",
+    "No new Tripo/Flow/Higgsfield generation or spending.",
+    "Prior independent art verdict on new captures UNVERIFIED."
+  ]
+}

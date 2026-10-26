@@ -1,0 +1,64 @@
+{
+  "checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED",
+  "date": "2026-10-22",
+  "status": "SCOPED_PASS_FINAL_ART_AND_CHAPTER_OPEN",
+  "owner_priority": "Same Echo, short coat approved and scoped verified; preserve face/body; extreme token economy.",
+  "prior_checks": {
+    "encounter_windows": 178,
+    "reloads": 14,
+    "encounter_notice_fix_headless": 179,
+    "notice_queue": 34,
+    "notice_exit_warning": "2 ObjectDB instances leaked; untriaged",
+    "current_cape_journey_technical": 26
+  },
+  "current_verification_boundary": "Full222/reloads14 covers unchanged gameplay, camera, UI, ghost shader and assets. Subsequent changes only resonance/iris visual strength, adjacent optical facial veins on exact source weights and reveal capture timing; final16-shot/pause/RM verification on both renderers. Snapshot354 includes the new facial-skin overlay and near-camera fade; the final pupil adjustment is fragment color only. Not final acting, art, fun, device/performance, chapter, package or Steam acceptance.",
+  "next": [
+    "Stage11 native weapon/hand grip and attack performance: SwordAndShield original53samples/30Hz baked in isolation;106 comparison images not fully reviewed, no runtime integration.",
+    "Stage12 wish/hospital;13 final art/face/fingers/acting/audio;14 complete route/save/device/performance/package/live receipts."
+  ],
+  "adviser": {
+    "url": "https://gemini.google.com/u/6/app/49b95e86d3a75385",
+    "model_verified": "Argon High before submission and after returned response",
+    "response": "stage10/resume-20261021/argon-high-review-20261022.txt",
+    "findings_status": "Independent review leads; validate locally, not automatic acceptance",
+    "tripo_motion_verdict": "REJECT_FOR_KATANA_ROLE: boxing jab"
+  },
+  "tripo": {
+    "additional_credits_spent": 20,
+    "last_observed_balance": 2815,
+    "balance_rechecked_this_status_turn": false,
+    "source": "art/production/echo-attack-cp45-20261021/tripo-katana-cut-original.glb",
+    "source_sha256": "95bd4ed9588363324a22ebc0729932cb45bf83efa0082cbee7d186ff8b33badc",
+    "native_samples": 72,
+    "fps": 24,
+    "source_import_joint_comparisons": 4752,
+    "max_import_error_m": 1.3130561317778987e-05,
+    "runtime_integrated": false
+  },
+  "current_source_hashes": {
+    "godot/scripts/player/echo_player.gd": "189c39ed6269588a3ebf6476430e89d5408cf4e6fc7b8c13aefe352bdc123760",
+    "godot/scripts/combat/shadow_wave_projectile.gd": "95b0494aec7727b487b610091c37c57d58b1c5c9a57e10f6f12874052db4daae",
+    "godot/scripts/ui/system_window.gd": "90adfabc4bbda481322fbca52af38d6ffd26cbc427c64be7d1369ce19e1ed43f",
+    "godot/scripts/cinematics/pact_revenge_presentation.gd": "8f46f0aa42f2365ae245fecb485b539e90992ff79ac1f98dcd7b7dca47edabd5",
+    "godot/tests/combat_contact_regression.gd": "c8ea7600ae90ecc4e00394ce2aec932ce59a64bf017237725968d881de9b7fbb",
+    "godot/tests/zero_encounter_player_review.gd": "62317f945c552fcf15562a2d8006f2ceb38c529838bf60d2ff29f66ae2ea365d",
+    "godot/tests/system_notice_queue_review.gd": "9f4a8019645b614d530f813afa11d740b15ae3e24e1e0dabb62f9e59c8d4b925",
+    "godot/engine_visuals/EchoCapeMotion.gd": "ce9794e945b23636b63eaf3049e8f110f404263f67703fd3ef13910ab8c8b242",
+    "tools/animation-library/render_native_gltf_skin.py": "e8b78ffcd5e0b508f9002a44c97f7d5b77ea4ecf174d25b82337532132bcad06",
+    "tools/animation-library/v31_parkour_motion.py": "08dc647940a58d334a844cb9e8ec21c50bcd890b4fc6d546ded80e4f0619b4ab",
+    "godot/scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+    "godot/scripts/player/ghost_trail_spawner.gd": "81ed7d6cb438575cdf1bcc8039f1176ed64de5ec1d1e396b6b1dce09c00d8f85",
+    "godot/scripts/player/echo_contract_resonance.gd": "5f14b8e0edbbc5593406df4d894e55fea4a626fc4e7d3ce0120cc4620b4b780f",
+    "godot/scripts/player/zero_shadow_wing.gd": "e97b75ab3dddb528b42f41fccfa60fae39ea4c7fa770d4c8dab8b485fa46c151",
+    "godot/scripts/player/zero_eye_singularity.gd": "f3c72765ad8a0ba612fb9406b00ea41e3438351540af13fb7c74630118263c54",
+    "godot/scripts/ui/system_signal_glass.gd": "80c11bbee52f5018b3f0d9eff6a8c36433e96be816c6ceab60f76b785452a87f",
+    "godot/engine_visuals/shaders/motion_echo.gdshader": "e3fa42518c734eda281339985528d1854187afb82be653968824214498734d54",
+    "godot/engine_visuals/shaders/signal_cut.gdshader": "f91eb06304fa30125d70650dd69c280f2a98c0561c82eb15bfe992177c17fe9d",
+    "godot/engine_visuals/shaders/contract_resonance.gdshader": "d9670c67577e3ec1303c7ed5d6a4266766f4dc6b4d71046f1d5933d062367d08",
+    "godot/shaders/zero_contract_iris.gdshader": "9f8489510964e05df678c132950e92c3263215e60c759532f80ff0bc80dd2dd0",
+    "godot/shaders/zero_feather_detail.gdshader": "c659271e72a6a7a0d5a6325fc54cc21e2f78741e6944ecc8f4719176c6374a3a",
+    "godot/tests/ghost_skin_snapshot_review.gd": "dc8646001164af62bc7a923b8fe3f201f44a92f63029116e48d4a4aef0cfe936"
+  },
+  "current_character": "audits\\evidence\\chapter-cp45-20261020\\stage11\\short-jacket-20261022\\delivery.json",
+  "current_contract_delivery": "audits/evidence/chapter-cp45-20261020/stage10/charged-gate-20261022/delivery.json"
+}

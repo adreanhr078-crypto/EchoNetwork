@@ -1,0 +1,13 @@
+{
+  "scope": "Isolated Hang qualification on actual current V31; runtime unchanged",
+  "golden_protected_files": 192,
+  "target_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+  "base_pipeline_sha256": "2b7db1b784d76156d14c57af4f76c1db955b269371c1d695ee842e5175f76065",
+  "driver_sha256": "3cca8814c2e3e74529cfbf9073d0bc0e9a945f095f4009754e802e4d3829409f",
+  "changes": [
+    "choices=['Run','Idle','Jump','Landing']",
+    "target_path = app/'art/production/echo-master-character/prepared-v1/echo-master-review-lod.glb'",
+    "    if hashes[str(source_path)] != candidate['file_sha256']:",
+    "+' + Echo review LOD'"
+  ]
+}

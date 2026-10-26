@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "blend_sha256": "867c738cb9e4f4d47d54331d9e99840716af08ac7f83aca50e63238b580d47e8",
+  "reviewed": "15 actual Workbench captures: front, side and rear at native samples 0,8,17,26,34, compared with original source mesh captures",
+  "scope": "Isolated faithful body transfer only; hands rise from actual braced hanging support to upper crouch. No new inversion or detached limb observed.",
+  "open": "Actual Godot wall/hand/foot contact, continuous standing handoff and runtime cape clearance; frozen garment rest is not live garment acceptance",
+  "source_keys_changed": false,
+  "argon": "../argon-braced-source-review.txt: actual Argon High permits isolated source trial and names knee/wall, early hand release and crouch-to-standing seam checks",
+  "runtime_integrated": false
+}

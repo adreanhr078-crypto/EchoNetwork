@@ -28,6 +28,10 @@ func set_reduced_motion(enabled: bool) -> void:
 	if is_node_ready(): _update_visuals()
 
 func _ready() -> void:
+	var interaction:=get_node_or_null("InteractionArea")
+	if interaction:
+		interaction.set_meta("interaction_verb_ar","صل الدارة")
+		interaction.set_meta("interaction_verb_en","CONNECT CIRCUIT")
 	add_to_group("damageable")
 	add_to_group("conduits")
 	var core_mesh := get_node_or_null("CoreMesh") as MeshInstance3D

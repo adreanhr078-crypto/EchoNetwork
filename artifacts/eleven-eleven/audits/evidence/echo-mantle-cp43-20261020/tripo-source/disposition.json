@@ -1,0 +1,18 @@
+{
+  "role": "HANG_TO_STAND",
+  "status": "FAIL_SOURCE_SEMANTICS_NOT_INTEGRATED",
+  "source_sha256": "f6be4944fec5a9a7789313ff435b426156351cac3cb17cbcf99a02a5fea4addf",
+  "first_time": 0.0416666679084301,
+  "last_time": 3,
+  "native_fps": 24,
+  "native_samples": 72,
+  "first_head_z": 0.8792564684106968,
+  "first_hand_z": [
+    0.5391982691933297,
+    0.5462693813698138
+  ],
+  "mean_ankle_height_change_m": 0.4165868748331696,
+  "source_keys_modified": false,
+  "credits_additional_this_turn": 0,
+  "interpretation": "Standing low ledge step-up, not an already-hanging pull-over. Numerical and joint-plot rejection; no garment/acting acceptance. Native 24 Hz is also outside frozen FBX 30 Hz guard; no rate relabel or resampling."
+}

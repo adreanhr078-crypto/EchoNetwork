@@ -1,0 +1,73 @@
+{
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\specimen-refinement-20261025\\filter-h31-retopo20k.glb",
+  "sha256": "6167a196ace8651959b2f59eb4d816363f19266a01feddfbcdc15c6ae80d4fd5",
+  "bytes": 1404092,
+  "bounds_blender_m": [
+    [
+      -0.4893494248390198,
+      -0.32775887846946716,
+      0.0
+    ],
+    [
+      0.4893189072608948,
+      0.32913216948509216,
+      0.767974853515625
+    ]
+  ],
+  "extent_m": [
+    0.9786683320999146,
+    0.6568910479545593,
+    0.767974853515625
+  ],
+  "objects": [
+    {
+      "name": "tripo_node_090e4b83-b58c-4117-98ed-ed2ab6b09963",
+      "vertices": 17033,
+      "triangles": 19635,
+      "materials": [
+        "tripo_mat_090e4b83-b58c-4117-98ed-ed2ab6b09963"
+      ],
+      "uv_layers": 1,
+      "bounds_blender_m": [
+        [
+          -0.4893494248390198,
+          -0.32775887846946716,
+          0.0
+        ],
+        [
+          0.4893189072608948,
+          0.32913216948509216,
+          0.767974853515625
+        ]
+      ]
+    }
+  ],
+  "images": [
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ],
+      "packed": false
+    },
+    {
+      "name": "tripo_image_090e4b83-b58c-4117-98ed-ed2ab6b09963_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "Viewer Node",
+      "size": [
+        256,
+        256
+      ],
+      "packed": false
+    }
+  ],
+  "note": "Neutral source inspection; no game/rig/art acceptance.",
+  "triangles": 19635
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-24",
+  "service": "StudioTripo",
+  "source_asset_id": "2ddda695-37ca-4246-9203-ac1ad986a217",
+  "operations": [
+    {
+      "type": "export-existing",
+      "format": "GLB",
+      "pack_uv": true,
+      "resolution": 8192,
+      "file": "art/production/lab-clinical-kit-20261023/tripo/lab-packed-existing-20261024.glb"
+    },
+    {
+      "type": "export-existing",
+      "format": "GLB",
+      "pack_uv": true,
+      "resolution": 4096,
+      "file": "art/production/lab-clinical-kit-20261023/tripo/lab-packed-existing-4k-20261024.glb"
+    }
+  ],
+  "credits_before": 3020,
+  "credits_after": 3020,
+  "generation_jobs": 0,
+  "new_credit_charge_observed": 0,
+  "flow_current_account_credits_observed": 1050,
+  "flow_generation_jobs": 0,
+  "note": "Current Flow u/3 account differs from the historical u/2 record. No account switch or purchase performed. GPU-heavy browser viewer and native profiling must run serially."
+}

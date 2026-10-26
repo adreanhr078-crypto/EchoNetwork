@@ -5,7 +5,7 @@ signal singularity_deactivated
 const Attachment = preload("res://scripts/player/zero_manifestation_attachment.gd")
 const SurfaceIrisShader = preload("res://shaders/zero_contract_iris.gdshader")
 @export var is_singularity_active := false
-@export_range(0.0, 0.04) var base_energy := 0.012
+@export_range(0.0, 0.04) var base_energy := 0.032
 var eye_light: OmniLight3D
 var iris: MeshInstance3D
 var attachment := Attachment.new()
@@ -140,7 +140,9 @@ func _build_source_iris() -> bool:
 			var index := triangles[face + corner]
 			var p := points[index]
 			var t := uv[index]
-			if p.x > 0.006 and p.x < 0.030 and p.y > 0.884 and p.y < 0.899 and p.z > 0.054 and p.z < 0.067 and t.x > 0.852 and t.x < 0.873 and t.y > 0.088 and t.y < 0.101:
+			# Include adjacent authored facial skin for optical vein filaments.
+			# UV bounds exclude the separate hair atlas; original surface is untouched.
+			if p.x > 0.002 and p.x < 0.045 and p.y > 0.866 and p.y < 0.913 and p.z > 0.045 and p.z < 0.075 and t.x > 0.842 and t.x < 0.890 and t.y > 0.073 and t.y < 0.122:
 				near_iris = true
 		if not near_iris: continue
 		for corner in 3:
@@ -194,7 +196,7 @@ func _build_source_iris() -> bool:
 	iris_surface_report = {"method":"actual source iris surface", "source_vertices":points.size(),
 		"patch_vertices":selected.size(),"patch_triangles":selected_indices.size() / 3,
 		"uv_and_weights_exact":true,"pupil_and_aperture":"retained source atlas",
-		"offset_authored_m":0.00012,"side":"anatomical left, positive X"}
+		"offset_authored_m":0.00012,"side":"anatomical left, positive X","veins":"optical shader only on adjacent source skin; no original geometry edits"}
 	return true
 
 func _exit_tree() -> void:

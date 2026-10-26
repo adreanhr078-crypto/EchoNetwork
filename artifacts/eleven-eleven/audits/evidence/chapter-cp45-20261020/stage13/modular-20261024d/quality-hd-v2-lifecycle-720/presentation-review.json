@@ -1,0 +1,55 @@
+{
+	"checks": 100,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"renderer": "forward_plus",
+	"scope": "Earned native lab: two advancing whole muted videos; pause; live Reduced Motion posters and frozen water; low/high reflection targets; no story mutations; scene unload. No full-route/performance/art acceptance.",
+	"skin_identifier": {
+		"angle_degrees": 0.0,
+		"atlas_size": [
+			4096,
+			4096
+		],
+		"atlas_skin_only": true,
+		"body_mesh": "EchoV31BodyAndCoat",
+		"bone": "Neck",
+		"collar_occlusion_checked": true,
+		"font_scale": 0.75,
+		"head_bone": "Head",
+		"ink_pixels": 218,
+		"legacy_fallback": false,
+		"method": "instance-local skin albedo ink",
+		"native_skin": true,
+		"rest_center": [
+			0.0135364858433604,
+			0.829465329647064,
+			0.0320438332855701
+		],
+		"rig_profile": "echo_v31_authored_68",
+		"skin_offset_local_m": 0.0,
+		"skin_triangles": 1088,
+		"vertices": 606
+	},
+	"source_hashes": {
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://assets/cinematics/memory-screens/city-high.ogv": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+		"res://assets/cinematics/memory-screens/friends-high.ogv": "7dc0c3d05208e97f8d8c5d121d7c6cc0d19e800882e65fbd42c1059da3550bba",
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+		"res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9",
+		"res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scripts/environment/clinical_lab_architecture.gd": "2cb7885e3c42d6be63d270b25337e592233623572f6c53ed781f5e0ced7eac57",
+		"res://scripts/environment/clinical_modular_perimeter.gd": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+		"res://scripts/environment/dr_kinja_lab_room.gd": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+		"res://scripts/environment/lab_memory_cinema.gd": "d6c4da076fcdc9b87e760adbeb958c3016bc8b3a2d4122030bf7cf312ef9a271",
+		"res://scripts/environment/memory_reflection_space.gd": "f8cb73ead963f9f47ebf95fc8400be4220094380044969811511d36a76e971b5",
+		"res://scripts/player/echo_skin_identifier.gd": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585",
+		"res://shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://shaders/clinical_stasis_display.gdshader": "a15a4effd8687c2c9cfa8328100eca94ecfe8fc11135aed9469d2bef3200eac3",
+		"res://shaders/memory_water.gdshader": "41c86e1da5807058dbccc7a57be7fe850080183cf434d923dc55a36c5faa7ae3",
+		"res://tests/lab_presentation_lifecycle_review.gd": "3c08688b92ee2d300d37ebadc7f915e1f7ec7a9df60488c2cec92fcc7af1ce4c"
+	}
+}

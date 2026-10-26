@@ -1,0 +1,49 @@
+{
+  "existing_source_review": [
+    {
+      "source_take": "36036518968c47857c982d56:0:3ecc9cb6",
+      "disposition": "RETAIN_REJECT: standing lowstep-up0.762m; no hanging start; animated Hips object",
+      "evidence": "audits/evidence/echo-mantle-cp43-20261020/source-inspection/source-disposition.json"
+    },
+    {
+      "source_take": "d3d65d1bcebe90743c3f3cfa:0:bf075e31",
+      "disposition": "Qualified original wall-climb transfer, but not a pull-over/stand; same climbing support pose at end1.2034m higher. Cannot call this Mantle.",
+      "evidence": "audits/evidence/echo-parkour-cp40-20261019/climb-attempt01/blender-visual-review.json"
+    }
+  ],
+  "new_attempt_reason": "Both local available candidates fail hanging-to-standing semantics; prior Studio CP43 request returned standing step-up. New bounded attempt must specify already-hanging first pose, unsupported feet, pull-over and final standing.",
+  "studio_live_balance": 2855,
+  "studio_live_job_observation": "AIAnimation library shows4 completed outputs (LedgeMantle/SprintingForward/RunningInPlace/ManStaggersFromImpact), no pending/running item visible",
+  "new_attempt_limit": 1,
+  "expected_cost": 20,
+  "duration_seconds": 5,
+  "status": "SOURCE_RETURNED__SEMANTIC_REVIEW_PENDING",
+  "runtime_changed": false,
+  "source_model": "Studio asseta1ef7bf8-d616-4431-b2ea-9c01257af46d, existing original/working version; not the adopted target replacement",
+  "protected_target_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+  "generation_plan": {
+    "provider": "Tripo Studio current Text to Motion UI; no public model version/wire alias exposed in this surface",
+    "input": "Existing source asseta1ef7bf8-d616-4431-b2ea-9c01257af46d; one fresh5s text-to-motion clip",
+    "steps": [
+      "Text to Motion Generate20, once. No model/texture/rig regeneration, no subscription purchase.",
+      "Download returned native clip to this isolated evidence/production case; inspect raw first/last support and native timestamps before any transfer.",
+      "Only if semantics and exact transfer pass, compare all68 target bones at original sample times and actual public-input hanging-to-standing contacts."
+    ],
+    "estimated_cost_credits": 20,
+    "balance_before": 2855,
+    "maximum_this_attempt": 20,
+    "authorization": "Direct Owner fully approved unattended stages01-14 and source attempt after reason/prompt/reference/live-credit checks; no repeat confirmation",
+    "intended_reference": "audits/evidence/echo-parkour-cp40-20261019/room02-braced-rendered/hang-hold-side.png",
+    "reference_sha256": "ca9353c9b22b838fb6b7308654530a0c00a76d53f9f2e3c522db6ce6db11521d",
+    "reference_scope": "Reviewed real hands-supported high ledge pose, not source mantle or motion acceptance. Service text-only input; reference is for comparison, not an unsupported upload.",
+    "native_timing": "Previous Tripo output24FPS. New source will be measured, never relabeled/resampled to30; any native timing extension needs isolated diagnosis and unchanged Golden transfer math.",
+    "prompt": "First frame: ALREADY HANGING from a high ledge, BOTH hands gripping above the head, arms extended, knees bent, feet dangling in empty air. Brief hang. Pull chest above edge, press both palms down, place one knee on top, shift weight forward, plant BOTH feet on the UPPER platform, rise to upright standing and hold. One continuous human ledge pull-up. NOT a standing step-up. NO ground contact at the start. NO jump, run, ladder loop or teleport. Start hanging; finish standing on top."
+  },
+  "studio_balance_after": 2835,
+  "spent": 20,
+  "new_motion_name": "Ledge Pull-Up",
+  "downloaded_file": "C:\\Users\\yasmo\\Downloads\\Echo_Tripo_HD_v31_8K_ORIGINAL_UNRIGGED (1).glb",
+  "raw_source": "art\\production\\echo-hang-pullup-cp45-20261021\\echo-hang-pullup-raw.glb",
+  "raw_sha256": "082cabb361e1c2769e5ecc218ad314383a4f6419ea2f62f7c770ddcdca8930b3",
+  "runtime_integrated": false
+}

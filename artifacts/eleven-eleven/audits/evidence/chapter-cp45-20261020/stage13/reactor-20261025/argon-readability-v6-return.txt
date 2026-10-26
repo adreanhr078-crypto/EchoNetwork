@@ -1,0 +1,51 @@
+- heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: تعذّر فتح ملفات الصور الأربع المرفقة لهذه الدفعة (
+    - code: entry_9.jpg
+    - text: ،
+    - code: reverse_9.jpg
+    - text: ،
+    - code: lateral_9.jpg
+    - text: ،
+    - code: hero_9.jpg
+    - text: )؛ حيث استقبل النظام رسالة خطأ في قراءة الملفات الأربعة (
+    - code: "[The file '...' could not be opened]"
+    - text: ).
+  - paragraph:
+    - text: التزامًا بمنهجية المراجعة الصادقة وعدم التخمين أو إصدار حكم (
+    - code: PASS
+    - text: /
+    - code: REFINE
+    - text: ) دون معاينة بصرية فعلية للإصلاحات المذكورة (تهدئة وتغوير الكابينات الأربع ببروز 4 سم، تفتيح كسوة القاطعين، خامة الأنابيب النحاسية المطفأة، وتعميم الشبك ثلاثي الأبعاد على الـ 13 سطح مشي بما فيها
+    - code: ExitBridgeLink
+    - text: )، يرجى إعادة إرفاق الصور الأربع بصيغة JPEG/PNG سليمة كما في الدفعات السابقة لأتمكن من فحصها وإعطائك الحكم البصري الدقيق فورًا.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Analyzing image data
+- region "Notifications"
+- generic: إملاء (^⇧D)

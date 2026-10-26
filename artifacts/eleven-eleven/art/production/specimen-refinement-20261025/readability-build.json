@@ -1,0 +1,23 @@
+{
+  "assets": [
+    {
+      "file": "specimen_sensor_housing.glb",
+      "sha256": "8ba03952456c644dcc201aa5addb4489d3083f7926930c053d4d79d14201cb67",
+      "triangles": 1396,
+      "surfaces": 3
+    },
+    {
+      "file": "specimen_terminal_case.glb",
+      "sha256": "3ab5401235168a92a5180df696b8d2e3e64f4a01042848952c1ceb7ff63dceba",
+      "triangles": 2228,
+      "surfaces": 3
+    },
+    {
+      "file": "specimen_trim_unit.glb",
+      "sha256": "de2fb573f68b5db7c03cb6561e4aa13a33966121f9f60ed17642e57d22a648a5",
+      "triangles": 188,
+      "surfaces": 1
+    }
+  ],
+  "scope": "Visuals only. Sensor native rotation/light/detector,terminal native Area/collider/authority remain unchanged."
+}

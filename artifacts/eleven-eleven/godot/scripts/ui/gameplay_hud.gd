@@ -175,6 +175,8 @@ func set_player(target: Node3D) -> void:
 
 func _process(_delta: float) -> void:
 	var overlay_open: bool = (terminal_puzzle and terminal_puzzle.visible) or (dialogue_overlay and dialogue_overlay.visible)
+	if system_window and system_window.has_method("set_notice_suspended"):
+		system_window.set_notice_suspended(overlay_open)
 	if _compass_bar and follow_player and not overlay_open:
 		var boom := follow_player.find_child("CameraBoom", true, false) as Node3D
 		_compass_bar.update_compass(boom.global_rotation.y if boom else follow_player.global_rotation.y, follow_player.global_position)
@@ -201,6 +203,7 @@ func set_directive(title: String, desc: String) -> void:
 	directive_active = true
 	current_directive_title = title
 	current_directive_desc = desc
+	if system_window and system_window.has_method("update_status_objective"):system_window.update_status_objective(title)
 	if not quest_title:
 		quest_title = find_child("QuestTitle", true, false)
 	if not quest_desc:

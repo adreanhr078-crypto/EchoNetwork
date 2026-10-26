@@ -17,6 +17,9 @@ config/features=PackedStringArray("4.8", "Forward Plus")
 
 [autoload]
 
+HyperAnimeWorldManager="*res://engine_visuals/HyperAnimeWorldManager.gd"
+KineticVFXOrchestrator="*res://engine_visuals/vfx/KineticVFXOrchestrator.gd"
+
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
@@ -99,6 +102,9 @@ lock_on={
 
 [rendering]
 
+renderer/rendering_method="forward_plus"
+environment/glow/upscale_mode=1
+
 textures/vram_compression/import_etc2_astc=true
 
 anti_aliasing/quality/msaa_3d=2
@@ -106,3 +112,18 @@ anti_aliasing/quality/msaa_3d.mobile=0
 scaling_3d/scale.mobile=0.65
 environment/defaults/default_clear_color=Color(0.01, 0.015, 0.03, 1)
 anti_aliasing/quality/screen_space_aa=1
+
+[shader_globals]
+
+player_world_pos={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+global_wind_data={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+hyper_visual_time={
+"type": "float",
+"value": 0.0
+}

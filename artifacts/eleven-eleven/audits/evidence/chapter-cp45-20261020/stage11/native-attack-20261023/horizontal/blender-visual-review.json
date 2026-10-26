@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "blend_sha256": "23e95279989ae1ba13611ed23ca39af3360bba098b5ec6a8661aa5a76da25b78",
+  "reviewed_frames": 146,
+  "native_samples": 73,
+  "views": [
+    "back",
+    "side"
+  ],
+  "source_views": 18,
+  "current_jacket_sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+  "review_sheets": {
+    "review-sheets\\back-0.jpg": "a997df0e2b972cd57f974487a0688fa6c307c6a23b6f4f195c881789c7a858b9",
+    "review-sheets\\back-1.jpg": "4a15f4398c79506544c0d9be8a998c7edc0ea2dda42731f76e90ebfee4c9436d",
+    "review-sheets\\back-2.jpg": "642910132771de1e60be3dc57ab8946bac2bb841f11810dac925829e6cd500c9",
+    "review-sheets\\back-3.jpg": "b5672d8a1e94c1ea2b9b98516125a9ee59b332e5f39e79601fb716b739f30bb2",
+    "review-sheets\\back-4.jpg": "9c43ace1ba173c88afb7babfc4bdfa7db9307a416deaa4fc8e0bab57cdaa190a",
+    "review-sheets\\side-0.jpg": "68a678cc1dc450085b14e8eded92ff8fbab094e73ec578c8456769279faf4e72",
+    "review-sheets\\side-1.jpg": "7fd0d038cae039267a8edce71d3882229b76c45e3acaba4d98fef13db4033a08",
+    "review-sheets\\side-2.jpg": "c44331fe622101e09610ddf4a12f0a8a07f52f6e3b999b1e904994d0ffe75e3c",
+    "review-sheets\\side-3.jpg": "d618bf209b92687012a47d63acc4809c3a2e55bb909b9f8606da0f7a8aee6581",
+    "review-sheets\\side-4.jpg": "d4ad5bc5ad75ef242062327c283e38a250e7e46cb709036dbb86ecaef97d1898"
+  },
+  "observations": [
+    "All73 source/target samples in both views inspected; matching preparation, right-handed horizontal cross-body sweep, weight shift and return. No airborne lunge or new evident limb reversal.",
+    "Short jacket geometry used only in unsaved comparison, same original68 joints/binds; source and baked blend untouched.",
+    "Source has deliberate pivot and arm excursion; actual built katana grip, self-contact, timing and cancellation remain unverified in Godot."
+  ],
+  "scope": "Blender source-transfer and current jacket pose screening only; no production combat/weapon/final-art approval."
+}

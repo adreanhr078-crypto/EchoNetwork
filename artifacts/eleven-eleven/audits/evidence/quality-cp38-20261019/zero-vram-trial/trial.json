@@ -1,0 +1,27 @@
+{
+  "scope": "Three existing Zero textures only; not an asset regeneration or source edit",
+  "official_reference": "https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/importing_images.html",
+  "textures": [
+    {
+      "texture": "godot/assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+      "source_sha256": "259bcca66edf5cf0f62c48e6491376c64cea00f53a5ad7afcf2980fc5fa53816",
+      "source_bytes": 10773375,
+      "before_import_sha256": "98c04b08d60d195fbe14c7754c03174fd14d0dd9318ec3502b3131049b6d062f",
+      "change": "Only VRAM compression mode0->2; original image, dimensions, map channels, mipmaps, GLB and animation unchanged"
+    },
+    {
+      "texture": "godot/assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png",
+      "source_sha256": "1e51274e60e973a5124a0525d55518787933ee704171f6067f007ef4f5cd11cf",
+      "source_bytes": 4047395,
+      "before_import_sha256": "2c2f9b7aafc04878b385099d4d6671f2e6b7febe93b64d5a5972ba08273fb37d",
+      "change": "Only VRAM compression mode0->2; original image, dimensions, map channels, mipmaps, GLB and animation unchanged"
+    },
+    {
+      "texture": "godot/assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+      "source_sha256": "0d9e0c08dd0274acf69a9bbb56876b48d1c0d723677be8179696fb2e91a4838e",
+      "source_bytes": 2234688,
+      "before_import_sha256": "5e66faa37846a7f0c5865a7a62bca29745033efebcc939cad0b01eaca81488cc",
+      "change": "Only VRAM compression mode0->2; original image, dimensions, map channels, mipmaps, GLB and animation unchanged"
+    }
+  ]
+}

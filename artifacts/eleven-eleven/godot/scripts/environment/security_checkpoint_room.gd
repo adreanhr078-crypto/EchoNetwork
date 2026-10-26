@@ -52,6 +52,7 @@ var _gate_generation := 0
 func _ready() -> void:
 	_build_room()
 	set_language(_language)
+	preload("res://scripts/environment/security_mechanical_dressing.gd").install(self)
 
 func _physics_process(delta: float) -> void:
 	elapsed += delta

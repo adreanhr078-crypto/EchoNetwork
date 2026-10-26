@@ -1,0 +1,146 @@
+{
+  "status": "DRAFT_OWNER_OLD_LAB_REJECTED_NATIVE_REBUILD_OPEN",
+  "date": "2026-10-23",
+  "dimensions_m": [
+    32,
+    40,
+    10
+  ],
+  "entrance": [
+    0,
+    0,
+    0
+  ],
+  "exit": [
+    0,
+    0,
+    -40
+  ],
+  "landmarks": {
+    "theater": [
+      0,
+      1.2,
+      -20
+    ],
+    "memory_subjects": [
+      [
+        -7,
+        0,
+        -20
+      ],
+      [
+        7,
+        0,
+        -20
+      ]
+    ],
+    "contract": [
+      0,
+      0,
+      -32
+    ]
+  },
+  "requirements": [
+    "Original Canon footage replaces the invented archive art in generated references",
+    "Intact floating moving memory screens; no shards",
+    "Two narrow lateral coolant reservoirs preserve all tested dry ground routes and interaction anchors",
+    "Clinical medical equipment/glass/segmented architecture; no acceptance of old empty-box room",
+    "Local clocks freeze on pause and Reduced Motion; SFX_ONLY; no power/progression grants"
+  ],
+  "references": [
+    {
+      "id": "01",
+      "role": "entry",
+      "file": "01-entry.png",
+      "sha256": "0a2401bd377343eef4265d56592cb4cdd9c9e119e36f346303bd97cbffb65b08",
+      "review": "Visual direction reviewed; attractive clinical detail, water and whole memory screens. Generated perspective/scale is approximate; measured native plan owns dimensions and openings, not inferred hidden geometry."
+    },
+    {
+      "id": "02",
+      "role": "reverse",
+      "file": "02-reverse.png",
+      "sha256": "230112539a8a07b29c0671d782408026af2c1bf7fff79cc983a85cc0d1de050b",
+      "review": "Visual direction reviewed; attractive clinical detail, water and whole memory screens. Generated perspective/scale is approximate; measured native plan owns dimensions and openings, not inferred hidden geometry."
+    },
+    {
+      "id": "03",
+      "role": "lateral",
+      "file": "03-lateral.png",
+      "sha256": "cf9ea71ef872a5047547cf7db71cc40ea70a45f5f11127e37bc6118192fcb7aa",
+      "review": "Visual direction reviewed; attractive clinical detail, water and whole memory screens. Generated perspective/scale is approximate; measured native plan owns dimensions and openings, not inferred hidden geometry."
+    },
+    {
+      "id": "04",
+      "role": "hero-detail",
+      "file": "04-hero.png",
+      "sha256": "fa60c381ba6ce4aab7dd109b46041dd4299681a3e1f4b5a26feeb2d9b2b45f54",
+      "review": "Visual direction reviewed; attractive clinical detail, water and whole memory screens. Generated perspective/scale is approximate; measured native plan owns dimensions and openings, not inferred hidden geometry."
+    }
+  ],
+  "flow": {
+    "state": "returned_downloaded",
+    "name": "Anime clinical neuroscience labo...",
+    "model": "Omni1.1Flash",
+    "duration_s": 8,
+    "resolution": [
+      1280,
+      720
+    ],
+    "submitted_reference_ids": [
+      "01",
+      "02",
+      "03",
+      "04"
+    ],
+    "prompt": "flow-prompt.txt",
+    "submission": "flow-submitted.png",
+    "movie": "flow-lab-tour.mp4",
+    "sha256": "0c8a56a47334a4781b902fe8c74491a0d015a66c8c9aa25c24bd7e3cd2e9837c",
+    "credit_before": 485,
+    "shown_cost": 12,
+    "actual_charge": 12,
+    "review": "16 half-second extracted frames inspected. Stable clinical room, purposeful dolly and water reflections. Full video playback and audio-listening acceptance OPEN; actual Canon media replaces invented screen art.",
+    "credit_after": 473
+  },
+  "assets": {
+    "state": "original editable Blender modules exported, native import/visual review OPEN",
+    "source_script": "art/production/build_lab_clinical_kit_20261023.py",
+    "source_blend": "art/production/lab-clinical-kit-20261023/lab-clinical-kit.blend",
+    "manifest": "art/production/lab-clinical-kit-20261023/source-manifest.json",
+    "tripo_preflight": "Live visible200 credits; current session explicitly gates export behind Upgrade. No generation/spend attempted. CLI unavailable; do not request extra credits as an assumed fix.",
+    "higgsfield_blender": "Connected background Blender5.2.1 verified; local modeling available independently of cloud generation/API credits."
+  },
+  "technical_baseline": "stage11 delivery scoped; previous363/223/58/649 are not new room artistic acceptance",
+  "native_iterations": [
+    {
+      "id": "iteration01",
+      "decision": "REFINE",
+      "issues": [
+        "Unfinished black main floor and platform sides",
+        "Clinical kit is original draft geometry, not matching final hero reference",
+        "No final art or performance acceptance"
+      ]
+    },
+    {
+      "id": "iteration02",
+      "decision": "REFINE",
+      "issues": [
+        "Floor still unreadable",
+        "Wall design repetitive; equipment silhouettes too simple"
+      ]
+    },
+    {
+      "id": "iteration03",
+      "decision": "REFINE",
+      "improvements": [
+        "Purpose-built clinical porcelain floor and ramp remove black ground",
+        "Real mirrored coolant and intact playing Canon memory panels visible"
+      ],
+      "open": [
+        "Hero quality source replacement through authorized Tripo budget200",
+        "Architectural hierarchy/texture/clinical equipment refinement",
+        "Full interaction/pause/RM/save and performance after new room changes"
+      ]
+    }
+  ]
+}

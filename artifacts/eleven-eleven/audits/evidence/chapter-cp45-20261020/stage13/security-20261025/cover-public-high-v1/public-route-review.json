@@ -1,0 +1,74 @@
+{
+	"checks": 19,
+	"failed": false,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"renderer": "forward_plus",
+	"retries": 0,
+	"samples": [
+		{
+			"camera_current": true,
+			"control_locked": false,
+			"id": "native-diversion",
+			"position": "(-3.557128, 5.400683, -33.80368)",
+			"progress": {
+				"completed": [
+					"opening_completed",
+					"maintenance_completed",
+					"security_entered"
+				],
+				"schema": "echo-native-journey-v2",
+				"security": {
+					"gate_open": false,
+					"scanner_trace": true,
+					"service_trace": false
+				}
+			},
+			"tier": "high"
+		},
+		{
+			"camera_current": true,
+			"control_locked": false,
+			"id": "native-latch",
+			"position": "(-1.252547, 5.400683, -47.20351)",
+			"progress": {
+				"completed": [
+					"opening_completed",
+					"maintenance_completed",
+					"security_entered"
+				],
+				"schema": "echo-native-journey-v2",
+				"security": {
+					"gate_open": true,
+					"scanner_trace": true,
+					"service_trace": false
+				}
+			},
+			"tier": "high"
+		},
+		{
+			"camera_current": true,
+			"control_locked": false,
+			"id": "native-security-completed",
+			"position": "(-0.004886, 5.400837, -49.49768)",
+			"progress": {
+				"completed": [
+					"opening_completed",
+					"maintenance_completed",
+					"security_entered",
+					"security_completed"
+				],
+				"schema": "echo-native-journey-v2",
+				"security": {
+					"gate_open": true,
+					"scanner_trace": true,
+					"service_trace": false
+				}
+			},
+			"tier": "high"
+		}
+	],
+	"scope": "Existing maintenance-end fixture then actual touch diversion/cover/latch,physical crossing and3cold spawns;not fresh chapter,real-phone performance or art acceptance."
+}

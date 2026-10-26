@@ -1,0 +1,68 @@
+{
+  "status": "PASS_SCOPED_RUN_QUALIFICATION",
+  "source_take_id": "c1ed64d6c975194967304af7:0:13373cc7",
+  "source_library_sha256": "4f372cf4967c5e55ed6a263804084199ca7926aad03fd3b4af39132f3f1dae38",
+  "original_v31_unchanged": true,
+  "source_keys_changed": false,
+  "reviewed_actual_gameplay_captures": [
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-0-17.png",
+      "sha256": "1bfdb73cfd4eb6cebb589e5665c1ef514b82b4b2f8b09650c1d9ecb755fc94c6"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-0-33.png",
+      "sha256": "02394656deb6ff2291b457aa292c8b9a2b67e9766be2c5e3097e7b1723393652"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-0-49.png",
+      "sha256": "628e1b3e2256524ac485f15adf2d22fbf7fa0cf8e19b1a47098bf57668e9c88f"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-0-65.png",
+      "sha256": "9d104c7efcce110230c6363d7f5ce3a8e7f1fca6820f4a8ca98d86230cfedf24"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-1-17.png",
+      "sha256": "cf8da7b88ae133e03999c81491d43d86a622fc6a20cb5c135b24b4c689790839"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-1-33.png",
+      "sha256": "1f5c24dfa247a3d0a9ad1009d5ae39a539285597a3cb3baf4a378b4ecdb2fa7e"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-1-49.png",
+      "sha256": "34e8d173601c06c8c2e685dc247c240ed037631d14266ec36130dc72cf437d22"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-1-65.png",
+      "sha256": "453fb1dfb585aabe52cfccc940706a6799fd34641cdab418feb05708f71c3a5c"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-2-17.png",
+      "sha256": "1478c90ec7322fffaa57cfe88b4f37c7966ffe551e177a68fcdb8d86a92d2b82"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-2-33.png",
+      "sha256": "7121d848f63d8a681351a4fd7f3d7e7ef1ca745d9d9e52aa8a75c7a7fcb82584"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-2-49.png",
+      "sha256": "4f5e3cbb036daff81b5273ca56dd3fc72db9c717841791d1e36b69cf8597780f"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\run-native-physics\\public-run-2-65.png",
+      "sha256": "cb7acd5318f1621dad703dd0bc18ab2a5651146f524581e101a3e558ebb34565"
+    }
+  ],
+  "observations": [
+    "Reviewed front, side and rear at four public-input poses each, with actual CP44 cape driver and physics capsule travel.",
+    "Source forward lean, alternating arms and bent running legs remain connected through direction changes; no visible rig explosions or capsule separation in these captures.",
+    "Cape has visible independent lag and lateral bend; precise finger articulation and facial lighting remain chapter art gates.",
+    "A render-stall test exposed contact observation on the render clock; controlled avatar now advances on its existing physics clock. Three-view rerun passes unchanged source phase threshold."
+  ],
+  "numerical_godot_all_68": "run-mixamo/godot-numerical-all.json",
+  "public_input_report": "run-native-physics/review.json",
+  "golden_after": "golden-run-after.json",
+  "whole_character_accepted": false,
+  "chapter_stage05_closed": false
+}

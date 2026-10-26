@@ -1,0 +1,533 @@
+https://gemini.google.com/u/6/app/26fffb5360f69e02
+- main:
+  - button "فتح الشريط الجانبي":
+    - text: side_nav_expand
+  - navigation "شريط التنقّل الجانبي":
+    - navigation "قائمة الإجراءات الرئيسية":
+      - link "محادثة جديدة":
+        - /url: /app
+        - img: gemini_chat
+    - navigation "قائمة الإجراءات الإضافية":
+      - button "البحث في المحادثات":
+        - generic: search
+      - link "المكتبة":
+        - /url: library
+        - img: features
+      - link "الصور":
+        - /url: /images
+        - img: image_create
+      - generic "مجدوَل":
+        - link "مجدوَل":
+          - /url: /scheduled
+          - img: schedule
+      - link "تخصيص":
+        - /url: /customize
+        - img: settings_alt
+    - link "حساب Google:‏ Mohamad Yaseen ‏(molosh137@gmail.com)":
+      - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+    - button "الإعدادات":
+      - img: settings
+  - heading "محادثة مع Gemini" [level=1]
+  - 'heading "أنت قلت استشارة إنتاج محدودة للعبة11.11 Godot4.8: استأنفناCP45، العقد الصريح والكاميرا والسحب المشحون صار له…" [level=5]'
+  - paragraph: "استشارة إنتاج محدودة للعبة11.11 Godot4.8: استأنفناCP45، العقد الصريح والكاميرا والسحب المشحون صار لهما222تحققًا مصورًا؛ هذا ليس قبول الفصل. العائق الحالي هجوم كاتانا طبيعي على Echo68عظمة، الجسم والوجه ومفاتيح المصادر/Golden ثابتة، السترة القصيرة معتمدة. راجعت الآن كامل53عينة30Hz من Sword And Shield Attack الأصلي ومطابقتها بالجلد في Blender: اندفاع وقفز2.4m مع ركبة مرفوعة، يدسرية فوق الرأس ثم نزول؛ ليس تاب قصيرًا ثابتًا. المصدر معزول ولم يدمج. هل الصحيح رفضه لدور التاب بدل تجميد جذره، وفحص Standing Melee Attack Downward69عينة30Hz الموجود أولًا؟ أعطني أعلى3شروط قبول عملية للقبضة/تزامن الضرر/الإلغاء مع الجدران، دون ابتكار مفاتيح أو افتراض رؤية صور أو قبول فني، ودون موسيقى أو شراء/توليد أعمى. لا تغيرCanon ولا تعِد كتابة الأنظمة."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: رفض حركة Sword And Shield Attack لدور الضربة السريعة (Tap) هو القرار الهندسي والإنتاجي الصحيح تمامًا، وفحص Standing Melee Attack Downward (ذات الـ 69 عينة عند 30Hz) هو المسار المنطقي المباشر.
+  - heading "لماذا يُرفض تجميد الجذر (Root Lock) هنا؟" [level=3]
+  - list:
+    - paragraph: "تشوه مركز الكتلة (Center of Mass): تجميد إزاحة 2.4 متر مع قفزة وركبة مرفوعة فوق هيكل Echo (68 عظمة) سيحول الحركة إلى انزلاق هوائي متشنج (Moonwalking/Floating) يفقد قراءة الجاذبية ونقل الوزن."
+    - paragraph: "تعارض الوضعية (Pose Conflict): وضعية اليد اليسرى فوق الرأس مصممة لثقل درع وهمي واندفاع هوائي، مما يكسر قراءة الكاتانا كضربة أرضية سريعة ويشوه حدود السترة القصيرة المعتمدة عند الكتفين دون مبرر وظيفي."
+    - paragraph: "مبدأ عزل المصادر: بما أن المصدر معزول ولم يُدمج بعد، فإن استبعاده الآن يوفر ساعات من الترقيع اليدوي للمنحنيات (Curves) التي لن تعطي نتيجة طبيعية. حركة Standing Melee Attack Downward توفر قاعدة ارتكاز أرضية (Grounded Footing) أنسب بكثير لتقييم التاب أو الضربة العمودية الثابتة."
+  - heading "أعلى 3 شروط قبول عملية (لفحص الحركة البديلة ودمجها)" [level=3]
+  - heading "1. سلامة القبضة والغلاف (Grip & Cropped Jacket Integrity)" [level=4]
+  - list:
+    - paragraph: "ثبات اليدين (Hand-to-Hilt Lock): التحقق البصري في Blender ثم داخل محرك Godot من ثبات عظام اليد اليمنى (ومسار اليد اليسرى إن كانت القبضة بكلتا اليدين Tsuka-ate أو حرة متوازنة) طوال الـ 69 عينة دون انزلاق (Sliding) أو انقلاب في زوايا المعصم (Gimbal Lock) أثناء النزول."
+    - paragraph: "عدم اختراق السترة القصيرة (Mesh Clipping): التأكد من أن رفع الذراعين في بداية الضربة النزولية لا يسبب تقاطعًا حادًا (Clipping) مع أطراف السترة القصيرة المعتمدة أو تشويهًا في أوزان الجلد (Skin Weights) لمنطقة الصدر والكتف ضمن المفاتيح الثابتة."
+  - heading "2. التزامن الدقيق لنافذة الضرر (Hit-Window & Frame Alignment)" [level=4]
+  - list:
+    - paragraph: "ربط التفعيل بذروة القوس (Apex Synchronization): تحديد إطارات البداية والنهاية الدقيقة لتفعيل صندوق الضرر (Hitbox Active Frames) بحيث تطابق لحظة التسارع الفعلي للنصل (Downward Swing) وتنتهي فور وصول النصل لأسفل القوس، مع استبعاد إطارات التحضير (Wind-up) وإطارات الاستعادة (Recovery) من إحداث أي ضرر."
+    - paragraph: "استقلالية معدل الإطارات: ضمان أن استدعاء التفعيل داخل Godot (عبر مسارات AnimationPlayer أو الإشارات المعتمدة لديكم) يعمل بدقة مع تردد 30Hz الأصلي دون تخطي للإطارات الفعالة عند تقلب الأداء."
+  - heading "3. السلوك أمام الجدران ونافذة الإلغاء (Wall Collision & Cancel Gates)" [level=4]
+  - list:
+    - paragraph: "منع اختراق الكبسولة والانزلاق: التحقق من أن أي إزاحة أمامية طفيفة في الجذر (Root Motion) أو ميلان علوي للجذع أثناء الضربة النزولية لا يدفع كبسولة التصادم (Collision Shape) أو الكاميرا المعتمدة داخل الجدران الملاصقة، أو يسبب ارتجاجًا (Jitter) في الكاميرا عند الهجوم في الزوايا الضيقة."
+    - paragraph: "استجابة الإلغاء الحتمية (Cancel Window): تحديد الإطار الدقيق الذي تنتهي عنده \"الالتزامية\" (Commitment) وتفتح فيه نافذة الإلغاء (Cancel Gate) بعد إطار الضرر مباشرة، بحيث يستطيع اللاعب كسر إطارات الاستعادة المتبقية من الـ 69 عينة (التي تعادل 2.3 ثانية كاملة إذا تُركت دون كسر) بالتحرك أو السحب المشحون أو التفادي دون تأخير في الإدخال."
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - heading "أنت قلت أعيد الطلب بمستوى مرتفع بعد التحقق من القائمة:4Argon مختار. لا يوجد قبول بصري بلا صور. فحص Blender ا…" [level=5]
+  - paragraph: "أعيد الطلب بمستوى مرتفع بعد التحقق من القائمة:4Argon مختار. لا يوجد قبول بصري بلا صور. فحص Blender الآن يؤكد المصدر البديلDownward69/30Hz: إزاحةالحوض النهائية4e-8m ورفع اليد اليمنى ثم ضربة قطرية، لا قفزة. سأختبره بالقبضة الفعلية في Godot ثم أربط الضرر بلحظة السيف والوقف/الإلغاء. راجع شرطًا مانعًا قد يفوتني في خطةالدمج، ولا تقترح تعديل مفاتيح المصدر أو إغلاق قبولالفصل. الحالة السابقة222 تحققًا تاريخية تحتاج انحدار بعدالدمج."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: "الشرط المانع الأخطر الذي قد يفوتك في خطة الدمج ينبع مباشرة من الفرق بين إزاحة نهاية العينة (69) وإزاحة لحظة الإلغاء الفعلية:"
+  - heading "1. فخ الإزاحة اللحظية للحوض عند بوابة الإلغاء (Mid-Arc Excursion vs. End-Frame Delta)" [level=3]
+  - paragraph: "كون إزاحة الحوض النهائية عند العينة 69 تساوي 4e-8m يثبت فقط أن الحركة تعود لنقطة الصفر إذا اكتملت حتى آخر إطار. لكن خطتك تقوم على تفعيل الوقف/الإلغاء بعد لحظة السيف مباشرة (غالبًا بين العينات 24 و38):"
+  - list:
+    - paragraph: "المشكلة المانعة: أثناء رفع اليد اليمنى والنزول القطري، يميل الحوض وينزاح للأمام/الجانب داخل الفضاء المحلي قبل أن يعود في طور الاستعادة (Recovery). إذا كسرت الحركة في منتصفها للانتقال إلى السحب المشحون أو الوقوف (دون تعديل مفاتيح المصدر)، ستواجه إما قفزة بصرية مفاجئة (Spatial Snap) لعودة الحوض إلى صفر الحركة التالية، أو إزاحة متراكمة غير صفرية إذا كانت حركة الجذر مفعلة."
+    - paragraph: "النتيجة على النظام: هذه القفزة اللحظية عند الكسر كفيلة بإحداث ارتجاج في الكاميرا أو إفساد المسافات التعاقدية، مما يُسقط بعض الـ 222 تحققًا التاريخية في اختبار الانحدار."
+    - paragraph: "التحقق المطلوب في Godot (دون مساس بالمفاتيح): لا تعتمد على صفرية العينة 69؛ قِس إزاحة عظمة الحوض في إطار فتح بوابة الإلغاء تحديدًا، وتأكد من أن إعدادات المزج الخروجي (Exit Blend) أو عزل الجذر الأفقي تمنع انتقال هذه الإزاحة اللحظية إلى الكاميرا أو الكبسولة."
+  - heading "2. تسرب الحالة عند الكسر نحو السحب المشحون (Interrupt State Leak)" [level=3]
+  - paragraph: "عند ربط الضرر بلحظة السيف وفتح الإلغاء بعدها أو عند الاصطدام بالجدار:"
+  - list:
+    - paragraph: "المشكلة المانعة: إذا اعتمد إيقاف صندوق الضرر (Hitbox) أو تحرير قفل الاتجاه على مفتاح زمني لاحق داخل مسار الحركة (Animation Track)، فإن كسر الحركة مبكرًا (إلغاء نحو السحب المشحون أو توقف قسري أمام جدار) في الإطار الحرج قد يترك صندوق الضرر نشطًا أو يورّث حالة التزام جزئية للحركة التالية."
+    - paragraph: "التحقق المطلوب في الدمج: يجب أن يكون إغلاق الضرر وتحرير الأقفال مربوطًا أيضًا بـ حدث الخروج من الحالة (On-State-Exit / Interrupt Cleanup) برمجيًا داخل العقد الصريح، وليس فقط بانتهاء إطارات الضربة في الشريط الزمني."
+  - heading "3. سلوك اليد اليسرى وعظام الالتفاف في القوس القطري (Off-Hand & Twist-Bone Inheritance)" [level=3]
+  - paragraph: "بما أننا نلتزم بعدم تعديل مفاتيح المصدر على هيكل Echo (68 عظمة):"
+  - list:
+    - paragraph: "المشكلة المانعة: الضربة القطرية باليد اليمنى تعبر خط منتصف الجسم (Cross-body Diagonal). في المصادر الجاهزة، تظل اليد اليسرى والكتف الأيسر محكومين بوضعية توازن موروثة قد تتقاطع مع مقبض الكاتانا الطويل أثناء النزول القطري، أو تدفع طرف السترة القصيرة المعتمدة، كما قد يتأثر توجيه النصل إذا رُبط بعظمة تتأثر بـ Twist Bones بدل عظمة الكف الصريحة."
+    - paragraph: "التحقق المطلوب في Godot: فحص مسار القوس القطري إطارًا بإطار بالقبضة الفعلية؛ للتأكد من عدم تصادم النصل أو المقبض مع الذراع اليسرى، وثبات مرجع الكاميرا أثناء ميلان الكتفين."
+  - heading "بوابة الانحدار بعد الدمج (Post-Integration Regression Gate)" [level=3]
+  - paragraph: يظل القبول البصري للحركة معلقًا بالكامل لحين استخراج الصور الفعلية من داخل Godot، ولا يُعتمد نجاح دمج Downward 69/30Hz إلا بعد إعادة تشغيل الـ 222 تحققًا التاريخية (العقد الصريح، الكاميرا، السحب المشحون) والتأكد من عدم حدوث أي انحدار (Zero Regression) عند الدخول إلى التاب الجديد أو الخروج منه بالإلغاء، مع بقاء قبول الفصل مفتوحًا.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - 'heading "أنت قلت نتيجة فعلية: Downward69فشل البوابة المجمدة قبل التصدير: مقارنة المصفوفات المعينة مع replay للمفاتيح …" [level=5]'
+  - paragraph: "نتيجة فعلية: Downward69فشل البوابة المجمدة قبل التصدير: مقارنة المصفوفات المعينة مع replay للمفاتيح في Blender أعطت أقصى10.5207ميكرومتر مقابل حد10ميكرومتر عندLeftToeBase32/33؛ خطأالدوران0، طولالعظم1.0ميكرومتر. المشخص المحفوظ وجدpose_scaleللإصبع[0.9999988079,1.000000596,1.000000596]. الخوارزميةالمجمدة: لكل إطار reset matrix_basis=Identity، حل pb.matrix للمصفوفةالمطلوبة parent-first، ثم keyframe rotation_quaternion وHips location فقط؛ بعدها replay العملالمكتمل. لا نغيرالنقل/الحدود/المفاتيح. هل بقاء scale الأخير غيرالمسجل يمكنه تلويث replay، وما أصغر قياس يثبت السبب دون إعادة bake أو قبول وهمي؟ الحركة معزولةFAIL وغيرمصدرة، والعرضالتشخيصي لايعتمدها. مصدر رسمي أفقي73/30Hz جديد يُخبز مستقلًا،لا يستبدلGolden. اطلب تشخيصًا سببيًا فقط لا تخفيفالحد أو كتابةمفاتيحScale جديدة."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: نعم، بقاء
+    - code: pose_scale
+    - text: (وبقايا
+    - code: location
+    - text: الفرعية) غير المسجلة من الإطار الأخير يلوث مرحلة الـ Replay مباشرةً، ويتكامل مع التراكم الكينماتيكي عبر سلسلة الساق ليفسر تجاوز الحد بـ 0.5207 ميكرومتر (
+    - math:
+      - generic: "10.5207"
+      - generic: μ
+      - generic: m
+    - text: "10.5207"
+    - text: μ
+    - generic: m
+    - text: مقابل
+    - math:
+      - generic: "10"
+      - generic: μ
+      - generic: m
+    - text: "10"
+    - text: μ
+    - generic: m
+    - text: ) عند
+    - code: LeftToeBase
+    - text: في الإطارين 32/33 رغم أن خطأ الدوران يساوي 0.
+  - heading "1. التشخيص السببي (Causal Diagnosis)" [level=3]
+  - heading "أ. بصمة التقريب العائم (IEEE-754 Float32 Quantization Signature)" [level=4]
+  - paragraph:
+    - text: الأرقام المرصودة في
+    - code: pose_scale
+    - text: للإصبع
+    - code: "[0.9999988079, 1.000000596, 1.000000596]"
+    - text: ليست مقياسًا حركيًا من المصدر، بل هي مضاعفات رقمية مطابقة لابسلون الفاصلة العائمة الأحادية (
+    - math:
+      - generic: ϵ
+      - generic: flt32
+      - generic: =
+      - generic: "2"
+      - generic: −
+      - generic: "23"
+      - generic: ≈
+      - generic: "1.1920929"
+      - generic: ×
+      - generic: "10"
+      - generic: −
+      - generic: "7"
+    - text: ϵ
+    - generic: flt32
+    - text: =
+    - text: "2"
+    - generic: −23
+    - text: ≈
+    - generic: 1.1920929 ×
+    - text: "1"
+    - text: "0"
+    - generic: −7
+    - text: "):"
+  - list:
+    - paragraph:
+      - math:
+        - generic: "1"
+        - generic: −
+        - generic: "10"
+        - generic: ×
+        - generic: "2"
+        - generic: −
+        - generic: "23"
+        - generic: =
+        - generic: "0.9999988079071045"
+      - generic: 1 −
+      - generic: 10 ×
+      - text: "2"
+      - generic: −23
+      - text: =
+      - generic: "0.9999988079071045"
+    - paragraph:
+      - math:
+        - generic: "1"
+        - generic: +
+        - generic: "5"
+        - generic: ×
+        - generic: "2"
+        - generic: −
+        - generic: "23"
+        - generic: =
+        - generic: "1.0000005960464478"
+      - generic: 1 +
+      - generic: 5 ×
+      - text: "2"
+      - generic: −23
+      - text: =
+      - generic: "1.0000005960464478"
+  - paragraph:
+    - text: عند تنفيذ
+    - code: pb.matrix = target_matrix
+    - text: ، يقوم Blender داخليًا (عبر
+    - code: BKE_pchan_apply_mat4
+    - text: /
+    - code: mat4_to_loc_rot_size
+    - text: بدقة 32-bit float) بضرب مقلوب مصفوفة الأب في المصفوفة الهدف ثم تفكيك الناتج إلى (
+    - code: location
+    - text: ","
+    - code: rotation_quaternion
+    - text: ","
+    - code: scale
+    - text: ). بسبب عدم تعامد المصفوفة الناتجة عند حدود الفاصلة العائمة، يفرغ Blender فائض الخطأ الميكروي في
+    - code: pb.scale
+    - text: و
+    - code: pb.location
+    - text: .
+  - heading "ب. آليتا التلوث بين الـ Bake والـ Replay" [level=4]
+  - list:
+    - paragraph:
+      - text: "تسرب حالة الإطار الأخير إلى الـ Replay (Unkeyed State Persistence): في نهاية حلقة الخبز (الإطار الأخير)، يحتفظ كل"
+      - code: PoseBone
+      - text: في الذاكرة بقيم
+      - code: pb.scale
+      - text: و
+      - code: pb.location
+      - text: الناتجة عن تفكيك
+      - code: pb.matrix
+      - text: للإطار الأخير. عندما يبدأ الـ Replay، يقوم نظام التقييم (
+      - code: AnimSys
+      - text: ) بتحديث القنوات التي تملك منحنيات (
+      - code: F-Curves
+      - text: ) فقط — أي
+      - code: rotation_quaternion
+      - text: و
+      - code: Hips.location
+      - text: — بينما
+      - text: يترك
+      - code: pb.scale
+      - text: و
+      - code: pb.location
+      - text: لبقية العظام دون تصفير
+      - text: على قيم الإطار الأخير العالقة في بنية
+      - code: bPoseChannel
+      - text: .
+    - paragraph:
+      - text: تضخيم ذراع الرافعة الكينماتيكي حتى
+      - code: LeftToeBase
+      - text: "(Kinematic Lever Amplification):"
+      - text: حتى مع تطابق الدوران (
+      - code: خطأ الدوران = 0
+      - text: )، فإن موضع
+      - code: LeftToeBase
+      - text: في الفضاء العام هو محصلة ضرب مصفوفات السلسلة الكاملة (
+      - code: Hips -> LeftUpLeg -> LeftLeg -> LeftFoot -> LeftToeBase
+      - text: ) بطول ذراع إجمالي يقارب
+      - math:
+        - generic: "0.85"
+        - generic: –
+        - generic: "1.0"
+        - generic: m
+      - text: "0.85"
+      - generic: –
+      - text: "1.0"
+      - generic: m
+      - text: (
+      - math:
+        - generic: "10"
+        - generic: "6"
+        - generic: μ
+        - generic: m
+      - text: "1"
+      - text: "0"
+      - generic: "6"
+      - text: μ
+      - generic: m
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: أثناء حل
+        - code: parent-first
+        - text: في الإطار 32/33، يُحل كل عظم ابن (
+        - code: pb.matrix = target
+        - text: ) نسبةً إلى مصفوفة الأب التي تحتوي في تلك اللحظة على بقايا
+        - code: scale/location
+        - text: الخاصة بالإطار 32/33.
+      - paragraph:
+        - text: أثناء الـ Replay للإطار 32/33، تُقيّم السلسلة باستخدام دوران الإطار 32/33 مضروبًا في
+        - text: بقايا
+        - code: scale/location
+        - text: العالقة من الإطار الأخير
+        - text: (أو فاقدةً لمركبة الإزاحة/القياس التي امتصتها القنوات غير المسجلة أثناء الحل).
+      - paragraph:
+        - text: انحراف مقياسي في حدود
+        - math:
+          - generic: "10"
+          - generic: −
+          - generic: "6"
+        - text: "1"
+        - text: "0"
+        - generic: −6
+        - text: إلى
+        - math:
+          - generic: "10"
+          - generic: −
+          - generic: "5"
+        - text: "1"
+        - text: "0"
+        - generic: −5
+        - text: عبر ذراع الساق الممتدة في لحظة الضربة (الإطارين 32/33) مع خطأ طول العظم (
+        - math:
+          - generic: "1.0"
+          - generic: μ
+          - generic: m
+        - text: "1.0"
+        - text: μ
+        - generic: m
+        - text: ) يولد إزاحة موضعية طرفية تتجمع عند أبعد عقدة في السلسلة (
+        - code: LeftToeBase
+        - text: ) لتبلغ
+        - math:
+          - generic: "10.5207"
+          - generic: μ
+          - generic: m
+        - text: "10.5207"
+        - text: μ
+        - generic: m
+        - text: .
+  - heading "2. أصغر قياس يثبت السبب (دون إعادة Bake أو تعديل مفاتيح/حدود)" [level=3]
+  - paragraph: "لإثبات السبب قاطعًا وبفصل دقيق بين (1) تلوث الـ Replay العالق من الإطار الأخير و(2) الفاقد غير المسجل أثناء حل السلسلة، نفّذ قياس القراءة فقط التالي على حالة الفشل المعزولة عند الإطار 32:"
+  - list:
+    - paragraph:
+      - text: "قياس التراكم عبر السلسلة (Chain Residual Readout - Zero State Mutation): عند الإطار 32 في الـ Replay الحالي، اقرأ لكل عظم"
+      - math:
+        - generic: b
+      - generic: b
+      - text: في المسار
+      - code: "[Hips, LeftUpLeg, LeftLeg, LeftFoot, LeftToeBase]"
+      - text: "ثلاث قيم فقط:"
+    - list:
+      - paragraph:
+        - text: "متجه انحراف المقياس العالق:"
+        - math:
+          - generic: Δ
+          - generic: s
+          - generic: b
+          - generic: =
+          - generic: pb.scale
+          - generic: −
+          - generic: (
+          - generic: "1"
+          - generic: ","
+          - generic: "1"
+          - generic: ","
+          - generic: "1"
+          - generic: )
+        - text: Δ
+        - text: s
+        - generic: b
+        - text: =
+        - generic: pb.scale
+        - text: −
+        - generic: (1, 1, 1)
+      - paragraph:
+        - text: "متجه الإزاحة المحلية غير المسجلة (لغير Hips):"
+        - math:
+          - generic: Δ
+          - generic: t
+          - generic: b
+          - generic: =
+          - generic: pb.location
+        - text: Δ
+        - text: t
+        - generic: b
+        - text: =
+        - generic: pb.location
+      - paragraph:
+        - text: "خطأ الموضع التراكمي لرأس/مصفوفة كل عظم مقارنةً بالمصفوفة الهدف:"
+        - math:
+          - generic: ∥
+          - generic: p
+          - generic: b
+          - generic: ","
+          - generic: replay
+          - generic: −
+          - generic: p
+          - generic: b
+          - generic: ","
+          - generic: target
+          - generic: ∥
+        - text: ∥
+        - text: p
+        - text: b,
+        - generic: replay
+        - text: −
+        - text: p
+        - text: b,
+        - generic: target
+        - text: ∥
+      - paragraph:
+        - text: "دلالة القياس: ستلاحظ أن خطأ الدوران يظل"
+        - code: "0"
+        - text: على طول السلسلة، بينما ينمو خطأ الموضع تدريجيًا من
+        - code: LeftUpLeg
+        - text: (
+        - math:
+          - generic: ∼
+          - generic: "1"
+          - generic: –
+          - generic: "2"
+          - generic: μ
+          - generic: m
+        - generic: ∼
+        - text: "1"
+        - generic: –
+        - text: "2"
+        - text: μ
+        - generic: m
+        - text: ) إلى
+        - code: LeftLeg
+        - text: ثم
+        - code: LeftFoot
+        - text: وصولًا إلى
+        - code: 10.5207 ميكرومتر
+        - text: عند
+        - code: LeftToeBase
+        - text: .
+    - paragraph:
+      - text: "قياس عزل تلوث الإطار الأخير (Pure Replay Evaluation Delta): عند الإطار 32 نفسه (ودون مساس بالـ Action أو المفاتيح)، قارن بين مصفوفة"
+      - code: LeftToeBase
+      - text: في الـ Replay الحالي، ومصفوفته المحسوبة رياضيًا بضرب مصفوفات الـ Rest والتدوير المسجل (
+      - code: rotation_quaternion
+      - text: ) فقط مع فرض
+      - math:
+        - generic: S
+        - generic: b
+        - generic: =
+        - generic: I
+      - text: S
+      - generic: b
+      - text: =
+      - generic: I
+      - text: "و$\\mathbf{t}b = \\mathbf{0}$: $$\\mathbf{M}{\\text{pure}} = \\prod_{b \\in \\text{Chain}} \\left(\\mathbf{M}{b,\\text{rest_local}} \\cdot \\mathbf{R}{b,\\text{keyed}}\\right)$$"
+    - list:
+      - paragraph:
+        - text: الفرق
+        - math:
+          - generic: ∥
+          - generic: M
+          - generic: replay
+          - generic: −
+          - generic: M
+          - generic: pure
+          - generic: ∥
+        - text: ∥
+        - text: M
+        - generic: replay
+        - text: −
+        - text: M
+        - generic: pure
+        - text: ∥
+        - text: يقيس بدقة الميكرومتر
+        - text: حجم التلوث القادم حصريًا من بقاء
+        - code: pose_scale
+        - text: الأخير غير المسجل في الذاكرة
+        - text: .
+      - paragraph:
+        - text: الفرق
+        - math:
+          - generic: ∥
+          - generic: M
+          - generic: pure
+          - generic: −
+          - generic: M
+          - generic: target
+          - generic: ∥
+        - text: ∥
+        - text: M
+        - generic: pure
+        - text: −
+        - text: M
+        - generic: target
+        - text: ∥
+        - text: يقيس بدقة الميكرومتر
+        - text: الحصة التي امتصتها قنوات
+        - code: scale/location
+        - text: غير المسجلة للآباء أثناء حل
+        - code: pb.matrix
+        - text: في الإطار 32 نفسه
+        - text: . Sum المتجهين معًا يطابق الـ
+        - math:
+          - generic: "10.5207"
+          - generic: μ
+          - generic: m
+        - text: "10.5207"
+        - text: μ
+        - generic: m
+        - text: المرصودة تمامًا، مع بقاء
+        - code: Downward69
+        - text: معزولة كـ FAIL غير مصدرة.
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Confirming the scale error's source
+- region "Notifications"
+- generic: إملاء (^⇧D)

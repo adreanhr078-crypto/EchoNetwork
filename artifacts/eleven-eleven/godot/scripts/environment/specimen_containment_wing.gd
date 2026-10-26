@@ -67,6 +67,7 @@ var discoveries: Array[String] = []
 var _scanner_head: Node3D
 var _scanner_beam: Light3D
 var _scanner_cone: MeshInstance3D
+var _scanner_optics: ShaderMaterial
 var _scanner_sweep_angle := 0.0
 var _scanner_sweep_speed := 1.2
 var _scanner_active := true
@@ -114,12 +115,14 @@ func _ready() -> void:
 	var finish = preload("res://scripts/environment/room_panel_finish.gd")
 	finish.apply(self,["Floor"],finish.material(Color(0.18,0.23,0.29),Vector2(4.8,4.8)))
 	finish.apply(self,["CoverPlinth_","TerminalShieldPlinth"],finish.material(Color(0.28,0.35,0.43),Vector2(2.2,1.8),0.22,0.55))
+	preload("res://scripts/environment/specimen_mechanical_dressing.gd").install(self)
 
 func _process(delta: float) -> void:
 	var cone_shader := _scanner_cone.material_override as ShaderMaterial
 	cone_shader.set_shader_parameter("beam_color",_scanner_beam.light_color)
 	cone_shader.set_shader_parameter("motion_time",_fluid_time)
 	cone_shader.set_shader_parameter("motion_amount",0.0 if reduced_motion else 1.0)
+	if _scanner_optics:_scanner_optics.set_shader_parameter("indicator_color",_scanner_beam.light_color)
 	if reduced_motion: return
 	_fluid_time += minf(delta,0.1)
 	_fluid_material.set_shader_parameter("motion_time",_fluid_time)
@@ -390,7 +393,9 @@ func _build_specimen_tanks() -> void:
 	_fluid_material = ShaderMaterial.new()
 	_fluid_material.shader = preload("res://shaders/specimen_fluid.gdshader")
 	_amber_fluid_material = _fluid_material.duplicate()
-	_amber_fluid_material.set_shader_parameter("fluid_color",Color(0.36,0.18,0.055,0.45))
+	# source_color uniforms take sRGB. Encode the intended linear amber once;
+	# the previous unencoded value shifted the reserved tank toward red.
+	_amber_fluid_material.set_shader_parameter("fluid_color",Color(0.36,0.18,0.055,0.45).linear_to_srgb())
 	_amber_fluid_material.set_shader_parameter("fill_height",0.75)
 	var base_metal := _material(Color(0.36,0.43,0.52),0.28,0.50)
 	
@@ -458,8 +463,8 @@ func _build_specimen_tanks() -> void:
 		var glow := OmniLight3D.new()
 		glow.position = Vector3(x, 2.1, z)
 		glow.omni_range = 4.5
-		glow.light_color = Color(0.0, 0.85, 0.9) if cfg["id"] != "ex_011" else Color(1.0, 0.45, 0.1)
-		glow.light_energy = 1.6
+		glow.light_color = Color(0.0, 0.85, 0.9) if cfg["id"] != "ex_011" else Color(1.0, 0.65, 0.28)
+		glow.light_energy = 1.6 if cfg["id"] != "ex_011" else 0.8
 		glow.shadow_enabled = false
 		add_child(glow)
 		

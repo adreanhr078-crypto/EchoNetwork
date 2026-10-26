@@ -1,0 +1,241 @@
+{
+	"closed_gate": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 5.4, -12.94)]",
+	"closed_valve": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (1.25, 6.35, -12.48)]",
+	"colliders": [
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.15, -2.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_EntryFloor/@CollisionShape3D@2",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(8.0, 0.3, 8.0)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.7, -6.0)]",
+			"climbable": true,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_CLIMB_FirstWall/@CollisionShape3D@3",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(5.0, 3.4, 0.5)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.2, -7.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_UpperRest/@CollisionShape3D@4",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(5.0, 0.4, 2.4)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (4.0, 3.2, -7.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_GapLanding/@CollisionShape3D@5",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(2.0, 0.4, 2.4)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (4.0, 4.4, -9.4)]",
+			"climbable": true,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_CLIMB_SecondWall/@CollisionShape3D@6",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(2.0, 2.0, 0.5)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (4.0, 5.2, -10.7)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_FinalRest/@CollisionShape3D@7",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(2.0, 0.4, 2.2)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 5.2, -12.3)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_ExitDeck/@CollisionShape3D@8",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(6.0, 0.4, 1.2)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-4.4, 5.3, -7.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_LeftBoundary/@CollisionShape3D@9",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(0.4, 10.6, 15.0)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (5.4, 5.3, -7.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_RightBoundary/@CollisionShape3D@10",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(0.4, 10.6, 15.0)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.5, 5.3, -14.5)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_FarBoundary/@CollisionShape3D@11",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(10.0, 10.6, 0.4)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 5.2, -13.55)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_ServiceVestibule/@CollisionShape3D@12",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(3.0, 0.4, 1.5)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-2.0, 6.4, -13.45)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_ServiceSideReturn/@CollisionShape3D@13",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(1.0, 2.0, 1.6)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (2.0, 6.4, -13.45)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_ServiceSideReturn_001/@CollisionShape3D@14",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(1.0, 2.0, 1.6)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.5, 10.8, -7.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "COLL_MaintenanceRoof/@CollisionShape3D@15",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(10.2, 0.4, 15.0)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 6.36, -12.94)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"path": "ServiceGateCollision/@CollisionShape3D@19",
+			"shape": "BoxShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"size": "(1.75, 1.9, 0.16)"
+		},
+		{
+			"body_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.9, 0.0)]",
+			"climbable": false,
+			"disabled": false,
+			"layer": 128,
+			"mask": 1,
+			"path": "ServiceOverride/InteractionArea/@CollisionShape3D@20",
+			"radius": 1.35000002384186,
+			"shape": "SphereShape3D",
+			"shape_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		}
+	],
+	"cues": [
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_0",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -1.292, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_1",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.838667, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_2",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.385333, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_3",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.068, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_4",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.521333, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.05, -0.02, -0.03), S: (4.1, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbRung_5",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.974667, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-2.25, -0.015, -0.03), S: (4.5, 0.03, 0.06)]",
+			"path": "COLL_CLIMB_FirstWall/ClimbLedgeLip",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.7, 0.27)]"
+		},
+		{
+			"aabb": "[P: (-0.82, -0.02, -0.03), S: (1.64, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_SecondWall/ClimbRung_0",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.76, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-0.82, -0.02, -0.03), S: (1.64, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_SecondWall/ClimbRung_1",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.226667, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-0.82, -0.02, -0.03), S: (1.64, 0.04, 0.06)]",
+			"path": "COLL_CLIMB_SecondWall/ClimbRung_2",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.306667, 0.28)]"
+		},
+		{
+			"aabb": "[P: (-0.9, -0.015, -0.03), S: (1.8, 0.03, 0.06)]",
+			"path": "COLL_CLIMB_SecondWall/ClimbLedgeLip",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.0, 0.27)]"
+		}
+	],
+	"interaction": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.9, 0.0)]",
+	"native_spec_sha256": "b7f22fafba03f1ff429a66dcfe595f26890dd6f408f190807bbcb84fa90ad668"
+}

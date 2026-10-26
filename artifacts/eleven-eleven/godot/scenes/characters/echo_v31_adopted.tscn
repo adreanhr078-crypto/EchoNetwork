@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/echo_v31_motion_adapter.gd" id="1_adapter"]
-[ext_resource type="PackedScene" path="res://assets/characters/echo_v31_adopted_high.glb" id="2_source"]
+[ext_resource type="PackedScene" path="res://assets/characters/echo_v31_short_jacket.glb" id="2_source"]
 
 [node name="EchoV31Adopted" type="Node3D"]
 script = ExtResource("1_adapter")
+metadata/short_jacket_variant = true
 
 [node name="ReviewedHighSource" parent="." instance=ExtResource("2_source")]

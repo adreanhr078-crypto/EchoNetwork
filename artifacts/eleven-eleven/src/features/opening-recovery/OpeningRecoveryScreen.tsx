@@ -16,6 +16,10 @@ import { hasConfirmedOpeningCoverReceipt, openingResumeDestination } from '../..
 import { GameButton, GlassPanel } from '../../ui/design-system';
 import { ScreenBreakRuntime } from './ScreenBreakRuntime';
 import './opening-recovery.css';
+import { NativeEntryPanel, nativeEntryChallenge } from './NativeEntryPanel';
+import { useAuthStore } from '../auth/authStore';
+import { AuthPanel } from '../auth/AuthPanel';
+import { TitleEntry } from './TitleEntry';
 
 const COVER_IMAGE = '/manhwa/echo-network-final-2026-09-v1/page-001.webp';
 
@@ -105,10 +109,17 @@ function dimensionsFor(pieceCount: number): { rows: number; columns: number } {
     : { rows: 4, columns: 4 };
 }
 
-export default function OpeningRecoveryScreen() {
+export default function OpeningRecoveryScreen({onEntered}:{onEntered?:()=>void}={}) {
+  const uid=useAuthStore(state=>state.user?.uid);
+  const [authOpen,setAuthOpen]=useState(false);
+  const [verifiedUid,setVerifiedUid]=useState<string|null>(null);
+  const [entryRead,setEntryRead]=useState<'loading'|'ready'|'error'>('loading');
+  const accountRevision=useRef(0);
+  const readEpoch=useRef(0);
   const locale = useUiPreferencesStore((state) => state.locale);
   const motion = useUiPreferencesStore((state) => state.motion);
   const copy = COPY[locale];
+  const [nativeChallenge] = useState(nativeEntryChallenge);
   const interactionCopy = INTERACTION_COPY[locale];
   const navigate = useShellStore((state) => state.navigate);
   const entitlements = useShellStore((state) => state.experienceEntitlements);
@@ -134,6 +145,29 @@ export default function OpeningRecoveryScreen() {
   const dragOverSlotRef = useRef<number | null>(null);
   const dragMovedRef = useRef(false);
   const submissionPendingRef = useRef(false);
+
+  const loadAccountEntry=useCallback(async()=>{
+    if(!uid)return;
+    const revision=accountRevision.current,epoch=++readEpoch.current;
+    setEntryRead('loading');
+    try {
+      const fresh=await fetchAuthoritativeStoryState();
+      if(revision!==accountRevision.current||epoch!==readEpoch.current||useAuthStore.getState().user?.uid!==uid)return;
+      hydrateStoryState(fresh);syncAuthoritativeStoryState(fresh);
+      setVerifiedUid(uid);setEntryRead('ready');
+    } catch {if(revision===accountRevision.current&&epoch===readEpoch.current)setEntryRead('error');}
+  },[uid,hydrateStoryState,syncAuthoritativeStoryState]);
+
+  useEffect(()=>{
+    accountRevision.current++;readEpoch.current++;
+    submissionPendingRef.current=false;setVerifiedUid(null);setHasSubmitted(false);setStatus('idle');setTransitionFinished(false);
+    setOrder(shuffledOrder(pieceCount));setPast([]);setSelectedSlot(null);
+    setDraggingSlot(null);setDragOverSlot(null);setDragPreview(null);
+    draggingSlotRef.current=null;dragOverSlotRef.current=null;dragMovedRef.current=false;
+    if(uid){setAuthOpen(false);void loadAccountEntry();}
+    else if(onEntered)setAuthOpen(true);
+    return()=>{accountRevision.current++;readEpoch.current++;};
+  },[uid,loadAccountEntry]);
 
   const dimensions = useMemo(() => dimensionsFor(pieceCount), [pieceCount]);
   const solved = order.every((piece, index) => piece === index);
@@ -166,7 +200,7 @@ export default function OpeningRecoveryScreen() {
 
   useEffect(() => {
     if (
-      status === 'idle'
+      uid && verifiedUid===uid && status === 'idle'
       && openingResumeDestination(storyState) !== 'cover'
     ) {
       setTransitionFinished(true);
@@ -174,13 +208,13 @@ export default function OpeningRecoveryScreen() {
       return;
     }
     if (
-      (status === 'receipt' || status === 'break')
+      uid && verifiedUid===uid && (status === 'receipt' || status === 'break')
       && transitionFinished
       && openingResumeDestination(storyState) !== 'cover'
     ) {
-      navigate('play');
+      if (!nativeChallenge){if(onEntered)onEntered();else navigate('play');}
     }
-  }, [entitlements.accessibleScreens, navigate, status, storyState, transitionFinished]);
+  }, [entitlements.accessibleScreens, navigate, status, storyState, transitionFinished, nativeChallenge,uid,verifiedUid,onEntered]);
 
   const swapPieceSlots = useCallback((fromSlot: number, toSlot: number) => {
     if ((status !== 'idle' && status !== 'error') || fromSlot === toSlot) return;
@@ -300,20 +334,26 @@ export default function OpeningRecoveryScreen() {
   }, [pieceCount, status]);
 
   const verify = useCallback(async () => {
+    if(!uid){setAuthOpen(true);return;}
     if (submissionPendingRef.current) return;
     if (status === 'verifying' || status === 'receipt' || status === 'break' || hasSubmitted) return;
     submissionPendingRef.current = true;
+    const revision=accountRevision.current;
+    readEpoch.current++;
     setStatus('verifying');
     try {
       const response = await completeOpeningRecovery(order);
+      if(revision!==accountRevision.current||useAuthStore.getState().user?.uid!==uid)return;
       if (response.storyState.openingCoverPuzzleCompleted !== true || !hasConfirmedOpeningCoverReceipt(response)) {
         throw new Error('Opening recovery was not confirmed');
       }
       hydrateStoryState(response.storyState);
       syncAuthoritativeStoryState(response.storyState);
       setHasSubmitted(true);
-      setStatus('break');
+      setVerifiedUid(uid);
+      setStatus(nativeChallenge ? 'receipt' : 'break');
     } catch (error) {
+      if(revision!==accountRevision.current||useAuthStore.getState().user?.uid!==uid)return;
       // The POST may have reached the server even if its response was lost.
       // Reconcile with a read-only authoritative snapshot before offering a retry.
       const mayHaveCommitted = !(error instanceof PlayerProgressionApiError)
@@ -321,11 +361,13 @@ export default function OpeningRecoveryScreen() {
       if (mayHaveCommitted) {
         try {
           const confirmedState = await fetchAuthoritativeStoryState();
+          if(revision!==accountRevision.current||useAuthStore.getState().user?.uid!==uid)return;
           if (openingResumeDestination(confirmedState) !== 'cover') {
             hydrateStoryState(confirmedState);
             syncAuthoritativeStoryState(confirmedState);
             setHasSubmitted(true);
-            setStatus('break');
+            setVerifiedUid(uid);
+            setStatus(nativeChallenge ? 'receipt' : 'break');
             return;
           }
         } catch {
@@ -339,9 +381,9 @@ export default function OpeningRecoveryScreen() {
           : 'connection');
       setStatus('error');
     } finally {
-      submissionPendingRef.current = false;
+      if(revision===accountRevision.current)submissionPendingRef.current = false;
     }
-  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState]);
+  }, [hasSubmitted, hydrateStoryState, order, status, syncAuthoritativeStoryState, nativeChallenge,uid]);
 
   useEffect(() => {
     // Alignment triggers a request, never a client-owned completion receipt.
@@ -351,6 +393,15 @@ export default function OpeningRecoveryScreen() {
     }
   }, [solved, status, storyState?.openingCoverPuzzleCompleted, verify]);
 
+  if(onEntered&&(!uid||verifiedUid!==uid))return <>
+    <TitleEntry busy={Boolean(uid)&&entryRead==='loading'} onStart={()=>{if(uid)void loadAccountEntry();else setAuthOpen(true);}} status={entryRead==='error'?(locale==='ar'?'تعذر استعادة اتصال حسابك. اضغط للمحاولة مجددًا.':'Your account connection could not be restored. Tap to retry.'):''}/>
+    <AuthPanel open={authOpen} onClose={()=>setAuthOpen(false)}/>
+  </>;
+
+  if(nativeChallenge && verifiedUid===uid && storyState?.openingCoverPuzzleCompleted) return <main className="opening-recovery" dir={locale==='ar'?'rtl':'ltr'} data-motion={motion}>
+    <section className="opening-recovery__layout"><NativeEntryPanel challenge={nativeChallenge} locale={locale}/></section>
+  </main>;
+
   return (
     <main
       className="opening-recovery"
@@ -359,6 +410,7 @@ export default function OpeningRecoveryScreen() {
       data-puzzle-id={OPENING_COVER_PUZZLE_ID}
       data-status={status}
     >
+      <AuthPanel open={authOpen} onClose={()=>setAuthOpen(false)}/>
       {status === 'break' && (
         <ScreenBreakRuntime
           reducedMotion={motion === 'reduced'}
@@ -371,7 +423,7 @@ export default function OpeningRecoveryScreen() {
               );
               setTransitionFinished(true);
               setStatus('receipt');
-              navigate('play');
+              if(onEntered)onEntered();else navigate('play');
             }}
         />
       )}

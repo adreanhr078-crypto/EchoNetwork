@@ -1,0 +1,22 @@
+{
+	"checks": 45,
+	"display": "headless",
+	"scope": "Actual earned save bytes; scoped resume and public-input trial; no account grant or independent human/fun/art/device acceptance",
+	"source_hashes": {
+		"assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"assets/textures/lab-memory/shizuka-pdf041.webp": "9ace49c850f6a8153ab53929f4e6413e2021806f55df260fd7d556254fbae2fb",
+		"assets/textures/lab-memory/yuki-pdf041.webp": "2bc8a7c345780b5ae1bdafe09f83e07c5af53c591ac984811e592b999008e5a7",
+		"scripts/cinematics/lab_memory_trial.gd": "5bae4b113798f96e77a24ab7d84e4ea602a96bfe61fd4df8150b18ea2c07e7c5",
+		"scripts/cinematics/pact_revenge_presentation.gd": "4850a37789c04605efbcdc20743c80127a6366bc15380fef7d24e314440abf6b",
+		"scripts/environment/dr_kinja_lab_room.gd": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f",
+		"scripts/environment/kinja_rig_terminal.gd": "5f2f7338e27095e1cbcf9649e652f03dfd31b828a96f7bb97b8cd10bacefe8bb",
+		"scripts/main.gd": "3b32439d99b9e96a3e548eb269330b5cf46eaf08101b036ff4b7530f9bf7f11a",
+		"scripts/systems/native_campaign_controller.gd": "9fdb58b6e98c07e0ba687d3ff0206a962e977092fb8ebe47308f72caa5ff8dc5",
+		"shaders/lab_memory_abyss.gdshader": "f8c48fd7e846ddf0aa9c619374bab1075677116a0324992a3d90bf809374ed41",
+		"tests/earned_campaign_resume_review.gd": "e93449fc4a041bf0f27ffd3b96899f9b1d003427561c191725e4d6bf4577f8d2",
+		"tests/lab_memory_trial_input.gd": "c4e3a71f67e427bb6778ba43ad90d5147016f2d24315d363f39c5cb713adecd5"
+	},
+	"stages": [
+		"before-trial"
+	]
+}

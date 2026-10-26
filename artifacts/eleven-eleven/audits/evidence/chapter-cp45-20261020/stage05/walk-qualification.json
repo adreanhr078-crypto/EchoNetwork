@@ -1,0 +1,69 @@
+{
+  "status": "PASS_SCOPED_WALK_QUALIFICATION",
+  "source_take_id": "cca789212f4a334b9ec9309a:0:5173144e",
+  "source_library_sha256": "6ccb005099c223243a60329bd43b07689b12a4f14993ff619eb28e7a7ad1936e",
+  "source_keys_changed": false,
+  "tracks": 60,
+  "keys_compared_exactly": 2220,
+  "native_fps": 30,
+  "samples": 37,
+  "numerical_all68": "walk-ipc/godot-numerical-all.json",
+  "reviewed_actual_gameplay_captures": [
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-0-17.png",
+      "sha256": "c0dcf8de3d2a22eb951990297125754757653a78138a90aa49931ae38b955b68"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-0-33.png",
+      "sha256": "80110fe3801b762ae21b00a5d2aae2bc436c7e43eb39a0a3b951445dce48ce50"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-0-49.png",
+      "sha256": "fc62c1a0bfb4054a28cfd1323c14a5f6adca7cab9cb34bb8b8f292976446cdf9"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-0-65.png",
+      "sha256": "f4d06d8f3f149b8536f4238246acc76adba2e6459710b12824225ab5d1b14c3f"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-1-17.png",
+      "sha256": "01f27bb32d359096b30cd99e1c6337718dfaa590d82c57f80d2defc316f86b62"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-1-33.png",
+      "sha256": "938b19e5efdd8dbf145e737c6fa28f1e09944bba79dc020e854c37bc03af7435"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-1-49.png",
+      "sha256": "b9567752d1fd105df59700e07f75de59094cf332152470506d769950cea3ca0c"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-1-65.png",
+      "sha256": "8cd6d763c29232725234d2ee70103b238ce60c5585ead3bf2beff0c6824e1c1f"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-2-17.png",
+      "sha256": "626e18d1b96038bcf9ac9d7098b50743cf9c433c13cd0989e167a0c395fb10ca"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-2-33.png",
+      "sha256": "db9d19a78bca29806ee5907bfdca0c9578fad86fdb70164a67e75f74d7c56186"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-2-49.png",
+      "sha256": "20f35fcf60bd0463594654f84e0a1f8c83682401534f4e0b20f27448097dc1b8"
+    },
+    {
+      "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\walk-native-physics\\public-run-2-65.png",
+      "sha256": "de2879d10524208087e81563f21356919c3abc50200b01d7e6592aa1bff7e776"
+    }
+  ],
+  "observations": [
+    "Inspected12 public-input captures of the real capsule, feet, hands and independent cape from front, side and rear. Clear alternating walking, not slowed Run.",
+    "Heel support and source toe contact events remain near floor (native public test), with bounded physics-clock phase delay.",
+    "Preserved original target, old CP17 and frozen Golden. Source IPC playback scale measured from its own stance velocity, not invented root displacement.",
+    "Skin/face lighting and exact finger grip remain chapter art work; this scope qualifies locomotion."
+  ],
+  "public_test": "walk-native-physics/review.json",
+  "whole_character_accepted": false
+}

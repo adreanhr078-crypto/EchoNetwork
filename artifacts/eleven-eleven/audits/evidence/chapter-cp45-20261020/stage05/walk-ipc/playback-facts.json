@@ -1,0 +1,166 @@
+{
+  "action": "Walk_Source_Retarget",
+  "take_id": "cca789212f4a334b9ec9309a:0:5173144e",
+  "native_fps": 30,
+  "native_samples": 37,
+  "source_ground_speed_mps": 0.6715578558998432,
+  "source_foot_contacts": {
+    "left": 0.25,
+    "right": 0.75
+  },
+  "source_glb_sha256": "cc9fbf55fcf6e0dec5d7f2d4d23259f1526a9f1f083391c10539ff8b903ca6b0",
+  "blend_sha256": "c32c02cdd13fba9758050a1ed9f0e35c8a0d3a2a240f61bf2ad46e68900ab7ab",
+  "measurement": "Median native IPC foot planar velocity during observed heel-flat support windows (left0-8,right18-26); toe world-Z minima give contacts. Measured playback metadata only; no source/Golen modification.",
+  "stance_measurements": [
+    {
+      "side": "left",
+      "frame": 0,
+      "planar_velocity_rig_mps": [
+        0.0434173084795475,
+        0.695667838153895
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 1,
+      "planar_velocity_rig_mps": [
+        0.02892769407480955,
+        0.6808906109654345
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 2,
+      "planar_velocity_rig_mps": [
+        0.02242112997919321,
+        0.7018931396305561
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 3,
+      "planar_velocity_rig_mps": [
+        0.030338591895997524,
+        0.6698780134320259
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 4,
+      "planar_velocity_rig_mps": [
+        0.0020885327830910683,
+        0.6973946839570999
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 5,
+      "planar_velocity_rig_mps": [
+        0.004883352667093277,
+        0.6586121767759323
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 6,
+      "planar_velocity_rig_mps": [
+        0.024296343326568604,
+        0.6311727315187454
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 7,
+      "planar_velocity_rig_mps": [
+        0.028161692898720503,
+        0.5888347327709198
+      ]
+    },
+    {
+      "side": "left",
+      "frame": 8,
+      "planar_velocity_rig_mps": [
+        0.04787013167515397,
+        0.5244608223438263
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 18,
+      "planar_velocity_rig_mps": [
+        -0.004421691410243511,
+        0.672536501660943
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 19,
+      "planar_velocity_rig_mps": [
+        0.0247216533171013,
+        0.688977213576436
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 20,
+      "planar_velocity_rig_mps": [
+        0.04423572449013591,
+        0.720685925334692
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 21,
+      "planar_velocity_rig_mps": [
+        0.042136700358241796,
+        0.7000409066677094
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 22,
+      "planar_velocity_rig_mps": [
+        0.06223169155418873,
+        0.6869367510080338
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 23,
+      "planar_velocity_rig_mps": [
+        0.0014215288683772087,
+        0.651681125164032
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 24,
+      "planar_velocity_rig_mps": [
+        -0.06337742786854506,
+        0.6271786987781525
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 25,
+      "planar_velocity_rig_mps": [
+        -0.08376723853871226,
+        0.587790459394455
+      ]
+    },
+    {
+      "side": "right",
+      "frame": 26,
+      "planar_velocity_rig_mps": [
+        -0.06188427738379687,
+        0.501130074262619
+      ]
+    }
+  ],
+  "stance_range_mps": [
+    0.5049366446573003,
+    0.7220422441219686
+  ],
+  "actual_avatar_scale": 1.83,
+  "world_native_speed_mps": 1.2289508762967132
+}

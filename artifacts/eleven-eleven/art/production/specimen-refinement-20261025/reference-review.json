@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "file": "flow-entry.jpg",
+      "sha256": "c869570db0cc172aaa4af0997bc9b2e6b24e98b588301eee05b9427c6d35772b",
+      "flow_media_id": "2ff111cf-849f-4b5f-a363-ef6646f66a75",
+      "layout_review": "REJECTED",
+      "reason": "Entry keeps a similar camera but incorrectly drains the front tank instead of EX011; material reference only.",
+      "approved_usage": "selective surface/mechanical concept only; native layout remains authority"
+    },
+    {
+      "file": "flow-reverse.jpg",
+      "sha256": "3df61dd32cc004c1f23ca40947764ec5bb92a641e6fb8a9be5c4b06321f57743",
+      "flow_media_id": "bc8964e4-ee3c-40d5-b338-d5aa6696bf88",
+      "layout_review": "REJECTED",
+      "reason": "Reverse moves tanks, duplicates cabinets and changes the native memory image; rejected as layout.",
+      "approved_usage": "selective surface/mechanical concept only; native layout remains authority"
+    },
+    {
+      "file": "flow-lateral.jpg",
+      "sha256": "260f24648a7b00665a7d9f461cd07ce138996e596a468b8f371417d0213f70a0",
+      "flow_media_id": "04cd7259-aed8-4867-b8dc-90d63a51be80",
+      "layout_review": "REJECTED",
+      "reason": "Lateral becomes a symmetric centre aisle with six cabinets; rejected as layout.",
+      "approved_usage": "selective surface/mechanical concept only; native layout remains authority"
+    },
+    {
+      "file": "flow-hero.jpg",
+      "sha256": "ac157384a44c6e9d3eea7ba884d839fd61862068d6807dc7cf1156a2e4bd04b4",
+      "flow_media_id": "08cdd01d-a51d-4ffa-bf1a-52ea497d71cd",
+      "layout_review": "REJECTED",
+      "reason": "Requested hero became a lateral-like camera; material/collar reference only.",
+      "approved_usage": "selective surface/mechanical concept only; native layout remains authority"
+    },
+    {
+      "file": "filter-reference.jpg",
+      "sha256": "2f72154264778fe9a9192d86657591ddcda16427dad3684b41410950818381fb",
+      "flow_media_id": "4bef7ae1-ee9b-4328-a2df-239688ee5535",
+      "geometry_reference": "ACCEPTED: one broad opaque sealed cabinet, two front doors and right grille; measured fitting and unseen back require Blender review"
+    }
+  ],
+  "four_view_contract": "native-four-view-contract.jpg",
+  "native_views": "The four actual clean High captures are the accepted measured layout packet. Flow designs are not promoted to an accepted four-view reconstruction.",
+  "cinematic_acceptance": "OPEN"
+}

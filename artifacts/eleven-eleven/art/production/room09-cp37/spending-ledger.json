@@ -1,0 +1,56 @@
+{
+  "checkpoint": "CP37",
+  "date": "2026-10-18",
+  "authorization": "Owner authorizes using existing130 Studio credits for useful pre-subscription work; no purchase",
+  "tripo": {
+    "starting_observed": 130,
+    "observed_spent": 95,
+    "reserved": 0,
+    "jobs": [
+      {
+        "purpose": "Reusable memory capsule frame; replace primitive appearance only, preserve glass/triggers/story/collision",
+        "provider": "Tripo Studio",
+        "model": "H2.5 Legacy",
+        "mode": "text geometry+texture",
+        "displayed_cost": 40,
+        "status": "RAW_GEOMETRY_REJECTED__ORIGINAL_EDITABLE_RECONSTRUCTION_INTEGRATED_SCOPED_NATIVE_REVIEW",
+        "privacy": "Public",
+        "export_plan": "Official GLB2K, qualification required; prior success not a guarantee",
+        "task_id": "ce58afa5-be3b-4073-94fc-8368964770ae",
+        "raw_file": "tripo-raw/memory-frame-ce58afa5.glb",
+        "triangles": 19377,
+        "vertices": 18457,
+        "texture": "2048x2048",
+        "surfaces": 1,
+        "export_quota_after": 13
+      },
+      {
+        "task_id": "73f00020-01a3-455f-9b27-290f68f58159",
+        "purpose": "Replace the primitive neural examination table appearance; preserve existing collision/interaction/story transforms",
+        "model": "H3.1 Best Quality",
+        "mode": "text geometry+texture",
+        "displayed_cost": 55,
+        "status": "SUBMITTED_TASK_VISIBLE_BALANCE35_DOWNLOAD_PENDING",
+        "prompt": "tripo-raw/neural-table-prompt.txt",
+        "privacy": "Public"
+      }
+    ],
+    "observed_balance": 35
+  },
+  "flow": {
+    "starting_observed": 470,
+    "reserved": 0,
+    "model": "Veo3.1Fast",
+    "duration": 8,
+    "count": 1,
+    "status": "SUBJECTIVE_VISUAL_AND_CLEAN_WATER_DERIVATIVE_INTEGRATED__10_MEDIA_CHECKS__JAPANESE_TAKE02_UNQUALIFIED",
+    "displayed_cost": 20,
+    "expected_remaining": 450,
+    "project_id": "1ff887bd-cac3-44d9-9ec6-3504b6e2183b",
+    "references": [
+      "references/four-view-contact.png",
+      "../../../../public/manhwa/echo-network-final-2026-09-v1/page-043.webp"
+    ],
+    "quality_mode_rejected": "UI marked both Ingredients invalid; no paid Quality request"
+  }
+}

@@ -33,6 +33,7 @@ var anim_player: AnimationPlayer = null
 var footstep_audio_player: AudioStreamPlayer3D = null
 
 var _last_phase: float = 0.0
+var _last_animation := ""
 var _step_cooldown: float = 0.0
 
 func _ready() -> void:
@@ -53,11 +54,14 @@ func _crossed_phase(target: float, last_p: float, cur_p: float) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if not player or not player.is_inside_tree() or not player.is_on_floor():
+		_last_animation = ""
+		_step_cooldown = 0.0
 		return
 
 	if not anim_player:
 		anim_player = player.find_child("AnimationPlayer", true, false) as AnimationPlayer
 	if not anim_player or not anim_player.is_playing():
+		_last_animation = ""
 		return
 
 	var current_anim: String = anim_player.current_animation.to_lower()
@@ -66,6 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	if not (is_walk or is_run):
 		_last_phase = 0.0
+		_last_animation = ""
 		return
 
 	_step_cooldown = maxf(0.0, _step_cooldown - delta)
@@ -77,6 +82,14 @@ func _physics_process(delta: float) -> void:
 
 	var target_right := RUN_RIGHT_PHASE if is_run else WALK_RIGHT_PHASE
 	var target_left := RUN_LEFT_PHASE if is_run else WALK_LEFT_PHASE
+	var animation: Animation = anim_player.get_animation(anim_player.current_animation)
+	var contacts: Variant = animation.get_meta("source_foot_contacts", {})
+	if contacts is Dictionary:
+		target_right = _contact_phase(contacts.get("right"), target_right)
+		target_left = _contact_phase(contacts.get("left"), target_left)
+	if _last_animation != current_anim:
+		_last_animation = current_anim
+		_last_phase = phase
 
 	var crossed_right := _crossed_phase(target_right, _last_phase, phase)
 	var crossed_left := _crossed_phase(target_left, _last_phase, phase)
@@ -89,6 +102,10 @@ func _physics_process(delta: float) -> void:
 		_trigger_footstep(true, is_run)
 
 	_last_phase = phase
+
+func _contact_phase(value: Variant, fallback: float) -> float:
+	if (value is float or value is int) and is_finite(float(value)) and float(value)>=0.0 and float(value)<1.0: return float(value)
+	return fallback
 
 func _get_foot_world_position(is_left: bool) -> Vector3:
 	if player:
@@ -123,6 +140,9 @@ func _trigger_footstep(is_left: bool, is_run: bool) -> void:
 	footstep_triggered.emit(is_left, surface_type, is_run, foot_world)
 
 func _detect_surface(origin: Vector3) -> String:
+	# Decorative shallow water has no collider and never changes traversal.
+	for provider in get_tree().get_nodes_in_group("echo_wet_surface_providers"):
+		if provider.contains_water(origin):return "water"
 	if not player or not player.is_inside_tree():
 		return "concrete"
 
@@ -199,6 +219,8 @@ func _is_reduced_motion() -> bool:
 	return false
 
 func _spawn_step_vfx(surface_type: String, foot_pos: Vector3) -> void:
+	var pooled:=get_node_or_null("/root/KineticVFXOrchestrator")
+	if pooled and pooled.player==player:return
 	var parent := player.get_parent() if player else null
 	if not parent:
 		return

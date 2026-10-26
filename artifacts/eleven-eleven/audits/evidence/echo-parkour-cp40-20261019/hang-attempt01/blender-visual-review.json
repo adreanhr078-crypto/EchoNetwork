@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "Isolated source transfer eligibility only; no room contact, cape art, fun or device acceptance",
+  "blend_sha256": "130672a42aa285f4d8952a1c02c83e52c06258450a317570ad4f8f920a637c2a",
+  "inspected_frames": [
+    "back-0000.png",
+    "back-0014.png",
+    "back-0028.png",
+    "side-0000.png",
+    "side-0012.png",
+    "side-0028.png"
+  ],
+  "findings": [
+    "Finite braced-to-free transition; do not loop. Terminal pose is overhead hand support with dangling legs.",
+    "Shoulder and elbow directions follow source without visible inversion in inspected views.",
+    "Coat remains independent and static; crossed-leg overlap and coat dynamics remain an explicit art gate. No rig/mesh replacement."
+  ],
+  "reviewer": "Codex visual inspection of actual saved Blender render"
+}

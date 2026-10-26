@@ -1,0 +1,700 @@
+{
+	"archive_state": {
+		"archive_decoded": true,
+		"collected_shards": [
+			"shard_shizuka",
+			"shard_yuki",
+			"shard_sector11"
+		],
+		"gate_open": true,
+		"state": 3
+	},
+	"camera_current": true,
+	"checks": 48,
+	"control_locked": false,
+	"earned_profile_hashes": {
+		"campaign.json": "ae1090cac5fa19889b502d7705da1beff38b8bb27f5f7919f06e1ae5d9ead283",
+		"maintenance.json": "d5388170e1a4d49334b6c8472a4d8510199bbd032ef2b5a0fca315af524fd1e9",
+		"opening.json": "391b38d00ad7011ce16854b119bb2ab94b9da0c8ff3e6c98e7e92d1679bbc1b8",
+		"preferences.cfg": "9d318fa176bd457cc82748f55b54a9dd2eac58843898f1b0376ac2577bf679b3",
+		"route.json": "87478cb6a6a932647ff39d76d75c2be78e20a7972fdafedc8c5c1a5b8b03f918"
+	},
+	"focus_interruptions": 0,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"no_pre_pact_power": true,
+	"public_samples": [
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-000.png",
+			"position": "(0.0, 5.399158, -64.8745)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(0.0, -0.000843, -14.8745)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-001.png",
+			"position": "(0.0, 5.400907, -68.97612)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-2.5, 0.000906, 2.02388)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-002.png",
+			"position": "(0.0, 5.400907, -67.99888)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-2.5, 0.000906, 3.001122)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-003.png",
+			"position": "(-10.47574, 5.400907, -67.99962)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-12.97574, 0.000906, 3.000381)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-004.png",
+			"position": "(-22.15104, 5.400942, -76.99715)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-24.65104, 0.000942, -5.997154)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-005.png",
+			"position": "(-23.50309, 5.400942, -81.40968)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-26.00309, 0.000942, -10.40968)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-006.png",
+			"position": "(-25.47071, 5.400942, -81.40327)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-27.97071, 0.000942, -10.40327)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-007.png",
+			"position": "(-25.49936, 5.400942, -83.00803)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-27.99936, 0.000942, -12.00803)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-008.png",
+			"position": "(-28.2918, 5.400942, -83.00091)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-30.7918, 0.000942, -12.00091)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-009.png",
+			"position": "(-41.30761, 5.40041, -83.00001)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-13.80761, 0.00041, -0.000008)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-010.png",
+			"position": "(-43.20401, 5.40041, -86.20747)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-1.704014, 0.00041, -3.207466)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-011.png",
+			"position": "(-47.47245, 5.40041, -86.20168)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-5.972446, 0.00041, -3.201675)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-012.png",
+			"position": "(-47.50006, 5.40041, -78.90112)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-6.000061, 0.00041, 4.098877)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-013.png",
+			"position": "(-47.49995, 5.40041, -80.48167)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-5.999947, 0.00041, 2.518333)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-014.png",
+			"position": "(-57.52426, 5.400941, -80.50556)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-16.02426, 0.000941, 2.494438)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-015.png",
+			"position": "(-57.4995, 5.400941, -87.11919)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-15.9995, 0.000941, -4.119194)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-016.png",
+			"position": "(-61.47709, 5.400941, -86.00785)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-19.97709, 0.000941, -3.007851)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-017.png",
+			"position": "(-61.50003, 5.400941, -74.00236)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-20.00003, 0.000941, 8.997643)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-018.png",
+			"position": "(-45.29221, 5.400941, -74.00006)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-3.792213, 0.000941, 8.999939)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-019.png",
+			"position": "(-45.30009, 9.000277, -82.50507)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-3.800095, 3.600276, 0.494934)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-020.png",
+			"position": "(-52.49158, 9.000277, -82.99967)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-10.99158, 3.600276, 0.000328)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-021.png",
+			"position": "(-45.31935, 9.000277, -82.50131)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-3.819347, 3.600276, 0.498688)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-022.png",
+			"position": "(-45.30012, 5.40073, -73.99444)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-3.800117, 0.00073, 9.005562)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-023.png",
+			"position": "(-43.20461, 5.40073, -73.99935)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-1.704609, 0.00073, 9.000648)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-024.png",
+			"position": "(-43.19997, 5.40073, -86.19785)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-1.699966, 0.00073, -3.197845)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-025.png",
+			"position": "(-51.01512, 5.40073, -86.19963)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-9.515118, 0.00073, -3.199631)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-026.png",
+			"position": "(-43.19145, 5.40073, -86.19997)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": true,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-1.691452, 0.00073, -3.199974)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-027.png",
+			"position": "(-43.19987, 5.40073, -94.99334)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": true,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-1.699867, 0.00073, -11.99334)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-028.png",
+			"position": "(-52.48112, 5.40073, -95.00034)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": true,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-10.98112, 0.00073, -12.00034)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-029.png",
+			"position": "(-52.50155, 5.40073, -97.78609)",
+			"progress": {
+				"completed": [
+					"specimen",
+					"archive"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": true,
+						"shard_sector11": true,
+						"shard_shizuka": true,
+						"shard_yuki": true
+					},
+					"reactor": {
+						"breaker_a_done": false,
+						"breaker_b_done": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-11.00155, 0.00073, -14.78609)"
+		}
+	],
+	"renderer": "forward_plus",
+	"saved_completion": [
+		"specimen",
+		"archive"
+	],
+	"scanner_retries": 0,
+	"scope": "Validated security-completed fixture then public input through04 and05;3area pickups/native stair/upper walkway/decoder/physical thresholds;not fresh chapter,full memory playback,audio,art or fun acceptance.",
+	"solid_floor": true,
+	"tier": "high"
+}

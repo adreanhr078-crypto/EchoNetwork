@@ -1,0 +1,43 @@
+{
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\lab-clinical-kit-20261023\\tripo\\lab-packed-existing-4k-20261024.glb",
+  "source_sha256": "967e3d37d518732dec388df271ddb55d07d659ae16e1b794cb385911bb46b421",
+  "raw_geometry_triangles": 176515,
+  "raw_geometry_fingerprint_1um": "a0cce69cb714f92e7cc17f759d6e7f888123959cb61cdd9309a5eee07119b90f",
+  "packed_geometry_fingerprint_1um": "f5a24758df2696b4dbe60f0a6a3539e69c750d5e84cecd1ae5aa36f03f14e699",
+  "maximum_source_triangle_position_error": 3.397987559733206e-07,
+  "export_origin_correction_blender": [
+    0.00015942752361297607,
+    0.00026747584342956543,
+    -1.4901161193847656e-08
+  ],
+  "raw_geometry_match": true,
+  "retained_triangles": 102923,
+  "material_count": 1,
+  "derivative": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\lab-clinical-kit-20261023\\tripo\\packed-perimeter-20261024\\clinical_perimeter_packed.glb",
+  "derivative_sha256": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533",
+  "images": [
+    {
+      "name": "futuristic_lab_3d_model_basecolor",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "futuristic_lab_3d_model_normal",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "futuristic_lab_3d_model_rm",
+      "size": [
+        4096,
+        4096
+      ]
+    }
+  ],
+  "scope": "Same measured perimeter mask/fit and retained triangle count; packed UV/PBR source. Native art, residency and route acceptance remain required.",
+  "comparison_tolerance_source_units": 1e-06
+}

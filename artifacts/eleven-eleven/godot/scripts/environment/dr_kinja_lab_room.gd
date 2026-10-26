@@ -94,6 +94,7 @@ var _contract_altar: StaticBody3D
 var _yuki_pod: MeshInstance3D
 var _shizuka_pod: MeshInstance3D
 var story_presentation: Node3D
+var narrative_trial: Node3D
 
 func _ready() -> void:
 	preload("res://scripts/environment/room_service_lighting.gd").install(self,Rect2(-16,-40,32,40),10.0)
@@ -254,7 +255,7 @@ func _build_surgical_theater() -> void:
 	area.add_child(area_col)
 	
 	area.body_entered.connect(func(body: Node3D):
-		if body.has_method("register_nearby_interactable"):
+		if body.has_method("register_nearby_interactable") and (not is_instance_valid(narrative_trial) or narrative_trial.terminal_available()):
 			body.register_nearby_interactable(_neural_terminal)
 	)
 	area.body_exited.connect(func(body: Node3D):
@@ -363,6 +364,7 @@ func _build_stasis_displays() -> void:
 	var screen_mat := _material(Color(0.025, 0.028, 0.045), 0.3, 0.4)
 	
 	var stasis_screen := MeshInstance3D.new()
+	stasis_screen.name = "StasisClockHousing"
 	var s_mesh := BoxMesh.new()
 	s_mesh.size = Vector3(10.0, 2.4, 0.1)
 	stasis_screen.mesh = s_mesh
@@ -577,6 +579,7 @@ func get_state() -> Dictionary:
 	}
 
 func restore_state(data: Dictionary) -> void:
+	if is_instance_valid(narrative_trial): narrative_trial.reset_trial()
 	_kill_drowning_motion()
 	_kill_breach_motion()
 	confrontation_done = data.get("confrontation_done",false)
@@ -612,3 +615,4 @@ func restore_state(data: Dictionary) -> void:
 		_breach_material.emission_energy_multiplier=1.2
 	set_presentation_language(presentation_language)
 	_sync_contract_interaction()
+	if is_instance_valid(narrative_trial): narrative_trial._refresh_terminal()

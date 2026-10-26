@@ -1,0 +1,61 @@
+{
+	"framebuffer": [
+		1280,
+		720
+	],
+	"profile_kind": "validated cold profile;one explicit actor anchor",
+	"progress_unchanged": true,
+	"render_scale": 1.0,
+	"renderer": "forward_plus",
+	"room": "security",
+	"scope": "Actual current native High fixed-camera inventory only. No moving acting,audio,fun,device performance or room/chapter acceptance.",
+	"source_hashes": {
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
+		"res://scripts/environment/security_checkpoint_room.gd": "48ab9de2f8409a48702c5ed6df43988ecd58b18040f1c1e980b82ece96158d18",
+		"res://scripts/main.gd": "3b0a56251bdf0d94f2e83de71e684dcdb3a33314c21f0d4644d3e2b16a171181",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://scripts/systems/native_journey_controller.gd": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+		"res://tests/remaining_rooms_high_inventory.gd": "e84143374d00c174975be6cb4838f7b4ba1f031b692bfea4e9e28f90516f6ce5"
+	},
+	"source_profile_hashes": {},
+	"tier": "high",
+	"views": [
+		{
+			"file": "entry.png",
+			"local_camera": "(-2.6, 1.9, -1.299999)",
+			"local_target": "(0.0, 2.0, -12.0)",
+			"overlap_nodes": [],
+			"sha256": "833384d1b5b93d7f82da68fe4574cc3d5f011f346cfdfa127c0d71a1b774acf6",
+			"solid_overlap_count": 0,
+			"view": "entry"
+		},
+		{
+			"file": "reverse.png",
+			"local_camera": "(2.8, 2.6, -15.0)",
+			"local_target": "(-0.5, 1.9, -4.0)",
+			"overlap_nodes": [],
+			"sha256": "9a35d2566ce5b030e7722b8411186d7aca650c15a0832ea21606be609041fe3d",
+			"solid_overlap_count": 0,
+			"view": "reverse"
+		},
+		{
+			"file": "lateral.png",
+			"local_camera": "(-3.4, 3.4, -9.0)",
+			"local_target": "(1.0, 1.5, -9.0)",
+			"overlap_nodes": [],
+			"sha256": "2a5a45d607bd903163eed4f94875a80ca6c1dfd348f5b22fa35d016a1b8256ec",
+			"solid_overlap_count": 0,
+			"view": "lateral"
+		},
+		{
+			"file": "hero.png",
+			"local_camera": "(1.8, 2.1, -12.8)",
+			"local_target": "(0.0, 1.5, -15.9)",
+			"overlap_nodes": [],
+			"sha256": "532c8bede92765e052fb37d8245638b637a35746d32d92621b631113b504f27c",
+			"solid_overlap_count": 0,
+			"view": "hero"
+		}
+	]
+}

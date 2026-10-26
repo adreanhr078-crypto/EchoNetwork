@@ -1,0 +1,221 @@
+{
+  "status": "PASS_SCOPED_STAGE08",
+  "checkpoint": "CP45",
+  "date": "2026-10-21",
+  "scope": "Functional five-room mystery slice: actual Windows Godot scene, 1280x720 Compatibility, public virtual movement/UI; scanner timing reads its live clock. Not independent human/fun/art/device or whole-chapter acceptance.",
+  "route": {
+    "evidence": "route/attempt04-rendered/",
+    "checks": 289,
+    "retries": 0,
+    "rooms": [
+      {
+        "completed": [
+          "specimen"
+        ],
+        "earned_snapshot": "earned/after-specimen",
+        "position": "(-28.29893, 5.400942, -83.00042)",
+        "room": "specimen"
+      },
+      {
+        "completed": [
+          "specimen",
+          "archive"
+        ],
+        "earned_snapshot": "earned/after-archive",
+        "position": "(-52.50222, 5.40083, -97.77129)",
+        "room": "archive"
+      },
+      {
+        "completed": [
+          "specimen",
+          "archive",
+          "reactor"
+        ],
+        "earned_snapshot": "earned/after-reactor",
+        "position": "(-52.49998, 9.400797, -156.7957)",
+        "room": "reactor"
+      },
+      {
+        "completed": [
+          "specimen",
+          "archive",
+          "reactor",
+          "decon"
+        ],
+        "earned_snapshot": "earned/after-decon",
+        "position": "(-52.49995, 9.400843, -204.7878)",
+        "room": "decon"
+      },
+      {
+        "completed": [
+          "specimen",
+          "archive",
+          "reactor",
+          "decon",
+          "mirror"
+        ],
+        "earned_snapshot": "earned/after-mirror",
+        "position": "(-52.49924, 9.400167, -256.8326)",
+        "room": "mirror"
+      }
+    ],
+    "pact_confirmed": false,
+    "lab_executed": false
+  },
+  "earned_resume": {
+    "evidence": "resume/verified/",
+    "checks": 150,
+    "stages": 5,
+    "settings": "Initial English/Reduced Motion, live Arabic/English/RM/mute/pause; exact earned flags, grounded input/camera and no early powers"
+  },
+  "local_tests": {
+    "local/archive_presentation_review.log": "PASS archive presentation: six measured visual/collider fits, visual-only shard motion, pause/RM, no progression mutation, single collection bursts/mute/silent restore and decoder-ready guidance",
+    "local/archive_to_reactor_conduit_smoke-final.log": "PASS archive to reactor conduit: 15.0m dedicated spatial buffer, watertight envelope, midpoint bulkhead, safe anchor, and state restoration",
+    "local/core_reactor_room_smoke-final.log": "PASS core reactor room: 36x44m watertight hull, tokamak core, dual breakers, hydraulic bridge, electric hazard timing, and abyss recovery",
+    "local/decontamination_quarantine_wing_smoke-final.log": "PASS decontamination quarantine wing: 24x32m hull, original UV arches/pods, override gate, safe anchors and state serialization; presentation/restore tested separately",
+    "local/memory_archive_wing_smoke.log": "PASS memory archive wing: 22x28m watertight hull, climbable server towers, 3 memory shards, console decoding, gate unlock, and state restoration",
+    "local/mirror_chamber_room_smoke-final.log": "PASS mirror chamber state: 28x36m hull bounds, mirror trigger, override gate, bilingual real-state telemetry and restoration; reflection art requires rendered review",
+    "local/mirror_vfx_review-final.log": "Mirror VFX review failures=0; Canon/state, duplicates, pause/live RM/mute, silent rollback/mid-gate continuation, stable nodes and isolated mirror layer/defaults. Native art/device review separate.",
+    "local/native_campaign_checkpoint_review-final.log": "PASS campaign checkpoint: strict types/order, no phase skipping, monotonic flags, corrupt backup recovery, rejected writes preserve committed state, bounded input",
+    "local/reactor_live_reduced_motion_review-final.log": "PASS live Reduced Motion during paused/unpaused reactor bridge and gate; immediate safe geometry and silent completion",
+    "local/reactor_presentation_review-final.log": "PASS reactor presentation: baseline collisions/state identical; exact hazard boundaries/RM; local clock/pause; transition-only cues/live mute; duplicate breaker/gate; single release; interrupted bridge/gate restore and paused/RM/deferred collision race; stable node count",
+    "local/reactor_to_decon_conduit_smoke-final.log": "PASS reactor to decon conduit: 16.0m dedicated spatial buffer, watertight envelope, midpoint bulkhead, safe anchor, and state restoration",
+    "local/specimen_to_archive_conduit_smoke.log": "PASS specimen to archive conduit: 14.0m dedicated spatial buffer, watertight envelope, midpoint bulkhead, safe anchor, and state restoration"
+  },
+  "specimen": {
+    "evidence": "specimen-route/phase-1.1-direct/review.json",
+    "result": "PASS Reduced Motion public route, zero retries",
+    "change": "Driver path/timing only. Production scanner/FOV/grace/hull unchanged."
+  },
+  "golden": {
+    "status": "PASS",
+    "protected_files": 192,
+    "command": "python tools/animation-library/golden_reference.py"
+  },
+  "rejected_attempts": {
+    "route/attempt01": "Reached five rooms, one scanner retry; NOT accepted",
+    "route/attempt02": "Lost floor support near second Room02 climb; richer diagnostic added, ground requirement retained. Not reproduced in accepted04; broad reliability remains Stage14.",
+    "route/attempt03-headless": "Reached five rooms, one scanner retry; NOT accepted"
+  },
+  "inspected_images": [
+    "route/attempt04-rendered/mirror-actual-inspection.png",
+    "route/attempt04-rendered/entry-Campaign_decon.png",
+    "route/attempt01/entry-Campaign_specimen.png",
+    "route/attempt01/entry-Campaign_archive.png",
+    "route/attempt01/entry-Campaign_reactor.png",
+    "route/attempt01/entry-Campaign_mirror.png"
+  ],
+  "open": [
+    "Stage13 environment saturation/dark-floor contrast and mirror task-toast framing; final actor/material/lighting/hand craft",
+    "SFX listening/Japanese performance",
+    "Independent fun/art and physical devices",
+    "Full chapter, server receipts and final package Stage14"
+  ],
+  "production_runtime_changes": false,
+  "new_credit_spend": 0,
+  "full_postflight_rerun": false,
+  "next": "Stage09 Kinja memory/psychological-pressure slice, then10; full postflight after11 only",
+  "source_hashes": {
+    "scenes/environment/core_reactor_room.tscn": "56efbd22f22eed1ad3bf77e14280ac86c5d9d6c54c5e37e21f22fe2a83cf51e7",
+    "scenes/environment/decontamination_quarantine_wing.tscn": "9626c043e8f2c3f25b937ddd576c2405b4412f6e0fa4ad7d1b2b5968a4b3bd04",
+    "scenes/environment/dr_kinja_lab_room.tscn": "14251083d2f0c7ccf37703e9810b4eb818bc35e1dc0d888fda1217d0e79505af",
+    "scenes/environment/memory_archive_wing.tscn": "c5c518d9a382e1c0e8ff274b1d7178adbf2bca9cf620547fdc844191c99ea596",
+    "scenes/environment/mirror_chamber_room.tscn": "458ea359c5c7db9b6541253eaa186fab91df69d05bd87043e523fbdd3828f441",
+    "scenes/environment/specimen_containment_wing.tscn": "abac1bbcd6081fc15343d87130171bc5d121d22cc48f35459a533aaf6281b13d",
+    "scripts/environment/core_reactor_room.gd": "0b65366e1090ffb06d07997024502b69d7d0f25fef292f6ea312aa65e0635017",
+    "scripts/environment/decontamination_quarantine_wing.gd": "6dea0a16a36dfa803780b9101539e8e82a97f0a2a5af1b1fead9dbf39dc21cb9",
+    "scripts/environment/dr_kinja_lab_room.gd": "be1168a825eadc19844f7a6468bc8ac0a219eaa00cb050ecf4f99b34d1f8ed3f",
+    "scripts/environment/memory_archive_wing.gd": "3b49d7384582132a671c09849ea8ddea1ed4cc42f3d2d9b496b3cea9bfe33dc9",
+    "scripts/environment/mirror_chamber_room.gd": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+    "scripts/environment/specimen_containment_wing.gd": "ce8eeca16cb9c32eec29bf94be255d54d7e23b9a45446cb70a26cdcc6e8ea745",
+    "scripts/systems/native_campaign_checkpoint.gd": "ca1aeca6c9e0002fc5019b35c4ac8053d7ad0ae0912bd75f90507ab52b43992d",
+    "scripts/systems/native_campaign_controller.gd": "a73142c4ed4cf1e91128f39e82c879a6fc8cc1c2ad50270ed0aa3626ef2fe6d1",
+    "tests/full_chapter_journey_review.gd": "63165354039ad2d15617658e8c76ffbbed394f6ce250ab4973487bf8dbddca51",
+    "assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import": "167ad650aa6502489177e56df931ec13e43c75a6cb2415425f315da928305be9",
+    "assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png.import": "461229d7459eb57ad7087d8dc86cb966c44dea0bda5f323bdbcc7ccdf2868247",
+    "assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import": "c5e7a63801427e93f2da4f37654923f917b7119135b0eb9f7fae9d110027875e",
+    "assets/cinematics/lab-memory-bottom-v1.webp": "5b6209476d1b1440124b140ca0c91810d794b76b012610dc8f5c4ea6c5d708d0",
+    "assets/cinematics/lab-memory-collapse-v1.ogv": "69d84882007a07946ff8add7fb6232792216d9cf85e46b0add0a62b3ac391766",
+    "assets/cinematics/lab-memory-water-v1.ogg": "aeb8bf9ce26209ef6cce38066e44a431ba70d03d3fb668d907745311c0fc0257",
+    "assets/props/memory_stasis_frame_clean_v1.glb": "024d2a93409b8715751a0ad4ec6e074b66b550432abb7f18d74f8968ce8a6fcf",
+    "assets/props/ward_bed_original_v1.glb": "fd6e4e366922f2f03b275ed73419258fdac6cdc76c7f37fe3c6893e53388a94f",
+    "assets/props/ward_vanity_v1.glb": "32a71a323353105c6705122d0941b5e02cf2a28801e8b15535edef896e29c6af",
+    "assets/props/ward_visitor_chair_v1.glb": "8e2d48c0fedb6b19be1b4dace843792ba81c87f0788dc95fef957f2145922470",
+    "assets/textures/lab-memory/shizuka-pdf041.webp": "9ace49c850f6a8153ab53929f4e6413e2021806f55df260fd7d556254fbae2fb",
+    "assets/textures/lab-memory/yuki-pdf041.webp": "2bc8a7c345780b5ae1bdafe09f83e07c5af53c591ac984811e592b999008e5a7",
+    "scripts/cinematics/lab_memory_trial.gd": "0d47302420a9bb116260f455d40137d83f66f310409bd70b0b0f1119ab3c8cff",
+    "scripts/cinematics/pact_revenge_presentation.gd": "987f4ee0ec4e87e605cc2c5014c26b728d32a40fca743d7aff87848957619105",
+    "scripts/environment/hospital_bedside_foundation.gd": "987e2f59b53a43ce92fb92662a3016b511c399e1032a5192cd841383cae289c6",
+    "scripts/environment/hospital_bedside_room.gd": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+    "scripts/environment/hospital_room_dressing.gd": "ed5563d9a8e8dc07d03413d97403c02b35c7fa08e0bba06ab5ec189801259b34",
+    "scripts/environment/kinja_rig_terminal.gd": "5f2f7338e27095e1cbcf9649e652f03dfd31b828a96f7bb97b8cd10bacefe8bb",
+    "scripts/environment/memory_reflection_space.gd": "298488795067e20ea439921e71285d85d30b6a4f27d3edbcff47af0f2256d628",
+    "scripts/main.gd": "3b0a56251bdf0d94f2e83de71e684dcdb3a33314c21f0d4644d3e2b16a171181",
+    "scripts/systems/native_journey_controller.gd": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+    "scripts/ui/opening_memory_film.gd": "60f63f6118f51e5e2a297106e6badf6c05a1cbadc6a1845379284c35e3f2a1ea",
+    "shaders/lab_memory_abyss.gdshader": "f8c48fd7e846ddf0aa9c619374bab1075677116a0324992a3d90bf809374ed41",
+    "shaders/memory_water.gdshader": "282bbedb162be0a8d4699ef6c651f2e2b3cdd670f803ee94e063801083482b60",
+    "shaders/ward_floor.gdshader": "b53883b4205dafc253ab879f07a1f9872a6109a2b2f97264665ff48978c281bb",
+    "shaders/ward_linen.gdshader": "a221f55033ccefe606baf9e8793b091e514fe73b4cf1e7dcfe6972ccf2910921",
+    "shaders/ward_rain_window.gdshader": "9416ecfb596e6ffe66effc0c94a0974f11e53f82e2893664d1836567768779a3",
+    "tests/earned_campaign_resume_review.gd": "ecb37f2ef5ee1b1131d0abc6447874c49e8e5e832dcb922029ca46d4b97adccb",
+    "tests/lab_memory_trial_input.gd": "2fe2104660d008c02ec1b5d914f56af7cc233a838d253a213f4a89287e838ce1",
+    "tests/opening_player_journey_review.gd": "2e38fd5cf370b34733b58c5a00075269806a2d05c9fdc972a628482b5e07ec68",
+    "tests/ward_objective_owner_review.gd": "f0213856465af7ac1cd9a745236776e03a8d656a89f7509d6ec7ca80795e626d",
+    "tests/specimen_public_route_review.gd": "32f0ea937ccfaeef9305ef1c5fc932915311b0c34e805448d51dea67fbe02bf1"
+  },
+  "capture_hashes": {
+    "00-arrival.png": "aacd5ebd31e4bbeff4088162008e0f601eba3aad12c1a12d355ae86c7877e467",
+    "01-clock.png": "145282fc9f99ecb6125c8c8b056a6cd6761b2b7205fd7f10869f2dd8624ab849",
+    "02-memory.png": "4ee94ccb2b37e7f3eb47b22393fc30439603d863569efc3c8388c30485fcb369",
+    "03-signal-aligned.png": "1a60f461329fa913edbaebfae78e28793ce8cdd2b9b02ef679a9fb82e1a02072",
+    "04-threshold.png": "04d5267d34efe2e819c6de22682a17e0b881024a19f0cef65c0a5adc1f7760ff",
+    "05-maintenance-entry.png": "bc5b22476b010111f80e5e84caeac5f9ea784a4c5a577b22bc5f80404d93d800",
+    "boundary-memory.png": "7f0812d1d58bf19e1700426ff758c9c4582c2ddb17c0e3ac67a7ab2ee585edcd",
+    "entry-CampaignBuffer_0.png": "a9916fc496aeb619fe35c70224ecb49c28b80854295aea1d2abd8eeb76475b35",
+    "entry-CampaignBuffer_1.png": "e4754967a81f3e393bca1faf9393ab20aad68f90f41a2c5b8445856b36fea436",
+    "entry-CampaignBuffer_2.png": "3427b5585736fba2924e2bd52b03b1d30363589527598ade871421bb739cdafa",
+    "entry-CampaignBuffer_3.png": "add355c44572cea5ed2a11c7593681e55dbcb147ab497d71fbf856bdfc45120d",
+    "entry-CampaignBuffer_4.png": "f4d06fbc98e7b241d8f2c6a01dbe0f9b3ea3c462ffaf9b06a0cad22dbecd59f1",
+    "entry-Campaign_archive.png": "d7bd3f4379d727f0eab0e82b09fc0c505613be04b1e0ce6605fa29d7170cfe4c",
+    "entry-Campaign_decon.png": "8c01a2d5343b3f9d743a5bf3272b6ac36b3c1b6ae9c41019a3d17f7ab932f75d",
+    "entry-Campaign_mirror.png": "8877d4bd3781039146ba22eee8946e289d777a26da35d59afa87d0ecc036e725",
+    "entry-Campaign_reactor.png": "e97cfd399f9c1e2a02eddf734a1f0d005b655d167a81eb0685afdf71c14da84c",
+    "entry-Campaign_specimen.png": "19546437b0eba10b8c94c7a08634dccb4b8626667a64807f4805daa64769ef62",
+    "gate-cinematic-015.png": "79a5f040731731343b2de9869b8081361913b58db62dfd55090f409454c1dfa7",
+    "gate-cinematic-070.png": "92f8d5bfb62aa82fe7ac97ee8c94d2220766445ebdfe1666b373d0502a9770ca",
+    "gate-cinematic-140.png": "27b0d9b5bc1cd15699df90f55e5f0124eb2e3a3754897a38c217c725bb499806",
+    "inspection-clock.png": "282196ea84e1b816628131c6b924225efd1068af389304b688e1818f16029e4a",
+    "inspection-photo.png": "4e47baca0b6775fc18e83cd030db047eb973481017ab6cc5debda749f092e4e5",
+    "inspection-reference-clock.png": "83922c77e1d7b58242339c96fbaeed38d9dd17880d66b9944ca6e59222cb4448",
+    "inspection-reference-photo.png": "f3d353c0d9ef0eec657b8b39840c95569c396682e09cfb2e6b51aa2ffd6b58a2",
+    "mirror-actual-inspection.png": "076a5a19fbfd86b1c6b5a4c6e39045e7dd06c5f4422f63c212b4f4f2fb92277f",
+    "mystery-after-archive.png": "1737a3c4e714853ec2f8ea5d414ad93ab18cdf3f86285de243fd19427a243fc5",
+    "mystery-after-decon.png": "1630f73189a0c4e023c3ff806ba0786bd94afee803c3fffe38438e580bf1722e",
+    "mystery-after-mirror.png": "24683a75f3fef0a5169d26e045b31e51c3ebbe8172fa9177235b51c85963fb02",
+    "mystery-after-reactor.png": "1a01da06cd45109e2546c297270380ec0e00ca1cf3db4c7b9cbc2aa25d24d84d",
+    "mystery-after-specimen.png": "671340a06f844b55c737879ec0ddb02b39f03f12fbd3fcf763c91a47f8437918",
+    "personal-status-pre-pact.png": "0b457fc66af8406cd2dcf55b7ab8e6faf99903101661a4384604cf7ee53390bb",
+    "room02-01-first-climb.png": "81f5c973e4b28fed82399b77428eb604098f7adfcb06da292e87263f65b3a80d",
+    "room02-02-gap-crossed.png": "aa0be873d88714119ffa5dc3a1ee43e798b09d270cf63fc651a5781e72c5d489",
+    "room02-03-wheel-ready.png": "fd56043eb8a1c65cbedfcddf494e8b15d54d6ebe8264d618157636fe777c2946",
+    "room02-04-service-exit.png": "60a6dd9db39bdd575249f9c87edc6d0f90f9664b00d10cfa7e178cc72a5ac05a",
+    "room02-hang-first.png": "eb3f4f85ed00718af2093dffba03f72f1aa4469540c6e1ff71e0df7a3cd04f41",
+    "room02-hang-second.png": "7acfae36d3be2a8631ba77626b46fdce5481bff79ebb944c1cd76ab3df881bbb",
+    "room02-mantle-first.png": "5821465b4a7ebf23f7329c7ddc7eaaab3aec2570ed11751c596868c54781dca5",
+    "room02-mantle-second.png": "3febcb6a7b6caecc155fffe59e9eee3e9de266fd7b4e275c46256c5193046898",
+    "room02-release-015.png": "337b5be739f183e3a45a4b61e32884ae6531ba507feca360a83144f025032864",
+    "room02-release-065.png": "a2cfc92159c1e28b8c63040a99e63cadb970691ec9d62448ebde73a722a21625",
+    "room02-release-125.png": "dda5034ce57e3c6ce23ab3ab2a2334a2480f63a4c10e447410d8330e96b144ba",
+    "room03-01-diversion.png": "ffb470a8be330f2f173f1a8ca9deddff6515eebfd5a7e611e8a9f2c88733fc79",
+    "room03-02-cover-route.png": "ef94672f92f7c8b6573bd7669152acd731968b4965647134b31a94ba3a6d5a35",
+    "room03-03-latch-open.png": "e1b8b004d82528e844063216182aa0f7015bd9f1e1a4bfc960ed7c2f74ce7b99",
+    "room03-04-experiment-entry.png": "22143bd86adbb0e9ef3945b3bf5c27ff5336eda46bcbe33f679f6969eb92ce23",
+    "room03-security-entry.png": "843814603dfc94286e3185ce1affbfa7797ad43511094db7581776ec7d2b262f",
+    "view-00.png": "437dd24dd37cd23c53b4d13f7c7043fb0e8a6d08df6e4638e5ecec78d49e2e52",
+    "view-01.png": "ccdda33d5411ec32be1eea9e0100a3c12a8f3067e8453d6dab9384f1d7d60536",
+    "view-02.png": "71b62d43087911031b50f54740137bd5f2eae5ce1c2badd0031d446671407133",
+    "view-03.png": "80ce2dc78f2b7786daf0e10965288c91de7881c280a277213a5292806d81931b"
+  }
+}

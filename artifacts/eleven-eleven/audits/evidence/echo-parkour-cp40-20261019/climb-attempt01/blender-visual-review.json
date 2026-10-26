@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "Isolated source-transfer eligibility only, not wall contact or mantle acceptance",
+  "blend_sha256": "4675a95b1608814cb67a30a75588abbe70cbd1e286595bd9381347792ca955b0",
+  "inspected_frames": [
+    "back-0000.png",
+    "back-0030.png",
+    "back-0060.png",
+    "side-0000.png",
+    "side-0030.png",
+    "side-0060.png"
+  ],
+  "findings": [
+    "Alternating hands/legs climb cycle with native vertical travel; not a pull-over/stand-on-ledge action.",
+    "Mapped elbows/shoulders and knee/ankle directions follow source in the inspected front/side views.",
+    "Independent coat remains static; cape art and physical wall clearance are open."
+  ],
+  "reviewer": "Codex inspection of actual saved Blender renders"
+}

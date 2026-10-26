@@ -48,6 +48,8 @@ var _evidence_nodes: Dictionary = {}
 var _terminal_focus: OmniLight3D
 var _terminal_energy := 0.0
 var _terminal_guidance := 0.2
+var _exit_cue: Node3D
+var _exit_label: Label3D
 
 func configure(main: Node3D) -> void:
 	if configured: return
@@ -60,11 +62,30 @@ func configure(main: Node3D) -> void:
 	_build_dust()
 	_bind_evidence()
 	_build_room_sound()
+	_build_exit_cue()
 	energy_fx = Node3D.new()
 	energy_fx.name = "OpeningEnergyFX"
 	energy_fx.set_script(ENERGY_FX)
 	add_child(energy_fx)
 	set_reduced_motion(bool(main.get("reduced_motion")))
+
+func _build_exit_cue() -> void:
+	var gate:=_main.find_child("PrimaryBlastGate",true,false) as Node3D
+	if not gate:return
+	# A static architectural edge shows the shape of the opened passage before
+	# the boundary memory loads the next room. No new lights, collision or power.
+	_exit_cue=Node3D.new();_exit_cue.name="OpenPassageFrame";gate.add_child(_exit_cue)
+	var material:=StandardMaterial3D.new()
+	material.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_color=Color(.25,.7,.76)
+	material.emission_enabled=true;material.emission=Color(.18,.55,.6);material.emission_energy_multiplier=.35
+	for spec in [[Vector3(.045,5.8,.045),Vector3(-3.45,2.9,.48)],[Vector3(.045,5.8,.045),Vector3(3.45,2.9,.48)],[Vector3(6.9,.045,.08),Vector3(0,.06,.48)]]:
+		var mesh:=MeshInstance3D.new();var box:=BoxMesh.new();box.size=spec[0];mesh.mesh=box;mesh.position=spec[1]
+		mesh.material_override=material;mesh.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;_exit_cue.add_child(mesh)
+	_exit_label=Label3D.new();_exit_label.font=preload("res://assets/fonts/NotoSansArabic.ttf")
+	_exit_label.position=Vector3(0,5.7,.5);_exit_label.pixel_size=.006;_exit_label.font_size=36
+	_exit_label.modulate=Color(.75,.91,.93);_exit_label.outline_size=8;_exit_cue.add_child(_exit_label)
+	_exit_cue.hide()
 
 func _build_room_sound() -> void:
 	# Two bounded spatial sources; silence is retained behind the next threshold.
@@ -116,6 +137,9 @@ func _sync_room_sound_and_light(delta: float) -> void:
 		_relay.play()
 		relay_count += 1
 	_phase = next
+	if _exit_cue:
+		_exit_cue.visible=next==5 and _inside_room
+		_exit_label.text="الممر مفتوح" if _main.presentation_language=="ar" else "PASSAGE OPEN"
 	# Presentation follows existing milestones without changing prerequisites,
 	# interactables, save data or reward authority.
 	if _evidence_nodes.has("clock"):

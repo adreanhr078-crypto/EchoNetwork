@@ -262,3 +262,19 @@ through four loops at 30 FPS without seeking across seams, validates pelvis
 transport, and renders frames when a graphical renderer is present. This uses
 [AnimationMixer manual processing](https://docs.godotengine.org/en/latest/classes/class_animationmixer.html).
 It does not measure controller transitions or phone frame time.
+
+## Isolated native parkour sources
+
+`v31_parkour_motion.py` also accepts `--source-record ABSOLUTE_JSON` for a newly
+inspected source outside the master manifest. The record contains `candidate`
+and `entry` objects with the exact take, file SHA-256, rig, action, native FPS,
+frame range and application-relative working copy. The record itself joins the
+input hash guard. This changes source selection only; the frozen transfer,
+target identity, native timing and visual-before-export guards remain mandatory.
+`Stand` identifies a separate authored standing continuation, not a renamed climb.
+
+Use `render_fbx_source.py --source ABSOLUTE_FBX --output ABSOLUTE_EVIDENCE` to
+inspect the original mesh at its native clock. `render_v31_locomotion.py
+--include-endpoint` adds the final native pose to the target review. Neither tool
+modifies source keys. CP45 stage07 records the braced pull-up and its independent
+standing continuation; source replay alone does not establish gameplay contact.

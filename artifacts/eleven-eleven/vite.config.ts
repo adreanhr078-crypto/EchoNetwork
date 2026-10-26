@@ -11,7 +11,7 @@ export default defineConfig({
     strictPort: true,
     // Local QA profiles, render intermediates and D1 state are not source.
     // Windows locks browser session files; watching them can crash dev startup.
-    watch: { ignored: ['**/.tmp/**', '**/.wrangler/**', '**/art/**'] },
+    watch: { ignored: ['**/.tmp/**', '**/.wrangler/**', '**/art/**', '**/audits/evidence/**', '**/godot/.godot/**', '**/godot/Godot/**'] },
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8788',

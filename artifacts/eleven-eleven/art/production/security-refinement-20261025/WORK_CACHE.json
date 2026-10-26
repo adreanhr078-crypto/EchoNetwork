@@ -1,0 +1,63 @@
+{
+  "status": "CP45_STAGE13_SECURITY_AND_SPECIMEN_STATIC_HIGH_NATIVE_SCOPED_PASS",
+  "native_dimensions_m": [
+    8.8,
+    18.4,
+    4.8
+  ],
+  "native_cover_count": 6,
+  "native_cover_dimensions_m": [
+    1.6,
+    1.7,
+    1.1
+  ],
+  "geometry_source": "Reuse accepted specimen_filter_h31_pbr4k.glb with measured scale;no new paid generation or new physics",
+  "new_paid_credits": 0,
+  "baseline_contract_colliders": 23,
+  "baseline_contract": "UNCHANGED after integration",
+  "references": [
+    {
+      "role": "entry",
+      "file": "before-entry.png",
+      "sha256": "833384d1b5b93d7f82da68fe4574cc3d5f011f346cfdfa127c0d71a1b774acf6"
+    },
+    {
+      "role": "reverse",
+      "file": "before-reverse.png",
+      "sha256": "9a35d2566ce5b030e7722b8411186d7aca650c15a0832ea21606be609041fe3d"
+    },
+    {
+      "role": "lateral",
+      "file": "before-lateral.png",
+      "sha256": "2a5a45d607bd903163eed4f94875a80ca6c1dfd348f5b22fa35d016a1b8256ec"
+    },
+    {
+      "role": "hero",
+      "file": "before-hero.png",
+      "sha256": "532c8bede92765e052fb37d8245638b637a35746d32d92621b631113b504f27c"
+    }
+  ],
+  "preserved": "scanner/range/cone/timing,cover colliders,climb face/walkway,stations,cues,gate/save/mute/RM,Canon/no pre-pact powers",
+  "evidence": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025",
+  "next": "P04 archive05 measured catwalk/shell/exit readability;preserve racks/3memories/decoder and native route. Moving and whole plan remain open.",
+  "source_hashes": {
+    "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb": "91da6947b48a5d4ba4af2f53ce4db91ce069db1e5a8c904f5a595b78e8395d50",
+    "godot/assets/environments/specimen_cp45/specimen_sensor_housing.glb": "8ba03952456c644dcc201aa5addb4489d3083f7926930c053d4d79d14201cb67",
+    "godot/assets/environments/specimen_cp45/specimen_trim_unit.glb": "de2fb573f68b5db7c03cb6561e4aa13a33966121f9f60ed17642e57d22a648a5",
+    "godot/scripts/environment/security_checkpoint_room.gd": "48ae838444e4b46007c443d1c94dcd758b341aa9eb6c226a8b0807564f056e94",
+    "godot/scripts/environment/security_mechanical_dressing.gd": "c1fe7de29bb8efee8923f50e76832834ed184565f7a810515a26e3506507acc9",
+    "godot/scripts/environment/security_optic_indicator.gd": "696d8c263bddff1903ee25c005c3fe8fdafbfec0d83083397eda850da17dd137",
+    "godot/scripts/environment/specimen_mechanical_dressing.gd": "addd51140390e1bea4c139e01457188bfa0825dab0f4b04a581e0f0dcaba7cd3",
+    "godot/shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+    "godot/shaders/security_station_readout.gdshader": "698ddd2c93f56417c170ab1b487666472fc8e6c0e65daacdb7fe7e62de643eb6",
+    "godot/shaders/specimen_sensor_optic.gdshader": "2d2e310851fa1c3ef044914e880d0502b40d9076404fd35fe675f4c3c6448b8c",
+    "godot/tests/remaining_rooms_high_inventory.gd": "e84143374d00c174975be6cb4838f7b4ba1f031b692bfea4e9e28f90516f6ce5",
+    "godot/tests/security_dressing_contract_review.gd": "851b8ac9a7e6cf8e072ca8f252facd3989dd3205a48bc375eaa25ab32d8a2127",
+    "godot/tests/security_dressing_public_review.gd": "d6a420b341f9c3b1f18336b7a0d5a1e019ae3066e6192278627f8a8040c46ae0",
+    "godot/tests/security_feedback_review.gd": "57aa9a3151abe8ee2fc96fed17538e8bbfeb0124e25853c0dc7c778f8cd4e7ba"
+  },
+  "native_contract": "PASS23 unchanged native colliders/state/cone",
+  "native_views": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-high-v3",
+  "native_route": "PASS19 actual touch/3cold spawns/physical exit;0retry",
+  "adviser": "Argon High v2 PASS3 axes;v3 minor lintel delta self-reviewed"
+}

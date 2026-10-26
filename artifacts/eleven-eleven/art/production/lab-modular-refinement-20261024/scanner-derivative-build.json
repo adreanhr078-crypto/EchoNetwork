@@ -1,0 +1,60 @@
+{
+  "source": "art/production/lab-modular-refinement-20261024/clinical_scanner_p2_pbr_4k.glb",
+  "source_sha256": "50d27622638cab412946d1cfd42523b3817ec344157b7b4ce88aefd55d3e1c88",
+  "output": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb",
+  "output_sha256": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+  "triangles": 7683,
+  "surfaces": 1,
+  "uniform_scale": 5.202540302882267,
+  "ring_blender_datum": 0.42,
+  "native_ring_y": 7.0,
+  "ring_diameter_m": 5.2,
+  "supports": [
+    {
+      "blender_xy": [
+        -1.186321368494672,
+        -1.181240917777922
+      ],
+      "top_local_y": 1.841313141182218
+    },
+    {
+      "blender_xy": [
+        -1.1863215235424553,
+        1.2193453059641397
+      ],
+      "top_local_y": 1.841313141182218
+    },
+    {
+      "blender_xy": [
+        1.1926722807481223,
+        -1.1787004598478719
+      ],
+      "top_local_y": 1.841313141182218
+    },
+    {
+      "blender_xy": [
+        1.192672125700339,
+        1.2218857638941896
+      ],
+      "top_local_y": 1.841313141182218
+    }
+  ],
+  "images": [
+    {
+      "name": "tripo_image_46c163ed-ddf4-4e4d-a6d3-37429be525e8_2-tripo_image_46c163ed-ddf4-4e4d-a6d3-37429be525e8_1",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "tripo_normal_0c8dd908-b7f5-47fd-b5a5-91d87722603b",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "tripo_rgb_faa4f8db-bacc-4da3-a9d4-0ff5d95d32ed",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "scope": "Static measured presentation only; original source and native room colliders/story retained. Native visual/performance review pending."
+}

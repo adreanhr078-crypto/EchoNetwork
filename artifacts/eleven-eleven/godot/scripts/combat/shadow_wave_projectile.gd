@@ -10,11 +10,13 @@ extends Area3D
 
 var direction: Vector3 = Vector3.FORWARD
 var _distance_traveled: float = 0.0
+var visual_only := false
 
 func _ready() -> void:
+	if visual_only: lifetime=.22
 	collision_layer = 0
 	collision_mask = 2 # Enemies / Boss
-	monitoring = true
+	monitoring = not visual_only
 	monitorable = false
 	body_entered.connect(_on_body_entered)
 	
@@ -30,16 +32,13 @@ func _create_visuals() -> void:
 	mesh_instance.name = "WaveMesh"
 	
 	var quad := QuadMesh.new()
-	quad.size = Vector2(2.4, 0.4)
+	quad.size = Vector2(1.7, 0.35)
 	mesh_instance.mesh = quad
 	
-	var mat := StandardMaterial3D.new()
-	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.albedo_color = Color(0.05, 0.02, 0.12, 1.0) # Obsidian black
-	mat.emission_enabled = true
-	mat.emission = Color(0.72, 0.12, 0.95, 1.0) # Blazing violet void rim
-	mat.emission_energy_multiplier = 4.2
-	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var mat := ShaderMaterial.new()
+	mat.shader=preload("res://engine_visuals/shaders/signal_cut.gdshader")
+	mat.set_shader_parameter("shape_kind",1)
+	mat.set_shader_parameter("signal_color",Color(.45,.06,.95))
 	mesh_instance.material_override = mat
 	add_child(mesh_instance)
 	
@@ -56,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	_distance_traveled += move.length()
 
 func _on_body_entered(body: Node3D) -> void:
+	if visual_only: return
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
 	

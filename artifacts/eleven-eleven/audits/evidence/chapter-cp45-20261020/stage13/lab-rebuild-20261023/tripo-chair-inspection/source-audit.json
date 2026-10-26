@@ -1,0 +1,77 @@
+{
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\lab-clinical-kit-20261023\\tripo\\neural-chair-retopo-20k.glb",
+  "sha256": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12",
+  "bytes": 11675308,
+  "bounds_blender_m": [
+    [
+      -0.4895630180835724,
+      -0.2212982177734375,
+      0.0
+    ],
+    [
+      0.4895630180835724,
+      0.2212982177734375,
+      0.67254638671875
+    ]
+  ],
+  "extent_m": [
+    0.9791260361671448,
+    0.442596435546875,
+    0.67254638671875
+  ],
+  "objects": [
+    {
+      "name": "tripo_node_1f176b8d-ac5c-4ce7-a7e4-7c06289e1cf4",
+      "vertices": 31238,
+      "triangles": 20336,
+      "materials": [
+        "tripo_node_1f176b8d-ac5c-4ce7-a7e4-7c06289e1cf4_material"
+      ],
+      "uv_layers": 1
+    }
+  ],
+  "images": [
+    {
+      "name": "neural-chair-retopo-20k_basecolor.jpg",
+      "size": [
+        4096,
+        4096
+      ],
+      "packed": true
+    },
+    {
+      "name": "neural-chair-retopo-20k_normal.jpg",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "neural-chair-retopo-20k_rm.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ],
+      "packed": false
+    },
+    {
+      "name": "Viewer Node",
+      "size": [
+        256,
+        256
+      ],
+      "packed": false
+    }
+  ],
+  "note": "Neutral source inspection; no game/rig/art acceptance.",
+  "triangles": 20336
+}

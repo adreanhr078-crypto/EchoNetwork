@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-25",
+  "status": "PASS_CURRENT_HIGH_STATIC_INVENTORY_ONLY",
+  "rows": [
+    {
+      "room": "02",
+      "native_id": "maintenance",
+      "status": "HIGH_STATIC_SELECTIVE_MECHANICAL_FINISH_AND_MOTION_OPEN",
+      "report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/maintenance-v2/four-high-views.json",
+      "profile_kind": "validated cold profile;one explicit actor anchor",
+      "observed_ar": "مسار رأسي ومواضع قبض واضحة،باب ضغط وصمام وذاكرة كاملة؛الجدران/المنصات والهياكل العلوية بحاجة تفاصيل ميكانيكية انتقائية ومراجعة الحركة الفعلية."
+    },
+    {
+      "room": "03",
+      "native_id": "security",
+      "status": "HIGH_STATIC_COVER_AND_EQUIPMENT_REFINEMENT_REQUIRED",
+      "report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/security-v2/four-high-views.json",
+      "profile_kind": "validated cold profile;one explicit actor anchor",
+      "observed_ar": "الخطر والكشاف والغطاء والطرفيات واضحة وظيفيًا؛الغطاء صناديق سوداء مسطحة وأجزاء المعدات والطرفية غارقة بالسواد،فتحتاج هندسة وخامات انتقائية مع حفظ الكشف."
+    },
+    {
+      "room": "10",
+      "native_id": "hospital",
+      "status": "HIGH_STATIC_HEADWALL_MATERIAL_AND_ACTING_REVIEW_OPEN",
+      "report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/hospital-v2/four-high-views.json",
+      "profile_kind": "actual earned completed profile reloaded;diagnostic camera only",
+      "observed_ar": "السرير والكرسي والنافذة والمرآة موجودة فعليًا مع إيكو الحالي؛الأثاث ليس غائبًا. الجدران/منطقة رأس السرير والأداء الجسدي واليقظة تحتاج صقلاً انتقائيًا؛الحكم المتحرك منفصل."
+    }
+  ],
+  "four_current_native_views_per_room": true,
+  "all_camera_overlaps": 0,
+  "all_progress_unchanged": true,
+  "next": "P04 security cover/equipment refinement,then remaining evidenced rooms and moving acting. Static capture is not art/fun/chapter acceptance."
+}

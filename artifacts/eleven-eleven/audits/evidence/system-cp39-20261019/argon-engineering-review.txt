@@ -1,0 +1,510 @@
+- main:
+  - button "فتح الشريط الجانبي":
+    - text: side_nav_expand
+  - navigation "شريط التنقّل الجانبي":
+    - navigation "قائمة الإجراءات الرئيسية":
+      - link "محادثة جديدة":
+        - /url: /app
+        - img: gemini_chat
+    - navigation "قائمة الإجراءات الإضافية":
+      - button "البحث في المحادثات":
+        - generic: search
+      - link "المكتبة":
+        - /url: library
+        - img: features
+      - link "الصور":
+        - /url: /images
+        - img: image_create
+      - generic "مجدوَل":
+        - link "مجدوَل":
+          - /url: /scheduled
+          - img: schedule
+      - link "تخصيص":
+        - /url: /customize
+        - img: settings_alt
+    - link "حساب Google:‏ انتيقرافيتي ‏(echonetwork11@gmail.com)":
+      - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+    - button "الإعدادات":
+      - img: settings
+  - heading "محادثة مع Gemini" [level=1]
+  - heading "أنت قلت Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN و…" [level=5]
+  - paragraph: Solo Leveling وبهوية أصلية11.11. لدينا أصلًا SystemWindow بأنواعInfo/quest/level/reward وHUD AR/EN وReducedMotion وكتم؛ سأحسن المكون نفسه لا أبني HUDموازيًا. Canon PART_3 وEX-011 وV31 وGolden وSFX_ONLY ثابتة، لا قوى قبل عقد زيرو. الحفظ المحلي يؤكد مهام الفصل فقط، أماXP/المستوى/المكافآت الحسابية فعند وصول إيصال الخادم الحقيقي؛ العرض لا يخترع خبرة أو قوة. اقترح لغة بصرية سينمائية أصلية وطبقات أنواع الرسائل وتسلسل/زمن ظهورها وحدود الحركة والتوهج والصوت، بحيث تبقى منطقة اللعب والأهداف مقروءة. اعط أولويات محددة قابلة للاختبار، لا عباراتAAAأو اعتماد قنشن بلا لعب مستقل.
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: ترتكز ترقية مكون
+    - code: SystemWindow
+    - text: الحالي على تحويله من إطار إشعارات تقليدي إلى عدسة نظام سردية (Diegetic Tactical Glass) تجمع بين رهبة نوافذ Solo Leveling والهوية الهندسية الصارمة لعالم 11.11، مع ربط صارم بين الطبقة البصرية ومصدر الحقيقة (حفظ محلي للفصل مقابل إيصال خادم موثق) دون بناء أي HUD موازٍ.
+  - 'heading "1. اللغة البصرية السينمائية: توليفة Solo Leveling × 11.11" [level=2]'
+  - paragraph:
+    - text: بدلاً من الزخارف الفانتازية المزدحمة، تعتمد نافذة
+    - code: SystemWindow
+    - text: "على الزجاج التكتيكي المظلم ذي الحواف المقطوعة مع بصمة 11.11 المعمارية:"
+  - list:
+    - paragraph:
+      - text: "بصمة 11.11 الهندسية (Twin-Bar Signature): يبدأ كل إطار بخطين عموديين متوازيين فائقي الدقة ("
+      - code: 2px
+      - text: لكل خط بمسافة فصل
+      - code: 4px
+      - text: تمثل الرقم
+      - code: "11"
+      - text: ) على الحافة البادئة للنافذة (
+      - code: inset-inline-start
+      - text: )، ويتكرر نفس النمط المصغر في زاوية الإغلاق المقابلة (
+      - code: 11:11
+      - text: ).
+    - paragraph: "الانقسام البصري قبل وبعد \"عقد زيرو\" (Pre/Post-Zero Visual Gate):"
+    - list:
+      - paragraph:
+        - text: "قبل عقد زيرو: تقتصر النافذة على الوضع الخام البارد (Clinical Slate)؛ خلفية داكنة معتمة نسبياً ("
+        - code: "#090D14"
+        - text: بشفافية
+        - code: 80%
+        - text: )، وحدود رمادية-فولاذية (
+        - code: "#3A4B5C"
+        - text: ) خالية تماماً من أي جزيئات طاقة أو توهج توحي بامتلاك قوى خارقة.
+      - paragraph:
+        - text: بعد عقد زيرو (ضمن سياق
+        - code: PART_3
+        - text: و
+        - code: EX-011
+        - text: و
+        - code: V31
+        - text: "):"
+        - text: يتفعل الرنين البصري للنظام؛ تكتسب الحواف خط مسح ضوئي (Scanline) أزرق جليدي حاد للعمليات القياسية، وتتحول إلى تدرج
+        - code: Golden
+        - text: الموثق حصراً عند استلام إيصالات الخادم لحدثَي
+        - code: level
+        - text: و
+        - code: reward
+        - text: .
+    - paragraph: "حماية منطقة اللعب (Playfield Safe-Zone):"
+    - list:
+      - paragraph:
+        - text: يُحظر ظهور
+        - code: SystemWindow
+        - text: في المنطقة المركزية (
+        - code: 60%
+        - text: الوسطى من الشاشة المخصصة للشخصية، التصويب، وقراءة حركة الأعداء).
+      - paragraph:
+        - text: تتمركز النافذة في الربع العلوي (أعلى الوسط للإعلانات الكبرى، أو أعلى الحافة الجانبية لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ) بمساحة لا تتجاوز
+        - code: 16%
+        - text: من إجمالي الشاشة، مع خاصية
+        - code: "pointer-events: none"
+        - text: على الحاوية لضمان عدم اعتراض أي مدخلات لعب أو قتال.
+    - paragraph:
+      - text: التوافق ثنائي اللغة (
+      - code: HUD AR/EN
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: استخدام الخصائص المنطقية (
+        - code: inline-start
+        - text: /
+        - code: inline-end
+        - text: ) لقلب خطَّي
+        - code: "11.11"
+        - text: واتجاه المسح الضوئي تلقائياً بين العربية (RTL) والإنجليزية (LTR) في نفس المكون.
+      - paragraph:
+        - text: تثبيت ارتفاع السطر عند
+        - code: "1.45"
+        - text: مع محاذاة baseline مزدوجة تسمح بدمج المعرفات التقنية (
+        - code: EX-011
+        - text: ،
+        - code: V31
+        - text: ) داخل النص العربي دون اهتزاز عمودي.
+  - heading "2. طبقات أنواع الرسائل وبوابة التحقق (Authority & Layering)" [level=2]
+  - paragraph:
+    - text: يرتبط كل نوع داخل
+    - code: SystemWindow
+    - text: "بمصدر بيانات محدد؛ فلا يُسمح للواجهة بعرض أي تقدم حسابي أو قوة قبل تحقق شرطي العقد وإيصال الخادم:"
+  - table:
+    - rowgroup:
+      - row "نوع الرسالة مصدر الصلاحية المسموح السلوك قبل \"عقد زيرو\" البنية البصرية واللون البصمة الصوتية ( SFX_ONLY )":
+        - columnheader "نوع الرسالة"
+        - columnheader "مصدر الصلاحية المسموح"
+        - columnheader "السلوك قبل \"عقد زيرو\""
+        - columnheader "البنية البصرية واللون"
+        - columnheader "البصمة الصوتية ( SFX_ONLY )":
+          - text: البصمة الصوتية (
+          - code: SFX_ONLY
+          - text: )
+    - rowgroup:
+      - row "info محلي (Client) أو خادم مسموح (إرشادات/تنبيهات نظام مجردة) شريط أفقي مدمج، حد 1px فولاذي هادئ، بدون ترويسة علوية نبضة زجاجية مكتومة قصيرة (أقل من 120ms )":
+        - cell "info":
+          - code: info
+        - cell "محلي (Client) أو خادم"
+        - cell "مسموح (إرشادات/تنبيهات نظام مجردة)"
+        - cell "شريط أفقي مدمج، حد 1px فولاذي هادئ، بدون ترويسة علوية":
+          - text: شريط أفقي مدمج، حد
+          - code: 1px
+          - text: فولاذي هادئ، بدون ترويسة علوية
+        - cell "نبضة زجاجية مكتومة قصيرة (أقل من 120ms )":
+          - text: نبضة زجاجية مكتومة قصيرة (أقل من
+          - code: 120ms
+          - text: )
+      - row "quest الحفظ المحلي يؤكد مهام الفصل فقط ( PART_3 ) مسموح للمهام السردية/الفصلية فقط دون عرض مكافآت قوى إطار متوسط، عمودا 11.11 مضاءان، انتقال حالة المهمة إلى \"مؤكد محلياً\" قفل ميكانيكي مزدوج النبضة يطابق خطَّي 11.11 ( 260ms )":
+        - cell "quest":
+          - code: quest
+        - cell "الحفظ المحلي يؤكد مهام الفصل فقط ( PART_3 )":
+          - text: الحفظ المحلي يؤكد مهام الفصل فقط (
+          - code: PART_3
+          - text: )
+        - cell "مسموح للمهام السردية/الفصلية فقط دون عرض مكافآت قوى"
+        - cell "إطار متوسط، عمودا 11.11 مضاءان، انتقال حالة المهمة إلى \"مؤكد محلياً\"":
+          - text: إطار متوسط، عمودا
+          - code: "11.11"
+          - text: مضاءان، انتقال حالة المهمة إلى "مؤكد محلياً"
+        - cell "قفل ميكانيكي مزدوج النبضة يطابق خطَّي 11.11 ( 260ms )":
+          - text: قفل ميكانيكي مزدوج النبضة يطابق خطَّي
+          - code: "11.11"
+          - text: (
+          - code: 260ms
+          - text: )
+      - row "reward إيصال الخادم الحقيقي حصراً محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة إطار موسع مع شارة تحقق البيانات، لمسة Golden على شريط العنوان رنين كريستالي حاد متبوع بثقل ترددي منخفض ( 500ms )":
+        - cell "reward":
+          - code: reward
+        - cell "إيصال الخادم الحقيقي حصراً":
+          - generic: إيصال الخادم الحقيقي حصراً
+        - cell "محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة":
+          - generic: محجوب برمجياً إن كان يتضمن قوى؛ يقتصر على مقتنيات سردية موثقة
+        - cell "إطار موسع مع شارة تحقق البيانات، لمسة Golden على شريط العنوان":
+          - text: إطار موسع مع شارة تحقق البيانات، لمسة
+          - code: Golden
+          - text: على شريط العنوان
+        - cell "رنين كريستالي حاد متبوع بثقل ترددي منخفض ( 500ms )":
+          - text: رنين كريستالي حاد متبوع بثقل ترددي منخفض (
+          - code: 500ms
+          - text: )
+      - row "level إيصال الخادم الحقيقي حصراً (XP/المستوى) محجوب بالكامل (تُسقط الواجهة أي حدث level قبل توقيع عقد زيرو) فتح عمودي سينمائي من خط المنتصف، إطار Golden كامل مع رمز V31 / EX-011 نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي ( 650ms )":
+        - cell "level":
+          - code: level
+        - cell "إيصال الخادم الحقيقي حصراً (XP/المستوى)":
+          - generic: إيصال الخادم الحقيقي حصراً (XP/المستوى)
+        - cell "محجوب بالكامل (تُسقط الواجهة أي حدث level قبل توقيع عقد زيرو)":
+          - text: محجوب بالكامل (تُسقط الواجهة أي حدث
+          - code: level
+          - text: قبل توقيع عقد زيرو)
+        - cell "فتح عمودي سينمائي من خط المنتصف، إطار Golden كامل مع رمز V31 / EX-011":
+          - text: فتح عمودي سينمائي من خط المنتصف، إطار
+          - code: Golden
+          - text: كامل مع رمز
+          - code: V31
+          - text: /
+          - code: EX-011
+        - cell "نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي ( 650ms )":
+          - text: نبضة رنين عميقة عالية التحديد بدون أي لحن موسيقي (
+          - code: 650ms
+          - text: )
+  - button "مزيد من الخيارات":
+    - img: more_horiz
+  - heading "3. التسلسل الزمني وإدارة الطابور (Sequencing & Timing)" [level=2]
+  - paragraph:
+    - text: يعمل
+    - code: SystemWindow
+    - text: "كآلة حالة أحادية العرض (Single-Active-Slot Queue) لمنع تراكب النوافذ فوق بعضها:"
+  - list:
+    - paragraph: "ترتيب الأولويات ودمج الأحداث (Priority & Coalescing):"
+    - list:
+      - paragraph:
+        - text: "عند إنهاء مهمة فصل: تُعرض نافذة"
+        - code: quest
+        - text: فوراً بناءً على الحفظ المحلي لإعطاء استجابة لحظية للاعب.
+      - paragraph:
+        - text: "فصل الانتظار (Non-Blocking Receipt): لا يظهر أي مؤشر تحميل (Spinner) بانتظار الخادم. يستمر اللعب طبيعياً، وفور وصول إيصال الخادم الحقيقي، يدخل حدثا"
+        - code: level
+        - text: ثم
+        - code: reward
+        - text: إلى الطابور.
+      - paragraph:
+        - text: إذا وصل أكثر من إيصال
+        - code: reward
+        - text: خلال نافذة
+        - code: 300ms
+        - text: ، يدمجها
+        - code: SystemWindow
+        - text: في بطاقة عرض واحدة متعددة الأسطر بدلاً من تكرار فتح النافذة.
+    - paragraph: "الميزانية الزمنية للظهور (بالمللي ثانية):"
+    - list:
+      - paragraph:
+        - text: الدخول (Unfold -
+        - code: 180ms
+        - text: "):"
+        - text: يبدأ بخط ضوئي أفقي رفيع ينفتح عمودياً (
+        - code: scaleY
+        - text: من
+        - code: "0.02"
+        - text: إلى
+        - code: "1.0"
+        - text: ) بمنحنى تسارع
+        - code: cubic-bezier(0.16, 1, 0.3, 1)
+        - text: يحاكي انفتاح شق النظام في Solo Leveling ولكن بفرملة هندسية حادة.
+      - paragraph: "الثبات للقراءة (Hold):"
+      - list:
+        - paragraph:
+          - code: info
+          - text: ":"
+          - code: 2400ms
+        - paragraph:
+          - code: quest
+          - text: ":"
+          - code: 3200ms
+        - paragraph:
+          - code: reward
+          - text: ":"
+          - code: 3800ms
+        - paragraph:
+          - code: level
+          - text: ":"
+          - code: 4200ms
+      - paragraph:
+        - text: الخروج (Collapse -
+        - code: 140ms
+        - text: "):"
+        - text: انكماش نحو خطَّي
+        - code: "11.11"
+        - text: الجانبيين مع تلاشي الشفافية إلى الصفر.
+      - paragraph:
+        - text: الفراغ البصري بين رسالتين (Cooldown -
+        - code: 220ms
+        - text: "):"
+        - text: فترة صمت بصري إجبارية بين إغلاق نافذة وفتح التالية في الطابور لإراحة عين اللاعب وإبقاء الأهداف في الخلفية مقروءة.
+  - heading "4. حدود الحركة والتوهج والصوت (Guardrails)" [level=2]
+  - paragraph: "لضمان عدم تحول النافذة إلى عنصر مشتت أثناء اللعب الفعلي، تُضبط الحدود القصوى للمؤثرات كالتالي:"
+  - list:
+    - paragraph: "حدود التوهج والتباين (Luminance & Readability):"
+    - list:
+      - paragraph:
+        - text: يُمنع التوهج الكلي للخلفية؛ يقتصر التوهج (Box-Shadow / Outer Glow) على حواف خطَّي
+        - code: "11.11"
+        - text: بنصف قطر لا يتجاوز
+        - code: 8px
+        - text: لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ، و
+        - code: 14px
+        - text: لطبقة
+        - code: Golden
+        - text: في
+        - code: level
+        - text: /
+        - code: reward
+        - text: .
+      - paragraph:
+        - text: تعتيم خلفية النافذة ثابت بين
+        - code: 76%
+        - text: و
+        - code: 84%
+        - text: مع تمويه خلفي خفيف (
+        - code: "backdrop-filter: blur(5px)"
+        - text: ) يحافظ على رؤية الأجسام المتحركة خلف النافذة مع ضمان نسبة تباين للنص لا تقل عن
+        - code: 7:1
+        - text: .
+      - paragraph: صفر وميض للشاشة الكاملة (Zero Full-Screen Flash) وصفر اهتزاز للكاميرا ناتج عن واجهة المستخدم.
+    - paragraph:
+      - text: وضع تقليل الحركة (
+      - code: ReducedMotion
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: إلغاء حركة الانفتاح العمودي (
+        - code: scaleY
+        - text: )، إلغاء خط المسح الضوئي المتحرك، وإلغاء عدادات الأرقام المتسلسلة (Tick-up numbers) لـ XP.
+      - paragraph:
+        - text: استبدالها بظهور وتلاشٍ مباشر عبر الشفافية فقط (
+        - code: Opacity Fade
+        - text: خلال
+        - code: 100ms
+        - text: ) مع عرض الرقم النهائي الموثق من الخادم فوراً.
+    - paragraph:
+      - text: قيود الصوت (
+      - code: SFX_ONLY
+      - text: ووضع الكتم
+      - code: Mute
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: الالتزام الصارم بـ
+        - code: SFX_ONLY
+        - text: ": حظر تام للمقاطع الموسيقية القصيرة (Stingers/Fanfares) أو الأصوات البشرية، والاكتفاء بمؤثرات تصميم صوتي تقني-فيزيائي (نقرات زجاجية، نبضات كهرومغناطيسية منخفضة التردد)."
+      - paragraph:
+        - text: "سقف الصوت الموحد:"
+        - code: "-16 LUFS"
+        - text: لـ
+        - code: info
+        - text: /
+        - code: quest
+        - text: ، و
+        - code: "-14 LUFS"
+        - text: لـ
+        - code: level
+        - text: /
+        - code: reward
+        - text: مع قطع الترددات المتوسطة (
+        - code: 1kHz - 3kHz
+        - text: ) بعمق
+        - code: "-3dB"
+        - text: أثناء القتال لئلا تطغى على المؤثرات الصوتية لتحذيرات الأعداء.
+      - paragraph:
+        - text: عند تفعيل
+        - code: Mute
+        - text: ": يتم تخطي استدعاء محرك الصوت برمجياً بالكامل (Early Return قبل إنشاء عقدة الصوت)، مع تعويض بصري طفيف يتمثل في نبضة إضاءة وحيدة لخطَّي"
+        - code: "11.11"
+        - text: عند تثبيت الرسالة.
+  - heading "5. أولويات محددة قابلة للاختبار (Testable QA & Engineering Priorities)" [level=2]
+  - paragraph:
+    - text: تُعتمد هذه المعايير كاختبارات قبول مباشرة (Pass/Fail) على مكون
+    - code: SystemWindow
+    - text: ":"
+  - list:
+    - paragraph: "الأولوية 1 — اختبار رفض القوة والخبرة غير الموثقة (Authority Rejection Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تمرير حدث"
+        - code: level
+        - text: أو
+        - code: reward
+        - text: أو زيادة
+        - code: XP
+        - text: إلى
+        - code: SystemWindow
+        - text: محلياً بدون توقيع إيصال الخادم (
+        - code: serverReceiptId == null
+        - text: )، أو أثناء كون حالة العقد قبل زيرو (
+        - code: preZeroContract == true
+        - text: ).
+      - paragraph: "معيار النجاح: يرفض المكون الرسم تماماً (0 إطارات معروضة)، ولا يحدث أي تغيير في شريط المستوى أو الصوت."
+    - paragraph: "الأولوية 2 — اختبار ثبات القراءة وعدم حجب اللعب (Occlusion & Input Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تفعيل جميع الأنواع الأربعة ("
+        - code: info
+        - text: ،
+        - code: quest
+        - text: ،
+        - code: reward
+        - text: ،
+        - code: level
+        - text: ) أثناء تحريك الكاميرا والتصويب المستمر.
+      - paragraph:
+        - text: "معيار النجاح: عدم تقاطع صندوق"
+        - code: SystemWindow
+        - text: مع دائرة المركز (
+        - code: 60%
+        - text: الوسطى)، وعدم فقدان أي نقرة أو مدخل حركة (
+        - code: 0%
+        - text: Input Drop).
+    - paragraph: "الأولوية 3 — اختبار ضغط الطابور ومنع التكدس (Burst Queue Stress Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: ضخ 8 أحداث متتالية في نفس الإطار الزمني (4"
+        - code: info
+        - text: + 1
+        - code: quest
+        - text: محلي + 2
+        - code: reward
+        - text: موثق + 1
+        - code: level
+        - text: موثق).
+      - paragraph:
+        - text: "معيار النجاح: ظهور نافذة واحدة فقط في كل لحظة، دمج حدثَي"
+        - code: reward
+        - text: في نافذة واحدة، التزام الفاصل الزمني (
+        - code: 220ms
+        - text: ) بين النوافذ، وتفريغ الطابور بالكامل دون تجميد الواجهة.
+    - paragraph:
+      - text: الأولوية 4 — اختبار التناظر اللغوي (
+      - code: HUD AR/EN
+      - text: "Parity Test):"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تبديل اللغة بين العربية والإنجليزية أثناء عرض رسالة"
+        - code: quest
+        - text: تحتوي على رموز
+        - code: PART_3
+        - text: و
+        - code: EX-011
+        - text: و
+        - code: V31
+        - text: .
+      - paragraph:
+        - text: "معيار النجاح: انعكاس موقع خطَّي"
+        - code: "11.11"
+        - text: تلقائياً، بقاء المعرفات اللاتينية بالترتيب الصحيح، وعدم تغير ارتفاع النافذة بأكثر من
+        - code: 2px
+        - text: .
+    - paragraph:
+      - text: الأولوية 5 — اختبار الامتثال الصارم لـ
+      - code: ReducedMotion
+      - text: و
+      - code: Mute
+      - text: و
+      - code: SFX_ONLY
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: "الاختبار: تشغيل المكون مع تفعيل"
+        - code: ReducedMotion
+        - text: و
+        - code: Mute
+        - text: ، وفحص ملفات الصوت المرتبطة بالمكون.
+      - paragraph:
+        - text: "معيار النجاح: صفر تغير في خصائص"
+        - code: transform
+        - text: الهندسية أثناء
+        - code: ReducedMotion
+        - text: ، صفر استدعاءات لمحرك الصوت أثناء
+        - code: Mute
+        - text: ، وألا يتجاوز طول أي ملف صوتي مرتبط بالمكون
+        - code: 700ms
+        - text: لضمان شرط
+        - code: SFX_ONLY
+        - text: .
+  - generic: "للانتقال مباشرة إلى التنفيذ البرمجي داخل المكون الحالي:"
+  - button "كتابة عقد الواجهة البرمجية وآلة الحالة لـ SystemWindow":
+    - generic: كتابة عقد الواجهة البرمجية وآلة الحالة لـ SystemWindow
+    - img: prompt_suggestion
+  - button "تحديد متغيرات التصميم (Design Tokens) لثيم 11.11 وGolden":
+    - generic: تحديد متغيرات التصميم (Design Tokens) لثيم 11.11 وGolden
+    - img: prompt_suggestion
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Defining Audio & Visual Cues
+- region "Notifications"
+- generic: إملاء (^⇧D)

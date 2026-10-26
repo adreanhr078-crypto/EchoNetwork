@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "blend_sha256": "c32c02cdd13fba9758050a1ed9f0e35c8a0d3a2a240f61bf2ad46e68900ab7ab",
+  "capture_manifest_sha256": "f00aa4aaa0b72f52e2d4a3f61807666922704fb3bd449a8c90fb82889ac70e62",
+  "reviewed_capture_count": 12,
+  "scope": "Exact current V31 target geometry and faithful IPC walk transfer; not whole-character or native traversal acceptance.",
+  "observations": [
+    "Inspected all four native poses from front, side and rear. Natural alternating walking stance, forward reach and opposite arm swing.",
+    "No visible inverted limbs, mesh spikes or skin-binding separation in reviewed native frames.",
+    "Face, hair, clothing remain original; static coat/rest chains here require separate live garment/capsule/contact review."
+  ],
+  "source_keys_changed": false
+}

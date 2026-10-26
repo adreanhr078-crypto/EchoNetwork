@@ -1,0 +1,360 @@
+- heading "قال Gemini" [level=6]
+  - 'heading "1) الحكم المباشر: أيّ المشكلات الثلاث هي الكبرى الآن؟" [level=2]'
+  - paragraph:
+    - text: بفحص لقطتي
+    - code: 03-lateral.jpg
+    - superscript
+    - text: و
+    - code: 04-theater.jpg
+    - superscript
+    - text: حصراً،
+    - text: المشكلة الكبرى والأشد أثراً الآن هي (1) التسطيح وإفراط الأبيض (
+    - code: Over-Whiteness & Value Flattening
+    - text: )
+    - text: عبر الأرضية وسطح المنصة وغلاف الجدران
+    - superscript
+    - generic: ، تليها في المرتبة الثانية (2) تشطيب المعدات المكعبة والشاشات المحترقة/الميتة
+    - superscript
+    - generic: ، ثم في المرتبة الثالثة (3) المعالجة اللونية والهندسية لحواف المنصة والماسح السقفي ذي الـ 51 جزءاً
+    - superscript
+    - text: .
+    - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg, JPG: 04-theater.jpg, JPG: 03-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: JPG
+      - generic: + 4
+  - paragraph:
+    - text: وجود التدرج العالمي النشط (
+    - code: ACES
+    - text: مع رفع التباين والسطوع) يجعل أي مادة ذات
+    - code: Albedo
+    - text: مرتفع (
+    - code: "> 0.55"
+    - text: ) تقفز مباشرة نحو الأبيض الجيري المسطح، مما أفقد المختبر هيبته الدرامية وجعل الخلفية تنافس كرسي الفحص والحاضنتين في السطوع
+    - superscript
+    - text: .
+    - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: JPG
+      - generic: + 1
+  - heading "2) أهم 3 عيوب مرئية مرتبة بالأثر والحل المحلي لكل منها" [level=2]
+  - 'heading "العيب الأول (الأعلى أثراً): طغيان الأبيض الجيري وتساوي القيم اللونية في الأرضية وسطح المنصة وغلاف الجدران" [level=3]'
+  - list:
+    - paragraph: "التشخيص من الصورتين:"
+    - list:
+      - paragraph:
+        - text: في
+        - code: 04-theater.jpg
+        - text: ، يسبح كرسي الاحتجاز البنفسجي وسط بحر ساطع من البلاط الأبيض/الرمادي الفاتح المنقط بنقاط سوداء صغيرة عند الزوايا، بحيث يكاد سطح المنصة لا يتميز عن أرضية الغرفة السفلية
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: في
+        - code: 03-lateral.jpg
+        - text: و
+        - code: 04-theater.jpg
+        - text: ، يظهر غلاف الجدران المحيط (
+        - code: 32×40m
+        - text: ) ببقع بيضاء جيرية ساطعة وممطوطة تجاور فجوات سوداء فحمية، مما يكشف عيوب خامة الأصول المولدة ويلغي العمق المعماري للقاعة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+    - paragraph: "الحل المحلي ونطاق الخامة/الخشونة المحافظ (دون لمس ACES العالمي):"
+    - list:
+      - paragraph:
+        - text: أرضية القاعة السفلية (
+        - code: Main Floor
+        - text: "):"
+        - text: خفّض
+        - code: base_color / albedo
+        - text: إلى فولاذي داكن محافظ
+        - code: Color(0.14, 0.18, 0.23)
+        - text: ، مع
+        - code: metallic = 0.18
+        - text: و
+        - code: roughness = 0.60–0.65
+        - text: لتمتص الأرضية السفلية الضوء وتبرز الانعكاس المائي في ممر المدخل الظاهر أسفل يسار
+        - code: 03-lateral.jpg
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 03-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: سطح المنصة المركزية والمنحدر (
+        - code: Dais Deck & Ramp
+        - text: "):"
+        - text: اضبطه بدرجة أفتح قليلاً من الأرضية لقراءة المسار ولكن ضمن النطاق المتوسط الهادئ
+        - code: Color(0.22, 0.27, 0.34)
+        - text: ، مع
+        - code: metallic = 0.22
+        - text: و
+        - code: roughness = 0.48–0.54
+        - text: ، وألغِ النقاط السوداء المتكررة في زوايا البلاط الظاهرة في
+        - code: 04-theater.jpg
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: غلاف الجدران المحيط (
+        - code: Outer Wall Shell
+        - text: "):"
+        - text: اضرب خامة الجدار في لون تظليل فولاذي داكن
+        - code: Color(0.26, 0.32, 0.40)
+        - text: مع رفع الخشونة إلى
+        - code: roughness = 0.62–0.70
+        - text: وخفض
+        - code: metallic = 0.15–0.20
+        - text: لكسر اللطخات البيضاء المحترقة في الخلفية
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+  - 'heading "العيب الثاني: الخزائن الطبية البيضاء المكعبة، واحتراق شاشاتها الصغيرة مقابل موت شاشة المحطة الرئيسية" [level=3]'
+  - list:
+    - paragraph: "التشخيص من الصورتين:"
+    - list:
+      - paragraph:
+        - text: في
+        - code: 03-lateral.jpg
+        - text: ، تتوزع حول المنصة وفوقها خزائن أدراج مكعبة بيضاء (
+        - code: Boxy White Carts
+        - text: ) تبدو كصناديق بلاستيكية أولية تشتت العين، وتعلو كلاً منها شاشة صغيرة تحترق باللون الأبيض المصمت بنسبة
+        - code: 100%
+        - text: بلا أي تفاصيل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: في المقابل، تظهر محطة التحكم الرئيسية الكبيرة يمين كرسي الفحص في
+        - code: 04-theater.jpg
+        - text: بشاشة سوداء ميتة تماماً تقريباً (باستثناء شريطين صغيرين في زاويتها السفلية)
+        - superscript
+        - text: ، بينما تبدو شاشتا الفيديو داخل الحاضنتين الأسطوانيتين كألواح مستطيلة مسطحة (
+        - code: 16:9
+        - text: ) مقحمة داخل حلقات دائرية دون إطار حامل يدمجها في بدن الحاضنة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 04-theater.jpg وJPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+    - paragraph: "الحل المحلي ونطاق المواد:"
+    - list:
+      - paragraph:
+        - text: تعتيم الخزائن المكعبة (
+        - code: Medical Carts
+        - text: "):"
+        - text: حوّل بدن الخزائن من الأبيض الفاقع إلى الرمادي الطبي الداكن
+        - code: Color(0.24, 0.29, 0.36)
+        - text: (
+        - code: metallic = 0.25, roughness = 0.52
+        - text: ) مع مقابض داكنة
+        - code: Color(0.10, 0.13, 0.17)
+        - text: لتندمج في ظلال المختبر
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "تهدئة الشاشات الصغيرة وإحياء شاشة المحطة الرئيسية: استبدل الأبيض المحترق على الشاشات الصغيرة بخلفية داكنة"
+        - code: Color(0.04, 0.08, 0.12)
+        - text: وانبعاث بيانات سيان/كهرماني خافت (
+        - code: emission_energy = 0.35–0.50
+        - text: )
+        - superscript
+        - text: ، ومرّر شيدر شبكة المراقبة/المؤشرات الحيوية إلى شاشة المحطة الكبيرة في
+        - code: 04-theater.jpg
+        - text: لتعمل كمركز بصري حي بجوار الكرسي
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: تأطير شاشات الحاضنتين (
+        - code: Pod Displays
+        - text: "):"
+        - text: أضف إطاراً معدنياً داكناً (
+        - code: Bezel
+        - text: علوي وسفلي متصل بـ
+        - code: MultiMesh
+        - text: أعمدة الحاضنة) يمسك بلوح الشاشة داخل الأسطوانة الزجاجية ليزول مظهر اللوح المستطيل العائم في
+        - code: 03-lateral.jpg
+        - text: و
+        - code: 04-theater.jpg
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+  - 'heading "العيب الثالث: التناقض بين الحافة السوداء الصماء للمنصة واللطخات الجيرية على الماسح السقفي (51 جزءاً)" [level=3]'
+  - list:
+    - paragraph: "التشخيص من الصورتين:"
+    - list:
+      - paragraph:
+        - text: في
+        - code: 03-lateral.jpg
+        - text: ، يرتكز السطح الأبيض للمنصة المركزية على جدار جانبي أسود فحمي مصمت تماماً (
+        - code: Pitch-Black Skirt
+        - text: ) بلا شطف أو تفاصيل هيكلية، مما يجعل المنصة تبدو كصندوق مقطوع بحدة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 03-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: الماسح الحلقي السقفي المفصول (
+        - code: 64,832
+        - text: مثلثاً من 51 جزءاً) في
+        - code: 03-lateral.jpg
+        - text: وذراعه في
+        - code: 04-theater.jpg
+        - text: يعانيان من خامة
+        - code: UV
+        - text: أولية باهتة تميل إلى الأبيض/البنفسجي الفاتح الملطخ مع بقع صفراء وزرقاء خام، مما يجعله يبدو كجبس أو بلاستيك غير مكتمل التشطيب بدلاً من معدن جراحي ثقيل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+    - paragraph: "الحل المحلي ومعالجة الأجزاء:"
+    - list:
+      - paragraph:
+        - text: جوانب المنصة (
+        - code: Dais Skirt & Edge Trim
+        - text: "):"
+        - text: استبدل السواد المطلق لجوانب المنصة في
+        - code: 03-lateral.jpg
+        - text: بمعدن فولاذي غامق مقروء
+        - code: Color(0.15, 0.19, 0.25)
+        - text: (
+        - code: metallic = 0.32, roughness = 0.48
+        - text: ) مع شريط حافة تحذيري/تقني رفيع على محيط المنصة العلوي
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 03-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph: "توحيد مواد أجزاء الماسح الـ 51 وكرسي الفحص: بدلاً من انتظار خامات PBR خارجية ثقيلة، افرز أجزاء الماسح الـ 51 برمجياً إلى 3 مواد مشتركة مضبوطة تضرب خامة الـ UV الأصلية:"
+      - list:
+        - paragraph:
+          - text: الهيكل الرئيسي (
+          - code: Housing
+          - text: "):"
+          - code: albedo_color = Color(0.30, 0.36, 0.44)
+          - text: ،
+          - code: metallic = 0.38
+          - text: ،
+          - code: roughness = 0.44
+          - text: لإخفاء البياض الجيري مع إبقاء تدرجات الـ UV الدقيقة
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: JPG
+            - generic: + 1
+        - paragraph:
+          - text: المفاصل والأذرع الداخلية (
+          - code: Joints/Cables
+          - text: "):"
+          - code: albedo_color = Color(0.14, 0.18, 0.23)
+          - text: ،
+          - code: metallic = 0.45
+          - text: ،
+          - code: roughness = 0.38
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: 03-lateral.jpg وJPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: JPG
+            - generic: + 1
+        - paragraph:
+          - text: بواعث الفحص (
+          - code: Optical Accents
+          - text: "):"
+          - text: انبعاث محلي مضبوط (
+          - code: emission_energy = 0.60
+          - text: ) بدلاً من البقع الصفراء والزرقاء الفاقعة على الذراع في
+          - code: 04-theater.jpg
+          - superscript
+          - text: .
+          - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: 04-theater.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+            - generic: JPG
+  - heading "3) تحذير هندسي حاسم بخصوص VkResult -2 وأصول Tripo PBR" [level=2]:
+    - text: 3) تحذير هندسي حاسم بخصوص
+    - code: VkResult -2
+    - text: وأصول Tripo PBR
+  - list:
+    - paragraph:
+      - text: الخطأ
+      - code: VkResult -2
+      - text: عند دقة
+      - code: 1280×720
+      - text: في Vulkan هو تحديداً
+      - code: VK_ERROR_OUT_OF_DEVICE_MEMORY
+      - text: (نفاد ذاكرة البطاقة الرسومية)
+      - text: ؛ ونجاح التشغيل عند
+      - code: 960×540
+      - text: يعود فقط لانخفاض حجم مخازن إطارات
+      - code: Forward+
+      - text: (Depth/Normal/SSR/History buffers) بنسبة
+      - code: 44%
+      - text: .
+    - paragraph:
+      - text: "قرار منع حاسم: كون حزمة"
+      - code: Tripo PBR
+      - text: محجوبة عن التنزيل هو في صالح استقرار المشروع الآن؛ لأن استيراد خرائط
+      - code: Tripo 4K/8K PBR
+      - text: (Albedo + Normal + ORM) لـ 51 جزءاً مع مجسم من
+      - code: 64,832
+      - text: مثلثاً وغلاف
+      - code: 32×40m
+      - text: سيؤدي حتماً إلى تفجير
+      - code: VK_ERROR_OUT_OF_DEVICE_MEMORY
+      - text: حتى على
+      - code: 960×540
+      - text: .
+    - paragraph:
+      - text: التزم بالدمج المادي المحلي أعلاه (3 مواد مشتركة للماسح + خفض
+      - code: Albedo
+      - text: للأرضية والمنصة والغلاف)، وتأكد من أن خامة
+      - code: UV
+      - text: الحالية للماسح والغلاف مقلصة إلى
+      - code: <= 1024×1024
+      - text: ومضغوطة بـ
+      - code: VRAM Compression
+      - text: قبل إعادة اختبار دقة
+      - code: 1280×720
+      - text: .
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Assessing visual defects
+- region "Notifications"
+- generic: إملاء (^⇧D)

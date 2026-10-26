@@ -100,6 +100,7 @@ func _ready() -> void:
 	presentation = preload("res://scripts/environment/maintenance_room_presentation.gd").new()
 	add_child(presentation)
 	set_reduced_motion(_motion_reduced)
+	preload("res://scripts/environment/maintenance_mechanical_dressing.gd").install(self)
 
 func set_language(language: String) -> void:
 	if is_instance_valid(presentation): presentation.set_language(language)

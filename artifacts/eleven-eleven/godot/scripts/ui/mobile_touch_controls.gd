@@ -49,6 +49,7 @@ var _platform_touch_enabled: bool = false
 var _action_touches: Dictionary = {}
 var _combat_available := false
 var _traversal_active := false
+var _environment_help := false
 var _language := "ar"
 var _interaction_available := false
 var control_scale := 1.0
@@ -186,7 +187,7 @@ func refresh_labels(language: String, muted: bool, reduced: bool) -> void:
 		"UseBtn": "تفاعل" if arabic else "USE",
 		"SprintBtn": ("أفلت" if _traversal_active else "اندفع") if arabic else ("DROP" if _traversal_active else "DASH"),
 		"JumpBtn": "اقفز" if arabic else "JUMP",
-		"ScanBtn": "افحص" if arabic else "SCAN",
+		"ScanBtn": ("مساعدة" if _environment_help else "افحص") if arabic else ("HELP" if _environment_help else "SCAN"),
 		"DodgeBtn": ("أفلت" if _traversal_active else "تدحرج") if arabic else ("DROP" if _traversal_active else "ROLL"),
 		"AttackBtn": "هجوم" if arabic else "ATK",
 		"LockOnBtn": "هدف" if arabic else "LOCK",
@@ -203,6 +204,14 @@ func refresh_labels(language: String, muted: bool, reduced: bool) -> void:
 				button.text = ""
 			else: button.text = labels[node_name]
 	reduced_feedback = reduced
+
+func set_environment_help(enabled: bool) -> void:
+	_environment_help = enabled
+	var scan := find_child("ScanBtn", true, false) as Button
+	if scan:
+		var glyph := scan.get_node_or_null("ActionGlyph") as TextureRect
+		if glyph: glyph.hide()
+	refresh_labels(_language, _muted, reduced_feedback)
 
 func _ready() -> void:
 	var platform_name: String = OS.get_name()

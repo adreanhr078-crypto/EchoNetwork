@@ -1,0 +1,88 @@
+{
+	"checks": 8,
+	"framebuffer": "(1280, 720)",
+	"probes": [
+		{
+			"hits": [
+				{
+					"distance": 23.9408893585205,
+					"material": {
+						"class": "ShaderMaterial",
+						"shader": ""
+					},
+					"node": "/root/Main/Campaign_lab/@MeshInstance3D@841",
+					"room_hit": "(0.158997, 5.343556, -39.65002)",
+					"surface": 0
+				},
+				{
+					"distance": 24.2951698303223,
+					"material": {
+						"base_color": "(0.66, 0.67, 0.68, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "<null>",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/NorthLintel/@MeshInstance3D@832",
+					"room_hit": "(0.113995, 5.375278, -40.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(1000.0, 175.0)"
+		},
+		{
+			"hits": [
+				{
+					"distance": 23.8577136993408,
+					"material": {
+						"class": "ShaderMaterial",
+						"shader": ""
+					},
+					"node": "/root/Main/Campaign_lab/@MeshInstance3D@841",
+					"room_hit": "(0.273602, 4.341482, -39.65002)",
+					"surface": 0
+				},
+				{
+					"distance": 24.2107620239258,
+					"material": {
+						"base_color": "(0.66, 0.67, 0.68, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "<null>",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/NorthLintel/@MeshInstance3D@832",
+					"room_hit": "(0.230293, 4.358375, -40.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(1000.0, 205.0)"
+		},
+		{
+			"hits": [
+				{
+					"distance": 24.1651859283447,
+					"material": {
+						"base_color": "(0.66, 0.67, 0.68, 1.0)",
+						"class": "ShaderMaterial",
+						"clean_clinical_coating": "<null>",
+						"has_ao_map": "false",
+						"has_color_map": "false",
+						"metalness": "0.10000000149012",
+						"shader": "res://shaders/clinical_architecture_surface.gdshader"
+					},
+					"node": "/root/Main/Campaign_lab/NorthLintel/@MeshInstance3D@832",
+					"room_hit": "(0.387962, 2.979452, -40.0)",
+					"surface": 0
+				}
+			],
+			"pixel": "(1000.0, 245.0)"
+		}
+	],
+	"renderer": "forward_plus",
+	"viewport": "(1920.0, 1080.0)"
+}

@@ -1,0 +1,122 @@
+{
+  "checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN",
+  "date": "2026-10-23",
+  "scope": "Clinical lab presentation only; no chapter/AAA/fun/performance/device acceptance.",
+  "implemented": [
+    "Measured perimeter inner clearances repaired after actual lateral camera occlusion.",
+    "Tripo segmented source scanner: 64832 triangles,51 source parts; source UVs retained; no new model generation.",
+    "Vitrine exoskeletons/clear glass/bezel and surgical deck fascias; retained entrance/exit/support/interactions/story.",
+    "Local surface hierarchy,shared diagnostic display shader with pause/RM/local clock; 36 raised deck meshes removed; derivative-covered floor seams.",
+    "Explicit scanner/perimeter resources included in all3 export lists."
+  ],
+  "source_hashes": {
+    "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_tripo.glb": "ed7ff54cbeab1b94f5cb8559ad69650db287f6e62ab6d480243e56a4ea9a4559",
+    "godot/assets/environments/lab_clinical_cp45/clinical_scanner_tripo.glb": "737937454fe5a5f561993e751931736b4bfcdb105dc2c361db73ad0f3988b758",
+    "godot/scripts/cinematics/lab_memory_trial.gd": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
+    "godot/scripts/cinematics/pact_revenge_presentation.gd": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+    "godot/scripts/environment/clinical_lab_architecture.gd": "5ac222722f530d1143845cf54918ee6dc7100dafe7bd167b947c4080bc7be4fd",
+    "godot/scripts/environment/lab_memory_cinema.gd": "80ac27d14897f04d7feef3f43c0f928fb1cb213beba873e21a97668e87e2aba4",
+    "godot/scripts/environment/memory_reflection_space.gd": "038b7c7064e39f356a536e211abc44e4e922051be25e6d68bc5cd3a9ebe4cb42",
+    "godot/shaders/clinical_architecture_surface.gdshader": "6a70496e277ebe985a723f4b65900a544112465d057ea69c9f899847af879d51",
+    "godot/shaders/clinical_diagnostic_display.gdshader": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+    "godot/shaders/clinical_porcelain_floor.gdshader": "7dd317b3dd06afb7064a330bc9091ccf26bd8b13019eb537112720d295998bbc",
+    "godot/shaders/clinical_vitrine_glass.gdshader": "4e00429079cc990234be027c3dfdec7fabbe911ae2e0d1e1d7dbfba8cacef04a",
+    "godot/tests/lab_rebuild_views_review.gd": "cf56bfc88ea246fc81881d2438baba62e6e4372efc502d3617e1fd43cac7558a",
+    "godot/export_presets.cfg": "5d2c66e1be7e1ac70b93cfce6ab86ef9e35420e644e35ea878851064661b9a1e",
+    "godot/tests/post_contract_journey_review.gd": "1639c0c0f046a649ca301d3b7a7a4df664769ce4abc5f32813556e093dcf6608",
+    "godot/tests/lab_presentation_lifecycle_review.gd": "1735ae38d42d8977b41376fa177509ac95a43ce991c7038540db0ff354183f59",
+    "art/production/extract_lab_scanner_20261023.py": "3a9ba9d9cf44f60c1691679217073a04a95ff7c36861dde9a55ba08210f95c26",
+    "art/production/build_lab_architecture_from_tripo_20261023.py": "5a20619e4d0dbf9b8c8e16b8715a33fb2bbf2204f5411451cd7a0150f60f9b0b",
+    "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4": "84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e"
+  },
+  "verification": {
+    "preflight": "PASS",
+    "postflight": "649/649; content/typecheck/build/registry/boot/save PASS",
+    "native_forward_plus": "4 reviewed fixed cameras,High,960x540,Intel UHD,Vulkan; no script/shader errors.",
+    "native_compatibility": "4 reviewed current fixed cameras,1280x720,iteration16; known screen-space-AA warning.",
+    "lifecycle": 30,
+    "post_contract_headless_checks": 55,
+    "route_retries": 0,
+    "state_recovery_failures": 0,
+    "golden_protected_files": 192
+  },
+  "adviser": {
+    "model": "Argon High verified before and after returned image-specific review",
+    "url": "https://gemini.google.com/u/2/app/337899ae768a8a8f",
+    "review_file": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/argon-review.txt",
+    "adopted": "Local tonal hierarchy,quieter diagnostic monitors and deck simplification. No global grade/source keys changed.",
+    "not_adopted": "Unmeasured certainty that any PBR import must cause OOM; material sharing with separate UV textures needs an atlas,not a claim of3 draw calls."
+  },
+  "failures_retained": [
+    "Three1280x720 Forward+ trials failed Vulkan texture allocation,VkResult-2,including current final iteration17; process exit0 did not make them PASS.960x540 is the verified current Forward+ size.",
+    "Earlier lateral view occluded by scenic wall thickness; corrected via measured piecewise shell fit,not just moving its review camera.",
+    "Tripo PBR export navigated to a ChatGPT-blocked download domain; no PBR file integrated.",
+    "Initial Omni local download/event/page-asset attempts failed; subsequently recovered the actual provider-returned media URL with HTTP200. Full decode PASS,40 samples reviewed; full take/audio acceptance remains open."
+  ],
+  "external": {
+    "tripo_before": 3025,
+    "tripo_after": 3020,
+    "tripo_spent_this_turn": 5,
+    "flow_before": 473,
+    "flow_after": 458,
+    "flow_spent_this_turn": 15,
+    "credits_exhausted": false,
+    "flow_model": "Omni1.1Flash,720p,10s,16:9,one output,four retained reference ingredients",
+    "flow_media_id": "0459d46e-c942-4e9b-8c47-807d505d9218",
+    "flow_scene_url": "https://flow.google.com/project/658007d8-ddc0-4e64-8b56-be8f7ea373e8/edit/c894d6ec-18e2-41ed-91b4-02c878ac4019"
+  },
+  "remaining": [
+    "Final lab architecture/material/focal-equipment craft and fine pod/deck junctions.",
+    "Resolve current1280x720 Forward+ Vulkan OOM and measure gameplay/loading/memory/frame time.",
+    "Recover existing completed PBR export without duplicate payment; inspect its maps and the saved Omni full take/audio before any native movie integration.",
+    "Fine acting/grip/distinct combo-Iai/Japanese SFX,whole chapter/device/live receipts/final package remain open."
+  ],
+  "work_mode": "SOLO; no staging,commit,push,publication,purchase or account switch.",
+  "scanner_texture_observation": {
+    "retained_images": 51,
+    "largest_width": 1024,
+    "largest_height": 1024,
+    "note": "Retained scanner textures measured from source-audit image records and retained part IDs.4K is the parent Studio operation label,not an assertion of4K per-part maps."
+  },
+  "flow_media_recovery": {
+    "file": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4",
+    "sha256": "84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e",
+    "bytes": 7207433,
+    "width": 1280,
+    "height": 720,
+    "duration_s": 10,
+    "audio": "AAC48kHz;present,not listening-accepted",
+    "decode": "PASS full video/audio decode",
+    "visual_review": "40 temporal samples at4fps reviewed: apparent spatial continuity,slow frontal-to-three-quarter dolly,whole archival panels,no actors. Samples are not full frame-by-frame or audio acceptance.",
+    "brief_deviation": "Take starts at entry-level frontal wide rather than already on the central platform; retained as an architectural/material reference only.",
+    "sharp_frames": [
+      {
+        "timestamp_s": "0.0",
+        "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-0.0.png",
+        "sha256": "545357ee03a59a462cfcff4e01b4af7d7e6b7628758990e2d8e1d0d689a92029"
+      },
+      {
+        "timestamp_s": "2.5",
+        "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-2.5.png",
+        "sha256": "98699f24a94fe22bdd8becec68f427ef1d2da78931c3734ba54bd91b569d9e5a"
+      },
+      {
+        "timestamp_s": "5.0",
+        "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-5.0.png",
+        "sha256": "1b3d58eac899a72d4d1749863d329174e5736858570e2a1e00aa362ceaeae57c"
+      },
+      {
+        "timestamp_s": "7.5",
+        "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-7.5.png",
+        "sha256": "679abc16c3d933e012f5f6c7a645dd966bba87a2622ff63fdcbe2f07b1316821"
+      },
+      {
+        "timestamp_s": "9.5",
+        "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-9.5.png",
+        "sha256": "b61f93e801d7f1dc0ad4f4928bbfdc6b9937ef5281837bf9aefe2f3a6b26007c"
+      }
+    ],
+    "native_movie_integration": false,
+    "new_credits": 0
+  }
+}

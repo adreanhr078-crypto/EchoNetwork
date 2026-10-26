@@ -1,0 +1,137 @@
+{
+  "source": "art/production/lab-modular-refinement-20261024/clinical-modular-perimeter-v3-before-composition.blend",
+  "source_sha256": "84f19ee25856117705656851d9199f31b110a21bd9b6203d4ec41c4c500162f2",
+  "output": "godot/assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb",
+  "output_sha256": "bda78e7f00fc01369bfb1e8c8e0acd65288edc687cf20c6e87a38cf902297a98",
+  "geometry_digest_before": "19078979c585cdbbd21c48a6afcb4965976edb0700d5c00228dc025f63a125d0",
+  "geometry_digest_after": "19078979c585cdbbd21c48a6afcb4965976edb0700d5c00228dc025f63a125d0",
+  "whole_components_reassigned": [
+    {
+      "part": "SouthDoorHeaderLower",
+      "centre": [
+        0,
+        4.88,
+        0.01
+      ],
+      "size": [
+        2.6,
+        3.36,
+        0.06
+      ],
+      "material": "ClinicalServiceBlueHeader"
+    },
+    {
+      "part": "SouthDoorHeaderUpper",
+      "centre": [
+        0,
+        8.26,
+        0.01
+      ],
+      "size": [
+        2.6,
+        3.32,
+        0.06
+      ],
+      "material": "ClinicalServiceBlueHeader"
+    },
+    {
+      "part": "ClockUnderPanel",
+      "centre": [
+        0,
+        3.38,
+        -40.01
+      ],
+      "size": [
+        10.8,
+        0.68,
+        0.06
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "ClockUpperPanel",
+      "centre": [
+        0,
+        6.88,
+        -40.01
+      ],
+      "size": [
+        10.8,
+        1.0,
+        0.06
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "NorthUpperInfill",
+      "centre": [
+        0,
+        8.62,
+        -40.01
+      ],
+      "size": [
+        11.68,
+        2.2,
+        0.06
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "NorthBaySidePanel-1",
+      "centre": [
+        -3.4,
+        1.48,
+        -40.01
+      ],
+      "size": [
+        4.6,
+        2.96,
+        0.06
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "NorthBayUpperPier-1",
+      "centre": [
+        -5.65,
+        4.95,
+        -39.99
+      ],
+      "size": [
+        0.44,
+        9.8,
+        0.08
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "NorthBaySidePanel1",
+      "centre": [
+        3.4,
+        1.48,
+        -40.01
+      ],
+      "size": [
+        4.6,
+        2.96,
+        0.06
+      ],
+      "material": "ClinicalCentralPorcelain"
+    },
+    {
+      "part": "NorthBayUpperPier1",
+      "centre": [
+        5.65,
+        4.95,
+        -39.99
+      ],
+      "size": [
+        0.44,
+        9.8,
+        0.08
+      ],
+      "material": "ClinicalCentralPorcelain"
+    }
+  ],
+  "scope": "Nine whole authored components,material assignment only. No changed vertex,UV,door clearance,collider,clock or native gameplay."
+}

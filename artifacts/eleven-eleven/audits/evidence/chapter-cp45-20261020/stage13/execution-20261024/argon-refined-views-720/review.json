@@ -1,0 +1,26 @@
+{
+	"contacts": 0,
+	"contract_done": true,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"motion": true,
+	"renderer": "forward_plus",
+	"scope": "Four fixed art cameras in actual earned native room; HUD hidden only by this fixture. No art/traversal/performance acceptance.",
+	"source_hashes": {
+		"res://assets/environments/lab_clinical_cp45/clinical_perimeter_packed.glb": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533",
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_tripo.glb": "737937454fe5a5f561993e751931736b4bfcdb105dc2c361db73ad0f3988b758",
+		"res://scripts/cinematics/lab_memory_trial.gd": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+		"res://scripts/environment/clinical_lab_architecture.gd": "45162ffca28a640e1cfeb4097ad8a19edb57e685d3b3454a49e80dfff202474e",
+		"res://scripts/environment/lab_memory_cinema.gd": "80ac27d14897f04d7feef3f43c0f928fb1cb213beba873e21a97668e87e2aba4",
+		"res://scripts/environment/memory_reflection_space.gd": "038b7c7064e39f356a536e211abc44e4e922051be25e6d68bc5cd3a9ebe4cb42",
+		"res://shaders/clinical_architecture_surface.gdshader": "b2f608ce7d81659870a93704fb6b09a0a181ba67bdbcd322eebec890591310fa",
+		"res://shaders/clinical_diagnostic_display.gdshader": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://shaders/clinical_vitrine_glass.gdshader": "4e00429079cc990234be027c3dfdec7fabbe911ae2e0d1e1d7dbfba8cacef04a",
+		"res://tests/lab_rebuild_views_review.gd": "f4ec350c97f5d14881e1a36e979dd4eddd4c4f3695c29b74412a0bac69d39606"
+	},
+	"wish_done": false
+}

@@ -78,6 +78,7 @@ func _bed() -> void:
 	# Pillow belongs to the bed kit, not to a claimed pose performance.
 	var pillow := MeshInstance3D.new()
 	pillow.name = "Pillow"
+	pillow.set_meta("ward_part","Pillow")
 	var cushion := SphereMesh.new()
 	cushion.radius = 0.5
 	cushion.height = 1.0
@@ -159,6 +160,7 @@ func _lighting() -> void:
 func _box(node_name: String, size: Vector3, at: Vector3, material_key: String, collidable: bool = false) -> MeshInstance3D:
 	var visual := MeshInstance3D.new()
 	visual.name = node_name
+	visual.set_meta("ward_part",node_name)
 	visual.mesh = BoxMesh.new()
 	visual.mesh.size = size
 	visual.material_override = materials[material_key]
@@ -176,6 +178,7 @@ func _box(node_name: String, size: Vector3, at: Vector3, material_key: String, c
 func _cylinder(node_name: String, radius: float, height: float, at: Vector3, material_key: String) -> MeshInstance3D:
 	var visual := MeshInstance3D.new()
 	visual.name = node_name
+	visual.set_meta("ward_part",node_name)
 	var cylinder := CylinderMesh.new()
 	cylinder.top_radius = radius
 	cylinder.bottom_radius = radius

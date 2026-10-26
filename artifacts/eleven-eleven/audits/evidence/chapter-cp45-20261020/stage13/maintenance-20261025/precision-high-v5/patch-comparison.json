@@ -1,0 +1,32 @@
+[
+  {
+    "image": "diagnostic-ssr-off.png",
+    "crop_box": [
+      657,
+      398,
+      791,
+      475
+    ],
+    "mean_abs_pixel_diff": [
+      0.03314595851909285,
+      0.04710215157976352,
+      0.04477611940298507
+    ],
+    "scope": "Diagnostic local patch only,not artwork or renderer acceptance"
+  },
+  {
+    "image": "diagnostic-directional-shadow-off.png",
+    "crop_box": [
+      657,
+      398,
+      791,
+      475
+    ],
+    "mean_abs_pixel_diff": [
+      15.02452025586354,
+      17.985946888931963,
+      21.241132002326033
+    ],
+    "scope": "Diagnostic local patch only,not artwork or renderer acceptance"
+  }
+]

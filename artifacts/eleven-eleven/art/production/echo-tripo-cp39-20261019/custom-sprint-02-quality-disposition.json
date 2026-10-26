@@ -1,0 +1,21 @@
+{
+  "scope": "Source observation only; no trimming, looping, keys or runtime changed",
+  "frames": 120,
+  "fps": 24,
+  "hip_travel_start_end_source_units": 6.827184117686116,
+  "hip_speed_source_units_per_second": {
+    "first_12_max": 0.5489481326801913,
+    "middle_max": 2.2183817485116237,
+    "last_12_max": 0.6827698944263788
+  },
+  "inspected_views": [
+    "quarter-001.png",
+    "quarter-031.png",
+    "quarter-061.png",
+    "quarter-120.png"
+  ],
+  "motion_as_continuous_run": "FAIL starts and ends standing; lowered arms do not provide the requested vigorous opposing drive",
+  "rig_as_complete_hero_replacement": "FAIL coat bound into thighs, no independent coat or facial controls;2K derivative",
+  "replay": "PASS7920comparisons; max8.309micrometres,0.001553degrees",
+  "decision": "Quarantine both custom Run attempts, no third retry; keep current V31/Golden. Tripo finite-action use must be evaluated separately."
+}

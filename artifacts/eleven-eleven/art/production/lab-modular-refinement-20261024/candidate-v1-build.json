@@ -1,0 +1,71 @@
+{
+  "source": "art/production/lab-modular-refinement-20261024/clinical_wall_p2_pbr_4k.glb",
+  "source_sha256": "845b2b0562ef8489352e400e71144cfa7b3fc06f4885b0ddfac7443e61b2e8de",
+  "raw_tile_triangles": 2505,
+  "planar_cleanup_tile_triangles": 2265,
+  "source_bounds_min": [
+    -0.499755859375,
+    -0.052490271627902985,
+    0.0
+  ],
+  "source_bounds_max": [
+    0.499755859375,
+    0.052490271627902985,
+    0.99951171875
+  ],
+  "normalised_tile_dimensions_m": [
+    3,
+    0.2,
+    3
+  ],
+  "tile_instances": 120,
+  "image_dimensions": {
+    "tripo_rgb_2af462e7-0c28-4844-8ad1-2a2b3f4d8d52": [
+      4096,
+      4096
+    ],
+    "tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_2-tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_1": [
+      4096,
+      4096
+    ],
+    "tripo_normal_6037cb6e-b606-4cfc-871e-423ca1295ea7": [
+      4096,
+      4096
+    ]
+  },
+  "output": "godot/assets/environments/lab_clinical_cp45/clinical_modular_perimeter.glb",
+  "output_sha256": "0f4ae9a579239dba1a6600f1a038334741b28d955d9e1e3bfaa52bba6e52c920",
+  "meshes": [
+    {
+      "name": "ClinicalCleanWestWall",
+      "vertices": 73359,
+      "triangles": 88335,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanEastWall",
+      "vertices": 73359,
+      "triangles": 88335,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanNorthWall",
+      "vertices": 33858,
+      "triangles": 40770,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanSouthWall",
+      "vertices": 45144,
+      "triangles": 54360,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanFrameAndGallery",
+      "vertices": 4592,
+      "triangles": 8856,
+      "surfaces": 4
+    }
+  ],
+  "scope": "Editable visual-only candidate. Repeated image-guided Tripo tile; authored exact portal/frame/gallery dimensions. Not an exact reconstruction from a film. Native collision,camera,path,state,art and performance acceptance remain required."
+}

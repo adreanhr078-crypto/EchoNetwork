@@ -1,0 +1,120 @@
+{
+	"acceptances": 2,
+	"checks": 212,
+	"display": "Windows",
+	"power_inputs": [
+		{
+			"actual_release_ratio": 0.806666666666666,
+			"charged_input": true,
+			"control_locked": false,
+			"kinja_contacts": 0,
+			"observed_actions": [
+				"iai"
+			],
+			"status": "PASS",
+			"step": 8
+		}
+	],
+	"reloads": 14,
+	"scope": "Actual earned profile, public UI/look/Iai and fresh-scene reloads. Negative stale/storage/camera probes are explicit. Not human/fun/art/device/whole-chapter acceptance.",
+	"source_hashes": {
+		"assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"engine_visuals/shaders/motion_echo.gdshader": "927386921cf7b0ad70aad2e5ca2853b2af71577669c69673d1f53cb57763c04d",
+		"scenes/characters/echo_v31_adopted.tscn": "7fbcddcdc80f63db2a0fa1e6a160686cc5c62de0508247f85cdc5d09074a283c",
+		"scripts/cinematics/pact_revenge_presentation.gd": "ccc885b9e41e9e9745886d168b760dff9aa5e5fa2e77768baf45cf7ddebfde32",
+		"scripts/cinematics/skin_mark_inspection_camera.gd": "110862dd0a892dcca33a31bfdff136bcec207a0f9a966b2a324a9e6dabb948e2",
+		"scripts/environment/memory_reflection_space.gd": "f1170657e670e0c862b3cfbe018b5abaeade87002a15a2ded89c5400aa44b785",
+		"scripts/player/echo_player.gd": "62b479e82e00ef268123ab312b805c95d10277fe70f6f3992e65f1863293c511",
+		"scripts/player/ghost_trail_spawner.gd": "d660acc06c860f500ab9aa5bd727ae5de451720e94360f6ce3021f3d5f9a05f6",
+		"scripts/systems/native_campaign_checkpoint.gd": "b534428a81e8c7ba6cbe4633ce5ee8944cd79def43617da69f1d937402fa64fe",
+		"scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"tests/zero_encounter_player_review.gd": "1732f8e70628d2dba54d48d1d919aeb191dec2ed0cae9b539ec516de19f1eb2d"
+	},
+	"trace": [
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.400683, -304.0)",
+			"step": 0
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 0
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 1
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 2
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 3
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 4
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 4
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 4
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 5
+		},
+		{
+			"accepted": true,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 6
+		},
+		{
+			"accepted": true,
+			"deferred": false,
+			"position": "(-50.3, 9.400149, -304.0)",
+			"step": 7
+		},
+		{
+			"accepted": true,
+			"deferred": false,
+			"position": "(-50.3, 9.400149, -304.0)",
+			"step": 8
+		},
+		{
+			"accepted": false,
+			"deferred": false,
+			"position": "(-50.3, 9.5, -304.0)",
+			"step": 0
+		},
+		{
+			"accepted": false,
+			"deferred": true,
+			"position": "(-50.3, 9.400149, -304.0)",
+			"step": 5
+		}
+	]
+}

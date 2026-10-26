@@ -15,8 +15,20 @@ import './features/player-sync/player-sync.css';
 import { LocaleDocumentBridge } from './app/LocaleDocumentBridge';
 import { TelemetryBridge } from './app/telemetry/TelemetryBridge';
 import { ExperienceCueAudioBridge } from './ui/presentation/ExperienceCueAudioBridge';
+import { useEffect, useState } from 'react';
+import { TitleEntry } from './features/opening-recovery/TitleEntry';
+import { useShellStore } from './app/shell/shellStore';
+import OpeningRecoveryScreen from './features/opening-recovery/OpeningRecoveryScreen';
 
 export default function App() {
+  const [started,setStarted]=useState(false);
+  const [entryReady,setEntryReady]=useState(false);
+  const [receiptReady,setReceiptReady]=useState(false);
+  const canPlay=useShellStore(state=>state.experienceEntitlements.accessibleScreens.includes('play'));
+  useEffect(()=>{
+    if(receiptReady&&canPlay&&!entryReady){useShellStore.getState().navigate('play');setEntryReady(true);}
+  },[receiptReady,canPlay,entryReady]);
+  if(!started)return <TitleEntry onStart={()=>setStarted(true)}/>;
   return (
     <>
       <AuthBootstrap />
@@ -26,8 +38,9 @@ export default function App() {
       <PlayerSyncBootstrap />
       <ApplicationShell />
       <GameRuntimeBridge />
-      <FirstTimeOnboarding />
+      {entryReady&&<FirstTimeOnboarding />}
       <PlayerSyncFailureOverlay />
+      {!entryReady&&<div className="opening-entry-root"><OpeningRecoveryScreen onEntered={()=>setReceiptReady(true)}/></div>}
     </>
   );
 }

@@ -6,6 +6,7 @@ func _check(ok: bool, label: String) -> bool:
 		quit(1)
 	return ok
 func _run() -> void:
+	print("V31_REVIEW begin")
 	var world := Node3D.new()
 	root.add_child(world)
 	var floor := StaticBody3D.new()
@@ -17,9 +18,12 @@ func _run() -> void:
 	floor.add_child(collision)
 	world.add_child(floor)
 	var player = load("res://scenes/player/echo_player.tscn").instantiate()
+	print("V31_REVIEW instantiated")
 	world.add_child(player)
+	print("V31_REVIEW added")
 	player.finish_opening_recovery()
 	for unused in 20: await physics_frame
+	print("V31_REVIEW physics advanced")
 	if not _check(player.rig_profile.get("id") == "echo_v31_authored_68", "Actual default player must use adopted V31's 68-bone rig"): return
 	var model = player.get_node("ModelRoot/EchoOpeningUniform")
 	if not _check(model.get_meta("owner_adopted_echo_v31",false) and model.find_child("EchoV31BodyAndCoat",true,false) != null, "Actual default model must be V31, not a retained legacy visual"): return
@@ -27,6 +31,10 @@ func _run() -> void:
 	if not _check(not identifier.placement_report.is_empty() and identifier.placement_report.get("native_skin",false), "Adopted V31 must retain EX-011 as actual instance-local neck ink"): return
 	if not _check(identifier.placement_report.get("collar_occlusion_checked",false) and identifier.placement_report.get("ink_pixels",0)>0, "V31 ink must fit complete lettering on visible skin after testing actual collar occlusion"): return
 	var ap: AnimationPlayer = player.animation_player
+	var cape: Node = model.find_child("EchoCapeMotion",true,false)
+	if model.get_meta("short_jacket_variant",false):
+		if not _check(cape==null,"Approved short jacket must not retain the long-skirt solver"):return
+	elif not _check(cape != null and cape.configured and cape._chains.size()==5, "Long-coat V31 must use its five independent garment chains"): return
 	# Isolate library playback from the live controller's valid idle selection.
 	player.set_physics_process(false)
 	for clip in ["IDLE","RUN","preset_jump"]:

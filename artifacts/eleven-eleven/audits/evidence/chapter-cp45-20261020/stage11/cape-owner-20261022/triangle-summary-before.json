@@ -1,0 +1,47 @@
+{
+  "status": "MEASURED_NOT_ART_ACCEPTANCE",
+  "scope": "Actual skinned triangles with all three cloth/leg vertex weights >0.5; seam/other body/cloth self-collision excluded. BVH triangle discrimination checked independently.",
+  "source_hashes": {
+    "assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "engine_visuals/EchoCapeMotion.gd": "ce9794e945b23636b63eaf3049e8f110f404263f67703fd3ef13910ab8c8b242",
+    "scripts/player/echo_v31_motion_adapter.gd": "972ebeeb81cad3b3747e18b75d27e79e6953501a297183a82c03b7bcff2efa2e",
+    "tests/echo_cape_skin_review.gd": "35ae093a8efbbff9028514e5639ba9768b95544c42ffdac597b959508bebd3e4"
+  },
+  "protected_body_checks": 10388,
+  "geometry": [
+    {
+      "cloth_triangles": 94384,
+      "leg_triangles": 107742
+    },
+    {
+      "cloth_triangles": 0,
+      "leg_triangles": 0
+    }
+  ],
+  "clips": {
+    "IDLE": {
+      "samples": 58,
+      "affected_samples": 58,
+      "maximum_crossing_pairs": 3833,
+      "worst_time": 0.166666666666667
+    },
+    "WALK": {
+      "samples": 37,
+      "affected_samples": 37,
+      "maximum_crossing_pairs": 1421,
+      "worst_time": 0.5
+    },
+    "RUN": {
+      "samples": 27,
+      "affected_samples": 27,
+      "maximum_crossing_pairs": 3368,
+      "worst_time": 0.233333333333333
+    },
+    "preset_jump": {
+      "samples": 74,
+      "affected_samples": 74,
+      "maximum_crossing_pairs": 3058,
+      "worst_time": 0.8
+    }
+  }
+}

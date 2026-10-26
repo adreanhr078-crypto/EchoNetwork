@@ -1,0 +1,29 @@
+{
+  "scope": "Unique JPEG review copies,not lossless pixel proof;original native PNG retained",
+  "images": [
+    {
+      "source": "audits\\evidence\\chapter-cp45-20261020\\stage13\\reactor-20261025\\structural-high-v8\\entry.png",
+      "source_sha256": "240b820926ba885f636231084022eef42b6c600f104b92d2b930934fbb42a884",
+      "review_copy": "reactor-structural-v8-entry.jpg",
+      "review_sha256": "570020383672fb955955f5bd2ec0b2ba2a68e975492f4d033324e8c49c87d045"
+    },
+    {
+      "source": "audits\\evidence\\chapter-cp45-20261020\\stage13\\reactor-20261025\\structural-high-v8\\reverse.png",
+      "source_sha256": "3614c7b18cc8f4ac87ddac83ed58c851e72adec6dc6e73bbdb0f1b5a7546f0d7",
+      "review_copy": "reactor-structural-v8-reverse.jpg",
+      "review_sha256": "4a76ec2cd419da0d2d48821b02ec1f8c6005f6bab63ad71b02d25e5bbbcd3269"
+    },
+    {
+      "source": "audits\\evidence\\chapter-cp45-20261020\\stage13\\reactor-20261025\\structural-high-v8\\lateral.png",
+      "source_sha256": "1801e9d5c02cd9a341c8c37a8f718a5ddc04401303128a4f42d9782400f07760",
+      "review_copy": "reactor-structural-v8-lateral.jpg",
+      "review_sha256": "c9059809e69f845a7fc6d83f985ecb50651d3eca633519a769e5589356f6297c"
+    },
+    {
+      "source": "audits\\evidence\\chapter-cp45-20261020\\stage13\\reactor-20261025\\structural-high-v8\\hero.png",
+      "source_sha256": "012045851a7c9cda5ce858cff062ddbf80fa40117251242e37b20ea4ade25277",
+      "review_copy": "reactor-structural-v8-hero.jpg",
+      "review_sha256": "dc1eac18ce2f2d824fc8c901c30a386a16020067085cc0ed82fa4894a185953c"
+    }
+  ]
+}

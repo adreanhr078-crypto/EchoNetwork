@@ -34,10 +34,29 @@ var _patient_avatar: Node3D
 var _avatar_parent: Node3D
 var _avatar_transform: Transform3D
 var _patient_modifiers: Dictionary={}
+var _ward_light_owners: Array[Dictionary]=[]
+var _ward_camera: Camera3D
+var _ward_camera_far := 0.0
+var _pending_story_decision := ""
 
 func _ready() -> void:
 	main=get_parent()
 	native_owner=main.get_node("NativeJourneyController")
+
+func sync_preferences() -> void:
+	# Settings are also invoked while paused, when _process cannot propagate.
+	if not active: return
+	var room: Node = rooms[current] if current < rooms.size() else hospital
+	if not is_instance_valid(room): return
+	room.reduced_motion = main.reduced_motion
+	if "audio_muted" in room: room.audio_muted = main.audio_muted
+	if room.has_method("set_presentation_language"): room.set_presentation_language(main.presentation_language)
+	if room.get("narrative_trial") != null: room.narrative_trial.sync_preferences()
+	if current == 5 and room.get("story_presentation") != null: room.story_presentation.sync_encounter_preferences()
+	# Earlier language adapters may have refreshed their old directive. Restore
+	# the active room synchronously, including while the scene tree is paused.
+	_ui_signature = ""
+	_refresh_objective()
 
 func _process(delta: float) -> void:
 	_retry=maxf(0,_retry-delta)
@@ -102,9 +121,16 @@ func _build() -> void:
 		main.add_child(conduit)
 		conduits.append(conduit)
 	rooms[5].campaign_decisions=true
+	var trial := preload("res://scripts/cinematics/lab_memory_trial.gd").new()
+	rooms[5].add_child(trial)
+	trial.configure(main, rooms[5])
+	rooms[5].narrative_trial = trial
 	rooms[5].contract_decision_requested.connect(_show_pact)
 	rooms[5].zero_manifested.connect(_show_pact)
 	rooms[5].zero_contract_accepted.connect(_start_revenge)
+	rooms[5].story_presentation.encounter_choice_requested.connect(_accept_pact)
+	rooms[5].story_presentation.encounter_changed.connect(_save_encounter)
+	rooms[5].story_presentation.encounter_completed.connect(_finish_encounter)
 	rooms[5].wish_decision_requested.connect(_show_wish)
 	rooms[1].memory_shard_collected.connect(_show_memory_shard)
 	rooms[0].specimen_record_requested.connect(_show_specimen_record)
@@ -141,9 +167,16 @@ func _activate() -> void:
 		_set_active_rooms()
 		if current==5 and rooms[5].contract_done and not rooms[5].revenge_done: _start_revenge(true)
 		elif current==5 and rooms[5].revenge_done and not rooms[5].wish_done: _show_wish()
+		elif current==5 and rooms[5].confrontation_done and not rooms[5].contract_done: _show_pact(true)
+		if current==5 and progress.has("presentation"):
+			rooms[5].story_presentation.restore_presentation_clock(float(progress.presentation.elapsed))
 	_refresh_objective()
 
 func _set_active_rooms() -> void:
+	if current<rooms.size():
+		_restore_facility_lights()
+		_restore_ward_camera()
+	if active and current<rooms.size(): _queue_current_task()
 	for index in rooms.size():
 		var show_room: bool=index==current or index==current+1 or index==current-1
 		rooms[index].visible=show_room
@@ -182,11 +215,24 @@ func _capture_progress() -> void:
 		flags[key]=observed or progress.flags.get(id,{}).get(key,false)
 	if next.flags.get(id,{})==flags: return
 	next.flags[id]=flags
+	next.erase("presentation")
 	_store(next)
 
 func save_now() -> bool:
 	if not active: return true
 	_capture_progress()
+	if current==5:
+		var next := progress.duplicate(true)
+		next.erase("presentation")
+		var presentation = rooms[5].story_presentation
+		var beat := _pending_story_decision
+		if beat.is_empty() and presentation.active and presentation._kind in ["accepted","revenge"]: beat = presentation._kind
+		var cursor: Dictionary = presentation.encounter_snapshot()
+		if beat.is_empty() and not cursor.is_empty() and not rooms[5].revenge_done: beat = "accepted" if rooms[5].contract_done else "pact"
+		if not beat.is_empty():
+			next["presentation"] = {"beat":beat,"elapsed":clampf(presentation._elapsed,0,90)}
+			if beat in ["pact", "accepted"] and not cursor.is_empty(): next.presentation["encounter"] = cursor
+		if next != progress and not _store(next): return false
 	return save_succeeded and Checkpoint.save_checkpoint(progress,checkpoint_path)
 
 func _store(next: Dictionary) -> bool:
@@ -195,8 +241,51 @@ func _store(next: Dictionary) -> bool:
 	if not save_succeeded:
 		_retry=1.0
 		return false
+	var previous:=progress
 	progress=next
+	_queue_committed_progress(previous,next)
 	return true
+
+func _queue_current_task() -> void:
+	var window:=_window()
+	if not window or not window.has_method("queue_task_assigned"): return
+	var titles_ar:=["غرف التجارب","شظايا الذاكرة","الطاقة الاحتياطية","الحجر الصحي","المراقبة","مختبر كينجا"]
+	var titles_en:=["Specimen wing","Memory fragments","Reserve power","Quarantine","Surveillance","Kinja's laboratory"]
+	var details_ar:=["افحص سجل EX-011 واعبر الجناح.","استعد الشظايا الثلاث وفك تسلسل الذاكرة.","فعّل القاطعين واعبر جسر الخدمة.","اصعد إلى وحدة تجاوز الحجر.","أكمل فحص المرآة وتجاوز الإغلاق.","اصعد إلى منصة الفحص واستعد ما حدث."]
+	var details_en:=["Inspect the EX-011 record and cross the wing.","Recover all three fragments and decode the memory.","Activate both breakers and cross the service bridge.","Reach the quarantine override above.","Inspect the mirror and override the lockdown.","Reach the examination platform and recover what happened."]
+	window.queue_task_assigned("chapter:entered:"+IDS[current],titles_ar[current],titles_en[current],details_ar[current],details_en[current])
+
+func _queue_committed_progress(previous: Dictionary, next: Dictionary) -> void:
+	# This runs only after a valid local checkpoint was written successfully.
+	# Local story counters are never account XP, reward receipts or new powers.
+	if not active: return
+	var window:=_window()
+	if not window or not window.has_method("queue_story_update"): return
+	var groups:=[
+		["specimen","record",["terminal_read"],"سجل التجربة","Experiment record"],
+		["archive","fragments",["shard_sector11","shard_shizuka","shard_yuki"],"شظايا الذاكرة","Memory fragments"],
+		["archive","decode",["archive_decoded"],"فك سجل الذاكرة","Decode the memory record"],
+		["reactor","breakers",["breaker_a_done","breaker_b_done"],"استعادة الطاقة","Restore power"],
+		["decon","override",["override_done"],"تجاوز الحجر","Quarantine override"],
+		["mirror","inspection",["mirror_inspected","override_done"],"أثر المراقبة","Trace of surveillance"],
+		["lab","memory",["confrontation_done"],"ما حدث في المختبر","What happened in the laboratory"],
+		["lab","pact",["contract_done"],"العقد مع زيرو","The pact with Zero"],
+		["lab","revenge",["revenge_done"],"مواجهة كينجا","Confront Kinja"],
+		["lab","wish",["wish_done"],"تأكيد الأمنية","Confirm the wish"],
+		["hospital","wake",["bed_awakened"],"الاستيقاظ","Awakening"],
+		["hospital","mark",["mark_revealed"],"العلامة على الجلد","The mark on the skin"]
+	]
+	for group in groups:
+		var old_flags:Dictionary=previous.flags.get(group[0],{})
+		var new_flags:Dictionary=next.flags.get(group[0],{})
+		var old_count:=0
+		var new_count:=0
+		for flag in group[2]:
+			old_count+=int(bool(old_flags.get(flag,false)))
+			new_count+=int(bool(new_flags.get(flag,false)))
+		if new_count<=old_count: continue
+		var complete:bool=new_count==group[2].size()
+		window.queue_story_update("chapter:%s:%s:%d"%[group[0],group[1],new_count],group[3],group[4],"تم تثبيت إنجاز المهمة." if complete else "تم توثيق خطوة من المهمة.","Objective completion confirmed." if complete else "Objective progress recorded.",new_count,group[2].size())
 
 func _restore_room(index: int) -> void:
 	var flags: Dictionary=progress.flags.get(IDS[index],{})
@@ -227,23 +316,52 @@ func _restore_room(index: int) -> void:
 	state.gate_pos_y=4.8 if opened else 1.4
 	state.gate_col_disabled=opened
 	room.restore_state(state)
+	if index == 5 and flags.get("confrontation_done", false) and not flags.get("contract_done", false): room.story_presentation.set_stage("dormant", true)
 
 func _window() -> Node:
 	return main.hud.find_child("SystemWindow",true,false)
 
-func _show_pact() -> void:
-	if current!=5 or not active or rooms[5].contract_done: return
-	rooms[5].story_presentation.begin("manifested",main)
-	_window().show_decision(main.opening_text("عقد زيرو","Zero's pact"),main.opening_text("لن أسكن داخلك إلا إذا سمحت لي. ستحصل على القوة… لكنني سأبقى داخلك، إلى النهاية.","I will not inhabit you unless you allow it. You will gain power… but I will remain within you, until the end."),[
-		{"id":"CONFIRM_ZERO_PACT","text":main.opening_text("أعطني ما أحتاجه. لا يهم.","Give me what I need. It does not matter.")},
-		{"id":"DEFER_ZERO_PACT","text":main.opening_text("ليس الآن","Not yet")}],_accept_pact)
-	_window().set_inspection_layout()
+func _show_pact(restoring := false) -> void:
+	if current!=5 or not active or not rooms[5].confrontation_done or rooms[5].contract_done: return
+	var cursor: Dictionary = progress.get("presentation", {}).get("encounter", {})
+	_pending_story_decision = "" if restoring and bool(cursor.get("deferred", false)) else "pact"
+	rooms[5].story_presentation.begin_encounter(main, cursor, restoring)
+
+func _save_encounter() -> void:
+	_ui_signature = ""
+	if active and current == 5 and not save_now(): push_warning("Zero encounter checkpoint was not stored; no automatic consent is granted")
+
+func _finish_encounter() -> void:
+	if current != 5 or not rooms[5].contract_done or rooms[5].revenge_done: return
+	_ensure_kinja()
+	kinja.active = true
+	_ui_signature = ""
+	save_now()
 
 func _accept_pact(choice: String) -> void:
-	if current==5: rooms[5].story_presentation.finish(true)
-	if current==5 and choice=="CONFIRM_ZERO_PACT":
-		rooms[5].accept_zero_contract()
-		_capture_progress()
+	if current != 5 or not rooms[5].story_presentation.awaits_encounter_consent(): return
+	var presentation: Node = rooms[5].story_presentation
+	if choice == "DEFER_ZERO_PACT":
+		_pending_story_decision = ""
+		presentation.defer_encounter()
+		return
+	if choice != "CONFIRM_ZERO_PACT": return
+	var next := progress.duplicate(true)
+	var lab: Dictionary = next.flags.get("lab", {}).duplicate(true)
+	lab["confrontation_done"] = true
+	lab["contract_done"] = true
+	next.flags["lab"] = lab
+	var cursor: Dictionary = presentation.encounter_snapshot()
+	cursor.step = 6
+	cursor.answer = -1
+	cursor.deferred = false
+	next["presentation"] = {"beat": "accepted", "elapsed": 0, "encounter": cursor}
+	if not _store(next):
+		presentation.retain_encounter_consent()
+		return
+	_pending_story_decision = ""
+	rooms[5].accept_zero_contract()
+	_capture_progress()
 
 func _ensure_kinja() -> void:
 	if not is_instance_valid(kinja):
@@ -260,13 +378,19 @@ func _ensure_kinja() -> void:
 func _start_revenge(restoring:=false) -> void:
 	if current!=5 or not rooms[5].contract_done or rooms[5].revenge_done: return
 	_ensure_kinja()
-	kinja.active=true
+	var presentation: Node = rooms[5].story_presentation
+	var cursor: Dictionary = progress.get("presentation", {}).get("encounter", {})
+	var pending: bool = presentation.encounter_started and presentation.encounter_step < 8
+	var resuming: bool = restoring and not cursor.is_empty()
+	kinja.active = not pending and not (resuming and int(cursor.step) < 8)
 	main.player.set_combat_available(true)
-	main.player.awaken_zero_pact(0.65)
+	if not main.player.contract_with_zero_sealed: main.player.awaken_zero_pact(0.65)
 	main.player.unsheath_weapon()
 	# The optional insert is presentation only; reduced motion immediately
 	# retains the same explicit decision and controlled confrontation.
-	if not restoring: rooms[5].story_presentation.begin("accepted",main,kinja)
+	if pending: presentation.confirm_encounter_contract()
+	elif resuming: presentation.begin_encounter(main, cursor, true)
+	elif not restoring: presentation.begin("accepted",main,kinja)
 
 func _collar_confrontation() -> void:
 	if current!=5 or not kinja or kinja.contacts<3 or not rooms[5].contract_done: return
@@ -283,10 +407,13 @@ func _collar_confrontation() -> void:
 
 func _show_wish() -> void:
 	if current!=5 or not rooms[5].revenge_done or rooms[5].wish_done: return
+	_pending_story_decision = "wish"
 	_window().show_solo_leveling_glitch_prompt(_accept_wish)
 
 func _accept_wish(choice: String) -> void:
-	if current==5 and rooms[5].confirm_escape_wish(choice): _capture_progress()
+	if current==5 and rooms[5].confirm_escape_wish(choice):
+		_pending_story_decision = ""
+		_capture_progress()
 
 func _begin_hospital(play_movie:=true) -> void:
 	if _transfer_running: return
@@ -308,6 +435,7 @@ func _begin_hospital(play_movie:=true) -> void:
 		var touch: Node=main.hud.find_child("MobileTouchControls",true,false)
 		if touch:
 			if touch.scan_tapped.is_connected(main.companion.trigger_scan): touch.scan_tapped.disconnect(main.companion.trigger_scan)
+			if touch.scan_tapped.is_connected(main.show_environment_help): touch.scan_tapped.disconnect(main.show_environment_help)
 			var scan:=touch.find_child("ScanBtn",true,false) as Button
 			if scan:
 				scan.hide()
@@ -320,9 +448,12 @@ func _begin_hospital(play_movie:=true) -> void:
 	hospital.player=main.player
 	hospital.reduced_motion=main.reduced_motion
 	hospital.audio_muted=main.audio_muted
+	hospital.set_presentation_language(main.presentation_language)
+	_scope_ward_lights()
 	# A camera override gives the ward its authored exposure even when the
 	# facility's WorldEnvironment still owns the shared world.
 	main.player.player_camera.environment=hospital.get_node("HospitalWorldEnvironment").environment
+	_scope_ward_camera(main.player.player_camera)
 	main.player.surface_motor.reset(main.player)
 	main.player.global_position=hospital.to_global(hospital.SAFE_ANCHOR_BEDSIDE+Vector3.UP*0.1)
 	main.player.set_gameplay_orbit(Vector3(0,PI/2,0))
@@ -377,10 +508,49 @@ func _finish_hospital_movie() -> void:
 				_finish_bedside_without_unverified_pose())
 	else: main._release_gameplay_modal_controls()
 
+func _scope_ward_lights() -> void:
+	# The ward has its own daylight/vanity setup. Facility presentation lights
+	# otherwise bleach Echo's face even though their room is no longer visible.
+	_restore_facility_lights()
+	for light: DirectionalLight3D in main.find_children("*","DirectionalLight3D",true,false):
+		if not hospital.is_ancestor_of(light) and light.is_visible_in_tree():
+			_ward_light_owners.append({"light":light,"visible":light.visible})
+			light.hide()
+	for name in ["EchoFaceFill","EchoShoulderFill"]:
+		var light:=main.player.find_child(name,true,false) as Light3D
+		if light:
+			_ward_light_owners.append({"light":light,"visible":light.visible})
+			light.hide()
+
+func _restore_facility_lights() -> void:
+	for entry in _ward_light_owners:
+		if is_instance_valid(entry.light) and not entry.light.is_queued_for_deletion(): entry.light.visible=entry.visible
+	_ward_light_owners.clear()
+
+func _exit_tree() -> void:
+	_restore_facility_lights()
+	_restore_ward_camera()
+
+func _scope_ward_camera(camera: Camera3D) -> void:
+	_restore_ward_camera()
+	if not is_instance_valid(camera): return
+	_ward_camera=camera
+	_ward_camera_far=camera.far
+	# The sealed ward is6.4 x5.8 x3.2m. The inherited4km far plane submits
+	# hidden facility geometry behind its walls;16m retains the complete ward.
+	camera.far=16.0
+
+func _restore_ward_camera() -> void:
+	if is_instance_valid(_ward_camera): _ward_camera.far=_ward_camera_far
+	_ward_camera=null
+
 func is_hospital_input_blocked() -> bool:
 	# Main's existing modal release hook also covers the bounded pact insert.
 	# A focus pause/resume must not release movement while it owns the camera.
 	if current==5 and rooms.size()>5:
+		if is_instance_valid(rooms[5].narrative_trial):
+			var trial: Node = rooms[5].narrative_trial
+			if trial._handoff_pending or is_instance_valid(trial.memory_insert): return true
 		var insert=rooms[5].story_presentation
 		if insert and insert.active and insert._owned_controls: return true
 	return is_instance_valid(hospital) and (_movie!=null or _mark_inspection!=null or not hospital.bed_awakened_done)
@@ -498,6 +668,12 @@ func _refresh_objective() -> void:
 			if rooms[5].contract_done: hint=main.opening_text("واجه كينجا؛ بعد ثلاث ضربات اقترب واقبض عليه.","Confront Kinja; after three contacts, approach and seize him.")
 			if rooms[5].revenge_done: hint=main.opening_text("انتهت المواجهة. أكّد أمنيتك بالخروج في عرض زيرو.","The confrontation is over. Confirm your wish to leave in Zero's offer.")
 			if rooms[5].wish_done: hint=main.opening_text("تم قبول الأمنية. اعبر الشق المضيء.","The wish is accepted. Cross the illuminated breach.")
+			if rooms[5].story_presentation.encounter_live:
+				hint = main.opening_text("انظر واسأل؛ لا يُقبل العقد إلا باختيارك.", "Look and ask; only your explicit choice accepts the pact.")
+				if rooms[5].story_presentation.encounter_step == 7: hint = main.opening_text("اضغط زر اختبار السحب ثم ارفعه. كينجا غير نشط أثناء الاختبار.", "Hold the draw-test button, then release it. Kinja remains inactive during the test.")
+			if not rooms[5].confrontation_done and is_instance_valid(rooms[5].narrative_trial):
+				var trial_hint: String = rooms[5].narrative_trial.objective()
+				if not trial_hint.is_empty(): hint = trial_hint
 		_:
 			title=main.opening_text("الاستيقاظ","Awakening")
 			hint=main.opening_text("افحص عنقك عند المرآة.","Inspect your neck at the mirror.")

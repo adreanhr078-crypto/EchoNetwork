@@ -1,0 +1,41 @@
+{
+  "file": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4",
+  "sha256": "84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e",
+  "bytes": 7207433,
+  "width": 1280,
+  "height": 720,
+  "duration_s": 10,
+  "audio": "AAC48kHz;present,not listening-accepted",
+  "decode": "PASS full video/audio decode",
+  "visual_review": "40 temporal samples at4fps reviewed: apparent spatial continuity,slow frontal-to-three-quarter dolly,whole archival panels,no actors. Samples are not full frame-by-frame or audio acceptance.",
+  "brief_deviation": "Take starts at entry-level frontal wide rather than already on the central platform; retained as an architectural/material reference only.",
+  "sharp_frames": [
+    {
+      "timestamp_s": "0.0",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-0.0.png",
+      "sha256": "545357ee03a59a462cfcff4e01b4af7d7e6b7628758990e2d8e1d0d689a92029"
+    },
+    {
+      "timestamp_s": "2.5",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-2.5.png",
+      "sha256": "98699f24a94fe22bdd8becec68f427ef1d2da78931c3734ba54bd91b569d9e5a"
+    },
+    {
+      "timestamp_s": "5.0",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-5.0.png",
+      "sha256": "1b3d58eac899a72d4d1749863d329174e5736858570e2a1e00aa362ceaeae57c"
+    },
+    {
+      "timestamp_s": "7.5",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-7.5.png",
+      "sha256": "679abc16c3d933e012f5f6c7a645dd966bba87a2622ff63fdcbe2f07b1316821"
+    },
+    {
+      "timestamp_s": "9.5",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-9.5.png",
+      "sha256": "b61f93e801d7f1dc0ad4f4928bbfdc6b9937ef5281837bf9aefe2f3a6b26007c"
+    }
+  ],
+  "native_movie_integration": false,
+  "new_credits": 0
+}

@@ -1,0 +1,304 @@
+ M AGENTS.md
+ M PROJECT_MAP.ar.md
+ M artifacts/eleven-eleven/docs/11-11/design/CONTINUATION.md
+ M artifacts/eleven-eleven/docs/PROJECT_VISION.md
+ M artifacts/eleven-eleven/docs/internal/production/CURRENT_CONTEXT_CACHE.json
+ M artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md
+ M artifacts/eleven-eleven/docs/internal/production/SOURCE_INDEX.json
+ M artifacts/eleven-eleven/docs/internal/production/WORK_TREE.ar.md
+ M artifacts/eleven-eleven/docs/project-memory.json
+ M artifacts/eleven-eleven/functions/api/player/_opening.ts
+ M artifacts/eleven-eleven/functions/api/player/_storyState.ts
+ M artifacts/eleven-eleven/godot/assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import
+ M artifacts/eleven-eleven/godot/assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png.import
+ M artifacts/eleven-eleven/godot/assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import
+ M artifacts/eleven-eleven/godot/export_presets.cfg
+ M artifacts/eleven-eleven/godot/project.godot
+ M artifacts/eleven-eleven/godot/scripts/boot.gd
+ M artifacts/eleven-eleven/godot/scripts/cinematics/pact_revenge_presentation.gd
+ M artifacts/eleven-eleven/godot/scripts/cinematics/skin_mark_inspection_camera.gd
+ M artifacts/eleven-eleven/godot/scripts/companion/floating_pod.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/core_reactor_room.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/dr_kinja_lab_room.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/hospital_bedside_foundation.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/hospital_bedside_room.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/kinja_rig_terminal.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/mirror_chamber_room.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/opening_atmosphere.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/opening_evidence.gd
+ M artifacts/eleven-eleven/godot/scripts/environment/surveillance_display.gd
+ M artifacts/eleven-eleven/godot/scripts/interaction/interactable_component.gd
+ M artifacts/eleven-eleven/godot/scripts/main.gd
+ M artifacts/eleven-eleven/godot/scripts/player/echo_footstep_system.gd
+ M artifacts/eleven-eleven/godot/scripts/player/echo_player.gd
+ M artifacts/eleven-eleven/godot/scripts/player/echo_v31_motion_adapter.gd
+ M artifacts/eleven-eleven/godot/scripts/player/locomotion_anim_controller.gd
+ M artifacts/eleven-eleven/godot/scripts/player/surface_traversal_motor.gd
+ M artifacts/eleven-eleven/godot/scripts/props/energy_power_conduit.gd
+ M artifacts/eleven-eleven/godot/scripts/systems/native_campaign_checkpoint.gd
+ M artifacts/eleven-eleven/godot/scripts/systems/native_campaign_controller.gd
+ M artifacts/eleven-eleven/godot/scripts/systems/native_journey_controller.gd
+ M artifacts/eleven-eleven/godot/scripts/systems/native_review_probe.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/gameplay_hud.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/interaction_prompt_hud.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/mobile_touch_controls.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/native_pause_menu.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/system_signal_glass.gd
+ M artifacts/eleven-eleven/godot/scripts/ui/system_window.gd
+ M artifacts/eleven-eleven/godot/tests/echo_v31_runtime_asset_review.gd
+ M artifacts/eleven-eleven/godot/tests/native_campaign_route_review.gd
+ M artifacts/eleven-eleven/godot/tests/opening_player_journey_review.gd
+ M artifacts/eleven-eleven/godot/tests/player_motion_regression.gd
+ M artifacts/eleven-eleven/godot/tests/zero_connected_asset_review.gd
+ M artifacts/eleven-eleven/public/assets/cinematics/part-1-opening-v2.webm
+ M artifacts/eleven-eleven/src/App.tsx
+ M artifacts/eleven-eleven/src/__tests__/storyPuzzleVisualAccessibility.test.ts
+ M artifacts/eleven-eleven/src/application/player-journey/corePlayerLoop.ts
+ M artifacts/eleven-eleven/src/application/player-journey/playerExperienceEntitlements.ts
+ M artifacts/eleven-eleven/src/domain/opening/openingHandoff.ts
+ M artifacts/eleven-eleven/src/domain/opening/openingProgress.ts
+ M artifacts/eleven-eleven/src/domain/story/storyState.ts
+ M artifacts/eleven-eleven/src/features/gameplay/components/GodotOpeningRoom.tsx
+ M artifacts/eleven-eleven/src/features/opening-recovery/OpeningRecoveryScreen.tsx
+ M artifacts/eleven-eleven/src/infrastructure/player-progression/playerProgressionApi.ts
+ M artifacts/eleven-eleven/tools/animation-library/README.md
+ M artifacts/eleven-eleven/vite.config.ts
+?? .codex/
+?? .cursorrules
+?? artifacts/eleven-eleven/art/production/echo-hang-pullup-cp45-20261021/
+?? artifacts/eleven-eleven/art/production/echo-mantle-cp43-20261020/
+?? artifacts/eleven-eleven/art/production/echo-mixamo-pull-over-cp45-20261021/
+?? artifacts/eleven-eleven/art/production/echo-tripo-cp39-20261019/
+?? artifacts/eleven-eleven/art/production/hospital-cp37/
+?? artifacts/eleven-eleven/art/production/memory-atmosphere-cp42-20261020/
+?? artifacts/eleven-eleven/art/production/opening-cp45-20261020/
+?? artifacts/eleven-eleven/art/production/room09-cp37/
+?? artifacts/eleven-eleven/art/production/title-entry-cp37/
+?? artifacts/eleven-eleven/art/production/tripo-cp38-20261019/
+?? artifacts/eleven-eleven/art/production/ual2-standard-20261021/
+?? artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/
+?? artifacts/eleven-eleven/audits/evidence/echo-coat-cp44-20261020/
+?? artifacts/eleven-eleven/audits/evidence/echo-mantle-cp43-20261020/
+?? artifacts/eleven-eleven/audits/evidence/echo-parkour-cp40-20261019/
+?? artifacts/eleven-eleven/audits/evidence/hyper-anime-cp41-20261019/
+?? artifacts/eleven-eleven/audits/evidence/memory-atmosphere-cp42-20261020/
+?? artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/
+?? artifacts/eleven-eleven/audits/evidence/quality-cp38-20261019/
+?? artifacts/eleven-eleven/audits/evidence/room01-20261012/cp41-delivery/
+?? artifacts/eleven-eleven/audits/evidence/system-cp39-20261019/
+?? artifacts/eleven-eleven/docs/internal/production/CHAPTER_11_11_CP45.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/PRE_TRIPO_EXECUTION_2026-10-18.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/TRIPO_QUALITY_EXECUTION_2026-10-19.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_20261018_CURRENT_CONTEXT_CACHE.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_20261018_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_20261018_PROJECT_MAP.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_20261018_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_20261018_WORK_TREE.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp37_entry_lab_20261018_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp38_20261019_CURRENT_CONTEXT_CACHE.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp38_20261019_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp38_20261019_PROJECT_MAP.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp38_20261019_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp38_20261019_WORK_TREE.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp39_final_20261019_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp40_20261019_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp41_20261020_CURRENT_CONTEXT_CACHE.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp41_20261020_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp41_20261020_PROJECT_MAP.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp41_20261020_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp41_20261020_WORK_TREE.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp42_20261020_CURRENT_CONTEXT_CACHE.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp42_20261020_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp42_20261020_PROJECT_MAP.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp42_20261020_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp42_20261020_WORK_TREE.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp44_20261020_CURRENT_CONTEXT_CACHE.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp44_20261020_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp44_20261020_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_cp44_20261020_WORK_TREE.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_stage07_verified_20261021_CURRENT_WORK.ar.md
+?? artifacts/eleven-eleven/docs/internal/production/archive/before_stage07_verified_20261021_SOURCE_INDEX.json
+?? artifacts/eleven-eleven/functions/api/player/_nativeEntry.ts
+?? artifacts/eleven-eleven/functions/api/player/native-entry/
+?? artifacts/eleven-eleven/godot/Godot/
+?? artifacts/eleven-eleven/godot/assets/animations/v31/hang_cp40.res
+?? artifacts/eleven-eleven/godot/assets/animations/v31/mantle_cp45.res
+?? artifacts/eleven-eleven/godot/assets/animations/v31/run_cp45.res
+?? artifacts/eleven-eleven/godot/assets/animations/v31/stand_cp45.res
+?? artifacts/eleven-eleven/godot/assets/animations/v31/walk_cp45.res
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-bottom-v1.webp
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-bottom-v1.webp.import
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-collapse-v1.ogv
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-collapse-v1.ogv.uid
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-water-v1.ogg
+?? artifacts/eleven-eleven/godot/assets/cinematics/lab-memory-water-v1.ogg.import
+?? artifacts/eleven-eleven/godot/assets/cinematics/memory-screens/
+?? artifacts/eleven-eleven/godot/assets/cinematics/opening-cover-poster.webp
+?? artifacts/eleven-eleven/godot/assets/cinematics/opening-cover-poster.webp.import
+?? artifacts/eleven-eleven/godot/assets/cinematics/opening-cover-v2.ogv
+?? artifacts/eleven-eleven/godot/assets/cinematics/opening-cover-v2.ogv.uid
+?? artifacts/eleven-eleven/godot/assets/cinematics/opening-cp45/
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-moon-v1.ogv
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-moon-v1.ogv.uid
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-moon-v1.webp
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-moon-v1.webp.import
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-water-sfx-v1.ogg
+?? artifacts/eleven-eleven/godot/assets/cinematics/title-water-sfx-v1.ogg.import
+?? artifacts/eleven-eleven/godot/assets/props/memory_stasis_frame_clean_v1.glb
+?? artifacts/eleven-eleven/godot/assets/props/memory_stasis_frame_clean_v1.glb.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_bed_original_v1.glb
+?? artifacts/eleven-eleven/godot/assets/props/ward_bed_original_v1.glb.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1.glb
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1.glb.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_basecolor.jpg
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_basecolor.jpg.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_normal.png
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_normal.png.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_rm.png
+?? artifacts/eleven-eleven/godot/assets/props/ward_vanity_v1_CP38_Vanity_bathroom+vanity+3d+model_rm.png.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1.glb
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1.glb.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_basecolor.jpg
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_basecolor.jpg.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_normal.png
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_normal.png.import
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_rm.png
+?? artifacts/eleven-eleven/godot/assets/props/ward_visitor_chair_v1_CP38_Chair_office+chair+3d+model_rm.png.import
+?? artifacts/eleven-eleven/godot/assets/textures/lab-memory/
+?? artifacts/eleven-eleven/godot/assets/textures/opening-cover.webp
+?? artifacts/eleven-eleven/godot/assets/textures/opening-cover.webp.import
+?? artifacts/eleven-eleven/godot/engine_visuals/
+?? artifacts/eleven-eleven/godot/scripts/characters/kinja_surface_profile.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/cinematics/lab_memory_trial.gd
+?? artifacts/eleven-eleven/godot/scripts/cinematics/lab_memory_trial.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/environment/hospital_room_dressing.gd
+?? artifacts/eleven-eleven/godot/scripts/environment/hospital_room_dressing.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/environment/memory_reflection_space.gd
+?? artifacts/eleven-eleven/godot/scripts/environment/memory_reflection_space.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/systems/native_entry_gate.gd
+?? artifacts/eleven-eleven/godot/scripts/systems/native_entry_gate.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/ui/cover_recovery.gd
+?? artifacts/eleven-eleven/godot/scripts/ui/cover_recovery.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/ui/opening_memory_film.gd
+?? artifacts/eleven-eleven/godot/scripts/ui/opening_memory_film.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/ui/school_lab_opening.gd
+?? artifacts/eleven-eleven/godot/scripts/ui/school_lab_opening.gd.uid
+?? artifacts/eleven-eleven/godot/scripts/ui/title_entry.gd
+?? artifacts/eleven-eleven/godot/scripts/ui/title_entry.gd.uid
+?? artifacts/eleven-eleven/godot/shaders/lab_memory_abyss.gdshader
+?? artifacts/eleven-eleven/godot/shaders/lab_memory_abyss.gdshader.uid
+?? artifacts/eleven-eleven/godot/shaders/memory_water.gdshader
+?? artifacts/eleven-eleven/godot/shaders/memory_water.gdshader.uid
+?? artifacts/eleven-eleven/godot/shaders/ward_floor.gdshader
+?? artifacts/eleven-eleven/godot/shaders/ward_floor.gdshader.uid
+?? artifacts/eleven-eleven/godot/shaders/ward_linen.gdshader
+?? artifacts/eleven-eleven/godot/shaders/ward_linen.gdshader.uid
+?? artifacts/eleven-eleven/godot/shaders/ward_rain_window.gdshader
+?? artifacts/eleven-eleven/godot/shaders/ward_rain_window.gdshader.uid
+?? artifacts/eleven-eleven/godot/tests/chapter_entry_room01_review.gd
+?? artifacts/eleven-eleven/godot/tests/chapter_entry_room01_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/chapter_environment_help_review.gd
+?? artifacts/eleven-eleven/godot/tests/chapter_environment_help_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/cover_entry_visual_review.gd
+?? artifacts/eleven-eleven/godot/tests/cover_entry_visual_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/earned_campaign_resume_review.gd
+?? artifacts/eleven-eleven/godot/tests/earned_campaign_resume_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/echo_cape_journey_review.gd
+?? artifacts/eleven-eleven/godot/tests/echo_cape_journey_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/echo_cape_motion_review.gd
+?? artifacts/eleven-eleven/godot/tests/echo_cape_motion_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/echo_traversal_inventory_review.gd
+?? artifacts/eleven-eleven/godot/tests/echo_traversal_inventory_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/entry_preferences_review.gd
+?? artifacts/eleven-eleven/godot/tests/entry_preferences_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/fixtures/
+?? artifacts/eleven-eleven/godot/tests/full_chapter_journey_review.gd
+?? artifacts/eleven-eleven/godot/tests/full_chapter_journey_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/hospital_visual_review.gd
+?? artifacts/eleven-eleven/godot/tests/hospital_visual_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/hyper_anime_engine_review.gd
+?? artifacts/eleven-eleven/godot/tests/hyper_anime_engine_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/hyper_anime_live_review.gd
+?? artifacts/eleven-eleven/godot/tests/hyper_anime_live_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/interaction_eligibility_review.gd
+?? artifacts/eleven-eleven/godot/tests/interaction_eligibility_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/interactive_scene_resume_review.gd
+?? artifacts/eleven-eleven/godot/tests/interactive_scene_resume_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/kinja_p2_acting_review.gd
+?? artifacts/eleven-eleven/godot/tests/kinja_p2_acting_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/kinja_surface_profile_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/lab_campaign_resume_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/lab_memory_trial_input.gd
+?? artifacts/eleven-eleven/godot/tests/lab_memory_trial_input.gd.uid
+?? artifacts/eleven-eleven/godot/tests/lab_reference_views.gd
+?? artifacts/eleven-eleven/godot/tests/lab_reference_views.gd.uid
+?? artifacts/eleven-eleven/godot/tests/lab_state_recovery_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/locomotion_regression_diagnosis.gd
+?? artifacts/eleven-eleven/godot/tests/locomotion_regression_diagnosis.gd.uid
+?? artifacts/eleven-eleven/godot/tests/locomotion_source_transition_review.gd
+?? artifacts/eleven-eleven/godot/tests/locomotion_source_transition_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/memory_atmosphere_review.gd
+?? artifacts/eleven-eleven/godot/tests/memory_atmosphere_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/memory_insert_media_review.gd
+?? artifacts/eleven-eleven/godot/tests/memory_insert_media_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/memory_water_visual_review.gd
+?? artifacts/eleven-eleven/godot/tests/memory_water_visual_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/mirror_vfx_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/native_entry_transport_review.gd
+?? artifacts/eleven-eleven/godot/tests/native_entry_transport_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/native_preload_diagnosis.gd
+?? artifacts/eleven-eleven/godot/tests/native_preload_diagnosis.gd.uid
+?? artifacts/eleven-eleven/godot/tests/pact_camera_return_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/school_lab_opening_review.gd
+?? artifacts/eleven-eleven/godot/tests/school_lab_opening_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/specimen_public_route_review.gd
+?? artifacts/eleven-eleven/godot/tests/specimen_public_route_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/static_prop_candidate_review.gd
+?? artifacts/eleven-eleven/godot/tests/static_prop_candidate_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/system_notice_queue_review.gd
+?? artifacts/eleven-eleven/godot/tests/system_notice_queue_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/system_personal_window_review.gd
+?? artifacts/eleven-eleven/godot/tests/system_personal_window_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/texture_residency_review.gd
+?? artifacts/eleven-eleven/godot/tests/texture_residency_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/title_entry_review.gd
+?? artifacts/eleven-eleven/godot/tests/title_entry_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/traversal_abort_review.gd
+?? artifacts/eleven-eleven/godot/tests/traversal_abort_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/traversal_timeout_review.gd
+?? artifacts/eleven-eleven/godot/tests/traversal_timeout_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/tripo_actor_candidate_review.gd
+?? artifacts/eleven-eleven/godot/tests/tripo_actor_candidate_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/tripo_character_visual_review.gd
+?? artifacts/eleven-eleven/godot/tests/tripo_character_visual_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/v31_hang_contact_review.gd
+?? artifacts/eleven-eleven/godot/tests/v31_hang_contact_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/v31_native_mantle_abort_review.gd
+?? artifacts/eleven-eleven/godot/tests/v31_native_mantle_abort_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/v31_native_mantle_review.gd
+?? artifacts/eleven-eleven/godot/tests/v31_native_mantle_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/v31_run_candidate_review.gd
+?? artifacts/eleven-eleven/godot/tests/v31_run_candidate_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/ward_light_scope_review.gd
+?? artifacts/eleven-eleven/godot/tests/ward_light_scope_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/ward_objective_owner_review.gd
+?? artifacts/eleven-eleven/godot/tests/ward_objective_owner_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/zero_encounter_checkpoint_review.gd
+?? artifacts/eleven-eleven/godot/tests/zero_encounter_checkpoint_review.gd.uid
+?? artifacts/eleven-eleven/godot/tests/zero_encounter_player_review.gd
+?? artifacts/eleven-eleven/godot/tests/zero_texture_visual_review.gd
+?? artifacts/eleven-eleven/godot/tests/zero_texture_visual_review.gd.uid
+?? artifacts/eleven-eleven/migrations/0028_native_entry_grants.sql
+?? artifacts/eleven-eleven/public/assets/cinematics/title-entry/
+?? artifacts/eleven-eleven/src/__tests__/nativeEntry.test.ts
+?? artifacts/eleven-eleven/src/features/opening-recovery/NativeEntryPanel.tsx
+?? artifacts/eleven-eleven/src/features/opening-recovery/TitleEntry.tsx
+?? artifacts/eleven-eleven/src/features/opening-recovery/title-entry.css
+?? artifacts/eleven-eleven/tools/animation-library/export_v31_locomotion.py
+?? artifacts/eleven-eleven/tools/animation-library/export_v31_parkour.py
+?? artifacts/eleven-eleven/tools/animation-library/extract_source_animation.gd
+?? artifacts/eleven-eleven/tools/animation-library/inspect_native_gltf_motion.py
+?? artifacts/eleven-eleven/tools/animation-library/render_fbx_source.py
+?? artifacts/eleven-eleven/tools/animation-library/render_v31_locomotion.py
+?? artifacts/eleven-eleven/tools/animation-library/v31_locomotion_motion.py
+?? artifacts/eleven-eleven/tools/animation-library/v31_parkour_motion.py

@@ -1,0 +1,429 @@
+- main:
+  - button "فتح الشريط الجانبي":
+    - text: side_nav_expand
+  - navigation "شريط التنقّل الجانبي":
+    - navigation "قائمة الإجراءات الرئيسية":
+      - link "محادثة جديدة":
+        - /url: /app
+        - img: gemini_chat
+    - navigation "قائمة الإجراءات الإضافية":
+      - button "البحث في المحادثات":
+        - generic: search
+      - link "المكتبة":
+        - /url: library
+        - img: features
+      - link "الصور":
+        - /url: /images
+        - img: image_create
+      - generic "مجدوَل":
+        - link "مجدوَل":
+          - /url: /scheduled
+          - img: schedule
+      - link "تخصيص":
+        - /url: /customize
+        - img: settings_alt
+    - link "حساب Google:‏ انتيقرافيتي ‏(echonetwork11@gmail.com)":
+      - /url: https://accounts.google.com/SignOutOptions?continue=https://gemini.google.com
+    - button "الإعدادات":
+      - img: settings
+  - heading "محادثة مع Gemini" [level=1]
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "argon-cp38-current-sources.txt":
+    - generic: TXT
+    - generic: argon-cp38-current-sources
+  - heading "أنت قلت أرجون، مراجعة CP38 للعبة11.11 الأصلية. نكمل من فيديو العنوان ثم لغز الغلاف والتشظي والفيلم ثم رحلة ا…" [level=5]
+  - paragraph: "أرجون، مراجعة CP38 للعبة11.11 الأصلية. نكمل من فيديو العنوان ثم لغز الغلاف والتشظي والفيلم ثم رحلة الغرف01→10، والقتال بعد العقد الصريح فقط. Godot4.8-dev7، V31 وGolden192 وCanon وEX-011 وSFX_ONLY محفوظة. أرفقت أربع زوايا حالية للمستشفى، لقطة رقبة فعلية، ومقارنة كينجا، والمصادر ببصماتها. صور المستشفى بعد تحسين الأرضية/إضاءة الغرفة وإضافة كرسي3043مثلثًا ومغسلة2567مثلثًا من صورمرجعية عبرStudio، بسقف3500و2Kثم مشتق1K؛90كريديت صُرفت والرصيد2945. التصادمات16مطابقة حرفيًا، مسار كامل341شرطًا/0تعافٍ/0مقاطعةتركيز، حفظ مكتسب وفحص اللغة والرقبة22،postflightPASS. EX-011 ظاهرة على الجلد الآن؛ لا تستخدم089القديمة. تصحيح: الطاولة73f00020 هي منصة فحص خيال علمي للمختبر وليست خزانةمستشفى؛لنأضعهاهنا. كينجاP2الموجود صُدّر الآنMixamo66عظمةبأصابع،41841مثلثًا،لاmorph/eye/jaw. standing_relax كاملة423عينة/24fps، Blender↔Godot27918مقارنة،أقصىخطأموضع0.000000556م ودوران0.000221درجة،نفسالمصدر؛لااستبدالruntimeبعد. أصلحنا خطأمشغلالفحصactive=false قبل إعلان هذاPASS. الحركةتتضمنانزياححوضجانبي≈0.125وحدة؛يؤهلالتماسوالجذرقبلدمجها. راجع الصور الحالية فنيًا: هل توجد عيوب مانعة في الأثاث/الرقبة؟ وما أصغر مسار مهني لقبول بديل كينجا دون كسر ردالضربات/القبضة/المعطف؟ الكودالحاليtrauma_poseيرتبط33عظمةومعطف10 ولايناسبMixamoمباشرة. أخبرني بالأولويات السببية، لا تمنح قبولفصل أو متعة من هذهالأدلة. ملفميزانيةالإطاراتالحاليذو240عينةلكنهليسمقياسجهازمعتمد؛ذاكرةالخاماتالمحملة≈933MBوبحثتقليصهاجارٍ."
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "1. المراجعة الفنية للصور الحالية (الأثاث وفحص الرقبة)" [level=3]
+  - list:
+    - paragraph:
+      - text: غرفة المستشفى والأثاث (
+      - code: hospital-cp38-furniture-four-views.jpg
+      - text: "):"
+    - list:
+      - paragraph:
+        - generic: "الحكم الفني: لا توجد عيوب مانعة (No Blocking Defects) في قطع الأثاث المضافة أو الإضاءة أو الانعكاس"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hospital-cp38-furniture-four-views.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: "الكرسي والمغسلة والسرير: يتموضع كرسي الزائر ("
+        - code: WardVisitorChair
+        - text: ) عند
+        - code: Vector3(1.78, 0, -1.55)
+        - text: دون إعاقة خط الحركة نحو محطة المرآة
+        - superscript
+        - text: ، كما تتطابق المغسلة (
+        - code: WardVanity
+        - text: ) عند
+        - code: Vector3(-0.30, 0, 0)
+        - text: بدوران
+        - code: "-PI/2.0"
+        - text: مع حدود التصادم الأصلية (
+        - code: 0.60 x 0.85 x 1.10
+        - text: ) ومع الجدار الشرقي دون تداخل هندسي (Clipping) أو فجوات
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: hospital-cp38-furniture-four-views.jpg, TXT: argon-cp38-current-sources.txt, JPG: hospital-cp38-furniture-four-views.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 3
+      - paragraph:
+        - text: "الإضاءة والمرآة: تعديل زاوية إضاءة النهار ("
+        - code: WardDaylight
+        - text: ) إلى
+        - code: Vector3(-24, 155, 0)
+        - text: أوصل شرائح الضوء عبر فتحة النافذة إلى المرتبة والأرضية بوضوح في الزوايا الأربع (
+        - code: entry
+        - text: و
+        - code: bedside
+        - text: و
+        - code: window
+        - text: و
+        - code: mirror
+        - text: )، مع انعكاس سليم داخل
+        - code: WardMirrorReflection
+        - text: بعمق
+        - code: "6.8"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: hospital-cp38-furniture-four-views.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "ملاحظة بصرية غير مانعة: الخزانة الجانبية البنية ("
+        - code: BedsideCabinet
+        - text: ) ما زالت على مجسمها الأساسي وتظهر عليها شرائح إضاءة الستائر بحدة على وجهها الجانبي في زاوية
+        - code: window
+        - superscript
+        - text: ، وقرارك باستبعاد الطاولة
+        - code: 73f00020
+        - text: سليم تمامًا لأنها منصة فحص مختبر خيال علمي ولا تنتمي بصريًا أو سرديًا لغرفة المستشفى.
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: hospital-cp38-furniture-four-views.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph:
+      - text: لقطة فحص الرقبة (
+      - code: ward-current-skin-inspection.jpg
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: "الحكم الفني: لا توجد عيوب مانعة في ظهور وسم"
+        - code: EX-011
+        - text: على الجلد أو في تأطير الكاميرا
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: ward-current-skin-inspection.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: "تأطير الوسم والواجهة: حساب مركز الحبر الموزون بأوزان الجلد الفعلية ("
+        - code: _prepare_ink_centroid
+        - text: ) مع هامش
+        - code: "0.005"
+        - text: لملف
+        - code: echo_v31_authored_68
+        - text: في
+        - code: skin_mark_inspection_camera.gd
+        - text: أبقى وسم
+        - code: EX-011
+        - text: مكشوفًا بالكامل فوق الياقة العالية وبعيدًا عن حجب نافذة التأكيد السفلية (
+        - code: النظام // 11:11
+        - text: ) وإشعار أعلى اليمين
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: ward-current-skin-inspection.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "ملاحظة بصرية غير مانعة: الطرف العلوي للرقم الأخير"
+        - code: "1"
+        - text: في
+        - code: EX-011
+        - text: يُظهر تقطعًا نقطيًا طفيفًا نتيجة إسقاط القوام على انحناء الجلد، لكنه مقروء بوضوح تام ولا يستدعي إعادة تدخل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: ward-current-skin-inspection.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+  - heading "2. أصغر مسار مهني لقبول بديل كينجا (Mixamo 66 عظمة) دون كسر رد الضربات / القبضة / المعطف" [level=3]
+  - paragraph:
+    - text: الكود الحالي في
+    - code: kinja_revenge_actor.gd
+    - text: يستدعي
+    - code: pose.setup(rig)
+    - text: ، وإذا أعادت
+    - code: "false"
+    - text: فإنه يحذف المجسم الجديد فورًا (
+    - code: model.queue_free()
+    - text: ) ويعود للمجسم القديم
+    - superscript
+    - text: . ولأن
+    - code: kinja_trauma_pose.gd
+    - text: يفترض هيكل 33 عظمة بأسماء صريحة مع 10 عظام معطف إلزامية (
+    - code: Coat_0_0
+    - text: إلى
+    - code: Coat_4_1
+    - text: ) ووضع راحة (Rest Pose) بأذرع منسدلة واتجاه أمامي
+    - code: +X
+    - superscript
+    - text: ، فإن إدخال هيكل Mixamo P2 (66 عظمة، وضع راحة T-pose، بدون عظام معطف منفصلة، ومع حركة
+    - code: standing_relax
+    - text: ) سيفشل أو يكسر العرض ما لم يُنفَّذ المسار الأصغر التالي
+    - superscript
+    - text: ":"
+    - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: argon-cp38-current-sources.txt, TXT: argon-cp38-current-sources.txt, JPG: kinja-cp38-provenance.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+      - generic: TXT
+      - generic: + 3
+  - list:
+    - paragraph:
+      - text: تحويل ربط العظام في
+      - code: kinja_trauma_pose.gd
+      - text: "إلى جدول مطابقة مرن مع جعل المعطف اختياريًا:"
+    - list:
+      - paragraph:
+        - text: السماح بحل أسماء العظام الـ 11 الأساسية (
+        - code: Spine
+        - text: ","
+        - code: Spine1
+        - text: ","
+        - code: Chest
+        - text: ","
+        - code: Neck
+        - text: ","
+        - code: Head
+        - text: ","
+        - code: LeftShoulder
+        - text: ","
+        - code: RightShoulder
+        - text: ","
+        - code: LeftArm
+        - text: ","
+        - code: RightArm
+        - text: ","
+        - code: LeftForeArm
+        - text: ","
+        - code: RightForeArm
+        - text: ) عبر مرادفاتها في Mixamo (مثل مطابقة
+        - code: Chest
+        - text: مع
+        - code: Spine2
+        - text: أو
+        - code: mixamorig:Spine2
+        - text: ، ودعم وجود البادئة
+        - code: "mixamorig:"
+        - text: من عدمها)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: فصل فحص عظام المعطف الـ 10 (
+        - code: Coat_%d_%d
+        - text: ) بحيث تُسجَّل إن وُجدت فقط دون أن يؤدي غيابها إلى إرجاع
+        - code: "false"
+        - text: من
+        - code: setup(rig)
+        - text: ؛ ففي مجسم P2 يتبع المعطف أوزان عظام الجذع والورك والساقين مباشرة ولا يحتاج عظام معطف إجرائية لكي يشتغل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: kinja-cp38-provenance.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+    - paragraph:
+      - text: تطبيق إجهاد الضربات والقبضة كطبقة إضافية (Additive Delta) فوق
+      - code: standing_relax
+      - text: بدل
+      - code: reset_bone_pose
+      - text: ":"
+    - list:
+      - paragraph:
+        - text: السطر
+        - code: "for index in _bones.values(): skeleton.reset_bone_pose(index)"
+        - text: في
+        - code: _apply_pose()
+        - text: يعيد العظام إلى وضع الراحة المستورد (
+        - code: Rest Pose
+        - text: )
+        - superscript
+        - text: ؛ وفي هيكل P2 وضع الراحة هو T-pose (
+        - code: kinja-rest-front-quarter.png
+        - text: ) وليس وقفة الذراعين المنسدلتين
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"TXT: argon-cp38-current-sources.txt وJPG: kinja-cp38-provenance.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+          - generic: + 1
+      - paragraph:
+        - text: "الحل الأصغر: جعل مشغل حركة"
+        - code: standing_relax
+        - text: يحدّث الهيكل أولًا، ثم في
+        - code: _process
+        - text: (أو بعد تقييم الأنيميشن) تُقرأ دورانات العظام الحالية (
+        - code: get_bone_pose_rotation
+        - text: ) من إطار
+        - code: standing_relax
+        - text: كأساس (
+        - code: base_pose
+        - text: ) بدل
+        - code: _rests[label]
+        - text: ، وتُضرب فوقها كواتيرنيونات رد الفعل (
+        - code: recoil
+        - text: ، و
+        - code: settled
+        - text: ، و
+        - code: collar
+        - text: ، و
+        - code: tremor
+        - text: )
+        - superscript
+        - text: . بهذا تبقى ذراعا كينجا منسدلتين طبيعيًا، وتنثنيان تدريجيًا عند الضربات الثلاث وعند
+        - code: begin_collar()
+        - text: دون القفز إلى T-pose
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: kinja-cp38-provenance.jpg, TXT: argon-cp38-current-sources.txt, JPG: kinja-cp38-provenance.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 3
+    - paragraph:
+      - text: تأهيل محور التوجيه وانزياح الحوض الجانبي (
+      - code: ≈ 0.125
+      - text: "وحدة) قبل الدمج:"
+    - list:
+      - paragraph:
+        - text: التحقق من اتجاه الأمام في ملف GLB الجديد مقارنةً بـ
+        - code: original.rotation.y = -PI/2
+        - text: (الذي وُضع لأن المصدر القديم يواجه
+        - code: +X
+        - text: )، وحساب محاور الانحناء الأمامي والجانبي نسبةً لاتجاه الشخصية الفعلي
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: تثبيت الإزاحة الأفقية (
+        - code: X/Z
+        - text: ) لعظمة الحوض (
+        - code: Hips
+        - text: ) أو تقييدها داخل
+        - code: kinja_revenge_actor.gd
+        - text: حتى لا يؤدي انزياح
+        - code: ≈ 0.125
+        - text: وحدة الظاهر بين
+        - code: f001
+        - text: و
+        - code: f213
+        - text: إلى انزلاق القدمين عن الأرضية أو إزاحة المجسم البصري عن مركز
+        - code: CharacterBody3D
+        - text: وشرط مسافة القبضة (
+        - code: distance_to(player.global_position) <= 2.2
+        - text: )
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: kinja-cp38-provenance.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+  - heading "3. الأولويات السببية (دون منح قبول فصل أو متعة)" [level=3]
+  - paragraph: "بناءً على الأدلة الحالية، لا يُمنح قبول إغلاق الفصل أو اعتماد المتعة، وتترتب الأولويات السببية هندسيًا كالآتي:"
+  - list:
+    - paragraph:
+      - text: الأولوية السببية الأولى — خفض ذاكرة الخامات المحملة (
+      - code: ≈ 933 MB
+      - text: ") وإجراء قياس أداء على جهاز معتمد:"
+    - list:
+      - paragraph:
+        - code: native_campaign_controller.gd
+        - text: يبني الغرف الست والممرات الستة مسبقًا في
+        - code: _build()
+        - text: ثم يحمّل غرفة المستشفى في
+        - code: _begin_hospital()
+        - text: مع الإبقاء على الغرف السابقة مخفية (
+        - code: hide()
+        - text: ) ولكن محملة في الذاكرة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"TXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: TXT
+      - paragraph:
+        - text: يجب أولًا ضغط خامات البيئة والأثاث بصيغ VRAM المعتمدة في Godot، والتأكد من الاكتفاء بمشتقات
+        - code: 1K
+        - text: للأثاث، وتحرير أو إلغاء تحميل الموارد الثقيلة للغرف التي طُويت بعد الانتقال للمستشفى، ثم تسجيل ملف ميزانية إطارات على جهاز قياس معتمد (بدل الاكتفاء بملف 240 عينة غير المعتمد).
+    - paragraph:
+      - text: الأولوية السببية الثانية — تأهيل كينجا P2 (الجذر + التماس + محول
+      - code: kinja_trauma_pose
+      - text: "الإضافي) قبل أي استبدال Runtime:"
+    - list:
+      - paragraph:
+        - text: إبقاء P2 خارج
+        - code: runtime
+        - text: الآن قرار صحيح؛ لا يُستبدل
+        - code: res://assets/characters/kinja_revenge_rig_v1.glb
+        - text: "إلا بعد اجتياز اختبار: (أ) ثبات التماس والجذر مع انزياح الحوض"
+        - code: "0.125"
+        - text: ، (ب) عمل
+        - code: kinja_trauma_pose.gd
+        - text: فوق
+        - code: standing_relax
+        - text: على 66 عظمة دون
+        - code: Coat_*
+        - text: ودون العودة لـ T-pose، (ج) بقاء الضربات الثلاث (
+        - code: contacts >= 3
+        - text: ) وتفاعل القبضة (
+        - code: RELEASE_KINJA
+        - text: ) سليمين في المسار الكامل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: kinja-cp38-provenance.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+    - paragraph: "الأولوية السببية الثالثة — تجميد تعديلات غرفة المستشفى وفحص الرقبة الحالية:"
+    - list:
+      - paragraph:
+        - text: غرفة المستشفى (بتصادماتها الـ 16 والكرسي والمغسلة وإضاءة النافذة) ولقطة رقبة
+        - code: EX-011
+        - text: وفحوص
+        - code: postflight
+        - text: (341 شرطًا و22 فحص لغة/رقبة) مستقرة وخالية من العيوب المانعة، لذا يُحافظ عليها كما هي دون إعادة فتح أو تعديل
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: hospital-cp38-furniture-four-views.jpg وJPG: ward-current-skin-inspection.jpg وTXT: argon-cp38-current-sources.txt\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Refining Kinja's Trauma Pose
+- region "Notifications"
+- generic: إملاء (^⇧D)

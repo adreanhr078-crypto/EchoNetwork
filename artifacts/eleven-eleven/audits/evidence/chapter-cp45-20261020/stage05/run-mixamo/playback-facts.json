@@ -1,0 +1,14 @@
+{
+  "action": "Run_Source_Retarget",
+  "take_id": "c1ed64d6c975194967304af7:0:13373cc7",
+  "native_fps": 30,
+  "native_samples": 27,
+  "source_ground_speed_mps": 1.8332634866237643,
+  "source_foot_contacts": {
+    "left": 0.6153846153846154,
+    "right": 0.11538461538461539
+  },
+  "source_glb_sha256": "d9349bc242d907e490061b582cf5120416aa4f25c3472ad49c14bf97e7e4be2b",
+  "blend_sha256": "f50ec79a9ea12630932a4190e8244aa04ba4a21bd6b34e8edcae8131c0bb9389",
+  "measurement": "Native rig-space planar Hips travel over actual duration; foot phases are native toe world-Z minima, no curve or FPS edits."
+}

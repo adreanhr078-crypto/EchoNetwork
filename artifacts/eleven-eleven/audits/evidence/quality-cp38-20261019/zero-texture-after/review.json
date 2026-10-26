@@ -1,0 +1,34 @@
+{
+	"scope": "Fixed source pose .5seconds, same local material profile/lighting/camera; source images and animation untouched; visual approval separate",
+	"source_glb_sha256": "a3593b7106f7fabc5de60340f9f2b55c17f238847314da8fd6eb67d096dad464",
+	"texture_monitor_bytes": 103316779.0,
+	"textures": [
+		{
+			"compression_mode": 2,
+			"height": 8192,
+			"import_sha256": "167ad650aa6502489177e56df931ec13e43c75a6cb2415425f315da928305be9",
+			"map": "albedo_texture",
+			"path": "res://assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+			"source_sha256": "259bcca66edf5cf0f62c48e6491376c64cea00f53a5ad7afcf2980fc5fa53816",
+			"width": 8192
+		},
+		{
+			"compression_mode": 2,
+			"height": 4096,
+			"import_sha256": "461229d7459eb57ad7087d8dc86cb966c44dea0bda5f323bdbcc7ccdf2868247",
+			"map": "normal_texture",
+			"path": "res://assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png",
+			"source_sha256": "1e51274e60e973a5124a0525d55518787933ee704171f6067f007ef4f5cd11cf",
+			"width": 4096
+		},
+		{
+			"compression_mode": 2,
+			"height": 4096,
+			"import_sha256": "c5e7a63801427e93f2da4f37654923f917b7119135b0eb9f7fae9d110027875e",
+			"map": "roughness_texture",
+			"path": "res://assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg",
+			"source_sha256": "0d9e0c08dd0274acf69a9bbb56876b48d1c0d723677be8179696fb2e91a4838e",
+			"width": 4096
+		}
+	]
+}

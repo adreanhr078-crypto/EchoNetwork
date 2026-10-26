@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqljna62hq4gk"
-path="res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.ctex"
+path.bptc="res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.bptc.ctex"
+path.astc="res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "a6863d5bac00a614547f4860b1a1ba08"
@@ -14,12 +16,13 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/props/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg"
-dest_files=["res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.ctex"]
+dest_files=["res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.bptc.ctex", "res://.godot/imported/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg-d061a408175da4a21b6c81a6228a32a1.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -28,6 +31,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

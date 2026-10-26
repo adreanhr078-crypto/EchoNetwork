@@ -1,44 +1,48 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-16",
+  "snapshot_date": "2026-10-26",
   "path_base": "artifacts/eleven-eleven",
-  "status": "CP36_TRIPO_SCOPED_EVALUATION_ACTING_OPEN__RUNTIME_CP34",
-  "last_runtime_integration_checkpoint": "CP34 / CP-20261016-04 / IN_PROGRESS",
-  "isolated_work": "CP21 / PAUSED_NOT_INTEGRATED",
-  "fresh_art_review_this_cleanup": false,
-  "visual_evidence_policy": "CP34 natural and paused/RM connected lab captures match current dependencies. Material improvement is scoped; source animations/rig unchanged. CP33/32 captures historical. No current fresh-cover route, whole-scene art, chapter, GPU/device or store acceptance.",
+  "status": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE",
+  "last_runtime_integration_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN",
+  "isolated_work": "Legacy CP21/long-coat sources preserved. Current short-jacket geometry integrated on identical V31 rig; native mantle previously qualified and rechecked on this variant.",
+  "fresh_art_review_this_cleanup": true,
+  "visual_evidence_policy": "Current short jacket: matching asset hashes and21 critical-pose Godot captures reviewed; body/source invariants verified. Final character art/full route/performance/Steam acceptance OPEN.",
   "current_game_card": "docs/internal/production/CURRENT_WORK.ar.md",
   "work_tree": "docs/internal/production/WORK_TREE.ar.md",
   "entries": [
     {
       "group": "boot_and_progress",
       "path": "godot/project.godot",
-      "sha256": "c0fed57d7f20adb44531563368c20e0d7e701a9c657a182aac95d393a8d65b60",
-      "bytes": 7213
+      "sha256": "9cc9859056aa13273c1076ac8b24211f83c700a69c5400b16f40d370c3f56077",
+      "bytes": 7767
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/boot.gd",
-      "sha256": "c7a5081c49883b3b5da211f136812d7e906c34dbfcd8210dfca406b34f0037bb",
-      "bytes": 1664
+      "sha256": "5fb0009eac3f4df632812ecd6354cb2326e7830d675f679fdcf426458c9768b3",
+      "bytes": 8601,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scenes/native_journey.tscn",
       "sha256": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
-      "bytes": 620
+      "bytes": 620,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_journey_controller.gd",
-      "sha256": "1f8314f19c0665063e6c75892474409ebf640aaf7ae0234ab423053b752361bd",
-      "bytes": 8880
+      "sha256": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+      "bytes": 9140
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_campaign_controller.gd",
-      "sha256": "b09e2fad3a67f546aee342e15a70b1a0e9050deaa3bbe2956cf078ace05ebb0b",
-      "bytes": 28174
+      "sha256": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+      "bytes": 38386,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
     },
     {
       "group": "boot_and_progress",
@@ -49,20 +53,24 @@
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_campaign_checkpoint.gd",
-      "sha256": "9cdda2c11111c5c7692a8e571bfd0f03ba825e9615ba58d40444f8958a59b397",
-      "bytes": 4268
+      "sha256": "ca1aeca6c9e0002fc5019b35c4ac8053d7ad0ae0912bd75f90507ab52b43992d",
+      "bytes": 5308,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
     },
     {
       "group": "echo_current",
       "path": "godot/scenes/player/echo_player.tscn",
       "sha256": "31ab502257b5a15a894b636e7e5c5b96c5fa4f3bb8f288b57f23cbeaae186372",
-      "bytes": 3730
+      "bytes": 3730,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "echo_current",
       "path": "godot/scenes/characters/echo_v31_adopted.tscn",
-      "sha256": "121b128db6d463775b71a4985a5a9a99d008fde92f317b9e0ea2daaab6010630",
-      "bytes": 394
+      "sha256": "7fbcddcdc80f63db2a0fa1e6a160686cc5c62de0508247f85cdc5d09074a283c",
+      "bytes": 431,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
     },
     {
       "group": "echo_current",
@@ -73,14 +81,16 @@
     {
       "group": "echo_current",
       "path": "godot/scripts/player/echo_v31_motion_adapter.gd",
-      "sha256": "88dd19c32609a8deb01db39a73e1b1ad311182909e7d0f995672f23a600cdf3b",
-      "bytes": 3876
+      "sha256": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a",
+      "bytes": 8989,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
     },
     {
       "group": "echo_current",
       "path": "godot/scripts/player/echo_player.gd",
-      "sha256": "e215be60f59cf99b6c5ab93ff35957dcf375c5d95ff0981005aca41cf36fd08c",
-      "bytes": 89022
+      "sha256": "212684a55890a5dd404ef3711fda792318747b8de9e95345f8e7330cd4bc5c19",
+      "bytes": 97535,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
     },
     {
       "group": "echo_current",
@@ -133,8 +143,9 @@
     {
       "group": "characters_and_weapons",
       "path": "godot/scripts/cinematics/pact_revenge_presentation.gd",
-      "sha256": "4850a37789c04605efbcdc20743c80127a6366bc15380fef7d24e314440abf6b",
-      "bytes": 25580
+      "sha256": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+      "bytes": 46896,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
     },
     {
       "group": "characters_and_weapons",
@@ -163,8 +174,9 @@
     {
       "group": "presentation",
       "path": "godot/scripts/ui/system_window.gd",
-      "sha256": "99dbb3cf4c5ae776e0e32280784123e86a3a2414f3e149ab625ef45cbb6e43b8",
-      "bytes": 17525
+      "sha256": "90adfabc4bbda481322fbca52af38d6ffd26cbc427c64be7d1369ce19e1ed43f",
+      "bytes": 36345,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
     },
     {
       "group": "presentation",
@@ -181,8 +193,8 @@
     {
       "group": "canon_and_phase",
       "path": "docs/project-memory.json",
-      "sha256": "225e4976fe2fb53b5c40b649bb4ecf79e3b9da1cc7ef69f351dd043e548083a2",
-      "bytes": 50609
+      "sha256": "98c120452acedcfd2187d4586b53d1b841f438e187ce9e7ed2e03e89b781bbc0",
+      "bytes": 51552
     },
     {
       "group": "canon_and_phase",
@@ -229,8 +241,9 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/maintenance_vertical.gd",
-      "sha256": "8081251f8619af050098de2658dc08b486fc02b722707fcf27e18436a961f7eb",
-      "bytes": 8615
+      "sha256": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
+      "bytes": 8703,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
     },
     {
       "group": "rooms_in_player_order",
@@ -241,8 +254,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/security_checkpoint_room.gd",
-      "sha256": "48ab9de2f8409a48702c5ed6df43988ecd58b18040f1c1e980b82ece96158d18",
-      "bytes": 16193
+      "sha256": "48ae838444e4b46007c443d1c94dcd758b341aa9eb6c226a8b0807564f056e94",
+      "bytes": 16278
     },
     {
       "group": "rooms_in_player_order",
@@ -251,10 +264,10 @@
       "bytes": 235
     },
     {
-      "group": "rooms_in_player_order",
+      "group": "specimen_cp45_native_dressing",
       "path": "godot/scripts/environment/specimen_containment_wing.gd",
-      "sha256": "ce8eeca16cb9c32eec29bf94be255d54d7e23b9a45446cb70a26cdcc6e8ea745",
-      "bytes": 28076
+      "sha256": "f01e8b204f97412f9a3aa19cbf0dc283487d665317d81f4709910d469c89f919",
+      "bytes": 28495
     },
     {
       "group": "rooms_in_player_order",
@@ -265,8 +278,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/memory_archive_wing.gd",
-      "sha256": "3b49d7384582132a671c09849ea8ddea1ed4cc42f3d2d9b496b3cea9bfe33dc9",
-      "bytes": 25116
+      "sha256": "5cf78f2f88a525994c00542947b49a9b20d4b23167879f1506abafb442e05931",
+      "bytes": 25199
     },
     {
       "group": "rooms_in_player_order",
@@ -277,8 +290,9 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/core_reactor_room.gd",
-      "sha256": "5f172caf31a83d0d58180ba7eaa91cbc3e5b808c671eda3641d604eafd636fd5",
-      "bytes": 34207
+      "sha256": "ddd7c04c9b4bc90f9f4a2242f48a2a3703dcf571d825ae3ca3f2a103c8c1dc9f",
+      "bytes": 35267,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
     },
     {
       "group": "rooms_in_player_order",
@@ -301,8 +315,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/mirror_chamber_room.gd",
-      "sha256": "fa3636943bed562db936adbdcaf9801e06c1bd204b309e48faa004cd879b8fb5",
-      "bytes": 21960
+      "sha256": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+      "bytes": 22135
     },
     {
       "group": "rooms_in_player_order",
@@ -313,8 +327,10 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/dr_kinja_lab_room.gd",
-      "sha256": "9fdf03d34b6f80bff2cdf5c2f29e359a2bc46d44e06062140d27eeeece85ef2e",
-      "bytes": 25038
+      "sha256": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+      "bytes": 25344,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "rooms_in_player_order",
@@ -325,8 +341,8 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/hospital_bedside_room.gd",
-      "sha256": "eaed163096baa5a5574b3072202d031a16fdfac43fb86db474d87d80aa27d428",
-      "bytes": 16618
+      "sha256": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+      "bytes": 17259
     },
     {
       "group": "actual_opening_runtime",
@@ -349,14 +365,15 @@
     {
       "group": "actual_opening_runtime",
       "path": "godot/scripts/main.gd",
-      "sha256": "631c1ecc54fecfd6e3345c6890b0898fca70bbbe9560f6f4d05033219f08a25c",
-      "bytes": 47023
+      "sha256": "3b0a56251bdf0d94f2e83de71e684dcdb3a33314c21f0d4644d3e2b16a171181",
+      "bytes": 52139,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
     },
     {
       "group": "actual_opening_runtime",
       "path": "godot/scripts/environment/opening_atmosphere.gd",
-      "sha256": "45d500c24b23dbc2f5d339df7b4629fc76d6a62971f0eeddc08156bc7eef8207",
-      "bytes": 16296
+      "sha256": "4bca18e3eb43ef3d8f1a542abf87e89042d2879f001a917eac16cb5e7404d513",
+      "bytes": 17823
     },
     {
       "group": "actual_opening_runtime",
@@ -367,8 +384,8 @@
     {
       "group": "actual_opening_runtime",
       "path": "godot/scripts/props/energy_power_conduit.gd",
-      "sha256": "b53f0aca8f0f68631f0b3b42cbe8d2e2eb6d1b53cf5c11861fc2b34f5938d9e9",
-      "bytes": 4881
+      "sha256": "526f3c45c8cc89d01db87ba095532afeddbe34d162971e43c9a9cc18b6782051",
+      "bytes": 5086
     },
     {
       "group": "actual_opening_runtime",
@@ -437,10 +454,12 @@
       "bytes": 9394
     },
     {
-      "group": "room01_inspection_tests",
+      "group": "stage08_scoped_review",
       "path": "godot/tests/opening_player_journey_review.gd",
-      "sha256": "cb017a16936e033c2f4f0faaa1d8c280a44a24aabe7a0169be94bd32a6204694",
-      "bytes": 24559
+      "sha256": "53de8291f58036c49a4b1fefc6d3988f6ec27e65e8ac39fc6be123c7618fac93",
+      "bytes": 25875,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "room01_inspection_tests",
@@ -451,14 +470,16 @@
     {
       "group": "room01_inspection_export",
       "path": "godot/export_presets.cfg",
-      "sha256": "af9ed58cc9f208e206596d39f399e79a4822aee9b6528f4eaa4c9f12cdbc9d0a",
-      "bytes": 9932
+      "sha256": "f8fc63f8e817c0b049b4eb25add6cd79759735cd4c3d09f3633f474ad0d066cf",
+      "bytes": 18059,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "cp24_baseline_sources",
       "path": "godot/scripts/environment/opening_evidence.gd",
-      "sha256": "73498cc9fa4ea72c94b3d67a3ed6d12977db61892fa42f4ace6ff575301e8219",
-      "bytes": 18074
+      "sha256": "984e413817c536bee67b4eee43c06631aaad0a7aa0dc9ad8b7d8a700985b0bed",
+      "bytes": 18178
     },
     {
       "group": "cp24_baseline_sources",
@@ -481,8 +502,9 @@
     {
       "group": "cp24_baseline_sources",
       "path": "godot/shaders/maintenance_surface_finish.gdshader",
-      "sha256": "6b1127d795048d0f692a9b014841195fc7500ae4e2c6ddf788b86bfe5447a85b",
-      "bytes": 1561
+      "sha256": "b13ef3a8899fd2349a7654f52226906a5708f5084d0986d217642d0a8a492a49",
+      "bytes": 2651,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
     },
     {
       "group": "cp24_baseline_sources",
@@ -493,8 +515,8 @@
     {
       "group": "cp24_baseline_sources",
       "path": "godot/scripts/systems/native_review_probe.gd",
-      "sha256": "6089bbd4b2aa2297fb59c9634c635b8a0eda805dc675faf08142ae4ec4e13ac1",
-      "bytes": 4039
+      "sha256": "82e77c3a2fcb77555805f949017c2fefef96f993bbff066672a99cfced2cdbc9",
+      "bytes": 10226
     },
     {
       "group": "cp24_baseline_sources",
@@ -505,17 +527,19 @@
     {
       "group": "cp24_baseline_sources",
       "path": "godot/tests/native_campaign_route_review.gd",
-      "sha256": "d2b0ff05a8a3e831ecddfad0f01c939c1ec1e792cd9bbeff9b304faf6bc28142",
-      "bytes": 17559
+      "sha256": "305114644aa2d3dce80141723b75e8afef7ac983d07b55e02f2b3a609f304646",
+      "bytes": 18302,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
     },
     {
       "group": "cp24_baseline_sources",
       "path": "godot/tests/room_route_input_review.gd",
       "sha256": "3b6a74089bf503f11a352a5c9f36164ea46c295587a1fff1597ab9fb3cba7c8f",
-      "bytes": 9862
+      "bytes": 9862,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
     },
     {
-      "group": "cp24_baseline_sources",
+      "group": "specimen_cp45_native_dressing",
       "path": "godot/tests/campaign_room_render_review.gd",
       "sha256": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef",
       "bytes": 9627
@@ -631,8 +655,9 @@
     {
       "group": "cp26_reactor_current",
       "path": "godot/shaders/reactor_plasma_ring.gdshader",
-      "sha256": "49b7ad3b6503ebe326281be315e64db792b5f9005288d2bc23be4341f2907533",
-      "bytes": 415
+      "sha256": "30e710abff7fec77677108702870aa3c463cec6a973c07369fe0ffb4a94346b0",
+      "bytes": 695,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
     },
     {
       "group": "cp26_reactor_current",
@@ -679,8 +704,9 @@
     {
       "group": "cp29_rooms01_07_polish",
       "path": "godot/shaders/reactor_housing.gdshader",
-      "sha256": "e0dc22b4a7584efc13efdd03e39b943f8d5fb1268e3870de0a404b7a5d07e33d",
-      "bytes": 1143
+      "sha256": "38f985ced1084643fa5d3eaca793b4ec30abec67de20e12e7a8bd332b7747cd5",
+      "bytes": 1482,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
     },
     {
       "group": "cp29_rooms01_07_polish",
@@ -697,8 +723,8 @@
     {
       "group": "cp29_rooms01_07_polish",
       "path": "docs/PROJECT_VISION.md",
-      "sha256": "8a40119ec5c33fc8b9dda908556ca58e22e3985e738739bfa1d97fc4e6910a59",
-      "bytes": 34713
+      "sha256": "f100d0a523e6690a767cc8adf4a4adbf61cb1b67e974056826edaf9841f90cb3",
+      "bytes": 36026
     },
     {
       "group": "cp29_rooms01_07_polish",
@@ -811,45 +837,1987 @@
     {
       "group": "current_context_cache",
       "path": "docs/internal/production/CURRENT_CONTEXT_CACHE.json",
-      "sha256": "453a829370847fb43f41f537d1c0141c83f7f8084a0decedc7425195332c007b",
-      "bytes": 6005
+      "sha256": "178c4940b57f49591d2120406b78d62be2211048e368b616003a55f87aa35781",
+      "bytes": 8588
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/scripts/cinematics/lab_memory_trial.gd",
+      "sha256": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
+      "bytes": 19244,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/scripts/environment/kinja_rig_terminal.gd",
+      "sha256": "5f2f7338e27095e1cbcf9649e652f03dfd31b828a96f7bb97b8cd10bacefe8bb",
+      "bytes": 550
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/scripts/systems/native_entry_gate.gd",
+      "sha256": "a20d2482d095ae3925307d7cfdfc745907c37f9e00140bfde492654c9b57cd9c",
+      "bytes": 5676
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/shaders/lab_memory_abyss.gdshader",
+      "sha256": "f8c48fd7e846ddf0aa9c619374bab1075677116a0324992a3d90bf809374ed41",
+      "bytes": 1014
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/assets/textures/lab-memory/shizuka-pdf041.webp",
+      "sha256": "9ace49c850f6a8153ab53929f4e6413e2021806f55df260fd7d556254fbae2fb",
+      "bytes": 52520
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/assets/textures/lab-memory/yuki-pdf041.webp",
+      "sha256": "2bc8a7c345780b5ae1bdafe09f83e07c5af53c591ac984811e592b999008e5a7",
+      "bytes": 48450
+    },
+    {
+      "group": "stage08_scoped_review",
+      "path": "godot/tests/full_chapter_journey_review.gd",
+      "sha256": "83bdb00108334ca9d40958fd986b20bddbc9de2b4d6b08c1b000be6e7a38d945",
+      "bytes": 24741,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage08_scoped_review",
+      "path": "godot/tests/earned_campaign_resume_review.gd",
+      "sha256": "71ccc4a4bc1366fab2c227661fe917277bbd3db17b313cbe7aa5f4f74b14b819",
+      "bytes": 18233
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/tests/lab_memory_trial_input.gd",
+      "sha256": "2fe2104660d008c02ec1b5d914f56af7cc233a838d253a213f4a89287e838ce1",
+      "bytes": 2894
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "godot/tests/native_entry_transport_review.gd",
+      "sha256": "1e7f6796fefd1b1950bea039af3b5e706a799e780190fba1cee98af30b3db61c",
+      "bytes": 3034
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "functions/api/player/_nativeEntry.ts",
+      "sha256": "e1586fa2d712559201b9ff80633f7c2dc4be551ef76be59d37d9b308cc7b9509",
+      "bytes": 3924
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "functions/api/player/native-entry/issue.ts",
+      "sha256": "39b39abe34b8357d46c944df90f1b17b72b829d518743f91b8a823e44be44b75",
+      "bytes": 869
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "functions/api/player/native-entry/exchange.ts",
+      "sha256": "91ce11e5d1790bf11e7defbd35ffa5235a30ac3e3f5488984e34c92e879e351c",
+      "bytes": 784
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "migrations/0028_native_entry_grants.sql",
+      "sha256": "c96238a6751bc031ce296c5de9560c62d58f8b965802b74da7113311673d7052",
+      "bytes": 595
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "src/features/opening-recovery/NativeEntryPanel.tsx",
+      "sha256": "f476953bf2518ec10a665b24ca1db1e5a124b4e8a0786f667883da7d96763956",
+      "bytes": 3100
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "src/features/opening-recovery/OpeningRecoveryScreen.tsx",
+      "sha256": "f8e7fb1e33d1624fb191b9a43bb66ae345bcc2e9f00cd06f657f564a66ae9aa7",
+      "bytes": 26056
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "src/infrastructure/player-progression/playerProgressionApi.ts",
+      "sha256": "e580a0edfc8cbe4e92d158063c0b3ab934618c62ad7d019ca891a7ae9cb6eac9",
+      "bytes": 15349
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "src/__tests__/nativeEntry.test.ts",
+      "sha256": "ccb9b73c2d83c1d66924db4901b737ba55d0ab72aa011c2fde7288e20ebca0df",
+      "bytes": 4728
+    },
+    {
+      "group": "cp37_pre_tripo",
+      "path": "vite.config.ts",
+      "sha256": "be3001721ecabea764494c8ff09c3d7bc375596735d255554724f34c0c0a78c8",
+      "bytes": 1425
+    },
+    {
+      "group": "title_entry_cp37",
+      "path": "godot/scripts/ui/title_entry.gd",
+      "sha256": "a9483df2b4beb87bb2120ecba3187c73f362f572e6d6121d82c8e2c639cbf49b",
+      "bytes": 5602
+    },
+    {
+      "group": "title_entry_cp37",
+      "path": "src/App.tsx",
+      "sha256": "e90b46a86b9c0f2ed0f76708c436b41e08f70047bcf67a0d6b6369bc6d9d0ea0",
+      "bytes": 2328
+    },
+    {
+      "group": "title_entry_cp37",
+      "path": "src/features/opening-recovery/TitleEntry.tsx",
+      "sha256": "6eacb0d95397f7d79927323ff75112ec4db954a01b6c26dbd35b0f49b564a467",
+      "bytes": 3151
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/scripts/ui/cover_recovery.gd",
+      "sha256": "6b064e668ce57d0dcbf4e5b7203d39b86edfec1f42b52c958dbf1d97ed403054",
+      "bytes": 8439
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/scripts/ui/opening_memory_film.gd",
+      "sha256": "60f63f6118f51e5e2a297106e6badf6c05a1cbadc6a1845379284c35e3f2a1ea",
+      "bytes": 8379
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/scripts/environment/memory_reflection_space.gd",
+      "sha256": "f8cb73ead963f9f47ebf95fc8400be4220094380044969811511d36a76e971b5",
+      "bytes": 6203,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/shaders/memory_water.gdshader",
+      "sha256": "41c86e1da5807058dbccc7a57be7fe850080183cf434d923dc55a36c5faa7ae3",
+      "bytes": 1996,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/textures/opening-cover.webp",
+      "sha256": "4968d7cac3bcc7d29738c5cb3aec10754772b6981c4273ccbd1ee117ad6c4c64",
+      "bytes": 788566
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/cinematics/opening-cover-v2.ogv",
+      "sha256": "ecfbd2671978da016a49b90295d2fa2ef47d3e93444ae72c3a88ca349393bf8b",
+      "bytes": 43147468
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/cinematics/opening-cover-poster.webp",
+      "sha256": "06b24126507cdf848bf4622081db7363ce0917d0da4bb4ce3476398dd5260213",
+      "bytes": 134236
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/cinematics/lab-memory-collapse-v1.ogv",
+      "sha256": "69d84882007a07946ff8add7fb6232792216d9cf85e46b0add0a62b3ac391766",
+      "bytes": 4766797
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/cinematics/lab-memory-water-v1.ogg",
+      "sha256": "aeb8bf9ce26209ef6cce38066e44a431ba70d03d3fb668d907745311c0fc0257",
+      "bytes": 129542
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/cinematics/lab-memory-bottom-v1.webp",
+      "sha256": "5b6209476d1b1440124b140ca0c91810d794b76b012610dc8f5c4ea6c5d708d0",
+      "bytes": 66512
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/assets/props/memory_stasis_frame_clean_v1.glb",
+      "sha256": "024d2a93409b8715751a0ad4ec6e074b66b550432abb7f18d74f8968ce8a6fcf",
+      "bytes": 112432
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/tests/memory_insert_media_review.gd",
+      "sha256": "5807af2e789c77579e6ca5236d72f826ebf0767b58a7cfee26fee2d1f5d15f1f",
+      "bytes": 3398
+    },
+    {
+      "group": "cp37_entry_lab",
+      "path": "godot/tests/cover_entry_visual_review.gd",
+      "sha256": "132195ca58affc21e3f3e0466800fe628535da33fb42b37b670524d6e0bd9778",
+      "bytes": 3496
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/scripts/environment/hospital_room_dressing.gd",
+      "sha256": "ed5563d9a8e8dc07d03413d97403c02b35c7fa08e0bba06ab5ec189801259b34",
+      "bytes": 6910
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/shaders/ward_floor.gdshader",
+      "sha256": "b53883b4205dafc253ab879f07a1f9872a6109a2b2f97264665ff48978c281bb",
+      "bytes": 583
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/shaders/ward_linen.gdshader",
+      "sha256": "a221f55033ccefe606baf9e8793b091e514fe73b4cf1e7dcfe6972ccf2910921",
+      "bytes": 478
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/shaders/ward_rain_window.gdshader",
+      "sha256": "9416ecfb596e6ffe66effc0c94a0974f11e53f82e2893664d1836567768779a3",
+      "bytes": 778
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/assets/props/ward_bed_original_v1.glb",
+      "sha256": "fd6e4e366922f2f03b275ed73419258fdac6cdc76c7f37fe3c6893e53388a94f",
+      "bytes": 502720
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/assets/props/ward_visitor_chair_v1.glb",
+      "sha256": "8e2d48c0fedb6b19be1b4dace843792ba81c87f0788dc95fef957f2145922470",
+      "bytes": 1343624
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/assets/props/ward_vanity_v1.glb",
+      "sha256": "32a71a323353105c6705122d0941b5e02cf2a28801e8b15535edef896e29c6af",
+      "bytes": 1016316
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/scripts/cinematics/skin_mark_inspection_camera.gd",
+      "sha256": "110862dd0a892dcca33a31bfdff136bcec207a0f9a966b2a324a9e6dabb948e2",
+      "bytes": 4095
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/tests/hospital_visual_review.gd",
+      "sha256": "e6de9fd479aa0350adf1723e5f81cb16e640537e2c31b19cf09181c438a1b06e",
+      "bytes": 4382
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/tests/ward_objective_owner_review.gd",
+      "sha256": "f0213856465af7ac1cd9a745236776e03a8d656a89f7509d6ec7ca80795e626d",
+      "bytes": 3486
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/tests/ward_light_scope_review.gd",
+      "sha256": "52f6ad80067bd578c6b95b5b603cc40684f7f69c94d99907a5e890d376f9b249",
+      "bytes": 2140
+    },
+    {
+      "group": "cp38_hospital_and_candidate",
+      "path": "godot/tests/tripo_actor_candidate_review.gd",
+      "sha256": "e403187a9d8c593139c537685665800d5dc146c095f7be7dfd766780c2c36768",
+      "bytes": 5110
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/texture_residency_review.gd",
+      "sha256": "cabb2d5514e46025a3cb01d46e63a61debcf9d60de4ec5cae9a89f190a91db1b",
+      "bytes": 2267
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/fixtures/kinja_p2_pose_study.gd",
+      "sha256": "2e5d75e0a1c10de4bd9a07e5b65e64d3c57e6506437622c815bd41ff16965796",
+      "bytes": 3826
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/kinja_p2_acting_review.gd",
+      "sha256": "ac4ae11933015968d42f956c7a374fa69caeb2ae1378d4e90a055b95ebc32788",
+      "bytes": 5196
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/zero_texture_visual_review.gd",
+      "sha256": "12b5c57661b005f513adc7c9e973385a0007e5e6f81d59b0322e69b571634566",
+      "bytes": 3831
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/zero_connected_asset_review.gd",
+      "sha256": "80a47c9197a889d5830372b88bd3bcf989d8f4a8f6b06ee73b6c584c0939738f",
+      "bytes": 4829
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/tests/title_entry_review.gd",
+      "sha256": "ae5b80b8a977c561b2860c20ded1dad94c41678819959aa4a727c1ca2c65555f",
+      "bytes": 6322
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/assets/characters/zero_manifestation_idle_v1_Color_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import",
+      "sha256": "167ad650aa6502489177e56df931ec13e43c75a6cb2415425f315da928305be9",
+      "bytes": 1655
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/assets/characters/zero_manifestation_idle_v1_NormalGL_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.png.import",
+      "sha256": "461229d7459eb57ad7087d8dc86cb966c44dea0bda5f323bdbcc7ccdf2868247",
+      "bytes": 1670
+    },
+    {
+      "group": "cp38_verified_followup",
+      "path": "godot/assets/characters/zero_manifestation_idle_v1_ORM_b830dbdf-e0d3-48c1-af9a-545326ebb7e1.jpg.import",
+      "sha256": "c5e7a63801427e93f2da4f37654923f917b7119135b0eb9f7fae9d110027875e",
+      "bytes": 1645
+    },
+    {
+      "group": "cp39_working_system_ui",
+      "path": "godot/scripts/ui/system_signal_glass.gd",
+      "sha256": "80c11bbee52f5018b3f0d9eff6a8c36433e96be816c6ceab60f76b785452a87f",
+      "bytes": 2238,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "cp39_working_system_ui",
+      "path": "godot/scripts/ui/gameplay_hud.gd",
+      "sha256": "74fb6ea4546f8060eb19820aabdb25c27a36c8673f1370a7fb70644c838f53de",
+      "bytes": 17206
+    },
+    {
+      "group": "cp39_working_system_ui",
+      "path": "godot/scripts/ui/native_pause_menu.gd",
+      "sha256": "cfcb893adb18e236d95f0699960929b81d370dacaafe624458b4c8bfe1fd4ad7",
+      "bytes": 10308
+    },
+    {
+      "group": "cp39_working_system_ui",
+      "path": "godot/tests/system_notice_queue_review.gd",
+      "sha256": "9f4a8019645b614d530f813afa11d740b15ae3e24e1e0dabb62f9e59c8d4b925",
+      "bytes": 9284,
+      "review_checkpoint": "CP45_STAGE10_11_REVIEW_OPEN_NOT_ACCEPTED"
+    },
+    {
+      "group": "cp39_working_system_ui",
+      "path": "godot/tests/system_personal_window_review.gd",
+      "sha256": "699f57597925d6d4ca1ec517c43edffa9cb774518265a62fe03971c8bc9c170a",
+      "bytes": 4251
+    },
+    {
+      "group": "cp39_personal_system",
+      "path": "godot/tests/tripo_character_visual_review.gd",
+      "sha256": "684e215a24062ba1845141251789b7227109764aa811d92b37838df98da3903a",
+      "bytes": 3957
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "godot/scripts/player/surface_traversal_motor.gd",
+      "sha256": "ca9bdaebe8b5bd2b460310976704c36fe2691c505f54d6cc3e22e9228434a347",
+      "bytes": 23553,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "godot/assets/animations/v31/hang_cp40.res",
+      "sha256": "8c0472291d2651baf62edeee8d8a5c26e8ee7904aaa507aa1602b13c90fec17f",
+      "bytes": 49246
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "godot/tests/v31_hang_contact_review.gd",
+      "sha256": "814ab859d5a423cdfde8f4256acd478cf46f2c74572882cca33b1da80e3a04d8",
+      "bytes": 6737
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "godot/tests/echo_traversal_inventory_review.gd",
+      "sha256": "5835267a8efbe70fcbd25e15f986b4d38c8106ba140fd9490176ce5fe1235396",
+      "bytes": 2425
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "tools/animation-library/v31_parkour_motion.py",
+      "sha256": "08dc647940a58d334a844cb9e8ec21c50bcd890b4fc6d546ded80e4f0619b4ab",
+      "bytes": 17201,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "echo_parkour_cp40",
+      "path": "tools/animation-library/export_v31_parkour.py",
+      "sha256": "63896b2a2989b1c27a775770a3a8f8df67be4bac88abfe46caa12c66cd73d871",
+      "bytes": 1816
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/engine_visuals/HyperAnimeWorldManager.gd",
+      "sha256": "cf50be5beece626cc7b03af5e2ec8239b5ed289bf3a6acb505d0dc02d6027cf6",
+      "bytes": 21137,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/HyperMaterialAdapter.gd",
+      "sha256": "e5d7410be2b4304cac37159586a7b18110d98755afdaa3c8bb4f4ecc75bafdd9",
+      "bytes": 7115
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/camera/DynamicActionCameraRig.gd",
+      "sha256": "c367ee8494cc9124ddd50055a7c7ba9fb24d354cda56e357d38a9e7ed033f1c2",
+      "bytes": 4906
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/vfx/KineticVFXOrchestrator.gd",
+      "sha256": "d233764d671be800753020282526c415f73598999b44b8141784f31e33f0ca6d",
+      "bytes": 11114
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/chromatic_sky.gdshader",
+      "sha256": "e297f90120690f4b3cc420b518f53373865cd76521e77106440b76eaa5bd4fd1",
+      "bytes": 258
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/hyper_anime_uber.gdshader",
+      "sha256": "c7dc8e5cf253912ee3fecc953ec903c40f6be17abcff4eded3d3ddf3da179ff3",
+      "bytes": 13195
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/impact_screen.gdshader",
+      "sha256": "9b429fdb51194129358c6cd7664c02365a5eae47cb2636596a98b5d900e6aeb4",
+      "bytes": 1002
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/kinetic_particle.gdshader",
+      "sha256": "6661a57a7f0009600929f1d797f81fd6099ccb0ff8e4d2468eab99eb58cc3480",
+      "bytes": 937
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/kinetic_ribbon.gdshader",
+      "sha256": "5e764496ce230e0d5745e88f27398ec43285d4648b3d20f9fe17248ce0cb8fe8",
+      "bytes": 350
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/engine_visuals/shaders/reactive_surface_pro.gdshader",
+      "sha256": "35026794c1173c76e380019532199bb6c30ae84e8a4c2f0262dd1a28b35e6c45",
+      "bytes": 2501
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/tests/hyper_anime_engine_review.gd",
+      "sha256": "6f104473e2c465306f29b508635445859741d732275d75377deb7c5c32d902ec",
+      "bytes": 9533
+    },
+    {
+      "group": "hyper_anime_engine",
+      "path": "godot/tests/hyper_anime_live_review.gd",
+      "sha256": "82962dd3b6501061ed6826bd47070441cc40b34ae73bcc4709465ad84dbb93c8",
+      "bytes": 8084
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/scripts/player/echo_footstep_system.gd",
+      "sha256": "4610f8e735c450583e8ce7acf88960d9bf7ecd6704af0658f54f2465ad2ce725",
+      "bytes": 11370
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/engine_visuals/MemoryAtmosphereDirector.gd",
+      "sha256": "a86a248bb0861894007f0725b8efa54fb5f68a23087f49fb4691445d2056131f",
+      "bytes": 14937,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/engine_visuals/shaders/memory_monitor.gdshader",
+      "sha256": "5c8d9f51fc78960a57eca7e7c3f02d7c2829da812ab70b67a6c665b2cc3a13b0",
+      "bytes": 1531
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/engine_visuals/shaders/leak_water.gdshader",
+      "sha256": "256852583466cb5669ebce1efa451801144f56f23c7746c604e517136d1d7aab",
+      "bytes": 1500
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/engine_visuals/shaders/leak_drops.gdshader",
+      "sha256": "7189d037d3fddd7791ccff733fa61f5f9755d97030e585607ec4a02a96ae74ab",
+      "bytes": 262
+    },
+    {
+      "group": "memory_atmosphere_cp42",
+      "path": "godot/tests/memory_atmosphere_review.gd",
+      "sha256": "e0e2f869080d0c26c8d46a4765241746a4ecb85ce87c8e2f70ed69af789bb658",
+      "bytes": 12710
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/city-high.ogv",
+      "sha256": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+      "bytes": 4794688,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/city-low.ogv",
+      "sha256": "85b7afdea5981d8300f30ead78cb1b1c47c19f9020cc7b944de849f488b62a27",
+      "bytes": 434148,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/city-poster.webp",
+      "sha256": "a2b763abda0d9ffa101f0426e01f41e89e7a5579b1d8af41c55e157111d9b5b5",
+      "bytes": 33116,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/city.ogg",
+      "sha256": "de27855ac634e4bf3327e167ab6b3562628d1cb76d26eac3553fa6b6ed162f37",
+      "bytes": 113133
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/friends-high.ogv",
+      "sha256": "7dc0c3d05208e97f8d8c5d121d7c6cc0d19e800882e65fbd42c1059da3550bba",
+      "bytes": 4361375,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/friends-low.ogv",
+      "sha256": "7d7f0045f0096b5e0a80cc23e461982b5ada956c4d4d9541a7b8d58ca6116243",
+      "bytes": 462901,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/friends-poster.webp",
+      "sha256": "c026f5709ad0e9146ee2ff08e1320bc3ee0efa3456ca8805ded30788de438918",
+      "bytes": 19122,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/friends.ogg",
+      "sha256": "a4f523f9dc361ab2d1c2536f561ccde26c717633d3cd0a2ba109c474de5bcded",
+      "bytes": 108904
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/pipe-drip.ogg",
+      "sha256": "d22ea593463904c1d1fbf7fd839791e8e68db192dc746c04c1a6821ca156627c",
+      "bytes": 13662
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/reel-low.ogv",
+      "sha256": "8a30097df6f13ab422fad0718c1c1283f91919399f972629ca81c2419d2621de",
+      "bytes": 834545
+    },
+    {
+      "group": "memory_media_cp42",
+      "path": "godot/assets/cinematics/memory-screens/reel.ogg",
+      "sha256": "6da01a9029cac15d320d27c929b19d1bcf354b62a2faad0797165d4cd2659580",
+      "bytes": 212182
+    },
+    {
+      "group": "cp44_opening_and_garment",
+      "path": "godot/engine_visuals/EchoCapeMotion.gd",
+      "sha256": "ce9794e945b23636b63eaf3049e8f110f404263f67703fd3ef13910ab8c8b242",
+      "bytes": 12094,
+      "review_checkpoint": "CP45_STAGE10_11_REVIEW_OPEN_NOT_ACCEPTED"
+    },
+    {
+      "group": "cp44_opening_and_garment",
+      "path": "godot/tests/echo_cape_motion_review.gd",
+      "sha256": "5f68ef486000033c1add449b385e78760f411c308b53156a9f58647fe00de339",
+      "bytes": 5219
+    },
+    {
+      "group": "cp44_opening_and_garment",
+      "path": "godot/tests/echo_cape_journey_review.gd",
+      "sha256": "9e8a045b58f7e14d093ad0792b33c55352ed6cd46a1dad788717c526b8e7b1ed",
+      "bytes": 11904
+    },
+    {
+      "group": "cp44_opening_and_garment",
+      "path": "godot/tests/echo_v31_runtime_asset_review.gd",
+      "sha256": "5666404de7a9e10f7280a9fc2925ce9795e576f806382fe6593cbe8995c1e561",
+      "bytes": 4496,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "chapter_cp45",
+      "path": "godot/scripts/companion/floating_pod.gd",
+      "sha256": "146f9cf58342e9be22e366bb0f8ccc7c7e59f479364cf7cadd831251e8c34933",
+      "bytes": 4747,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "group": "chapter_cp45",
+      "path": "godot/scripts/ui/mobile_touch_controls.gd",
+      "sha256": "3ea2a85f8a55a62e2065a1e23808d8c827f8f2ba81633f8b4dd9adca4d3a5d27",
+      "bytes": 19417,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "group": "chapter_cp45",
+      "path": "godot/scripts/ui/school_lab_opening.gd",
+      "sha256": "5afd309e7c51b056dba16a8531911cc5c14ece4c6a4d550221cd0af4792df279",
+      "bytes": 11390,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "group": "chapter_cp45",
+      "path": "godot/assets/cinematics/opening-cp45/lab-arrival.ogv",
+      "sha256": "936e5e1199edbaf5e8cf7e8c96529d69cd75667c114ee79daff6c4e9ee339c30",
+      "bytes": 2997080,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "group": "chapter_cp45",
+      "path": "godot/assets/cinematics/opening-cp45/experiment.ogv",
+      "sha256": "8055825012e602e3fe67db484b154192d01213324d894e3b5ab339779dde766a",
+      "bytes": 1693466,
+      "review_checkpoint": "CP45_STAGED_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "group": "cp45_locomotion",
+      "path": "godot/scripts/player/locomotion_anim_controller.gd",
+      "sha256": "a07b5fe88a1cda1b5646edda548c233231266cf6259a7a44639d9a3ac539f9fa",
+      "bytes": 8602
+    },
+    {
+      "group": "cp45_locomotion",
+      "path": "godot/assets/animations/v31/run_cp45.res",
+      "sha256": "4f372cf4967c5e55ed6a263804084199ca7926aad03fd3b4af39132f3f1dae38",
+      "bytes": 55687
+    },
+    {
+      "group": "cp45_locomotion",
+      "path": "godot/assets/animations/v31/walk_cp45.res",
+      "sha256": "6ccb005099c223243a60329bd43b07689b12a4f14993ff619eb28e7a7ad1936e",
+      "bytes": 69961
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "godot/assets/animations/v31/mantle_cp45.res",
+      "sha256": "41111911a7e8128f0911345275ede95ab789c55210bbf18c32c7ac44c38a5b0b",
+      "bytes": 65949,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "godot/assets/animations/v31/stand_cp45.res",
+      "sha256": "bfc1b198641b7e337c7fd29f6fbf455f097e6901a66c40d54617248f1e65b289",
+      "bytes": 44887,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "godot/tests/v31_native_mantle_review.gd",
+      "sha256": "a4bbf5d7ce1e690fd127714332dbea063aaef5a2b9d9fcf99c1e6915b5411418",
+      "bytes": 11633,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "godot/tests/v31_native_mantle_abort_review.gd",
+      "sha256": "ed7d863094ddb8a02c6595bc4153671413617b506e5c1666934c8a85142d6d21",
+      "bytes": 4710,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "tools/animation-library/render_v31_locomotion.py",
+      "sha256": "b035f07a9bd046df7efc89ff394100e0cca52f0409436e03e1070c1e84ed5a25",
+      "bytes": 4016,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "cp45_traversal",
+      "path": "tools/animation-library/render_fbx_source.py",
+      "sha256": "bb9b3791399122889f3f28d9cc273ca27d4b66cc96091cb3593b2c1d49b68b6b",
+      "bytes": 3993,
+      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+    },
+    {
+      "group": "stage08_scoped_review",
+      "path": "godot/tests/specimen_public_route_review.gd",
+      "sha256": "32f0ea937ccfaeef9305ef1c5fc932915311b0c34e805448d51dea67fbe02bf1",
+      "bytes": 4291
+    },
+    {
+      "group": "cp45_review_open",
+      "path": "godot/scripts/combat/shadow_wave_projectile.gd",
+      "sha256": "95b0494aec7727b487b610091c37c57d58b1c5c9a57e10f6f12874052db4daae",
+      "bytes": 2005,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "cp45_review_open",
+      "path": "godot/tests/combat_contact_regression.gd",
+      "sha256": "8c12eea191bbfceacff3cf6b078a2a34104b5d8a18bf653bbd5cd87ed82b79a4",
+      "bytes": 5810,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "cp45_review_open",
+      "path": "godot/tests/zero_encounter_player_review.gd",
+      "sha256": "62317f945c552fcf15562a2d8006f2ceb38c529838bf60d2ff29f66ae2ea365d",
+      "bytes": 21987,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "cp45_review_open",
+      "path": "tools/animation-library/render_native_gltf_skin.py",
+      "sha256": "e8b78ffcd5e0b508f9002a44c97f7d5b77ea4ecf174d25b82337532132bcad06",
+      "bytes": 4681,
+      "review_checkpoint": "CP45_STAGE10_11_REVIEW_OPEN_NOT_ACCEPTED"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "godot/assets/characters/echo_v31_short_jacket.glb",
+      "sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+      "bytes": 34161792,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "godot/assets/characters/echo_v31_short_jacket.glb.import",
+      "sha256": "fbf48e498bde7f04b5deb221c698c6225d9d018b1d5e4bcc62edbe84772e432e",
+      "bytes": 1347,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "godot/tests/echo_short_jacket_review.gd",
+      "sha256": "29887476c3002867fe7f4f8d0ada5ce2b3162f0a17ed14b8695320f14f1b8009",
+      "bytes": 6986,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "tools/animation-library/build_short_jacket.py",
+      "sha256": "a19fc235be8f610e6496e56444cdbfc2097a6524da188334fd8c4e70eb743a75",
+      "bytes": 7861,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "tools/animation-library/audit_short_jacket_integrity.py",
+      "sha256": "4056575de12e9254f56f3a3e337f1b95fe2aa0cdc23a3356dea18915287cc246",
+      "bytes": 3639,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "docs/internal/production/CURRENT_WORK.ar.md",
+      "sha256": "f1e8a6e1c651118c29d800054ae00cad10a4a2e61dd9b18e795eec9144d58465",
+      "bytes": 9918,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "short_jacket_cp45",
+      "path": "docs/internal/production/WORK_TREE.ar.md",
+      "sha256": "dd9ece48e5dea630d99fec70e09090a15585ae53cd92cc79f965bfbdc13512eb",
+      "bytes": 8905,
+      "review_checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/scripts/player/ghost_trail_spawner.gd",
+      "sha256": "81ed7d6cb438575cdf1bcc8039f1176ed64de5ec1d1e396b6b1dce09c00d8f85",
+      "bytes": 3068,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/scripts/player/echo_contract_resonance.gd",
+      "sha256": "5f14b8e0edbbc5593406df4d894e55fea4a626fc4e7d3ce0120cc4620b4b780f",
+      "bytes": 3352,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/scripts/player/zero_shadow_wing.gd",
+      "sha256": "e97b75ab3dddb528b42f41fccfa60fae39ea4c7fa770d4c8dab8b485fa46c151",
+      "bytes": 9398,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/scripts/player/zero_eye_singularity.gd",
+      "sha256": "f3c72765ad8a0ba612fb9406b00ea41e3438351540af13fb7c74630118263c54",
+      "bytes": 9248,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/engine_visuals/shaders/motion_echo.gdshader",
+      "sha256": "e3fa42518c734eda281339985528d1854187afb82be653968824214498734d54",
+      "bytes": 912,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/engine_visuals/shaders/signal_cut.gdshader",
+      "sha256": "f91eb06304fa30125d70650dd69c280f2a98c0561c82eb15bfe992177c17fe9d",
+      "bytes": 849,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/engine_visuals/shaders/contract_resonance.gdshader",
+      "sha256": "d9670c67577e3ec1303c7ed5d6a4266766f4dc6b4d71046f1d5933d062367d08",
+      "bytes": 1081,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/shaders/zero_contract_iris.gdshader",
+      "sha256": "9f8489510964e05df678c132950e92c3263215e60c759532f80ff0bc80dd2dd0",
+      "bytes": 3285,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/shaders/zero_feather_detail.gdshader",
+      "sha256": "c659271e72a6a7a0d5a6325fc54cc21e2f78741e6944ecc8f4719176c6374a3a",
+      "bytes": 2004,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "contract_presentation",
+      "path": "godot/tests/ghost_skin_snapshot_review.gd",
+      "sha256": "dc8646001164af62bc7a923b8fe3f201f44a92f63029116e48d4a4aef0cfe936",
+      "bytes": 6270,
+      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/assets/animations/v31/attack_horizontal_cp45.res",
+      "sha256": "efdcd586690ff9c4c846590eebb95cfab3121810129d86cda9ef773cf04deb78",
+      "bytes": 121326,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/tests/combat_pause_contact_review.gd",
+      "sha256": "82af50aa0b86d193a14ab51837a0bbda943997c12c3639f552c579aa06add438",
+      "bytes": 1856,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/tests/native_attack_pose_review.gd",
+      "sha256": "6652aad8a21191421c7d193be0fdcad252ed912f9075e7a16ee11d2d85bab1fc",
+      "bytes": 6592,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/tests/native_melee_input_review.gd",
+      "sha256": "200880bc6bdf228b0eba6ba628da6c99a328e672eda2fae6d7b31bba88c18724",
+      "bytes": 4100,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/tests/zero_encounter_route_input.gd",
+      "sha256": "2e26f84fdb55ab530bde1db469e58887bd897eda58727469c6b2dc147dff4638",
+      "bytes": 3335,
+      "review_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN"
+    },
+    {
+      "group": "stage11_native_cut",
+      "path": "godot/tests/post_contract_journey_review.gd",
+      "sha256": "ca5f87690c6d2115d0d9143d361954013d1010c2ba7ba77a1036ecd4147a120e",
+      "bytes": 7691,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/scripts/environment/clinical_lab_architecture.gd",
+      "sha256": "16d5753c1607426aa7ea8ac3f300a5bca8764ae2c2f0d3624a8ac267130f3f5e",
+      "bytes": 22146,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/scripts/environment/lab_memory_cinema.gd",
+      "sha256": "cb5e5a37a9cbade029cfa36d6eb37be2235b4822368e0538646ed46dd45be91d",
+      "bytes": 5778,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/shaders/clinical_porcelain_floor.gdshader",
+      "sha256": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+      "bytes": 1523,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/tests/lab_rebuild_views_review.gd",
+      "sha256": "5f0a33441d88925c36943d58951c158265a69cf3a949f553646f8d45c911dae2",
+      "bytes": 2877,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair.glb",
+      "sha256": "2b0f3d0c9d89052ccf8638175bf53cb98ec3710215c5b2d30d360f1339ccedcc",
+      "bytes": 610912,
+      "review_checkpoint": "CP45_LAB_REBUILD_IN_PROGRESS"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/surgical_scan_gantry.glb",
+      "sha256": "059f367d07c8fb6325829e5035139e1bfc233ce3f8c56097a60dd0bd7d557bed",
+      "bytes": 1330092,
+      "review_checkpoint": "CP45_LAB_REBUILD_IN_PROGRESS"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_module.glb",
+      "sha256": "e4e52cce3ad8c1db4ea15da6a90720c7a8848504bfd239d3c6cddf26ca00978f",
+      "bytes": 354800,
+      "review_checkpoint": "CP45_LAB_REBUILD_IN_PROGRESS"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/diagnostic_cart.glb",
+      "sha256": "995877772c3e951a730941d78024d0580050396a4efcee1ab749ce4720b98009",
+      "bytes": 415840,
+      "review_checkpoint": "CP45_LAB_REBUILD_IN_PROGRESS"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_tripo.glb",
+      "sha256": "ed7ff54cbeab1b94f5cb8559ad69650db287f6e62ab6d480243e56a4ea9a4559",
+      "bytes": 14001700,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_tripo.glb",
+      "sha256": "737937454fe5a5f561993e751931736b4bfcdb105dc2c361db73ad0f3988b758",
+      "bytes": 3309744,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/shaders/clinical_architecture_surface.gdshader",
+      "sha256": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+      "bytes": 3609,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/shaders/clinical_diagnostic_display.gdshader",
+      "sha256": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+      "bytes": 721,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/shaders/clinical_vitrine_glass.gdshader",
+      "sha256": "4e00429079cc990234be027c3dfdec7fabbe911ae2e0d1e1d7dbfba8cacef04a",
+      "bytes": 559,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "godot/tests/lab_presentation_lifecycle_review.gd",
+      "sha256": "2c3dfd5c9091be55184379dd75a2cd5d0b2ccd487f8958feaacab375cb32a5a9",
+      "bytes": 17243,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "art/production/extract_lab_scanner_20261023.py",
+      "sha256": "3a9ba9d9cf44f60c1691679217073a04a95ff7c36861dde9a55ba08210f95c26",
+      "bytes": 2758,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "stage13_lab_rebuild",
+      "path": "art/production/build_lab_architecture_from_tripo_20261023.py",
+      "sha256": "5a20619e4d0dbf9b8c8e16b8715a33fb2bbf2204f5411451cd7a0150f60f9b0b",
+      "bytes": 4268,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+    },
+    {
+      "group": "stage13_external_reference_only",
+      "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4",
+      "sha256": "84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e",
+      "bytes": 7207433,
+      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN",
+      "scope": "Generated Omni reference only;not installed as native gameplay/movie."
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/tests/lab_performance_review.gd",
+      "sha256": "c784572e07a59267941d8e7ea42f8a0c5b4bf8be198c52a4acb917d4efd3c5ac",
+      "bytes": 9477,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed.glb",
+      "sha256": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533",
+      "bytes": 16264560,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "art/production/build_lab_packed_perimeter_20261024.py",
+      "sha256": "110bc3a4c2fee1ec12e1ee66fe63ccbddbc29c7218eb90bf3f7b289983ecfceb",
+      "bytes": 8168,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_Color_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import",
+      "sha256": "2ee6236cce005d3b681e0b89a6d0b4f593fa2fdf9abd05cd244cbc14041439e3",
+      "bytes": 1679,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_NormalGL_5affa583-0772-4141-8287-cb4ff9efa62b.png.import",
+      "sha256": "86edee9dfb503a1ceb1936c377a895cc08a927dd52f517dc7ddb755182de0473",
+      "bytes": 1693,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/props/medical_wall_unit_tripo_20261008_ORM_5affa583-0772-4141-8287-cb4ff9efa62b.jpg.import",
+      "sha256": "e6b5c54c0a93a8e6595db75b35edfeb4c1a5c6ae2a45bc864aee03b29baa21ab",
+      "bytes": 1669,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_ORM_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import",
+      "sha256": "495c0391f9edd8cf031a228e846d74db142ad1f3eb8404f20d20f43c61673063",
+      "bytes": 1650,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_NormalGL_c9cae674-2f4d-49b5-8632-59f2a5caa740.png.import",
+      "sha256": "010bd8b2c2484787aba98e0d99ccff4892de01d399b60bc6faedfb0730cd1713",
+      "bytes": 1676,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/shadow_katana_tripo_20261008_Color_c9cae674-2f4d-49b5-8632-59f2a5caa740.jpg.import",
+      "sha256": "3060f11b76c910488d8e1a52d8ac675e096124e873f0a1bb9db4045ddba9a2c9",
+      "bytes": 1661,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_ORM_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import",
+      "sha256": "f34e60323efc8042bfaa25cab47541c7c7dc3b0d0248e3ccd6fb8dbdadd9635c",
+      "bytes": 1661,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_NormalGL_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.png.import",
+      "sha256": "3a6275670a7819561c2f60a13b8326d951d7cb0bfa8aee96456f15d65fa98936",
+      "bytes": 1686,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/weapons/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg.import",
+      "sha256": "4e7ee959cec6393ab4e0210c1d367d237865de174c9976edf0c1d0c8b1fd5e07",
+      "bytes": 1671,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/characters/echo_v31_short_jacket_echo_original_high_basecolor.jpg.import",
+      "sha256": "7becdc4744151bc92f661646c6416eba2433c05f821a475193948740856186d8",
+      "bytes": 1243,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_basecolor.jpg.import",
+      "sha256": "6cf0440299a8ba4d10479a369d50e0880a8fe8ce941cbb4ddb116f7e4cab53bc",
+      "bytes": 1609,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_rm.png.import",
+      "sha256": "c3113882863c416590c0c9f2e335b36fdd0c5d750d5470f3ad9d4d943a761e24",
+      "bytes": 1574,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k_neural-chair-retopo-20k_normal.jpg.import",
+      "sha256": "ab674cc7946a6a7bb972e2bdc16fef950050164f943fed7d679c3e623734b85d",
+      "bytes": 1594,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/characters/kinja_revenge_rig_v1_Color_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import",
+      "sha256": "a110268e99f035a4102f79f8ec1161c0c8e4daa37ef22a31692945d094b052bb",
+      "bytes": 1624,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/characters/kinja_revenge_rig_v1_NormalGL_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68.jpg.import",
+      "sha256": "ebe71782db86ee0e0d044ea680e294fdd3f1dbde0886d08bc301d21f4ae61e84",
+      "bytes": 1639,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_basecolor.jpg.import",
+      "sha256": "3fc7f31494dd2aa6de9ac1b8234e154a45ec35d8121fdcf3e3e1d974df6d9872",
+      "bytes": 1624,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_normal.jpg.import",
+      "sha256": "41a8dd5b0b076300abd39376716d9fc2d7febed848b8e97bfe5b34e9e92a883c",
+      "bytes": 1609,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_perimeter_packed_futuristic_lab_3d_model_rm.jpg.import",
+      "sha256": "fb1cc74295a4bd729ee2e24e1927e8b81972998ff085db34893e925543c406aa",
+      "bytes": 1589,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_measured_quality",
+      "path": "godot/scripts/player/echo_skin_identifier.gd",
+      "sha256": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585",
+      "bytes": 15331,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "godot/shaders/clinical_stasis_display.gdshader",
+      "sha256": "a15a4effd8687c2c9cfa8328100eca94ecfe8fc11135aed9469d2bef3200eac3",
+      "bytes": 1246,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "godot/tests/lab_surface_probe.gd",
+      "sha256": "9aefda005b759615d8fd1b4e1cd848f986c0937e5d0a9a1b0cec460e6d6ae7f9",
+      "bytes": 4200,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "godot/tests/lab_stasis_story_review.gd",
+      "sha256": "20607ccf3a9c0d8dac7d7829242f9c8e4dfdcc102efbab73debe78e3c8d562bc",
+      "bytes": 1034,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "godot/tests/lab_stasis_reload_review.gd",
+      "sha256": "16b39d76d33903ae3dff4393a225b266a384d76462a9ca4badef617a62757b09",
+      "bytes": 4039,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+      "sha256": "f97a110f312f9318c7e065e55ce67ed7bda392db7a9ac599ea502a59884de1ec",
+      "bytes": 17652,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "cp45_lab_quality_continuation",
+      "path": "docs/internal/production/ROOM_QUALITY_INVENTORY.ar.md",
+      "sha256": "020df7c1e07311e337ed67c9d719fd6367a1a37f47a491db79e350ed1b578643",
+      "bytes": 2369,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "art/production/build_lab_modular_architecture_20261024.py",
+      "sha256": "9d93a46daa33bf75bb0b27638ec58ee43326f6e63416de205978ee9f440d3af5",
+      "bytes": 11609,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb",
+      "sha256": "bda78e7f00fc01369bfb1e8c8e0acd65288edc687cf20c6e87a38cf902297a98",
+      "bytes": 776416,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb",
+      "sha256": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+      "bytes": 8512324,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_2-tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_1.png.import",
+      "sha256": "fa4f8c78e3dcdccdff1258dad412c0a7ef27b767a2c8bba5e4a6f314eee166bc",
+      "bytes": 1933,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_normal_6037cb6e-b606-4cfc-871e-423ca1295ea7.jpg.import",
+      "sha256": "cbdbb1892b5f3f28f3b4cfef4401edc3b740ab9daad60f90aedba71186fb864f",
+      "bytes": 1674,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k_tripo_rgb_2af462e7-0c28-4844-8ad1-2a2b3f4d8d52.jpg.import",
+      "sha256": "192c1c79613eea08537a9ca5b6e017b23bad4141d15e5237ff5cbf496db1caf6",
+      "bytes": 1659,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "clinical_modular_refinement",
+      "path": "godot/scripts/environment/clinical_modular_perimeter.gd",
+      "sha256": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+      "bytes": 2614,
+      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "art/production/build_lab_scanner_p2_20261024.py",
+      "sha256": "db8d1b5ddc4733a4399694e838c2a1670260148f0ee137d9a96890067adf3027",
+      "bytes": 3270,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "art/production/encode_lab_memory_native720_20261024.py",
+      "sha256": "e88a257f00359cc6eb4838f1beb42162487992f19bae9df919c4e1995e6225b9",
+      "bytes": 2152,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb",
+      "sha256": "b959b18b3030196c5b8ecceea22ec42316bb22b94f62ee09b95b8ab21d2107a0",
+      "bytes": 18689552,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_basecolor_4k.png.import",
+      "sha256": "8d5467e7f96b032df65cf414249db85af09b8a2476b8712ff9ed3284c0b27767",
+      "bytes": 1543,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_normal_4k.jpg.import",
+      "sha256": "0899e15c488f837556f0cd917f8efd250021d8798ab3f4af0d96973593b18666",
+      "bytes": 1528,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k_scanner_rm_4k.jpg.import",
+      "sha256": "961423fc27b13fc62d9ed8dd772d91d407a2c43b27c690b07575897e254288dd",
+      "bytes": 1509,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/tests/lab_material_state_review.gd",
+      "sha256": "bb48734b1e4cfc714ff54afd155b1ba0c4bac2cb28959c53df93da4493da79d7",
+      "bytes": 1371,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "godot/tests/room_four_high_views_review.gd",
+      "sha256": "4095dee829042ed803c0983d3ff794aa66236fa9c9baf3b0f58fb842f5ab4b50",
+      "bytes": 4687,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN",
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "art/production/refine_lab_service_frame_20261024.py",
+      "sha256": "480f2d7cfb560db02db9c6969fd21b0d74951c470ac1d76e40c03cd8c1b2b721",
+      "bytes": 4182,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "quality_first_lab",
+      "path": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+      "sha256": "a6f5931eb5a227b757388ac3ff5bc665eb467ace4470b8cfd6b99190d653fd20",
+      "bytes": 29800,
+      "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/scripts/environment/specimen_mechanical_dressing.gd",
+      "sha256": "addd51140390e1bea4c139e01457188bfa0825dab0f4b04a581e0f0dcaba7cd3",
+      "bytes": 11921
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/tests/specimen_dressing_public_review.gd",
+      "sha256": "5c264b75f1dcf8bc9e527a8ff26776b46e2c66898d86b75a948e7a5fff692c98",
+      "bytes": 3858,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_ceiling_tray.glb",
+      "sha256": "93b6f20b332e497d086a724648d54d161335728d518e59f0956c5ca5ec26e6ba",
+      "bytes": 283988
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_ceiling_tray.glb.import",
+      "sha256": "5671f415449da5f9986546ec8679802123c39bd1d1d7a78906815fe8578f605d",
+      "bytes": 1264
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb",
+      "sha256": "91da6947b48a5d4ba4af2f53ce4db91ce069db1e5a8c904f5a595b78e8395d50",
+      "bytes": 16246056
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k.glb.import",
+      "sha256": "ad29cbee967246de81be1b2ef3496c81ad7797c0620663c301e17e8b35a4fc38",
+      "bytes": 1276
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_basecolor_4096.jpg",
+      "sha256": "0f572f7e9a67442167e1b33156da5b946d21fe0ac86d0fee7337778efe3fcdfe",
+      "bytes": 2504501
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_basecolor_4096.jpg.import",
+      "sha256": "74f04f43cb1c8ba30cb44f53da02bb63b805df6ce789db55ff12145572238c77",
+      "bytes": 1277
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_normal_2048.png",
+      "sha256": "40d1189b3e99e5c9b4ee75f216d928ab630cd32f2ab977ccfea73ac32411eb37",
+      "bytes": 4237185
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_normal_2048.png.import",
+      "sha256": "7e2e4ec2eb3d1e2b55ddbf98fc748a0f410a411b7db11deb2a05f4b21d023224",
+      "bytes": 1268
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_rm_4096.png",
+      "sha256": "7c4b4ced85e7cb955b5a805d6408ecd6bc155c9195541babb6453f82a3b0cdbe",
+      "bytes": 8840028
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_filter_h31_pbr4k_specimen_filter_rm_4096.png.import",
+      "sha256": "1f6de30fca4a25d4230e939a2336e90c18b2d0c01586ec92bb77f63ec3125d8d",
+      "bytes": 1255
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_seal_cap.glb",
+      "sha256": "9fe930be7fd1aa88e7808169a08bbe3088b05c5cc18bf9ef3c511b6521151355",
+      "bytes": 967752
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_seal_cap.glb.import",
+      "sha256": "a4a42ec9b956f2710a366c43128c14653c81c5ec80d2ed8b1731f9e32bf5224a",
+      "bytes": 1252
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_sensor_housing.glb",
+      "sha256": "8ba03952456c644dcc201aa5addb4489d3083f7926930c053d4d79d14201cb67",
+      "bytes": 100960
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_sensor_housing.glb.import",
+      "sha256": "b6a35dfc37281b648ede24b4a5bfcc60c877b1132c68f70cde2376c6f077f4a9",
+      "bytes": 1270
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_terminal_case.glb",
+      "sha256": "3ab5401235168a92a5180df696b8d2e3e64f4a01042848952c1ceb7ff63dceba",
+      "bytes": 160256
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_terminal_case.glb.import",
+      "sha256": "fae24483834e8b015d6b2461c0c9076f200f4760429eb32784667b6e02705cb4",
+      "bytes": 1267
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_trim_unit.glb",
+      "sha256": "de2fb573f68b5db7c03cb6561e4aa13a33966121f9f60ed17642e57d22a648a5",
+      "bytes": 14604
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_trim_unit.glb.import",
+      "sha256": "7e8dec1eab629a969a70acaca668788645d7d02a48b41490b6c4429f61672645",
+      "bytes": 1255
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_wall_service_panel.glb",
+      "sha256": "f793094ac025d292b3727465aa160a35e1b2a3eaecdf7af39cfca0fd3a13cdd3",
+      "bytes": 110596
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/assets/environments/specimen_cp45/specimen_wall_service_panel.glb.import",
+      "sha256": "830887645799229a668c86c670749cb111c3f331925a88a0f82417d762fab118",
+      "bytes": 1282
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/shaders/specimen_sensor_optic.gdshader",
+      "sha256": "2d2e310851fa1c3ef044914e880d0502b40d9076404fd35fe675f4c3c6448b8c",
+      "bytes": 435
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/shaders/specimen_reserved_glass.gdshader",
+      "sha256": "e0d2b3b525b0e693ca5cd8998541c6d6e8afec4b9b8b968fad01aff0bbf4b9a1",
+      "bytes": 438
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "godot/tests/specimen_dressing_contract_review.gd",
+      "sha256": "a9384f0f0db9c745485dcb4cf0f9910dc863301688afc95459e4c9d5010fadb8",
+      "bytes": 7021
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "art/production/build_specimen_mechanical_20261025.py",
+      "sha256": "4eb057def42c692704bb34523807152ae291f665556df0d7ae7ffe396c59c246",
+      "bytes": 5349
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "art/production/build_specimen_filter_20261025.py",
+      "sha256": "0e08edd4c8d8f4150e2b08ae91f766c6ed96a83b724d3a073565ee8d2f43507a",
+      "bytes": 3236
+    },
+    {
+      "group": "specimen_cp45_native_dressing",
+      "path": "art/production/build_specimen_readability_20261025.py",
+      "sha256": "3449e40da026038945a206a9cbd84db5dca360dc956a08be97feb17da22517f6",
+      "bytes": 3611
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/scripts/environment/security_mechanical_dressing.gd",
+      "sha256": "c1fe7de29bb8efee8923f50e76832834ed184565f7a810515a26e3506507acc9",
+      "bytes": 7933
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/scripts/environment/security_optic_indicator.gd",
+      "sha256": "696d8c263bddff1903ee25c005c3fe8fdafbfec0d83083397eda850da17dd137",
+      "bytes": 279
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/shaders/security_station_readout.gdshader",
+      "sha256": "698ddd2c93f56417c170ab1b487666472fc8e6c0e65daacdb7fe7e62de643eb6",
+      "bytes": 449
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/tests/remaining_rooms_high_inventory.gd",
+      "sha256": "e84143374d00c174975be6cb4838f7b4ba1f031b692bfea4e9e28f90516f6ce5",
+      "bytes": 7461
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/tests/security_dressing_contract_review.gd",
+      "sha256": "851b8ac9a7e6cf8e072ca8f252facd3989dd3205a48bc375eaa25ab32d8a2127",
+      "bytes": 2449
+    },
+    {
+      "group": "security_cp45_native_dressing",
+      "path": "godot/tests/security_dressing_public_review.gd",
+      "sha256": "d6a420b341f9c3b1f18336b7a0d5a1e019ae3066e6192278627f8a8040c46ae0",
+      "bytes": 1894
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "art/production/build_archive_core_20261025.py",
+      "sha256": "8b3c0e6d41ff0366b7b383c40cf86a954dd90751a409e416972534304ebc735c",
+      "bytes": 4037
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "art/production/inspect_archive_base_20261025.py",
+      "sha256": "5ad9d659d04433f126013f892176020ec60e7c6cd91251cf3d88f100fb1ba830",
+      "bytes": 1901
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb",
+      "sha256": "8fee69e2c3cd5fa44f29dcc9102685e84037b37bd23a81da1f0c651222741dc0",
+      "bytes": 24000824
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb.import",
+      "sha256": "0c176fc8aeccbe244e1d9ecf928a6bb9a59bc501033807bc1c413946bc0d2937",
+      "bytes": 1269
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_basecolor_4096.jpg",
+      "sha256": "1ad0cd72f020e650bc6279d09d7934c6ed4edb7370e41c8f8a23b4953b8b6666",
+      "bytes": 2689675
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_basecolor_4096.jpg.import",
+      "sha256": "9ba7de0b2f69456aba54ef0d98635e78a560f8c19876a5a9d6eb85e5c740a8c8",
+      "bytes": 1579
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_normal_4096.jpg",
+      "sha256": "57e24db157f6757abfef46b82a1f244efe6e39ebfb0de4a4ff58fe8e6018c8d3",
+      "bytes": 2198598
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_normal_4096.jpg.import",
+      "sha256": "7d30b4b2ad08fb3085dea7a21f2577d27d61aca0b1144af24c61acd6cd58303c",
+      "bytes": 1564
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_rm_4096.png",
+      "sha256": "db4d4169d27d55bf3c6197e03dc943da9723812169c8c07236e7f4d25ade2dcf",
+      "bytes": 13130223
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_rm_4096.png.import",
+      "sha256": "2d079da36ad79e04993756cd4038c733318c3d16a0697b9dab17844a965d5802",
+      "bytes": 1544
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/props/server_rack.glb",
+      "sha256": "8cb9cd6af716ebe65b35cd041d6732ccd8026141894a7cb5dbaac4ba6aa21244",
+      "bytes": 2212556
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/assets/props/signal_console_jutsu.glb",
+      "sha256": "50528dd32094a0763c7d9b2da163fdf1912335de9a09ac0f7f5b39851022325b",
+      "bytes": 148836
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/scripts/environment/archive_decoder_readout.gd",
+      "sha256": "0e2d1b685ff6090de64f6776fe00869d41652b239a6317783bcb14449c85bfb6",
+      "bytes": 511
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/scripts/environment/archive_mechanical_dressing.gd",
+      "sha256": "8c564a939473567bfdb6edf031b338393587b337bfef193b215fbd1faab6dc33",
+      "bytes": 11516
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/shaders/archive_decoder_readout.gdshader",
+      "sha256": "4b7641c98d06cfe9388c251359704f8a58d8dea6f1fe13f00c94abddae47ef43",
+      "bytes": 784
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/shaders/archive_perforated_rail.gdshader",
+      "sha256": "3a27176e173cb65266fa2c95d5b6ffeecb5fc31f484dae277e7925fb6099a4d2",
+      "bytes": 364
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/tests/archive_dressing_contract_review.gd",
+      "sha256": "5d5fef809e05110d792dcf4509a328eb99aabfeee4b60f1b4718b1941672ee66",
+      "bytes": 4158
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/tests/archive_dressing_public_review.gd",
+      "sha256": "dea6e15b8f856885ee1d1772f6e7604b26584bf44cdf96a12419555a54d6b9dc",
+      "bytes": 4403,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "archive_cp45_measured_architecture",
+      "path": "godot/tests/archive_earned_reload_review.gd",
+      "sha256": "2bc36cf7fd3b00729397b3c223a178fd65d12c063f11262a237d52eb421a2911",
+      "bytes": 3299
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/scripts/environment/reactor_mechanical_dressing.gd",
+      "sha256": "594ff8098c67eba873f28c9fb61703f80bbcb3823ffddbbcf328ea1848dcb3cc",
+      "bytes": 17874,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/scripts/environment/reactor_breaker_readout.gd",
+      "sha256": "7200e3409b6f9fb470a8d3385f0241d75c5f17349fb972847f36b2e0954cfd95",
+      "bytes": 572,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/shaders/reactor_breaker_readout.gdshader",
+      "sha256": "8678fc2a62936ea8ac779b3c0cb33cae8604c67a6fd4be24df9d97e3eba834e4",
+      "bytes": 950,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/tests/reactor_dressing_public_review.gd",
+      "sha256": "220e1dc473f8c42849809c0ffd0a6eca0753ee3662df3de54455fbba3d6caf57",
+      "bytes": 4265,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k.glb",
+      "sha256": "4c14305e4d6e1d6a5391da64aad3c4da722dbd9116789d1f31a61176e322ac09",
+      "bytes": 28381132,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k.glb.import",
+      "sha256": "03ce1a3b1cc4e80ea1237c39def1bb2bbe94da62f98a556a1452f8907e53e1fc",
+      "bytes": 1257,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_basecolor_4096.jpg",
+      "sha256": "4d763200f61234fb1006311b58c7d69d6988ab87d39f96e5610624cd5fef2f8f",
+      "bytes": 3578220,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_basecolor_4096.jpg.import",
+      "sha256": "4e767badc17d47d89a7c19dffef5fb190a92578ebe7a64b6bcae5b1ec1f7c31a",
+      "bytes": 1563,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_normal_4096.jpg",
+      "sha256": "1156e642bc7844e20a0c24975ceecb20642c848c56c379ddabb2321fd0d2b142",
+      "bytes": 2681348,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_normal_4096.jpg.import",
+      "sha256": "9cd1e5eeb9f2bb955a79e1baee3d16022448a0d35c55bd4167a3a06e77c5a8a7",
+      "bytes": 1549,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_rm_4096.png",
+      "sha256": "d04bebc00a147b906adf00fd068a3f2db4db6f7ca10653b770c9fefa743059a0",
+      "bytes": 14417910,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/assets/environments/reactor_cp45/reactor_crown_pbr4k_reactor_crown_rm_4096.png.import",
+      "sha256": "bef157fc6d5a7200254de1778a2d084c4bcf3ba0c7c54c2983907320c661e6e5",
+      "bytes": 1529,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/tests/reactor_dressing_contract_review.gd",
+      "sha256": "aac85a5d5243c5a490fba38925181893fa69cb072555290004dedc935651c67c",
+      "bytes": 6743,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "reactor_scoped_environment",
+      "path": "godot/tests/reactor_earned_reload_review.gd",
+      "sha256": "78cd4f6c2d99a91aa05fd5cef0639aacf133f7d973f53893f9afe75f96339813",
+      "bytes": 3812,
+      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/scripts/environment/maintenance_mechanical_dressing.gd",
+      "sha256": "151a5f32480ec8ca1774fff6bc91a62d7ed912a42284694c5633a23617f2eb39",
+      "bytes": 6386,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/scripts/environment/maintenance_fullroom_dressing.gd",
+      "sha256": "9b5db36fb16d26044212eb9f92768200b8e04285a71009e86f6c545096a60966",
+      "bytes": 17701,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/scripts/environment/maintenance_precision_architecture.gd",
+      "sha256": "aa30a034bf4fc96744b1d30434d59eff2a636f0b735132628cff81e5e1a5b2cb",
+      "bytes": 10872,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/scripts/environment/maintenance_soft_shadow_lease.gd",
+      "sha256": "e59213962c3cf36990fbcc195ea58c76d620e88b00e3bfccb99640c5d0cb5151",
+      "bytes": 993,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/shaders/maintenance_architecture_aperture.gdshader",
+      "sha256": "eabf6727c272663b32b38d4e8416d6760e601b81a3adad415d55e82524b68398",
+      "bytes": 4395,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/shaders/maintenance_portal_backface.gdshader",
+      "sha256": "a10cbc623443ad293e563288f5f63eb80999bee92810a8d357a26a509ad905a8",
+      "bytes": 4297,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/tests/maintenance_dressing_public_review.gd",
+      "sha256": "c19dea5f7b3fb9e3440e4e6ca24f61e736e5eaf014bf0fb5f21a597d42a84c5a",
+      "bytes": 10242,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/tests/maintenance_dressing_contract_review.gd",
+      "sha256": "3bb1e1717a940553f1ee81566d8ab13147336807548a971cf4f5ef8fad472e1d",
+      "bytes": 10831,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/tests/maintenance_shadow_lease_review.gd",
+      "sha256": "593a90ef316989bfd73723d2c69d15b703bfb8e2d7e619ba89cc5d43a9647f63",
+      "bytes": 2465,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/tests/maintenance_earned_reload_review.gd",
+      "sha256": "9f73f8fb292ad47b797e183d837ae6420acd189cbadfdc3c6dce2a2837c1463c",
+      "bytes": 4373,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
     }
   ],
-  "current_runtime_review": "audits/evidence/external-research-20261016/cp34/verification-cp34.json",
-  "current_rendered_evidence": "audits/evidence/external-research-20261016/cp34-current-natural/connected-native-review.json",
+  "current_runtime_review": "audits/evidence/chapter-cp45-20261020/stage09/report.json",
+  "current_rendered_evidence": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-verified/review.json",
   "room01_acceptance": "FUNCTIONAL_BASELINE_VERIFIED; artistic/motion/listening/independent enjoyment gates OPEN and deferred by latest Owner priority",
-  "latest_verification": "audits/evidence/external-research-20261016/cp34/verification-cp34.json",
+  "latest_verification": "audits/evidence/chapter-cp45-20261020/stage09/report.json",
   "current_visual_evidence": {
-    "1": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room01-final\\diagnosis.json",
-      "sha256": "fa75fe23227b51399e31fd4a9eb4ca6d7ddc4834f42730036786e209ee15aa13"
-    },
-    "2": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room02-final\\diagnosis.json",
-      "sha256": "0dfef2933c00ac45128436a4f49ce29e5d4fd0d36c516b9ccfa074ab8c5da5e1"
-    },
-    "3": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room03-final\\diagnosis.json",
-      "sha256": "ae5b2538aed17eb94f428387c24eb10a2f349a0c6a1b36ab300f14e009cad537"
-    },
-    "4": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room04-final\\diagnosis.json",
-      "sha256": "807441ebc664645720eeafcc9061a5704368f33180e5faee97b13f0f60331b3a"
-    },
-    "5": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room05-final\\diagnosis.json",
-      "sha256": "38d66e7f421b9e85b753c2f6f6314aa8329fa2eb2058c5c9f127183c0801ffdf"
-    },
-    "6": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room06-final\\diagnosis.json",
-      "sha256": "c96e242a93a4d070feb98e3cbf3ddd22ab49ece11f69020e185af3ddb1baae59"
-    },
-    "7": {
-      "path": "audits\\evidence\\rooms01-07-polish-20261015\\room07-final\\diagnosis.json",
-      "sha256": "72d1f6486f82e924662bb1d308819fbd1cf42238c64efbb79de76b21afb6f451"
-    }
+    "scope": "Actual current Room02 V31 public-input hanging-to-standing and garment support, plus actual Room03 cue fixtures; no whole chapter/device/final hand or mesh-cloth acceptance",
+    "report": "audits/evidence/chapter-cp45-20261020/stage07/report.json",
+    "art_acceptance": "SCOPED_STAGE07_PASS__FINAL_CRAFT_OPEN"
   },
-  "active_asset_stage": "docs/internal/production/TRIPO_VALUE_AND_CHARACTER_AUDIT_CP36_2026-10-17.ar.md",
-  "active_asset_evidence": "audits/evidence/tripo-evaluation-20261017/cp36/evaluation.json",
-  "context_cache": "docs/internal/production/CURRENT_CONTEXT_CACHE.json"
+  "active_asset_stage": "CP45 native35-sample braced pull-up +20-sample standing continuation; phase07 scoped PASS, phase08 next",
+  "active_asset_evidence": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-verified/review.json",
+  "context_cache": "docs/internal/production/CURRENT_CONTEXT_CACHE.json",
+  "working_checkpoint": "CP45_STAGE13_ARCHIVE_STATIC_HIGH_ART_NATIVE48_SCOPED_PASS",
+  "current_visual_review": "audits/evidence/chapter-cp45-20261020/stage07/argon-high-verified-review.txt",
+  "stage07_verification": {
+    "status": "PASS_SCOPED",
+    "native_forward": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-verified/review.json",
+    "native_compatibility": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-clock-fixed/review.json",
+    "source_replay": [
+      "audits/evidence/chapter-cp45-20261020/stage07/braced-transfer/godot-all-joints.json",
+      "audits/evidence/chapter-cp45-20261020/stage07/standing-transfer/godot-all-joints.json"
+    ],
+    "source_keys_unchanged": true,
+    "art_acceptance": "Fine grip/stance and final chapter craft remain OPEN",
+    "adviser": "audits/evidence/chapter-cp45-20261020/stage07/argon-high-verified-review.txt"
+  },
+  "last_full_chapter_review": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-native11-final-20261023/full-chapter.json",
+  "stage08_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage08/report.json",
+    "scope": "Five physical mystery rooms only; final art/fun/devices and chapter approval OPEN",
+    "checks": 289,
+    "resume_checks": 150,
+    "retries": 0
+  },
+  "stage09_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage09/report.json",
+    "rendered_checks": 60,
+    "sealed_checks": 66,
+    "scope": "Kinja pre-pact only; final acting/art/audio/device/chapter OPEN"
+  },
+  "resume_state": "audits/evidence/chapter-cp45-20261020/stage11/resume-state-20261022.json",
+  "current_avatar_geometry": "godot/assets/characters/echo_v31_short_jacket.glb",
+  "stage11_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage11/native-attack-20261023/delivery.json",
+    "scope": "One original grounded native cut; pause-safe contact; bounded obstruction clearance; earned pact through ward and a fresh headless connected route. Final chapter/art/device/account acceptance remains OPEN."
+  },
+  "stage13_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/delivery.json",
+    "status": "SCOPED_PASS_FINAL_ART_PERFORMANCE_OPEN",
+    "scope": "Clinical lab presentation only; no chapter/AAA/fun/performance/device acceptance.",
+    "flow_reference": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4"
+  },
+  "stage13_specimen_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/quality-report.json",
+    "static_art": "PASS_SCOPED",
+    "native_contract": 33,
+    "public_samples": 10,
+    "scanner_retries": 0,
+    "full_plan": "OPEN"
+  },
+  "stage13_security_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/quality-report.json",
+    "native_colliders": 23,
+    "public_checks": 19,
+    "retries": 0,
+    "static_art": "PASS_SCOPED",
+    "full_plan": "OPEN"
+  },
+  "stage13_archive_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/quality-report.json",
+    "static_art": "PASS_SCOPED",
+    "native_colliders": 29,
+    "public_checks": 48,
+    "public_samples": 30,
+    "retries": 0,
+    "actual_earned_reload": "PASS",
+    "full_plan": "OPEN"
+  },
+  "latest_archive_palette_checkpoint": {
+    "checkpoint": "CP45_STAGE13_ARCHIVE_GRAPHITE_HIGH_NATIVE51_SCOPED_PASS",
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json",
+    "scope": "PASS_SCOPED_STATIC_ART_AND_NATIVE_51",
+    "remaining": [
+      "owner final visual approval",
+      "moving acting and complete memory playback acceptance",
+      "audio audition",
+      "performance on stronger hardware",
+      "full chapter/fun/package"
+    ]
+  },
+  "stage13_maintenance_verification": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/quality-report.json",
+    "native": "43 public checks/57PNG + actual5filecoldreload PASS;16colliders/11cues/391bars/4Kmaps;shadowlease7/Golden192 PASS",
+    "art": "ArchitecturePASS/MaterialsREFINE/CompositionREFINE",
+    "limits": "Prior Vulkan loss cause unproven;whole chapter/acting/audio/fun/strongerhardware OPEN"
+  }
 }

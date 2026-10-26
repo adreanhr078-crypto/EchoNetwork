@@ -1,0 +1,46 @@
+{
+  "source": "core-h31-pbr4k.glb",
+  "source_sha256": "713279291724e92c26349b7298850a859c1dcdfc85c2cb3ab181cfd31e8f1de8",
+  "output": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb",
+  "output_sha256": "8fee69e2c3cd5fa44f29dcc9102685e84037b37bd23a81da1f0c651222741dc0",
+  "triangles": 195893,
+  "surfaces": 1,
+  "native_collider": {
+    "radius": 2.8,
+    "height": 1.0,
+    "unchanged": true
+  },
+  "source_blender_extent": [
+    0.9788209199905396,
+    0.9775086641311646,
+    0.26519775390625
+  ],
+  "uniform_xy_scale": 5.715164565620361,
+  "height_scale": 3.770771001150748,
+  "actual_max_radius": 2.800000019386263,
+  "actual_top_band_radius": 2.255611963922912,
+  "native_visual_top_radius": 2.5,
+  "pivot": "bottom centre;Godot Y up",
+  "images": [
+    {
+      "role": "basecolor",
+      "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_0",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "role": "normal",
+      "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_2",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "role": "rm",
+      "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_1",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "lod": "Request native Godot generated mesh LODs;actual imported LODs not yet verified",
+  "scope": "Measured full-detail visual derivative;uniform radial fit with independent native height. Original195893 triangles andUV/source maps retained. Not exact reconstruction of the image or native art/player acceptance."
+}

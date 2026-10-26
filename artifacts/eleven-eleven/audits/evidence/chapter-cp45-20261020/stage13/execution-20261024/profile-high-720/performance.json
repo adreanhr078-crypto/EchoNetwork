@@ -1,0 +1,67 @@
+{
+	"adapter": "Intel(R) UHD Graphics",
+	"checks": 10,
+	"engine": "4.8-dev7 (official)",
+	"framebuffer": [
+		1280,
+		720
+	],
+	"msaa": 2,
+	"reduced_motion": false,
+	"render_scale": 1.0,
+	"renderer": "forward_plus",
+	"samples": [
+		{
+			"buffer_bytes": 110826316,
+			"draw_calls": 13436,
+			"frames": 180,
+			"max_ms": 102.846,
+			"name": "entry",
+			"p50_ms": 89.625,
+			"p95_ms": 95.901,
+			"p99_ms": 99.871,
+			"texture_bytes": 2661874816,
+			"video_bytes": 2967622272
+		},
+		{
+			"buffer_bytes": 112923468,
+			"draw_calls": 7197,
+			"frames": 180,
+			"max_ms": 103.093,
+			"name": "theater",
+			"p50_ms": 72.75,
+			"p95_ms": 98.081,
+			"p99_ms": 101.019,
+			"texture_bytes": 2661874816,
+			"video_bytes": 2971816576
+		},
+		{
+			"duration_ms": 2770.427,
+			"name": "native-walk-to-theater",
+			"scope": "Public movement/collision elapsed time; not a frame percentile"
+		},
+		{
+			"buffer_bytes": 112957140,
+			"draw_calls": 12700,
+			"frames": 180,
+			"max_ms": 138.015,
+			"name": "gameplay-camera",
+			"p50_ms": 108.769,
+			"p95_ms": 117.425,
+			"p99_ms": 120.97,
+			"texture_bytes": 2662136960,
+			"video_bytes": 2972112576
+		}
+	],
+	"scope": "Two fixed views and a real walked gameplay camera in the earned lab. 180 consecutive presented-frame intervals after warmup per view; no GPU timing, full chapter, fun or other-device acceptance.",
+	"source_hashes": {
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "26b86ef97e91461ca9d9fc060605c8f043224d69d15bc9d31fc39606d41da6fa",
+		"res://scripts/environment/clinical_lab_architecture.gd": "5ac222722f530d1143845cf54918ee6dc7100dafe7bd167b947c4080bc7be4fd",
+		"res://scripts/environment/lab_memory_cinema.gd": "80ac27d14897f04d7feef3f43c0f928fb1cb213beba873e21a97668e87e2aba4",
+		"res://scripts/environment/memory_reflection_space.gd": "038b7c7064e39f356a536e211abc44e4e922051be25e6d68bc5cd3a9ebe4cb42",
+		"res://tests/lab_performance_review.gd": "3f797965cdc779a08b223c9cc61b504c950ee201c3774f5cf75e0dfcbbd4f8b7"
+	},
+	"tier": "high",
+	"video_players": 2,
+	"water_active": true
+}

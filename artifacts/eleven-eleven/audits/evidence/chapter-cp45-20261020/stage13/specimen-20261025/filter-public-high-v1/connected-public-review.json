@@ -1,0 +1,193 @@
+{
+	"focus_interruptions": 0,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"no_pre_pact_power": true,
+	"public_samples": [
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-000.png",
+			"position": "(0.0, 5.400683, -64.88661)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(0.0, 0.000683, -14.88661)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-001.png",
+			"position": "(0.0, 5.400683, -68.97789)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-2.5, 0.000683, 2.02211)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-002.png",
+			"position": "(0.0, 5.400683, -68.00397)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-2.5, 0.000683, 2.996025)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-003.png",
+			"position": "(-20.5054, 5.400683, -67.99974)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-23.0054, 0.000683, 3.000259)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-004.png",
+			"position": "(-22.14866, 5.400683, -76.99237)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-24.64866, 0.000683, -5.992371)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-005.png",
+			"position": "(-23.49239, 5.400683, -81.3754)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": false
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-25.99239, 0.000683, -10.3754)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-006.png",
+			"position": "(-25.49585, 5.400683, -81.40081)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-27.99585, 0.000683, -10.40081)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-007.png",
+			"position": "(-25.50232, 5.400683, -82.97997)",
+			"progress": {
+				"completed": [],
+				"flags": {
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-28.00232, 0.000683, -11.97997)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-008.png",
+			"position": "(-28.27387, 5.400683, -83.00285)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-30.77387, 0.000683, -12.00285)"
+		},
+		{
+			"combat_available": false,
+			"control_locked": false,
+			"file": "public-009.png",
+			"position": "(-41.29959, 5.400683, -82.99999)",
+			"progress": {
+				"completed": [
+					"specimen"
+				],
+				"flags": {
+					"archive": {
+						"archive_decoded": false,
+						"shard_sector11": false,
+						"shard_shizuka": false,
+						"shard_yuki": false
+					},
+					"specimen": {
+						"terminal_read": true
+					}
+				},
+				"schema": "echo-sector11-campaign-v1"
+			},
+			"room_local": "(-13.79959, 0.000683, 0.000008)"
+		}
+	],
+	"renderer": "forward_plus",
+	"saved_completion": [
+		"specimen"
+	],
+	"scope": "Existing validated security fixture,then entirely public input across specimen,actual terminal,physical threshold and archive buffer;not fresh chapter or fun acceptance.",
+	"solid_floor": true,
+	"tier": "high"
+}

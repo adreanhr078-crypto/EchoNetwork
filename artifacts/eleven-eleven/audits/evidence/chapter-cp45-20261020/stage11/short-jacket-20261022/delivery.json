@@ -1,0 +1,65 @@
+{
+  "checkpoint": "CP45_SHORT_JACKET_SCOPED_VERIFIED__STAGE10_REVIEW_OPEN",
+  "status": "SCOPED_CHARACTER_CHANGE_PASS_NOT_FINAL_CHARACTER_OR_STEAM_ACCEPTANCE",
+  "owner_authorization": "Owner explicitly permits the same Echo with the long coat cut, prioritizing no character deformation and Steam quality.",
+  "runtime_scene": "godot/scenes/characters/echo_v31_adopted.tscn",
+  "runtime_geometry": "godot/assets/characters/echo_v31_short_jacket.glb",
+  "source_preserved": "godot/assets/characters/echo_v31_adopted_high.glb",
+  "derivative_sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+  "change": "Only eligible long garment triangles clipped at source Y=.49 with narrow folded hem; exact original skeleton, native motion libraries and original body/face vertices retained. Existing cape solver remains unchanged for legacy use; current short variant does not create it.",
+  "binary_integrity": {
+    "status": "PASS_SOURCE_BODY_RIG_MOTION_BINARY_INTEGRITY",
+    "source_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "variant_sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+    "unchanged_original_vertices": 198017,
+    "unchanged_protected_body_or_mixed_seam_triangles": 228339,
+    "unchanged_native_animation_accessors": 206,
+    "unchanged_joints_and_inverse_binds": 68,
+    "new_boundary_vertices": 7381,
+    "maximum_weight_normalization_error": 1.7881393432617188e-07,
+    "visual_boundary": "Binary integrity proves no added deformation in original body/face skin or source motion. Critical garment poses and runtime contacts still require visual inspection."
+  },
+  "native_motion": {
+    "checks": 19392,
+    "native_samples": 280,
+    "clips": [
+      "IDLE",
+      "WALK",
+      "RUN",
+      "preset_jump",
+      "PARKOUR_HANG",
+      "PARKOUR_MANTLE",
+      "PARKOUR_STAND"
+    ],
+    "rest_inverse_bind_hierarchy_and_RM": "PASS",
+    "report": "audits\\evidence\\chapter-cp45-20261020\\stage11\\short-jacket-20261022\\qualified-views\\review.json"
+  },
+  "runtime_checks": {
+    "public_locomotion_pause_turn_jump": "PASS 13 checks; locomotion.log",
+    "native_mantle": "PASS 9 applicable checks/106 physics samples; native-mantle/review.json",
+    "native_mantle_garment_tip_checks": "NOT_APPLICABLE to removed long skirt; report fields explicitly null, not inferred PASS",
+    "golden": "PASS 192 protected files",
+    "content_validation": "PASS",
+    "diff_check": "PASS"
+  },
+  "visual_review": {
+    "status": "SCOPED_PASS_NO_ADDED_COLLAPSE_OR_STRETCH_OBSERVED_IN_REVIEWED_POSES",
+    "images": 21,
+    "folder": "audits\\evidence\\chapter-cp45-20261020\\stage11\\short-jacket-20261022\\final-views",
+    "reviewed": "Three angles for each of seven critical poses, examined as two contact sheets; actual current Godot skin/shader, isolated camera visibility and fixture lights. Initial native-room current captures retained separately.",
+    "limits": "Still poses do not prove every transition or contact frame. Existing fine shading/texture noise, face/finger craft, full-route/device performance and final character art acceptance remain OPEN."
+  },
+  "cape_attempts": "Original joint-tip check missed actual panel skin. Root translation opened sewn waist; rejected. Rotation cage reduced crossing counts without eliminating them; rejected. Both implementations retained in cape-owner-20261022; exact original driver restored. No further blind cape tuning.",
+  "tripo": {
+    "live_current_balance": 200,
+    "additional_spend_for_this_fix": 0,
+    "current_ui": "Upgrade to unlock 3D model exports; no paid generation submitted on this account. Earlier2815 balance belongs to earlier account/session snapshot.",
+    "argon_cape_consultation": "No completed new cape reply available; do not claim adviser acceptance. Earlier stage10 review remains separately saved."
+  },
+  "remaining": [
+    "Stage10 charged power-release input and iai completion path; verify deferred/camera findings against current tests.",
+    "Stage11 low-cover/diagonal Iai tests and qualified actual weapon motion.",
+    "Stage12 wish/hospital; stage13 art/face/hands/audio; stage14 complete route/save/performance/package/live receipts."
+  ],
+  "economy": "Resume from compact local checkpoint/hashes. Do not reread the full referenced chat or repeat passing tests without a relevant edit/failure. Full postflight remains scheduled at owner stage11/14 milestones; this character slice does not close stage11."
+}

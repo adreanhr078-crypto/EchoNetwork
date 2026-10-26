@@ -1,0 +1,314 @@
+{
+	"anchors": [
+		"(-2.0, 0.1, 0.0)",
+		"(-11.0, 0.1, 0.0)",
+		"(-11.0, 3.7, 0.0)"
+	],
+	"colliders": [
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, -0.2, 0.0)]",
+			"path": "Floor/CollisionShape3D",
+			"size": "(22.0, 0.4, 28.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 8.7, 0.0)]",
+			"path": "Ceiling/CollisionShape3D",
+			"size": "(22.0, 0.4, 28.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 4.25, 14.2)]",
+			"path": "SouthWall/CollisionShape3D",
+			"size": "(22.0, 8.5, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-22.2, 4.25, 0.0)]",
+			"path": "WestWall/CollisionShape3D",
+			"size": "(0.4, 8.5, 28.0)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.2, 4.25, -7.65)]",
+			"path": "EastWallNorth/CollisionShape3D",
+			"size": "(0.4, 8.5, 12.7)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.2, 4.25, 7.65)]",
+			"path": "EastWallSouth/CollisionShape3D",
+			"size": "(0.4, 8.5, 12.7)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.2, 5.85, 0.0)]",
+			"path": "EastLintel/CollisionShape3D",
+			"size": "(0.4, 5.3, 2.6)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-17.0125, 4.25, -14.2)]",
+			"path": "NorthWallWest/CollisionShape3D",
+			"size": "(9.975, 8.5, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-4.9875, 4.25, -14.2)]",
+			"path": "NorthWallEast/CollisionShape3D",
+			"size": "(9.975, 8.5, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 5.65, -14.2)]",
+			"path": "NorthLintel/CollisionShape3D",
+			"size": "(2.05, 5.7, 0.4)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 3.5, 0.0)]",
+			"path": "CatwalkBridge/CollisionShape3D",
+			"size": "(16.0, 0.2, 2.2)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 4.1, -1.05)]",
+			"path": "CatwalkRailNorth/CollisionShape3D",
+			"size": "(16.0, 1.0, 0.1)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.9, 4.1, 1.05)]",
+			"path": "CatwalkRailSouth/CollisionShape3D",
+			"size": "(14.2, 1.0, 0.1)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 0.883788, 0.467888), Z: (0.0, 0.467888, -0.883788), O: (-3.8, 1.711621, 4.953211)]",
+			"path": "CatwalkStairSupport/@CollisionShape3D@27",
+			"size": "(1.8, 0.2, 7.694153)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-3.8, 3.5, 1.2)]",
+			"path": "CatwalkStairLanding/@CollisionShape3D@29",
+			"size": "(1.8, 0.2, 0.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-6.0, 0.0, -6.5)]",
+			"path": "NorthRack_6/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-6.0, 0.0, 6.5)]",
+			"path": "SouthRack_6/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 0.0, -6.5)]",
+			"path": "NorthRack_11/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 0.0, 6.5)]",
+			"path": "SouthRack_11/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-16.0, 0.0, -6.5)]",
+			"path": "NorthRack_16/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-16.0, 0.0, 6.5)]",
+			"path": "SouthRack_16/CollisionShape3D",
+			"size": "(2.4, 6.5, 1.8)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.25, 0.0)]"
+		},
+		{
+			"class": "CylinderShape3D",
+			"disabled": false,
+			"height": 1.0,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 0.5, 0.0)]",
+			"path": "HolographicCorePedestal/CollisionShape3D",
+			"radius": 2.79999995231628,
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "SphereShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-6.0, 0.85, 4.1)]",
+			"path": "Shard_shard_shizuka/CollisionShape3D",
+			"radius": 1.39999997615814,
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "SphereShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-16.0, 0.85, -4.1)]",
+			"path": "Shard_shard_yuki/CollisionShape3D",
+			"radius": 1.39999997615814,
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "SphereShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 3.95, 0.0)]",
+			"path": "Shard_shard_sector11/CollisionShape3D",
+			"radius": 1.39999997615814,
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 0.6, -3.2)]",
+			"path": "ArchiveDecoderConsole/CollisionShape3D",
+			"size": "(1.8, 1.2, 1.2)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "CylinderShape3D",
+			"disabled": false,
+			"height": 2.5,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+			"path": "ArchiveDecoderConsole/InteractionArea/CollisionShape3D",
+			"radius": 2.40000009536743,
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 3.2, -14.0)]",
+			"path": "ExitGateFrameTop/CollisionShape3D",
+			"size": "(2.25, 0.4, 0.5)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		},
+		{
+			"class": "BoxShape3D",
+			"disabled": false,
+			"layer": 1,
+			"mask": 1,
+			"parent_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-11.0, 1.4, -14.0)]",
+			"path": "NorthExitBlastGate/CollisionShape3D",
+			"size": "(2.05, 2.8, 0.25)",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+		}
+	],
+	"core_height": 7.5,
+	"core_position": "(-11.0, 4.25, 0.0)",
+	"shards": [
+		"shard_shizuka",
+		"shard_yuki",
+		"shard_sector11"
+	],
+	"state": {
+		"archive_decoded": false,
+		"collected_shards": [],
+		"gate_open": false,
+		"state": 0
+	}
+}

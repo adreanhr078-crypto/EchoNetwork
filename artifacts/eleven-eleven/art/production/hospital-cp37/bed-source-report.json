@@ -1,0 +1,19 @@
+{
+  "source": "original editable parametric bed skin; no generated mesh retopology",
+  "triangles": 12304,
+  "materials": [
+    "CP37_Ward_Graphite",
+    "CP37_Ward_Linen",
+    "CP37_Ward_Ceramic"
+  ],
+  "source_parts": 28,
+  "dimensions_m_blender_z_up": [
+    2.4000000953674316,
+    1.156000018119812,
+    0.9439999461174011
+  ],
+  "origin": "floor centre0,0,0; nativeYup",
+  "preserve": "existing mattress/bed collision, anchors and all furniture interactions; replace visual meshes only",
+  "cloth": "broad mesh folds; native procedural weave still required",
+  "status": "SOURCE_AND_EXPORT_CANDIDATE_NATIVE_REVIEW_PENDING"
+}

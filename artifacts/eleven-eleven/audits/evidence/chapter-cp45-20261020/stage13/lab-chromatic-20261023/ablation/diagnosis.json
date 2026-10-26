@@ -1,0 +1,232 @@
+{
+	"environment": {
+		"ambient": "(0.68, 0.67, 0.78, 1.0)",
+		"contrast": 1.22000002861023,
+		"energy": 0.800000011920929,
+		"exposure": 1.17999994754791,
+		"saturation": 1.37999999523163
+	},
+	"lights": [
+		{
+			"color": "(0.84, 0.9, 1.0, 1.0)",
+			"energy": 0.920000016689301,
+			"path": "DirectionalLight3D",
+			"position": "(0.0, 12.0, 0.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.0, 0.94, 1.0, 1.0)",
+			"energy": 1.79999995231628,
+			"path": "EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/BladeGlowLight",
+			"position": "(-53.17367, 10.12724, -299.3498)",
+			"visible": true
+		},
+		{
+			"color": "(0.12, 0.8, 1.0, 1.0)",
+			"energy": 3.5,
+			"path": "EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeGlowLight",
+			"position": "(-53.20053, 10.11218, -299.3104)",
+			"visible": false
+		},
+		{
+			"color": "(0.0, 0.94, 1.0, 1.0)",
+			"energy": 1.79999995231628,
+			"path": "EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/BladeGlowLight",
+			"position": "(-52.93776, 10.74207, -300.0484)",
+			"visible": false
+		},
+		{
+			"color": "(0.92, 0.78, 0.72, 1.0)",
+			"energy": 1.14999997615814,
+			"path": "EchoPlayer/ModelRoot/EchoFaceFill",
+			"position": "(-52.53256, 10.55068, -300.3999)",
+			"visible": true
+		},
+		{
+			"color": "(0.78, 0.77, 0.9, 1.0)",
+			"energy": 0.949999988079071,
+			"path": "EchoPlayer/ModelRoot/EchoShoulderFill",
+			"position": "(-52.50305, 10.85068, -299.1302)",
+			"visible": true
+		},
+		{
+			"color": "(0.45, 0.06, 0.85, 1.0)",
+			"energy": 0.0208000000566244,
+			"path": "EchoPlayer/ModelRoot/ZeroEyeSingularity/EyeLight",
+			"position": "(-52.50909, 10.99038, -299.6397)",
+			"visible": true
+		},
+		{
+			"color": "(0.34, 0.04, 0.6, 1.0)",
+			"energy": 0.194999992847443,
+			"path": "EchoPlayer/ModelRoot/ZeroShadowWing/WingGlowLight",
+			"position": "(-52.08575, 11.07329, -299.7599)",
+			"visible": true
+		},
+		{
+			"color": "(0.48, 0.055, 1.0, 1.0)",
+			"energy": 0.159999996423721,
+			"path": "EchoPlayer/ModelRoot/ZeroShadowWing/ContractResonance/WingRootResonance/@OmniLight3D@5",
+			"position": "(-52.40809, 10.82555, -299.8342)",
+			"visible": true
+		},
+		{
+			"color": "(0.48, 0.055, 1.0, 1.0)",
+			"energy": 0.550000011920929,
+			"path": "EchoPlayer/ModelRoot/ZeroShadowWing/ContractResonance/WingSideHandResonance/@OmniLight3D@4",
+			"position": "(-52.23784, 10.35678, -299.7953)",
+			"visible": true
+		},
+		{
+			"color": "(0.78, 0.86, 1.0, 1.0)",
+			"energy": 0.0599999986588955,
+			"path": "HyperChromaticKey",
+			"position": "(0.0, 0.0, 0.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.65, 0.24, 0.85, 1.0)",
+			"energy": 0.0399999991059303,
+			"path": "HyperChromaticCounterRim",
+			"position": "(0.0, 0.0, 0.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@817",
+			"position": "(-59.86, 18.7, -304.8)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@818",
+			"position": "(-45.14, 18.7, -304.8)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@819",
+			"position": "(-59.86, 18.7, -292.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@820",
+			"position": "(-45.14, 18.7, -292.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@821",
+			"position": "(-59.86, 18.7, -279.2)",
+			"visible": true
+		},
+		{
+			"color": "(0.9, 0.94, 1.0, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ServiceLighting/@OmniLight3D@822",
+			"position": "(-45.14, 18.7, -279.2)",
+			"visible": true
+		},
+		{
+			"color": "(0.88, 0.98, 1.0, 1.0)",
+			"energy": 4.0,
+			"path": "Campaign_lab/SurgicalSpotlight",
+			"position": "(-52.5, 18.6, -292.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.7, 0.05, 0.8, 1.0)",
+			"energy": 1.39999997615814,
+			"path": "Campaign_lab/ZeroAuraLight",
+			"position": "(-52.5, 12.2, -304.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.65, 0.1, 0.9, 1.0)",
+			"energy": 0.0,
+			"path": "Campaign_lab/Stasis1111Light",
+			"position": "(-52.5, 14.4, -310.5)",
+			"visible": true
+		},
+		{
+			"color": "(0.7, 0.81, 1.0, 1.0)",
+			"energy": 4.0,
+			"path": "Campaign_lab/PactRevengePresentation/StoryFill",
+			"position": "(-57.5, 13.8, -300.0)",
+			"visible": true
+		},
+		{
+			"color": "(1.0, 0.66, 0.48, 1.0)",
+			"energy": 4.0,
+			"path": "Campaign_lab/PactRevengePresentation/@OmniLight3D@943",
+			"position": "(-48.5, 13.2, -302.0)",
+			"visible": true
+		},
+		{
+			"color": "(0.55, 0.64, 0.73, 1.0)",
+			"energy": 1.75,
+			"path": "Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/ManifestationSoftRim",
+			"position": "(-55.5, 13.54, -308.7)",
+			"visible": false
+		},
+		{
+			"color": "(0.65, 0.5, 0.46, 1.0)",
+			"energy": 1.35000002384186,
+			"path": "Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/@OmniLight3D@1009",
+			"position": "(-49.8, 12.14, -308.3)",
+			"visible": false
+		},
+		{
+			"color": "(0.58, 0.64, 0.7, 1.0)",
+			"energy": 1.25,
+			"path": "Campaign_lab/PactRevengePresentation/ZeroShadowManifestation/@OmniLight3D@1010",
+			"position": "(-52.5, 14.24, -304.0)",
+			"visible": false
+		},
+		{
+			"color": "(1.0, 0.149, 0.102, 1.0)",
+			"energy": 2.40000009536743,
+			"path": "Campaign_lab/DrKinga/MonocleLight",
+			"position": "(-52.62508, 11.02013, -299.2172)",
+			"visible": true
+		},
+		{
+			"color": "(0.1, 1.0, 0.35, 1.0)",
+			"energy": 3.5,
+			"path": "Campaign_lab/DrKinga/SyringeGlow",
+			"position": "(-52.95685, 10.45013, -299.2895)",
+			"visible": false
+		}
+	],
+	"renderer": "forward_plus",
+	"scope": "Diagnostic earned actual room only; no runtime art change or approval",
+	"wall_materials": [
+		{
+			"color": "(0.51, 0.56, 0.65, 1.0)",
+			"emission": "<null>",
+			"name": "Floor",
+			"rim": "0.035",
+			"shadow": "(0.4, 0.32, 0.62, 1.0)"
+		},
+		{
+			"color": "(0.55, 0.59, 0.67, 1.0)",
+			"emission": "<null>",
+			"name": "NorthWallWest",
+			"rim": "0.035",
+			"shadow": "(0.4, 0.32, 0.62, 1.0)"
+		},
+		{
+			"color": "(0.55, 0.59, 0.67, 1.0)",
+			"emission": "<null>",
+			"name": "WestWall",
+			"rim": "0.035",
+			"shadow": "(0.4, 0.32, 0.62, 1.0)"
+		}
+	]
+}

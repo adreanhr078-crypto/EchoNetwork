@@ -1,0 +1,32 @@
+{
+  "stage": "primary silhouette; not detail or acceptance",
+  "objects": [
+    "StasisFrame_LowerRing",
+    "StasisFrame_UpperRing",
+    "StasisFrame_LeftRail",
+    "StasisFrame_RightRail"
+  ],
+  "dimensions_m": [
+    1.760000228881836,
+    1.7599999904632568,
+    2.5999999046325684
+  ],
+  "source_presentation_offset": [
+    10,
+    0,
+    0
+  ],
+  "export_origin": "reset root to bottom-centre0,0,0 only during export",
+  "triangles": 696,
+  "preserved_default_objects": [
+    "Cube",
+    "Light",
+    "Camera"
+  ],
+  "open_edges": {
+    "StasisFrame_LowerRing": 0,
+    "StasisFrame_UpperRing": 0,
+    "StasisFrame_LeftRail": 0,
+    "StasisFrame_RightRail": 0
+  }
+}

@@ -1,0 +1,45 @@
+{
+	"checks": 61,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"renderer": "forward_plus",
+	"scope": "Earned native lab: two advancing whole muted videos; pause; live Reduced Motion posters and frozen water; low/high reflection targets; no story mutations; scene unload. No full-route/performance/art acceptance.",
+	"skin_identifier": {
+		"angle_degrees": 0.0,
+		"atlas_size": [
+			4096,
+			4096
+		],
+		"atlas_skin_only": true,
+		"body_mesh": "EchoV31BodyAndCoat",
+		"bone": "Neck",
+		"collar_occlusion_checked": true,
+		"font_scale": 0.75,
+		"head_bone": "Head",
+		"ink_pixels": 218,
+		"legacy_fallback": false,
+		"method": "instance-local skin albedo ink",
+		"native_skin": true,
+		"rest_center": [
+			0.0135364858433604,
+			0.829465329647064,
+			0.0320438332855701
+		],
+		"rig_profile": "echo_v31_authored_68",
+		"skin_offset_local_m": 0.0,
+		"skin_triangles": 1088,
+		"vertices": 606
+	},
+	"source_hashes": {
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://assets/environments/lab_clinical_cp45/clinical_perimeter_packed.glb": "dbb6a4b61f6b3318fb0410a86cbfd8ba55aa6389639c32bfc1e947d04d7f7533",
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "0bba36e97a6e7939b2a08bc4ce849fd12062abe43ecc4c71fc04e03946b1cdc1",
+		"res://scripts/environment/clinical_lab_architecture.gd": "23695735d1511a5abd356c7562c58fe4e81ebce3ecdaf4a3bdb9bf8c4cbaf645",
+		"res://scripts/player/echo_skin_identifier.gd": "7a8cbdc9808b51e0fe0a16528368e7837a8bc5efbc7bf4319c3b06777a24e585",
+		"res://shaders/clinical_architecture_surface.gdshader": "e2833ee28ee81e76fabfb8b3dd27e1df51b53034e0be4fe1b21cb3240ac94782",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://tests/lab_presentation_lifecycle_review.gd": "647537811e9b738aca58229ecaae1e93c81b851a20afb90cf45e44ea285caa49"
+	}
+}

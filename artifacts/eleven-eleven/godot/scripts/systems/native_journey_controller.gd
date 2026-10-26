@@ -156,6 +156,10 @@ func _store(next: Dictionary) -> bool:
 
 func refresh_objective() -> void:
 	if not main or not main.hud or not maintenance or maintenance.stage != 7: return
+	# Language/settings callbacks can reach this disabled owner after the
+	# security handoff. Only the live campaign may write its current objective.
+	var campaign := main.get_node_or_null("NativeCampaignController")
+	if campaign and campaign.active: return
 	var title: String = main.opening_text("خلف منفذ الخدمة", "Beyond service access")
 	var hint: String = main.opening_text("اعبر فسحة الخدمة نحو الحاجز الأمني.", "Cross the service landing toward the security barrier.")
 	if security_entered and security:

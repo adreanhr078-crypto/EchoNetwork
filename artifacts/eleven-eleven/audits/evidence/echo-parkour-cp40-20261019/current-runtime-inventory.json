@@ -1,0 +1,63 @@
+{
+	"all_clip_names": [
+		"IDLE",
+		"Idle_Source_Retarget",
+		"Jump_Source_Retarget",
+		"RUN",
+		"Run_Source_Retarget",
+		"WALK",
+		"preset_jump"
+	],
+	"clips": {
+		"Braced_To_Free_Hang": {
+			"present": false
+		},
+		"CLIMB": {
+			"present": false
+		},
+		"IDLE": {
+			"duration": 1.89999997615814,
+			"present": true,
+			"tracks": 60
+		},
+		"Jump_To_Hang": {
+			"present": false
+		},
+		"PARKOUR_CLIMB": {
+			"present": false
+		},
+		"PARKOUR_HANG": {
+			"present": false
+		},
+		"PARKOUR_MANTLE": {
+			"present": false
+		},
+		"PARKOUR_VAULT": {
+			"present": false
+		},
+		"RUN": {
+			"duration": 0.800000011920929,
+			"present": true,
+			"tracks": 60
+		},
+		"WALK": {
+			"duration": 0.800000011920929,
+			"present": true,
+			"tracks": 60
+		},
+		"preset_jump": {
+			"duration": 2.43333339691162,
+			"present": true,
+			"tracks": 60
+		}
+	},
+	"current_anim": "IDLE",
+	"scope": "Read-only current V31 runtime clip availability, not art acceptance",
+	"source_hashes": {
+		"assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+		"scripts/player/echo_player.gd": "e215be60f59cf99b6c5ab93ff35957dcf375c5d95ff0981005aca41cf36fd08c",
+		"scripts/player/echo_rig_profile.gd": "4cac8c59cc4a44ea352c3304364c18dee1b991866fa621d61ce940e5ea85055d",
+		"scripts/player/mixamo_animation_bridge.gd": "87e0275efb145c7f620213d9223994bb8b4f91b8e972881490d96df5a76ef132",
+		"scripts/player/surface_traversal_motor.gd": "433966c3f29fba9234372cd383d2a5d3c4cf91ee5e6e19b43278b85bbd216a84"
+	}
+}

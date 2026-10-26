@@ -1,0 +1,70 @@
+{
+  "status": "PASS_SOURCE_SEMANTICS_ONLY",
+  "take_id": "cca789212f4a334b9ec9309a:0:5173144e",
+  "source_sha256": "cca789212f4a334b9ec9309a2022abdcc963bff2a16473cd575e8e997d78e7bd",
+  "diagnosis_sha256": "bbbb99a69b82c72982c49d8e8ad983318287d2fa5eae7f30676506db76c63e37",
+  "reviewed_retained_current_source_images": [
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0001-front.png",
+      "sha256": "730382a81361e90bc2d59dbb461a6362e578533e2b2b823e40dba3e4c03bab80"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0001-side.png",
+      "sha256": "626e26959303358e857feb651cb9300f62f5385eeb18c243d4cf1796f8b2f5ef"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0007-front.png",
+      "sha256": "89f10f3dda20d416993356e1f0065fc97ddb26f2dd6a3ff66a2bec0bf3aabbd4"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0007-side.png",
+      "sha256": "40c0427e6567e994953272fad1ba77a044b6e126ef38a897fb7e32851a5d2122"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0013-front.png",
+      "sha256": "27ebd2c1cc12e6606ddb58485a41ca2afe76906d0a9de02dd24b414d7e7444eb"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0013-side.png",
+      "sha256": "8cf438354dcc8e3a3be13e75232a4d72e8ab9496061fafd4e4e1332ce380d160"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0019-front.png",
+      "sha256": "bc983a3d578fdaa576b48b2c6f8ca9d38edd4c890a354dfe16ba2c390f69f950"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0019-side.png",
+      "sha256": "849992bbb7e65835e737845f8c31579663f67d07053390b648685b1baac1ccd0"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0025-front.png",
+      "sha256": "637507dfb330d2fa0b57e8e0d26828c5aa6b505a50ad3c7f65048edc6f9a6bca"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0025-side.png",
+      "sha256": "bcae3b1b9fbc7ce284f4a4bb6709759a160326e96f145990c6b2b8b53718d8e4"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0031-front.png",
+      "sha256": "25d80f99b409b256a32a2a1977c11d22f77e4c1185ecbce31a85e74cd62352bd"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0031-side.png",
+      "sha256": "f52cbb5d5d21dfee46e876f0fdf985e82df6ea89b410ffc69adfb75a6d082d92"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0037-front.png",
+      "sha256": "735f3c136232ec5783e045fbb93d4de2413a3144844e37171405f40befcacce4"
+    },
+    {
+      "path": "audits\\evidence\\chapter-execution-20261009\\cp21-v31-walk\\source-cpu-frames\\0037-side.png",
+      "sha256": "cc84c4d1aaa7e4eb3127145fd83e557911dc0fd74c35fcbf2c2c42987b172f92"
+    }
+  ],
+  "observations": [
+    "Inspected all14 native skeleton views and both contact sheets in current turn. Alternating ordinary walking, opposite arm swing, matching cycle boundary.",
+    "Source is the retained exact IPC FBX; fresh current-target diagnosis validates original30FPS37samples. Historical target art/numerics are not reused as current acceptance.",
+    "IPC has no net authored travel. Stride speed must be derived from this take stance velocity, not assigned from the distinct Golden Walk."
+  ],
+  "runtime_accepted": false
+}

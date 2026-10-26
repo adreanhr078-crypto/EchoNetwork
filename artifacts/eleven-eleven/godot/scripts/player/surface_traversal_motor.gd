@@ -22,6 +22,21 @@ var _transition_kind := ""
 var _transition_clip := ""
 var _transition_local_points: Array[Vector3] = []
 var last_catch_correction := 0.0
+var hang_grip_world := Vector3.ZERO
+var _hang_grip_local := Vector3.ZERO
+var _hang_elapsed := 0.0
+var native_mantle_active := false
+var _native_model: Node3D
+var _native_rig: Skeleton3D
+var _native_anchor := Vector3.ZERO
+var _native_first_anchor := Vector3.ZERO
+var _native_grip_shift := Vector3.ZERO
+var _native_landing_shift := 0.0
+var _native_sole_height := 0.0
+var _native_pull_duration := 0.0
+var _native_sample_time := 0.0
+var _native_phase := 0
+var _native_floor_local := Vector3.ZERO
 
 func _capsule_clear(body: CharacterBody3D, at: Vector3) -> bool:
 	var collision := body.get_node("CollisionShape3D") as CollisionShape3D
@@ -70,14 +85,31 @@ func _catch(body: CharacterBody3D, wall: Dictionary) -> bool:
 	if last_catch_correction > ASSIST_LIMIT + 0.00001 or not _capsule_clear(body, destination) or not _clear_path(body, body.global_position, destination): return false
 	body.global_position = destination
 	_remember_contact(body, wall)
+	hang_grip_world = wall.position + wall.normal * 0.025
+	hang_grip_world.y = top.position.y - 0.035
+	_hang_grip_local = _contact_body.to_local(hang_grip_world)
+	_hang_elapsed = 0.0
 	body.traversal.start_climbing(wall.normal, wall.position)
 	hanging = true
 	body.jump_buffer_timer = 0.0
 	body.coyote_timer = 0.0
 	body.cancel_roll()
 	body.velocity = Vector3.ZERO
+	if body.visual_root:
+		body.visual_root.rotation.y = atan2(-wall.normal.x, -wall.normal.z) + body.model_forward_yaw_offset
+	_tick_hang_animation(body, 0.0)
 	ledge_reached.emit()
 	return true
+
+func _tick_hang_animation(body: CharacterBody3D, delta: float) -> void:
+	if not body.animation_player or not body.animation_player.has_animation("PARKOUR_HANG"): return
+	var clip:Animation = body.animation_player.get_animation("PARKOUR_HANG")
+	_hang_elapsed = minf(clip.length, _hang_elapsed + delta)
+	if body.current_anim != "PARKOUR_HANG": body.play_anim("PARKOUR_HANG", 0.0)
+	# Support semantics belong to the runtime state, never to edited source keys.
+	# A flat wall uses the qualified braced pose; overhead free-hang can play out.
+	body.animation_player.speed_scale = 0.0
+	body.animation_player.seek(float(clip.get_meta("wall_support_pose_seconds", _hang_elapsed)), true)
 
 func _begin_transition(body: CharacterBody3D, points: Array[Vector3], support: Node3D, kind: String, clip: String) -> bool:
 	var previous := body.global_position
@@ -99,6 +131,7 @@ func _begin_transition(body: CharacterBody3D, points: Array[Vector3], support: N
 		_mantle_visual_origin = body.visual_root.position
 		_mantle_visual_active = true
 	hanging = false
+	_hang_elapsed = 0.0
 	body.cancel_roll()
 	body.velocity = Vector3.ZERO
 	body.jump_buffer_timer = 0.0
@@ -157,10 +190,16 @@ func _clear_path(body: CharacterBody3D, from: Vector3, to: Vector3) -> bool:
 	return not body.test_move(pose, to - from)
 
 func reset(body: CharacterBody3D) -> void:
+	var native_return_blend := 0.0
+	if native_mantle_active and is_instance_valid(_native_model):
+		native_return_blend = _native_model.release_native_traversal()
+	native_mantle_active = false
+	if native_return_blend > 0.0: body.play_anim("FALL", native_return_blend)
 	if _mantle_visual_active and body.visual_root:
 		body.visual_root.position = _mantle_visual_origin
 	_mantle_visual_active = false
 	hanging = false
+	_hang_elapsed = 0.0
 	_mantle_points.clear()
 	_transition_local_points.clear()
 	_transition_support = null
@@ -172,18 +211,97 @@ func reset(body: CharacterBody3D) -> void:
 	if body.animation_player: body.animation_player.speed_scale = 1.0
 
 func _begin_mantle(body: CharacterBody3D) -> bool:
+	if not hanging: return false
 	var top := _top(body, body.traversal.wall_normal)
 	if top.is_empty(): return false
+	if hanging and body.animation_player and body.animation_player.has_animation("PARKOUR_MANTLE") and body.animation_player.has_animation("PARKOUR_STAND"):
+		return _begin_native_mantle(body, top)
 	var raised := Vector3(body.global_position.x, top.position.y + 0.06, body.global_position.z)
 	var landed: Vector3 = raised - body.traversal.wall_normal * 0.85
 	# Sweep the actual player capsule on both segments, including overhead space.
 	var points: Array[Vector3] = [raised, landed]
 	return _begin_transition(body, points, top.collider, "mantle", "PARKOUR_MANTLE")
 
+func _native_joint(name: String) -> Vector3:
+	return _native_rig.to_global(_native_rig.get_bone_global_pose(_native_rig.find_bone(name)).origin)
+
+func sync_native_visual() -> void:
+	if not native_mantle_active or not is_instance_valid(_native_model) or not is_instance_valid(_transition_support): return
+	_native_model.global_position = _transition_support.to_global(_native_anchor)
+	if _native_phase == 0:
+		if _native_sample_time <= 0.4:
+			var grip := (_native_joint("LeftHand") + _native_joint("RightHand")) * 0.5
+			_native_grip_shift = _transition_support.global_basis.inverse() * (hang_grip_world - grip)
+		_native_model.global_position += _transition_support.global_basis * _native_grip_shift
+		_native_model.global_position.y += _native_landing_shift * smoothstep(0.4, _native_pull_duration, _native_sample_time)
+	else:
+		var floor_height: float = _transition_support.to_global(_native_floor_local).y
+		_native_model.global_position.y += floor_height + _native_sole_height - minf(_native_joint("LeftFoot").y, _native_joint("RightFoot").y)
+
+func _begin_native_mantle(body: CharacterBody3D, top: Dictionary) -> bool:
+	_native_model = body.get_node_or_null("ModelRoot/EchoOpeningUniform") as Node3D
+	_native_rig = _native_model.find_child("Skeleton3D", true, false) as Skeleton3D if _native_model else null
+	if not _native_rig or not _native_model.has_method("release_native_traversal"): return false
+	_transition_support = top.collider
+	_native_floor_local = _transition_support.to_local(top.position)
+	_native_first_anchor = _transition_support.to_local(_native_model.global_position)
+	_native_anchor = _native_first_anchor
+	_native_grip_shift = Vector3.ZERO
+	_native_landing_shift = 0.0
+	_native_phase = 0
+	_native_sample_time = 0.0
+	_native_pull_duration = body.animation_player.get_animation("PARKOUR_MANTLE").length
+	_native_sole_height = minf((_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_rig.find_bone("LeftFoot")).origin).y, (_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_rig.find_bone("RightFoot")).origin).y)
+	native_mantle_active = true
+	body.play_anim("PARKOUR_MANTLE", 0.0)
+	body.animation_player.speed_scale = 0.0
+	_native_sample_time = 0.4
+	body.animation_player.seek(_native_sample_time, true)
+	_native_sample_time = _native_pull_duration
+	body.animation_player.seek(_native_sample_time, true)
+	_native_landing_shift = top.position.y + _native_sole_height - minf(_native_joint("LeftFoot").y, _native_joint("RightFoot").y)
+	sync_native_visual()
+	var crouched_hips := _native_joint("Hips")
+	_native_phase = 1
+	body.play_anim("PARKOUR_STAND", 0.0)
+	body.animation_player.speed_scale = 0.0
+	body.animation_player.seek(0.0, true)
+	_native_anchor += _transition_support.global_basis.inverse() * (crouched_hips - _native_joint("Hips"))
+	body.animation_player.seek(body.animation_player.get_animation("PARKOUR_STAND").length, true)
+	var feet := (_native_joint("LeftFoot") + _native_joint("RightFoot")) * 0.5
+	var raised := Vector3(body.global_position.x, top.position.y + 0.06, body.global_position.z)
+	var landed := Vector3(feet.x, raised.y, feet.z)
+	_native_phase = 0
+	_native_sample_time = 0.0
+	_native_anchor = _native_first_anchor
+	var points: Array[Vector3] = [raised, landed]
+	if not _begin_transition(body, points, top.collider, "mantle", "PARKOUR_MANTLE"):
+		native_mantle_active = false
+		_native_model.release_native_traversal()
+		_tick_hang_animation(body, 0.0)
+		return false
+	_mantle_duration = _native_pull_duration + body.animation_player.get_animation("PARKOUR_STAND").length
+	sync_native_visual()
+	return true
+
+func _tick_native_pose(body: CharacterBody3D) -> void:
+	var clock := minf(_mantle_elapsed, _mantle_duration)
+	if clock > _native_pull_duration and _native_phase == 0:
+		_native_sample_time = _native_pull_duration
+		body.animation_player.seek(_native_pull_duration, true)
+		var previous_hips := _native_joint("Hips")
+		_native_phase = 1
+		body.play_anim("PARKOUR_STAND", 0.0)
+		body.animation_player.speed_scale = 0.0
+		body.animation_player.seek(0.0, true)
+		_native_anchor += _transition_support.global_basis.inverse() * (previous_hips - _native_joint("Hips"))
+	_native_sample_time = clock if _native_phase == 0 else clock - _native_pull_duration
+	body.animation_player.seek(_native_sample_time, true)
+
 func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop: bool) -> bool:
 	latch_cooldown = maxf(0.0, latch_cooldown - delta)
 	if not _mantle_points.is_empty():
-		if drop or not is_instance_valid(_transition_support):
+		if drop or not is_instance_valid(_transition_support) or not _transition_support.is_inside_tree() or (native_mantle_active and _native_phase == 0 and _native_sample_time <= 0.4 and (not is_instance_valid(_contact_body) or not _contact_body.is_inside_tree())):
 			reset(body)
 			body.velocity = Vector3.DOWN
 			return true
@@ -194,12 +312,14 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 			body.velocity = Vector3.DOWN
 			return true
 		_mantle_elapsed += delta
-		if _mantle_visual_active:
+		if native_mantle_active:
+			_tick_native_pose(body)
+		elif _mantle_visual_active:
 			# Fold the legs as the capsule clears the lip. The torso stays low
 			# enough for the hands to push, then settles back to the same origin.
 			var phase := clampf(_mantle_elapsed / _mantle_duration, 0.0, 1.0)
 			body.visual_root.position = _mantle_visual_origin - Vector3.UP * (0.65 * sin(PI * phase))
-		if body.animation_player and body.animation_player.has_animation(_transition_clip):
+		if not native_mantle_active and body.animation_player and body.animation_player.has_animation(_transition_clip):
 			var clip: Animation = body.animation_player.get_animation(_transition_clip)
 			body.animation_player.seek(minf(clip.length, _mantle_elapsed / _mantle_duration * clip.length), true)
 		var target := _mantle_points[0]
@@ -211,26 +331,29 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 			body.velocity = Vector3.DOWN
 			return true
 		body.global_position += step
+		if native_mantle_active: sync_native_visual()
 
 		# Watchdog timer to prevent freeze if distance threshold or step is impeded
 		const MANTLE_WATCHDOG_EXTRA := 0.35
 		if _mantle_elapsed > _mantle_duration + MANTLE_WATCHDOG_EXTRA:
-			var final_target: Vector3 = _mantle_points.back() if not _mantle_points.is_empty() else body.global_position
-			if _capsule_clear(body, final_target):
-				body.global_position = final_target
-			var completed_kind := _transition_kind
+			# A timeout is a failed transfer, not permission to jump across the
+			# remaining sweep or award a completed mantle. Release into physical
+			# gravity; the existing room recovery retains discoveries/checkpoints.
 			reset(body)
-			body.velocity = Vector3.ZERO
-			if completed_kind == "mantle": mantle_completed.emit()
+			body.velocity = Vector3.DOWN
 			return true
 
 		if body.global_position.distance_to(target) < 0.03:
+			if native_mantle_active and _mantle_points.size() == 1 and _mantle_elapsed < _mantle_duration:
+				return true
 			_mantle_points.pop_front()
 			_transition_local_points.pop_front()
 			if _mantle_points.is_empty():
 				var completed_kind := _transition_kind
+				var completed_native := native_mantle_active
 				reset(body)
 				body.velocity = Vector3.ZERO
+				if completed_native: body.play_anim("IDLE", 0.2)
 				if completed_kind == "mantle": mantle_completed.emit()
 		return true
 	if not body.traversal.is_climbing():
@@ -257,6 +380,12 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 		body.coyote_timer = 0.0
 		body.velocity = Vector3.ZERO
 		return true
+	# Hand anchors belong to the exact support that was caught. A scene unload
+	# cannot transfer that contact to replacement geometry at the same position.
+	if not is_instance_valid(_contact_body) or not _contact_body.is_inside_tree():
+		reset(body)
+		body.velocity = Vector3.DOWN
+		return true
 	var normal: Vector3 = body.traversal.wall_normal
 	if is_instance_valid(_contact_body):
 		# Hanging uses local wall anchors. CharacterBody floor carry is not added.
@@ -269,6 +398,7 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 		normal = (_contact_body.global_basis * _normal_local).normalized()
 		body.traversal.wall_normal = normal
 		body.traversal.wall_contact_point = _contact_body.to_global(_contact_local)
+		if hanging: hang_grip_world = _contact_body.to_global(_hang_grip_local)
 	if drop or body.stamina <= 0.0:
 		reset(body)
 		body.velocity = normal * 1.2 + Vector3.DOWN
@@ -288,7 +418,7 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 			body.move_and_slide()
 			return true
 	var wall := _wall(body, -normal)
-	if not _climbable(wall) or wall.normal.dot(normal) < 0.85:
+	if not _climbable(wall) or wall.collider != _contact_body or wall.normal.dot(normal) < 0.85:
 		reset(body)
 		body.velocity = Vector3.DOWN
 		return true
@@ -320,10 +450,16 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 		body.visual_root.rotation.x = 0.0
 		body.visual_root.rotation.z = 0.0
 	var clip := "PARKOUR_HANG" if hanging else "PARKOUR_CLIMB"
-	if body.animation_player and body.animation_player.has_animation(clip):
+	if hanging:
+		_tick_hang_animation(body, delta)
+	elif body.animation_player and body.animation_player.has_animation(clip):
 		body.play_anim(clip, 0.12)
 		body.animation_player.speed_scale = 1.0 if hanging else (1.82 if input.length_squared() >= 0.04 else 0.0)
+	var before_move := body.global_position
 	body.move_and_slide()
+	if hanging and is_instance_valid(_contact_body):
+		hang_grip_world += body.global_position - before_move
+		_hang_grip_local = _contact_body.to_local(hang_grip_world)
 	if is_instance_valid(_contact_body): _body_local = _contact_body.to_local(body.global_position)
 	if body.is_on_floor() and input.y > 0.15: reset(body)
 	return true

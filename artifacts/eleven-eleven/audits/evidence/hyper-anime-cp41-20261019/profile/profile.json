@@ -1,0 +1,19 @@
+{
+	"profiles": {
+		"high": {
+			"draws": 672.0,
+			"engine_texture_bytes": 759756288.0,
+			"p50_ms": 58.948,
+			"p95_ms": 67.207,
+			"primitives": 1619452.0
+		},
+		"low": {
+			"draws": 672.0,
+			"engine_texture_bytes": 615736448.0,
+			"p50_ms": 17.743,
+			"p95_ms": 24.095,
+			"primitives": 1618630.0
+		}
+	},
+	"scope": "90 actual process intervals per tier at one stationary actual room01 viewpoint; excludes capture; not GPU frame timing or full-route performance acceptance"
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "shot": "A",
+    "file": "art/production/lab-modular-refinement-20261024/flow-shot-a-veo-quality.mp4",
+    "sha256": "32cb8cf5ab0dbed347ce57061534486678bc6d76ff504bb62331effebdfbcab9",
+    "duration_s": 8.0,
+    "video": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "24/1"
+    },
+    "audio_streams": [
+      {
+        "codec": "aac",
+        "channels": 2,
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "PASS_ENTIRE_FILE",
+    "sampled_frames": 32,
+    "sampling_hz": 4,
+    "selected_frames": [
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-a-sharp-00.png",
+        "time_s": 0.5,
+        "sha256": "0c0b92b01e74f560088ccf7309277bdbaa0bfe953d9d137b004c1af70495831d"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-a-sharp-01.png",
+        "time_s": 2,
+        "sha256": "d9be53009edf7b7c4c5743e31dd31bf424132a262623878ac655916f02686895"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-a-sharp-02.png",
+        "time_s": 4,
+        "sha256": "835eea76321d5fc5bfcb8cfc33ae13559fede80a09f525a5a57952fdd35f3d90"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-a-sharp-03.png",
+        "time_s": 6.5,
+        "sha256": "84043431abc17a0e37e9d7fe7f652770f6fcce85c5856b7f60b8f0aa4570870b"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-a-sharp-04.png",
+        "time_s": 7.75,
+        "sha256": "33689486d54d92d709f44a911467ddddef4947b6bc6bf03e88a33af72e8cf867"
+      }
+    ],
+    "visual_review": "FULL_DURATION_CONTACT_AND_SELECTED_FRAMES_INSPECTED; A early architecture useful;late HUD and film drift;not final playback",
+    "audio_listening": "UNVERIFIED; decode/audio-stream presence is not SFX_ONLY or listening acceptance.",
+    "scope": "External architectural reference only. Never replaces canonical interactive gameplay or current approved audio."
+  },
+  {
+    "shot": "B",
+    "file": "art/production/lab-modular-refinement-20261024/flow-shot-b-veo-quality.mp4",
+    "sha256": "0a868cc55b1ed45b01d1e02a86dc3db26f937e9220e6a53b0408c6a21bf050b9",
+    "duration_s": 8.0,
+    "video": {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "24/1"
+    },
+    "audio_streams": [
+      {
+        "codec": "aac",
+        "channels": 2,
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "PASS_ENTIRE_FILE",
+    "sampled_frames": 32,
+    "sampling_hz": 4,
+    "selected_frames": [
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-b-sharp-00.png",
+        "time_s": 0.5,
+        "sha256": "ac3667d84ceb0f4f1b6a5681d206d60edccf89d3e8b580ecd3482c206057cdce"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-b-sharp-01.png",
+        "time_s": 2,
+        "sha256": "048f18f82631bed3309bf0e1626ed539c910787bec4c5bac4ce66d9c19450593"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-b-sharp-02.png",
+        "time_s": 4,
+        "sha256": "b0bd63735cca8667bce0d5292a7fcd16c0314276fbea90c967f4e04898b97d61"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-b-sharp-03.png",
+        "time_s": 6.5,
+        "sha256": "633fbff877a0ab8ac406b26afee5be8a6bbefddd6760f4d910031481e1df4f0e"
+      },
+      {
+        "file": "art/production/lab-modular-refinement-20261024/flow-b-sharp-04.png",
+        "time_s": 7.75,
+        "sha256": "baa31a955c127903a2c8ec80be64e7bbbd3612a7c47be80dc4137bac9d565bd3"
+      }
+    ],
+    "visual_review": "FULL_DURATION_CONTACT_AND_SELECTED_FRAMES_INSPECTED; B FAIL floatingHUD/fabric,actorghost,geometry/rampmorphing;not final playback",
+    "audio_listening": "UNVERIFIED; decode/audio-stream presence is not SFX_ONLY or listening acceptance.",
+    "scope": "External architectural reference only. Never replaces canonical interactive gameplay or current approved audio."
+  }
+]

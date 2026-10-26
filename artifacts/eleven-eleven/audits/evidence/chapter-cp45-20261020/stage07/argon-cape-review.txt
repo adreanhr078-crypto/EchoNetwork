@@ -1,0 +1,548 @@
+المالك طلب سؤالك عن عيب العباءة وكيفية إصلاحه. المرفق الجديد V31 ذاته بعد النقل المعزول:15لقطة أمام/خلف/جانب samples0,8,17,26,34. العيب المرئي: أثناء التعلق والقرفصاء تميل العباءة كقطعة جامدة مع الحوض؛ فيframe0و8 تقترب الأحذية/الساق المرتفعة من القماش، وعند26/34 يخرج الذيل أفقيًا خلف الجسد بدل الانسدال. هذه لقطاتBlender المجمدة بلامحرك ثانوي، لذا لا أسميها إثبات عيبruntime. لكن الكود الحالي المرفق EchoCapeMotion يعطل نفسه صراحة عند hanging أو _mantle_visual_active، فيعيد زوايا15عظمة للصفر ويعود قبل فحص الساقين؛ وبالتالي لا يوفر حتى تصحيح تماس ساكن في هذه الحالات. خمس سلاسل3عظام تحتHips، الجسم/skin/rest ومفاتيح المصدر وGolden ممنوع تغييرها. المطلوب إصلاح محدود للمحرك نفسه دونClothsolverجديد أو تغييرهوية. كيف نفصل تجميد الريح/الزنبرك أثناءRMوالتعلق عن وضعية الجاذبية والتباعد الهندسي الضرورية حتى لايتداخل القماش مع الركب أو المنصة؟ حدد اختيارمحور محلي صحيح منrest/مصفوفةالحوض، الحفاظعلىالجذور/حدودالزوايا وطريقة تقييمكبسولاتالساق، ومتىيلزماكتشافجدار/أرض. لا تقترح قيمزاويةعمياء ولا تدع قبولًامنصوربلاGodot؛ أعطني خطةتصحيح محصورة واختباراتتماس فعلية.
+								4366 button توسيع
+							4367 button نَسْخ الطلب
+							4368 button تعديل
+							4369 container
+								4370 container
+									4371 heading قال Gemini, Value: 6
+										4372 text قال Gemini
+									4373 container model-response-message-contentr_4410c7fcb1b1a334
+										4374 heading 1) التشخيص السببي من لوحة contact_2.jpg ومصدر EchoCapeMotion, Value: 2
+											4375 text 1) التشخيص السببي من لوحة 
+											4376 text contact_2.jpg
+											4377 text  ومصدر 
+											4378 text EchoCapeMotion
+										4379 container p-rc_0c466a4a4fa81f7f-181
+											4380 text اللقطات الـ 15 في 
+											4381 text contact_2.jpg
+											4382 text  هي مخرجات نقل Blender المجمدة قبل تشغيل محرك العباءة الثانوي، لذا فهي توثق وضعية العظام الخام الموروثة من 
+											4383 text Hips
+											4384 text  ولا تُسمّى وحدها عيب تشغيل، غير أن مطابقتها مع كود 
+											4385 text EchoCapeMotion
+											4386 text  الحالي تكشف  3 أسباب برمجية مباشرة  ستبقي هذا العيب قائماً داخل Godot إذا لم تُصلح
+											4387 text :
+											4388 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+										4389 content list
+											4390 container
+												4391 container p-rc_0c466a4a4fa81f7f-182
+													4392 text التعطيل الكامل للمحرك أثناء التعلق والصعود و
+													4393 text Reduced Motion
+													4394 text  (الأسطر 
+													4395 text 36–45
+													4396 text ): 
+عندما يكون 
+													4397 text hanging == true
+													4398 text  أو 
+													4399 text _mantle_visual_active == true
+													4400 text  أو 
+													4401 text reduced_motion == true
+													4402 text  أو 
+													4403 text control_locked == true
+													4404 text  أو 
+													4405 text delta <= 0.0
+													4406 text ، يستدعي الكود 
+													4407 text reset_motion()
+													4408 text  ويخرج فوراً بـ 
+													4409 text return
+													4410 text  قبل حساب الجاذبية أو كبسولات الساقين
+													4411 text . النتيجة أن عظام العباءة الـ 15 تبقى مقفلة على 
+													4412 text rest
+													4413 text  الخام التابع لـ 
+													4414 text Hips
+													4415 text ، فتميل كلوح خشبي أفقي خلف الظهر عند انحناء الحوض للأمام في 
+													4416 text 0017
+													4417 text  و
+													4418 text 0026
+													4419 text  و
+													4420 text 0034
+													4421 text ، وتقترب من الحذاء والساق المرفوعة في 
+													4422 text 0000
+													4423 text  و
+													4424 text 0008
+													4425 text .
+													4426 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "TXT: EchoCapeMotion-before-argon.txt وJPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+											4427 container
+												4428 container p-rc_0c466a4a4fa81f7f-183
+													4429 text قيد الزاوية أحادي الاتجاه (
+													4430 text clampf(..., 0.0, deg_to_rad(12.0))
+													4431 text  في السطر 
+													4432 text 71
+													4433 text ): 
+الدوران الموجب حول محور 
+													4434 text hip_basis * Vector3.RIGHT
+													4435 text  يرفع الذيل للخلف بعيداً عن 
+													4436 text -Z
+													4437 text . عندما يميل الحوض للأمام في القرفصاء (
+													4438 text 0026
+													4439 text  و
+													4440 text 0034
+													4441 text )، تكون العباءة مرفوعة أصلاً للخلف والأعلى؛ ولكي تنسدل نحو الجاذبية (
+													4442 text Vector3.DOWN
+													4443 text ) تحتاج إلى  زاوية سالبة (
+													4444 text < 0.0
+													4445 text )  تطويها للأسفل نحو العقبين، وهو ما يمنعه الحد الأدنى 
+													4446 text 0.0
+													4447 text  والحد الأقصى الضيق 
+													4448 text 12.0°
+													4449 text .
+													4450 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "TXT: EchoCapeMotion-before-argon.txt وJPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+											4451 container
+												4452 container p-rc_0c466a4a4fa81f7f-184
+													4453 text قراءة 
+													4454 text get_bone_pose_rotation
+													4455 text  بدلاً من 
+													4456 text get_bone_rest
+													4457 text  (السطر 
+													4458 text 77
+													4459 text ): 
+السطر 
+													4460 text var source_rotation := skeleton.get_bone_pose_rotation(bone)
+													4461 text  يفترض أن 
+													4462 text AnimationMixer
+													4463 text  يعيد كتابة مسارات 
+													4464 text Cape_*
+													4465 text  في كل إطار
+													4466 text ؛ وفي الحركات المنقولة التي لا تملك مسارات مفتاحية لـ 
+													4467 text Cape_*
+													4468 text  (مثل 
+													4469 text Braced Hang To Crouch
+													4470 text )، لا يعيد الـ Mixer تصفير العظمة، فيتراكم الدوران إطاراً بعد إطار ما لم نبدأ من دوران 
+													4471 text rest
+													4472 text  المرجعي المحفوظ
+													4473 text .
+													4474 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "TXT: EchoCapeMotion-before-argon.txt وJPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+										4475 heading 2) الهندسة الرياضية للإصلاح المحدود داخل EchoCapeMotion, Value: 2
+											4476 text 2) الهندسة الرياضية للإصلاح المحدود داخل 
+											4477 text EchoCapeMotion
+										4478 heading أ) فصل تجميد الديناميكا ( freeze_dynamics ) عن الحل الهندسي الساكن ( Gravity + Clearance ), Value: 3
+											4479 text أ) فصل تجميد الديناميكا (
+											4480 text freeze_dynamics
+											4481 text ) عن الحل الهندسي الساكن (
+											4482 text Gravity + Clearance
+											4483 text )
+										4484 content list
+											4485 container
+												4486 container p-rc_0c466a4a4fa81f7f-185
+													4487 text لا تخرج بـ 
+													4488 text return
+													4489 text  عند 
+													4490 text hanging
+													4491 text  أو 
+													4492 text _mantle_visual_active
+													4493 text  أو 
+													4494 text reduced_motion
+													4495 text  أو 
+													4496 text control_locked
+													4497 text  أو 
+													4498 text delta <= 0.0
+													4499 text :
+													4500 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+												4501 content list
+													4502 container p-rc_0c466a4a4fa81f7f-186
+														4503 text استبدل متغير 
+														4504 text suspended
+														4505 text  القديم بمتغير 
+														4506 text freeze_dynamics: bool
+														4507 text  يشمل: 
+														4508 text reduced_motion
+														4509 text ، و
+														4510 text hanging
+														4511 text ، و
+														4512 text _mantle_visual_active
+														4513 text ، و
+														4514 text control_locked
+														4515 text ، و
+														4516 text delta <= 0.0
+														4517 text ، و
+														4518 text delta > 0.5
+														4519 text ، وقفز الموضع 
+														4520 text > 2.0m
+														4521 text .
+														4522 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4523 container p-rc_0c466a4a4fa81f7f-187
+														4524 text عندما يكون 
+														4525 text freeze_dynamics == true
+														4526 text : صفّر المدخلات الحركية (
+														4527 text speed = 0.0
+														4528 text ، و
+														4529 text gust = 0.0
+														4530 text ، و
+														4531 text local_step = 0.0
+														4532 text ، و
+														4533 text _speeds.fill(0.0)
+														4534 text ) واجعل زاوية كل مفصل تساوي  زاوية الانسدال الساكن نحو الجاذبية مباشرة  (
+														4535 text _angles[slot] = gravity_target
+														4536 text  دون تفاضل زنبركي)، ثم  أكمل تنفيذ حلقة كبسولات الساقين وسطح المنصة بالكامل
+														4537 text .
+														4538 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4539 container p-rc_0c466a4a4fa81f7f-188
+														4540 text بهذا تبقى العباءة ساكنة تماماً بلا رفرفة في 
+														4541 text Reduced Motion
+														4542 text  وأثناء التعلق، لكنها تنسدل عمودياً وتبتعد عن الركبتين والحذاء والمنصة في كل عينة
+														4543 text .
+														4544 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+										4545 heading ب) اختيار المحور المحلي الصحيح من rest ومصفوفة Hips وحماية الجذور, Value: 3
+											4546 text ب) اختيار المحور المحلي الصحيح من 
+											4547 text rest
+											4548 text  ومصفوفة 
+											4549 text Hips
+											4550 text  وحماية الجذور
+										4551 content list
+											4552 container
+												4553 text حماية الجذور ودوران الأساس في 
+												4554 text configure()
+												4555 text :
+												4556 content list
+													4557 container
+														4558 container p-rc_0c466a4a4fa81f7f-189
+															4559 text احفظ في 
+															4560 text configure()
+															4561 text  مصفوفة 
+															4562 text _rest_rotations: Array[Quaternion]
+															4563 text  حجمها 15 من 
+															4564 text skeleton.get_bone_rest(bone).basis.get_rotation_quaternion()
+															4565 text ، ومتجهات اتجاه العظام المرجعية في الفضاء المحلي 
+															4566 text _rest_dirs: PackedVector3Array
+															4567 text  المحسوبة من فرق موضعي 
+															4568 text get_bone_global_rest
+															4569 text  بين كل عظمة والعظمة التي تليها في السلسلة (
+															4570 text row -> row+1
+															4571 text )
+															4572 text .
+															4573 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4574 container
+														4575 container p-rc_0c466a4a4fa81f7f-190
+															4576 text لا تلمس 
+															4577 text bone_pose_position
+															4578 text  إطلاقاً ليبقى اتصال جذور 
+															4579 text Cape_0_0..Cape_4_0
+															4580 text  بالحوض ثابتاً 100%
+															4581 text .
+															4582 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+											4583 container
+												4584 text حساب زاوية معادلة الجاذبية من مصفوفة الحوض (دون أرقام عمياء):
+												4585 content list
+													4586 container
+														4587 container p-rc_0c466a4a4fa81f7f-191
+															4588 text محور الدوران العرضي للعباءة في فضاء الأب هو كما في الكود الحالي:
+
+															4589 text var world_pitch_axis := (hip_basis * Vector3.RIGHT).normalized()
+															4590 text var local_axis := (parent_basis.inverse() * world_pitch_axis).normalized()
+															4591 text .
+															4592 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4593 container
+														4594 text قبل تطبيق الزنبرك، احسب اتجاه السلسلة الحالي في فضاء الهيكل إذا بقيت على 
+														4595 text _rest_rotations[slot]
+														4596 text ، وأسقط هذا المتجه ومتجه الجاذبية 
+														4597 text Vector3.DOWN
+														4598 text  على المستوى العمودي على 
+														4599 text world_pitch_axis
+														4600 text .
+													4601 container
+														4602 text الزاوية الموجهة 
+														4603 container
+															4604 text 𝜃 grav
+														4605 text  بين اتجاه العظمة الموروث من 
+														4606 text Hips
+														4607 text  وبين 
+														4608 text Vector3.DOWN
+														4609 text  حول 
+														4610 text world_pitch_axis
+														4611 text  تعطي مقدار ميلان الحوض الفعلي في الإطار الحالي:
+														4612 content list
+															4613 container
+																4614 text في الوقوف والركض العمودي تكون 
+																4615 container
+																	4616 text 𝜃
+																	4617 text grav
+																	4618 text ≈ 0
+																4619 text .
+															4620 container
+																4621 container p-rc_0c466a4a4fa81f7f-192
+																	4622 text في القرفصاء المائلة للأمام (
+																	4623 text 0017
+																	4624 text ، 
+																	4625 text 0026
+																	4626 text ، 
+																	4627 text 0034
+																	4628 text ) تكون 
+																	4629 container
+																		4630 text 𝜃 grav
+																	4631 text  سالبة وتعيد توجيه الذيل للأسفل نحو الجاذبية.
+																	4632 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													4633 container
+														4634 text وزّع 
+														4635 container
+															4636 text 𝜃 grav
+														4637 text  تدريجياً على مفاصل السلسلة الثلاثة (
+														4638 text row 0: 45%
+														4639 text ، 
+														4640 text row 1: 35%
+														4641 text ، 
+														4642 text row 2: 20%
+														4643 text ) مع توسيع حدود الزاوية لتشمل الطرفين:  من حد الانطواء نحو الجاذبية (المشتق من 
+														4644 container
+															4645 text 𝜃 grav
+														4646 text  حتى 
+														4647 text -28°
+														4648 text  لكل مفصل) إلى حد الارتفاع الخلفي (
+														4649 text +15°
+														4650 text  لكل مفصل).
+										4651 heading ج) تقييم كبسولات الساقين ومنع الدفع بالاتجاه الخاطئ ( 0000 و 0008 و 0026 ), Value: 3
+											4652 text ج) تقييم كبسولات الساقين ومنع الدفع بالاتجاه الخاطئ (
+											4653 text 0000
+											4654 text  و
+											4655 text 0008
+											4656 text  و
+											4657 text 0026
+											4658 text )
+										4659 container p-rc_0c466a4a4fa81f7f-193
+											4660 text في الكود الحالي (الأسطر 
+											4661 text 80–93
+											4662 text )، يُفحص طرف العظمة 
+											4663 text tip
+											4664 text  فقط، وإذا اقترب من الساق يُحسب 
+											4665 text separation = corrected - near
+											4666 text ؛ وفي القرفصاء العميقة (
+											4667 text 0026
+											4668 text ) إذا وقع مفصل العباءة بعد معادلة الجاذبية أمام محور الساق قليلاً، فإن 
+											4669 text separation
+											4670 text  سيدفع العباءة  للأمام عبر الركبة  بدلاً من الخلف!
+											4671 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "TXT: EchoCapeMotion-before-argon.txt وJPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر.
+										4672 content list
+											4673 container
+												4674 text التصحيح الهندسي لكبسولات الساق:
+												4675 content list
+													4676 container
+														4677 container p-rc_0c466a4a4fa81f7f-194
+															4678 text فحص نقطتين على كل عظمة عباءة:  افحص منتصف القطعة 
+															4679 text mid = current.origin.lerp(tip, 0.5)
+															4680 text  وطرفها 
+															4681 text tip
+															4682 text  ضد قطعتي الفخذ (
+															4683 text UpLeg -> Leg
+															4684 text ) والساق (
+															4685 text Leg -> Foot
+															4686 text )، مع إضافة كرة كعب عند 
+															4687 text Foot
+															4688 text  بنصف قطر 
+															4689 text 0.12 * leg_segment_len
+															4690 text  لحماية الحذاء في 
+															4691 text 0000
+															4692 text  و
+															4693 text 0008
+															4694 text .
+															4695 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4696 container
+														4697 container p-rc_0c466a4a4fa81f7f-195
+															4698 text تقييد متجه الطرد بنصف الكرة الخارجي للعباءة (
+															4699 text Exterior Hemisphere Clamp
+															4700 text ): 
+عرّف المتجه الخارجي الطبيعي لكل عمود 
+															4701 text column
+															4702 text  في فضاء الهيكل:
+
+															4703 text var coat_outward := (hip_basis * Vector3(side * 0.42, 0.0, -1.0)).normalized()
+															4704 text .
+إذا كان 
+															4705 text separation.dot(coat_outward) < 0.05
+															4706 text ، أسقط متجه الطرد على اتجاه 
+															4707 text coat_outward
+															4708 text  ليضمن أن الفخذ والساق والحذاء  لا تدفع القماش إلا للخارج/الخلف (
+															4709 text -Z
+															4710 text  و
+															4711 text ±X
+															4712 text ) ، وارفع سقف زاوية تصحيح التصادم في السطر 
+															4713 text 98
+															4714 text  من 
+															4715 text 18.0°
+															4716 text  إلى 
+															4717 text 30.0°
+															4718 text .
+															4719 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "TXT: EchoCapeMotion-before-argon.txt وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+										4720 heading د) متى يلزم اكتشاف الجدار أو الأرضية/المنصة؟, Value: 3
+											4721 text د) متى يلزم اكتشاف الجدار أو الأرضية/المنصة؟
+										4722 content list
+											4723 container p-rc_0c466a4a4fa81f7f-196
+												4724 text الجدار العمودي (
+												4725 text 0000
+												4726 text  و
+												4727 text 0008
+												4728 text ): لا يلزم أي فحص جدار ؛ لأن الجدار يقع أمام الصدر والركبتين (
+												4729 text +Z
+												4730 text ) بينما تقع العباءة خلف الظهر (
+												4731 text -Z
+												4732 text ) في الفضاء المفتوح
+												4733 text .
+												4734 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+											4735 container
+												4736 container p-rc_0c466a4a4fa81f7f-197
+													4737 text سطح المنصة/الأرضية (
+													4738 text 0026
+													4739 text  و
+													4740 text 0034
+													4741 text ): يلزم قيد ارتفاع أرضي مباشر بعد تفعيل الجاذبية
+													4742 text :
+													4743 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+												4744 content list
+													4745 container p-rc_0c466a4a4fa81f7f-198
+														4746 text عندما تنسدل العباءة للأسفل في القرفصاء المنخفضة (
+														4747 text 0026
+														4748 text  و
+														4749 text 0034
+														4750 text )، يصبح ارتفاع 
+														4751 text Hips
+														4752 text  عن سطح المنصة أقل من طول عظام العباءة الثلاث، فـ  يغوص الذيل (
+														4753 text row 1
+														4754 text  و
+														4755 text row 2
+														4756 text ) عمودياً داخل أرضية المنصة  إذا لم يُقيّد
+														4757 text .
+														4758 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+													4759 container p-rc_0c466a4a4fa81f7f-199
+														4760 text طريقة الاكتشاف بدون Raycast فيزيائي:  عندما تكون الشخصية على الأرض أو في النصف الثاني من الصعود (حيث تقترب القدمان في الارتفاع 
+														4761 text absf(left_foot.y - right_foot.y) < 0.28
+														4762 text  أو تكون القدم الارتكازية أعلى من الحوض المنخفض)، احسب مستوى سطح الارتكاز في فضاء الهيكل من أخفض نقطة لنعل القدم المرتكزة:
+
+														4763 text var support_y := minf(left_foot_skel.y, right_foot_skel.y) - sole_clearance
+														4764 text 
+إذا هبط 
+														4765 text corrected.y < support_y
+														4766 text  في 
+														4767 text row 1
+														4768 text  أو 
+														4769 text row 2
+														4770 text : ارفع 
+														4771 text corrected.y = support_y
+														4772 text  وأزح 
+														4773 text corrected
+														4774 text  للخلف على امتداد 
+														4775 text coat_outward
+														4776 text  بمقدار الفائض الرأسي 
+														4777 text (support_y - tip.y) * 0.85
+														4778 text  لينساب ذيل المعطف فوق سطح المنصة خلف العقبين دون اختراقها
+														4779 text .
+														4780 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+										4781 heading 3) خطة التصحيح المحصورة وبوابة اختبارات التماس في Godot, Value: 2
+											4782 text 3) خطة التصحيح المحصورة وبوابة اختبارات التماس في Godot
+										4783 content list
+											4784 container
+												4785 text تعديل 
+												4786 text EchoCapeMotion
+												4787 text  فقط (بصفر تعديل على 
+												4788 text V31
+												4789 text  أو مفاتيح الأنيميشن أو 
+												4790 text Golden
+												4791 text ):
+												4792 content list
+													4793 container
+														4794 container p-rc_0c466a4a4fa81f7f-200
+															4795 text تخزين 
+															4796 text _rest_rotations
+															4797 text  و
+															4798 text _rest_dirs
+															4799 text  في 
+															4800 text configure()
+															4801 text .
+															4802 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4803 container
+														4804 container p-rc_0c466a4a4fa81f7f-201
+															4805 text تحويل 
+															4806 text suspended
+															4807 text  إلى 
+															4808 text freeze_dynamics
+															4809 text  بحيث تعمل معادلة الجاذبية وكبسولات الساقين وقيد أرضية المنصة حتى أثناء 
+															4810 text hanging
+															4811 text  و
+															4812 text _mantle_visual_active
+															4813 text  و
+															4814 text reduced_motion
+															4815 text  وعند 
+															4816 text delta == 0.0
+															4817 text .
+															4818 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4819 container
+														4820 container p-rc_0c466a4a4fa81f7f-202
+															4821 text فتح المجال السالب لـ 
+															4822 text _angles[slot]
+															4823 text  لمعادلة ميلان الحوض نحو 
+															4824 text Vector3.DOWN
+															4825 text ، وتطبيق قيد 
+															4826 text coat_outward
+															4827 text  و
+															4828 text support_y
+															4829 text  على 
+															4830 text corrected
+															4831 text .
+															4832 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+											4833 container
+												4834 text اختبارات التماس الفعلية المطلوبة داخل Godot (قبل أي اعتماد):
+												4835 content list
+													4836 container
+														4837 text اختبار العبور على العينات الـ 35 (
+														4838 text 0..34
+														4839 text ) داخل Godot:  تمرير عينات 
+														4840 text Braced Hang To Crouch
+														4841 text  (ثم 
+														4842 text Crouched To Standing
+														4843 text ) على 
+														4844 text V31
+														4845 text  مع تشغيل 
+														4846 text EchoCapeMotion
+														4847 text  والتحقق الرقمي في كل عينة من:
+														4848 content list
+															4849 container
+																4850 container p-rc_0c466a4a4fa81f7f-203
+																	4851 text عدم اختراق أي مفصل/طرف عباءة لنصف قطر كبسولات الفخذ والساق والقدم (
+																	4852 text min_leg_distance >= radius - 1e-3
+																	4853 text ) في العينتين الحرجتين 
+																	4854 text 0
+																	4855 text  و
+																	4856 text 8
+																	4857 text .
+																	4858 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من "JPG: contact.jpg وTXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+															4859 container
+																4860 container p-rc_0c466a4a4fa81f7f-204
+																	4861 text انخفاض زاوية ميل الذيل عن الأفق في العينتين 
+																	4862 text 26
+																	4863 text  و
+																	4864 text 34
+																	4865 text  نحو الجاذبية مع بقاء 
+																	4866 text tip_global.y >= support_floor_y
+																	4867 text  (صفر غوص تحت سطح المنصة)
+																	4868 text .
+																	4869 pop up button (collapsed) Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "JPG: contact.jpg". اضغط على Enter لفتح مربّع حوار المصادر., Secondary Actions: Expand
+															4870 container
+																4871 container p-rc_0c466a4a4fa81f7f-205
+																	4872 text ثبات زوايا العباءة بين إطارين متتاليين عند تفعيل 
+																	4873 text reduced_motion == true
+																	4874 text  مع بقاء التصحيح الهندسي فعالاً
+																	4875 text .
+																	4876 pop up button (collapsed) Secondary Actions: Expand, Description: اطّلِع على تفاصيل المصدر للنص المقتبَس من "TXT: EchoCapeMotion-before-argon.txt". اضغط على Enter لفتح مربّع حوار المصادر.
+													4877 container
+														4878 text أرسل بعد التنفيذ لوحة العينات المرسومة من داخل Godot (
+														4879 text samples 0, 8, 17, 26, 34
+														4880 text  مع المحرك مفعلاً) وسجل القياس الرقمي لنحسم إغلاق البوابة.
+								4881 checkbox Description: ردّ جيد, Value: 0
+								4882 checkbox Description: ردّ سيئ, Value: 0
+								4883 button إعادة
+								4884 button المشاركة والتصدير
+								4885 button نسخ
+								4886 button عرض خيارات أكثر
+					1472 container
+						1473 container
+							1474 container
+								1475 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 
+
+									4887 text Geminiاسأل 
+							3108 pop up button (collapsed) Description: التحميل والأدوات, Secondary Actions: Expand
+							4888 container
+								4889 button إملاء (^⇧D)
+						1480 text ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+			1481 container
+				1482 button محادثة جديدة
+				1483 button فتح قائمة الإجراءات الخاصة بالمحادثة
+		4890 text Determining platform surface interaction
+		1484 container Notifications
+
+The focused UI element is 1475 text entry area (settable) Description: يُرجى إدخال طلب في Gemini, Value: 

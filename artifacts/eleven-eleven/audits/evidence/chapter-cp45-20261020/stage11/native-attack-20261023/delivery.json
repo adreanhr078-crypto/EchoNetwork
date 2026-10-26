@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-23",
+  "status": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN",
+  "phase": "PART_3",
+  "scope": "One original grounded native cut; pause-safe contact; bounded obstruction clearance; earned pact through ward and a fresh headless connected route. Final chapter/art/device/account acceptance remains OPEN.",
+  "native_motion": {
+    "name": "Standing Melee Attack Horizontal",
+    "samples": 73,
+    "fps": 30,
+    "duration_seconds": 2.4,
+    "keys_preserved": 4380,
+    "blender_replay_max_m": 7.150958423905144e-06,
+    "godot_all_joints": "horizontal/godot-all-joints.json",
+    "blender_visual": "horizontal/blender-visual-review.json",
+    "actual_pose_checks": 5042,
+    "actual_pose": "horizontal/actual-pose-compat/review.json",
+    "contact_seconds": 0.933333333333335,
+    "source_sha256": "088cddda8d40025753006381f1bfcbe77e101d5dca5875e83a5a5ffdab2dabad"
+  },
+  "verification": {
+    "postflight": "postflight-final.log",
+    "golden": "golden-delivery.log",
+    "native_contact": "native-input-delivery.log",
+    "combat": "combat-delivery.log",
+    "pause": "pause-delivery.log",
+    "camera": "camera-readable/camera-review.json",
+    "legacy_camera": "legacy-camera-return.log",
+    "zero": "encounter-final.log",
+    "zero_checks": 223,
+    "post_contract_forward": "post-contract-final-forward/review.json",
+    "post_contract_checks": 58,
+    "fresh_headless": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-native11-final-20261023/full-chapter.json",
+    "fresh_checks": 363,
+    "fresh_retries": 0
+  },
+  "visual_review": "All146 Blender source/target comparisons and30 actual Godot pose views inspected; final Forward+ three native cuts and ward captures inspected. Both actors now readable; fingers partly open and saturated lab palette remain final-art issues.",
+  "prior_failures": [
+    "Original always-processing melee timer damaged during pause; regression reproduced, corrected with pausable physics timer.",
+    "SwordAndShield jumping lunge rejected for grounded tap after full106-view review.",
+    "Downward frozen bake failed10um gate at10.5207um; quarantined with diagnostic blend. No gate relaxation or export.",
+    "First post-contract driver had stale capture callback and film preference assumptions; driver corrected; runtime gates retained.",
+    "First native postflight648/649 during concurrent heavy jobs: forced-mate assertion failed; final serial result recorded separately. Cause not proven.",
+    "First camera clearance returned only1.13m; visual review rejected cramped framing, existing bounded solver refined to3m."
+  ],
+  "adviser": {
+    "url": "https://gemini.google.com/u/6/app/26fffb5360f69e02",
+    "model": "4 Argon High verified before/after",
+    "scope": "Text diagnostic advice only, no visual approval",
+    "evidence": "argon-precision-review.txt"
+  },
+  "open": [
+    "Fine finger enclosure and hand/weapon self-contact art",
+    "Distinct three-cut acting and natural charged Iai acting",
+    "Stage13 room palette/material/face/Japanese voice and audio listening",
+    "Stage14 physical devices, performance across chapter, independent playtest, live account/server receipts and fresh package"
+  ],
+  "preserved": "Golden192, original V31 body/face/rest/binds/source keys; native timing; SFX_ONLY; consent and server authority. No new spending/purchase/staging/commit/push/publication.",
+  "source_hashes": {
+    "godot/scripts/player/echo_player.gd": "212684a55890a5dd404ef3711fda792318747b8de9e95345f8e7330cd4bc5c19",
+    "godot/scripts/player/echo_v31_motion_adapter.gd": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a",
+    "godot/scripts/cinematics/pact_revenge_presentation.gd": "367923572e5652192a62f800b4c49e6c78e25bda810f671c0a5845fefadadbe8",
+    "godot/export_presets.cfg": "57ee1fa29d3080df9897d8d09f99c3e69d255b71612b72d842bfd1830a65c435",
+    "godot/assets/animations/v31/attack_horizontal_cp45.res": "efdcd586690ff9c4c846590eebb95cfab3121810129d86cda9ef773cf04deb78",
+    "godot/assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+    "godot/tests/combat_pause_contact_review.gd": "82af50aa0b86d193a14ab51837a0bbda943997c12c3639f552c579aa06add438",
+    "godot/tests/combat_contact_regression.gd": "8c12eea191bbfceacff3cf6b078a2a34104b5d8a18bf653bbd5cd87ed82b79a4",
+    "godot/tests/native_attack_pose_review.gd": "6652aad8a21191421c7d193be0fdcad252ed912f9075e7a16ee11d2d85bab1fc",
+    "godot/tests/native_melee_input_review.gd": "200880bc6bdf228b0eba6ba628da6c99a328e672eda2fae6d7b31bba88c18724",
+    "godot/tests/echo_v31_runtime_asset_review.gd": "5666404de7a9e10f7280a9fc2925ce9795e576f806382fe6593cbe8995c1e561",
+    "godot/tests/full_chapter_journey_review.gd": "628de02f30d0a9989ded7cf065d27a8b3e4c69794d33b7af6a13c130ffcc80ef",
+    "godot/tests/native_campaign_route_review.gd": "305114644aa2d3dce80141723b75e8afef7ac983d07b55e02f2b3a609f304646",
+    "godot/tests/zero_encounter_route_input.gd": "2e26f84fdb55ab530bde1db469e58887bd897eda58727469c6b2dc147dff4638",
+    "godot/tests/post_contract_journey_review.gd": "20a31052170cbb997c784db5b52538d34cb9b7f2e5e5dd1bd7a9128b0a1a28a9",
+    "godot/tests/zero_encounter_player_review.gd": "62317f945c552fcf15562a2d8006f2ceb38c529838bf60d2ff29f66ae2ea365d",
+    "tools/animation-library/v31_parkour_motion.py": "08dc647940a58d334a844cb9e8ec21c50bcd890b4fc6d546ded80e4f0619b4ab"
+  }
+}

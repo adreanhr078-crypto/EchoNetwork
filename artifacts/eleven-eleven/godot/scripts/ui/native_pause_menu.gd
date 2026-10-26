@@ -9,7 +9,9 @@ var resume_button: Button
 var mute_button: Button
 var motion_button: Button
 var language_button: Button
+var quality_button: Button
 var pause_button: Button
+var personal_system_button: Button
 var session_paused := false
 var _previous_mouse_mode := Input.MOUSE_MODE_VISIBLE
 var _touch_was_visible := false
@@ -29,6 +31,14 @@ func _ready() -> void:
 	pause_button.offset_right = -24
 	pause_button.offset_top = 24
 	pause_button.offset_bottom = 96
+	personal_system_button=_button("",func():main.toggle_personal_system())
+	personal_system_button.name="PersonalSystemButton"
+	add_child(personal_system_button)
+	personal_system_button.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	personal_system_button.offset_left=-352
+	personal_system_button.offset_right=-200
+	personal_system_button.offset_top=24
+	personal_system_button.offset_bottom=96
 	overlay = Control.new()
 	add_child(overlay)
 	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -70,7 +80,12 @@ func _ready() -> void:
 	mute_button = _button("", func(): main.set_audio_muted(not main.audio_muted); refresh_labels())
 	motion_button = _button("", func(): main.set_reduced_motion(not main.reduced_motion); refresh_labels())
 	language_button = _button("", func(): main.set_presentation_language("en" if main.presentation_language == "ar" else "ar"))
-	for button in [resume_button, mute_button, motion_button, language_button]:
+	quality_button = _button("", func():
+		var tiers := ["high","low","medium","ultra"]
+		var index: int=tiers.find(main.visual_quality)
+		main.set_visual_quality(tiers[(index+1)%tiers.size()])
+	)
+	for button in [resume_button, mute_button, motion_button, language_button,quality_button]:
 		column.add_child(button)
 	for key in ["scale", "opacity", "inset_x", "inset_y", "joystick_x", "joystick_y", "deadzone", "mouse_sensitivity", "touch_sensitivity"]:
 		var row := VBoxContainer.new()
@@ -119,10 +134,13 @@ func refresh_labels() -> void:
 	panel.layout_direction = Control.LAYOUT_DIRECTION_RTL if arabic else Control.LAYOUT_DIRECTION_LTR
 	heading.text = "استراحة داخل النظام" if arabic else "A pause in the System"
 	pause_button.text = "توقف" if arabic else "Pause"
+	personal_system_button.text="الحالة [I]" if arabic else "Status [I]"
 	resume_button.text = "متابعة الرحلة" if arabic else "Continue"
 	mute_button.text = ("الصوت: مكتوم" if main.audio_muted else "الصوت: يعمل") if arabic else ("Sound: muted" if main.audio_muted else "Sound: on")
 	motion_button.text = ("حركة الكاميرا: أقل" if main.reduced_motion else "حركة الكاميرا: معتادة") if arabic else ("Camera motion: reduced" if main.reduced_motion else "Camera motion: standard")
 	language_button.text = "لغة اللعب: العربية / English" if arabic else "Game language: English / العربية"
+	var qualities := {"low":["منخفضة","Low"],"medium":["متوسطة","Medium"],"high":["عالية","High"],"ultra":["فائقة","Ultra"]}
+	quality_button.text=("الجودة: " if arabic else "Quality: ")+qualities[main.visual_quality][0 if arabic else 1]+(" (تغيير)" if arabic else " (change)")
 	status.text = ("توقف الوقت. حُفظ تقدم الغرفة." if _save_succeeded else "توقف الوقت. تعذر الحفظ. يمكنك متابعة اللعب.") if arabic else ("Time is paused. Room progress saved." if _save_succeeded else "Time is paused. Save failed. You can continue playing.")
 	var settings: Dictionary = main.get_control_preferences()
 	var captions := {"scale": ["حجم الأزرار", "Button size"], "opacity": ["وضوح الأزرار", "Button opacity"], "inset_x": ["موضع الأزرار الأفقي", "Horizontal inset"], "inset_y": ["موضع الأزرار الرأسي", "Vertical inset"], "mouse_sensitivity": ["حساسية الفأرة", "Mouse sensitivity"], "touch_sensitivity": ["حساسية كاميرا اللمس", "Touch camera sensitivity"]}
@@ -154,6 +172,7 @@ func set_session_paused(paused: bool) -> void:
 	get_tree().paused = paused
 	overlay.visible = paused
 	pause_button.visible = not paused
+	personal_system_button.visible=not paused
 	refresh_labels()
 	if paused:
 		resume_button.grab_focus()

@@ -76,8 +76,8 @@ func _update_telemetry() -> void:
 	_telemetry_language = presentation_language
 	preload("res://scripts/environment/surveillance_display.gd").update(_telemetry,presentation_language,mirror_inspected,gate_open)
 	_telemetry.get_node("Readout2").text = ("التجاوز / مفعل" if override_done else "التجاوز / انتظار") if presentation_language=="ar" else ("OVERRIDE / ENGAGED" if override_done else "OVERRIDE / STANDBY")
-	_telemetry.get_node("Status0").material_override.albedo_color = Color(.24,.55,.46) if mirror_inspected else Color(.68,.4,.16)
-	_telemetry.get_node("Status2").material_override.albedo_color = Color(.24,.55,.46) if override_done else Color(.68,.4,.16)
+	preload("res://engine_visuals/HyperMaterialAdapter.gd").set_signal_color(_telemetry.get_node("Status0").material_override,Color(.24,.55,.46) if mirror_inspected else Color(.68,.4,.16))
+	preload("res://engine_visuals/HyperMaterialAdapter.gd").set_signal_color(_telemetry.get_node("Status2").material_override,Color(.24,.55,.46) if override_done else Color(.68,.4,.16))
 	if _presentation: _presentation.refresh()
 
 var mirror_inspected := false

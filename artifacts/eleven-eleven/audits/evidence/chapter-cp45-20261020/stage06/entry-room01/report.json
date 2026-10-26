@@ -1,0 +1,78 @@
+{
+	"adapter": "Intel(R) UHD Graphics",
+	"checks": 53,
+	"cold_scene_reload_after_clock": true,
+	"independent_new_player_fun_review": "OPEN",
+	"natural_opening": true,
+	"no_gameplay_teleport": true,
+	"profiles": {
+		"room01-gate-low": {
+			"draw_calls": {
+				"max": 403.0,
+				"p50": 398.0,
+				"p95": 403.0,
+				"p99": 403.0
+			},
+			"engine_texture_bytes": {
+				"max": 404107197.0,
+				"p50": 404107197.0,
+				"p95": 404107197.0,
+				"p99": 404107197.0
+			},
+			"primitives": {
+				"max": 1065354.0,
+				"p50": 1064896.0,
+				"p95": 1065354.0,
+				"p99": 1065354.0
+			},
+			"samples": 240,
+			"wall_frame_ms": {
+				"max": 33.607,
+				"p50": 16.676,
+				"p95": 17.951,
+				"p99": 32.622
+			}
+		},
+		"room01-waking-low": {
+			"draw_calls": {
+				"max": 586.0,
+				"p50": 586.0,
+				"p95": 586.0,
+				"p99": 586.0
+			},
+			"engine_texture_bytes": {
+				"max": 403275539.0,
+				"p50": 403275539.0,
+				"p95": 403275539.0,
+				"p99": 403275539.0
+			},
+			"primitives": {
+				"max": 1074642.0,
+				"p50": 1074642.0,
+				"p95": 1074642.0,
+				"p99": 1074642.0
+			},
+			"samples": 240,
+			"wall_frame_ms": {
+				"max": 34.42,
+				"p50": 16.647,
+				"p95": 17.961,
+				"p99": 23.122
+			}
+		}
+	},
+	"public_pointer_title_and_cover": true,
+	"renderer": "gl_compatibility",
+	"source_hashes": {
+		"res://assets/animations/v31/run_cp45.res": "4f372cf4967c5e55ed6a263804084199ca7926aad03fd3b4af39132f3f1dae38",
+		"res://assets/animations/v31/walk_cp45.res": "6ccb005099c223243a60329bd43b07689b12a4f14993ff619eb28e7a7ad1936e",
+		"res://scenes/native_journey.tscn": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
+		"res://scripts/boot.gd": "5fb0009eac3f4df632812ecd6354cb2326e7830d675f679fdcf426458c9768b3",
+		"res://scripts/main.gd": "3b0a56251bdf0d94f2e83de71e684dcdb3a33314c21f0d4644d3e2b16a171181",
+		"res://scripts/player/echo_player.gd": "ec9d5ba8322ea3a628189a2675cbb754f2d430af4c29de471d9bf7a87cbf9320",
+		"res://scripts/player/echo_v31_motion_adapter.gd": "30b814020a8b1b71c4a5256c83f41c5aa813a40703f5828ec9b9f8effc160465",
+		"res://scripts/ui/school_lab_opening.gd": "5afd309e7c51b056dba16a8531911cc5c14ece4c6a4d550221cd0af4792df279"
+	},
+	"stage14_release": "OPEN",
+	"status": "PASS"
+}

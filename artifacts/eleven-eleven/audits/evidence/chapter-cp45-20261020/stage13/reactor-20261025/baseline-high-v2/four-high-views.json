@@ -1,0 +1,58 @@
+{
+	"framebuffer": [
+		1280,
+		720
+	],
+	"progress_unchanged": true,
+	"reduced_motion": false,
+	"render_scale": 1.0,
+	"renderer": "forward_plus",
+	"room": "reactor",
+	"scope": "Four fixed actual native High cameras in a validated cold checkpoint with an explicit actor spawn. Camera-overlap review remains mandatory. No public route,moving acting,sound,performance,fun or final art acceptance.",
+	"shared_hyper_preset": "arcane_neon_sanctuary",
+	"source_hashes": {
+		"res://assets/characters/echo_v31_short_jacket.glb": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+		"res://assets/props/sector11-conduit-v1.glb": "d81d8aa1653914228fac266b83ce5864ee0a7f6fb47b752311ef573e32b63c85",
+		"res://assets/props/signal_console_jutsu.glb": "50528dd32094a0763c7d9b2da163fdf1912335de9a09ac0f7f5b39851022325b",
+		"res://engine_visuals/HyperAnimeWorldManager.gd": "9faa9fecc24fef624576d18e79901a15424aa6d7763a18716b9bfbbee2ae60fd",
+		"res://scripts/environment/core_reactor_room.gd": "0b65366e1090ffb06d07997024502b69d7d0f25fef292f6ea312aa65e0635017",
+		"res://scripts/systems/native_campaign_controller.gd": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
+		"res://tests/campaign_room_render_review.gd": "fbade76e07ff597a818c615c51120fdaeded570b1d9835d19e8aa67195172cef",
+		"res://tests/room_four_high_views_review.gd": "21a619dc95225a5dd4991e9aea7e23eacad5b8cdb5bd3e4ae536b84da6c37e49"
+	},
+	"tier": "high",
+	"views": [
+		{
+			"file": "entry.png",
+			"local_camera": "(2.799999, -1.8, -3.0)",
+			"local_target": "(0.0, -1.5, -23.0)",
+			"sha256": "fb379eaa001a131beb27d900ab31cea61e296745225bb21e1b1bc6deeacb5dac",
+			"solid_overlap_count": 0,
+			"view": "entry"
+		},
+		{
+			"file": "reverse.png",
+			"local_camera": "(0.0, 2.2, -41.0)",
+			"local_target": "(0.0, -1.4, -22.0)",
+			"sha256": "fdc30ec7f8315428fe516ce685cf50c0aafc8b15943e6ce7d9648df8f887f440",
+			"solid_overlap_count": 0,
+			"view": "reverse"
+		},
+		{
+			"file": "lateral.png",
+			"local_camera": "(-15.0, 3.0, -22.0)",
+			"local_target": "(0.0, -2.0, -24.0)",
+			"sha256": "86909b87dc76d696742e3b7b2fb1a95e9ebe774b8599ea6f4109b43005c6da83",
+			"solid_overlap_count": 0,
+			"view": "lateral"
+		},
+		{
+			"file": "hero.png",
+			"local_camera": "(9.0, 0.0, -16.0)",
+			"local_target": "(0.0, -2.0, -22.0)",
+			"sha256": "218c4a33b6798cd775d3e6c796597687e7d88754e671dcd9f215c605cdca3e3e",
+			"solid_overlap_count": 0,
+			"view": "hero"
+		}
+	]
+}

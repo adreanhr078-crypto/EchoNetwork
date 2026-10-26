@@ -1,0 +1,28 @@
+{
+	"contacts": 0,
+	"contract_done": true,
+	"framebuffer": [
+		1280,
+		720
+	],
+	"motion": true,
+	"renderer": "forward_plus",
+	"scope": "Four fixed art cameras in actual earned native room; HUD hidden only by this fixture. No art/traversal/performance acceptance.",
+	"source_hashes": {
+		"res://assets/environments/lab_clinical_cp45/clinical_scanner_tripo.glb": "737937454fe5a5f561993e751931736b4bfcdb105dc2c361db73ad0f3988b758",
+		"res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9",
+		"res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+		"res://scripts/cinematics/lab_memory_trial.gd": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
+		"res://scripts/cinematics/pact_revenge_presentation.gd": "4eaeb454381e3cf5b5ac2651223ede66e7aa1430213ab6b683d9004fcf4fa4d3",
+		"res://scripts/environment/clinical_lab_architecture.gd": "582a3a710bbba80f1bc8e3d0948e107600a72a8c181a7af8c2612c3b378f58d6",
+		"res://scripts/environment/clinical_modular_perimeter.gd": "4d7ec900d4f6fd6a1a14cbb75138295e5b4f906e95c9ce8fb1c320f836e64273",
+		"res://scripts/environment/lab_memory_cinema.gd": "80ac27d14897f04d7feef3f43c0f928fb1cb213beba873e21a97668e87e2aba4",
+		"res://scripts/environment/memory_reflection_space.gd": "038b7c7064e39f356a536e211abc44e4e922051be25e6d68bc5cd3a9ebe4cb42",
+		"res://shaders/clinical_architecture_surface.gdshader": "2cea8a782997ecb8a0460ee18d0f462a442524d7bccd6c5e528213637b76ea5e",
+		"res://shaders/clinical_diagnostic_display.gdshader": "eebda9cfdb9a8af41af2539a6781890f320748a8e1cd7f4f2706a71d38869d40",
+		"res://shaders/clinical_porcelain_floor.gdshader": "bf558cdcfe78d93b61ff14ee36bb722a33aa206b2eb2919258398cf4ef734235",
+		"res://shaders/clinical_vitrine_glass.gdshader": "4e00429079cc990234be027c3dfdec7fabbe911ae2e0d1e1d7dbfba8cacef04a",
+		"res://tests/lab_rebuild_views_review.gd": "58a0830865805d417a831a3f960b2c9d9457644f83ae98b7b69ed2a228534a98"
+	},
+	"wish_done": false
+}

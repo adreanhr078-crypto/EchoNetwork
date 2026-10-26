@@ -1,0 +1,267 @@
+{
+  "status": "CP45_STAGE13_ARCHIVE_GRAPHITE_HIGH_NATIVE51_SCOPED_PASS",
+  "dimensions_m": [
+    22,
+    28,
+    8.5
+  ],
+  "native_hero_pedestal": {
+    "bottom_radius": 2.8,
+    "top_radius": 2.5,
+    "height": 1,
+    "centre": [
+      -11,
+      0.5,
+      0
+    ]
+  },
+  "preserved": "Six existing server racks/colliders/rungs,3original memories,shards/decoder/core/phase,catwalk/ramps,22x28 shell/2.6m entry/2.05m exit,save/mute/RM/Canon/SFX_ONLY/no early powers",
+  "candidate": "Selective measured core-base mechanical derivative and existing route architecture;whole-room generation only if evidence needs it",
+  "new_paid_tasks": [
+    {
+      "task": "2630c359-0c95-4db2-90bd-12095d973a7d",
+      "operation": "geometry",
+      "charge": 30
+    },
+    {
+      "task": "2630c359-0c95-4db2-90bd-12095d973a7d",
+      "operation": "4K texture RemoveLighting checked on original195893tri",
+      "quoted_charge": 20,
+      "status": "completed",
+      "charge": 20,
+      "export": "core-h31-texture4k.glb"
+    },
+    {
+      "task": "2630c359-0c95-4db2-90bd-12095d973a7d",
+      "operation": "PBR maps on original195893tri",
+      "quoted_charge": 5,
+      "status": "completed",
+      "charge": 5,
+      "export": "core-h31-pbr4k.glb"
+    }
+  ],
+  "source_hashes": {
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "9faa9fecc24fef624576d18e79901a15424aa6d7763a18716b9bfbbee2ae60fd",
+    "godot/tests/archive_dressing_public_review.gd": "dea6e15b8f856885ee1d1772f6e7604b26584bf44cdf96a12419555a54d6b9dc",
+    "godot/tests/specimen_dressing_public_review.gd": "5c264b75f1dcf8bc9e527a8ff26776b46e2c66898d86b75a948e7a5fff692c98",
+    "godot/tests/native_campaign_route_review.gd": "305114644aa2d3dce80141723b75e8afef7ac983d07b55e02f2b3a609f304646",
+    "godot/tests/room_route_input_review.gd": "3b6a74089bf503f11a352a5c9f36164ea46c295587a1fff1597ab9fb3cba7c8f",
+    "godot/scripts/environment/archive_decoder_readout.gd": "0e2d1b685ff6090de64f6776fe00869d41652b239a6317783bcb14449c85bfb6",
+    "godot/shaders/archive_decoder_readout.gdshader": "4b7641c98d06cfe9388c251359704f8a58d8dea6f1fe13f00c94abddae47ef43",
+    "godot/scripts/environment/memory_archive_wing.gd": "5cf78f2f88a525994c00542947b49a9b20d4b23167879f1506abafb442e05931",
+    "godot/tests/room_four_high_views_review.gd": "53ff712df8d34b2f6547a48ad8f77141600b4d2afdbd4e7d08b52dcd47b8845a",
+    "godot/scripts/environment/specimen_mechanical_dressing.gd": "addd51140390e1bea4c139e01457188bfa0825dab0f4b04a581e0f0dcaba7cd3",
+    "godot/scripts/environment/archive_mechanical_dressing.gd": "4d977d9208bd0d6f2473a1ac00428025c30d382d39eb48c5027f4d4177d82760",
+    "godot/shaders/archive_perforated_rail.gdshader": "cf5f0633408e271ef47a317354aa9ccaf655d241172b868efac9c4b1338b5573",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb": "8fee69e2c3cd5fa44f29dcc9102685e84037b37bd23a81da1f0c651222741dc0",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb.import": "0c176fc8aeccbe244e1d9ecf928a6bb9a59bc501033807bc1c413946bc0d2937",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_basecolor_4096.jpg": "1ad0cd72f020e650bc6279d09d7934c6ed4edb7370e41c8f8a23b4953b8b6666",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_basecolor_4096.jpg.import": "9ba7de0b2f69456aba54ef0d98635e78a560f8c19876a5a9d6eb85e5c740a8c8",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_normal_4096.jpg": "57e24db157f6757abfef46b82a1f244efe6e39ebfb0de4a4ff58fe8e6018c8d3",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_normal_4096.jpg.import": "7d30b4b2ad08fb3085dea7a21f2577d27d61aca0b1144af24c61acd6cd58303c",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_rm_4096.png": "db4d4169d27d55bf3c6197e03dc943da9723812169c8c07236e7f4d25ade2dcf",
+    "godot/assets/environments/archive_cp45/archive_core_base_pbr4k_archive_core_rm_4096.png.import": "2d079da36ad79e04993756cd4038c733318c3d16a0697b9dab17844a965d5802",
+    "godot/shaders/clinical_architecture_surface.gdshader": "7731ab628203636cd53cb5dd27beb0bf80c20928fd658fa7203ed89b52068eb0",
+    "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec",
+    "godot/tests/archive_hyper_palette_review.gd": "5fb5cb2db531b1eedfb2a6a5e9372e72ce9fd8900ceea7697d8e94fa7c6e5ffe",
+    "godot/tests/archive_earned_reload_review.gd": "2bc36cf7fd3b00729397b3c223a178fd65d12c063f11262a237d52eb421a2911"
+  },
+  "next": "Archive corrected graphite pass scoped;owner final art review remainsOPEN. Continue reactor06. GitHub authenticated Actions0/cache0/releases0,billing404,remote deleted0bytes.",
+  "reference_views": {
+    "evidence": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/baseline-high-v1",
+    "count": 4,
+    "camera_overlaps": 0,
+    "progress_unchanged": true,
+    "qualified": "Native exact geometry contract;one actor fixture declared;not generation/art/play acceptance"
+  },
+  "credits_live_before_generation": {
+    "tripo": 2880,
+    "flow": 750,
+    "date": "2026-10-25"
+  },
+  "flow_base_reference": {
+    "file": "core-base-reference.jpg",
+    "sha256": "dcf242e3cadbae29674c86a16bbaefe0ecc4c18f25e719146a78e6ec1688efb4",
+    "size": [
+      1024,
+      1024
+    ],
+    "model": "Nano Banana Pro",
+    "submitted_input": "archive-native-four-view.jpg contact sheet containing all4native originals",
+    "images_generated": 1,
+    "acceptance": "Accepted isolated base silhouette/material guide only;dimensions imposed by measured derivative,not inferred from image;native projection separate",
+    "download": "1K original;first direct download button opened size menu;no duplicate generation",
+    "credits_observed_before": 750
+  },
+  "tripo_preflight": {
+    "balance": 2880,
+    "model": "H3.1 Best Quality",
+    "ultra_mesh": true,
+    "target_triangles": 200000,
+    "texture_initial": false,
+    "ai_complete": false,
+    "parts": false,
+    "privacy": "Private",
+    "quoted_geometry_credits": 30,
+    "bounded_pipeline": "One reference-bound geometry job;inspect raw then selective retopo~20K,4K RemoveLighting,PBR after shape acceptance. No blind rerolls or plan purchase."
+  },
+  "native_contract": "PASS29 original colliders including ramp convex points/climb groups,shards/core/anchors/state unchanged",
+  "native_presentation": "PASS existing six rack fits,visual-only shard motion,pause/RM,no progression mutation,one burst/mute/silent restore,decoder guidance",
+  "current_architecture": "Mechanical-high-v1 four current native High views;architecture/material/rail/trays installed,hero base pending;not art acceptance",
+  "tripo_task": {
+    "id": "2630c359-0c95-4db2-90bd-12095d973a7d",
+    "url": "https://studio.tripo3d.ai/workspace/generate/2630c359-0c95-4db2-90bd-12095d973a7d",
+    "source": "core-base-reference.jpg",
+    "model": "H3.1 Best Quality Ultra",
+    "geometry_charge": 30,
+    "balance_after_geometry": 2850,
+    "actual_triangles": 195893,
+    "raw_file": "core-h31-raw.glb",
+    "raw_review": "raw-geometry-review.png",
+    "raw_review_status": "ACCEPTED shape candidate:single shallow engineered circular base,panel seams,central recess;no actors/floor/beam. Zup extent .9788/.9775/.2652;exact native5.6x1m fitting still pending."
+  },
+  "topology_decision": {
+    "priority": "Owner highest quality even on stronger hardware",
+    "chosen": "Retain inspected195893-triangle original for close hero;Godot generated mesh LODs for distance. No paid20K remesh yet.",
+    "reason": "Single5.6m focal static object,good smooth source;90%geometry reduction before evaluation could erase fine fasteners. Texture original4K/PBR first.",
+    "retopo_ui_inspected": {
+      "SmartMeshP1": true,
+      "Triangle": true,
+      "target": 20000,
+      "quoted": 35,
+      "submitted": false
+    },
+    "next": "Verify original mesh LOD/import and current native High before any reduction"
+  },
+  "architecture_strategy": {
+    "owner_question": "Whole-room candidate if better;quality first",
+    "chosen": "Full measured perimeter kit using accepted TripoP2 3x3x.2m PBR4K tile in8bounded batches;new H3.1 hero base;shared mechanical rails/trays. Preserve6 detailed racks/native gameplay.",
+    "reason": "Reuses proven architectural shape/maps while guaranteeing exact22x28x8.5 envelope,2.6m entry,2.05m exit. No uncertain generated wall openings or baked actors.",
+    "native_contract": "PASS29 original solids including all ramp convex points and climb groups;all tile AABBs explicitly enclosed in native wall volumes;thin backing prevents panel seam sky leaks",
+    "art_acceptance": "OPEN;cladding-high-v2 pending actual review"
+  },
+  "credits_live_after_packet": {
+    "tripo": 2825,
+    "flow": 750,
+    "actual_tripo_charge": 55,
+    "actual_flow_image_charge_observed": 0,
+    "date": "2026-10-25",
+    "no_paid_retopo": true
+  },
+  "derivative_build": {
+    "source": "core-h31-pbr4k.glb",
+    "source_sha256": "713279291724e92c26349b7298850a859c1dcdfc85c2cb3ab181cfd31e8f1de8",
+    "output": "godot/assets/environments/archive_cp45/archive_core_base_pbr4k.glb",
+    "output_sha256": "8fee69e2c3cd5fa44f29dcc9102685e84037b37bd23a81da1f0c651222741dc0",
+    "triangles": 195893,
+    "surfaces": 1,
+    "native_collider": {
+      "radius": 2.8,
+      "height": 1.0,
+      "unchanged": true
+    },
+    "source_blender_extent": [
+      0.9788209199905396,
+      0.9775086641311646,
+      0.26519775390625
+    ],
+    "uniform_xy_scale": 5.715164565620361,
+    "height_scale": 3.770771001150748,
+    "actual_max_radius": 2.800000019386263,
+    "actual_top_band_radius": 2.255611963922912,
+    "native_visual_top_radius": 2.5,
+    "pivot": "bottom centre;Godot Y up",
+    "images": [
+      {
+        "role": "basecolor",
+        "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_0",
+        "width": 4096,
+        "height": 4096
+      },
+      {
+        "role": "normal",
+        "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_2",
+        "width": 4096,
+        "height": 4096
+      },
+      {
+        "role": "rm",
+        "original_name": "tripo_image_b36ea7f7-41ab-43bc-9645-b0fa41197aa3_1",
+        "width": 4096,
+        "height": 4096
+      }
+    ],
+    "lod": "Request native Godot generated mesh LODs;actual imported LODs not yet verified",
+    "scope": "Measured full-detail visual derivative;uniform radial fit with independent native height. Original195893 triangles andUV/source maps retained. Not exact reconstruction of the image or native art/player acceptance."
+  },
+  "native_imported": {
+    "bounds": "[P: (-2.797061, 0.0, -2.793311), S: (5.594123, 1.0, 5.586623)]",
+    "cladding_tiles": 112,
+    "lod_levels": 7,
+    "maps": {
+      "color": [
+        4096,
+        4096
+      ],
+      "metallic": [
+        4096,
+        4096
+      ],
+      "normal": [
+        4096,
+        4096
+      ],
+      "roughness": [
+        4096,
+        4096
+      ]
+    },
+    "metallic_channel": "(0.0, 0.0, 1.0, 0.0)",
+    "new_collision_objects": 0,
+    "roughness_channel": "(0.0, 1.0, 0.0, 0.0)",
+    "surfaces": 1,
+    "triangles": 195893
+  },
+  "deck_refinement": "Original16x2.2x.2m deck skin replaced by83real metal lattice members inside original volume,top bars exactly3.6m. Original continuous collider/ramps remain. It clears the blank overhead slab from core views and permits original projection between manufactured grating.",
+  "public_native_current": {
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/deck-public-high-v4/connected-public-review.json",
+    "checks": 48,
+    "samples": 30,
+    "retries": 0,
+    "earned_profile_files": [
+      "campaign.json",
+      "maintenance.json",
+      "opening.json",
+      "preferences.cfg",
+      "route.json"
+    ],
+    "completed": [
+      "specimen",
+      "archive"
+    ],
+    "control_unlocked": true,
+    "no_pre_pact_power": true,
+    "actual_feedback": "PASS current archive_presentation_review after full mesh/4K/rail/grating integration"
+  },
+  "adviser_status": "PASS actual4current High images:architecture/equipment/composition",
+  "adviser_v4": {
+    "status": "REFINE",
+    "return": "argon-deck-v4-return.txt",
+    "defects": "Bare stair sides/structural walkway support;decoder screen black. Currentv5 adds measured real stringers/4ceiling ties,stair finish,andsource-bound native decoder readout/clear bezel;needs current4-view review.",
+    "preserved": "29 colliders,no source-film changes,no new audio/story/control. Readout follows existing archive clock/count/decode only."
+  },
+  "earned_reload": {
+    "status": "PASS actual5-file cold native reload",
+    "evidence": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/earned-reload-v2/earned-reload-review.json",
+    "qualification": "Headless ownership/state only;firstfixturetyped-target parseerror retained inreload-earned-v1.log"
+  },
+  "current_native_route": "readability-public-high-v5 PASS48/30samples/0retry;actual5-file cold reload finalPASS",
+  "known_ui_pitfall": "Gemini plus menu mounts file items before lower tool section. Wait until MoreTools button visible and take freshDOM before clicking UploadFiles;menu height shifts earlier hit Images. Do not regenerate.",
+  "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/quality-report.json",
+  "prior_scoped_art": "Prior ArgonHigh staticv5 PASS remains historical;owner25Oct says archive shader/colours unsuitable,so current art reopened",
+  "owner_direction": "Rework archive palette/shader using shared HyperAnime;highest professional distinct identity for every system room",
+  "palette_direction": "Shared Hyper archive_memory_vault context;neutral graphite/aged alloy,restrained cyan data and warm memory. Local neutral lights/floor/core/rack texture saturation;old clinical-blue ramp/console casing corrected.",
+  "hyper_context_proof": "9 PASS actual shared context/private camera lease/RM whilepaused/preset restore;not art proof",
+  "palette_v6": "Actual4High Forward+ render completed,shared archive preset recorded. Ownreview found residual blue ramp/casing;v7 fixes those",
+  "palette_report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json"
+}

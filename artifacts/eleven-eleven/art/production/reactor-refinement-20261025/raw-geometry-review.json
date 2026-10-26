@@ -1,0 +1,66 @@
+{
+  "source": "crown-h31-raw.glb",
+  "sha256": "332c6a53b986b19f2ed63c310cbf6c9ba1bfcf1b139cc11b493ea8b3ce3a3dc2",
+  "meshes": 1,
+  "triangles": 196054,
+  "bounds_min": [
+    -0.4896240830421448,
+    -0.4892578721046448,
+    0.0
+  ],
+  "bounds_max": [
+    0.4895935654640198,
+    0.4892273545265198,
+    0.10030364990234375
+  ],
+  "extent_blender": [
+    0.9792176485061646,
+    0.9784852266311646,
+    0.10030364990234375
+  ],
+  "centre": [
+    -1.52587890625e-05,
+    -1.52587890625e-05,
+    0.050151824951171875
+  ],
+  "radius_min": 0.23796026027685419,
+  "radius_max": 0.48980978505047845,
+  "central_axis_rays": [
+    {
+      "fraction_xy": [
+        0,
+        0
+      ],
+      "clear": true
+    },
+    {
+      "fraction_xy": [
+        0.1,
+        0
+      ],
+      "clear": true
+    },
+    {
+      "fraction_xy": [
+        -0.1,
+        0
+      ],
+      "clear": true
+    },
+    {
+      "fraction_xy": [
+        0,
+        0.1
+      ],
+      "clear": true
+    },
+    {
+      "fraction_xy": [
+        0,
+        -0.1
+      ],
+      "clear": true
+    }
+  ],
+  "scope": "Actual raw shape and open annular centre only;not measured derivative or native art acceptance"
+}

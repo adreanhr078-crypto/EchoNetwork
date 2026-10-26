@@ -1,0 +1,168 @@
+{
+  "source": "art/production/lab-modular-refinement-20261024/clinical_wall_p2_pbr_4k.glb",
+  "source_sha256": "845b2b0562ef8489352e400e71144cfa7b3fc06f4885b0ddfac7443e61b2e8de",
+  "raw_tile_triangles": 2505,
+  "planar_cleanup_tile_triangles": 2265,
+  "source_bounds_min": [
+    -0.499755859375,
+    -0.052490271627902985,
+    0.0
+  ],
+  "source_bounds_max": [
+    0.499755859375,
+    0.052490271627902985,
+    0.99951171875
+  ],
+  "normalised_tile_dimensions_m": [
+    3,
+    0.2,
+    3
+  ],
+  "tile_instances": 120,
+  "measured_room_bounds": {
+    "ClinicalCleanWestWall": {
+      "min": [
+        -16.18000030517578,
+        0.0,
+        -39.5
+      ],
+      "max": [
+        -15.979998588562012,
+        9.0,
+        -0.5
+      ],
+      "dimensions": [
+        0.20000171661376953,
+        9.0,
+        39.0
+      ]
+    },
+    "ClinicalCleanEastWall": {
+      "min": [
+        15.979998588562012,
+        0.0,
+        -39.5
+      ],
+      "max": [
+        16.18000030517578,
+        9.0,
+        -0.5
+      ],
+      "dimensions": [
+        0.20000171661376953,
+        9.0,
+        39.0
+      ]
+    },
+    "ClinicalCleanNorthWall": {
+      "min": [
+        -15.625000953674316,
+        0.0,
+        -40.18000030517578
+      ],
+      "max": [
+        15.625,
+        9.0,
+        -39.980003356933594
+      ],
+      "dimensions": [
+        31.250000953674316,
+        9.0,
+        0.1999969482421875
+      ]
+    },
+    "ClinicalCleanSouthWall": {
+      "min": [
+        -15.65999984741211,
+        0.0,
+        -0.020000142976641655
+      ],
+      "max": [
+        15.65999984741211,
+        9.0,
+        0.1800001561641693
+      ],
+      "dimensions": [
+        31.31999969482422,
+        9.0,
+        0.20000029914081097
+      ]
+    },
+    "ClinicalCleanFrameAndGallery": {
+      "min": [
+        -16.020000457763672,
+        -7.450580596923828e-09,
+        -40.040000915527344
+      ],
+      "max": [
+        16.020000457763672,
+        9.920000076293945,
+        0.04000091552734375
+      ],
+      "dimensions": [
+        32.040000915527344,
+        9.920000083744526,
+        40.08000183105469
+      ]
+    }
+  },
+  "image_dimensions": {
+    "tripo_rgb_2af462e7-0c28-4844-8ad1-2a2b3f4d8d52": [
+      4096,
+      4096
+    ],
+    "tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_2-tripo_image_2962e733-d94c-4092-93cf-47e0bf829d08_1": [
+      4096,
+      4096
+    ],
+    "tripo_normal_6037cb6e-b606-4cfc-871e-423ca1295ea7": [
+      4096,
+      4096
+    ]
+  },
+  "output": "godot/assets/environments/lab_clinical_cp45/clinical_modular_perimeter.glb",
+  "output_sha256": "82e7ba2a355b804aedededcf8dc077ef8c2191663b312ea8c3dda0dcab7b1dfb",
+  "runtime_assets": [
+    {
+      "file": "godot/assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb",
+      "sha256": "5bc2c6a4fcfeb737ebca499c39cc5133299c1a35724090a849bca30f5f6b11ec"
+    },
+    {
+      "file": "godot/assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb",
+      "sha256": "6ebfe8739d5e4db2c6670963edd7787cf7571a49bdd1b62001c595ed0a8032d9"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "ClinicalCleanWestWall",
+      "vertices": 73359,
+      "triangles": 88335,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanEastWall",
+      "vertices": 73359,
+      "triangles": 88335,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanNorthWall",
+      "vertices": 33858,
+      "triangles": 40770,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanSouthWall",
+      "vertices": 45144,
+      "triangles": 54360,
+      "surfaces": 1
+    },
+    {
+      "name": "ClinicalCleanFrameAndGallery",
+      "vertices": 5712,
+      "triangles": 11016,
+      "surfaces": 4
+    }
+  ],
+  "scope": "Editable visual-only candidate. Repeated image-guided Tripo tile; authored exact portal/frame/gallery dimensions. Not an exact reconstruction from a film. Native collision,camera,path,state,art and performance acceptance remain required."
+}

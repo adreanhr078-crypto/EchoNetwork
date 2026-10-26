@@ -1,0 +1,1042 @@
+{
+  "status": "MEASURED_NOT_ART_ACCEPTANCE",
+  "scope": "Actual skinned triangles with all three cloth/leg vertex weights >0.5; seam/other body/cloth self-collision excluded. BVH triangle discrimination checked independently.",
+  "source_hashes": {
+    "assets/characters/echo_v31_adopted_high.glb": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+    "engine_visuals/EchoCapeMotion.gd": "6db00e607e3a282e200eef1a0140333e3b301f4b70f20e6751041b0a0e7a2e58",
+    "scripts/player/echo_v31_motion_adapter.gd": "972ebeeb81cad3b3747e18b75d27e79e6953501a297183a82c03b7bcff2efa2e",
+    "tests/echo_cape_skin_review.gd": "cecc626e808d1dbbfc099b56b72cab8d104f0b5fc552f3a89c8d7b1252dfabb3"
+  },
+  "protected_body_checks": 10388,
+  "source_only": false,
+  "reduced_motion": false,
+  "geometry": [
+    {
+      "cloth_triangles": 94384,
+      "leg_triangles": 107742
+    },
+    {
+      "cloth_triangles": 0,
+      "leg_triangles": 0
+    }
+  ],
+  "clips": {
+    "REST": {
+      "samples": 1,
+      "affected_samples": 0,
+      "maximum_crossing_pairs": 0,
+      "worst_time": 0
+    },
+    "IDLE": {
+      "samples": 58,
+      "affected_samples": 58,
+      "maximum_crossing_pairs": 1360,
+      "worst_time": 0.8
+    },
+    "WALK": {
+      "samples": 37,
+      "affected_samples": 37,
+      "maximum_crossing_pairs": 1801,
+      "worst_time": 0.366666666666667
+    },
+    "RUN": {
+      "samples": 27,
+      "affected_samples": 27,
+      "maximum_crossing_pairs": 2511,
+      "worst_time": 0.166666666666667
+    },
+    "preset_jump": {
+      "samples": 74,
+      "affected_samples": 74,
+      "maximum_crossing_pairs": 2079,
+      "worst_time": 2.16666666666667
+    }
+  },
+  "poses": [
+    {
+      "clip": "REST",
+      "time": 0.0,
+      "crossing_triangle_pairs": 0
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.0,
+      "crossing_triangle_pairs": 1020
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.0333333333333333,
+      "crossing_triangle_pairs": 1030
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.0666666666666667,
+      "crossing_triangle_pairs": 1012
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.1,
+      "crossing_triangle_pairs": 997
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.133333333333333,
+      "crossing_triangle_pairs": 983
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.166666666666667,
+      "crossing_triangle_pairs": 966
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.2,
+      "crossing_triangle_pairs": 975
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.233333333333333,
+      "crossing_triangle_pairs": 984
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.266666666666667,
+      "crossing_triangle_pairs": 983
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.3,
+      "crossing_triangle_pairs": 1012
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.333333333333333,
+      "crossing_triangle_pairs": 1061
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.366666666666667,
+      "crossing_triangle_pairs": 1060
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.4,
+      "crossing_triangle_pairs": 1077
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.433333333333333,
+      "crossing_triangle_pairs": 1076
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.466666666666667,
+      "crossing_triangle_pairs": 1097
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.5,
+      "crossing_triangle_pairs": 1090
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.533333333333333,
+      "crossing_triangle_pairs": 1090
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.566666666666667,
+      "crossing_triangle_pairs": 1172
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.6,
+      "crossing_triangle_pairs": 1212
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.633333333333333,
+      "crossing_triangle_pairs": 1247
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.666666666666667,
+      "crossing_triangle_pairs": 1311
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.7,
+      "crossing_triangle_pairs": 1337
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.733333333333333,
+      "crossing_triangle_pairs": 1359
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.766666666666667,
+      "crossing_triangle_pairs": 1339
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.8,
+      "crossing_triangle_pairs": 1360
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.833333333333333,
+      "crossing_triangle_pairs": 1358
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.866666666666667,
+      "crossing_triangle_pairs": 1293
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.9,
+      "crossing_triangle_pairs": 1215
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.933333333333333,
+      "crossing_triangle_pairs": 1120
+    },
+    {
+      "clip": "IDLE",
+      "time": 0.966666666666667,
+      "crossing_triangle_pairs": 1089
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.0,
+      "crossing_triangle_pairs": 1091
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.03333333333333,
+      "crossing_triangle_pairs": 1098
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.06666666666667,
+      "crossing_triangle_pairs": 1103
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.1,
+      "crossing_triangle_pairs": 1087
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.13333333333333,
+      "crossing_triangle_pairs": 1078
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.16666666666667,
+      "crossing_triangle_pairs": 1092
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.2,
+      "crossing_triangle_pairs": 1082
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.23333333333333,
+      "crossing_triangle_pairs": 1072
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.26666666666667,
+      "crossing_triangle_pairs": 1075
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.3,
+      "crossing_triangle_pairs": 1068
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.33333333333333,
+      "crossing_triangle_pairs": 1066
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.36666666666667,
+      "crossing_triangle_pairs": 1071
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.4,
+      "crossing_triangle_pairs": 1083
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.43333333333333,
+      "crossing_triangle_pairs": 1104
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.46666666666667,
+      "crossing_triangle_pairs": 1089
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.5,
+      "crossing_triangle_pairs": 1083
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.53333333333333,
+      "crossing_triangle_pairs": 1091
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.56666666666667,
+      "crossing_triangle_pairs": 1103
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.6,
+      "crossing_triangle_pairs": 1089
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.63333333333333,
+      "crossing_triangle_pairs": 1115
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.66666666666667,
+      "crossing_triangle_pairs": 1148
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.7,
+      "crossing_triangle_pairs": 1144
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.73333333333333,
+      "crossing_triangle_pairs": 1139
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.76666666666667,
+      "crossing_triangle_pairs": 1138
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.8,
+      "crossing_triangle_pairs": 1130
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.83333333333333,
+      "crossing_triangle_pairs": 1087
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.86666666666667,
+      "crossing_triangle_pairs": 1077
+    },
+    {
+      "clip": "IDLE",
+      "time": 1.89999997615814,
+      "crossing_triangle_pairs": 1086
+    },
+    {
+      "clip": "WALK",
+      "time": 0.0,
+      "crossing_triangle_pairs": 1292
+    },
+    {
+      "clip": "WALK",
+      "time": 0.0333333333333333,
+      "crossing_triangle_pairs": 1399
+    },
+    {
+      "clip": "WALK",
+      "time": 0.0666666666666667,
+      "crossing_triangle_pairs": 1395
+    },
+    {
+      "clip": "WALK",
+      "time": 0.1,
+      "crossing_triangle_pairs": 1301
+    },
+    {
+      "clip": "WALK",
+      "time": 0.133333333333333,
+      "crossing_triangle_pairs": 1046
+    },
+    {
+      "clip": "WALK",
+      "time": 0.166666666666667,
+      "crossing_triangle_pairs": 933
+    },
+    {
+      "clip": "WALK",
+      "time": 0.2,
+      "crossing_triangle_pairs": 951
+    },
+    {
+      "clip": "WALK",
+      "time": 0.233333333333333,
+      "crossing_triangle_pairs": 861
+    },
+    {
+      "clip": "WALK",
+      "time": 0.266666666666667,
+      "crossing_triangle_pairs": 939
+    },
+    {
+      "clip": "WALK",
+      "time": 0.3,
+      "crossing_triangle_pairs": 1193
+    },
+    {
+      "clip": "WALK",
+      "time": 0.333333333333333,
+      "crossing_triangle_pairs": 1090
+    },
+    {
+      "clip": "WALK",
+      "time": 0.366666666666667,
+      "crossing_triangle_pairs": 1801
+    },
+    {
+      "clip": "WALK",
+      "time": 0.4,
+      "crossing_triangle_pairs": 1681
+    },
+    {
+      "clip": "WALK",
+      "time": 0.433333333333333,
+      "crossing_triangle_pairs": 1168
+    },
+    {
+      "clip": "WALK",
+      "time": 0.466666666666667,
+      "crossing_triangle_pairs": 1102
+    },
+    {
+      "clip": "WALK",
+      "time": 0.5,
+      "crossing_triangle_pairs": 884
+    },
+    {
+      "clip": "WALK",
+      "time": 0.533333333333333,
+      "crossing_triangle_pairs": 836
+    },
+    {
+      "clip": "WALK",
+      "time": 0.566666666666667,
+      "crossing_triangle_pairs": 652
+    },
+    {
+      "clip": "WALK",
+      "time": 0.6,
+      "crossing_triangle_pairs": 499
+    },
+    {
+      "clip": "WALK",
+      "time": 0.633333333333333,
+      "crossing_triangle_pairs": 394
+    },
+    {
+      "clip": "WALK",
+      "time": 0.666666666666667,
+      "crossing_triangle_pairs": 247
+    },
+    {
+      "clip": "WALK",
+      "time": 0.7,
+      "crossing_triangle_pairs": 254
+    },
+    {
+      "clip": "WALK",
+      "time": 0.733333333333333,
+      "crossing_triangle_pairs": 287
+    },
+    {
+      "clip": "WALK",
+      "time": 0.766666666666667,
+      "crossing_triangle_pairs": 565
+    },
+    {
+      "clip": "WALK",
+      "time": 0.8,
+      "crossing_triangle_pairs": 446
+    },
+    {
+      "clip": "WALK",
+      "time": 0.833333333333333,
+      "crossing_triangle_pairs": 526
+    },
+    {
+      "clip": "WALK",
+      "time": 0.866666666666667,
+      "crossing_triangle_pairs": 492
+    },
+    {
+      "clip": "WALK",
+      "time": 0.9,
+      "crossing_triangle_pairs": 393
+    },
+    {
+      "clip": "WALK",
+      "time": 0.933333333333333,
+      "crossing_triangle_pairs": 500
+    },
+    {
+      "clip": "WALK",
+      "time": 0.966666666666667,
+      "crossing_triangle_pairs": 1226
+    },
+    {
+      "clip": "WALK",
+      "time": 1.0,
+      "crossing_triangle_pairs": 1608
+    },
+    {
+      "clip": "WALK",
+      "time": 1.03333333333333,
+      "crossing_triangle_pairs": 1374
+    },
+    {
+      "clip": "WALK",
+      "time": 1.06666666666667,
+      "crossing_triangle_pairs": 1200
+    },
+    {
+      "clip": "WALK",
+      "time": 1.1,
+      "crossing_triangle_pairs": 1011
+    },
+    {
+      "clip": "WALK",
+      "time": 1.13333333333333,
+      "crossing_triangle_pairs": 612
+    },
+    {
+      "clip": "WALK",
+      "time": 1.16666666666667,
+      "crossing_triangle_pairs": 880
+    },
+    {
+      "clip": "WALK",
+      "time": 1.2,
+      "crossing_triangle_pairs": 1288
+    },
+    {
+      "clip": "RUN",
+      "time": 0.0,
+      "crossing_triangle_pairs": 368
+    },
+    {
+      "clip": "RUN",
+      "time": 0.0333333333333333,
+      "crossing_triangle_pairs": 423
+    },
+    {
+      "clip": "RUN",
+      "time": 0.0666666666666667,
+      "crossing_triangle_pairs": 437
+    },
+    {
+      "clip": "RUN",
+      "time": 0.1,
+      "crossing_triangle_pairs": 799
+    },
+    {
+      "clip": "RUN",
+      "time": 0.133333333333333,
+      "crossing_triangle_pairs": 1158
+    },
+    {
+      "clip": "RUN",
+      "time": 0.166666666666667,
+      "crossing_triangle_pairs": 2511
+    },
+    {
+      "clip": "RUN",
+      "time": 0.2,
+      "crossing_triangle_pairs": 1987
+    },
+    {
+      "clip": "RUN",
+      "time": 0.233333333333333,
+      "crossing_triangle_pairs": 1585
+    },
+    {
+      "clip": "RUN",
+      "time": 0.266666666666667,
+      "crossing_triangle_pairs": 1685
+    },
+    {
+      "clip": "RUN",
+      "time": 0.3,
+      "crossing_triangle_pairs": 640
+    },
+    {
+      "clip": "RUN",
+      "time": 0.333333333333333,
+      "crossing_triangle_pairs": 405
+    },
+    {
+      "clip": "RUN",
+      "time": 0.366666666666667,
+      "crossing_triangle_pairs": 369
+    },
+    {
+      "clip": "RUN",
+      "time": 0.4,
+      "crossing_triangle_pairs": 134
+    },
+    {
+      "clip": "RUN",
+      "time": 0.433333333333333,
+      "crossing_triangle_pairs": 85
+    },
+    {
+      "clip": "RUN",
+      "time": 0.466666666666667,
+      "crossing_triangle_pairs": 88
+    },
+    {
+      "clip": "RUN",
+      "time": 0.5,
+      "crossing_triangle_pairs": 136
+    },
+    {
+      "clip": "RUN",
+      "time": 0.533333333333333,
+      "crossing_triangle_pairs": 945
+    },
+    {
+      "clip": "RUN",
+      "time": 0.566666666666667,
+      "crossing_triangle_pairs": 882
+    },
+    {
+      "clip": "RUN",
+      "time": 0.6,
+      "crossing_triangle_pairs": 927
+    },
+    {
+      "clip": "RUN",
+      "time": 0.633333333333333,
+      "crossing_triangle_pairs": 830
+    },
+    {
+      "clip": "RUN",
+      "time": 0.666666666666667,
+      "crossing_triangle_pairs": 654
+    },
+    {
+      "clip": "RUN",
+      "time": 0.7,
+      "crossing_triangle_pairs": 623
+    },
+    {
+      "clip": "RUN",
+      "time": 0.733333333333333,
+      "crossing_triangle_pairs": 405
+    },
+    {
+      "clip": "RUN",
+      "time": 0.766666666666667,
+      "crossing_triangle_pairs": 692
+    },
+    {
+      "clip": "RUN",
+      "time": 0.8,
+      "crossing_triangle_pairs": 773
+    },
+    {
+      "clip": "RUN",
+      "time": 0.833333333333333,
+      "crossing_triangle_pairs": 367
+    },
+    {
+      "clip": "RUN",
+      "time": 0.866666666666667,
+      "crossing_triangle_pairs": 368
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.0,
+      "crossing_triangle_pairs": 1613
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.0333333333333333,
+      "crossing_triangle_pairs": 1464
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.0666666666666667,
+      "crossing_triangle_pairs": 829
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.1,
+      "crossing_triangle_pairs": 554
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.133333333333333,
+      "crossing_triangle_pairs": 424
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.166666666666667,
+      "crossing_triangle_pairs": 481
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.2,
+      "crossing_triangle_pairs": 388
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.233333333333333,
+      "crossing_triangle_pairs": 248
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.266666666666667,
+      "crossing_triangle_pairs": 152
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.3,
+      "crossing_triangle_pairs": 68
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.333333333333333,
+      "crossing_triangle_pairs": 24
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.366666666666667,
+      "crossing_triangle_pairs": 22
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.4,
+      "crossing_triangle_pairs": 25
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.433333333333333,
+      "crossing_triangle_pairs": 13
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.466666666666667,
+      "crossing_triangle_pairs": 16
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.5,
+      "crossing_triangle_pairs": 31
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.533333333333333,
+      "crossing_triangle_pairs": 34
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.566666666666667,
+      "crossing_triangle_pairs": 24
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.6,
+      "crossing_triangle_pairs": 28
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.633333333333333,
+      "crossing_triangle_pairs": 17
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.666666666666667,
+      "crossing_triangle_pairs": 30
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.7,
+      "crossing_triangle_pairs": 16
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.733333333333333,
+      "crossing_triangle_pairs": 161
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.766666666666667,
+      "crossing_triangle_pairs": 432
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.8,
+      "crossing_triangle_pairs": 580
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.833333333333333,
+      "crossing_triangle_pairs": 629
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.866666666666667,
+      "crossing_triangle_pairs": 513
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.9,
+      "crossing_triangle_pairs": 381
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.933333333333333,
+      "crossing_triangle_pairs": 441
+    },
+    {
+      "clip": "preset_jump",
+      "time": 0.966666666666667,
+      "crossing_triangle_pairs": 284
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.0,
+      "crossing_triangle_pairs": 213
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.03333333333333,
+      "crossing_triangle_pairs": 16
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.06666666666667,
+      "crossing_triangle_pairs": 14
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.1,
+      "crossing_triangle_pairs": 14
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.13333333333333,
+      "crossing_triangle_pairs": 15
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.16666666666667,
+      "crossing_triangle_pairs": 18
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.2,
+      "crossing_triangle_pairs": 23
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.23333333333333,
+      "crossing_triangle_pairs": 24
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.26666666666667,
+      "crossing_triangle_pairs": 17
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.3,
+      "crossing_triangle_pairs": 41
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.33333333333333,
+      "crossing_triangle_pairs": 39
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.36666666666667,
+      "crossing_triangle_pairs": 135
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.4,
+      "crossing_triangle_pairs": 136
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.43333333333333,
+      "crossing_triangle_pairs": 103
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.46666666666667,
+      "crossing_triangle_pairs": 31
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.5,
+      "crossing_triangle_pairs": 13
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.53333333333333,
+      "crossing_triangle_pairs": 15
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.56666666666667,
+      "crossing_triangle_pairs": 12
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.6,
+      "crossing_triangle_pairs": 27
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.63333333333333,
+      "crossing_triangle_pairs": 30
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.66666666666667,
+      "crossing_triangle_pairs": 29
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.7,
+      "crossing_triangle_pairs": 30
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.73333333333333,
+      "crossing_triangle_pairs": 34
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.76666666666667,
+      "crossing_triangle_pairs": 133
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.8,
+      "crossing_triangle_pairs": 219
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.83333333333333,
+      "crossing_triangle_pairs": 329
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.86666666666667,
+      "crossing_triangle_pairs": 410
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.9,
+      "crossing_triangle_pairs": 451
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.93333333333333,
+      "crossing_triangle_pairs": 498
+    },
+    {
+      "clip": "preset_jump",
+      "time": 1.96666666666667,
+      "crossing_triangle_pairs": 670
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.0,
+      "crossing_triangle_pairs": 1213
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.03333333333333,
+      "crossing_triangle_pairs": 1363
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.06666666666667,
+      "crossing_triangle_pairs": 1674
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.1,
+      "crossing_triangle_pairs": 1920
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.13333333333333,
+      "crossing_triangle_pairs": 2022
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.16666666666667,
+      "crossing_triangle_pairs": 2079
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.2,
+      "crossing_triangle_pairs": 2022
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.23333333333333,
+      "crossing_triangle_pairs": 1945
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.26666666666667,
+      "crossing_triangle_pairs": 1817
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.3,
+      "crossing_triangle_pairs": 1565
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.33333333333333,
+      "crossing_triangle_pairs": 1662
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.36666666666667,
+      "crossing_triangle_pairs": 1670
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.4,
+      "crossing_triangle_pairs": 1663
+    },
+    {
+      "clip": "preset_jump",
+      "time": 2.43333333333333,
+      "crossing_triangle_pairs": 1574
+    }
+  ]
+}

@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj0ijbt56g3yc"
-path="res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.ctex"
+path.bptc="res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.bptc.ctex"
+path.astc="res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "15975ac2872c454a028eae09a2b092e0"
@@ -14,12 +16,13 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/weapons/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg"
-dest_files=["res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.ctex"]
+dest_files=["res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.bptc.ctex", "res://.godot/imported/standard_katana_tripo_20261008_Color_f43b4b42-6c2b-4c3d-8ac3-d42a4daa062a.jpg-9c791d766bd52a217c71e1fc89f215d5.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -28,6 +31,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

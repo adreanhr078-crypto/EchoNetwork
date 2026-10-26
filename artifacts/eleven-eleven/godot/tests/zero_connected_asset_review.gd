@@ -67,6 +67,8 @@ func _run() -> void:
 	assert(slot.source_player.get_animation("pact/agree").get_track_count()==123)
 	var report:={"status":"CONNECTED_ASSET_IMPORT_FIDELITY_PASS_VISUAL_GATE_OPEN","source_sha256":FileAccess.get_sha256(SOURCE),"native_tracks":123,"native_keys":keys,"native_duration":imported.length,"max_key_difference":worst,"actual_skeleton_to_world":var_to_str(slot.skeleton.global_transform),"actual_skeleton_to_world_scale":var_to_str(slot.skeleton.global_basis.get_scale()),"native_reduced_pause_exact":true,"restored_pact_keeps_ambient_idle":true,"explicit_pact_uses_source_agree":true,"source_bytes_unchanged":true,"native_material_presentation":slot._material_presentation,"actor_source_fingers":false}
 	var out:=ProjectSettings.globalize_path("res://../audits/evidence/room-color-cinematics-20261007/zero-native-idle-v4/connected-asset-fidelity.json")
+	var args:=OS.get_cmdline_user_args()
+	if not args.is_empty(): out=args[0]
 	var file:=FileAccess.open(out,FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))
 	source.free()

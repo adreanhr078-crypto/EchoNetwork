@@ -60,7 +60,7 @@ func set_reduced_motion(enabled: bool) -> void:
 			if _feedback_tween: _feedback_tween.kill()
 			if _label_tween: _label_tween.kill()
 			_hide_inspected_effects()
-			$EvidenceLabel.position.y = 1.55
+			$EvidenceLabel.position.y = 2.1
 			$EvidenceLabel.modulate.a = 1.0
 		_guidance_strength = _guidance_target
 		_apply_guidance()
@@ -75,6 +75,7 @@ func restore_inspection(completed: bool) -> void:
 	inspected = completed
 	if completed:
 		_hide_inspected_effects()
+		$EvidenceLabel.position.y = 2.1
 		set_presentation_language(presentation_language)
 
 func _setup_pedestal_and_props() -> void:
@@ -420,6 +421,7 @@ func complete_inspection(interactor: Node3D) -> Dictionary:
 	# Dissipate beacon, cloche, and rings with a graceful tween
 	if reduced_motion:
 		_hide_inspected_effects()
+		$EvidenceLabel.position.y = 2.1
 		set_presentation_language(presentation_language)
 		$EvidenceLabel.modulate = Color(0.67,0.85,0.91,1.0)
 		evidence_inspected.emit(evidence_id)
@@ -443,10 +445,11 @@ func complete_inspection(interactor: Node3D) -> Dictionary:
 
 	# Update 3D label
 	set_presentation_language(presentation_language)
+	$EvidenceLabel.position.y = 2.1
 	$EvidenceLabel.modulate = Color(0.2, 1.0, 0.6, 1.0)
 	var label_tw := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	_label_tween = label_tw
-	label_tw.tween_property($EvidenceLabel, "position:y", 2.0, 0.8)
+	label_tw.tween_property($EvidenceLabel, "position:y", 2.35, 0.8)
 	label_tw.parallel().tween_property($EvidenceLabel, "modulate:a", 0.0, 1.4)
 
 	evidence_inspected.emit(evidence_id)

@@ -1,0 +1,157 @@
+{
+	"collision_signature": [
+		{
+			"bounds": "[P: (-3.2, -0.1, -2.9), S: (6.4, 0.2, 5.8)]",
+			"disabled": false,
+			"path": "Floor/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, -0.1, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-3.2, -0.1, -2.9), S: (6.4, 0.2, 5.8)]",
+			"disabled": false,
+			"path": "Ceiling/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 3.3, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-3.2, -1.6, -0.1), S: (6.4, 3.2, 0.2)]",
+			"disabled": false,
+			"path": "NorthWall/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.6, 3.0)]"
+		},
+		{
+			"bounds": "[P: (-3.2, -0.475, -0.1), S: (6.4, 0.95, 0.2)]",
+			"disabled": false,
+			"path": "SouthWallBelowWindow/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.475, -3.0)]"
+		},
+		{
+			"bounds": "[P: (-3.2, -0.225, -0.1), S: (6.4, 0.45, 0.2)]",
+			"disabled": false,
+			"path": "SouthWallAboveWindow/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 2.975, -3.0)]"
+		},
+		{
+			"bounds": "[P: (-0.8825, -0.9, -0.1), S: (1.765, 1.8, 0.2)]",
+			"disabled": false,
+			"path": "SouthWindowPier/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-2.3175, 1.85, -3.0)]"
+		},
+		{
+			"bounds": "[P: (-0.8825, -0.9, -0.1), S: (1.765, 1.8, 0.2)]",
+			"disabled": false,
+			"path": "@StaticBody3D@2/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (2.3175, 1.85, -3.0)]"
+		},
+		{
+			"bounds": "[P: (-0.1, -1.6, -2.9), S: (0.2, 3.2, 5.8)]",
+			"disabled": false,
+			"path": "WestWall/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-3.3, 1.6, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-0.1, -1.6, -2.9), S: (0.2, 3.2, 5.8)]",
+			"disabled": false,
+			"path": "EastWall/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (3.3, 1.6, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-1.12, -0.055, -0.51), S: (2.24, 0.11, 1.02)]",
+			"disabled": false,
+			"path": "WardFurniture/BedDeck/@StaticBody3D@4/@CollisionShape3D@3",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.0, 0.505, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-1.06, -0.07, -0.48), S: (2.12, 0.14, 0.96)]",
+			"disabled": false,
+			"path": "WardFurniture/Mattress/@StaticBody3D@6/@CollisionShape3D@5",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.0, 0.63, 0.0)]"
+		},
+		{
+			"bounds": "[P: (-0.325, -0.33, -0.24), S: (0.65, 0.66, 0.48)]",
+			"disabled": false,
+			"path": "WardFurniture/BedsideCabinet/@StaticBody3D@27/@CollisionShape3D@26",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (-1.76, 0.33, -1.13)]"
+		},
+		{
+			"bounds": "[P: (-1.435, -0.9, -0.04), S: (2.87, 1.8, 0.08)]",
+			"disabled": false,
+			"path": "WindowGlassBarrier/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 1.85, -2.85)]"
+		},
+		{
+			"bounds": "[P: (-1.8, -1.8, -1.8), S: (3.6, 3.6, 3.6)]",
+			"disabled": false,
+			"path": "VanityMirrorStation/InteractionArea/AreaCollisionShape3D",
+			"shape": "SphereShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (3.0, 0.0, -1.0)]"
+		},
+		{
+			"bounds": "[P: (-0.3, -0.425, -0.55), S: (0.6, 0.85, 1.1)]",
+			"disabled": false,
+			"path": "VanityMirrorStation/CounterCollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (2.7, 0.425, -1.0)]"
+		},
+		{
+			"bounds": "[P: (-0.1, -1.1, -0.7), S: (0.2, 2.2, 1.4)]",
+			"disabled": false,
+			"path": "WardExitDoor/CollisionShape3D",
+			"shape": "BoxShape3D",
+			"transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (3.2, 1.1, 1.6)]"
+		}
+	],
+	"display": "Windows",
+	"lights": [
+		{
+			"color": "(0.96, 0.92, 0.85, 1.0)",
+			"energy": 1.35000002384186,
+			"path": "WardDaylight",
+			"shadow": true,
+			"type": "DirectionalLight3D",
+			"visible": true
+		},
+		{
+			"color": "(0.72, 0.82, 0.9, 1.0)",
+			"energy": 0.649999976158142,
+			"path": "WardInteriorFill",
+			"shadow": false,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"color": "(0.98, 0.95, 0.88, 1.0)",
+			"energy": 0.949999988079071,
+			"path": "MirrorVanityLight",
+			"shadow": false,
+			"type": "OmniLight3D",
+			"visible": true
+		},
+		{
+			"color": "(0.62, 0.25, 0.92, 1.0)",
+			"energy": 0.0,
+			"path": "EX011MarkLight",
+			"shadow": false,
+			"type": "OmniLight3D",
+			"visible": true
+		}
+	],
+	"scope": "Isolated actual ward four views; no avatar/route/fun/acceptance claim",
+	"source_hashes": {
+		"scripts/environment/hospital_bedside_foundation.gd": "51d0806d22dc38924b2b0d69a8e16920183dd9435c16b6bc07a72e5a9e0404f5",
+		"scripts/environment/hospital_bedside_room.gd": "eaed163096baa5a5574b3072202d031a16fdfac43fb86db474d87d80aa27d428",
+		"scripts/environment/hospital_mirror_station.gd": "6ab8b7254d605b1dca02e28c07e28367f4d2bfff56244c561f38feb38ac3f5e9"
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "mode": "contract",
+  "label": "mechanical-contract-v1",
+  "exit": 0,
+  "errors": [],
+  "elapsed_s": 9.18,
+  "headless": false,
+  "source_hashes": {
+    "godot/scripts/environment/maintenance_vertical.gd": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
+    "godot/scripts/environment/maintenance_mechanical_dressing.gd": "7ec2e3852c2ec6e0163387c78d438bece4559d3b4945bda2829798e0cfc8d0c2",
+    "godot/scripts/environment/maintenance_room_presentation.gd": "61d1aca1b2f67a7f34c5f7082b8c0d53b870998965c115e55184cff712667a7f",
+    "godot/shaders/maintenance_surface_finish.gdshader": "b51beb68f54fb763172d85fa2dde00f2a05df7dc8db82695bc1b1a86f9b8d916",
+    "godot/assets/environments/maintenance_collision_v1.json": "b7f22fafba03f1ff429a66dcfe595f26890dd6f408f190807bbcb84fa90ad668",
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "cf50be5beece626cc7b03af5e2ec8239b5ed289bf3a6acb505d0dc02d6027cf6",
+    "godot/engine_visuals/MemoryAtmosphereDirector.gd": "a86a248bb0861894007f0725b8efa54fb5f68a23087f49fb4691445d2056131f",
+    "godot/scripts/player/service_hand_contact.gd": "3d79445c2a06111cc4583bda57802b31a0959211d251874f44ddcd15a29510c1",
+    "godot/scripts/player/surface_traversal_motor.gd": "ca9bdaebe8b5bd2b460310976704c36fe2691c505f54d6cc3e22e9228434a347",
+    "godot/scripts/systems/native_journey_controller.gd": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
+    "godot/scripts/player/echo_v31_motion_adapter.gd": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a",
+    "godot/tests/maintenance_dressing_contract_review.gd": "4e305b58607c18d825c7948ed238744fcc9b173fec4f6a7b1e9ec169c17243cc"
+  },
+  "sources_unchanged_during_run": true
+}

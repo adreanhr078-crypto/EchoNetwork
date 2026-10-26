@@ -1,0 +1,2929 @@
+{
+	"finishes": 5,
+	"rows": [
+		{
+			"bounds": "[P: (-3.788456, 0.000758, -19.15118), S: (1.576637, 1.796198, 0.359154)]",
+			"global_position": "(-3.0, 0.000684, -19.0)",
+			"materials": [
+				{
+					"albedo": "(1.0, 1.0, 1.0, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/EchoV31BodyAndCoat",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.998194, 1.575432, -18.93215), S: (0.062474, 0.074419, 0.05863)]",
+			"global_position": "(-3.0, 0.000684, -19.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/zero_contract_iris.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/EchoV31BodyAndCoat/ContractIris",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.393564, 0.862265, -19.07675), S: (0.159508, 0.080163, 0.212395)]",
+			"global_position": "(-3.31381, 0.902346, -18.97055)",
+			"materials": [
+				{
+					"albedo": "(0.04, 0.05, 0.07, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/Handle",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.419973, 0.835278, -18.91037), S: (0.079566, 0.074904, 0.070599)]",
+			"global_position": "(-3.38019, 0.87273, -18.87507)",
+			"materials": [
+				{
+					"albedo": "(0.08, 0.1, 0.14, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/Tsuba",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.923331, 0.632246, -18.88181), S: (0.555241, 0.244042, 0.777321)]",
+			"global_position": "(-3.645711, 0.754266, -18.49315)",
+			"materials": [
+				{
+					"albedo": "(0.92, 0.94, 0.98, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/Blade",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-5.543484, 0.623588, -20.28164), S: (3.751849, 1.050276, 3.715908)]",
+			"global_position": "(-3.667559, 1.148726, -18.42369)",
+			"materials": [
+				{
+					"albedo": "(0.0, 0.94, 1.0, 0.75)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/SlashArc",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.252587, 0.929711, -19.19717), S: (0.09881, 0.04398, 0.13496)]",
+			"global_position": "(-3.203182, 0.951701, -19.12969)",
+			"materials": [
+				{
+					"albedo": "(0.95, 0.15, 0.25, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/KatanaBlade/TasselRoot/TasselRibbon",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.40051, 0.850285, -19.11529), S: (0.195526, 0.113994, 0.257652)]",
+			"global_position": "(-3.302747, 0.907282, -18.98647)",
+			"materials": [
+				{
+					"albedo": "(0.015, 0.018, 0.025, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/Hilt",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.440393, 0.812422, -18.91626), S: (0.109342, 0.115681, 0.098293)]",
+			"global_position": "(-3.385722, 0.870262, -18.86711)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.05, 0.18, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/Tsuba",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.942968, 0.603685, -18.86944), S: (0.561325, 0.286354, 0.80032)]",
+			"global_position": "(-3.662306, 0.746862, -18.46928)",
+			"materials": [
+				{
+					"albedo": "(1.0, 1.0, 1.0, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/BladeRoot/BladeMesh",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-5.675571, 0.145871, -20.48232), S: (4.037595, 1.206919, 4.01017)]",
+			"global_position": "(-3.656774, 0.74933, -18.47723)",
+			"materials": [
+				{
+					"albedo": "(0.05, 0.02, 0.1, 0.85)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/RightHandWeaponSocket/ShadowKatana/ShadowSlashArc",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.324152, 0.706039, -18.97786), S: (0.077572, 0.216852, 0.141788)]",
+			"global_position": "(-3.285365, 0.814465, -18.90696)",
+			"materials": [
+				{
+					"albedo": "(0.04, 0.05, 0.07, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/Handle",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.351088, 0.886642, -19.00582), S: (0.084269, 0.057846, 0.077335)]",
+			"global_position": "(-3.308953, 0.915565, -18.96715)",
+			"materials": [
+				{
+					"albedo": "(0.08, 0.1, 0.14, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/Tsuba",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.514014, 0.915213, -19.4521), S: (0.221417, 0.809497, 0.488388)]",
+			"global_position": "(-3.403305, 1.319962, -19.2079)",
+			"materials": [
+				{
+					"albedo": "(0.92, 0.94, 0.98, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/Blade",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-5.011464, -0.307212, -20.51373), S: (3.187231, 2.788078, 1.959461)]",
+			"global_position": "(-3.417849, 1.086827, -19.53399)",
+			"materials": [
+				{
+					"albedo": "(0.0, 0.94, 1.0, 0.75)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/SlashArc",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.267755, 0.576665, -18.84935), S: (0.043405, 0.138593, 0.085384)]",
+			"global_position": "(-3.246052, 0.645961, -18.80666)",
+			"materials": [
+				{
+					"albedo": "(0.95, 0.15, 0.25, 1.0)",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/hyper_anime_uber.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/EchoOpeningUniform/ReviewedHighSource/EchoV31IndependentCoatRig/Skeleton3D/HipWeaponSocket/KatanaHipScabbard/TasselRoot/TasselRibbon",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-2.886326, 1.417241, -18.95957), S: (0.001046, 0.000736, 0.000376)]",
+			"global_position": "(-2.88641, 1.417463, -18.95942)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/zero_feather_detail.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/ZeroShadowWing/WingRoot/echo_shadow_wing_feathers_v1/ZeroFeatherRig/Skeleton3D/EchoShadowFeatherMesh",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.138728, 1.155178, -19.22272), S: (0.504826, 0.524564, 0.526604)]",
+			"global_position": "(-2.886315, 1.41746, -18.95942)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/contract_resonance.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/ZeroShadowWing/ContractResonance/WingRootResonance",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.109603, 1.185442, -19.19234), S: (0.446577, 0.464037, 0.465839)]",
+			"global_position": "(-2.886315, 1.41746, -18.95942)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/contract_resonance.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/ZeroShadowWing/ContractResonance/WingSideHandResonance",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.054515, 0.49088, -19.17317), S: (0.336401, 1.85316, 0.427502)]",
+			"global_position": "(-2.886315, 1.41746, -18.95942)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/contract_resonance.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ModelRoot/ZeroShadowWing/ContractResonance/WingSideForearmResonance",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-3.449923, 0.015, -19.44992), S: (0.899846, 0.0, 0.899845)]",
+			"global_position": "(-3.0, 0.015, -19.0)",
+			"materials": [
+				{
+					"albedo": "(0.015, 0.02, 0.035, 0.65)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/EchoPlayer/ContactShadowBlob/ShadowBlobMesh",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.8, 0.0, -18.8), S: (1.2, 7.0, 1.599998)]",
+			"global_position": "(-4.2, 3.5, -18.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.23, 0.3, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11Facility/PrimaryBlastGate/DoorFrame/LeftPillar",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.6, 0.0, -18.8), S: (1.2, 7.0, 1.599998)]",
+			"global_position": "(4.2, 3.5, -18.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.23, 0.3, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11Facility/PrimaryBlastGate/DoorFrame/RightPillar",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.6, 6.1, -18.9), S: (9.2, 1.4, 1.799999)]",
+			"global_position": "(0.0, 6.8, -18.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.23, 0.3, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11Facility/PrimaryBlastGate/DoorFrame/TopBeam",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.6, 6.5, -18.3), S: (7.2, 6.5, 0.599998)]",
+			"global_position": "(0.0, 9.75, -18.0)",
+			"materials": [
+				{
+					"albedo": "(0.22, 0.28, 0.36, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11Facility/PrimaryBlastGate/DoorFrame/SlidingDoor",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-9.0, 0.0, -18.4), S: (5.4, 7.2, 0.799999)]",
+			"global_position": "(-6.3, 3.6, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/opening_wall_finish.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11OpeningShell/Gate1_Bulkhead_West_Body/Surface",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.6, 0.0, -18.4), S: (5.4, 7.2, 0.799999)]",
+			"global_position": "(6.3, 3.6, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/opening_wall_finish.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11OpeningShell/Gate1_Bulkhead_East_Body/Surface",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.6, 6.5, -18.4), S: (7.2, 0.7, 0.799999)]",
+			"global_position": "(0.0, 6.85, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/opening_wall_finish.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/Sector11OpeningShell/Gate1_Bulkhead_Lintel_Body/Surface",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.6, 0.0, -32.7), S: (10.2, 10.6, 15.2)]",
+			"global_position": "(-4.4, 5.3, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.42, 0.48, 0.58, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_Deep_service_void",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.6, -0.3, -32.5), S: (10.2, 11.3, 16.5)]",
+			"global_position": "(0.0, -0.15, -20.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_Graphite_structural_steel",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.525, 0.0, -30.5325), S: (8.525, 6.9175, 10.6825)]",
+			"global_position": "(0.0, 1.7, -24.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.56, 0.57, 0.55, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_Ivory_grip_ceramic",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.075, 0.0175, -30.6), S: (6.77, 7.1825, 12.925)]",
+			"global_position": "(0.0, 0.025, -18.0)",
+			"materials": [
+				{
+					"albedo": "(0.3133, 0.722, 0.7484, 1.0)",
+					"name": "Hyper_Route cyan",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_Route_cyan",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.062, 0.006, -30.625), S: (9.062, 7.359, 13.925)]",
+			"global_position": "(1.8, 3.43, -24.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.7674, 0.5926, 0.3492, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_Warning_amber",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.186, 5.65, -30.87), S: (0.012, 1.5, 0.02)]",
+			"global_position": "(-0.18, 6.4, -30.86)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_CenterSeam",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.174, 5.65, -30.87), S: (0.012, 1.5, 0.02)]",
+			"global_position": "(0.18, 6.4, -30.86)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_CenterSeam_001",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.875, 5.41, -31.0), S: (1.75, 1.9, 0.119999)]",
+			"global_position": "(0.0, 6.36, -30.94)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.56, 0.57, 0.55, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_InnerPanel",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.75, 5.8375, -30.875), S: (1.5, 0.025, 0.018002)]",
+			"global_position": "(0.0, 5.85, -30.866)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.42, 0.48, 0.58, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_PanelSeam",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.75, 6.3375, -30.875), S: (1.5, 0.025, 0.018002)]",
+			"global_position": "(0.0, 6.35, -30.866)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.42, 0.48, 0.58, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_PanelSeam_001",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.75, 6.8375, -30.875), S: (1.5, 0.025, 0.018002)]",
+			"global_position": "(0.0, 6.85, -30.866)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.42, 0.48, 0.58, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/ServiceAccess_PanelSeam_002",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.797, 5.563, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(-0.78, 5.58, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/GatePanelCaptiveFastener",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.797, 6.343, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(-0.78, 6.36, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@189",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.797, 7.123, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(-0.78, 7.14, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@190",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.763, 5.563, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(0.78, 5.58, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@191",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.763, 6.343, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(0.78, 6.36, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@192",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.763, 7.123, -30.857), S: (0.034, 0.034, 0.018002)]",
+			"global_position": "(0.78, 7.14, -30.848)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@193",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.745, 5.546, -30.856), S: (1.49, 0.008, 0.006001)]",
+			"global_position": "(0.0, 5.55, -30.853)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/GatePanelRecessedSeam",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.745, 6.356, -30.856), S: (1.49, 0.008, 0.006001)]",
+			"global_position": "(0.0, 6.36, -30.853)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@194",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.745, 7.166, -30.856), S: (1.49, 0.008, 0.006001)]",
+			"global_position": "(0.0, 7.17, -30.853)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceGateRoot/@MeshInstance3D@195",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.25, 3.83, -24.06), S: (0.5, 0.14, 0.119999)]",
+			"global_position": "(-3.0, 3.9, -24.0)",
+			"materials": [
+				{
+					"albedo": "(0.3133, 0.722, 0.7484, 1.0)",
+					"name": "Hyper_Route cyan",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceSignalRotor",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.019, 6.119, -30.506), S: (0.462, 0.462, 0.051998)]",
+			"global_position": "(1.25, 6.35, -30.48)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.7674, 0.5926, 0.3492, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceValveRoot/ServiceValve_Handwheel",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.07, 6.3325, -30.4975), S: (0.36, 0.035, 0.035)]",
+			"global_position": "(1.25, 6.35, -30.48)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceValveRoot/ServiceValve_Spoke",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.144845, 6.185365, -30.4975), S: (0.210311, 0.329269, 0.035)]",
+			"global_position": "(1.25, 6.35, -30.48)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceValveRoot/ServiceValve_Spoke_001",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.07, 6.3325, -30.4975), S: (0.36, 0.035, 0.035)]",
+			"global_position": "(1.25, 6.35, -30.48)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.38, 0.4, 0.4, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/ServiceValveRoot/ServiceValve_Spoke_002",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.349723, 1.17, -21.77708), S: (0.879447, 0.860015, 0.554144)]",
+			"global_position": "(-4.039723, 1.17, -21.69708)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "11",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "0.12",
+					"tint": "(0.28, 0.37, 0.45, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/AuthoredRoom/Maintenance_Static_lowpoly",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 0.388, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 0.408, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_0",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 0.841333, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 0.861333, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_1",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 1.294667, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 1.314667, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_2",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 1.748, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 1.768, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_3",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 2.201334, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 2.221334, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_4",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.05, 2.654667, -23.75), S: (4.1, 0.04, 0.060001)]",
+			"global_position": "(0.0, 2.674667, -23.72)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbRung_5",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.25, 3.385, -23.76), S: (4.5, 0.03, 0.060001)]",
+			"global_position": "(0.0, 3.4, -23.73)",
+			"materials": [
+				{
+					"albedo": "(0.1, 0.6, 0.68, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_FirstWall/ClimbLedgeLip",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.18, 3.62, -27.15), S: (1.64, 0.04, 0.060001)]",
+			"global_position": "(4.0, 3.64, -27.12)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_SecondWall/ClimbRung_0",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.18, 4.153334, -27.15), S: (1.64, 0.04, 0.060001)]",
+			"global_position": "(4.0, 4.173334, -27.12)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_SecondWall/ClimbRung_1",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.18, 4.686667, -27.15), S: (1.64, 0.04, 0.060001)]",
+			"global_position": "(4.0, 4.706667, -27.12)",
+			"materials": [
+				{
+					"albedo": "(0.12, 0.15, 0.18, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_SecondWall/ClimbRung_2",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.1, 5.385, -27.16), S: (1.8, 0.03, 0.060001)]",
+			"global_position": "(4.0, 5.4, -27.13)",
+			"materials": [
+				{
+					"albedo": "(0.1, 0.6, 0.68, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/COLL_CLIMB_SecondWall/ClimbLedgeLip",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.195, 3.95, -22.825), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(-4.17, 5.0, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/ServicePanelInset",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-4.1675, 6.03, -22.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 6.07, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PanelUpperFrame",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-4.1675, 3.89, -22.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 3.93, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PanelLowerFrame",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (5.145, 3.95, -22.825), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(5.17, 5.0, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@141",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 6.03, -22.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 6.07, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@142",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 3.89, -22.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 3.93, -22.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@143",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.195, 3.95, -27.325), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(-4.17, 5.0, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@144",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.1675, 6.03, -27.375), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 6.07, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@145",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.1675, 3.89, -27.375), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 3.93, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@146",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.145, 3.95, -27.325), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(5.17, 5.0, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@147",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 6.03, -27.375), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 6.07, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@148",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 3.89, -27.375), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 3.93, -26.5)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@149",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.195, 3.95, -30.825), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(-4.17, 5.0, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@150",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.1675, 6.03, -30.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 6.07, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@151",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.1675, 3.89, -30.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(-4.14, 3.93, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@152",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.145, 3.95, -30.825), S: (0.05, 2.1, 1.650002)]",
+			"global_position": "(5.17, 5.0, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.18, 0.25, 0.34, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@153",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 6.03, -30.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 6.07, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@154",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.1125, 3.89, -30.875), S: (0.055, 0.08, 1.75)]",
+			"global_position": "(5.14, 3.93, -30.0)",
+			"materials": [
+				{
+					"albedo": "(0.42, 0.52, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@155",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.56, 6.6, -30.625), S: (0.64, 0.7, 0.110001)]",
+			"global_position": "(1.88, 6.95, -30.57)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PressureHousing",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.63, 6.705, -30.5075), S: (0.5, 0.49, 0.035)]",
+			"global_position": "(1.88, 6.95, -30.49)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PressureFace",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (1.798188, 6.872825, -30.4335), S: (0.163625, 0.15435, 0.025002)]",
+			"global_position": "(1.88, 6.95, -30.421)",
+			"materials": [
+				{
+					"albedo": "(0.28, 0.47, 0.56, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PressureNeedle",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.1, 6.9225, -30.47), S: (0.3, 0.035, 0.040001)]",
+			"global_position": "(1.25, 6.94, -30.45)",
+			"materials": [
+				{
+					"albedo": "(0.28, 0.47, 0.56, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/WheelStatus",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.725567, 7.082309, -30.4725), S: (0.048866, 0.055383, 0.025002)]",
+			"global_position": "(1.75, 7.11, -30.46)",
+			"materials": [
+				{
+					"albedo": "(0.63, 0.36, 0.1, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/PressureScale",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.812783, 7.083015, -30.4725), S: (0.034435, 0.05397, 0.025002)]",
+			"global_position": "(1.83, 7.11, -30.46)",
+			"materials": [
+				{
+					"albedo": "(0.63, 0.36, 0.1, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@156",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.892782, 7.083015, -30.4725), S: (0.034435, 0.05397, 0.025002)]",
+			"global_position": "(1.91, 7.11, -30.46)",
+			"materials": [
+				{
+					"albedo": "(0.63, 0.36, 0.1, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@157",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.965567, 7.082309, -30.4725), S: (0.048865, 0.055383, 0.025002)]",
+			"global_position": "(1.99, 7.11, -30.46)",
+			"materials": [
+				{
+					"albedo": "(0.63, 0.36, 0.1, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/@MeshInstance3D@158",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.94, 5.2, -32.72), S: (0.04, 3.400001, 0.440002)]",
+			"global_position": "(-0.92, 6.9, -32.5)",
+			"materials": [
+				{
+					"albedo": "(0.15, 0.22, 0.28, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/CampaignApertureJambLeft",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.9, 5.2, -32.72), S: (0.04, 3.400001, 0.440002)]",
+			"global_position": "(0.92, 6.9, -32.5)",
+			"materials": [
+				{
+					"albedo": "(0.15, 0.22, 0.28, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/CampaignApertureJambRight",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.94, 8.599999, -32.72), S: (1.88, 0.040001, 0.440002)]",
+			"global_position": "(0.0, 8.62, -32.5)",
+			"materials": [
+				{
+					"albedo": "(0.15, 0.22, 0.28, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceRoomPresentation/CampaignApertureHeader",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.0, -0.3, -23.97407), S: (8.0, 0.3, 7.962931)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredEntryServiceFloor",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.5, 0.0, -24.25), S: (5.0, 3.211056, 0.5)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredFirstClimbMachinery",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.0, 5.0, -30.86619), S: (5.196712, 0.234137, 1.16186)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredGrating_COLL_ExitDeck",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (3.0, 5.0, -29.73802), S: (1.732237, 0.234137, 2.130077)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredGrating_COLL_FinalRest",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (3.0, 3.0, -26.13239), S: (1.732237, 0.234137, 2.323717)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredGrating_COLL_GapLanding",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-1.5, 5.0, -32.25774), S: (2.598356, 0.234137, 1.452326)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredGrating_COLL_ServiceVestibule",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-2.5, 3.0, -26.13239), S: (4.330593, 0.234137, 2.323717)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredGrating_COLL_UpperRest",
+			"visible": false
+		},
+		{
+			"bounds": "[P: (-4.598619, 0.0, -32.42343), S: (0.398619, 10.6, 14.90301)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredLeftPressureBulkhead",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.5, 0.0, -32.68255), S: (8.342514, 10.6, 0.382549)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredRearServiceBulkhead",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (5.2, 0.0, -29.51467), S: (0.398552, 10.6, 11.97892)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredRightPressureBulkhead",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.0, 3.4, -27.65), S: (2.0, 2.0, 0.5)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/MeasuredSecondClimbMachinery",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.541452, 10.18, -32.57816), S: (10.06554, 0.404564, 14.93389)]",
+			"global_position": "(0.0, 0.0, -18.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredFullPressureBay/UpperPressureBayBeamCrown",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.11, 0.17, -23.765), S: (4.22, 3.06, 0.0)]",
+			"global_position": "(0.0, 1.7, -23.765)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/NativeFirstGripContactInset",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.16, 3.535, -27.165), S: (1.68, 1.73, 0.0)]",
+			"global_position": "(4.0, 4.4, -27.165)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/NativeSecondGripContactInset",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.49, 0.005, -32.61), S: (9.98, 10.59, 0.0)]",
+			"global_position": "(0.5, 5.3, -32.61)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/maintenance_surface_finish.gdshader",
+					"source_saturation": "<null>",
+					"tint": "(0.28, 0.31, 0.31, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/NativeFarWallJointBacking",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.491, 3.346, -26.191), S: (4.982, 0.018, 2.382)]",
+			"global_position": "(0.0, 3.355, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredDeckBacking_COLL_UpperRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.49, 3.372, -26.1925), S: (4.98, 0.026, 0.035)]",
+			"global_position": "(0.0, 3.385, -26.175)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckEndFrame_COLL_UpperRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.49, 3.372, -23.8425), S: (4.98, 0.026, 0.035)]",
+			"global_position": "(0.0, 3.385, -23.825)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@160",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.4925, 3.372, -26.19), S: (0.035, 0.026, 2.380001)]",
+			"global_position": "(-2.475, 3.385, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckSideFrame_COLL_UpperRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (2.4575, 3.372, -26.19), S: (0.035, 0.026, 2.380001)]",
+			"global_position": "(2.475, 3.385, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@161",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.48, 3.368, -25.759), S: (4.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 3.377, -25.75)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/GratingCrossTie_COLL_UpperRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.48, 3.368, -25.309), S: (4.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 3.377, -25.3)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@162",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.48, 3.368, -24.859), S: (4.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 3.377, -24.85)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@163",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.48, 3.368, -24.409), S: (4.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 3.377, -24.4)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@164",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.009, 3.346, -26.191), S: (1.982, 0.018, 2.382)]",
+			"global_position": "(4.0, 3.355, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredDeckBacking_COLL_GapLanding",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.01, 3.372, -26.1925), S: (1.98, 0.026, 0.035)]",
+			"global_position": "(4.0, 3.385, -26.175)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckEndFrame_COLL_GapLanding",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.01, 3.372, -23.8425), S: (1.98, 0.026, 0.035)]",
+			"global_position": "(4.0, 3.385, -23.825)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@165",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.0075, 3.372, -26.19), S: (0.035, 0.026, 2.380001)]",
+			"global_position": "(3.025, 3.385, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckSideFrame_COLL_GapLanding",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (4.9575, 3.372, -26.19), S: (0.035, 0.026, 2.380001)]",
+			"global_position": "(4.975, 3.385, -25.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@166",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 3.368, -25.759), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 3.377, -25.75)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/GratingCrossTie_COLL_GapLanding",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 3.368, -25.309), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 3.377, -25.3)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@167",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 3.368, -24.859), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 3.377, -24.85)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@168",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 3.368, -24.409), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 3.377, -24.4)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@169",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.009, 5.346, -29.791), S: (1.982, 0.018, 2.181999)]",
+			"global_position": "(4.0, 5.355, -28.7)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredDeckBacking_COLL_FinalRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.01, 5.372, -29.7925), S: (1.98, 0.026, 0.035)]",
+			"global_position": "(4.0, 5.385, -29.775)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckEndFrame_COLL_FinalRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.01, 5.372, -27.6425), S: (1.98, 0.026, 0.035)]",
+			"global_position": "(4.0, 5.385, -27.625)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@170",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.0075, 5.372, -29.79), S: (0.035, 0.026, 2.18)]",
+			"global_position": "(3.025, 5.385, -28.7)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckSideFrame_COLL_FinalRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (4.9575, 5.372, -29.79), S: (0.035, 0.026, 2.18)]",
+			"global_position": "(4.975, 5.385, -28.7)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@171",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 5.368, -29.359), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 5.377, -29.35)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/GratingCrossTie_COLL_FinalRest",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 5.368, -28.909), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 5.377, -28.9)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@172",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (3.02, 5.368, -28.459), S: (1.96, 0.018, 0.018002)]",
+			"global_position": "(4.0, 5.377, -28.45)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@173",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.991, 5.346, -30.891), S: (5.982, 0.018, 1.181999)]",
+			"global_position": "(0.0, 5.355, -30.3)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredDeckBacking_COLL_ExitDeck",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.99, 5.372, -30.8925), S: (5.98, 0.026, 0.035)]",
+			"global_position": "(0.0, 5.385, -30.875)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckEndFrame_COLL_ExitDeck",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.99, 5.372, -29.7425), S: (5.98, 0.026, 0.035)]",
+			"global_position": "(0.0, 5.385, -29.725)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@174",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.9925, 5.372, -30.89), S: (0.035, 0.026, 1.18)]",
+			"global_position": "(-2.975, 5.385, -30.3)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckSideFrame_COLL_ExitDeck",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (2.9575, 5.372, -30.89), S: (0.035, 0.026, 1.18)]",
+			"global_position": "(2.975, 5.385, -30.3)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@175",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-2.98, 5.368, -30.459), S: (5.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 5.377, -30.45)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/GratingCrossTie_COLL_ExitDeck",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.491, 5.346, -32.291), S: (2.982, 0.018, 1.482)]",
+			"global_position": "(0.0, 5.355, -31.55)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/MeasuredDeckBacking_COLL_ServiceVestibule",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.49, 5.372, -32.2925), S: (2.98, 0.026, 0.035004)]",
+			"global_position": "(0.0, 5.385, -32.275)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckEndFrame_COLL_ServiceVestibule",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.49, 5.372, -30.8425), S: (2.98, 0.026, 0.035)]",
+			"global_position": "(0.0, 5.385, -30.825)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@176",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.4925, 5.372, -32.29), S: (0.035, 0.026, 1.480001)]",
+			"global_position": "(-1.475, 5.385, -31.55)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DeckSideFrame_COLL_ServiceVestibule",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.4575, 5.372, -32.29), S: (0.035, 0.026, 1.480001)]",
+			"global_position": "(1.475, 5.385, -31.55)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@177",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.48, 5.368, -31.859), S: (2.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 5.377, -31.85)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/GratingCrossTie_COLL_ServiceVestibule",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.48, 5.368, -31.409), S: (2.96, 0.018, 0.018002)]",
+			"global_position": "(0.0, 5.377, -31.4)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@178",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-1.4, 7.56, -30.4475), S: (2.8, 0.32, 0.035)]",
+			"global_position": "(0.0, 7.72, -30.43)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/FlushPressureCaptionPlaque",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.675, 6.745, -30.466), S: (0.41, 0.41, 0.012001)]",
+			"global_position": "(1.88, 6.95, -30.46)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/PressureDialFace",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.658, 6.728, -30.457), S: (0.444, 0.444, 0.023998)]",
+			"global_position": "(1.88, 6.95, -30.445)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/PressureDialMachinedRim",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.756818, 6.816042, -30.44), S: (0.024812, 0.026051, 0.006001)]",
+			"global_position": "(1.769224, 6.829067, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/DialPressureTick",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.711375, 6.885339, -30.44), S: (0.029047, 0.017097, 0.006001)]",
+			"global_position": "(1.725898, 6.893888, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@179",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.702999, 6.965598, -30.44), S: (0.028804, 0.011583, 0.006001)]",
+			"global_position": "(1.717401, 6.971389, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@180",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.73189, 7.032751, -30.44), S: (0.027525, 0.022613, 0.006001)]",
+			"global_position": "(1.745653, 7.044057, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@181",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.794255, 7.081202, -30.44), S: (0.020026, 0.02853, 0.006001)]",
+			"global_position": "(1.804268, 7.095467, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@182",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.876, 7.1, -30.44), S: (0.008, 0.028, 0.006001)]",
+			"global_position": "(1.88, 7.114, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@183",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.945719, 7.081202, -30.44), S: (0.020026, 0.02853, 0.006001)]",
+			"global_position": "(1.955732, 7.095467, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@184",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (2.000585, 7.032751, -30.44), S: (0.027525, 0.022613, 0.006001)]",
+			"global_position": "(2.014347, 7.044057, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@185",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (2.028197, 6.965598, -30.44), S: (0.028804, 0.011583, 0.006001)]",
+			"global_position": "(2.042599, 6.971389, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@186",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (2.019578, 6.885339, -30.44), S: (0.029047, 0.017097, 0.006001)]",
+			"global_position": "(2.034102, 6.893888, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@187",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (1.97837, 6.816042, -30.44), S: (0.024812, 0.026051, 0.006001)]",
+			"global_position": "(1.990776, 6.829067, -30.437)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/MaintenanceMechanicalDressing/@MeshInstance3D@188",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.468279, 2.122942, -24.73754), S: (0.822034, 1.554116, 2.475086)]",
+			"global_position": "(-3.057262, 2.9, -23.5)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/memory_monitor.gdshader",
+					"source_saturation": "<null>",
+					"tint": "(1.0, 0.9, 0.85, 1.0)",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/PsychologicalMemoryAtmosphere/FloatingMemory_1/IntactMemorySurface",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.85, 0.028, -22.65), S: (1.5, 0.0, 2.299999)]",
+			"global_position": "(-3.1, 0.028, -21.5)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://engine_visuals/shaders/leak_water.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/PsychologicalMemoryAtmosphere/ShallowLeakingWater",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.565, 0.028, -21.565), S: (0.13, 2.672, 0.130001)]",
+			"global_position": "(-3.5, 1.364, -21.5)",
+			"materials": [
+				{
+					"albedo": "(0.08, 0.12, 0.16, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/PsychologicalMemoryAtmosphere/@MeshInstance3D@1155",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-3.615, 2.68, -21.615), S: (0.23, 0.12, 0.23)]",
+			"global_position": "(-3.5, 2.74, -21.5)",
+			"materials": [
+				{
+					"albedo": "(0.08, 0.12, 0.16, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/MaintenanceVertical/PsychologicalMemoryAtmosphere/@MeshInstance3D@1156",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.49, 5.4, -33.06), S: (0.16, 4.5, 0.120003)]",
+			"global_position": "(-4.41, 7.65, -33.0)",
+			"materials": [
+				{
+					"albedo": "(0.46, 0.53, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/BayFrame/@MeshInstance3D@199",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (4.33, 5.4, -33.06), S: (0.16, 4.5, 0.120003)]",
+			"global_position": "(4.41, 7.65, -33.0)",
+			"materials": [
+				{
+					"albedo": "(0.46, 0.53, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/@Node3D@226/@MeshInstance3D@225",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.5, 5.400001, -32.2), S: (3.6, 4.4, 0.400002)]",
+			"global_position": "(-2.7, 7.6, -32.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/EntrancePier/@MeshInstance3D@254",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (0.9, 5.400001, -32.2), S: (3.6, 4.4, 0.400002)]",
+			"global_position": "(2.7, 7.6, -32.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/@StaticBody3D@256/@MeshInstance3D@255",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-0.9, 8.599999, -32.2), S: (1.8, 1.200001, 0.400002)]",
+			"global_position": "(0.0, 9.2, -32.0)",
+			"materials": [
+				{
+					"albedo": "<null>",
+					"name": "",
+					"replacement_count": "<null>",
+					"shader": "res://shaders/clinical_architecture_surface.gdshader",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/EntranceLintel/@MeshInstance3D@257",
+			"visible": true
+		},
+		{
+			"bounds": "[P: (-4.35, 5.398, -32.0125), S: (8.7, 0.012, 0.025002)]",
+			"global_position": "(0.0, 5.404, -32.0)",
+			"materials": [
+				{
+					"albedo": "(0.46, 0.53, 0.62, 1.0)",
+					"name": "Hyper_",
+					"replacement_count": "<null>",
+					"shader": "",
+					"source_saturation": "<null>",
+					"tint": "<null>",
+					"type": "ShaderMaterial"
+				}
+			],
+			"node": "/root/Main/SecurityCheckpointRoom/FloorJoint/@MeshInstance3D@261",
+			"visible": true
+		}
+	]
+}

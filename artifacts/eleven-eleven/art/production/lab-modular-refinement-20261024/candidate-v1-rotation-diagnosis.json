@@ -1,0 +1,82 @@
+[
+  {
+    "name": "TripoWallTile_Template_3x3m",
+    "rotation_mode": "QUATERNION",
+    "euler": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_dimensions": [
+      3.0,
+      0.20000000298023224,
+      3.0
+    ]
+  },
+  {
+    "name": "ClinicalCleanWestWall",
+    "rotation_mode": "QUATERNION",
+    "euler": [
+      0.0,
+      0.0,
+      1.5707963705062866
+    ],
+    "quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_dimensions": [
+      3.0,
+      36.19999849796295,
+      9.0
+    ]
+  },
+  {
+    "name": "ClinicalCleanEastWall",
+    "rotation_mode": "QUATERNION",
+    "euler": [
+      0.0,
+      0.0,
+      -1.5707963705062866
+    ],
+    "quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_dimensions": [
+      3.0,
+      36.19999849796295,
+      9.0
+    ]
+  },
+  {
+    "name": "ClinicalCleanSouthWall",
+    "rotation_mode": "QUATERNION",
+    "euler": [
+      0.0,
+      0.0,
+      3.1415927410125732
+    ],
+    "quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "world_dimensions": [
+      31.31999969482422,
+      0.20000001043081284,
+      9.0
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "status": "ISOLATED_REVIEW_PREPARED",
+  "source_glb_sha256": "d9349bc242d907e490061b582cf5120416aa4f25c3472ad49c14bf97e7e4be2b",
+  "numerical_prefix_unchanged": true,
+  "source_reviewer_sha256": "7239018e6700842ff63e551f329e74f367361f3b532302a8b029a327dfd68a8a",
+  "adapted_reviewer_sha256": "751ee584b0b6075f0fe93290700578ea79f2bd96c98a2890440fd3ec59e99712",
+  "frozen_import_profile_sha256": "19cfc6b7d4b10e8145d701a84f3c39fe678636d11c348651769a27015dd72ef7",
+  "render_only_changes": [
+    "Actual front/rear/side names",
+    "Follow all Hips translation for framing",
+    "Read camera size and selected capture samples",
+    "Check PNG write error"
+  ],
+  "source_or_mesh_or_gameplay_modified": false
+}

@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-23",
+  "authorization": {
+    "source": "Owner confirmed subscription activated and authorized available Tripo credits/features for room quality; no additional purchase performed.",
+    "original_budget": 200,
+    "activation_balance_observed": 3145,
+    "subscription_credit_delta_observed": 3000,
+    "current_balance_last_observed": 3020,
+    "new_paid_operations_since_activation": 120,
+    "total_lab_paid_credits_including_pre_subscription_chair": 175,
+    "policy": "Use fitting operations and existing tasks. Whole-room generation optional; quality governs selection. No credit depletion for its own sake.",
+    "current_usage_authorization": "Latest Owner authorizes available Tripo/Flow credits for quality; no new purchase.",
+    "credit_reconciliation": "3030 previous ledger ->3025 first live observation this turn:5 unattributed before this turn; do not assign it to the new5-credit PBR job."
+  },
+  "jobs": [
+    {
+      "provider": "flow",
+      "job": "Anime clinical neuroscience labo...",
+      "before": 485,
+      "after": 473,
+      "charged_credits": 12,
+      "state": "downloaded",
+      "file": "flow-lab-tour.mp4",
+      "references": [
+        "01-entry",
+        "02-reverse",
+        "03-lateral",
+        "04-hero"
+      ]
+    },
+    {
+      "provider": "tripo",
+      "asset": "neural-chair",
+      "state": "downloaded_original_and_retopped",
+      "shown_cost": 55,
+      "charged_credits": 55,
+      "reference": "references/neural-chair-tripo-reference.png",
+      "reference_sha256": "282719dde80456e9f72a71ea8d04de80c3ae36774aeda1b5dfb9dce197af0196",
+      "source": "Reconstructed isolated reference from actual video frame6.5s and the coherent hero still; not claimed as an untouched video crop",
+      "export": "Subscription active;64.65MB original retained;11.68MB derivative inspected and integrated for native review.",
+      "task_id": "d36fb2a0-0b6d-41e5-933c-8e651cc3c30f",
+      "before": 200,
+      "after": 145,
+      "url": "https://studio.tripo3d.ai/workspace/generate/d36fb2a0-0b6d-41e5-933c-8e651cc3c30f",
+      "original_triangles": 1880765,
+      "retopo_triangles": 20336,
+      "retopo_credits": 35,
+      "retopo_before": 3145,
+      "retopo_after": 3110,
+      "derivative": "art/production/lab-clinical-kit-20261023/tripo/neural-chair-retopo-20k.glb",
+      "derivative_sha256": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12"
+    },
+    {
+      "provider": "tripo",
+      "asset": "lab-theater-assembly",
+      "task_id": "69598855-5b7b-42c8-a391-1f2540cf8d85",
+      "state": "source_and_textured_downloaded_inspection_open",
+      "generation": "H3.1 Detailed Generate in Parts,200000 target;121 parts190343 triangles",
+      "reference": "01-entry -> actual inferred Tripo multiview; result isolated surgical assembly, NOT full walls",
+      "shown_generation_cost": 60,
+      "charged_generation": 0,
+      "reason": "one free Generate in Parts trial; balance remained3110",
+      "texture": "4K reference multiview; Remove Lighting on",
+      "charged_texture": 20,
+      "before": 3110,
+      "after": 3090
+    },
+    {
+      "provider": "tripo",
+      "asset": "full-room-cutaway",
+      "task_id": "2ddda695-37ca-4246-9203-ac1ad986a217",
+      "state": "segmented_source_downloaded_8k_texture_requested",
+      "reference": "references/full-room-cutaway-tripo.png -> actual Tripo-generated four angles, reviewed before3D",
+      "generation": "H3.1 Detailed Generate in Parts,200000 target;174 parts176515 triangles",
+      "charged_generation": 60,
+      "before": 3090,
+      "after": 3030,
+      "texture": "8K Trial x1, Remove Lighting on; shown30->0, pending return",
+      "texture_charge_observed": 0,
+      "native_acceptance": "OPEN; measure/edit openings, strip duplicate equipment/floor/water, preserve native landmarks before integration."
+    },
+    {
+      "provider": "tripo",
+      "operation": "PBR",
+      "parent_asset_id": "69598855-5b7b-42c8-a391-1f2540cf8d85",
+      "state": "completed_UI_export_blocked_no_local_PBR_integration",
+      "before": 3025,
+      "after": 3020,
+      "charged_credits": 5,
+      "blocker": "Tripo export navigated to tripo-data.rg1.data.tripo3d.com:blocked by ChatGPT/ERR_BLOCKED_BY_CLIENT. Do not regenerate."
+    },
+    {
+      "provider": "flow",
+      "operation": "clinical material/mechanical detail reference",
+      "media_id": "0459d46e-c942-4e9b-8c47-807d505d9218",
+      "scene_url": "https://flow.google.com/project/658007d8-ddc0-4e64-8b56-be8f7ea373e8/edit/c894d6ec-18e2-41ed-91b4-02c878ac4019",
+      "model": "Omni1.1Flash",
+      "resolution": "720p",
+      "duration_s": 10,
+      "aspect": "16:9",
+      "before": 473,
+      "after": 458,
+      "charged_credits": 15,
+      "reference_count_submitted": 4,
+      "references": [
+        "references/01-entry.png",
+        "references/02-reverse.png",
+        "references/03-lateral.png",
+        "references/04-hero.png"
+      ],
+      "state": "downloaded_original_full_decode_PASS_40_visual_samples_reference_only",
+      "full_take_audio_acceptance": "OPEN;40 sampled views reviewed,no apparent morphing;start differs from requested platform position;audio listening unverified",
+      "brief": "Slow lateral clinical platform dolly; same architecture; precision scanner hinge/material guide; whole memory panels; ventilation/servo/water only,no music,speech or new story.",
+      "file": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/flow-lab-material-detail-omni.mp4",
+      "sha256": "84a1582333ef6687cc3911a9da5fcab98783746087cfdc7e522b1a07f01d495e",
+      "sharp_frames": [
+        {
+          "timestamp_s": "0.0",
+          "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-0.0.png",
+          "sha256": "545357ee03a59a462cfcff4e01b4af7d7e6b7628758990e2d8e1d0d689a92029"
+        },
+        {
+          "timestamp_s": "2.5",
+          "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-2.5.png",
+          "sha256": "98699f24a94fe22bdd8becec68f427ef1d2da78931c3734ba54bd91b569d9e5a"
+        },
+        {
+          "timestamp_s": "5.0",
+          "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-5.0.png",
+          "sha256": "1b3d58eac899a72d4d1749863d329174e5736858570e2a1e00aa362ceaeae57c"
+        },
+        {
+          "timestamp_s": "7.5",
+          "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-7.5.png",
+          "sha256": "679abc16c3d933e012f5f6c7a645dd966bba87a2622ff63fdcbe2f07b1316821"
+        },
+        {
+          "timestamp_s": "9.5",
+          "path": "audits/evidence/chapter-cp45-20261020/stage13/lab-rebuild-20261023/resume-20261023b/omni-media/frame-9.5.png",
+          "sha256": "b61f93e801d7f1dc0ad4f4928bbfdc6b9937ef5281837bf9aefe2f3a6b26007c"
+        }
+      ]
+    }
+  ]
+}

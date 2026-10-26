@@ -1,0 +1,38 @@
+{
+  "scope": "One reactor06model with three bounded stages;existing wall/filter assets reused with no newjob",
+  "provider_model_id": "645b2d6a-1399-47c3-bb3e-a4acebe6ce93",
+  "tripo": {
+    "credits_before": 2825,
+    "credits_after": 2770,
+    "confirmed_charge": 55,
+    "operations": [
+      {
+        "geometryH3.1Ultra200Ktarget": 30
+      },
+      {
+        "texture4KRemoveLighting": 20
+      },
+      {
+        "PBR": 5
+      }
+    ]
+  },
+  "flow": {
+    "image_count": 1,
+    "model": "Nano Banana Pro",
+    "reference": "reactor-native-four-view.jpg:all4native originals retained",
+    "asset_id": "cfdeaedf-ca98-4b14-a343-a3c10e0b4cce",
+    "credits_before": 750,
+    "credits_after": 800,
+    "charge": null,
+    "limitation": "Externalcreditactivity/refillcannotbeseparatedfromsingleimagecost;do notinfernegative/zerocharge"
+  },
+  "no_new_purchase": true,
+  "source_exported": [
+    "crown-h31-raw.glb",
+    "crown-h31-texture4k.glb",
+    "crown-h31-pbr4k.glb"
+  ],
+  "geometry_review": "raw-geometry-review.json",
+  "derivative": "crown-derivative-build.json"
+}

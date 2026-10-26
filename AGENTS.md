@@ -1,3 +1,9 @@
+<!-- HYPER_ANIME_AAA_ENGINE -->
+# Mandatory Hyper Anime AAA Engine — Owner directive 2026-10-19
+
+For every 11.11 Godot rendering, scene, character, camera, locomotion presentation or VFX task, load and obey `.codex/skills/hyper_anime_aaa_engine/SKILL.md` first. Its five pillars and the exact Owner directive in its references govern visual production. Use the existing `artifacts/eleven-eleven/godot/engine_visuals/` pipeline. Preserve Canon, Golden, V31 source keys, server authority, SFX_ONLY, accessibility and scene/cinematic ownership. Test actual rendering and gameplay; do not claim AAA/chapter acceptance from syntax alone. Continue from CURRENT_WORK and preserve local changes.
+<!-- /HYPER_ANIME_AAA_ENGINE -->
+
 # Repository Agent Instructions
 
 ## Owner navigation rule — 2026-09-28
@@ -148,3 +154,14 @@ When operating as or receiving directives for Gemini 3.8:
 ## Owner context and token economy — 2026-10-17
 
 The Owner strictly forbids rereading the whole conversation or full historical logs for each edit. Start from the compact CURRENT_WORK card and docs/internal/production/CURRENT_CONTEXT_CACHE.json. Reuse verified facts keyed to file hashes; read only relevant changed source sections or a specific missing checkpoint. Load applicable mandatory instructions when first needed or changed, without repeated full-document reads. Keep brief Arabic updates and bounded tool output; do not claim control over provider-side prompt caching or guaranteed token savings. Refresh the compact cache after meaningful delivery, and never treat cached observations as live account balance or current visual acceptance.
+
+## Owner strict token economy — 2026-10-18
+
+Maintain one current map/card/cache and archive unique older state without deleting
+assets. Apply the installed `context-balance` guidance: preserve requirements,
+verified evidence, blockers and next action; remove repetition. Batch independent
+reads with bounded output, inspect the affected system first, and repeat checks
+only after relevant changes or unresolved failures. Keep required visual review,
+negative tests and quality gates intact. This is a working policy, not an app/model
+setting or a claim of provider-side savings. Continue the authorized chapter work
+through hospital awakening; report completion only when its required gates are met.

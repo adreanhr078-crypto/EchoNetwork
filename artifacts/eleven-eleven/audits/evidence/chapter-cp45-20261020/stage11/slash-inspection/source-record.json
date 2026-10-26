@@ -1,0 +1,37 @@
+{
+  "candidate": {
+    "take_id": "48e0c35059e4b58ce1cdebba:0:b0913491",
+    "source_take": "Armature|mixamo.com|Layer0",
+    "slot": "Slot",
+    "rig": "Armature",
+    "rig_hash": "b09134910fb5b329b8d733ab7caa6f1e40e694662de6a41de1a3055d7cbe8a4e",
+    "source_frame_range": [
+      1.0,
+      44.0
+    ],
+    "sample_frames": 44,
+    "fps": 30.0,
+    "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+    "duration_seconds": 1.4333333333333333,
+    "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-cp45-20261020\\stage11\\slash-inspection\\48e0c35059e4b58ce1cdebba_0_b0913491.npz",
+    "metrics": {
+      "finite": true,
+      "bone_count": 65,
+      "source_scale_min": 0.00999999139457941,
+      "source_scale_max": 0.010000007227063179,
+      "missing_roles": [],
+      "hips_net_horizontal_displacement_source_units": 4.505137596311215e-08,
+      "pose_fingerprint": "3d2172c1bf463bfba59ef3c72f2a79434c3b1d6a59996578901744f12930431f"
+    },
+    "approval_status": "unreviewed",
+    "file_sha256": "48e0c35059e4b58ce1cdebba08359829d9319852eaec5bda01d887f7f695894f",
+    "original_filename": "Great Sword Slash.fbx"
+  },
+  "entry": {
+    "sha256": "48e0c35059e4b58ce1cdebba08359829d9319852eaec5bda01d887f7f695894f",
+    "working_copy": "art/production/echo-attack-cp45-20261021/Great Sword Slash.fbx"
+  },
+  "origin": "Adobe Mixamo original source downloaded in prior authorized session;30FPS,no key reduction; settings proof retained",
+  "source_keys_changed": false,
+  "runtime_integrated": false
+}

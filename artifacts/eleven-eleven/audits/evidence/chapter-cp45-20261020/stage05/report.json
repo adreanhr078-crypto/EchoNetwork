@@ -1,0 +1,137 @@
+{
+  "stage": "05",
+  "status": "PASS_SCOPED_LOCOMOTION",
+  "run_and_walk": {
+    "run": {
+      "checks": 12,
+      "maximum_contact_phase_error": 0.0242424684424851,
+      "public_travel_m": 17.05250073224305,
+      "reviewed_captures": [
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-0-17.png",
+          "sha256": "b5fe780eda9cc5cb007f93576750be80b24876970b58cfbcc8f55176832d0a21"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-0-33.png",
+          "sha256": "f1c748f99cc34c625d4328499c93378d84e286646ee18fbcd55d293a6dd98516"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-0-49.png",
+          "sha256": "6aa7ee48396c33535d529f693b8ecc8a722fa6bc648076cb3e5ace3288d3d389"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-0-65.png",
+          "sha256": "19cbc80f8a67a5611bc43f1166223db06203dcf41154778c2f165c735790f684"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-1-17.png",
+          "sha256": "979c104a0941ee7934615e664eb4989b8445ad030c4526b8f72e0e400e4f200f"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-1-33.png",
+          "sha256": "e8b797897818b35e72053cef529d6c6317e3aeab40b57d3bdb0ccdb8579e89de"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-1-49.png",
+          "sha256": "62f177fe94edcfa2112d0cce9075c954f93934792555575eec837b3cb5685cf3"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-1-65.png",
+          "sha256": "22514816e1b339cf1a4c4ac3f3ef7460786e8007282a739b90e80345178bc306"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-2-17.png",
+          "sha256": "d92b109ce70efbea2dda2c10f17f6edabff429f9b8045dfdec6934306a401cba"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-2-33.png",
+          "sha256": "3d60d073ad2402dcf5bf14d7f021fee2fb751015b78a9066fbc84b865558b144"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-2-49.png",
+          "sha256": "77acdb9b80d0c37bfad830b40eeac106374d33842f0ba9d7842913cdc7bf0fbc"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-run\\public-run-2-65.png",
+          "sha256": "0f6698f28541adb93e7c7cc99f73cb309f717a6ecd4692a8c6c452a5f83a6d2d"
+        }
+      ]
+    },
+    "walk": {
+      "checks": 12,
+      "maximum_contact_phase_error": 0.0102806919204917,
+      "public_travel_m": 7.9523229598999094,
+      "reviewed_captures": [
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-0-17.png",
+          "sha256": "6bbb3fd453d1804874d658737d289d21fa1eb5a8a804fe554abe0b72555e6303"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-0-33.png",
+          "sha256": "3eaf7bde0a6881fb16376d3983c7ea334f2033e6f211bc36d704c5f30b46b215"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-0-49.png",
+          "sha256": "38777af018009fd95bcd092d617e82e425d80e5a04e0b0ad8e8c59bb33be8f1e"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-0-65.png",
+          "sha256": "52f264cbae294470d6b9898396266db4cf258af78b03431e0bb1227e2b440bcc"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-1-17.png",
+          "sha256": "e411d953272addb7111d808ec17491778e20c3447700ef8fd071fc8d6636c45a"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-1-33.png",
+          "sha256": "4cd749bb69c6173cb4beed74a87e2051324d07fc17cffe8475528bdbd5569f3f"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-1-49.png",
+          "sha256": "38e9ea2a42d595dda58184279c5ae948dcf06daa986dedaeca4cf7fe2efe4d9e"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-1-65.png",
+          "sha256": "4bfdf576dda113e3503fbca7b07544390c14dfd4f1c6e777a66a12cf2f65ec16"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-2-17.png",
+          "sha256": "7d78e9d485e91f3450f1e8981cab56410e3973f384ab7f57b01cfdb6c8b2b072"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-2-33.png",
+          "sha256": "7aa804741b2f20330874aa49a618f7e013ee8e218edbde5fe55a2271bbc03f48"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-2-49.png",
+          "sha256": "783d2d6c5d3dbf880fc88253842872d91831d4c942e08d58ef8558ffaf37ca86"
+        },
+        {
+          "path": "audits\\evidence\\chapter-cp45-20261020\\stage05\\final-walk\\public-run-2-65.png",
+          "sha256": "c7e25b572293c95f2b6c719c584ffff489aaafb76d4ee50e28476a54e0ba8588"
+        }
+      ]
+    }
+  },
+  "transitions": "integrated-transition.json /13 checks; max source support phase error0.01647",
+  "regression": "../stage05-regression-final.log; actual input walk/run/turn/skid/idle/physical landing",
+  "golden_protected_files": 192,
+  "source_hashes": {
+    "godot/scripts/player/echo_player.gd": "4f0c88b0ea018a707327d69c62f5618011390df6fc6126c89ad298043001a18d",
+    "godot/scripts/player/echo_v31_motion_adapter.gd": "30b814020a8b1b71c4a5256c83f41c5aa813a40703f5828ec9b9f8effc160465",
+    "godot/scripts/player/echo_footstep_system.gd": "4610f8e735c450583e8ce7acf88960d9bf7ecd6704af0658f54f2465ad2ce725",
+    "godot/scripts/player/locomotion_anim_controller.gd": "a07b5fe88a1cda1b5646edda548c233231266cf6259a7a44639d9a3ac539f9fa",
+    "godot/assets/animations/v31/run_cp45.res": "4f372cf4967c5e55ed6a263804084199ca7926aad03fd3b4af39132f3f1dae38",
+    "godot/assets/animations/v31/walk_cp45.res": "6ccb005099c223243a60329bd43b07689b12a4f14993ff619eb28e7a7ad1936e",
+    "godot/export_presets.cfg": "35f002a7ebc9a9bfbf8c0f094f335447a5528e84763c97024b58c63981ab2bfa"
+  },
+  "source_curves_edited": false,
+  "original_asset_sha256": "e88bcc7b50258c8af84c6bacbc7b9f94437853263715f3f3f44fe79c7ffd8810",
+  "observations": [
+    "Final24 native public-input images inspected: separate Run and Walk, stable capsule/foot/hand continuity, independent garment follow.",
+    "Measured support phase mapping handles opposite starting foot between sources. Controlled avatar shares physics clock with capsule and sound contact detection.",
+    "Fixed sprint release after inertial turn and residual Idle glide. Updated old regression facing assumption from legacy+X to actual V31 declared+Z, with its same98percent alignment threshold.",
+    "Full-face lighting/finger acting remain chapter art gates; no claim of whole-character perfection or full-route performance."
+  ],
+  "next_stage": "06 connected title/cover/opening/Room01 and first full regression gate"
+}

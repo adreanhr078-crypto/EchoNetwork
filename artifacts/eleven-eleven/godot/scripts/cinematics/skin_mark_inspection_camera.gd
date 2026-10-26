@@ -27,6 +27,7 @@ func begin(model:Node3D, previous:Camera3D) -> bool:
 	camera.name="ActualSkinInspection"
 	camera.fov=35.0
 	camera.near=0.015
+	camera.far=previous.far
 	camera.environment=previous.environment
 	add_child(camera)
 	_update_camera()

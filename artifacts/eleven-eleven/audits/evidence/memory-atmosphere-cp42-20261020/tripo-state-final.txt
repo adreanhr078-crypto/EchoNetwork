@@ -1,0 +1,139 @@
+Browser tab: 3, Title: "3D Animation Maker – AI Rig & Animate 3D Model by 1 Click | Tripo Studio", URL: "https://studio.tripo3d.ai/workspace/animate/a1ef7bf8-d616-4431-b2ea-9c01257af46d".
+1 AXWebArea 3D Animation Maker – AI Rig & Animate 3D Model by 1 Click | Tripo Studio, URL: studio.tripo3d.ai/workspace/animate/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+	2 container
+		3 container
+			4 container
+				5 link studio.tripo3d.ai/
+				6 button 3D Workspace
+					7 link Description: 3D Workspace, Value: studio.tripo3d.ai/workspace/generate
+				8 link Description: Home, Value: studio.tripo3d.ai/
+				9 link Description: Assets, Value: studio.tripo3d.ai/assets
+				10 link Description: Creator Hub, Value: studio.tripo3d.ai/creator-hub/mission-tripossible/
+				11 button Resources
+					12 text Resources
+				13 button Creator level and rewards
+					479 image Lv.1
+				14 pop up button (collapsed) ID: reka-popover-trigger-v-0-0-2, Secondary Actions: Expand
+					480 image
+				16 link Description: Help Center, Value: tripo3d.ai/help
+				17 pop up button (collapsed) 23, ID: reka-popover-trigger-v-0-0-4, Secondary Actions: Expand
+					18 text 23
+				19 link studio.tripo3d.ai/referral
+				20 text 2855
+				21 button Upgrade
+					22 container
+						23 text Upgrade
+						24 image loading
+				25 pop up button (collapsed) DCC Bridge, ID: reka-popover-trigger-v-0-0-6, Secondary Actions: Expand
+					26 text DCC Bridge
+				481 button Smart Mesh P2.0: Quads & Edit
+			27 container
+				28 link Description: Image, Value: studio.tripo3d.ai/workspace/generate-image/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				29 link Description: Model, Value: studio.tripo3d.ai/workspace/generate/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				30 link Description: Segment, Value: studio.tripo3d.ai/workspace/segmentation/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				31 link Description: Fill Parts, Value: studio.tripo3d.ai/workspace/fill-parts/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				32 link Description: Retopo, Value: studio.tripo3d.ai/workspace/retopology/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				33 link Description: Smart UV, Value: studio.tripo3d.ai/workspace/smart-uv/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				34 link Description: Texture, Value: studio.tripo3d.ai/workspace/texture/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				35 link Description: Edit, Value: studio.tripo3d.ai/workspace/texture-edit/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				36 link Description: Upscale, Value: studio.tripo3d.ai/workspace/texture-upscale/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				37 link Description: PBR, Value: studio.tripo3d.ai/workspace/texture-pbr/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				38 link Description: Rig, Value: studio.tripo3d.ai/workspace/rigging/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+				39 link Description: Animate, Value: studio.tripo3d.ai/workspace/animate/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+			40 pop up button (collapsed) Description: Scan to download Tripo App, Secondary Actions: Expand
+			41 heading Animation, Value: 2
+				42 text Animation
+			43 container
+				44 text Create Your Own Animation
+				45 button Create custom animations from text/videos. For best results, use a humanoid character in a clean T- or A-pose.
+				46 tab (selected, settable, boolean) Description: Text to Motion, Value: 1
+				47 tab (selectable, disabled, settable, boolean) Description: Video to Motion, Value: 0
+				48 text entry area (settable) Create Your Own Animation
+				49 slider (settable, integer) Description: Duration, Value: 5
+				50 stepper (settable, integer) Description: Duration, Value: 5
+				51 button (disabled) Generate 20
+					52 container
+						53 text Generate 20
+				54 button Multi-stage Motion New
+					482 text Multi-stage Motion
+					483 text New
+				55 tab group Animation
+					56 tab (selectable, settable, boolean) Preset, Value: 0
+					57 tab (selected, settable, boolean) AI Animation, Value: 1
+				58 container animation-library-panel
+					59 container
+						60 checkbox Description: All, Value: 1
+						61 checkbox Description: Recently Used, Value: 0
+						62 text field (settable) Search
+						63 pop up button (collapsed) Description: Filter, ID: reka-popover-trigger-v-0-1-7, Secondary Actions: Expand
+					507 container
+						508 button Sprinting Forward Sprinting Forward
+							509 image Sprinting Forward
+							510 text Sprinting Forward
+						511 pop up button (collapsed) Description: More, ID: reka-popover-trigger-v-0-1-268, Secondary Actions: Expand
+						512 button Running in Place Running in Place
+							513 image Running in Place
+							514 text Running in Place
+						515 pop up button (collapsed) Description: More, ID: reka-popover-trigger-v-0-1-270, Secondary Actions: Expand
+						516 button (disabled) Ledge Mantle Ledge Mantle
+							517 image Ledge Mantle
+							518 text Ledge Mantle
+						519 pop up button (collapsed) Description: More, ID: reka-popover-trigger-v-0-1-272, Secondary Actions: Expand
+						520 button (disabled) Man Staggers from Impact Man Staggers from Impact
+							521 image Man Staggers from Impact
+							522 text Man Staggers from Impact
+						523 pop up button (collapsed) Description: More, ID: reka-popover-trigger-v-0-1-274, Secondary Actions: Expand
+			484 container
+				485 button
+				486 button
+				487 button 3D Print
+					488 text 3D Print
+				489 button Share
+					490 text Share
+					491 image coupon
+				492 button Export
+					493 text Export
+				494 text Retargeting...
+				495 progress indicator Description: 0%, Value: 0
+				524 text Retopologize into clean quad or triangle meshes with optimized topology, making your model run more smoothly.
+				497 text Topology
+				498 text Quad
+				499 text Faces
+				500 text 45460
+				501 text Vertices
+				502 text 45550
+				503 pop up button (collapsed) ID: reka-popover-trigger-v-0-1-252, Secondary Actions: Expand
+					504 button
+				505 button
+				506 checkbox 0
+			453 container
+				454 tab group
+					455 tab (selected, settable, boolean) Assets, ID: reka-tabs-v-0-1-203-trigger-assets, Value: 1
+Assets
+					456 tab (selectable, settable, boolean) Property, ID: reka-tabs-v-0-1-203-trigger-property, Value: 0
+Property
+				457 container Description: Assets, ID: reka-tabs-v-0-1-203-content-assets
+					458 tab group
+						459 tab (selected, settable, boolean) Value: 1, ID: reka-tabs-v-0-1-208-trigger-mine
+						460 tab (selectable, settable, boolean) Value: 0, ID: reka-tabs-v-0-1-208-trigger-collected
+					461 button
+					462 pop up button (collapsed) Manage, ID: reka-popover-trigger-v-0-1-213, Secondary Actions: Expand
+					463 container
+						464 container
+							465 text Upload 3D Model OBJ, FBX, STL, GLB
+Size ≤150MB
+							466 button Choose File
+						467 link Description: Cancel Queuing, Value: studio.tripo3d.ai/workspace/animate/a1ef7bf8-d616-4431-b2ea-9c01257af46d
+						468 link Description: bathroom vanity 3d model 10-19 07:59, Value: studio.tripo3d.ai/workspace/animate/brown-wood-front-bathroom-vanity-with-white-countertop-and-integrated-9b699fca-8bc8-46ce-bd00-ee5ba2d3f7a2
+						469 link Description: office chair 3d model 10-19 07:54, Value: studio.tripo3d.ai/workspace/animate/leather-upholstered-office-chair-with-metal-tubular-legs-and-armrests-56d2e661-88b0-4d05-8793-9e6b150e7304
+						470 link Description: sci-fi examination table 3d model 10-18 15:17, Value: studio.tripo3d.ai/workspace/animate/one-original-anime-sci-fi-neural-examination-table-a-rigid-game-prop-73f00020-01a3-455f-9b27-290f68f58159
+						471 link Description: memory stasis capsule 3d model 10-18 14:10, Value: studio.tripo3d.ai/workspace/animate/original-anime-science-fiction-memory-stasis-capsule-frame-only-one-m-ce58afa5-be3b-4073-94fc-8368964770ae
+						472 link Description: man in lab coat 3d model 10-17 11:29, Value: studio.tripo3d.ai/workspace/animate/male-character-wearing-a-white-lab-coat-over-black-outfit-with-boots-df36d211-a35e-498f-8c16-61d276efe882
+						473 link Description: Tripo Demo Model 10-16 20:17, Value: studio.tripo3d.ai/workspace/animate/f9e3f618-e47f-49f5-ba8b-19712ae34f23
+						474 link Description: Tripo Demo Model 10-16 20:17, Value: studio.tripo3d.ai/workspace/animate/ea816396-9d74-492a-993f-78c1e0d1099a
+						475 link Description: Tripo Demo Model 10-16 20:17, Value: studio.tripo3d.ai/workspace/animate/586791b3-530b-4fa6-a146-9306fe1bf9dc
+						476 link Description: Tripo Demo Model 10-16 20:17, Value: studio.tripo3d.ai/workspace/animate/007c9322-7728-443e-a9c7-f8e317dc81f2
+		477 container Notifications alt+T
+			478 content list
+
+The focused UI element is 57 tab (selected, settable, boolean) AI Animation, Value: 1

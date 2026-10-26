@@ -54,7 +54,8 @@ func _walk(target: Vector3) -> bool:
 		if offset.length() < 0.22:
 			player.set_mobile_input_vector(Vector2.ZERO, false)
 			await _frames(8)
-			return _check(player.is_on_floor(), "Lost ground support at " + str(target))
+			if not player.is_on_floor(): await _capture("lost-ground-" + str(checks))
+			return _check(player.is_on_floor(), "Lost ground support at " + str(target) + " position=" + str(player.global_position) + " velocity=" + str(player.velocity) + " climbing=" + str(player.traversal.is_climbing()) + " hanging=" + str(player.surface_motor.hanging))
 		var forward := -player.player_camera.global_basis.z
 		var right := player.player_camera.global_basis.x
 		forward.y = 0
@@ -114,6 +115,10 @@ func _run() -> void:
 	record_profile = args.has("--profile") and DisplayServer.get_name() != "headless"
 	var version := args[0] if not args.is_empty() else "baseline"
 	folder = ProjectSettings.globalize_path("res://../audits/evidence/"+("room01-20261014" if args.has("--review-20261014") else "room01-20261012")+"/" + version + "/")
+	if args.has("--full-chapter"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/pre-tripo-20261018/cp37/route/"+version+"/")
+	if args.has("--mystery-only"):
+		folder = ProjectSettings.globalize_path("res://../audits/evidence/chapter-cp45-20261020/stage08/route/" + version + "/")
 	DirAccess.make_dir_recursive_absolute(folder)
 	main = load("res://scenes/native_journey.tscn").instantiate()
 	print("ROOM01_LOADED")
@@ -123,6 +128,13 @@ func _run() -> void:
 	main.get_node("NativeJourneyController").checkpoint_path = "user://room01_route_review.json"
 	main.get_node("NativeCampaignController").checkpoint_path = "user://room01_campaign_review.json"
 	root.add_child(main)
+	# Explicit fixture tier for repeatable native device evidence. All writes
+	# still target this driver's dedicated review preferences, never the owner.
+	for argument in args:
+		if argument.begins_with("--quality="):
+			var tier:=argument.trim_prefix("--quality=")
+			if not _check(tier in ["low","medium","high","ultra"],"Unsupported native journey review tier"):return
+			main.set_visual_quality(tier)
 	if args.has("--en"): main.set_presentation_language("en")
 	print("ROOM01_READY")
 	player = main.player
@@ -250,15 +262,17 @@ func _run() -> void:
 	if not _check(not main.hud.current_directive_desc.contains("يتبع") and not main.hud.current_directive_desc.contains("continued"), "Connected room exit still advertises an unfinished opening"): return
 	await _capture("04-threshold")
 	var checkpoint: Dictionary = main.capture_native_checkpoint()
-	if not _check(main.restore_native_checkpoint(checkpoint), "Completed room checkpoint rejected restore"): return
+	# A continuous fresh-save review must never re-anchor between rooms.
+	if not args.has("--full-chapter") and not args.has("--mystery-only") and not _check(main.restore_native_checkpoint(checkpoint), "Completed room checkpoint rejected restore"): return
 	await _frames(4)
 	if not _check(atmosphere.relay_count == expected_relay and not player.combat_available and not player.contract_with_zero_sealed, "Restore replayed sound or granted early combat/pact"): return
 	if not await _walk(Vector3(0, 0, -18.7)): return
 	await _frames(4)
 	if not _check(not atmosphere._vent.playing and is_equal_approx(atmosphere._face_fill.light_energy, atmosphere._face_energy), "Room sound or local character light leaked beyond exit"): return
 	await _capture("05-maintenance-entry")
-	if (args.has("--maintenance") or args.has("--security")) and not await _maintenance_route(): return
-	if args.has("--security") and not await _security_route(): return
+	if (args.has("--maintenance") or args.has("--security") or args.has("--full-chapter") or args.has("--mystery-only")) and not await _maintenance_route(): return
+	if (args.has("--security") or args.has("--full-chapter") or args.has("--mystery-only")) and not await _security_route(): return
+	if not await _continue_review(): return
 	if record_profile:
 		var profile := FileAccess.open(folder+"profile.json",FileAccess.WRITE)
 		profile.store_string(JSON.stringify({"engine":Engine.get_version_info().string,"adapter":RenderingServer.get_video_adapter_name(),"renderer":RenderingServer.get_video_adapter_api_version(),"viewport":str(root.size),"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"method":"240 real process frame wall intervals at each actual connected route stop; screenshots outside samples; engine counters are not GPU duration or resident VRAM","phases":profile_phases},"\t"))
@@ -419,3 +433,6 @@ func _sample_profile(label: String) -> void:
 func _profile_stats(values: Array[float]) -> Dictionary:
 	values.sort()
 	return {"p50":values[int((values.size()-1)*0.50)],"p95":values[int((values.size()-1)*0.95)],"p99":values[int((values.size()-1)*0.99)],"max":values[-1]}
+
+func _continue_review() -> bool:
+	return true

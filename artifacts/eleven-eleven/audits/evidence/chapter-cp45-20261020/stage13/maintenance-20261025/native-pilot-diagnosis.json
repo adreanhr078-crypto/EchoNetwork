@@ -1,0 +1,10 @@
+{
+  "golden192": "PASS current,no keys/rig/clock changed",
+  "native_geometry": "16colliders/11climbcues unchanged;new dressing has no collision authority",
+  "public_v1": "Failedfirsthang;no detailed trace,causenot established",
+  "public_v2": "Same runtime+instrumentedpilot:actualfirstclimb+mantle+gapPASS;laterfailed oldwaypoint(4,3.4,-26.5)",
+  "measured_cause_v2": "GapLanding worldz[-26.2,-23.8];legacyapproach-26.5lies0.3m outsidefloor. Pilotmust stopat-26.0andjumptowall;do not extendfloor/movephysics/retargetmotion",
+  "retained": "diagnostic-input-v2/failed-route-review.json+capture-trace.json+pilot-source.gd",
+  "pilot_repair": "Onlydeclaredwalkwaypointandheldvirtualinputreassertion;NOTyetrouteaccepted",
+  "owner_steering": "FullroomTripoarchitecturalredesignnow;currentP2localpassnotowneraccepted"
+}
