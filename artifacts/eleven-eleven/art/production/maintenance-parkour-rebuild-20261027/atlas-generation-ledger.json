@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-27T17:05:15.024Z",
+  "studio_root": "36493eb5-a68d-4613-8ba7-db832165235a",
+  "balance_before": 2565,
+  "balance_after_texture": 2545,
+  "balance_after_pbr": 2540,
+  "texture_cost": 20,
+  "pbr_cost": 5,
+  "operations": 2,
+  "texture_clicks": 1,
+  "pbr_clicks": 1,
+  "source_sha256": "f9add80df232468f962820cf0f570420c23bd4ddb397b1c4010feb3accc5aeed",
+  "donor_sha256": "b51734ab78a9122be34968ada897afc3e20203bd82bbf971accc8054b90d5ebb",
+  "uv_repacked": true,
+  "reference": "room-front.png",
+  "remove_lighting": true,
+  "actual_image_sizes": [
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_basecolor.jpg",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_normal.jpg",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_rm.png",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "registration": "yaw90deg,uniformscale;960568verticeschecked;geometrytargetretained",
+  "status": "PBR_DOWNLOADED_UV_TRANSFER_VERIFIED_NATIVE_ART_PENDING"
+}

@@ -1,0 +1,88 @@
+{
+  "state": "WHOLE_ROOM_PBR_DOWNLOADED_NATIVE_PREPARATION",
+  "workspace": "5902b46f-a4ad-4b06-a5d2-3cf4a772bd5a",
+  "identifier_kind": "Studio workspace root,not independently verifiedAPIjobID",
+  "provider": "Tripo Studio",
+  "purpose": "Completely new wider whole-room parkour environment as explicitly requested by owner;oldlayoutrejected",
+  "model": "H3.1 Best Quality",
+  "ultra_mesh": true,
+  "target_triangles": 2000000,
+  "generate_in_parts": "Balanced",
+  "texture": {
+    "state": "COMPLETED_UI",
+    "resolution": "4K",
+    "remove_lighting": true,
+    "balance_before": 2590,
+    "displayed_cost": 20,
+    "submission_clicks": 1,
+    "actual_charge": 20,
+    "balance_after": 2570
+  },
+  "privacy": "Private",
+  "multiview": [
+    "room-front.png",
+    "room-left.png",
+    "room-right.png",
+    "room-back.png"
+  ],
+  "balance_before": 2650,
+  "displayed_cost": 60,
+  "submission_clicks": 1,
+  "actual_charge": 60,
+  "balance_after": 2590,
+  "native_acceptance": "PENDING;not playable yet",
+  "updated_utc": "2026-10-27T12:24:26.232Z",
+  "raw_source": {
+    "file": "whole-room-h31-multiview-raw.glb",
+    "sha256": "f00b7e2317007c865f976a4da510705384ac4cae1c398300eb3fbc44d1e40c38",
+    "bytes": 44722476,
+    "triangles": 1854657,
+    "mesh_count": 27,
+    "images": 0
+  },
+  "geometry_review": {
+    "views_seen": [
+      "front",
+      "left",
+      "right",
+      "back",
+      "overhead"
+    ],
+    "editable": "whole-room-raw-inspection-editable.blend",
+    "report": "raw-room-geometry-report.json",
+    "decision": "Proceed to material/native whole-room review;candidate source has large walls,raised gantry and stepping platforms. No playable acceptance.",
+    "uniform_18m_size_blender": [
+      18,
+      17.76361820504352,
+      9.024925748465185
+    ],
+    "note": "Preserve natural whole-room proportions;new room dimensions/layout authorized by owner. Provider front labels are not assumed native axes;inspect actual entrance/exit. Parts result27 despite Balanced6-15 UI description."
+  },
+  "pbr": {
+    "state": "COMPLETED_DOWNLOADED",
+    "balance_before": 2570,
+    "displayed_cost": 5,
+    "submission_clicks": 1,
+    "actual_charge": 5,
+    "balance_after": 2565
+  },
+  "total_verified_charge": 85,
+  "pbr_source": {
+    "file": "whole-room-h31-multiview-pbr4k.glb",
+    "bytes": 64707104,
+    "sha256": "f77280dc54655124bfa5287e79cb72229a8d5e0cc4b5365e6aa65366184e08b4",
+    "triangles": 1854657,
+    "meshes": 27,
+    "materials": 27,
+    "images": 81,
+    "actual_image_sizes": {
+      "1024x1024": 11,
+      "512x512": 29,
+      "2048x2048": 1,
+      "256x256": 25,
+      "128x128": 8,
+      "64x64": 4,
+      "32x32": 3
+    }
+  }
+}

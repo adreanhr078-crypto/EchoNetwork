@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "status": "PRODUCTION_ROOM02_REPLACED_SCOPED_ART_AND_NATIVE_PASS_FULL_HUMAN_ACCEPTANCE_OPEN",
+  "production_scene": "godot/scenes/native_journey.tscn",
+  "architecture": "Complete four-view Tripo architecture27parts,18mwidth,3actualgapjumps,rigidvault,2shortgrips,water/air,5root-clockfanrotors. Original UV/PBR restored after controlled atlas rejection.",
+  "visual": "Four current fixed Forward+High views reviewed with unchanged hashguard;11actual native player/cinematic captures reviewed. Remaining bright highlights/floor finish and actor presentation are craft limits;noAAA/Genshin/fun acceptance claim.",
+  "materials": "81original adaptive32..2048 maps,notall4K;single-atlas4K preserved locally and rejected visually. Shared Tripo side panels,beveled native servicegate/wheel/bulkhead. No paid rerolls.",
+  "functional": {
+    "native_high_checks": 27,
+    "earned_lifecycle_checks": 51,
+    "fresh_chapter_checks": 353,
+    "fresh_chapter_retries": 0,
+    "final_completed": [
+      "specimen",
+      "archive",
+      "reactor",
+      "decon",
+      "mirror",
+      "lab",
+      "hospital"
+    ]
+  },
+  "source_hashes": {
+    "godot/scenes/native_journey.tscn": "9f50b4c9a349dbaa006e253dc9c0ef8335ee2a260cc5ba7cbe1934328b22b962",
+    "godot/scenes/environment/maintenance_stormworks.tscn": "2951e0a65f001b8b8d10859e8b20a2dc222d27a3c1e089f9abe5c526b09af55a",
+    "godot/scripts/environment/maintenance_stormworks.gd": "f4c115483cd3ae8e9e960cefd95959d1c2e59d1e6f7de9331ba85953736356a0",
+    "godot/scripts/environment/maintenance_stormworks_vfx.gd": "2705925ac9bae379d01833d177f683b8ea2b9c613a1506d8e0d4c351d38c5167",
+    "godot/scripts/environment/maintenance_stormworks_presentation.gd": "34a40f47cc81423e1d9a9f6ee14405be1ed6a94b1d73e11ead52e617883e37da",
+    "godot/scripts/environment/maintenance_vertical.gd": "8eedf1e88d3bd5085c34defe3e0f5c1d2063c40d185ac4a8c0bada2fa67639c7",
+    "godot/scripts/systems/stormworks_route.gd": "f802409d6c23295cf84f7bbc03a4b28b0fb5d8595aee5bfaae90098ac2080bad",
+    "godot/scripts/systems/stormworks_checkpoint.gd": "a7cc800a80a8a785e919fd77a0137e26b28f70f94762c68fe8051e10d27ea2e6",
+    "godot/scripts/systems/stormworks_journey_preview.gd": "11995489c85e2cea18822adfd0c97088a54c1a215d7e6d9590fc44c911a84670",
+    "godot/scripts/systems/native_journey_controller.gd": "1deae05e3b4f0f0124bf13c8ff9d3557b4043b3440c77803d2e46aaef594de65",
+    "godot/scripts/systems/native_campaign_controller.gd": "4ece39f7e1f85d4b9ed9227bc9c7a7701741da18a1ddb0d93be5d4cacc596cb4",
+    "godot/scripts/player/service_hand_contact.gd": "7d74f70aa89f445de92cf7367fe3031566c70f25b233ef86670bb4323c33681a",
+    "godot/scripts/player/surface_traversal_motor.gd": "9ef4519339fbb9ca7a4f51beddef2f50272172b706e64ce27f043af48ffbb85a",
+    "godot/scripts/cinematics/maintenance_service_cinematic.gd": "3204ca033d91ca9b2eaade7bd7c89211ac53873158731365a61d5af475a3baab",
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "6b6fd0b17d8599a7c543a17b506937dd5439af5f6d7f53fbee18b583f6784a31",
+    "godot/shaders/maintenance_stormworks_water.gdshader": "5d1a01e0b07d47b34c3c139018628f242f16d9585755efd3952d188b97b4d544",
+    "godot/shaders/maintenance_stormworks_wind.gdshader": "b2caee25693063f336008605cbe0ae8be37e7eb5c8d0f217185a82139e64179d",
+    "godot/tests/stormworks_full_chapter_review.gd": "fd9a6adf45ef2a8b67723a50782dce8a10cd10ec9c33d943b5d23c0cf5b60906",
+    "godot/tests/stormworks_course_pilot.gd": "09fdd22cff50242ea8ce95e85c2d2efbbde1a0a79e9944970047b9cdc7c15ad9",
+    "godot/tests/stormworks_earned_lifecycle_review.gd": "3d3336402891d59d5e816e904c4b446d81464920ee3b077c995b2c1708d07c1b",
+    "godot/tests/stormworks_current_art_review.gd": "3a3315c4a839635aab2c2f0dad2424152c74f292c2a3c7f5a6af3da98d2fbbc4",
+    "godot/assets/environments/maintenance_stormworks/stormworks_original_pbr_metric_v8.glb": "e815ae19cb1bbc914a1c1ee92d80f6401e1427b097f0d16715a2722a3b8c5e93",
+    "godot/assets/environments/maintenance_stormworks/stormworks_collision_portal_v7.glb": "9489440818b40b267f4176b363f08b090c55bd1b646bf46919829ffcc55d4085",
+    "godot/assets/environments/maintenance_stormworks/stormworks_precision_gate_v1.glb": "1e53b6e88ef8fce375e12c4c79ef4231f576d0c976c79ad9b87b0c1749821241",
+    "godot/assets/environments/maintenance_stormworks/stormworks_precision_wheel_v1.glb": "b1f6013a2cf01e6d7142364e784145fe7ab3ca4c98cc4fbb900b061e1a184b32",
+    "godot/assets/environments/maintenance_stormworks/stormworks_precision_bulkhead_v1.glb": "e37725938756710748ab05296b89bbe5c138857d29f78245008315a2a0b793f1"
+  },
+  "evidence": {
+    "native": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/stormworks-native-high-v8/review.json",
+    "lifecycle": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/stormworks-earned-lifecycle-v1/review.json",
+    "current_art": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/stormworks-current-art-v8-fitted/review.json",
+    "fresh_chapter": "audits/evidence/pre-tripo-20261018/cp37/route/stormworks-connected-fresh-v1/full-chapter.json"
+  },
+  "evidence_boundary": "Highv8precedes visual-only wheelspoke/leaf-height/intakefit refinements. Final4views hashguard and fresh353check fullchapter use current fitted sources. Route/contact/collisionauthority unchanged.",
+  "protected": "Golden192PASS;Canon/V31/sourcefilms/SFX_ONLY preserved. Powers only after explicit pact in actual freshchapter.",
+  "audio_listening": "UNVERIFIED",
+  "performance": "UNVERIFIED;GPU run fixedfps60 is not realtimeperformance",
+  "human_fun_acceptance": "OPEN",
+  "tripo": {
+    "credits_spent": 110,
+    "last_live_balance": 2540,
+    "paid_tasks_running": false
+  },
+  "next": "Room07 actualUV/sterilization presentation review,then selective equipmentcraft;Room08architecture andRoom10acting remainopen. Echo rebuild afterrooms."
+}

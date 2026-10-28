@@ -1,0 +1,61 @@
+{
+	"checks": [
+		{
+			"check": "first_ledge_from_public_jump",
+			"pass": true,
+			"position": "(-1.243059, 0.73, -4.065001)"
+		},
+		{
+			"check": "first_mantle_supported",
+			"pass": true,
+			"position": "(-1.156733, 2.230208, -5.027523)"
+		},
+		{
+			"airborne": true,
+			"check": "first_diagonal_gap",
+			"pass": true,
+			"position": "(-5.153328, 2.192611, -8.10471)"
+		},
+		{
+			"airborne": true,
+			"check": "second_gap",
+			"pass": true,
+			"position": "(-3.669916, 2.191062, -11.44163)"
+		},
+		{
+			"airborne": true,
+			"check": "rising_gap_to_vault_deck",
+			"pass": true,
+			"position": "(-2.349514, 2.977582, -14.77662)"
+		},
+		{
+			"check": "vault_approach",
+			"pass": true,
+			"position": "(-3.924231, 2.950212, -13.90366)"
+		},
+		{
+			"check": "actual_vault_completed",
+			"pass": true,
+			"position": "(-3.995536, 2.906523, -16.05978)"
+		},
+		{
+			"check": "final_grip_approach",
+			"pass": true,
+			"position": "(-1.872342, 2.993603, -15.21109)"
+		},
+		{
+			"check": "final_short_ledge_catch",
+			"pass": true,
+			"position": "(-1.836177, 4.1, -15.695)"
+		},
+		{
+			"check": "final_mantle_supported",
+			"pass": true,
+			"position": "(-1.74985, 5.600208, -16.65756)"
+		}
+	],
+	"maintenance_sha256": "0a16b6708f424b5b1a672eb29bceb0b79c9fcd5ce45c4c75df79eb66a40ec733",
+	"room_source_sha256": "f4c115483cd3ae8e9e960cefd95959d1c2e59d1e6f7de9331ba85953736356a0",
+	"scope": "Fresh actual-input opening-to-Room02 route;no relocation after spawn",
+	"visual_sha256": "e815ae19cb1bbc914a1c1ee92d80f6401e1427b097f0d16715a2722a3b8c5e93"
+}

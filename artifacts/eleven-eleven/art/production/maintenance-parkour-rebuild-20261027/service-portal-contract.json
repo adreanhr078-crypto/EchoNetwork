@@ -1,0 +1,48 @@
+{
+  "status": "MESH_CORRECTION_READY_CAPSULE_REVIEW_PENDING",
+  "cause": "Actual Echo capsule remained blocked bypart0 after opening the gate;old aperture had insufficient headroom.",
+  "native_window": {
+    "min": [
+      -1,
+      5.4,
+      -19
+    ],
+    "max": [
+      1,
+      7.8,
+      -16.5
+    ]
+  },
+  "native_front_recess": {
+    "min": [
+      -2,
+      5.4,
+      -18.05
+    ],
+    "max": [
+      2,
+      7.8,
+      -16.5
+    ]
+  },
+  "method": "Six-plane surface difference onpart0 only;interpolated atlas UVs retained;native steel frame closes cut edges.",
+  "originals_preserved": true,
+  "outputs": [
+    {
+      "file": "stormworks_atlas4k_visual_v7.glb",
+      "source": "stormworks_atlas4k_visual_v5.glb",
+      "sha256": "a5ae7ca49da0c485ebbf340b1814275d76b6847a70a666f33dbc3350c8985700",
+      "bytes": 50378876,
+      "wall_triangles_before": 285019,
+      "wall_triangles_after": 275143
+    },
+    {
+      "file": "stormworks_collision_portal_v7.glb",
+      "source": "stormworks_collision_portal_v5.glb",
+      "sha256": "9489440818b40b267f4176b363f08b090c55bd1b646bf46919829ffcc55d4085",
+      "bytes": 5142344,
+      "wall_triangles_before": 22801,
+      "wall_triangles_after": 26394
+    }
+  ]
+}

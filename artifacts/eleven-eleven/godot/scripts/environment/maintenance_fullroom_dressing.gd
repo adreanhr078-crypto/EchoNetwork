@@ -45,11 +45,10 @@ static func install(room:Node3D)->void:
 			material.set_shader_parameter("replacement_min",local_min);material.set_shader_parameter("replacement_max",local_max);material.set_shader_parameter("replacement_count",14)
 		if "graphite" in label:material.set_shader_parameter("tint",Color(.38,.40,.40))
 		elif "ivory" in label:material.set_shader_parameter("tint",Color(.56,.57,.55))
-	# Flat unobstructed contact insets cover the generated model's alternative
-	# handle pattern. The existing source grip rows and11adapter cues remain
-	# visible at exactly their original hand/foot/ledge coordinates.
-	var contact:=KIT._finish(Color(.40,.43,.43),.22,.74)
-	_plane(root,"NativeFirstGripContactInset",Vector3(0,1.7,-5.765),Vector2(4.22,3.06),contact)
+	# The new first cassette was generated without handles;its own PBR face
+	# stays visible behind the unchanged authored hand/foot cues. The older
+	# second casing still needs its flat contact inset.
+	var contact:=KIT._finish(Color(.40,.43,.43),.48,.46)
 	_plane(root,"NativeSecondGripContactInset",Vector3(4,4.4,-9.165),Vector2(1.68,1.73),contact)
 	# Solid joint backing follows the existing opt-in exit aperture owner.
 	# The generated fixed door/wheel were removed from this prefab.
@@ -75,6 +74,19 @@ static func install(room:Node3D)->void:
 	# warm-neutral task fill reveals the new metal instead of washing it blue.
 	for light in room.find_children("*","OmniLight3D",true,false):
 		light.light_color=Color(.96,.97,.94)
+	# The legacy animated cyan capsule has no fixture/support or task owner.
+	# Hide this decorative mesh only;the intact moving memory film and its
+	# director/source animation keys stay untouched.
+	var rotor:MeshInstance3D=room.find_child("ServiceSignalRotor",true,false) as MeshInstance3D
+	if is_instance_valid(rotor):rotor.visible=false
+	# Keep real service airflow,with a restrained per-batch mist material.
+	# The release vent retains its original response and shared owner.
+	for airflow in room.presentation._airflow:
+		var mesh:QuadMesh=airflow.mesh.duplicate()
+		var material:StandardMaterial3D=mesh.material.duplicate()
+		material.albedo_color=Color(.34,.38,.40,.025)
+		mesh.material=material;airflow.mesh=mesh
+		airflow.amount=6;airflow.scale_amount_min=.07;airflow.scale_amount_max=.14
 	preload("res://scripts/environment/maintenance_precision_architecture.gd").build(room,root,spec)
 	root.set_meta("precision_architecture",true)
 	root.set_meta("fullroom_source_candidate_status","REFERENCE_ONLY_NATIVE_ART_REFINE")
@@ -151,10 +163,10 @@ static func _clad_service_portal(room:Node3D,root:Node3D,spec:Dictionary)->Mesh:
 	var mesh:Mesh=preload("res://scripts/environment/archive_mechanical_dressing.gd")._pbr_mesh(source,room)
 	for surface in mesh.get_surface_count():
 		var finish:ShaderMaterial=mesh.surface_get_material(surface)
-		finish.set_shader_parameter("base_color",Color(.52,.53,.50))
+		finish.set_shader_parameter("base_color",Color(.30,.325,.315))
 		finish.set_shader_parameter("texture_saturation",.15)
-		finish.set_shader_parameter("metalness",.18)
-		finish.set_shader_parameter("minimum_roughness",.62)
+		finish.set_shader_parameter("metalness",.40)
+		finish.set_shader_parameter("minimum_roughness",.48)
 	var placements:Array[Transform3D]=[]
 	var steel:=KIT._finish(Color(.26,.275,.26),.25,.63)
 	for row in spec.bodies:

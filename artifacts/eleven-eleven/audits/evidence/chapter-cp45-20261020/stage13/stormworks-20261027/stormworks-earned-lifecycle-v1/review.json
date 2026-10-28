@@ -1,0 +1,7863 @@
+{
+	"checks": [
+		{
+			"case": "normal-pause",
+			"check": "earned_stage5_restored",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "restored_safe_anchor_without_teleport",
+			"detail": "(-1.8, 5.600022, -16.725)",
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "restored_gate_closed_and_silent",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "source_profile_copy_identical",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "wheel_reached_by_public_input",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "real_service_started",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "duplicate_activation_denied",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "cinematic_respects_motion_preference",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "pause_freezes_gate_camera_contact_vfx",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "pause_mute_applies_to_actual_audio_bus",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "actual_gate_completion_saved",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "controls_camera_and_ik_released",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "actual_hand_contacts_within_tolerance",
+			"detail": {
+				"max_error_m": 0.000000533120157797384,
+				"samples": 120
+			},
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "earned_stage6_reloads_open_silently",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "normal-pause",
+			"check": "no_precontract_power_on_reload",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "earned_stage5_restored",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "restored_safe_anchor_without_teleport",
+			"detail": "(-1.8, 5.600022, -16.725)",
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "restored_gate_closed_and_silent",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "source_profile_copy_identical",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "wheel_reached_by_public_input",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "real_service_started",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "duplicate_activation_denied",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "cinematic_respects_motion_preference",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "skip_returns_camera_without_opening_gate",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "actual_gate_completion_saved",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "controls_camera_and_ik_released",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "earned_stage6_reloads_open_silently",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "skip",
+			"check": "no_precontract_power_on_reload",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "earned_stage5_restored",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "restored_safe_anchor_without_teleport",
+			"detail": "(-1.8, 5.600022, -16.725)",
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "restored_gate_closed_and_silent",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "source_profile_copy_identical",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "wheel_reached_by_public_input",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "real_service_started",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "duplicate_activation_denied",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "cinematic_respects_motion_preference",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "reduced_motion_freezes_ambient_and_wheel",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "actual_gate_completion_saved",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "controls_camera_and_ik_released",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "earned_stage6_reloads_open_silently",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "reduced-motion",
+			"check": "no_precontract_power_on_reload",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "earned_stage5_restored",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "restored_safe_anchor_without_teleport",
+			"detail": "(-1.8, 5.600022, -16.725)",
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "restored_gate_closed_and_silent",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "source_profile_copy_identical",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "failed_save_not_confirmed",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "actual_failed_save_attempt_at_safe_anchor",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "failure_case_reached_wheel",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "failed_save_wheel_denied",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "failed_save_no_chapter_receipt",
+			"detail": null,
+			"pass": true
+		},
+		{
+			"case": "failed-save",
+			"check": "save_retry_recovers_at_safe_anchor",
+			"detail": null,
+			"pass": true
+		}
+	],
+	"earned_profile_sha256": "b41fc6a8dcdc0b96de62a1691a76753fc9ed13674c3855b42dd93237f682e970",
+	"earned_profile_unchanged": true,
+	"samples": [
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.79561, 5.600022, -16.72606)",
+			"transition": "",
+			"velocity": "(0.263397, 0.0, -0.063474)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.787652, 5.600022, -16.72797)",
+			"transition": "",
+			"velocity": "(0.477464, 0.0, -0.115061)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.776795, 5.600022, -16.73059)",
+			"transition": "",
+			"velocity": "(0.65144, 0.0, -0.156987)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.763581, 5.600022, -16.73378)",
+			"transition": "",
+			"velocity": "(0.792832, 0.0, -0.19106)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.748452, 5.600022, -16.73742)",
+			"transition": "",
+			"velocity": "(0.907745, 0.0, -0.218752)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.731766, 5.600022, -16.74144)",
+			"transition": "",
+			"velocity": "(1.001136, 0.0, -0.241257)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.713816, 5.600022, -16.74577)",
+			"transition": "",
+			"velocity": "(1.077036, 0.0, -0.259548)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.694837, 5.600022, -16.75034)",
+			"transition": "",
+			"velocity": "(1.138722, 0.0, -0.274413)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.675023, 5.600022, -16.75512)",
+			"transition": "",
+			"velocity": "(1.188855, 0.0, -0.286494)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.654529, 5.600022, -16.76006)",
+			"transition": "",
+			"velocity": "(1.229599, 0.0, -0.296313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.633484, 5.600022, -16.76513)",
+			"transition": "",
+			"velocity": "(1.262712, 0.0, -0.304292)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.611991, 5.600022, -16.77031)",
+			"transition": "",
+			"velocity": "(1.289623, 0.0, -0.310777)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.590132, 5.600022, -16.77558)",
+			"transition": "",
+			"velocity": "(1.311495, 0.0, -0.316048)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.567978, 5.600022, -16.78092)",
+			"transition": "",
+			"velocity": "(1.32927, 0.0, -0.320331)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.545583, 5.600022, -16.78632)",
+			"transition": "",
+			"velocity": "(1.343717, 0.0, -0.323812)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.522992, 5.600022, -16.79176)",
+			"transition": "",
+			"velocity": "(1.355457, 0.0, -0.326641)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.500242, 5.600022, -16.79724)",
+			"transition": "",
+			"velocity": "(1.364999, 0.0, -0.32894)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.477362, 5.600022, -16.80275)",
+			"transition": "",
+			"velocity": "(1.372754, 0.0, -0.330809)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.454378, 5.600022, -16.80829)",
+			"transition": "",
+			"velocity": "(1.379057, 0.0, -0.332328)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.431309, 5.600022, -16.81385)",
+			"transition": "",
+			"velocity": "(1.384179, 0.0, -0.333562)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.40817, 5.600022, -16.81943)",
+			"transition": "",
+			"velocity": "(1.388342, 0.0, -0.334566)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.384974, 5.600022, -16.82502)",
+			"transition": "",
+			"velocity": "(1.391725, 0.0, -0.335381)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.361733, 5.600022, -16.83062)",
+			"transition": "",
+			"velocity": "(1.394474, 0.0, -0.336044)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.338454, 5.600022, -16.83623)",
+			"transition": "",
+			"velocity": "(1.396709, 0.0, -0.336582)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.315146, 5.600022, -16.84184)",
+			"transition": "",
+			"velocity": "(1.398525, 0.0, -0.33702)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.291812, 5.600022, -16.84747)",
+			"transition": "",
+			"velocity": "(1.400001, 0.0, -0.337376)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.268459, 5.600022, -16.85309)",
+			"transition": "",
+			"velocity": "(1.4012, 0.0, -0.337665)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.245089, 5.600022, -16.85872)",
+			"transition": "",
+			"velocity": "(1.402175, 0.0, -0.3379)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.221707, 5.600022, -16.86436)",
+			"transition": "",
+			"velocity": "(1.402968, 0.0, -0.338091)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.198313, 5.600022, -16.87)",
+			"transition": "",
+			"velocity": "(1.403611, 0.0, -0.338247)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.174911, 5.600022, -16.87563)",
+			"transition": "",
+			"velocity": "(1.404135, 0.0, -0.338373)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.151502, 5.600022, -16.88128)",
+			"transition": "",
+			"velocity": "(1.40456, 0.0, -0.338476)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.128086, 5.600022, -16.88692)",
+			"transition": "",
+			"velocity": "(1.404906, 0.0, -0.338559)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.104667, 5.600022, -16.89256)",
+			"transition": "",
+			"velocity": "(1.405187, 0.0, -0.338627)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.081243, 5.600022, -16.8982)",
+			"transition": "",
+			"velocity": "(1.405415, 0.0, -0.338683)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.057817, 5.600022, -16.90385)",
+			"transition": "",
+			"velocity": "(1.4056, 0.0, -0.338728)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.034387, 5.600022, -16.9095)",
+			"transition": "",
+			"velocity": "(1.405751, 0.0, -0.338764)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.010956, 5.600022, -16.91514)",
+			"transition": "",
+			"velocity": "(1.405874, 0.0, -0.338794)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.987523, 5.600829, -16.92079)",
+			"transition": "",
+			"velocity": "(1.405973, 0.0, -0.338818)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.9641, 5.59867, -16.92643)",
+			"transition": "",
+			"velocity": "(1.406054, 0.0, -0.338838)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.940702, 5.595716, -16.93206)",
+			"transition": "",
+			"velocity": "(1.40612, 0.0, -0.338854)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.917406, 5.591512, -16.93765)",
+			"transition": "",
+			"velocity": "(1.406173, 0.0, -0.338868)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.8943, 5.585936, -16.94318)",
+			"transition": "",
+			"velocity": "(1.406215, 0.0, -0.338883)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.871468, 5.578972, -16.94864)",
+			"transition": "",
+			"velocity": "(1.406249, 0.0, -0.338899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.848995, 5.570627, -16.954)",
+			"transition": "",
+			"velocity": "(1.406275, 0.0, -0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.826963, 5.560911, -16.95926)",
+			"transition": "",
+			"velocity": "(1.406294, 0.0, -0.338938)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.805458, 5.54984, -16.96437)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.338963)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.784566, 5.537437, -16.96935)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.33899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.764373, 5.523401, -16.97414)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339021)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.744833, 5.5232, -16.97876)",
+			"transition": "",
+			"velocity": "(1.406327, 0.0, -0.339055)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.721395, 5.523272, -16.98441)",
+			"transition": "",
+			"velocity": "(1.406326, 0.0, -0.339094)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.697956, 5.523261, -16.99006)",
+			"transition": "",
+			"velocity": "(1.406325, 0.0, -0.339127)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.674517, 5.523244, -16.99572)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339154)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.651078, 5.523227, -17.00137)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339176)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.62764, 5.523211, -17.00702)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339193)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.604201, 5.523194, -17.01268)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339208)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.580762, 5.523177, -17.01833)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33922)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.557324, 5.52316, -17.02398)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33923)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.533885, 5.523144, -17.02964)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339238)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.510446, 5.523127, -17.03529)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339245)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.487007, 5.52311, -17.04094)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339251)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.463569, 5.523094, -17.0466)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339256)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.44013, 5.523077, -17.05225)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.33926)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.416691, 5.52306, -17.0579)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339264)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.393253, 5.523044, -17.06356)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339267)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.369814, 5.523027, -17.06921)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339269)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.346375, 5.523027, -17.07486)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339272)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.322938, 5.523027, -17.08052)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.299502, 5.523027, -17.08617)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.276068, 5.523027, -17.09182)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.252636, 5.523027, -17.09748)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.229205, 5.523027, -17.10313)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.20577, 5.523914, -17.10879)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.182333, 5.523703, -17.11444)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.158894, 5.523703, -17.12009)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.13546, 5.523703, -17.12575)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.112039, 5.523683, -17.13141)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.088603, 5.523183, -17.13706)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.06519, 5.522903, -17.14272)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.041752, 5.522903, -17.14837)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.018313, 5.522903, -17.15402)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.005125, 5.522903, -17.15968)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.028564, 5.522903, -17.16533)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.052002, 5.522903, -17.17098)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.075441, 5.522903, -17.17664)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.098879, 5.522903, -17.18229)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.122317, 5.522903, -17.18794)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.145754, 5.522903, -17.1936)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.169189, 5.522903, -17.19925)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.192626, 5.522903, -17.2049)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.216066, 5.522903, -17.21056)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339278)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.239502, 5.522903, -17.21621)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.26294, 5.523483, -17.22187)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.286378, 5.523335, -17.22752)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.309817, 5.523188, -17.23317)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.333255, 5.523041, -17.23883)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.356693, 5.522893, -17.24448)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.380132, 5.522789, -17.25013)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339283)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.40357, 5.522686, -17.25579)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339284)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.427008, 5.522582, -17.26144)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339286)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.450447, 5.522478, -17.26709)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339287)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.473885, 5.52246, -17.27275)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339289)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.497324, 5.522443, -17.2784)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339291)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.520763, 5.522426, -17.28405)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339293)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.544201, 5.522409, -17.28971)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339295)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.56764, 5.522392, -17.29536)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339298)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.591078, 5.522375, -17.30101)",
+			"transition": "",
+			"velocity": "(1.406314, 0.0, -0.3393)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.614517, 5.522357, -17.30667)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339303)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.637955, 5.52234, -17.31232)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339306)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.661394, 5.522323, -17.31797)",
+			"transition": "",
+			"velocity": "(1.406312, 0.0, -0.33931)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.684832, 5.522306, -17.32363)",
+			"transition": "",
+			"velocity": "(1.406311, 0.0, -0.339313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.708271, 5.522289, -17.32928)",
+			"transition": "",
+			"velocity": "(1.40631, 0.0, -0.339317)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.731709, 5.522272, -17.33494)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339321)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.755148, 5.522254, -17.3406)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339324)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.778586, 5.522237, -17.34625)",
+			"transition": "",
+			"velocity": "(1.406308, 0.0, -0.339325)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.801889, 5.52222, -17.35188)",
+			"transition": "",
+			"velocity": "(1.398156, 0.0, -0.337358)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.82485, 5.522203, -17.35741)",
+			"transition": "",
+			"velocity": "(1.377686, 0.0, -0.332419)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.847293, 5.522203, -17.36283)",
+			"transition": "",
+			"velocity": "(1.346535, 0.0, -0.324903)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.869066, 5.522203, -17.36808)",
+			"transition": "",
+			"velocity": "(1.306376, 0.0, -0.315213)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.890047, 5.522203, -17.37315)",
+			"transition": "",
+			"velocity": "(1.258901, 0.0, -0.303758)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.910144, 5.521105, -17.37799)",
+			"transition": "",
+			"velocity": "(1.205796, 0.0, -0.290945)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.929289, 5.521105, -17.38261)",
+			"transition": "",
+			"velocity": "(1.148698, 0.0, -0.277169)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.947441, 5.521105, -17.38699)",
+			"transition": "",
+			"velocity": "(1.089159, 0.0, -0.262803)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.964583, 5.521105, -17.39113)",
+			"transition": "",
+			"velocity": "(1.028595, 0.0, -0.248191)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.980711, 5.521105, -17.39502)",
+			"transition": "",
+			"velocity": "(0.968261, 0.0, -0.233634)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.995866, 5.522, -17.39868)",
+			"transition": "",
+			"velocity": "(0.909214, 0.0, -0.219388)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.01007, 5.521963, -17.4021)",
+			"transition": "",
+			"velocity": "(0.852271, 0.0, -0.205649)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.023371, 5.521917, -17.40531)",
+			"transition": "",
+			"velocity": "(0.798049, 0.0, -0.192567)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.03582, 5.521917, -17.40831)",
+			"transition": "",
+			"velocity": "(0.746949, 0.0, -0.180239)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.047473, 5.521917, -17.41113)",
+			"transition": "",
+			"velocity": "(0.699181, 0.0, -0.168717)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.058386, 5.521917, -17.41376)",
+			"transition": "",
+			"velocity": "(0.654799, 0.0, -0.15801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.068614, 5.521917, -17.41623)",
+			"transition": "",
+			"velocity": "(0.613732, 0.0, -0.148104)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.07821, 5.521917, -17.41854)",
+			"transition": "",
+			"velocity": "(0.575823, 0.0, -0.138959)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.087222, 5.521917, -17.42072)",
+			"transition": "",
+			"velocity": "(0.540858, 0.0, -0.130523)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.095697, 5.521917, -17.42276)",
+			"transition": "",
+			"velocity": "(0.508596, 0.0, -0.122739)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.103676, 5.521917, -17.42469)",
+			"transition": "",
+			"velocity": "(0.478788, 0.0, -0.115547)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.111194, 5.521917, -17.4265)",
+			"transition": "",
+			"velocity": "(0.451196, 0.0, -0.108888)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.118289, 5.521917, -17.42822)",
+			"transition": "",
+			"velocity": "(0.425599, 0.0, -0.102709)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.124987, 5.521917, -17.42983)",
+			"transition": "",
+			"velocity": "(0.401793, 0.0, -0.096961)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.131315, 5.521917, -17.43136)",
+			"transition": "",
+			"velocity": "(0.379604, 0.0, -0.091604)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.137379, 5.521917, -17.43282)",
+			"transition": "",
+			"velocity": "(0.363803, 0.0, -0.087792)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.142988, 5.521917, -17.43418)",
+			"transition": "",
+			"velocity": "(0.3365, 0.0, -0.081203)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.161517, 5.521917, -17.43865)",
+			"transition": "",
+			"velocity": "(0.246298, 0.0, -0.059436)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.175078, 5.521917, -17.44192)",
+			"transition": "",
+			"velocity": "(0.180275, 0.0, -0.043503)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.154232, 0.0, -0.037219)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180886, 5.521917, -17.44385)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.190382, 5.521917, -17.45706)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.207811, 5.521917, -17.48131)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.227403, 5.521917, -17.50856)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.243387, 5.521917, -17.5308)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.249999, 5.521917, -17.54)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.79561, 5.600022, -16.72606)",
+			"transition": "",
+			"velocity": "(0.263397, 0.0, -0.063474)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.787652, 5.600022, -16.72797)",
+			"transition": "",
+			"velocity": "(0.477464, 0.0, -0.115061)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.776795, 5.600022, -16.73059)",
+			"transition": "",
+			"velocity": "(0.65144, 0.0, -0.156987)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.763581, 5.600022, -16.73378)",
+			"transition": "",
+			"velocity": "(0.792832, 0.0, -0.19106)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.748452, 5.600022, -16.73742)",
+			"transition": "",
+			"velocity": "(0.907745, 0.0, -0.218752)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.731766, 5.600022, -16.74144)",
+			"transition": "",
+			"velocity": "(1.001136, 0.0, -0.241257)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.713816, 5.600022, -16.74577)",
+			"transition": "",
+			"velocity": "(1.077036, 0.0, -0.259548)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.694837, 5.600022, -16.75034)",
+			"transition": "",
+			"velocity": "(1.138722, 0.0, -0.274413)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.675023, 5.600022, -16.75512)",
+			"transition": "",
+			"velocity": "(1.188855, 0.0, -0.286494)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.654529, 5.600022, -16.76006)",
+			"transition": "",
+			"velocity": "(1.229599, 0.0, -0.296313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.633484, 5.600022, -16.76513)",
+			"transition": "",
+			"velocity": "(1.262712, 0.0, -0.304292)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.611991, 5.600022, -16.77031)",
+			"transition": "",
+			"velocity": "(1.289623, 0.0, -0.310777)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.590132, 5.600022, -16.77558)",
+			"transition": "",
+			"velocity": "(1.311495, 0.0, -0.316048)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.567978, 5.600022, -16.78092)",
+			"transition": "",
+			"velocity": "(1.32927, 0.0, -0.320331)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.545583, 5.600022, -16.78632)",
+			"transition": "",
+			"velocity": "(1.343717, 0.0, -0.323812)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.522992, 5.600022, -16.79176)",
+			"transition": "",
+			"velocity": "(1.355457, 0.0, -0.326641)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.500242, 5.600022, -16.79724)",
+			"transition": "",
+			"velocity": "(1.364999, 0.0, -0.32894)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.477362, 5.600022, -16.80275)",
+			"transition": "",
+			"velocity": "(1.372754, 0.0, -0.330809)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.454378, 5.600022, -16.80829)",
+			"transition": "",
+			"velocity": "(1.379057, 0.0, -0.332328)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.431309, 5.600022, -16.81385)",
+			"transition": "",
+			"velocity": "(1.384179, 0.0, -0.333562)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.40817, 5.600022, -16.81943)",
+			"transition": "",
+			"velocity": "(1.388342, 0.0, -0.334566)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.384974, 5.600022, -16.82502)",
+			"transition": "",
+			"velocity": "(1.391725, 0.0, -0.335381)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.361733, 5.600022, -16.83062)",
+			"transition": "",
+			"velocity": "(1.394474, 0.0, -0.336044)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.338454, 5.600022, -16.83623)",
+			"transition": "",
+			"velocity": "(1.396709, 0.0, -0.336582)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.315146, 5.600022, -16.84184)",
+			"transition": "",
+			"velocity": "(1.398525, 0.0, -0.33702)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.291812, 5.600022, -16.84747)",
+			"transition": "",
+			"velocity": "(1.400001, 0.0, -0.337376)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.268459, 5.600022, -16.85309)",
+			"transition": "",
+			"velocity": "(1.4012, 0.0, -0.337665)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.245089, 5.600022, -16.85872)",
+			"transition": "",
+			"velocity": "(1.402175, 0.0, -0.3379)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.221707, 5.600022, -16.86436)",
+			"transition": "",
+			"velocity": "(1.402968, 0.0, -0.338091)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.198313, 5.600022, -16.87)",
+			"transition": "",
+			"velocity": "(1.403611, 0.0, -0.338247)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.174911, 5.600022, -16.87563)",
+			"transition": "",
+			"velocity": "(1.404135, 0.0, -0.338373)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.151502, 5.600022, -16.88128)",
+			"transition": "",
+			"velocity": "(1.40456, 0.0, -0.338476)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.128086, 5.600022, -16.88692)",
+			"transition": "",
+			"velocity": "(1.404906, 0.0, -0.338559)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.104667, 5.600022, -16.89256)",
+			"transition": "",
+			"velocity": "(1.405187, 0.0, -0.338627)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.081243, 5.600022, -16.8982)",
+			"transition": "",
+			"velocity": "(1.405415, 0.0, -0.338683)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.057817, 5.600022, -16.90385)",
+			"transition": "",
+			"velocity": "(1.4056, 0.0, -0.338728)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.034387, 5.600022, -16.9095)",
+			"transition": "",
+			"velocity": "(1.405751, 0.0, -0.338764)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.010956, 5.600022, -16.91514)",
+			"transition": "",
+			"velocity": "(1.405874, 0.0, -0.338794)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.987523, 5.600829, -16.92079)",
+			"transition": "",
+			"velocity": "(1.405973, 0.0, -0.338818)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.9641, 5.59867, -16.92643)",
+			"transition": "",
+			"velocity": "(1.406054, 0.0, -0.338838)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.940702, 5.595716, -16.93206)",
+			"transition": "",
+			"velocity": "(1.40612, 0.0, -0.338854)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.917406, 5.591512, -16.93765)",
+			"transition": "",
+			"velocity": "(1.406173, 0.0, -0.338868)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.8943, 5.585936, -16.94318)",
+			"transition": "",
+			"velocity": "(1.406215, 0.0, -0.338883)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.871468, 5.578972, -16.94864)",
+			"transition": "",
+			"velocity": "(1.406249, 0.0, -0.338899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.848995, 5.570627, -16.954)",
+			"transition": "",
+			"velocity": "(1.406275, 0.0, -0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.826963, 5.560911, -16.95926)",
+			"transition": "",
+			"velocity": "(1.406294, 0.0, -0.338938)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.805458, 5.54984, -16.96437)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.338963)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.784566, 5.537437, -16.96935)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.33899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.764373, 5.523401, -16.97414)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339021)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.744833, 5.5232, -16.97876)",
+			"transition": "",
+			"velocity": "(1.406327, 0.0, -0.339055)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.721395, 5.523272, -16.98441)",
+			"transition": "",
+			"velocity": "(1.406326, 0.0, -0.339094)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.697956, 5.523261, -16.99006)",
+			"transition": "",
+			"velocity": "(1.406325, 0.0, -0.339127)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.674517, 5.523244, -16.99572)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339154)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.651078, 5.523227, -17.00137)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339176)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.62764, 5.523211, -17.00702)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339193)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.604201, 5.523194, -17.01268)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339208)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.580762, 5.523177, -17.01833)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33922)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.557324, 5.52316, -17.02398)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33923)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.533885, 5.523144, -17.02964)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339238)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.510446, 5.523127, -17.03529)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339245)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.487007, 5.52311, -17.04094)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339251)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.463569, 5.523094, -17.0466)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339256)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.44013, 5.523077, -17.05225)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.33926)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.416691, 5.52306, -17.0579)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339264)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.393253, 5.523044, -17.06356)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339267)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.369814, 5.523027, -17.06921)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339269)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.346375, 5.523027, -17.07486)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339272)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.322938, 5.523027, -17.08052)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.299502, 5.523027, -17.08617)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.276068, 5.523027, -17.09182)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.252636, 5.523027, -17.09748)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.229205, 5.523027, -17.10313)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.20577, 5.523914, -17.10879)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.182333, 5.523703, -17.11444)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.158894, 5.523703, -17.12009)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.13546, 5.523703, -17.12575)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.112039, 5.523683, -17.13141)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.088603, 5.523183, -17.13706)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.06519, 5.522903, -17.14272)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.041752, 5.522903, -17.14837)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.018313, 5.522903, -17.15402)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.005125, 5.522903, -17.15968)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.028564, 5.522903, -17.16533)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.052002, 5.522903, -17.17098)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.075441, 5.522903, -17.17664)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.098879, 5.522903, -17.18229)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.122317, 5.522903, -17.18794)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.145754, 5.522903, -17.1936)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.169189, 5.522903, -17.19925)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.192626, 5.522903, -17.2049)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.216066, 5.522903, -17.21056)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339278)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.239502, 5.522903, -17.21621)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.26294, 5.523483, -17.22187)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.286378, 5.523335, -17.22752)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.309817, 5.523188, -17.23317)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.333255, 5.523041, -17.23883)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.356693, 5.522893, -17.24448)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.380132, 5.522789, -17.25013)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339283)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.40357, 5.522686, -17.25579)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339284)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.427008, 5.522582, -17.26144)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339286)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.450447, 5.522478, -17.26709)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339287)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.473885, 5.52246, -17.27275)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339289)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.497324, 5.522443, -17.2784)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339291)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.520763, 5.522426, -17.28405)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339293)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.544201, 5.522409, -17.28971)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339295)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.56764, 5.522392, -17.29536)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339298)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.591078, 5.522375, -17.30101)",
+			"transition": "",
+			"velocity": "(1.406314, 0.0, -0.3393)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.614517, 5.522357, -17.30667)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339303)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.637955, 5.52234, -17.31232)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339306)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.661394, 5.522323, -17.31797)",
+			"transition": "",
+			"velocity": "(1.406312, 0.0, -0.33931)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.684832, 5.522306, -17.32363)",
+			"transition": "",
+			"velocity": "(1.406311, 0.0, -0.339313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.708271, 5.522289, -17.32928)",
+			"transition": "",
+			"velocity": "(1.40631, 0.0, -0.339317)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.731709, 5.522272, -17.33494)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339321)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.755148, 5.522254, -17.3406)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339324)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.778586, 5.522237, -17.34625)",
+			"transition": "",
+			"velocity": "(1.406308, 0.0, -0.339325)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.801889, 5.52222, -17.35188)",
+			"transition": "",
+			"velocity": "(1.398156, 0.0, -0.337358)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.82485, 5.522203, -17.35741)",
+			"transition": "",
+			"velocity": "(1.377686, 0.0, -0.332419)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.847293, 5.522203, -17.36283)",
+			"transition": "",
+			"velocity": "(1.346535, 0.0, -0.324903)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.869066, 5.522203, -17.36808)",
+			"transition": "",
+			"velocity": "(1.306376, 0.0, -0.315213)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.890047, 5.522203, -17.37315)",
+			"transition": "",
+			"velocity": "(1.258901, 0.0, -0.303758)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.910144, 5.521105, -17.37799)",
+			"transition": "",
+			"velocity": "(1.205796, 0.0, -0.290945)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.929289, 5.521105, -17.38261)",
+			"transition": "",
+			"velocity": "(1.148698, 0.0, -0.277169)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.947441, 5.521105, -17.38699)",
+			"transition": "",
+			"velocity": "(1.089159, 0.0, -0.262803)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.964583, 5.521105, -17.39113)",
+			"transition": "",
+			"velocity": "(1.028595, 0.0, -0.248191)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.980711, 5.521105, -17.39502)",
+			"transition": "",
+			"velocity": "(0.968261, 0.0, -0.233634)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.995866, 5.522, -17.39868)",
+			"transition": "",
+			"velocity": "(0.909214, 0.0, -0.219388)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.01007, 5.521963, -17.4021)",
+			"transition": "",
+			"velocity": "(0.852271, 0.0, -0.205649)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.023371, 5.521917, -17.40531)",
+			"transition": "",
+			"velocity": "(0.798049, 0.0, -0.192567)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.03582, 5.521917, -17.40831)",
+			"transition": "",
+			"velocity": "(0.746949, 0.0, -0.180239)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.047473, 5.521917, -17.41113)",
+			"transition": "",
+			"velocity": "(0.699181, 0.0, -0.168717)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.058386, 5.521917, -17.41376)",
+			"transition": "",
+			"velocity": "(0.654799, 0.0, -0.15801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.068614, 5.521917, -17.41623)",
+			"transition": "",
+			"velocity": "(0.613732, 0.0, -0.148104)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.07821, 5.521917, -17.41854)",
+			"transition": "",
+			"velocity": "(0.575823, 0.0, -0.138959)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.087222, 5.521917, -17.42072)",
+			"transition": "",
+			"velocity": "(0.540858, 0.0, -0.130523)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.095697, 5.521917, -17.42276)",
+			"transition": "",
+			"velocity": "(0.508596, 0.0, -0.122739)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.103676, 5.521917, -17.42469)",
+			"transition": "",
+			"velocity": "(0.478788, 0.0, -0.115547)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.111194, 5.521917, -17.4265)",
+			"transition": "",
+			"velocity": "(0.451196, 0.0, -0.108888)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.118289, 5.521917, -17.42822)",
+			"transition": "",
+			"velocity": "(0.425599, 0.0, -0.102709)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.124987, 5.521917, -17.42983)",
+			"transition": "",
+			"velocity": "(0.401793, 0.0, -0.096961)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.131315, 5.521917, -17.43136)",
+			"transition": "",
+			"velocity": "(0.379604, 0.0, -0.091604)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.137379, 5.521917, -17.43282)",
+			"transition": "",
+			"velocity": "(0.363803, 0.0, -0.087792)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.142988, 5.521917, -17.43418)",
+			"transition": "",
+			"velocity": "(0.3365, 0.0, -0.081203)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.161517, 5.521917, -17.43865)",
+			"transition": "",
+			"velocity": "(0.246298, 0.0, -0.059436)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.175078, 5.521917, -17.44192)",
+			"transition": "",
+			"velocity": "(0.180275, 0.0, -0.043503)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.154232, 0.0, -0.037219)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180886, 5.521917, -17.44385)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.190382, 5.521917, -17.45706)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.207811, 5.521917, -17.48131)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.227403, 5.521917, -17.50856)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.243387, 5.521917, -17.5308)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.24954, 5.521917, -17.53936)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.79561, 5.600022, -16.72606)",
+			"transition": "",
+			"velocity": "(0.263397, 0.0, -0.063474)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.787652, 5.600022, -16.72797)",
+			"transition": "",
+			"velocity": "(0.477464, 0.0, -0.115061)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.776795, 5.600022, -16.73059)",
+			"transition": "",
+			"velocity": "(0.65144, 0.0, -0.156987)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.763581, 5.600022, -16.73378)",
+			"transition": "",
+			"velocity": "(0.792832, 0.0, -0.19106)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.748452, 5.600022, -16.73742)",
+			"transition": "",
+			"velocity": "(0.907745, 0.0, -0.218752)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.731766, 5.600022, -16.74144)",
+			"transition": "",
+			"velocity": "(1.001136, 0.0, -0.241257)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.713816, 5.600022, -16.74577)",
+			"transition": "",
+			"velocity": "(1.077036, 0.0, -0.259548)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.694837, 5.600022, -16.75034)",
+			"transition": "",
+			"velocity": "(1.138722, 0.0, -0.274413)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.675023, 5.600022, -16.75512)",
+			"transition": "",
+			"velocity": "(1.188855, 0.0, -0.286494)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.654529, 5.600022, -16.76006)",
+			"transition": "",
+			"velocity": "(1.229599, 0.0, -0.296313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.633484, 5.600022, -16.76513)",
+			"transition": "",
+			"velocity": "(1.262712, 0.0, -0.304292)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.611991, 5.600022, -16.77031)",
+			"transition": "",
+			"velocity": "(1.289623, 0.0, -0.310777)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.590132, 5.600022, -16.77558)",
+			"transition": "",
+			"velocity": "(1.311495, 0.0, -0.316048)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.567978, 5.600022, -16.78092)",
+			"transition": "",
+			"velocity": "(1.32927, 0.0, -0.320331)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.545583, 5.600022, -16.78632)",
+			"transition": "",
+			"velocity": "(1.343717, 0.0, -0.323812)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.522992, 5.600022, -16.79176)",
+			"transition": "",
+			"velocity": "(1.355457, 0.0, -0.326641)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.500242, 5.600022, -16.79724)",
+			"transition": "",
+			"velocity": "(1.364999, 0.0, -0.32894)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.477362, 5.600022, -16.80275)",
+			"transition": "",
+			"velocity": "(1.372754, 0.0, -0.330809)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.454378, 5.600022, -16.80829)",
+			"transition": "",
+			"velocity": "(1.379057, 0.0, -0.332328)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.431309, 5.600022, -16.81385)",
+			"transition": "",
+			"velocity": "(1.384179, 0.0, -0.333562)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.40817, 5.600022, -16.81943)",
+			"transition": "",
+			"velocity": "(1.388342, 0.0, -0.334566)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.384974, 5.600022, -16.82502)",
+			"transition": "",
+			"velocity": "(1.391725, 0.0, -0.335381)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.361733, 5.600022, -16.83062)",
+			"transition": "",
+			"velocity": "(1.394474, 0.0, -0.336044)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.338454, 5.600022, -16.83623)",
+			"transition": "",
+			"velocity": "(1.396709, 0.0, -0.336582)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.315146, 5.600022, -16.84184)",
+			"transition": "",
+			"velocity": "(1.398525, 0.0, -0.33702)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.291812, 5.600022, -16.84747)",
+			"transition": "",
+			"velocity": "(1.400001, 0.0, -0.337376)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.268459, 5.600022, -16.85309)",
+			"transition": "",
+			"velocity": "(1.4012, 0.0, -0.337665)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.245089, 5.600022, -16.85872)",
+			"transition": "",
+			"velocity": "(1.402175, 0.0, -0.3379)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.221707, 5.600022, -16.86436)",
+			"transition": "",
+			"velocity": "(1.402968, 0.0, -0.338091)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.198313, 5.600022, -16.87)",
+			"transition": "",
+			"velocity": "(1.403611, 0.0, -0.338247)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.174911, 5.600022, -16.87563)",
+			"transition": "",
+			"velocity": "(1.404135, 0.0, -0.338373)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.151502, 5.600022, -16.88128)",
+			"transition": "",
+			"velocity": "(1.40456, 0.0, -0.338476)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.128086, 5.600022, -16.88692)",
+			"transition": "",
+			"velocity": "(1.404906, 0.0, -0.338559)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.104667, 5.600022, -16.89256)",
+			"transition": "",
+			"velocity": "(1.405187, 0.0, -0.338627)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.081243, 5.600022, -16.8982)",
+			"transition": "",
+			"velocity": "(1.405415, 0.0, -0.338683)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.057817, 5.600022, -16.90385)",
+			"transition": "",
+			"velocity": "(1.4056, 0.0, -0.338728)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.034387, 5.600022, -16.9095)",
+			"transition": "",
+			"velocity": "(1.405751, 0.0, -0.338764)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.010956, 5.600022, -16.91514)",
+			"transition": "",
+			"velocity": "(1.405874, 0.0, -0.338794)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.987523, 5.600829, -16.92079)",
+			"transition": "",
+			"velocity": "(1.405973, 0.0, -0.338818)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.9641, 5.59867, -16.92643)",
+			"transition": "",
+			"velocity": "(1.406054, 0.0, -0.338838)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.940702, 5.595716, -16.93206)",
+			"transition": "",
+			"velocity": "(1.40612, 0.0, -0.338854)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.917406, 5.591512, -16.93765)",
+			"transition": "",
+			"velocity": "(1.406173, 0.0, -0.338868)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.8943, 5.585936, -16.94318)",
+			"transition": "",
+			"velocity": "(1.406215, 0.0, -0.338883)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.871468, 5.578972, -16.94864)",
+			"transition": "",
+			"velocity": "(1.406249, 0.0, -0.338899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.848995, 5.570627, -16.954)",
+			"transition": "",
+			"velocity": "(1.406275, 0.0, -0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.826963, 5.560911, -16.95926)",
+			"transition": "",
+			"velocity": "(1.406294, 0.0, -0.338938)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.805458, 5.54984, -16.96437)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.338963)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.784566, 5.537437, -16.96935)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.33899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.764373, 5.523401, -16.97414)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339021)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.744833, 5.5232, -16.97876)",
+			"transition": "",
+			"velocity": "(1.406327, 0.0, -0.339055)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.721395, 5.523272, -16.98441)",
+			"transition": "",
+			"velocity": "(1.406326, 0.0, -0.339094)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.697956, 5.523261, -16.99006)",
+			"transition": "",
+			"velocity": "(1.406325, 0.0, -0.339127)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.674517, 5.523244, -16.99572)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339154)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.651078, 5.523227, -17.00137)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339176)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.62764, 5.523211, -17.00702)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339193)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.604201, 5.523194, -17.01268)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339208)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.580762, 5.523177, -17.01833)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33922)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.557324, 5.52316, -17.02398)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33923)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.533885, 5.523144, -17.02964)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339238)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.510446, 5.523127, -17.03529)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339245)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.487007, 5.52311, -17.04094)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339251)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.463569, 5.523094, -17.0466)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339256)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.44013, 5.523077, -17.05225)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.33926)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.416691, 5.52306, -17.0579)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339264)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.393253, 5.523044, -17.06356)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339267)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.369814, 5.523027, -17.06921)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339269)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.346375, 5.523027, -17.07486)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339272)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.322938, 5.523027, -17.08052)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.299502, 5.523027, -17.08617)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.276068, 5.523027, -17.09182)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.252636, 5.523027, -17.09748)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.229205, 5.523027, -17.10313)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.20577, 5.523914, -17.10879)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.182333, 5.523703, -17.11444)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.158894, 5.523703, -17.12009)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.13546, 5.523703, -17.12575)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.112039, 5.523683, -17.13141)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.088603, 5.523183, -17.13706)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.06519, 5.522903, -17.14272)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.041752, 5.522903, -17.14837)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.018313, 5.522903, -17.15402)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.005125, 5.522903, -17.15968)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.028564, 5.522903, -17.16533)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.052002, 5.522903, -17.17098)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.075441, 5.522903, -17.17664)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.098879, 5.522903, -17.18229)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.122317, 5.522903, -17.18794)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.145754, 5.522903, -17.1936)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.169189, 5.522903, -17.19925)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.192626, 5.522903, -17.2049)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.216066, 5.522903, -17.21056)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339278)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.239502, 5.522903, -17.21621)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.26294, 5.523483, -17.22187)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.286378, 5.523335, -17.22752)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.309817, 5.523188, -17.23317)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.333255, 5.523041, -17.23883)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.356693, 5.522893, -17.24448)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.380132, 5.522789, -17.25013)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339283)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.40357, 5.522686, -17.25579)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339284)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.427008, 5.522582, -17.26144)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339286)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.450447, 5.522478, -17.26709)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339287)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.473885, 5.52246, -17.27275)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339289)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.497324, 5.522443, -17.2784)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339291)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.520763, 5.522426, -17.28405)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339293)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.544201, 5.522409, -17.28971)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339295)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.56764, 5.522392, -17.29536)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339298)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.591078, 5.522375, -17.30101)",
+			"transition": "",
+			"velocity": "(1.406314, 0.0, -0.3393)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.614517, 5.522357, -17.30667)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339303)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.637955, 5.52234, -17.31232)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339306)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.661394, 5.522323, -17.31797)",
+			"transition": "",
+			"velocity": "(1.406312, 0.0, -0.33931)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.684832, 5.522306, -17.32363)",
+			"transition": "",
+			"velocity": "(1.406311, 0.0, -0.339313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.708271, 5.522289, -17.32928)",
+			"transition": "",
+			"velocity": "(1.40631, 0.0, -0.339317)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.731709, 5.522272, -17.33494)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339321)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.755148, 5.522254, -17.3406)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339324)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.778586, 5.522237, -17.34625)",
+			"transition": "",
+			"velocity": "(1.406308, 0.0, -0.339325)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.801889, 5.52222, -17.35188)",
+			"transition": "",
+			"velocity": "(1.398156, 0.0, -0.337358)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.82485, 5.522203, -17.35741)",
+			"transition": "",
+			"velocity": "(1.377686, 0.0, -0.332419)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.847293, 5.522203, -17.36283)",
+			"transition": "",
+			"velocity": "(1.346535, 0.0, -0.324903)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.869066, 5.522203, -17.36808)",
+			"transition": "",
+			"velocity": "(1.306376, 0.0, -0.315213)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.890047, 5.522203, -17.37315)",
+			"transition": "",
+			"velocity": "(1.258901, 0.0, -0.303758)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.910144, 5.521105, -17.37799)",
+			"transition": "",
+			"velocity": "(1.205796, 0.0, -0.290945)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.929289, 5.521105, -17.38261)",
+			"transition": "",
+			"velocity": "(1.148698, 0.0, -0.277169)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.947441, 5.521105, -17.38699)",
+			"transition": "",
+			"velocity": "(1.089159, 0.0, -0.262803)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.964583, 5.521105, -17.39113)",
+			"transition": "",
+			"velocity": "(1.028595, 0.0, -0.248191)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.980711, 5.521105, -17.39502)",
+			"transition": "",
+			"velocity": "(0.968261, 0.0, -0.233634)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.995866, 5.522, -17.39868)",
+			"transition": "",
+			"velocity": "(0.909214, 0.0, -0.219388)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.01007, 5.521963, -17.4021)",
+			"transition": "",
+			"velocity": "(0.852271, 0.0, -0.205649)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.023371, 5.521917, -17.40531)",
+			"transition": "",
+			"velocity": "(0.798049, 0.0, -0.192567)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.03582, 5.521917, -17.40831)",
+			"transition": "",
+			"velocity": "(0.746949, 0.0, -0.180239)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.047473, 5.521917, -17.41113)",
+			"transition": "",
+			"velocity": "(0.699181, 0.0, -0.168717)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.058386, 5.521917, -17.41376)",
+			"transition": "",
+			"velocity": "(0.654799, 0.0, -0.15801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.068614, 5.521917, -17.41623)",
+			"transition": "",
+			"velocity": "(0.613732, 0.0, -0.148104)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.07821, 5.521917, -17.41854)",
+			"transition": "",
+			"velocity": "(0.575823, 0.0, -0.138959)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.087222, 5.521917, -17.42072)",
+			"transition": "",
+			"velocity": "(0.540858, 0.0, -0.130523)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.095697, 5.521917, -17.42276)",
+			"transition": "",
+			"velocity": "(0.508596, 0.0, -0.122739)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.103676, 5.521917, -17.42469)",
+			"transition": "",
+			"velocity": "(0.478788, 0.0, -0.115547)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.111194, 5.521917, -17.4265)",
+			"transition": "",
+			"velocity": "(0.451196, 0.0, -0.108888)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.118289, 5.521917, -17.42822)",
+			"transition": "",
+			"velocity": "(0.425599, 0.0, -0.102709)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.124987, 5.521917, -17.42983)",
+			"transition": "",
+			"velocity": "(0.401793, 0.0, -0.096961)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.131315, 5.521917, -17.43136)",
+			"transition": "",
+			"velocity": "(0.379604, 0.0, -0.091604)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.137379, 5.521917, -17.43282)",
+			"transition": "",
+			"velocity": "(0.363803, 0.0, -0.087792)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.142988, 5.521917, -17.43418)",
+			"transition": "",
+			"velocity": "(0.3365, 0.0, -0.081203)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.161517, 5.521917, -17.43865)",
+			"transition": "",
+			"velocity": "(0.246298, 0.0, -0.059436)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.175078, 5.521917, -17.44192)",
+			"transition": "",
+			"velocity": "(0.180275, 0.0, -0.043503)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.154232, 0.0, -0.037219)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.180428, 5.521917, -17.44321)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.8, 5.600022, -16.725)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.79561, 5.600022, -16.72606)",
+			"transition": "",
+			"velocity": "(0.263397, 0.0, -0.063474)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.787652, 5.600022, -16.72797)",
+			"transition": "",
+			"velocity": "(0.477464, 0.0, -0.115061)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.776795, 5.600022, -16.73059)",
+			"transition": "",
+			"velocity": "(0.65144, 0.0, -0.156987)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.763581, 5.600022, -16.73378)",
+			"transition": "",
+			"velocity": "(0.792832, 0.0, -0.19106)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.748452, 5.600022, -16.73742)",
+			"transition": "",
+			"velocity": "(0.907745, 0.0, -0.218752)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.731766, 5.600022, -16.74144)",
+			"transition": "",
+			"velocity": "(1.001136, 0.0, -0.241257)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.713816, 5.600022, -16.74577)",
+			"transition": "",
+			"velocity": "(1.077036, 0.0, -0.259548)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.694837, 5.600022, -16.75034)",
+			"transition": "",
+			"velocity": "(1.138722, 0.0, -0.274413)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.675023, 5.600022, -16.75512)",
+			"transition": "",
+			"velocity": "(1.188855, 0.0, -0.286494)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.654529, 5.600022, -16.76006)",
+			"transition": "",
+			"velocity": "(1.229599, 0.0, -0.296313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.633484, 5.600022, -16.76513)",
+			"transition": "",
+			"velocity": "(1.262712, 0.0, -0.304292)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.611991, 5.600022, -16.77031)",
+			"transition": "",
+			"velocity": "(1.289623, 0.0, -0.310777)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.590132, 5.600022, -16.77558)",
+			"transition": "",
+			"velocity": "(1.311495, 0.0, -0.316048)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.567978, 5.600022, -16.78092)",
+			"transition": "",
+			"velocity": "(1.32927, 0.0, -0.320331)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.545583, 5.600022, -16.78632)",
+			"transition": "",
+			"velocity": "(1.343717, 0.0, -0.323812)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.522992, 5.600022, -16.79176)",
+			"transition": "",
+			"velocity": "(1.355457, 0.0, -0.326641)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.500242, 5.600022, -16.79724)",
+			"transition": "",
+			"velocity": "(1.364999, 0.0, -0.32894)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.477362, 5.600022, -16.80275)",
+			"transition": "",
+			"velocity": "(1.372754, 0.0, -0.330809)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.454378, 5.600022, -16.80829)",
+			"transition": "",
+			"velocity": "(1.379057, 0.0, -0.332328)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.431309, 5.600022, -16.81385)",
+			"transition": "",
+			"velocity": "(1.384179, 0.0, -0.333562)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.40817, 5.600022, -16.81943)",
+			"transition": "",
+			"velocity": "(1.388342, 0.0, -0.334566)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.384974, 5.600022, -16.82502)",
+			"transition": "",
+			"velocity": "(1.391725, 0.0, -0.335381)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.361733, 5.600022, -16.83062)",
+			"transition": "",
+			"velocity": "(1.394474, 0.0, -0.336044)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.338454, 5.600022, -16.83623)",
+			"transition": "",
+			"velocity": "(1.396709, 0.0, -0.336582)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.315146, 5.600022, -16.84184)",
+			"transition": "",
+			"velocity": "(1.398525, 0.0, -0.33702)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.291812, 5.600022, -16.84747)",
+			"transition": "",
+			"velocity": "(1.400001, 0.0, -0.337376)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.268459, 5.600022, -16.85309)",
+			"transition": "",
+			"velocity": "(1.4012, 0.0, -0.337665)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.245089, 5.600022, -16.85872)",
+			"transition": "",
+			"velocity": "(1.402175, 0.0, -0.3379)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.221707, 5.600022, -16.86436)",
+			"transition": "",
+			"velocity": "(1.402968, 0.0, -0.338091)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.198313, 5.600022, -16.87)",
+			"transition": "",
+			"velocity": "(1.403611, 0.0, -0.338247)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.174911, 5.600022, -16.87563)",
+			"transition": "",
+			"velocity": "(1.404135, 0.0, -0.338373)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.151502, 5.600022, -16.88128)",
+			"transition": "",
+			"velocity": "(1.40456, 0.0, -0.338476)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.128086, 5.600022, -16.88692)",
+			"transition": "",
+			"velocity": "(1.404906, 0.0, -0.338559)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.104667, 5.600022, -16.89256)",
+			"transition": "",
+			"velocity": "(1.405187, 0.0, -0.338627)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.081243, 5.600022, -16.8982)",
+			"transition": "",
+			"velocity": "(1.405415, 0.0, -0.338683)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.057817, 5.600022, -16.90385)",
+			"transition": "",
+			"velocity": "(1.4056, 0.0, -0.338728)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.034387, 5.600022, -16.9095)",
+			"transition": "",
+			"velocity": "(1.405751, 0.0, -0.338764)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.010956, 5.600022, -16.91514)",
+			"transition": "",
+			"velocity": "(1.405874, 0.0, -0.338794)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.987523, 5.600829, -16.92079)",
+			"transition": "",
+			"velocity": "(1.405973, 0.0, -0.338818)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.9641, 5.59867, -16.92643)",
+			"transition": "",
+			"velocity": "(1.406054, 0.0, -0.338838)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.940702, 5.595716, -16.93206)",
+			"transition": "",
+			"velocity": "(1.40612, 0.0, -0.338854)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.917406, 5.591512, -16.93765)",
+			"transition": "",
+			"velocity": "(1.406173, 0.0, -0.338868)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.8943, 5.585936, -16.94318)",
+			"transition": "",
+			"velocity": "(1.406215, 0.0, -0.338883)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.871468, 5.578972, -16.94864)",
+			"transition": "",
+			"velocity": "(1.406249, 0.0, -0.338899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.848995, 5.570627, -16.954)",
+			"transition": "",
+			"velocity": "(1.406275, 0.0, -0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.826963, 5.560911, -16.95926)",
+			"transition": "",
+			"velocity": "(1.406294, 0.0, -0.338938)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.805458, 5.54984, -16.96437)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.338963)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.784566, 5.537437, -16.96935)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.33899)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.764373, 5.523401, -16.97414)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339021)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.744833, 5.5232, -16.97876)",
+			"transition": "",
+			"velocity": "(1.406327, 0.0, -0.339055)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.721395, 5.523272, -16.98441)",
+			"transition": "",
+			"velocity": "(1.406326, 0.0, -0.339094)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.697956, 5.523261, -16.99006)",
+			"transition": "",
+			"velocity": "(1.406325, 0.0, -0.339127)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.674517, 5.523244, -16.99572)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339154)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.651078, 5.523227, -17.00137)",
+			"transition": "",
+			"velocity": "(1.406324, 0.0, -0.339176)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.62764, 5.523211, -17.00702)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339193)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.604201, 5.523194, -17.01268)",
+			"transition": "",
+			"velocity": "(1.406323, 0.0, -0.339208)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.580762, 5.523177, -17.01833)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33922)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.557324, 5.52316, -17.02398)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.33923)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.533885, 5.523144, -17.02964)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339238)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.510446, 5.523127, -17.03529)",
+			"transition": "",
+			"velocity": "(1.406322, 0.0, -0.339245)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.487007, 5.52311, -17.04094)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339251)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.463569, 5.523094, -17.0466)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339256)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.44013, 5.523077, -17.05225)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.33926)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.416691, 5.52306, -17.0579)",
+			"transition": "",
+			"velocity": "(1.406321, 0.0, -0.339264)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.393253, 5.523044, -17.06356)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339267)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.369814, 5.523027, -17.06921)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339269)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.346375, 5.523027, -17.07486)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339272)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.322938, 5.523027, -17.08052)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.299502, 5.523027, -17.08617)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.276068, 5.523027, -17.09182)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.252636, 5.523027, -17.09748)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.229205, 5.523027, -17.10313)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.20577, 5.523914, -17.10879)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.182333, 5.523703, -17.11444)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.158894, 5.523703, -17.12009)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.13546, 5.523703, -17.12575)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.112039, 5.523683, -17.13141)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.088603, 5.523183, -17.13706)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.06519, 5.522903, -17.14272)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.041752, 5.522903, -17.14837)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.018313, 5.522903, -17.15402)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.005125, 5.522903, -17.15968)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.028564, 5.522903, -17.16533)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.052002, 5.522903, -17.17098)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.075441, 5.522903, -17.17664)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.098879, 5.522903, -17.18229)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339274)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.122317, 5.522903, -17.18794)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339275)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.145754, 5.522903, -17.1936)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.169189, 5.522903, -17.19925)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339276)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.192626, 5.522903, -17.2049)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339277)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.216066, 5.522903, -17.21056)",
+			"transition": "",
+			"velocity": "(1.40632, 0.0, -0.339278)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.239502, 5.522903, -17.21621)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339279)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.26294, 5.523483, -17.22187)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.286378, 5.523335, -17.22752)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.309817, 5.523188, -17.23317)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.33928)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.333255, 5.523041, -17.23883)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339281)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.356693, 5.522893, -17.24448)",
+			"transition": "",
+			"velocity": "(1.406319, 0.0, -0.339282)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.380132, 5.522789, -17.25013)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339283)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.40357, 5.522686, -17.25579)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339284)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.427008, 5.522582, -17.26144)",
+			"transition": "",
+			"velocity": "(1.406318, 0.0, -0.339286)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.450447, 5.522478, -17.26709)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339287)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.473885, 5.52246, -17.27275)",
+			"transition": "",
+			"velocity": "(1.406317, 0.0, -0.339289)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.497324, 5.522443, -17.2784)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339291)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.520763, 5.522426, -17.28405)",
+			"transition": "",
+			"velocity": "(1.406316, 0.0, -0.339293)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.544201, 5.522409, -17.28971)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339295)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.56764, 5.522392, -17.29536)",
+			"transition": "",
+			"velocity": "(1.406315, 0.0, -0.339298)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.591078, 5.522375, -17.30101)",
+			"transition": "",
+			"velocity": "(1.406314, 0.0, -0.3393)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.614517, 5.522357, -17.30667)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339303)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.637955, 5.52234, -17.31232)",
+			"transition": "",
+			"velocity": "(1.406313, 0.0, -0.339306)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.661394, 5.522323, -17.31797)",
+			"transition": "",
+			"velocity": "(1.406312, 0.0, -0.33931)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.684832, 5.522306, -17.32363)",
+			"transition": "",
+			"velocity": "(1.406311, 0.0, -0.339313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.708271, 5.522289, -17.32928)",
+			"transition": "",
+			"velocity": "(1.40631, 0.0, -0.339317)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.731709, 5.522272, -17.33494)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339321)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.755148, 5.522254, -17.3406)",
+			"transition": "",
+			"velocity": "(1.406309, 0.0, -0.339324)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.778586, 5.522237, -17.34625)",
+			"transition": "",
+			"velocity": "(1.406308, 0.0, -0.339325)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.801889, 5.52222, -17.35188)",
+			"transition": "",
+			"velocity": "(1.398156, 0.0, -0.337358)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.82485, 5.522203, -17.35741)",
+			"transition": "",
+			"velocity": "(1.377686, 0.0, -0.332419)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.847293, 5.522203, -17.36283)",
+			"transition": "",
+			"velocity": "(1.346535, 0.0, -0.324903)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.869066, 5.522203, -17.36808)",
+			"transition": "",
+			"velocity": "(1.306376, 0.0, -0.315213)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.890047, 5.522203, -17.37315)",
+			"transition": "",
+			"velocity": "(1.258901, 0.0, -0.303758)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.910144, 5.521105, -17.37799)",
+			"transition": "",
+			"velocity": "(1.205796, 0.0, -0.290945)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.929289, 5.521105, -17.38261)",
+			"transition": "",
+			"velocity": "(1.148698, 0.0, -0.277169)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.947441, 5.521105, -17.38699)",
+			"transition": "",
+			"velocity": "(1.089159, 0.0, -0.262803)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.964583, 5.521105, -17.39113)",
+			"transition": "",
+			"velocity": "(1.028595, 0.0, -0.248191)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.980711, 5.521105, -17.39502)",
+			"transition": "",
+			"velocity": "(0.968261, 0.0, -0.233634)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.995866, 5.522, -17.39868)",
+			"transition": "",
+			"velocity": "(0.909214, 0.0, -0.219388)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.01007, 5.521963, -17.4021)",
+			"transition": "",
+			"velocity": "(0.852271, 0.0, -0.205649)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.023371, 5.521917, -17.40531)",
+			"transition": "",
+			"velocity": "(0.798049, 0.0, -0.192567)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.03582, 5.521917, -17.40831)",
+			"transition": "",
+			"velocity": "(0.746949, 0.0, -0.180239)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.047473, 5.521917, -17.41113)",
+			"transition": "",
+			"velocity": "(0.699181, 0.0, -0.168717)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.058386, 5.521917, -17.41376)",
+			"transition": "",
+			"velocity": "(0.654799, 0.0, -0.15801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.068614, 5.521917, -17.41623)",
+			"transition": "",
+			"velocity": "(0.613732, 0.0, -0.148104)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.07821, 5.521917, -17.41854)",
+			"transition": "",
+			"velocity": "(0.575823, 0.0, -0.138959)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.087222, 5.521917, -17.42072)",
+			"transition": "",
+			"velocity": "(0.540858, 0.0, -0.130523)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.095697, 5.521917, -17.42276)",
+			"transition": "",
+			"velocity": "(0.508596, 0.0, -0.122739)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.103676, 5.521917, -17.42469)",
+			"transition": "",
+			"velocity": "(0.478788, 0.0, -0.115547)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.111194, 5.521917, -17.4265)",
+			"transition": "",
+			"velocity": "(0.451196, 0.0, -0.108888)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.118289, 5.521917, -17.42822)",
+			"transition": "",
+			"velocity": "(0.425599, 0.0, -0.102709)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.124987, 5.521917, -17.42983)",
+			"transition": "",
+			"velocity": "(0.401793, 0.0, -0.096961)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.131315, 5.521917, -17.43136)",
+			"transition": "",
+			"velocity": "(0.379604, 0.0, -0.091604)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.137379, 5.521917, -17.43282)",
+			"transition": "",
+			"velocity": "(0.363803, 0.0, -0.087792)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.142988, 5.521917, -17.43418)",
+			"transition": "",
+			"velocity": "(0.3365, 0.0, -0.081203)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.161517, 5.521917, -17.43865)",
+			"transition": "",
+			"velocity": "(0.246298, 0.0, -0.059436)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.175078, 5.521917, -17.44192)",
+			"transition": "",
+			"velocity": "(0.180275, 0.0, -0.043503)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.175726, 5.521917, -17.44208)",
+			"transition": "",
+			"velocity": "(-0.12788, 0.0, 0.03077)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.169604, 5.521917, -17.44061)",
+			"transition": "",
+			"velocity": "(-0.367328, 0.0, 0.08848)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.160238, 5.521917, -17.43835)",
+			"transition": "",
+			"velocity": "(-0.561931, 0.0, 0.135382)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.148237, 5.521917, -17.43546)",
+			"transition": "",
+			"velocity": "(-0.720087, 0.0, 0.1735)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.134093, 5.521917, -17.43205)",
+			"transition": "",
+			"velocity": "(-0.848624, 0.0, 0.204479)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.118209, 5.521917, -17.42823)",
+			"transition": "",
+			"velocity": "(-0.953088, 0.0, 0.229657)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.100911, 5.521917, -17.42406)",
+			"transition": "",
+			"velocity": "(-1.037987, 0.0, 0.250119)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.08246, 5.52219, -17.41961)",
+			"transition": "",
+			"velocity": "(-1.106986, 0.0, 0.266749)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.063076, 5.522095, -17.41494)",
+			"transition": "",
+			"velocity": "(-1.163063, 0.0, 0.280265)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.042933, 5.521985, -17.41009)",
+			"transition": "",
+			"velocity": "(-1.208637, 0.0, 0.291249)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.022171, 5.521871, -17.40509)",
+			"transition": "",
+			"velocity": "(-1.245676, 0.0, 0.300177)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(1.000908, 5.521871, -17.39997)",
+			"transition": "",
+			"velocity": "(-1.275778, 0.0, 0.307432)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.979238, 5.521871, -17.39474)",
+			"transition": "",
+			"velocity": "(-1.300243, 0.0, 0.313329)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.957236, 5.521871, -17.38944)",
+			"transition": "",
+			"velocity": "(-1.320125, 0.0, 0.318122)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.934965, 5.521871, -17.38408)",
+			"transition": "",
+			"velocity": "(-1.336284, 0.0, 0.322017)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.912475, 5.521871, -17.37865)",
+			"transition": "",
+			"velocity": "(-1.349417, 0.0, 0.325182)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.889806, 5.521871, -17.37319)",
+			"transition": "",
+			"velocity": "(-1.36009, 0.0, 0.327755)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.866994, 5.521871, -17.36769)",
+			"transition": "",
+			"velocity": "(-1.368765, 0.0, 0.329845)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.844063, 5.521871, -17.36217)",
+			"transition": "",
+			"velocity": "(-1.375814, 0.0, 0.331544)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.821038, 5.521871, -17.35662)",
+			"transition": "",
+			"velocity": "(-1.381544, 0.0, 0.332925)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.797934, 5.521871, -17.35105)",
+			"transition": "",
+			"velocity": "(-1.3862, 0.0, 0.334047)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.774768, 5.521871, -17.34547)",
+			"transition": "",
+			"velocity": "(-1.389984, 0.0, 0.334959)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.75155, 5.521871, -17.33987)",
+			"transition": "",
+			"velocity": "(-1.39306, 0.0, 0.335701)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.728291, 5.521871, -17.33427)",
+			"transition": "",
+			"velocity": "(-1.39556, 0.0, 0.336303)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.704998, 5.521871, -17.32866)",
+			"transition": "",
+			"velocity": "(-1.397591, 0.0, 0.336793)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.681677, 5.521871, -17.32304)",
+			"transition": "",
+			"velocity": "(-1.399242, 0.0, 0.337191)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.658334, 5.521871, -17.31741)",
+			"transition": "",
+			"velocity": "(-1.400584, 0.0, 0.337515)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.634973, 5.521871, -17.31178)",
+			"transition": "",
+			"velocity": "(-1.401674, 0.0, 0.337778)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.611597, 5.521871, -17.30615)",
+			"transition": "",
+			"velocity": "(-1.40256, 0.0, 0.337992)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.588209, 5.521871, -17.30051)",
+			"transition": "",
+			"velocity": "(-1.403281, 0.0, 0.338165)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.564811, 5.521871, -17.29488)",
+			"transition": "",
+			"velocity": "(-1.403866, 0.0, 0.338306)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.541405, 5.521871, -17.28923)",
+			"transition": "",
+			"velocity": "(-1.404342, 0.0, 0.338421)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.517993, 5.521871, -17.28359)",
+			"transition": "",
+			"velocity": "(-1.404728, 0.0, 0.338514)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.494576, 5.521871, -17.27795)",
+			"transition": "",
+			"velocity": "(-1.405043, 0.0, 0.33859)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.471154, 5.521871, -17.2723)",
+			"transition": "",
+			"velocity": "(-1.405298, 0.0, 0.338651)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.447729, 5.521871, -17.26666)",
+			"transition": "",
+			"velocity": "(-1.405506, 0.0, 0.338701)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.424301, 5.521871, -17.26101)",
+			"transition": "",
+			"velocity": "(-1.405674, 0.0, 0.338742)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.400872, 5.521871, -17.25537)",
+			"transition": "",
+			"velocity": "(-1.405811, 0.0, 0.338775)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.377442, 5.521871, -17.24972)",
+			"transition": "",
+			"velocity": "(-1.405923, 0.0, 0.338801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.35401, 5.521871, -17.24408)",
+			"transition": "",
+			"velocity": "(-1.406013, 0.0, 0.338823)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.330573, 5.522798, -17.23843)",
+			"transition": "",
+			"velocity": "(-1.406087, 0.0, 0.338841)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.307138, 5.522798, -17.23278)",
+			"transition": "",
+			"velocity": "(-1.406147, 0.0, 0.338856)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.283702, 5.522798, -17.22714)",
+			"transition": "",
+			"velocity": "(-1.406195, 0.0, 0.338868)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.260267, 5.522798, -17.22149)",
+			"transition": "",
+			"velocity": "(-1.406235, 0.0, 0.338878)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.236835, 5.522798, -17.21585)",
+			"transition": "",
+			"velocity": "(-1.406266, 0.0, 0.338887)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.213396, 5.523416, -17.21021)",
+			"transition": "",
+			"velocity": "(-1.406292, 0.0, 0.338894)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.189957, 5.523386, -17.20456)",
+			"transition": "",
+			"velocity": "(-1.406313, 0.0, 0.3389)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.166519, 5.523352, -17.19891)",
+			"transition": "",
+			"velocity": "(-1.40633, 0.0, 0.338905)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.14308, 5.523318, -17.19326)",
+			"transition": "",
+			"velocity": "(-1.406344, 0.0, 0.338909)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.119641, 5.523202, -17.18761)",
+			"transition": "",
+			"velocity": "(-1.406356, 0.0, 0.338912)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.096201, 5.523087, -17.18196)",
+			"transition": "",
+			"velocity": "(-1.406365, 0.0, 0.338915)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.072762, 5.523085, -17.17631)",
+			"transition": "",
+			"velocity": "(-1.406372, 0.0, 0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.049322, 5.523082, -17.17066)",
+			"transition": "",
+			"velocity": "(-1.406378, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.025883, 5.52308, -17.16501)",
+			"transition": "",
+			"velocity": "(-1.406383, 0.0, 0.338919)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(0.002443, 5.523077, -17.15936)",
+			"transition": "",
+			"velocity": "(-1.406387, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.020997, 5.523075, -17.15371)",
+			"transition": "",
+			"velocity": "(-1.406391, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.044437, 5.523073, -17.14806)",
+			"transition": "",
+			"velocity": "(-1.406394, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.067877, 5.52307, -17.14241)",
+			"transition": "",
+			"velocity": "(-1.406396, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.091317, 5.523068, -17.13676)",
+			"transition": "",
+			"velocity": "(-1.406398, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.11471, 5.524169, -17.13111)",
+			"transition": "",
+			"velocity": "(-1.406399, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.138138, 5.523559, -17.12547)",
+			"transition": "",
+			"velocity": "(-1.406401, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.161592, 5.523936, -17.11983)",
+			"transition": "",
+			"velocity": "(-1.406402, 0.0, 0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.18503, 5.523577, -17.11418)",
+			"transition": "",
+			"velocity": "(-1.406403, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.208469, 5.523577, -17.10853)",
+			"transition": "",
+			"velocity": "(-1.406403, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.231902, 5.523577, -17.10288)",
+			"transition": "",
+			"velocity": "(-1.406404, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.255347, 5.523974, -17.09724)",
+			"transition": "",
+			"velocity": "(-1.406404, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.278787, 5.523778, -17.09159)",
+			"transition": "",
+			"velocity": "(-1.406404, 0.0, 0.338919)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.302226, 5.523578, -17.08594)",
+			"transition": "",
+			"velocity": "(-1.406405, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.325665, 5.523378, -17.08029)",
+			"transition": "",
+			"velocity": "(-1.406405, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.349104, 5.523178, -17.07464)",
+			"transition": "",
+			"velocity": "(-1.406405, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.372544, 5.522977, -17.06899)",
+			"transition": "",
+			"velocity": "(-1.406405, 0.0, 0.33892)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.395984, 5.522977, -17.06334)",
+			"transition": "",
+			"velocity": "(-1.406406, 0.0, 0.338919)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.419424, 5.522977, -17.05769)",
+			"transition": "",
+			"velocity": "(-1.406406, 0.0, 0.338919)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.442864, 5.522977, -17.05204)",
+			"transition": "",
+			"velocity": "(-1.406406, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.466304, 5.522977, -17.04639)",
+			"transition": "",
+			"velocity": "(-1.406406, 0.0, 0.338918)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.489744, 5.522977, -17.04074)",
+			"transition": "",
+			"velocity": "(-1.406406, 0.0, 0.338917)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.513184, 5.522977, -17.03509)",
+			"transition": "",
+			"velocity": "(-1.406407, 0.0, 0.338916)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.536624, 5.522977, -17.02944)",
+			"transition": "",
+			"velocity": "(-1.406407, 0.0, 0.338915)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.560064, 5.522977, -17.02379)",
+			"transition": "",
+			"velocity": "(-1.406407, 0.0, 0.338915)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.583505, 5.522977, -17.01814)",
+			"transition": "",
+			"velocity": "(-1.406407, 0.0, 0.338914)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.606945, 5.522977, -17.01249)",
+			"transition": "",
+			"velocity": "(-1.406408, 0.0, 0.338913)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.630385, 5.522977, -17.00684)",
+			"transition": "",
+			"velocity": "(-1.406408, 0.0, 0.338912)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.653825, 5.522977, -17.00119)",
+			"transition": "",
+			"velocity": "(-1.406408, 0.0, 0.338911)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.677265, 5.522977, -16.99554)",
+			"transition": "",
+			"velocity": "(-1.406408, 0.0, 0.338909)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.700705, 5.522977, -16.98989)",
+			"transition": "",
+			"velocity": "(-1.406409, 0.0, 0.338908)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.724145, 5.522977, -16.98425)",
+			"transition": "",
+			"velocity": "(-1.406409, 0.0, 0.338907)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.747586, 5.522977, -16.9786)",
+			"transition": "",
+			"velocity": "(-1.406409, 0.0, 0.338906)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.769451, 5.527946, -16.97309)",
+			"transition": "",
+			"velocity": "(-1.40641, 0.0, 0.338905)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.788815, 5.541343, -16.96822)",
+			"transition": "",
+			"velocity": "(-1.406423, 0.0, 0.338847)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.809094, 5.553018, -16.96314)",
+			"transition": "",
+			"velocity": "(-1.406448, 0.0, 0.338748)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.830002, 5.56354, -16.95794)",
+			"transition": "",
+			"velocity": "(-1.406479, 0.0, 0.338616)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.851492, 5.572805, -16.95262)",
+			"transition": "",
+			"velocity": "(-1.406516, 0.0, 0.338464)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.873492, 5.580791, -16.9472)",
+			"transition": "",
+			"velocity": "(-1.406555, 0.0, 0.3383)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.895928, 5.587467, -16.9417)",
+			"transition": "",
+			"velocity": "(-1.406596, 0.0, 0.338128)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.918732, 5.592834, -16.93613)",
+			"transition": "",
+			"velocity": "(-1.406638, 0.0, 0.337955)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.941818, 5.596838, -16.93052)",
+			"transition": "",
+			"velocity": "(-1.406679, 0.0, 0.337784)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.965121, 5.599405, -16.92488)",
+			"transition": "",
+			"velocity": "(-1.406718, 0.0, 0.337623)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-0.988522, 5.600183, -16.91925)",
+			"transition": "",
+			"velocity": "(-1.406753, 0.0, 0.337474)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.011969, 5.600851, -16.91363)",
+			"transition": "",
+			"velocity": "(-1.406784, 0.0, 0.337347)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.035415, 5.600851, -16.90801)",
+			"transition": "",
+			"velocity": "(-1.406809, 0.0, 0.33724)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.058863, 5.600851, -16.90239)",
+			"transition": "",
+			"velocity": "(-1.406831, 0.0, 0.337151)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.08231, 5.600851, -16.89677)",
+			"transition": "",
+			"velocity": "(-1.406849, 0.0, 0.337077)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.105758, 5.600851, -16.89116)",
+			"transition": "",
+			"velocity": "(-1.406864, 0.0, 0.337014)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.129206, 5.600851, -16.88554)",
+			"transition": "",
+			"velocity": "(-1.406876, 0.0, 0.336962)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.152654, 5.600851, -16.87993)",
+			"transition": "",
+			"velocity": "(-1.406887, 0.0, 0.336919)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.176102, 5.600851, -16.87431)",
+			"transition": "",
+			"velocity": "(-1.406895, 0.0, 0.336882)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.199551, 5.600851, -16.8687)",
+			"transition": "",
+			"velocity": "(-1.406903, 0.0, 0.336851)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.222999, 5.600851, -16.86308)",
+			"transition": "",
+			"velocity": "(-1.406909, 0.0, 0.336824)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.246448, 5.600851, -16.85747)",
+			"transition": "",
+			"velocity": "(-1.406915, 0.0, 0.336801)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.269896, 5.600851, -16.85186)",
+			"transition": "",
+			"velocity": "(-1.40692, 0.0, 0.336781)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.293345, 5.600851, -16.84624)",
+			"transition": "",
+			"velocity": "(-1.406924, 0.0, 0.336764)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.316794, 5.600851, -16.84063)",
+			"transition": "",
+			"velocity": "(-1.406927, 0.0, 0.33675)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.340215, 5.600851, -16.83503)",
+			"transition": "",
+			"velocity": "(-1.40526, 0.0, 0.33634)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.36339, 5.600851, -16.82948)",
+			"transition": "",
+			"velocity": "(-1.3905, 0.0, 0.332798)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.386127, 5.600851, -16.82404)",
+			"transition": "",
+			"velocity": "(-1.364259, 0.0, 0.32651)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.408264, 5.600851, -16.81874)",
+			"transition": "",
+			"velocity": "(-1.328193, 0.0, 0.317871)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.429664, 5.600851, -16.81362)",
+			"transition": "",
+			"velocity": "(-1.283988, 0.0, 0.307285)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.45022, 5.600851, -16.8087)",
+			"transition": "",
+			"velocity": "(-1.233339, 0.0, 0.295157)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.469851, 5.600851, -16.804)",
+			"transition": "",
+			"velocity": "(-1.17791, 0.0, 0.281885)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.488506, 5.600851, -16.79953)",
+			"transition": "",
+			"velocity": "(-1.1193, 0.0, 0.267852)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.506156, 5.600851, -16.79531)",
+			"transition": "",
+			"velocity": "(-1.058998, 0.0, 0.253417)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.522795, 5.600851, -16.79133)",
+			"transition": "",
+			"velocity": "(-0.998341, 0.0, 0.238898)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.538437, 5.600851, -16.78759)",
+			"transition": "",
+			"velocity": "(-0.93848, 0.0, 0.224571)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.553109, 5.600851, -16.78408)",
+			"transition": "",
+			"velocity": "(-0.880355, 0.0, 0.21066)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.566854, 5.600851, -16.78079)",
+			"transition": "",
+			"velocity": "(-0.824686, 0.0, 0.197339)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.57972, 5.600851, -16.77771)",
+			"transition": "",
+			"velocity": "(-0.771975, 0.0, 0.184726)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.591763, 5.600851, -16.77483)",
+			"transition": "",
+			"velocity": "(-0.722522, 0.0, 0.172893)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.603037, 5.600851, -16.77213)",
+			"transition": "",
+			"velocity": "(-0.676452, 0.0, 0.161871)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.613599, 5.600851, -16.7696)",
+			"transition": "",
+			"velocity": "(-0.63375, 0.0, 0.151655)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.623504, 5.600851, -16.76723)",
+			"transition": "",
+			"velocity": "(-0.594294, 0.0, 0.142213)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.632802, 5.600851, -16.76501)",
+			"transition": "",
+			"velocity": "(-0.557893, 0.0, 0.133504)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.641541, 5.600851, -16.76292)",
+			"transition": "",
+			"velocity": "(-0.524317, 0.0, 0.125472)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.649763, 5.600851, -16.76095)",
+			"transition": "",
+			"velocity": "(-0.493318, 0.0, 0.118056)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.657507, 5.600851, -16.7591)",
+			"transition": "",
+			"velocity": "(-0.464652, 0.0, 0.111196)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.664809, 5.600851, -16.75735)",
+			"transition": "",
+			"velocity": "(-0.438087, 0.0, 0.104838)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.671699, 5.600851, -16.7557)",
+			"transition": "",
+			"velocity": "(-0.413414, 0.0, 0.098934)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.678206, 5.600851, -16.75415)",
+			"transition": "",
+			"velocity": "(-0.390445, 0.0, 0.093438)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.684356, 5.600851, -16.75267)",
+			"transition": "",
+			"velocity": "(-0.369017, 0.0, 0.088313)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.690045, 5.600851, -16.75131)",
+			"transition": "",
+			"velocity": "(-0.341323, 0.0, 0.081685)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.708839, 5.600851, -16.74682)",
+			"transition": "",
+			"velocity": "(-0.249828, 0.0, 0.059788)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.722595, 5.600851, -16.74353)",
+			"transition": "",
+			"velocity": "(-0.182859, 0.0, 0.043762)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(-0.156442, 0.0, 0.03744)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		},
+		{
+			"climbing": false,
+			"floor": true,
+			"hanging": false,
+			"position": "(-1.728022, 5.600851, -16.74223)",
+			"transition": "",
+			"velocity": "(0.0, 0.0, 0.0)"
+		}
+	],
+	"scope": "Actual earned-stage5 reload,service lifecycle,failed-save denial;opening-complete fixture inherited from journey;not chapter/art/performance acceptance",
+	"status": "PASS_EARNED_LIFECYCLE"
+}

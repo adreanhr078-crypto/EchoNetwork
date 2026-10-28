@@ -1,0 +1,43 @@
+{
+  "state": "OWNER_REJECTED_OLD_ROOM_FULL_TRIPO_REDESIGN_AUTHORIZED",
+  "owner_date": "2026-10-27",
+  "direction_ar": "المالك رفض تصميم الغرفة02 كاملاً ومدة الصقل. طلب غرفة جديدة أوسع تُبنى كاملة فيTripo مع مؤثرات أقوى ومسار باركور حقيقي قابل للعب،وليس تسلقاً فقط.",
+  "supersedes": "Old room02 layout preservation as a production requirement;preserve old sources locally as comparison,notaccepteddesign.",
+  "bounds": {
+    "width_m": 18,
+    "length_m": 14.6,
+    "height_m": 14,
+    "approximate_until_generated_geometry_review": true
+  },
+  "playable_requirements": [
+    "Run and sprint approach",
+    "Real gap jumps",
+    "Low obstacle vaults",
+    "Raised landing platforms and clear recovery pockets",
+    "Short ledge grab/mantle segments as one part of the course",
+    "Existing pressure-wheel/door task and connected chapter handoff"
+  ],
+  "movement_source": {
+    "file": "godot/scripts/player/echo_player.gd",
+    "sprint_m_s": 4.7,
+    "jump_velocity_m_s": 5.4,
+    "gravity_m_s2": 14,
+    "level_flight_s": 0.7714285714285715,
+    "ideal_level_range_m": 3.625714285714286,
+    "design_level_gaps_m": [
+      1.4,
+      2.2
+    ],
+    "rising_gap_m_max": 1.6,
+    "vault_height_m": 0.85,
+    "wall_run": "Not claimed;current motor supports vault/climb/hang/mantle,not verified wall-run."
+  },
+  "visual_direction": "Broad storm-pressure turbine hall;flowing turquoise water channels below the route,large directional ventilation,suspended vapor and restrained industrial heat/sparks,original11.11 anime style. Keep effects readable and owned by actual mechanisms.",
+  "authorities": "Tripo entire new environment geometry;Godot owns collision,parkour inputs,camera,water/air/reactive VFX,pressure state/save/retry,Pause/ReducedMotion/mute. No pre-pact powers or music. Golden/V31/source film unchanged.",
+  "previous_candidate": {
+    "native": "precision-high-v18",
+    "status": "Technical scopedPASS,old overall layout OWNER_REJECTED",
+    "do_not_continue_small_polish": true
+  },
+  "next": "Generate new whole-room concept,derive matched four full-object views,submit one justified Tripo full-room job after live preflight,review complete geometry then native playable route."
+}

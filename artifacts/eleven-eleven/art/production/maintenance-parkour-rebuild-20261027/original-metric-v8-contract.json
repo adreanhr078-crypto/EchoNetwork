@@ -1,0 +1,29 @@
+{
+  "status": "METRIC_ORIGINAL_UV_PBR_READY_NATIVE_ART_PENDING",
+  "source_sha256": "555d53a64e3ccc7e7c9e29d6464a4ffb1434078d3e03f14b5c5fee0382c6f060",
+  "sha256": "e815ae19cb1bbc914a1c1ee92d80f6401e1427b097f0d16715a2722a3b8c5e93",
+  "bytes": 54977288,
+  "mesh_roles": 27,
+  "materials": 27,
+  "images": 81,
+  "original_image_size_histogram": {
+    "1024x1024": 11,
+    "512x512": 29,
+    "256x256": 25,
+    "128x128": 8,
+    "64x64": 4,
+    "32x32": 3,
+    "2048x2048": 1
+  },
+  "uv_arrays_unchanged": true,
+  "native_world_position_bake_max_error_m": 0.0,
+  "native_visual_root_scale": 1,
+  "native_visual_root_translation": [
+    0,
+    0,
+    0
+  ],
+  "collision": "Existingv7proxy remains unchanged;already baked by the room into native metres",
+  "art_choice": "Original per-part UV/PBR visibly outperformed the preserved single-atlas variant in controlled current Godot captures.",
+  "limits": "Original maps are adaptive32..2048px,not all4K. Current art/full route must be reviewed again."
+}

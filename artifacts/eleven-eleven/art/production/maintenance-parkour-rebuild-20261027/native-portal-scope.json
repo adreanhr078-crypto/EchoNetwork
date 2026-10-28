@@ -1,0 +1,9 @@
+{
+  "source_preserved": "whole-room-derived-editable.blend",
+  "part": "Stormworks_tripo_part_2",
+  "operation": "six-plane exact open-surface difference;UV interpolation retained",
+  "diagnosis": "21777 boundary edges;solid Boolean produced false closure and was rejected",
+  "native_door_width": 1.9,
+  "reason": "Generated circular aperture starts above ground entry",
+  "status": "Capsule and player acceptance pending"
+}

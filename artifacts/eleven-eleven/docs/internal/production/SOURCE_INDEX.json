@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-26",
+  "snapshot_date": "2026-10-27",
   "path_base": "artifacts/eleven-eleven",
   "status": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE",
   "last_runtime_integration_checkpoint": "CP45_NATIVE_HORIZONTAL_SCOPED_PASS_CHAPTER_ART_OPEN",
@@ -13,8 +13,9 @@
     {
       "group": "boot_and_progress",
       "path": "godot/project.godot",
-      "sha256": "9cc9859056aa13273c1076ac8b24211f83c700a69c5400b16f40d370c3f56077",
-      "bytes": 7767
+      "sha256": "5a36ebf2e53f96d9c8b5ee9da3d99b9d9751ab0a3cf370fb363269dc6d5bcb4e",
+      "bytes": 7816,
+      "review_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN"
     },
     {
       "group": "boot_and_progress",
@@ -26,23 +27,24 @@
     {
       "group": "boot_and_progress",
       "path": "godot/scenes/native_journey.tscn",
-      "sha256": "067de30f2d5f88253aab17965024cb89e3751c41840576780e1888096b17279e",
-      "bytes": 620,
-      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "sha256": "9f50b4c9a349dbaa006e253dc9c0ef8335ee2a260cc5ba7cbe1934328b22b962",
+      "bytes": 741,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS",
       "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_journey_controller.gd",
-      "sha256": "8fe5e0366be37ecdb27c1884bac304c0723759a6bc66a2315142920ec1ceda1a",
-      "bytes": 9140
+      "sha256": "1deae05e3b4f0f0124bf13c8ff9d3557b4043b3440c77803d2e46aaef594de65",
+      "bytes": 9824,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
     },
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_campaign_controller.gd",
-      "sha256": "fd2f2ca473da94cfb307c5e451a4f7a362039d104d47fe77924055b86392d1a2",
-      "bytes": 38386,
-      "review_checkpoint": "CP45_CONTRACT_VISUALS_AND_CHARGED_GATE_SCOPED_VERIFIED"
+      "sha256": "4ece39f7e1f85d4b9ed9227bc9c7a7701741da18a1ddb0d93be5d4cacc596cb4",
+      "bytes": 37824,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
     },
     {
       "group": "boot_and_progress",
@@ -241,9 +243,9 @@
     {
       "group": "rooms_in_player_order",
       "path": "godot/scripts/environment/maintenance_vertical.gd",
-      "sha256": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
-      "bytes": 8703,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "8eedf1e88d3bd5085c34defe3e0f5c1d2063c40d185ac4a8c0bada2fa67639c7",
+      "bytes": 8810,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
     },
     {
       "group": "rooms_in_player_order",
@@ -1223,9 +1225,9 @@
     {
       "group": "echo_parkour_cp40",
       "path": "godot/scripts/player/surface_traversal_motor.gd",
-      "sha256": "ca9bdaebe8b5bd2b460310976704c36fe2691c505f54d6cc3e22e9228434a347",
-      "bytes": 23553,
-      "review_checkpoint": "CP45_STAGE07_SCOPED_PASS"
+      "sha256": "9ef4519339fbb9ca7a4f51beddef2f50272172b706e64ce27f043af48ffbb85a",
+      "bytes": 23456,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
     },
     {
       "group": "echo_parkour_cp40",
@@ -1261,9 +1263,9 @@
     {
       "group": "specimen_cp45_native_dressing",
       "path": "godot/engine_visuals/HyperAnimeWorldManager.gd",
-      "sha256": "cf50be5beece626cc7b03af5e2ec8239b5ed289bf3a6acb505d0dc02d6027cf6",
-      "bytes": 21137,
-      "review_checkpoint": "CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED",
+      "sha256": "6b6fd0b17d8599a7c543a17b506937dd5439af5f6d7f53fbee18b583f6784a31",
+      "bytes": 21960,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS",
       "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
@@ -2425,8 +2427,9 @@
     {
       "group": "security_cp45_native_dressing",
       "path": "godot/tests/remaining_rooms_high_inventory.gd",
-      "sha256": "e84143374d00c174975be6cb4838f7b4ba1f031b692bfea4e9e28f90516f6ce5",
-      "bytes": 7461
+      "sha256": "882178aebb9df1c613d75b4b82f31c27dfd1af19ac8254d308c1a7b55aa26664",
+      "bytes": 14794,
+      "review_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN"
     },
     {
       "group": "security_cp45_native_dressing",
@@ -2663,23 +2666,23 @@
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/scripts/environment/maintenance_fullroom_dressing.gd",
-      "sha256": "9b5db36fb16d26044212eb9f92768200b8e04285a71009e86f6c545096a60966",
-      "bytes": 17701,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "da054f0d067f320218a673631db42001ded70d10ce818610ba9925aeb4d4f930",
+      "bytes": 18511,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_V8_NATIVE_CONTRACT_PASS_ART_PENDING"
     },
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/scripts/environment/maintenance_precision_architecture.gd",
-      "sha256": "aa30a034bf4fc96744b1d30434d59eff2a636f0b735132628cff81e5e1a5b2cb",
-      "bytes": 10872,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "f4181cb2a4d4158256bac40aaa18cfd7b4429af9f78715c70fe6e57203084957",
+      "bytes": 22180,
+      "review_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN"
     },
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/scripts/environment/maintenance_soft_shadow_lease.gd",
-      "sha256": "e59213962c3cf36990fbcc195ea58c76d620e88b00e3bfccb99640c5d0cb5151",
-      "bytes": 993,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "f12d22b821256f8815b113c643a94eb7fa31a85c639a075a44d0a3115eeefbb5",
+      "bytes": 4185,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_V8_NATIVE_CONTRACT_PASS_ART_PENDING"
     },
     {
       "group": "maintenance_precision_scoped",
@@ -2698,23 +2701,23 @@
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/tests/maintenance_dressing_public_review.gd",
-      "sha256": "c19dea5f7b3fb9e3440e4e6ca24f61e736e5eaf014bf0fb5f21a597d42a84c5a",
-      "bytes": 10242,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "e52802147b5a5171a41396884a30043973042e5c1b679ceea165356cf16191c4",
+      "bytes": 13644,
+      "review_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN"
     },
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/tests/maintenance_dressing_contract_review.gd",
-      "sha256": "3bb1e1717a940553f1ee81566d8ab13147336807548a971cf4f5ef8fad472e1d",
-      "bytes": 10831,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "b4af6c9a93ce0aeaf13b4d5062c37f30ff33af181a50781e15a1fca3be87cc89",
+      "bytes": 13592,
+      "review_checkpoint": "ROOM02_NATIVE_FAN_AND_STRUCTURAL_MOUNTS_WIP_CONTRACT_PASS_HIGH_OPEN"
     },
     {
       "group": "maintenance_precision_scoped",
       "path": "godot/tests/maintenance_shadow_lease_review.gd",
-      "sha256": "593a90ef316989bfd73723d2c69d15b703bfb8e2d7e619ba89cc5d43a9647f63",
-      "bytes": 2465,
-      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+      "sha256": "08deb954b7b2ab5c2bca8b50ae246c4c5a89f07f7b86de81e425967dc9c639f0",
+      "bytes": 4374,
+      "review_checkpoint": "CP45_STAGE13_MAINTENANCE_V8_NATIVE_CONTRACT_PASS_ART_PENDING"
     },
     {
       "group": "maintenance_precision_scoped",
@@ -2722,6 +2725,265 @@
       "sha256": "9f73f8fb292ad47b797e183d837ae6420acd189cbadfdc3c6dce2a2837c1463c",
       "bytes": 4373,
       "review_checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/scripts/environment/maintenance_ventilation_fan.gd",
+      "sha256": "29229bcd6087a33685d1229ce57dfc1b1a5483e06afbc247ed8cd552fe5b582d",
+      "bytes": 2474,
+      "review_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN"
+    },
+    {
+      "group": "maintenance_precision_scoped",
+      "path": "godot/assets/environments/maintenance_cp45/maintenance_ventilation_fan_pbr.glb",
+      "sha256": "781a2bcde1f87f2f27c709259f732b6eb4d03192e31006f755743994875f2cf9",
+      "bytes": 62974344,
+      "review_checkpoint": "ROOM02_NATIVE_FAN_AND_STRUCTURAL_MOUNTS_WIP_CONTRACT_PASS_HIGH_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/player/service_hand_contact.gd",
+      "sha256": "7d74f70aa89f445de92cf7367fe3031566c70f25b233ef86670bb4323c33681a",
+      "bytes": 5570,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/cinematics/maintenance_service_cinematic.gd",
+      "sha256": "3204ca033d91ca9b2eaade7bd7c89211ac53873158731365a61d5af475a3baab",
+      "bytes": 5958,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/environment/maintenance_stormworks.gd",
+      "sha256": "f4c115483cd3ae8e9e960cefd95959d1c2e59d1e6f7de9331ba85953736356a0",
+      "bytes": 15384,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/environment/maintenance_stormworks_presentation.gd",
+      "sha256": "34a40f47cc81423e1d9a9f6ee14405be1ed6a94b1d73e11ead52e617883e37da",
+      "bytes": 563,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/environment/maintenance_stormworks_vfx.gd",
+      "sha256": "2705925ac9bae379d01833d177f683b8ea2b9c613a1506d8e0d4c351d38c5167",
+      "bytes": 8191,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/shaders/maintenance_stormworks_water.gdshader",
+      "sha256": "5d1a01e0b07d47b34c3c139018628f242f16d9585755efd3952d188b97b4d544",
+      "bytes": 2831,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/shaders/maintenance_stormworks_wind.gdshader",
+      "sha256": "b2caee25693063f336008605cbe0ae8be37e7eb5c8d0f217185a82139e64179d",
+      "bytes": 2192,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scenes/environment/maintenance_stormworks.tscn",
+      "sha256": "2951e0a65f001b8b8d10859e8b20a2dc222d27a3c1e089f9abe5c526b09af55a",
+      "bytes": 206,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/tests/stormworks_native_candidate_review.gd",
+      "sha256": "96d9c52f6368abea9aa7f0cf730119a553ca717b3351374e72e4d6e7446740ec",
+      "bytes": 4693,
+      "review_checkpoint": "STORMWORKS_CANDIDATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/tests/stormworks_parkour_input_review.gd",
+      "sha256": "a329f570c8c231e1778f8512d4a488935bdfe57f282202ff081776ae80dfb183",
+      "bytes": 9491,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_visual_portal_v5.glb",
+      "sha256": "555d53a64e3ccc7e7c9e29d6464a4ffb1434078d3e03f14b5c5fee0382c6f060",
+      "bytes": 55276872,
+      "review_checkpoint": "STORMWORKS_CANDIDATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_collision_portal_v5.glb",
+      "sha256": "d6a0bc577dd922063aecd88d7c61258e52445d02d1ec090a4599a52e50b0cb68",
+      "bytes": 5072244,
+      "review_checkpoint": "STORMWORKS_CANDIDATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/systems/stormworks_route.gd",
+      "sha256": "f802409d6c23295cf84f7bbc03a4b28b0fb5d8595aee5bfaae90098ac2080bad",
+      "bytes": 1313,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/systems/stormworks_checkpoint.gd",
+      "sha256": "a7cc800a80a8a785e919fd77a0137e26b28f70f94762c68fe8051e10d27ea2e6",
+      "bytes": 2441,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/scripts/systems/stormworks_journey_preview.gd",
+      "sha256": "11995489c85e2cea18822adfd0c97088a54c1a215d7e6d9590fc44c911a84670",
+      "bytes": 8971,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/tests/scenes/stormworks_native_candidate.tscn",
+      "sha256": "a3c40ce06e2be548607e3329adc7106c31c4b0a30ce4d94a4a82c7a0f49c6817",
+      "bytes": 358,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/tests/stormworks_native_journey_input_review.gd",
+      "sha256": "1dc78329e240d141b05f015b0ae175c60ede8a0c64ed64cd471f2cecb902a210",
+      "bytes": 8313,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/tests/stormworks_checkpoint_smoke.gd",
+      "sha256": "5e94d1c5b03fa602bf0fbf2afed07e82d7558587d672593c29ee5d749dfd9a19",
+      "bytes": 1727,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7.glb",
+      "sha256": "a5ae7ca49da0c485ebbf340b1814275d76b6847a70a666f33dbc3350c8985700",
+      "bytes": 50378876,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_collision_portal_v7.glb",
+      "sha256": "9489440818b40b267f4176b363f08b090c55bd1b646bf46919829ffcc55d4085",
+      "bytes": 5142344,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7.glb.import",
+      "sha256": "e585551621571d1123ed9402f7b147277df07569c1a21d7bfe21356d9675ce9a",
+      "bytes": 1293,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_basecolor.jpg",
+      "sha256": "224a5ae361530b00a7296334ef321aa058426ebfa0fc233bcde3f0c1e17362b5",
+      "bytes": 1158953,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_basecolor.jpg.import",
+      "sha256": "20affc51d6ac344aadece83d70b3b57a0f02cd95edcbe4ded63948af490aa994",
+      "bytes": 1343,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_normal.jpg",
+      "sha256": "c950a2fe6c37834eb4a6d467073047b04d18c5cebb614514e353fee15c7031a0",
+      "bytes": 570718,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_normal.jpg.import",
+      "sha256": "20954be3602d4a4e815dcecbbbdc98cc776707ab01fc5e14bc6f6eb1fb241bd2",
+      "bytes": 1334,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_rm.png",
+      "sha256": "3352721d9df565c7cc4d73ffba53d75971241a9247ecc02eb72f8d9e10f7ba88",
+      "bytes": 2960658,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_candidate",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_atlas4k_visual_v7_stormworks-whole-room-atlas4k-pbr-v5_rm.png.import",
+      "sha256": "b9aae6c4ce4f8c1185e2116c686269dbcaf063400f0c9dbd7f57f6d7d3332377",
+      "bytes": 1322,
+      "review_checkpoint": "STORMWORKS_NATIVE_4K_GATE_OPEN"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/tests/stormworks_full_chapter_review.gd",
+      "sha256": "fd9a6adf45ef2a8b67723a50782dce8a10cd10ec9c33d943b5d23c0cf5b60906",
+      "bytes": 4754,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/tests/stormworks_course_pilot.gd",
+      "sha256": "09fdd22cff50242ea8ce95e85c2d2efbbde1a0a79e9944970047b9cdc7c15ad9",
+      "bytes": 7872,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/tests/stormworks_earned_lifecycle_review.gd",
+      "sha256": "3d3336402891d59d5e816e904c4b446d81464920ee3b077c995b2c1708d07c1b",
+      "bytes": 9585,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/tests/stormworks_current_art_review.gd",
+      "sha256": "3a3315c4a839635aab2c2f0dad2424152c74f292c2a3c7f5a6af3da98d2fbbc4",
+      "bytes": 2649,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_original_pbr_metric_v8.glb",
+      "sha256": "e815ae19cb1bbc914a1c1ee92d80f6401e1427b097f0d16715a2722a3b8c5e93",
+      "bytes": 54977288,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_precision_gate_v1.glb",
+      "sha256": "1e53b6e88ef8fce375e12c4c79ef4231f576d0c976c79ad9b87b0c1749821241",
+      "bytes": 280056,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_precision_wheel_v1.glb",
+      "sha256": "b1f6013a2cf01e6d7142364e784145fe7ab3ca4c98cc4fbb900b061e1a184b32",
+      "bytes": 164336,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
+    },
+    {
+      "group": "maintenance_stormworks_current",
+      "path": "godot/assets/environments/maintenance_stormworks/stormworks_precision_bulkhead_v1.glb",
+      "sha256": "e37725938756710748ab05296b89bbe5c138857d29f78245008315a2a0b793f1",
+      "bytes": 345260,
+      "review_checkpoint": "STORMWORKS_V8_NATIVE353_LIFECYCLE51_ART_SCOPED_PASS"
     }
   ],
   "current_runtime_review": "audits/evidence/chapter-cp45-20261020/stage09/report.json",
@@ -2736,7 +2998,7 @@
   "active_asset_stage": "CP45 native35-sample braced pull-up +20-sample standing continuation; phase07 scoped PASS, phase08 next",
   "active_asset_evidence": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-verified/review.json",
   "context_cache": "docs/internal/production/CURRENT_CONTEXT_CACHE.json",
-  "working_checkpoint": "CP45_STAGE13_ARCHIVE_STATIC_HIGH_ART_NATIVE48_SCOPED_PASS",
+  "working_checkpoint": "ROOM02_FOUR_VIEW_TRIPO_ARCHITECTURE_GENERATED_NATIVE_INTEGRATION_OPEN",
   "current_visual_review": "audits/evidence/chapter-cp45-20261020/stage07/argon-high-verified-review.txt",
   "stage07_verification": {
     "status": "PASS_SCOPED",
@@ -2819,5 +3081,19 @@
     "native": "43 public checks/57PNG + actual5filecoldreload PASS;16colliders/11cues/391bars/4Kmaps;shadowlease7/Golden192 PASS",
     "art": "ArchitecturePASS/MaterialsREFINE/CompositionREFINE",
     "limits": "Prior Vulkan loss cause unproven;whole chapter/acting/audio/fun/strongerhardware OPEN"
+  },
+  "stage13_maintenance_current": {
+    "status": "PRODUCTION_ROOM02_REPLACED_SCOPED_ART_AND_NATIVE_PASS_FULL_HUMAN_ACCEPTANCE_OPEN",
+    "scene": "godot/scenes/native_journey.tscn",
+    "source_hashes": "art/production/maintenance-parkour-rebuild-20261027/native-current-source-hashes.json",
+    "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/quality-report.json",
+    "acceptance": "Scoped current environmental art/native353/lifecycle51PASS;humanfun/audio/deviceperformance/actorqualityOPEN"
+  },
+  "stage13_maintenance_candidate_current": {
+    "status": "PRODUCTION_ROOM02_REPLACED_SCOPED_ART_AND_NATIVE_PASS_FULL_HUMAN_ACCEPTANCE_OPEN",
+    "scene": "godot/scenes/native_journey.tscn",
+    "source_hashes": "art/production/maintenance-parkour-rebuild-20261027/native-current-source-hashes.json",
+    "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/quality-report.json",
+    "acceptance": "Scoped current environmental art/native353/lifecycle51PASS;humanfun/audio/deviceperformance/actorqualityOPEN"
   }
 }

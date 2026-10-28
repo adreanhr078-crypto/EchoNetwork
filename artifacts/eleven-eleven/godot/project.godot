@@ -103,6 +103,7 @@ lock_on={
 [rendering]
 
 renderer/rendering_method="forward_plus"
+reflections/reflection_atlas/reflection_count=4
 environment/glow/upscale_mode=1
 
 textures/vram_compression/import_etc2_astc=true

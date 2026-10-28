@@ -1,0 +1,1504 @@
+{
+  "file": "whole-room-h31-multiview-pbr4k.glb",
+  "sha256": "f77280dc54655124bfa5287e79cb72229a8d5e0cc4b5365e6aa65366184e08b4",
+  "bytes": 64707104,
+  "triangles": 1854657,
+  "mesh_count": 27,
+  "scene_count": 1,
+  "mesh_nodes": [
+    {
+      "name": "tripo_part_0",
+      "mesh": 0
+    },
+    {
+      "name": "tripo_part_1",
+      "mesh": 1
+    },
+    {
+      "name": "tripo_part_2",
+      "mesh": 2
+    },
+    {
+      "name": "tripo_part_3",
+      "mesh": 3
+    },
+    {
+      "name": "tripo_part_4",
+      "mesh": 4
+    },
+    {
+      "name": "tripo_part_5",
+      "mesh": 5
+    },
+    {
+      "name": "tripo_part_6",
+      "mesh": 6
+    },
+    {
+      "name": "tripo_part_7",
+      "mesh": 7
+    },
+    {
+      "name": "tripo_part_8",
+      "mesh": 8
+    },
+    {
+      "name": "tripo_part_9",
+      "mesh": 9
+    },
+    {
+      "name": "tripo_part_10",
+      "mesh": 10
+    },
+    {
+      "name": "tripo_part_11",
+      "mesh": 11
+    },
+    {
+      "name": "tripo_part_12",
+      "mesh": 12
+    },
+    {
+      "name": "tripo_part_13",
+      "mesh": 13
+    },
+    {
+      "name": "tripo_part_14",
+      "mesh": 14
+    },
+    {
+      "name": "tripo_part_15",
+      "mesh": 15
+    },
+    {
+      "name": "tripo_part_16",
+      "mesh": 16
+    },
+    {
+      "name": "tripo_part_17",
+      "mesh": 17
+    },
+    {
+      "name": "tripo_part_18",
+      "mesh": 18
+    },
+    {
+      "name": "tripo_part_19",
+      "mesh": 19
+    },
+    {
+      "name": "tripo_part_20",
+      "mesh": 20
+    },
+    {
+      "name": "tripo_part_21",
+      "mesh": 21
+    },
+    {
+      "name": "tripo_part_22",
+      "mesh": 22
+    },
+    {
+      "name": "tripo_part_23",
+      "mesh": 23
+    },
+    {
+      "name": "tripo_part_24",
+      "mesh": 24
+    },
+    {
+      "name": "tripo_part_25",
+      "mesh": 25
+    },
+    {
+      "name": "tripo_part_26",
+      "mesh": 26
+    }
+  ],
+  "material_count": 27,
+  "materials": [
+    {
+      "name": "tripo_part_0_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "normalTexture": {
+        "index": 2
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_1_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      },
+      "normalTexture": {
+        "index": 5
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_2_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 6
+        },
+        "metallicRoughnessTexture": {
+          "index": 7
+        }
+      },
+      "normalTexture": {
+        "index": 8
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_3_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 9
+        },
+        "metallicRoughnessTexture": {
+          "index": 10
+        }
+      },
+      "normalTexture": {
+        "index": 11
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_4_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 12
+        },
+        "metallicRoughnessTexture": {
+          "index": 13
+        }
+      },
+      "normalTexture": {
+        "index": 14
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_5_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 15
+        },
+        "metallicRoughnessTexture": {
+          "index": 16
+        }
+      },
+      "normalTexture": {
+        "index": 17
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_6_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 18
+        },
+        "metallicRoughnessTexture": {
+          "index": 19
+        }
+      },
+      "normalTexture": {
+        "index": 20
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_7_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 21
+        },
+        "metallicRoughnessTexture": {
+          "index": 22
+        }
+      },
+      "normalTexture": {
+        "index": 23
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_8_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 24
+        },
+        "metallicRoughnessTexture": {
+          "index": 25
+        }
+      },
+      "normalTexture": {
+        "index": 26
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_9_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 27
+        },
+        "metallicRoughnessTexture": {
+          "index": 28
+        }
+      },
+      "normalTexture": {
+        "index": 29
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_10_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 30
+        },
+        "metallicRoughnessTexture": {
+          "index": 31
+        }
+      },
+      "normalTexture": {
+        "index": 32
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_11_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 33
+        },
+        "metallicRoughnessTexture": {
+          "index": 34
+        }
+      },
+      "normalTexture": {
+        "index": 35
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_12_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 36
+        },
+        "metallicRoughnessTexture": {
+          "index": 37
+        }
+      },
+      "normalTexture": {
+        "index": 38
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_13_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 39
+        },
+        "metallicRoughnessTexture": {
+          "index": 40
+        }
+      },
+      "normalTexture": {
+        "index": 41
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_14_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 42
+        },
+        "metallicRoughnessTexture": {
+          "index": 43
+        }
+      },
+      "normalTexture": {
+        "index": 44
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_15_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 45
+        },
+        "metallicRoughnessTexture": {
+          "index": 46
+        }
+      },
+      "normalTexture": {
+        "index": 47
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_16_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 48
+        },
+        "metallicRoughnessTexture": {
+          "index": 49
+        }
+      },
+      "normalTexture": {
+        "index": 50
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_17_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 51
+        },
+        "metallicRoughnessTexture": {
+          "index": 52
+        }
+      },
+      "normalTexture": {
+        "index": 53
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_18_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 54
+        },
+        "metallicRoughnessTexture": {
+          "index": 55
+        }
+      },
+      "normalTexture": {
+        "index": 56
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_19_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 57
+        },
+        "metallicRoughnessTexture": {
+          "index": 58
+        }
+      },
+      "normalTexture": {
+        "index": 59
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_20_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 60
+        },
+        "metallicRoughnessTexture": {
+          "index": 61
+        }
+      },
+      "normalTexture": {
+        "index": 62
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_21_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 63
+        },
+        "metallicRoughnessTexture": {
+          "index": 64
+        }
+      },
+      "normalTexture": {
+        "index": 65
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_22_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 66
+        },
+        "metallicRoughnessTexture": {
+          "index": 67
+        }
+      },
+      "normalTexture": {
+        "index": 68
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_23_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 69
+        },
+        "metallicRoughnessTexture": {
+          "index": 70
+        }
+      },
+      "normalTexture": {
+        "index": 71
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_24_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 72
+        },
+        "metallicRoughnessTexture": {
+          "index": 73
+        }
+      },
+      "normalTexture": {
+        "index": 74
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_25_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 75
+        },
+        "metallicRoughnessTexture": {
+          "index": 76
+        }
+      },
+      "normalTexture": {
+        "index": 77
+      },
+      "doubleSided": true
+    },
+    {
+      "name": "tripo_part_26_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 78
+        },
+        "metallicRoughnessTexture": {
+          "index": 79
+        }
+      },
+      "normalTexture": {
+        "index": 80
+      },
+      "doubleSided": true
+    }
+  ],
+  "images": [
+    {
+      "index": 0,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_0_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 411770,
+      "sha256": "e1050540d50477329d5dfe47e4a4e0a9741b6c757da2458167ba506ee06b71fa"
+    },
+    {
+      "index": 1,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_0_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 257704,
+      "sha256": "bd58a1b2dfe53860a8d428dff81053eb51d4eac3ffd9e9ff1c848286b6a743ea"
+    },
+    {
+      "index": 2,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_0_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 33231,
+      "sha256": "48f025072fbd727b38e306b59824d9000ed7cf1c2d3a7db3f4c274120aaa1025"
+    },
+    {
+      "index": 3,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_1_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 347932,
+      "sha256": "0e0540a02a7d9325b640dd175389c518e17a0ffa9aefd78bf025daa5b1a03201"
+    },
+    {
+      "index": 4,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_1_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 259869,
+      "sha256": "e172e1cca89e0e04aa1b06dafc73a40b976c7b59974f67c5e1d9306091229448"
+    },
+    {
+      "index": 5,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_1_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 42411,
+      "sha256": "bcf9bc6568a9c3c075be55ca66232473890ff163984f52060742fa25b7284665"
+    },
+    {
+      "index": 6,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_2_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 383702,
+      "sha256": "8021469f9094c5293a54d971a528d18127e8954d56f5210176a071de185ba33f"
+    },
+    {
+      "index": 7,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_2_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 263426,
+      "sha256": "301599327f1d012dd95d9ade006af152c35e69e5a1985a87ebd0f96c0a7fef1f"
+    },
+    {
+      "index": 8,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_2_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 35719,
+      "sha256": "7fd4e029f8bd465f13a5d784d3facb36e8e34d8353b90096b96a0fa6d701a366"
+    },
+    {
+      "index": 9,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_3_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 262428,
+      "sha256": "7a8f00aabcf6669479d6266733d69d1c74155f7c0d0271317248dd06cf41d889"
+    },
+    {
+      "index": 10,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_3_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 243168,
+      "sha256": "59328441cd0d7a1d5aab4874e707f5321487ec04b04ec4722b80ead4f36aad69"
+    },
+    {
+      "index": 11,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_3_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 28303,
+      "sha256": "df260a94b8e33f94b6a6b6b43fa789e3f8bce8bc81e9fbe802a1b4b075f78f1d"
+    },
+    {
+      "index": 12,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_4_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 358998,
+      "sha256": "19b4ce83764e30325204ff001c9526dbd8d468827a0e82417f3c32c7a4f73c08"
+    },
+    {
+      "index": 13,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_4_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 290174,
+      "sha256": "17bef37c2f8b31f8897b0cb58a0f763c725be4e7f8dc14dbdb928d0618b33082"
+    },
+    {
+      "index": 14,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_4_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 31891,
+      "sha256": "e9bc405177ac839bae912a87db2c04d596fb29871619a2f29986f3fedc4d26a3"
+    },
+    {
+      "index": 15,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_5_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 1076382,
+      "sha256": "c42087bd0840a0efded072f56c133f1b2121dd53b58911b1bbebb8eb4b30764f"
+    },
+    {
+      "index": 16,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_5_rm.png",
+      "mime": "image/png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 727538,
+      "sha256": "8a718df98a846bd6b3b5ed6e9447c3af24eb0957b3bf2b850f4a809530b3514f"
+    },
+    {
+      "index": 17,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_5_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 138700,
+      "sha256": "5e633e1e1690d3d3b38be355f03464f51f69b238ccb7211bf559cc02d6a97bbc"
+    },
+    {
+      "index": 18,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_6_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 318630,
+      "sha256": "16bb1e584e0fc26ec552404b841fb5e2d1ba19592e97e41ac6dbc391d71c2dde"
+    },
+    {
+      "index": 19,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_6_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 253329,
+      "sha256": "4ce375807f80ad21b8c81180b22b2b51bb48dad05ee200dd8df12e3397d8f378"
+    },
+    {
+      "index": 20,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_6_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 37094,
+      "sha256": "cdeec62afe1c238620b44fe16114b0adf84ad61f465e507a7369828d23d4bddc"
+    },
+    {
+      "index": 21,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_7_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 320088,
+      "sha256": "124ead1c309a10a4ee13b6611d92f13ea1c91866191f87932f62c994acfedefa"
+    },
+    {
+      "index": 22,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_7_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 253870,
+      "sha256": "894aadb2a069619f91b9f4f012d5346f5a5b3959508c750a69f817a11b2f364b"
+    },
+    {
+      "index": 23,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_7_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 41636,
+      "sha256": "6f067d582fcf5de260a1a501be1dd404249b7bb918d4148c53cb33bcd10fdcc4"
+    },
+    {
+      "index": 24,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_8_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 66985,
+      "sha256": "b936adf7156cf55b4c45f2e54653090455f728b26a19862e394e6612c42e6457"
+    },
+    {
+      "index": 25,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_8_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 54540,
+      "sha256": "2f123b83fee1c4c2d54f446196a330d59e8ed3c80d575230df6535c34c53783f"
+    },
+    {
+      "index": 26,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_8_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 8190,
+      "sha256": "c0db901e465ffbfa91862fca236ccba16d4705d57b032bc88abad7778d167dde"
+    },
+    {
+      "index": 27,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_9_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 78250,
+      "sha256": "87ded2705b81ff12945a55734460db18f4c86e15fbd78be1beb5cc15261d350e"
+    },
+    {
+      "index": 28,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_9_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 65985,
+      "sha256": "6e393b25bac7f2a59fc23f49f2c15a16e36c627a6c8a52e612ba45555fd4b13e"
+    },
+    {
+      "index": 29,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_9_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 7665,
+      "sha256": "22d235a406516f40e29864465b6a46f01d379526f7ffc1e78352ca9170dbc1e7"
+    },
+    {
+      "index": 30,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_10_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 87707,
+      "sha256": "5baf6e1b12385ffa4a3cc52f762279be3b87e2c380231662f9ed3ef804d9ac7d"
+    },
+    {
+      "index": 31,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_10_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 63884,
+      "sha256": "7cecc7e6de1ccb98b53a479b6e48d46380b197e123022103ed294bf4c62f9fdf"
+    },
+    {
+      "index": 32,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_10_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 7935,
+      "sha256": "4f08876e785719953e685f152f843a2cfd6337b5473d0a0b25e2b8f59a7dc635"
+    },
+    {
+      "index": 33,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_11_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 68488,
+      "sha256": "f2b9959efed3ef9ea9ed58d698bb874f72f75e6df18d06a9a6e35f52497e370a"
+    },
+    {
+      "index": 34,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_11_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 57077,
+      "sha256": "8ae04376e6b3e27c185daf72d9e185ec8803314f320bd01d6fbf0f0891549878"
+    },
+    {
+      "index": 35,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_11_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 11774,
+      "sha256": "30ff30ce6731cd9941ed2b09f086fde1af71953e13862854beda6db00a942229"
+    },
+    {
+      "index": 36,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_12_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 81534,
+      "sha256": "07eb2ac1054f72cc35ab24f1aff981827757642826a9dcec29dfcb16f2096acd"
+    },
+    {
+      "index": 37,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_12_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 63538,
+      "sha256": "5a73129e9f10ee2c49b13babd11ff0af571add8ba28418ad74ef5021ed76775c"
+    },
+    {
+      "index": 38,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_12_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 10936,
+      "sha256": "1f2005fac016cdfd903e023fb39960217a17246e36a77d8ddc34288b75dac3da"
+    },
+    {
+      "index": 39,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_13_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 65739,
+      "sha256": "e3b0d79a0c47cda17dca5f1e8d7821b14e027123ac4429e938e2f0bde5eec7be"
+    },
+    {
+      "index": 40,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_13_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 57145,
+      "sha256": "79e23a600249dd937bc4838f537cc90c7040bf1f3ca71dd45abc12af7b5c6397"
+    },
+    {
+      "index": 41,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_13_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 10125,
+      "sha256": "6bf3ae104c031378b90fb4ef8c627760029e0a39842b29ce5421b46c192165d4"
+    },
+    {
+      "index": 42,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_14_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 77276,
+      "sha256": "5b4b64c4918ae1eb8fd4062ee4661aba61a80c3beb0bea16fe74fd5ea0f98dfc"
+    },
+    {
+      "index": 43,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_14_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 59408,
+      "sha256": "4d1ce31c4a55869f399ca2ba8a7ada2fe674c182058d5f14f0a992f9aa813dc1"
+    },
+    {
+      "index": 44,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_14_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 10922,
+      "sha256": "6b3e8e49536a8647a27c28c9cb15d13f7f5bfff7774c4c890097606c7b6263b0"
+    },
+    {
+      "index": 45,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_15_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 72700,
+      "sha256": "67421c25642af80c7788138732cc13f99fd597cffe482270264cf012ba11845a"
+    },
+    {
+      "index": 46,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_15_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 56368,
+      "sha256": "c632602733ee034e606a2df88009b57ca7b73817144eeda221fcf490a9ac21c2"
+    },
+    {
+      "index": 47,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_15_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 8094,
+      "sha256": "d425915d936207a0d3dbb5266beeeb9d04ada261ab1d34c327f25723715ff507"
+    },
+    {
+      "index": 48,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_16_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 19968,
+      "sha256": "e4fd4e9391a5befaa05cca28ab4b0238e82ead9aed9cb5296f7ac3e8d063bc43"
+    },
+    {
+      "index": 49,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_16_rm.png",
+      "mime": "image/png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 16703,
+      "sha256": "a0b7e0a80947f78be39a35e0f2653a1aa5e028014b19c61dc263a977754de84e"
+    },
+    {
+      "index": 50,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_16_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 2646,
+      "sha256": "b9db1ef92e6722fa081585711bf685fbaa1bcae5b7cab2c8311fea4a1b3ff113"
+    },
+    {
+      "index": 51,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_17_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 333924,
+      "sha256": "4321da2f78385f938b58a1b9c708e2f7d9674c9b114aea43c8034cdc7554c29b"
+    },
+    {
+      "index": 52,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_17_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 250557,
+      "sha256": "7c474788caaa24e4b09986e86e9f6e47ea1bde9079cd886239157956dfbc4df0"
+    },
+    {
+      "index": 53,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_17_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 40467,
+      "sha256": "560e789e1faa0e703e83bfc787c217501f1f048a7f451b2b14fbbc17f35c86db"
+    },
+    {
+      "index": 54,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_18_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 257345,
+      "sha256": "ec16d75d2d7758a2a2ce4c3fcba84bb4c45de4ef215d814392c19557296f4d96"
+    },
+    {
+      "index": 55,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_18_rm.png",
+      "mime": "image/png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 223665,
+      "sha256": "278b79abdbc17b9291c8187b200383b87a9fce39e558ec1592ec834db73a6cf2"
+    },
+    {
+      "index": 56,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_18_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 35769,
+      "sha256": "b5b4986738f8ea9c9aed1fec0d3965c13f6e3a60cbcdf29acd1a8bf30ff5478d"
+    },
+    {
+      "index": 57,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_19_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 82208,
+      "sha256": "ea59aaa8feec9497c526c0cb9cde05692087dbdc130075a1fef5ec2158b46631"
+    },
+    {
+      "index": 58,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_19_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 61398,
+      "sha256": "5948520fb6866fe4579d4080438fccec5f1b8d044ee733d9603b354bc23e9f9b"
+    },
+    {
+      "index": 59,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_19_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 9687,
+      "sha256": "7eed439c14283e869556903e3e652fe1c5dd50d28f0be1a634d90a76fab8166a"
+    },
+    {
+      "index": 60,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_20_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 66559,
+      "sha256": "faad91696ae6d35b60bf870061c9547ea47854f6593e5e8dc08be28c983a994d"
+    },
+    {
+      "index": 61,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_20_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 56148,
+      "sha256": "34e98c0b865279a7ad86ab21275362e576d8f4355fe8f42ec88cd7e255d8ea59"
+    },
+    {
+      "index": 62,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_20_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 8935,
+      "sha256": "6240e533e7b6c9b9ecb4eb08e09ca500bb38060ab21a6a64cf5c48cdb2087154"
+    },
+    {
+      "index": 63,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_21_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 71962,
+      "sha256": "b5e77ac2ac22a0c084fe73eb229feb70263720b2babb7e97947ec4a682c30a69"
+    },
+    {
+      "index": 64,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_21_rm.png",
+      "mime": "image/png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 58456,
+      "sha256": "9c1107243058ae07502bd457a3dac6bf9a895786ab8cab35de47862c572e7b76"
+    },
+    {
+      "index": 65,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_21_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 10403,
+      "sha256": "3168d85f22534b6ac9b1775acf2458e36927dcf18fd670d1633563aa0032c0ee"
+    },
+    {
+      "index": 66,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_22_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 16695,
+      "sha256": "2bdad634a19507b46ee4004bac388231ecafb1ec4d48d943437ab1e28189868c"
+    },
+    {
+      "index": 67,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_22_rm.png",
+      "mime": "image/png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 14324,
+      "sha256": "90b96da706af938a26c7846b42bddc042e3154c751af32120e6c35eee4060765"
+    },
+    {
+      "index": 68,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_22_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 3800,
+      "sha256": "36e16dd52cceb96619a4683d8e0ceabfe93434428077fe5c924884de83f31f04"
+    },
+    {
+      "index": 69,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_23_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "bytes": 15375,
+      "sha256": "53cbb84d2f175a95f463e00e453afd4a8d8d19a24236ecac76028ce9e0b8ee80"
+    },
+    {
+      "index": 70,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_23_rm.png",
+      "mime": "image/png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 15919,
+      "sha256": "6a78bfcac9932d6f74c288015b52ddecc6f80db8441d08506f675b103d5b1b74"
+    },
+    {
+      "index": 71,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_23_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 2532,
+      "sha256": "823ac2179c878c5862a3821486b2b85cbe0b69bf4b17a8ed9aef9c352afacc91"
+    },
+    {
+      "index": 72,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_24_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 6608,
+      "sha256": "6a5723257309acfda9118aa661a5840026b32f338dcd9f1e2c3b4729e5c1b03e"
+    },
+    {
+      "index": 73,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_24_rm.png",
+      "mime": "image/png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "bytes": 4513,
+      "sha256": "f8e38a1270a352991d56bcc656b75efd6b62fa4f70f21e16af4697ab20314a22"
+    },
+    {
+      "index": 74,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_24_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "bytes": 1561,
+      "sha256": "63adcc749d6f857338b5900c0bb9a5ff5758a7e4f3d91ee40da80db5c50d937f"
+    },
+    {
+      "index": 75,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_25_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "bytes": 4242,
+      "sha256": "15dea4fde3c6334412669c44be0eee8987e785ccf1903374a425e0758dd94bec"
+    },
+    {
+      "index": 76,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_25_rm.png",
+      "mime": "image/png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "bytes": 3983,
+      "sha256": "fc3cfb373b81a6d17bfdb466753eb9289e2fdfde174c097c81e7c364f373f5c0"
+    },
+    {
+      "index": 77,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_25_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "bytes": 1347,
+      "sha256": "c0e935b8649f86cc8184b662bcdfffb96d5e90bdf401d5b0aa5e5d8494219131"
+    },
+    {
+      "index": 78,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_26_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGB",
+      "bytes": 736,
+      "sha256": "ef6d5af1bb07c80c78ffc85a9c2e7e3513ee605b344abb2b0b2de2ee63b852ca"
+    },
+    {
+      "index": 79,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_26_rm.png",
+      "mime": "image/png",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGB",
+      "bytes": 560,
+      "sha256": "a2da978c3c19b672c34cef65334caefa0a9c3e4a8fa9a8bec28341c86addce10"
+    },
+    {
+      "index": 80,
+      "name": "industrial_sci-fi_interior_3d_model_tripo_part_26_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGB",
+      "bytes": 770,
+      "sha256": "2ef2e9134e4e83265a74ccc693287cec235db4548efafc7f02c93ac1f3657e85"
+    }
+  ],
+  "extensions": [
+    "KHR_materials_volume",
+    "FB_ngon_encoding"
+  ]
+}

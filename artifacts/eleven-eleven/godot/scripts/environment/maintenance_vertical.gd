@@ -20,6 +20,12 @@ var _release_audio: AudioStreamPlayer3D
 var _motion_reduced := false
 var _service_tween: Tween
 var _valve_tween: Tween
+var service_floor_anchor := Vector3(1.25,5.4,-12.1)
+var service_hand_anchor := Vector3(1.25,5.4,-12.18)
+var service_wheel_center := Vector3(1.25,6.35,-12.34)
+var service_gate_anchor := Vector3(0,6.36,-12.94)
+var service_camera_position := Vector3(2.8,6.9,-10.85)
+var service_camera_target := Vector3(.4,6.4,-12.75)
 var presentation: Node3D
 
 func _ready() -> void:
@@ -51,6 +57,13 @@ func _ready() -> void:
 	if animation:
 		# A still rest pose is valid for reduced motion; director owns playback.
 		animation.stop()
+	_build_service()
+	presentation = preload("res://scripts/environment/maintenance_room_presentation.gd").new()
+	add_child(presentation)
+	set_reduced_motion(_motion_reduced)
+	preload("res://scripts/environment/maintenance_mechanical_dressing.gd").install(self)
+
+func _build_service() -> void:
 	_gate = find_child("ServiceGateRoot", true, false)
 	_valve = find_child("ServiceValveRoot", true, false)
 	if not _gate or not _valve:
@@ -60,7 +73,7 @@ func _ready() -> void:
 	_closed_valve = _valve.rotation
 	var body := StaticBody3D.new()
 	body.name = "ServiceGateCollision"
-	body.position = Vector3(0, 6.36, -12.94)
+	body.position = service_gate_anchor
 	_gate_collider = CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(1.75, 1.9, 0.16)
@@ -70,7 +83,7 @@ func _ready() -> void:
 	var station := Node3D.new()
 	station.name = "ServiceOverride"
 	station.set_script(OVERRIDE)
-	station.position = Vector3(1.25, 5.4, -12.1)
+	station.position = service_floor_anchor
 	service_interaction = InteractableComponent.new()
 	service_interaction.name = "InteractionArea"
 	service_interaction.verb = InteractableComponent.InteractionVerb.OPEN
@@ -86,21 +99,16 @@ func _ready() -> void:
 	_release_audio = AudioStreamPlayer3D.new()
 	_release_audio.name = "ServiceReleaseSound"
 	_release_audio.stream = RELEASE_SOUND
-	_release_audio.position = Vector3(0,6.4,-12.9)
+	_release_audio.position = service_gate_anchor
 	_release_audio.volume_db = -18
 	_release_audio.max_distance = 12
 	add_child(_release_audio)
 	var destination_light := OmniLight3D.new()
-	destination_light.position = Vector3(0,6.8,-11.5)
+	destination_light.position = service_floor_anchor + Vector3(-.75,1.3,.8)
 	destination_light.light_color = Color(0.8,0.9,1)
-	destination_light.position = Vector3(0.5,6.7,-11.3)
 	destination_light.light_energy = 1.35
 	destination_light.omni_range = 8.5
 	add_child(destination_light)
-	presentation = preload("res://scripts/environment/maintenance_room_presentation.gd").new()
-	add_child(presentation)
-	set_reduced_motion(_motion_reduced)
-	preload("res://scripts/environment/maintenance_mechanical_dressing.gd").install(self)
 
 func set_language(language: String) -> void:
 	if is_instance_valid(presentation): presentation.set_language(language)
@@ -108,7 +116,7 @@ func set_language(language: String) -> void:
 		service_interaction.prompt_target_name = "عجلة تنفيس الضغط" if language == "ar" else "Pressure relief wheel"
 
 func request_service_release(interactor: Node3D) -> Dictionary:
-	var floor_anchor := to_global(Vector3(1.25,5.4,-12.1))
+	var floor_anchor := to_global(service_floor_anchor)
 	if not service_allowed or service_open or service_opening:
 		return {"released":false, "reason":"not_ready"}
 	if not interactor is EchoPlayer or service_interaction.current_interactor != interactor or interactor.control_locked or not interactor.is_on_floor() or interactor.global_position.distance_to(floor_anchor) > 1.45:

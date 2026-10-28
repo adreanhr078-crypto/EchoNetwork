@@ -108,7 +108,7 @@ func _build() -> void:
 	if not saved.is_empty(): progress=saved
 	for index in IDS.size():
 		var room: Node3D=load("res://scenes/environment/"+FILES[index]+".tscn").instantiate()
-		room.position=ORIGINS[index]
+		room.position=ORIGINS[index]+native_owner.downstream_offset
 		room.name="Campaign_"+IDS[index]
 		main.add_child(room)
 		rooms.append(room)
@@ -116,7 +116,7 @@ func _build() -> void:
 		if room.has_signal("retry_requested"): room.retry_requested.connect(_retry_room.bind(index))
 		_restore_room(index)
 		var conduit: Node3D=load("res://scenes/environment/"+CONDUITS[index]+".tscn").instantiate()
-		conduit.position=Vector3(0,5.4,-50) if index==0 else ORIGINS[index-1]+EXITS[index-1]
+		conduit.position=(Vector3(0,5.4,-50) if index==0 else ORIGINS[index-1]+EXITS[index-1])+native_owner.downstream_offset
 		conduit.name="CampaignBuffer_"+str(index)
 		main.add_child(conduit)
 		conduits.append(conduit)
@@ -160,7 +160,7 @@ func _activate() -> void:
 	main.player.set_combat_available(false)
 	if current>0 and current<rooms.size():
 		main.player.surface_motor.reset(main.player)
-		main.player.global_position=rooms[current].to_global(rooms[current].get_safe_anchor()) if current==5 else ORIGINS[current]+ANCHORS[current]
+		main.player.global_position=rooms[current].to_global(rooms[current].get_safe_anchor()) if current==5 else rooms[current].to_global(ANCHORS[current])
 		main.player.velocity=Vector3.ZERO
 	if current>=rooms.size(): _begin_hospital(false)
 	else:

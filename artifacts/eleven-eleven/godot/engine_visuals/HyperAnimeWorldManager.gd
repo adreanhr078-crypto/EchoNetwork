@@ -356,8 +356,9 @@ func _sync_room_environment_context()->void:
 		var maintenance:Node=main.get_node_or_null("SystemJourneyPreview")
 		if maintenance!=null and "room" in maintenance and is_instance_valid(maintenance.room):
 			var point:Vector3=maintenance.room.to_local(player.global_position)
-			if point.x>=-4.25 and point.x<=5.25 and point.z<=.55 and point.z>=-14.65:
-				next_profile="maintenance_pressure_bay"
+			var inside_room:bool=point.x>=-4.25 and point.x<=5.25 and point.z<=.55 and point.z>=-14.65
+			if maintenance.room.has_method("contains_presentation_point"):inside_room=maintenance.room.contains_presentation_point(point)
+			if inside_room:next_profile="maintenance_pressure_bay"
 	if next_profile==_facility_preset_context:return
 	# Save the real prior environment once,including direct archive→reactor
 	# transitions. A facility profile never becomes the next scene's baseline.

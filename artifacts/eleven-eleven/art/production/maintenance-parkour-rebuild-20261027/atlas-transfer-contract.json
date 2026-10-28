@@ -1,0 +1,261 @@
+{
+  "status": "UV_TRANSFER_VERIFIED_NATIVE_ART_PENDING",
+  "source_sha256": "555d53a64e3ccc7e7c9e29d6464a4ffb1434078d3e03f14b5c5fee0382c6f060",
+  "donor_sha256": "b51734ab78a9122be34968ada897afc3e20203bd82bbf971accc8054b90d5ebb",
+  "output_sha256": "19dd68c150c8006f3abd914626a79bd97ff23b58c96315219218f4d4951f52b3",
+  "bytes": 50680972,
+  "rigid_yaw_blender_z_degrees": 90,
+  "uniform_registration_scale": 0.98175048828125,
+  "registration_candidates": [
+    {
+      "degrees": -90,
+      "mean_error": 0.02049483361536514
+    },
+    {
+      "degrees": 90,
+      "mean_error": 1.0034258001160611e-05
+    }
+  ],
+  "all_source_vertices_checked": 960568,
+  "max_distance": 2.820624467858579e-05,
+  "p999_distance": 2.0962936447176598e-05,
+  "geometry_hashes_unchanged": {
+    "Stormworks_tripo_part_0": "f0aec745caf79de8f568b0af8bafabf7ceabe3ce3d99f724413a8fddd4b88605",
+    "Stormworks_tripo_part_1": "e71ed4adc00873aa53e60713bf51511e7e67422352f5a1b6f973079c801a36e2",
+    "Stormworks_tripo_part_2": "3369f22e04e337a68ca31b21b48475bd0e51da9849a6f317903f5215de4b77bd",
+    "Stormworks_tripo_part_3": "0aba654f08dabb9db8bc6bcb361dbd09ed5e14e301f0694bb3de49a290693c60",
+    "Stormworks_tripo_part_4": "f8dd0dcf03d90bee8a37cd14684bbb95e2cc15b13fde05ed96ffe670dec7e20b",
+    "Stormworks_tripo_part_5": "7d27dbb8ca6911e5a14c70efe01a47e8cd8cd111cd08ca60150aea1590d76fb5",
+    "Stormworks_tripo_part_6": "bfe0e233c682ebd030116105f5e6ae6931b5432e4d8e1470000d4bf7c0233b52",
+    "Stormworks_tripo_part_7": "8ee77a9b40b368a26e408b06c2b224c244d96435d8a957a7810b3609823c5873",
+    "Stormworks_tripo_part_8": "cabefac01b184d2394e0ae77c6d9afb88eb07d92a835bd23c516326d98531757",
+    "Stormworks_tripo_part_9": "64c8f1b299383e895bf60e97a02d448f2f008bae51f3315241d724bb3c38062f",
+    "Stormworks_tripo_part_10": "493dcb6f085cb7c65f45fe9faa0f8c6b8e79ef18e9b8420c28fc10536420e5d2",
+    "Stormworks_tripo_part_11": "4c9824f1f870d58388834da484f6a159ea54c3affb102c2626c83f78b1b28998",
+    "Stormworks_tripo_part_12": "6d923102867b42ae671eb8d7389c9217971a329d1bfa75d5ac1bc84d9a6280b3",
+    "Stormworks_tripo_part_13": "b876d05abaa8df6de7d551cd6289ebc14ecc177524ec189e2b20da6cf9ad0d25",
+    "Stormworks_tripo_part_14": "cdfb296d072eaeece06ff73b5e9c60b0d0f1f75f891e1899df37e09667c8dbc4",
+    "Stormworks_tripo_part_15": "11eb948ea3b90c9500f054683e2112311fd7301b9e2f0b4e10d5cd7f07629887",
+    "Stormworks_tripo_part_16": "ea5274b49125c4fe9046188b663554f5e21e92004f50f36c91a7f56f3f20d414",
+    "Stormworks_tripo_part_17": "a092f643975301f3f7aef5871ba1d75f11bb0933c6c54cec4ec19dde9cad9a03",
+    "Stormworks_tripo_part_18": "1ef330b19cfae107cc562a22b83c0503bceba9d4feea9492402deffbf67d335f",
+    "Stormworks_tripo_part_19": "0434cf69514f17b738e264db13a9be3b07a4220784a473cc8253c4a5f3bb6059",
+    "Stormworks_tripo_part_20": "7045723f1ddd8e5f394fec7367db4e9d68d6a1c95a904bd834c07a2b3c215269",
+    "Stormworks_tripo_part_21": "ef5968d7c34ec94bb632f8044f29ee1a45dec03f843c78d7863b53f60d000558",
+    "Stormworks_tripo_part_22": "5d689c50a17b95aeaff9ef883c83e53f7802b540b21259b60661ea66dae101af",
+    "Stormworks_tripo_part_23": "ef32beb05d80d2a4f27b32b4636b2d5edfe47cb47361368ddfb0c81164c357ea",
+    "Stormworks_tripo_part_24": "143c52d123478d9551a00fb5388e66501ae38f0349c8a44718e7ce3121ff9f2b",
+    "Stormworks_tripo_part_25": "faa20496d9e7213d79e205665fa0d934859050538c49c6269f0cbe5a98ccf880",
+    "Stormworks_tripo_part_26": "5fb288080bb0f1926fd20c4ea753e11fc6af8b8990204b3bef5ed28cad0db28b"
+  },
+  "images": [
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_basecolor.jpg",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_normal.jpg",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "name": "stormworks-whole-room-atlas4k-pbr-v5_rm.png",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "face_correspondence": [
+    {
+      "part": "Stormworks_tripo_part_0",
+      "triangles": 285019,
+      "exact_face_matches": 285019,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.550958679058584e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_1",
+      "triangles": 118199,
+      "exact_face_matches": 118199,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.687677134279023e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_2",
+      "triangles": 202151,
+      "exact_face_matches": 202100,
+      "adjacent_face_fallbacks": 51,
+      "max_uv_corner_distance": 2.6118303585711237e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_3",
+      "triangles": 69424,
+      "exact_face_matches": 69424,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.5100000879156465e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_4",
+      "triangles": 26525,
+      "exact_face_matches": 26509,
+      "adjacent_face_fallbacks": 16,
+      "max_uv_corner_distance": 1.6994328476790436e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_5",
+      "triangles": 217765,
+      "exact_face_matches": 217765,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.502406907502828e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_6",
+      "triangles": 113483,
+      "exact_face_matches": 113479,
+      "adjacent_face_fallbacks": 4,
+      "max_uv_corner_distance": 2.677310337910919e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_7",
+      "triangles": 98036,
+      "exact_face_matches": 98036,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.4532601007974384e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_8",
+      "triangles": 31157,
+      "exact_face_matches": 31157,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 1.668838415706059e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_9",
+      "triangles": 45134,
+      "exact_face_matches": 45134,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.1285162917682465e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_10",
+      "triangles": 59489,
+      "exact_face_matches": 59483,
+      "adjacent_face_fallbacks": 6,
+      "max_uv_corner_distance": 2.4157146542570107e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_11",
+      "triangles": 30759,
+      "exact_face_matches": 30759,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 1.225304327273211e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_12",
+      "triangles": 38097,
+      "exact_face_matches": 38092,
+      "adjacent_face_fallbacks": 5,
+      "max_uv_corner_distance": 2.8175416475583408e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_13",
+      "triangles": 30027,
+      "exact_face_matches": 30027,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.034366842957195e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_14",
+      "triangles": 25557,
+      "exact_face_matches": 25557,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.1690051612491374e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_15",
+      "triangles": 23091,
+      "exact_face_matches": 23082,
+      "adjacent_face_fallbacks": 9,
+      "max_uv_corner_distance": 2.272570989744246e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_16",
+      "triangles": 18373,
+      "exact_face_matches": 18373,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.1766286878060327e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_17",
+      "triangles": 109814,
+      "exact_face_matches": 109814,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.602698881703187e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_18",
+      "triangles": 53481,
+      "exact_face_matches": 53481,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.674225010851266e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_19",
+      "triangles": 39539,
+      "exact_face_matches": 39536,
+      "adjacent_face_fallbacks": 3,
+      "max_uv_corner_distance": 2.0465457891503774e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_20",
+      "triangles": 31842,
+      "exact_face_matches": 31842,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.3151337402208158e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_21",
+      "triangles": 30888,
+      "exact_face_matches": 30888,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 1.7090326607558247e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_22",
+      "triangles": 6319,
+      "exact_face_matches": 6319,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.7289947107742533e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_23",
+      "triangles": 5569,
+      "exact_face_matches": 5569,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.090500680768245e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_24",
+      "triangles": 2372,
+      "exact_face_matches": 2372,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 1.689476938597312e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_25",
+      "triangles": 2233,
+      "exact_face_matches": 2233,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 2.4809677131112824e-05
+    },
+    {
+      "part": "Stormworks_tripo_part_26",
+      "triangles": 1,
+      "exact_face_matches": 1,
+      "adjacent_face_fallbacks": 0,
+      "max_uv_corner_distance": 1.9678506702856204e-05
+    }
+  ],
+  "native_vault_transform": "Room applies the same rigid transform to visual part23 and collision part23",
+  "limitations": "UV/geometry contract only;requires current native captures and public traversal."
+}

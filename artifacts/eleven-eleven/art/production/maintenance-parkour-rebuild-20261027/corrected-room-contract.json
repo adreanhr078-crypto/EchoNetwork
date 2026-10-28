@@ -1,0 +1,36 @@
+{
+  "status": "DERIVATIVE_PREPARED_NATIVE_REVIEW_PENDING",
+  "source": "whole-room-h31-multiview-pbr4k.glb",
+  "source_sha256": "f77280dc54655124bfa5287e79cb72229a8d5e0cc4b5365e6aa65366184e08b4",
+  "original_scene_preserved": "STORMWORKS_ORIGINAL_PBR_20261027",
+  "uniform_native_scale": 18.334597451041343,
+  "native_ground_shift_y": -1.05,
+  "native_front_setback_m": 1,
+  "bridge": {
+    "part": "tripo_part_4",
+    "triangles_before": 164328,
+    "triangles_after": 26525,
+    "retained_depth_m": 1.9999999392873795,
+    "end_section_source_y_m": [
+      -2,
+      0
+    ],
+    "rigid_translation_blender_y_m": 8.3,
+    "depth_measurement": "Measured vertices after exact open-shell clipping;solid Boolean derivative rejected",
+    "method": "Vertical ray grid found the continuous source floor atY-2..0m;preserve that complete section and translateY+8.3m"
+  },
+  "vault": {
+    "part": "tripo_part_23",
+    "scale_about_center": [
+      0.65,
+      1,
+      1
+    ],
+    "reason": "Fits native vault landing clearance;no whole-room distortion"
+  },
+  "scope": "Complete Tripo environment with two scoped assembly corrections. No collision/player/art acceptance yet.",
+  "collision_triangles": 155011,
+  "corrected_visual_triangles": 1724875,
+  "single_mesh_source_sha256": "cd531b6d874da284bf2e2e7cc531069c2fdb0f5432de389afe342186b1d4b99a",
+  "collision_source_sha256": "2a94afda278527a2c050cd2e0929fb57e98b58feccf2c4ca879e4673d5a67409"
+}

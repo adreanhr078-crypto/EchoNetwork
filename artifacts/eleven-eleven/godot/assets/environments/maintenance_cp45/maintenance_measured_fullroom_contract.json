@@ -1,0 +1,214 @@
+{
+  "asset_sha256": "2bdc6a0d2534c14b435fcf5a8cb831656e833e36698d0c0c27e813f4024a58aa",
+  "raw_source_triangles": 1913491,
+  "native_derivative_triangles": 1553260,
+  "parts": [
+    {
+      "part": "MeasuredLeftPressureBulkhead",
+      "triangles": 305638,
+      "native_target_box": [
+        [
+          -4.600000098347664,
+          0.0,
+          -14.5
+        ],
+        [
+          -4.200000092387199,
+          10.600000381469727,
+          0.5
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredRightPressureBulkhead",
+      "triangles": 204100,
+      "native_target_box": [
+        [
+          5.200000092387199,
+          0.0,
+          -14.5
+        ],
+        [
+          5.600000098347664,
+          10.600000381469727,
+          0.5
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredRearServiceBulkhead",
+      "triangles": 79889,
+      "native_target_box": [
+        [
+          -4.5,
+          0.0,
+          -14.700000002980232
+        ],
+        [
+          5.5,
+          10.600000381469727,
+          -14.299999997019768
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredFirstClimbMachinery",
+      "triangles": 219194,
+      "native_target_box": [
+        [
+          -2.5,
+          0.0,
+          -6.25
+        ],
+        [
+          2.5,
+          3.4000000953674316,
+          -5.75
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredSecondClimbMachinery",
+      "triangles": 29998,
+      "native_target_box": [
+        [
+          3.0,
+          3.4000000953674316,
+          -9.649999618530273
+        ],
+        [
+          5.0,
+          5.400000095367432,
+          -9.149999618530273
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredGrating_COLL_UpperRest",
+      "triangles": 36719,
+      "native_target_box": [
+        [
+          -2.5,
+          3.0000000447034836,
+          -8.200000047683716
+        ],
+        [
+          2.5,
+          3.400000050663948,
+          -5.799999952316284
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredGrating_COLL_GapLanding",
+      "triangles": 36719,
+      "native_target_box": [
+        [
+          3.0,
+          3.0000000447034836,
+          -8.200000047683716
+        ],
+        [
+          5.0,
+          3.400000050663948,
+          -5.799999952316284
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredGrating_COLL_FinalRest",
+      "triangles": 36719,
+      "native_target_box": [
+        [
+          3.0,
+          4.9999998062849045,
+          -11.799999833106995
+        ],
+        [
+          5.0,
+          5.399999812245369,
+          -9.599999785423279
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredGrating_COLL_ExitDeck",
+      "triangles": 36719,
+      "native_target_box": [
+        [
+          -3.0,
+          4.9999998062849045,
+          -12.900000214576721
+        ],
+        [
+          3.0,
+          5.399999812245369,
+          -11.700000166893005
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredGrating_COLL_ServiceVestibule",
+      "triangles": 36719,
+      "native_target_box": [
+        [
+          -1.5,
+          4.9999998062849045,
+          -14.300000190734863
+        ],
+        [
+          1.5,
+          5.399999812245369,
+          -12.800000190734863
+        ]
+      ]
+    },
+    {
+      "part": "MeasuredEntryServiceFloor",
+      "triangles": 285757,
+      "native_target_box": [
+        [
+          -4.0,
+          -0.30000001192092896,
+          -6.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ]
+      ]
+    },
+    {
+      "part": "UpperPressureBayBeamCrown",
+      "triangles": 245089,
+      "native_target_box": [
+        [
+          -4.58,
+          10.18,
+          -14.68
+        ],
+        [
+          5.58,
+          10.59,
+          0.48
+        ]
+      ]
+    }
+  ],
+  "maps": [
+    [
+      4096,
+      4096
+    ],
+    [
+      4096,
+      4096
+    ],
+    [
+      4096,
+      4096
+    ]
+  ],
+  "scope": "Measured modular derivative of whole-room Tripo source. Source proportion remapping/clipped cut-boundaries explicit;not exact image geometry,not art/player acceptance. Original grip/contact/gate/wheel/camera/save owners remain native."
+}

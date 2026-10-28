@@ -3,9 +3,11 @@ extends RefCounted
 ## Collision-led human traversal. Opt-in until animation/device acceptance.
 signal ledge_reached
 signal mantle_completed
+signal vault_completed
 const REACH := 0.9
 const HANG_HEIGHT := 1.5
 const ASSIST_LIMIT := 0.25
+var last_transition_rejection := ""
 var hanging := false
 var latch_cooldown := 0.0
 var _mantle_points: Array[Vector3] = []
@@ -112,13 +114,21 @@ func _tick_hang_animation(body: CharacterBody3D, delta: float) -> void:
 	body.animation_player.seek(float(clip.get_meta("wall_support_pose_seconds", _hang_elapsed)), true)
 
 func _begin_transition(body: CharacterBody3D, points: Array[Vector3], support: Node3D, kind: String, clip: String) -> bool:
+	last_transition_rejection = ""
 	var previous := body.global_position
 	var distance := 0.0
 	for point in points:
-		if not _capsule_clear(body, point) or not _clear_path(body, previous, point): return false
+		if not _capsule_clear(body, point):
+			last_transition_rejection = "capsule_blocked:"+str(point)
+			return false
+		if not _clear_path(body, previous, point):
+			last_transition_rejection = "sweep_blocked:"+str(point)
+			return false
 		distance += previous.distance_to(point)
 		previous = point
-	if not _supported(body, points.back()): return false
+	if not _supported(body, points.back()):
+		last_transition_rejection = "unsupported_destination:"+str(points.back())
+		return false
 	_transition_support = support
 	_transition_local_points.clear()
 	for point in points: _transition_local_points.append(support.to_local(point))
@@ -355,6 +365,7 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 				body.velocity = Vector3.ZERO
 				if completed_native: body.play_anim("IDLE", 0.2)
 				if completed_kind == "mantle": mantle_completed.emit()
+				if completed_kind == "vault": vault_completed.emit()
 		return true
 	if not body.traversal.is_climbing():
 		if body.traversal.is_swimming() or latch_cooldown > 0.0 or input.y > -0.15 or body.stamina <= 0.0:

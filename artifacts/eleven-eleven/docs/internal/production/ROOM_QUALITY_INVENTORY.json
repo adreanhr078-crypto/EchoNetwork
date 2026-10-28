@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "date": "2026-10-25",
+  "date": "2026-10-27",
   "status": "LAB_SECURITY_SPECIMEN_ARCHIVE_STATIC_NATIVE_SCOPED_PASS_OTHER_CRAFT_OPEN",
   "scope": "Current High fixed-camera inventory02–08/10;01 owner baseline retained.04/03 and lab have separate scoped static art/native proof. Fixed stills do not establish moving acting,fun,audio,performance or full chapter.",
   "baseline_route": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024",
@@ -24,22 +24,22 @@
     {
       "room": "02",
       "name_ar": "الصيانة",
-      "status": "PRECISION_NATIVE_SCOPED_PASS_ART_REFINE",
-      "observed_ar": "بناء دقيق وخرائط4K؛43 شرط إدخال عام/57صورة وإعادة تحميل الحفظ الفعلي PASS. المعمارية PASS؛الظل وعمق الفراغ والتوهج بحاجة صقل.",
-      "next_ar": "إغلاق عيوب المواد والتكوين ثم فحص اللقطات الحالية والحركة؛قبول اليد والصوت والمتعة والفصل مفتوح.",
-      "interaction_ar": "تسلقان وعبور فجوة وصمام ضغط وخروج فعلي",
-      "capture": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/precision-high-v6/entry.png",
-      "capture_sha256": "9bc4813f7def7d45e1ae5d4812c335bc1b878f3e2b5c40b3d2994348ab13985f",
-      "current_source": "godot/scripts/environment/maintenance_vertical.gd",
-      "current_source_sha256": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
+      "status": "PRODUCTION_ROOM02_REPLACED_SCOPED_ART_AND_NATIVE_PASS_FULL_HUMAN_ACCEPTANCE_OPEN",
+      "observed_ar": "غرفةTripoجديدةعرضها18م؛3قفزاتفجواتوvaultوقبضتانوماءوهواءومراوح. 27شرطHighو51استئنافمكتسبو353شرطفصلجديدبلاانتقالتعويضيPASS. الصورةالحاليةمراجعةبالتجزئات؛ليستكلالخرائط4K.",
+      "next_ar": "الفن البيئي اجتاز نطاقه الحالي؛الصوت المسموع والأداء الحقيقي والمتعة والتمثيل النهائي مفتوحة. الانتقال للتطهير07 ثم المراقبة08 والمستشفى10،وإيكو بعد الغرف.",
+      "interaction_ar": "قفزتانقصيرتانتعلق/صعودوثلاثفجواتوvaultوصمامضغطبإدخالفعليومشهدقابلللتخطيوبابوحفظمؤكد",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/stormworks-current-art-v8-fitted/whole-room.png",
+      "capture_sha256": "197b6d7d85d892cf6755e4270cc896dc26e7f8bf818a661ba43051d5bf70288b",
+      "current_source": "godot/scripts/environment/maintenance_stormworks.gd",
+      "current_source_sha256": "f4c115483cd3ae8e9e960cefd95959d1c2e59d1e6f7de9331ba85953736356a0",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "high_review": {
-        "report": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/precision-high-v6/four-high-views.json",
-        "scope": "Four current native High views;ArchPASS/MaterialsREFINE/CompositionREFINE. Native43/57 and earned reload separately PASS;whole acceptance OPEN."
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/stormworks-current-art-v8-fitted/review.json",
+        "scope": "Current4Forward+High fixedviews plus11native playercaptures;functional353freshchapter/51earnedlifecycle separate. Actor/audio/performance/humanfunOPEN"
       },
-      "current_high_inventory_date": "2026-10-26",
-      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/quality-report.json"
+      "current_high_inventory_date": "2026-10-27",
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/quality-report.json"
     },
     {
       "room": "03",

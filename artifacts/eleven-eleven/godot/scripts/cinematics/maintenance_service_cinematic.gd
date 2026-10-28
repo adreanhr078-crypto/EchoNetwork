@@ -42,8 +42,8 @@ func start() -> void:
 	_gate_shot.tween_duration = 0.5
 	_gate_shot.camera_3d_resource = _lens(58)
 	add_child(_gate_shot)
-	_gate_shot.global_position = room.to_global(Vector3(2.8,6.9,-10.85))
-	_gate_shot.look_at(room.to_global(Vector3(0.4,6.4,-12.75)),Vector3.UP)
+	_gate_shot.global_position = room.to_global(room.service_camera_position)
+	_gate_shot.look_at(room.to_global(room.service_camera_target),Vector3.UP)
 	_host = Node.new()
 	_host.set_script(HOST)
 	_camera.add_child(_host)

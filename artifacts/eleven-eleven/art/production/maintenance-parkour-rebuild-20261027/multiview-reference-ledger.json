@@ -1,0 +1,39 @@
+{
+  "state": "FOUR_FULL_ROOM_VIEWS_REVIEWED",
+  "references": [
+    {
+      "view": "front",
+      "file": "room-front.png",
+      "bytes": 2889301,
+      "sha256": "dc98d4dac0d502f2b9a6f06d7298011382d902c90ec59779f4c1157c88a2a9e0",
+      "review": "Same whole static room: entrance, left vault runway, two central stepping piers, right landing shelf, rear cross-gantry and rear-center doorway. Design references, not measured geometry or playable acceptance. Side views are oblique."
+    },
+    {
+      "view": "left",
+      "file": "room-left.png",
+      "bytes": 2721091,
+      "sha256": "27955c761ef78f88db93a2763b96602917d2b482dcb4892ab257a5f785514e50",
+      "review": "Same whole static room: entrance, left vault runway, two central stepping piers, right landing shelf, rear cross-gantry and rear-center doorway. Design references, not measured geometry or playable acceptance. Side views are oblique."
+    },
+    {
+      "view": "right",
+      "file": "room-right.png",
+      "bytes": 2445770,
+      "sha256": "f34ec404d4b64ee2f8c6272752931e389101581998a92ecacc0e6717ad24fc14",
+      "review": "Same whole static room: entrance, left vault runway, two central stepping piers, right landing shelf, rear cross-gantry and rear-center doorway. Design references, not measured geometry or playable acceptance. Side views are oblique."
+    },
+    {
+      "view": "back",
+      "file": "room-back.png",
+      "bytes": 2646318,
+      "sha256": "4a08d0366fe48937fb053e1d07d156bb64d949dd6a5cd3aaa161659a8ad9216b",
+      "review": "Same whole static room: entrance, left vault runway, two central stepping piers, right landing shelf, rear cross-gantry and rear-center doorway. Design references, not measured geometry or playable acceptance. Side views are oblique."
+    }
+  ],
+  "rejected": {
+    "file": "room-right-rejected-mirrored.png",
+    "reason": "First right prompt incorrectly placed the left vault runway on image-right;corrected once before any Tripo submission."
+  },
+  "physics": "The actual generated model will be measured before defining native parkour collision and route anchors. Owner authorized replacement of old room layout.",
+  "native_acceptance": "PENDING"
+}

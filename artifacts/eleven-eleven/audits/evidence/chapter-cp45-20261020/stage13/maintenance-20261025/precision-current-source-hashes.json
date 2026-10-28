@@ -1,9 +1,9 @@
 {
   "godot/scripts/environment/maintenance_vertical.gd": "ac9f264e01353d1ddccd8ecd52e7b304099b0a39bade1c3c2e84dc148404b7ea",
   "godot/scripts/environment/maintenance_mechanical_dressing.gd": "151a5f32480ec8ca1774fff6bc91a62d7ed912a42284694c5633a23617f2eb39",
-  "godot/scripts/environment/maintenance_fullroom_dressing.gd": "9b5db36fb16d26044212eb9f92768200b8e04285a71009e86f6c545096a60966",
-  "godot/scripts/environment/maintenance_precision_architecture.gd": "aa30a034bf4fc96744b1d30434d59eff2a636f0b735132628cff81e5e1a5b2cb",
-  "godot/scripts/environment/maintenance_soft_shadow_lease.gd": "e59213962c3cf36990fbcc195ea58c76d620e88b00e3bfccb99640c5d0cb5151",
+  "godot/scripts/environment/maintenance_fullroom_dressing.gd": "7083bf3dfbcb3385d48caaab899cb96a90543c039f90ddb5a01ebc1d77a75200",
+  "godot/scripts/environment/maintenance_precision_architecture.gd": "38c12ed8a55c036fd82e31ebfedfea0a7ef633bfb29a64a45b85e5f5b9c1e6fb",
+  "godot/scripts/environment/maintenance_soft_shadow_lease.gd": "f12d22b821256f8815b113c643a94eb7fa31a85c639a075a44d0a3115eeefbb5",
   "godot/shaders/maintenance_surface_finish.gdshader": "b13ef3a8899fd2349a7654f52226906a5708f5084d0986d217642d0a8a492a49",
   "godot/shaders/maintenance_architecture_aperture.gdshader": "eabf6727c272663b32b38d4e8416d6760e601b81a3adad415d55e82524b68398",
   "godot/shaders/maintenance_portal_backface.gdshader": "a10cbc623443ad293e563288f5f63eb80999bee92810a8d357a26a509ad905a8",
@@ -11,9 +11,13 @@
   "godot/engine_visuals/MemoryAtmosphereDirector.gd": "a86a248bb0861894007f0725b8efa54fb5f68a23087f49fb4691445d2056131f",
   "godot/scripts/player/surface_traversal_motor.gd": "ca9bdaebe8b5bd2b460310976704c36fe2691c505f54d6cc3e22e9228434a347",
   "godot/scripts/player/service_hand_contact.gd": "3d79445c2a06111cc4583bda57802b31a0959211d251874f44ddcd15a29510c1",
-  "godot/tests/maintenance_dressing_public_review.gd": "c19dea5f7b3fb9e3440e4e6ca24f61e736e5eaf014bf0fb5f21a597d42a84c5a",
-  "godot/tests/maintenance_dressing_contract_review.gd": "3bb1e1717a940553f1ee81566d8ab13147336807548a971cf4f5ef8fad472e1d",
-  "godot/tests/maintenance_shadow_lease_review.gd": "593a90ef316989bfd73723d2c69d15b703bfb8e2d7e619ba89cc5d43a9647f63",
+  "godot/tests/maintenance_dressing_public_review.gd": "e52802147b5a5171a41396884a30043973042e5c1b679ceea165356cf16191c4",
+  "godot/tests/maintenance_dressing_contract_review.gd": "10a9e64404e76fcbccab99f46b9611fb1c8eb91d5258963a1d08f93f23c34552",
+  "godot/tests/maintenance_shadow_lease_review.gd": "08deb954b7b2ab5c2bca8b50ae246c4c5a89f07f7b86de81e425967dc9c639f0",
   "godot/tests/maintenance_earned_reload_review.gd": "9f73f8fb292ad47b797e183d837ae6420acd189cbadfdc3c6dce2a2837c1463c",
-  "godot/tests/remaining_rooms_high_inventory.gd": "8bbb890ecb2aa01731a46c74389981228023168128b4d944f670b3b54bf3dc8d"
+  "godot/tests/remaining_rooms_high_inventory.gd": "38ab7531b1aa32a9dbff65273dfe609381b9594a01b683f831d67afdcf1aa46d",
+  "godot/scripts/environment/maintenance_ventilation_fan.gd": "29229bcd6087a33685d1229ce57dfc1b1a5483e06afbc247ed8cd552fe5b582d",
+  "godot/assets/environments/maintenance_cp45/maintenance_ventilation_fan_pbr.glb": "781a2bcde1f87f2f27c709259f732b6eb4d03192e31006f755743994875f2cf9",
+  "godot/project.godot": "5a36ebf2e53f96d9c8b5ee9da3d99b9d9751ab0a3cf370fb363269dc6d5bcb4e",
+  "godot/scripts/environment/maintenance_primary_cassette.gd": "bcc70a9ff86110e835b7583ca53408213bf0e10152d67e30ff9f8ab5bd66be26"
 }

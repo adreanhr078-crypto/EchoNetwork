@@ -13,6 +13,8 @@ var input_resets:=[]
 var prior_preset:=""
 var prior_fog:=Color.WHITE
 var actual_capsule_width:=0.0
+var prior_key_mask:=0
+var prior_actor_layers:Array[Dictionary]=[]
 var prior_key_angle:=0.0
 
 func _walk(target:Vector3)->bool:
@@ -50,6 +52,8 @@ func _run()->void:
 	if not _check(is_instance_valid(director.room) and director.stage==0,"Validated initial maintenance fixture unavailable"):return
 	var hyper:Node=main.get_node("/root/HyperAnimeWorldManager")
 	prior_key_angle=main.get_node("DirectionalLight3D").light_angular_distance
+	prior_key_mask=main.get_node("DirectionalLight3D").shadow_caster_mask
+	for node in player.find_children("*","GeometryInstance3D",true,false):prior_actor_layers.append({"node":weakref(node),"layers":node.layers})
 	prior_preset=hyper._preset_before_facility if not hyper._facility_preset_context.is_empty() else hyper.preset
 	prior_fog=hyper._height_fog_before_facility if not hyper._facility_preset_context.is_empty() else hyper.height_fog.material.albedo
 	actual_capsule_width=player.get_node("CollisionShape3D").shape.radius*2
@@ -60,21 +64,46 @@ func _run()->void:
 	player.set_gameplay_orbit(Vector3.ZERO);await _frames(12)
 	if not _check(hyper.preset=="maintenance_pressure_bay" and hyper._facility_preset_context=="maintenance_pressure_bay","Actual room entry missed the maintenance profile"):return
 	if not _check(main.get_node("DirectionalLight3D").light_angular_distance>=1.25,"Actual maintenance entry missed its soft-shadow lease"):return
+	if not _check(main.get_node("DirectionalLight3D").shadow_caster_mask==(1<<17),"Actual maintenance entry missed room/actor shadow-caster scope"):return
+	var cleats:MultiMeshInstance3D=director.room.get_node("MaintenanceMechanicalDressing/SecondClimbNativeWallCleats")
+	if not _check(actual_capsule_width>float(cleats.get_meta("untraversable_native_clearance")),"Visual climb mounts occupy a traversable side route"):return
+	var reflection:ReflectionProbe=director.room.get_node("MaintenanceMechanicalDressing/MaintenanceInteriorReflection")
+	var shaft_fog:FogVolume=director.room.get_node("MaintenanceMechanicalDressing/MaintenanceDeepShaftAtmosphere")
+	if not _check(reflection.visible and reflection.interior and reflection.update_mode==ReflectionProbe.UPDATE_ONCE and reflection.reflection_mask==(1<<18),"Native entry missed scoped static interior reflection"):return
 	capture_start=Time.get_ticks_usec();await _capture("entry")
 	if not await _maintenance_route():return
 	await _frames(48)
 	if not _check(hyper._facility_preset_context.is_empty() and hyper.preset==prior_preset and hyper.height_fog.material.albedo.is_equal_approx(prior_fog),"Actual security handoff leaked maintenance lighting context"):return
 	if not _check(is_equal_approx(main.get_node("DirectionalLight3D").light_angular_distance,prior_key_angle),"Actual security handoff leaked maintenance shadow softness"):return
+	if not _check(main.get_node("DirectionalLight3D").shadow_caster_mask==prior_key_mask and _actor_scope_restored(),"Actual security handoff leaked room caster scope or actor layers"):return
+	if not _check(not reflection.visible and not shaft_fog.visible,"Native security handoff leaked maintenance probe/shaft fog ownership"):return
 	if not _check(player.player_camera.current and not player.control_locked and player.is_on_floor() and not player.combat_available,"Security handoff lost camera/control/floor/noearlypower"):return
 	if not _check(director.room.service_open and director.room._gate_collider.disabled,"Actual wheel/gate state missing"):return
 	var portal:Node3D=director.room.get_node("MaintenanceMechanicalDressing/MeasuredActualSecurityPortalBackSkins")
 	if not _check(portal.get_meta("native_portal_volumes").size()==4,"Connected portal skins lack four actual native portal/ceiling support volumes"):return
+	var entry_skins:=director.room.find_children("MeasuredEntryBulkhead_*","MultiMeshInstance3D",true,false)
+	if not _check(entry_skins.size()==3,"Entry cladding lacks the actual three adjacent source solids"):return
+	var entry_supported:=true
+	for draw:MultiMeshInstance3D in entry_skins:
+		var source:StaticBody3D=main.get_node(draw.get_meta("adjacent_source_body"))
+		var shape:BoxShape3D=source.find_children("*","CollisionShape3D",false,false)[0].shape
+		var actual:=AABB(director.room.to_local(source.global_position)-shape.size*.5,shape.size)
+		var backing:MeshInstance3D=source.get_node("Surface")
+		var backing_bounds:AABB=(director.room.global_transform.affine_inverse()*backing.global_transform)*backing.mesh.get_aabb()
+		entry_supported=entry_supported and is_equal_approx(backing_bounds.end.z,actual.end.z) and backing_bounds.position.z>=actual.position.z+.139
+		for index in draw.multimesh.instance_count:
+			entry_supported=entry_supported and actual.grow(.002).encloses(draw.multimesh.get_instance_transform(index)*draw.multimesh.mesh.get_aabb())
+	if not _check(entry_supported,"Entry skin escaped an actual unchanged adjacent solid"):return
+	var fan:Node3D=director.room.get_node("MaintenanceMechanicalDressing/MeasuredVentilationFan")
+	var fan_basis:Basis=fan.rotor.basis
+	await _frames(8)
+	if not _check(fan.rotor.basis.is_equal_approx(fan_basis) and not director.room.presentation._inside_room,"Mechanical fan motion leaked after actual room handoff"):return
 	var earned:=folder.path_join("earned");DirAccess.make_dir_recursive_absolute(earned)
 	var hashes:={}
 	for filename in paths:
 		if DirAccess.copy_absolute(paths[filename],earned.path_join(filename))!=OK:push_error("Earned native profile copy failed");quit(1);return
 		hashes[filename]=FileAccess.get_sha256(earned.path_join(filename))
-	_write(folder.path_join("public-route-review.json"),{"checks":checks,"samples":samples,"earned_profile_hashes":hashes,"actual_profile_restored":hyper.preset==prior_preset,"prior_preset":prior_preset,"actual_capsule_width":actual_capsule_width,"actual_key_angle_restored":is_equal_approx(main.get_node("DirectionalLight3D").light_angular_distance,prior_key_angle),"gasket_clearance_already_untraversable":actual_capsule_width>.625,"renderer":RenderingServer.get_current_rendering_method(),"tier":main.get_node("/root/HyperAnimeWorldManager").quality,"reduced_motion":main.reduced_motion,"camera_current":player.player_camera.current,"control_locked":player.control_locked,"no_pre_pact_power":not player.combat_available,"solid_floor":player.is_on_floor(),"stage":director.stage,"scope":"Declared completed-opening cold fixture+singleinitialspawn,then public02 two climbs/gap/pressurewheel/physicalsecurityhandoff;actual images/moving samples,not finalhandart/audio/fun/fullchapter/deviceacceptance"})
+	_write(folder.path_join("public-route-review.json"),{"checks":checks,"samples":samples,"earned_profile_hashes":hashes,"actual_profile_restored":hyper.preset==prior_preset,"prior_preset":prior_preset,"actual_capsule_width":actual_capsule_width,"actual_key_mask_restored":main.get_node("DirectionalLight3D").shadow_caster_mask==prior_key_mask,"actual_actor_scope_restored":_actor_scope_restored(),"actual_key_angle_restored":is_equal_approx(main.get_node("DirectionalLight3D").light_angular_distance,prior_key_angle),"gasket_clearance_already_untraversable":actual_capsule_width>.625,"renderer":RenderingServer.get_current_rendering_method(),"tier":main.get_node("/root/HyperAnimeWorldManager").quality,"reduced_motion":main.reduced_motion,"camera_current":player.player_camera.current,"control_locked":player.control_locked,"no_pre_pact_power":not player.combat_available,"solid_floor":player.is_on_floor(),"stage":director.stage,"scope":"Declared completed-opening cold fixture+singleinitialspawn,then public02 two climbs/gap/pressurewheel/physicalsecurityhandoff;actual images/moving samples,not finalhandart/audio/fun/fullchapter/deviceacceptance"})
 	# Correct the older inherited helper's broad label for this declared fixture.
 	var inherited_report:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(folder+"maintenance.json"))
 	inherited_report.route="Declared completed-opening fixture,then actual public02 input;not from waking"
@@ -114,3 +143,9 @@ func _climb_and_mantle(id:String)->bool:
 
 func _write(path:String,data:Dictionary)->void:
 	var f:=FileAccess.open(path,FileAccess.WRITE);f.store_string(JSON.stringify(data,"\t"));f.close()
+
+func _actor_scope_restored()->bool:
+	for record in prior_actor_layers:
+		var node:GeometryInstance3D=record.node.get_ref() as GeometryInstance3D
+		if is_instance_valid(node) and (node.layers&(1<<17))!=(int(record.layers)&(1<<17)):return false
+	return true

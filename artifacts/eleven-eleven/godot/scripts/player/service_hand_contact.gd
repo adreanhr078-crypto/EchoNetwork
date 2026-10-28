@@ -30,7 +30,7 @@ func begin(player: EchoPlayer, owner_room: Node3D) -> bool:
 		start_result = "unsupported_rig"
 		return false
 	_start = actor.global_position
-	_anchor = room.to_global(Vector3(1.25,5.4,-12.18))
+	_anchor = room.to_global(room.service_hand_anchor)
 	_anchor.y = _start.y
 	if _anchor.distance_to(_start) > 0.9:
 		start_result = "alignment_too_far"
@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 	for index in range(_solvers.size()):
 		# Chains are ordered by their measured negative/positive world-X wheel side.
 		var phase := (2.1 if index == 0 else 0.65) + angle
-		_targets[index].global_position = room.to_global(Vector3(1.25+cos(phase)*0.21,6.35+sin(phase)*0.21,-12.34))
+		_targets[index].global_position = room.to_global(room.service_wheel_center + Vector3(cos(phase)*0.21,sin(phase)*0.21,0))
 		_poles[index].global_position = actor.global_position+Vector3(-0.65 if index == 0 else 0.65,1.0,0.22)
 		_solvers[index].influence = weight
 		_solvers[index].active = weight > 0.0001

@@ -1,0 +1,200 @@
+{
+  "schema": "new-maintenance-parkour-layout-v1",
+  "status": "DESIGN_CONTRACT_NOT_GAMEPLAY_ACCEPTED",
+  "axes": "Godot Xright,Yup,Znegativeforward;entryfrontZ0",
+  "room_size_m": [
+    18,
+    14,
+    14.6
+  ],
+  "entrance": [
+    0,
+    0,
+    0
+  ],
+  "exit": [
+    0,
+    5.4,
+    -14.6
+  ],
+  "course_decks": [
+    {
+      "id": "entry",
+      "min": [
+        -3,
+        -0.4,
+        -3
+      ],
+      "size": [
+        6,
+        0.4,
+        3
+      ],
+      "top_y": 0
+    },
+    {
+      "id": "left_vault_runway",
+      "min": [
+        -7,
+        -0.4,
+        -4.5
+      ],
+      "size": [
+        5,
+        0.4,
+        3.5
+      ],
+      "top_y": 0
+    },
+    {
+      "id": "left_jump_landing",
+      "min": [
+        -7,
+        0.2,
+        -8.3
+      ],
+      "size": [
+        4,
+        0.4,
+        2.4
+      ],
+      "top_y": 0.6
+    },
+    {
+      "id": "central_step",
+      "min": [
+        -1.8,
+        0.2,
+        -8.8
+      ],
+      "size": [
+        2.6,
+        0.4,
+        2.8
+      ],
+      "top_y": 0.6
+    },
+    {
+      "id": "right_step",
+      "min": [
+        2.4,
+        0.8,
+        -8.6
+      ],
+      "size": [
+        2.6,
+        0.4,
+        3
+      ],
+      "top_y": 1.2
+    },
+    {
+      "id": "right_service_deck",
+      "min": [
+        5,
+        0.8,
+        -10
+      ],
+      "size": [
+        3,
+        0.4,
+        5.5
+      ],
+      "top_y": 1.2
+    },
+    {
+      "id": "rear_cross_gantry",
+      "min": [
+        -6,
+        2,
+        -11.8
+      ],
+      "size": [
+        12,
+        0.4,
+        1.6
+      ],
+      "top_y": 2.4
+    },
+    {
+      "id": "left_high_rest",
+      "min": [
+        -7,
+        3.2,
+        -13
+      ],
+      "size": [
+        4,
+        0.4,
+        3
+      ],
+      "top_y": 3.6
+    },
+    {
+      "id": "exit_terrace",
+      "min": [
+        -3,
+        5,
+        -14.6
+      ],
+      "size": [
+        6,
+        0.4,
+        2.1
+      ],
+      "top_y": 5.4
+    }
+  ],
+  "route_order": [
+    "entry",
+    "left_vault_runway",
+    "left_jump_landing",
+    "central_step",
+    "right_step",
+    "right_service_deck",
+    "rear_cross_gantry",
+    "left_high_rest",
+    "exit_terrace"
+  ],
+  "vault_obstacles": [
+    {
+      "deck": "left_vault_runway",
+      "height": 0.85,
+      "depth": 0.25
+    },
+    {
+      "deck": "right_service_deck",
+      "height": 0.8,
+      "depth": 0.25
+    }
+  ],
+  "visuals": {
+    "water_level_y": -1.5,
+    "basin_floor_y": -2.4,
+    "side_fan_centers": [
+      [
+        -8.6,
+        8,
+        -7
+      ],
+      [
+        8.6,
+        8,
+        -7
+      ]
+    ],
+    "side_fan_diameter": 5.2,
+    "static_room_asset_excludes": [
+      "water",
+      "mist",
+      "fire",
+      "particles",
+      "fan rotors",
+      "gate leaf",
+      "wheel",
+      "characters",
+      "source memory film"
+    ]
+  },
+  "native_integration": "New room collision spec version;vaultable groups,updatedstage/retry/presence/camera bounds and savedoldprogress migration required. Preserve downstreamworldorigin whenpossible. ActualTripo model may require measuredadjustment beforeacceptance."
+}

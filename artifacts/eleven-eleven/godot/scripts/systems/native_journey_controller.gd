@@ -12,6 +12,7 @@ var maintenance: Node
 var security: Node3D
 var progress := Checkpoint.initial()
 var security_entered := false
+var downstream_offset := Vector3.ZERO
 var save_succeeded := true
 var _loaded := false
 var _restored := false
@@ -54,15 +55,19 @@ func _physics_process(_delta: float) -> void:
 	if not _loaded or not maintenance.room or maintenance.stage != 7 or security_entered: return
 	var player: EchoPlayer = main.player
 	var local: Vector3 = maintenance.room.to_local(player.global_position)
-	if progress.completed.size() == 2 and _retry_after <= 0 and not player.control_locked and player.is_on_floor() and absf(local.x) < 0.7 and local.y > 5.1 and local.y < 5.9 and local.z <= -13.82 and local.z > -14.3:
+	var at_handoff := not player.control_locked and player.is_on_floor() and absf(local.x) < .7 and local.y > 5.1 and local.y < 5.9 and local.z <= -13.82 and local.z > -14.3
+	if maintenance.has_method("is_security_handoff_ready"):at_handoff = maintenance.is_security_handoff_ready(player)
+	if progress.completed.size() == 2 and _retry_after <= 0 and at_handoff:
 		if _commit("security_entered"):
 			_activate_security()
 			refresh_objective()
 
 func _ensure_security() -> void:
 	if security: return
+	if maintenance.has_method("get_security_origin"):
+		downstream_offset = maintenance.room.to_global(maintenance.get_security_origin())-SECURITY_ORIGIN
 	security = SECURITY_ROOM.instantiate()
-	security.position = SECURITY_ORIGIN
+	security.position = SECURITY_ORIGIN+downstream_offset
 	main.add_child(security)
 	security.passage_ready.connect(func(): _pending_security_completion = true)
 	security.discovery_observed.connect(func(_id: String): refresh_objective())
@@ -72,6 +77,9 @@ func _ensure_security() -> void:
 	_open_maintenance_aperture()
 
 func _open_maintenance_aperture() -> void:
+	if maintenance.room.has_method("open_campaign_aperture"):
+		maintenance.room.open_campaign_aperture()
+		return
 	# The original preview backstop is retained outside a 1.8m service opening.
 	# Only this campaign adapter releases it; the isolated maintenance scene stays intact.
 	var boundary := maintenance.room.get_node("COLL_FarBoundary") as StaticBody3D
@@ -113,14 +121,15 @@ func _restore_anchor() -> void:
 	_ensure_security()
 	_restored = true
 	if progress.completed.size() < 2: return
-	maintenance.stage = 7
+	if maintenance.has_method("restore_completed_route"):maintenance.restore_completed_route()
+	else:maintenance.stage = 7
 	maintenance.room.restore_service_open()
 	maintenance.save_succeeded = true
 	maintenance._save_ready = false
 	security_entered = progress.completed.size() >= 3
-	maintenance._retry_anchor = SECURITY_ANCHOR if security_entered else Vector3(0, 5.5, -31.6)
+	maintenance._retry_anchor = SECURITY_ANCHOR+downstream_offset if security_entered else (maintenance.get_completed_room_anchor() if maintenance.has_method("get_completed_room_anchor") else Vector3(0,5.5,-31.6))
 	main.player.surface_motor.reset(main.player)
-	main.player.global_position = SECURITY_ORIGIN + Vector3(0,0.1,-17.4) if progress.completed.size() >= 4 else maintenance._retry_anchor
+	main.player.global_position = SECURITY_ORIGIN + downstream_offset + Vector3(0,0.1,-17.4) if progress.completed.size() >= 4 else maintenance._retry_anchor
 	main.player.velocity = Vector3.ZERO
 	main.player.stamina = main.player.MAX_STAMINA
 	if security_entered: _activate_security()
@@ -134,6 +143,7 @@ func _on_maintenance_stage_changed(value: int) -> void:
 func _commit(event: String) -> bool:
 	if not _loaded or not main.opening_web_handoff.reported_milestones.has("memory_scene_completed"): return false
 	if event == "maintenance_completed" and (not maintenance.room or maintenance.stage != 7 or not maintenance.room.service_open): return false
+	if event == "maintenance_completed" and maintenance.has_method("has_confirmed_room_checkpoint") and not maintenance.has_confirmed_room_checkpoint():return false
 	if event == "security_completed":
 		if not security or not security_entered or not security.gate_open or not main.player.is_on_floor(): return false
 		var local: Vector3 = security.to_local(main.player.global_position)
