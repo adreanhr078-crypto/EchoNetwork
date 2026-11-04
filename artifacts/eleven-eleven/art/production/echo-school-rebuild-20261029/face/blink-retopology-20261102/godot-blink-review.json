@@ -1,0 +1,82 @@
+{
+	"body_bone_error_m": 0.0,
+	"body_keys_preserved": true,
+	"body_motion": false,
+	"captures": [
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.00-front.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.00-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.00-reverse-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.25-front.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.25-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.25-reverse-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.50-front.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.50-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.50-reverse-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.75-front.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.75-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-0.75-reverse-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-1.00-front.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-1.00-threequarter.png",
+		"C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\face\\blink-retopology-20261102/native-1.00-reverse-threequarter.png"
+	],
+	"checks": 7,
+	"engine": {
+		"build": "official",
+		"hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+		"hex": 264192,
+		"major": 4,
+		"minor": 8,
+		"patch": 0,
+		"status": "dev7",
+		"string": "4.8-dev7 (official)",
+		"timestamp": 0
+	},
+	"failures": [],
+	"frames": [
+		{
+			"blink": 0.0,
+			"frame": 0,
+			"maximum_blender_error_m": 0.000144455349072814,
+			"motion": "rest"
+		},
+		{
+			"blink": 0.25,
+			"frame": 0,
+			"maximum_blender_error_m": 0.000144455349072814,
+			"motion": "rest"
+		},
+		{
+			"blink": 0.5,
+			"frame": 0,
+			"maximum_blender_error_m": 0.000144455349072814,
+			"motion": "rest"
+		},
+		{
+			"blink": 0.75,
+			"frame": 0,
+			"maximum_blender_error_m": 0.000144455349072814,
+			"motion": "rest"
+		},
+		{
+			"blink": 1.0,
+			"frame": 0,
+			"maximum_blender_error_m": 0.000144455349072814,
+			"motion": "rest"
+		}
+	],
+	"max_cpu_mapping_error_m": 0.000069150970375631,
+	"max_cpu_moving_mapping_error_m": 0.0000239874461840373,
+	"max_morph_delta_error_m": 0.00000062177764448279,
+	"max_morph_error_m": 0.000144455349072814,
+	"max_rest_bone_error_m": 0.000000417830790411244,
+	"max_rest_skin_error_m": 0.000144455349072814,
+	"moving_samples": 462.0,
+	"reference_sha256": "6bd4c9e41dd1cef663f5f35608a92ad93dcc9fcf5aa9e7d056c6722de725530e",
+	"renderer": "gl_compatibility",
+	"reviewer_sha256": "2fecec18d0a96d7298ace90f43aa100aac95158e6ff171b2b104a959608512bc",
+	"sample_count": 738,
+	"scope": "Isolated real morph fidelity and rendered closeups only;body-motion sampling is recorded separately by body_motion and frames. GPU blendshape mix -> diagnostic proxy retaining original weights/skin -> actual GPU skeleton bake. Original renderer shows the real combined original mesh. Final face art and runtime integration remain open. Skin baking alone ignores morphs;direct raw mix/world comparison was wrong space and its failed artifact is retained.",
+	"source_glb_sha256": "ac38589cc8a115b1589060b8bec952aab324a3846d2e8fd0125e0733f37470dc",
+	"status": "PASS_SCOPED_NATIVE_MORPH",
+	"vertex_correspondence": "Explicit LAB_SOURCE_VERTEX_ID in diagnostic-only UV2;originalUV0 andsourcebodytextures unchanged. Absolute skin uses established0.2mm GPUskin budget;relativeblink displacement has independent20micrometer gate."
+}

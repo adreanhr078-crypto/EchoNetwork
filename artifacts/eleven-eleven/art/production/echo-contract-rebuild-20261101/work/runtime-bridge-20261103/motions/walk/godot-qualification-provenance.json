@@ -1,0 +1,16 @@
+{
+  "source_sha256": "aedd151b1b6990239a6c4070d1a2930206a2c4ce62fd476c05ad2d4c6a9c6fa2",
+  "blender_reference_sha256": "dc2072f2bf520580b49b99623e84edf23b7dd884e482aab8731a4df2c5775497",
+  "reviewer_sha256": "87e6425fe6bc476ab989302d25c75047e4b677be23a0cd7801a5bccd2e766558",
+  "frozen_numeric_reviewer_sha256": "7239018e6700842ff63e551f329e74f367361f3b532302a8b029a327dfd68a8a",
+  "render_adaptation": "Camera bounds and reference-native render times; entire numerical evaluation remains verbatim",
+  "profile_sha256": "19cfc6b7d4b10e8145d701a84f3c39fe678636d11c348651769a27015dd72ef7",
+  "native_clock_profile_sha256": null,
+  "native_fps": 30,
+  "project": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\echo-character-lab\\cases\\walk-aedd151b1b69-godot",
+  "rendered": true,
+  "renderer": "Compatibility",
+  "visual_status": "PASS_SCOPED_SOURCE_TRANSFER_ONLY",
+  "evaluated_skin_bounds": true,
+  "visual_review": "Twelve selected fresh full-mesh PBR source phases actually inspected;coherent motion,retained shape/color,no deformation explosion. Skin contact,runtime,art and performance gates separate."
+}

@@ -1,0 +1,38 @@
+{
+  "body_bones": 65,
+  "body_position_error_m": 0.0,
+  "bone_length_error_m": 1.19209289550781e-07,
+  "captures": [
+    {
+      "path": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/echo-contract-rebuild-20261101/work/wing-rig-v2/spring-000-front.png",
+      "sha256": "aa4f84888e9e0345ca994080fb8801f3129e343e54b3746e666fc8cdbd7940cd"
+    },
+    {
+      "path": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/echo-contract-rebuild-20261101/work/wing-rig-v2/spring-060-side.png",
+      "sha256": "602e3add020e08c00de3af3f1dd40533a464045a309f6ac86f3db6386f46166a"
+    },
+    {
+      "path": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/echo-contract-rebuild-20261101/work/wing-rig-v2/spring-120-back.png",
+      "sha256": "40c85118110992193ba78adb34d66e8d7063c12b791d1560ce243f53aa5fe94f"
+    },
+    {
+      "path": "C:/Users/yasmo/EchoNetwork/artifacts/eleven-eleven/art/production/echo-contract-rebuild-20261101/work/wing-rig-v2/spring-179-back.png",
+      "sha256": "c318546b2485aad8d44c9a376fa003e444fad78bc185ae510f4328d6fb405789"
+    }
+  ],
+  "disabled_reduced_motion_stops_solver": true,
+  "driver_sha256": "007320a53ecbee48226d267567db0390f8d090c97a66fc09fc6249c4667c2022",
+  "finite": true,
+  "maximum_wing_rotation_rad": 0.424044281244278,
+  "minimum_wing_joint_height_m": 1.41753208637238,
+  "modifier_samples": 182,
+  "pause_freezes": true,
+  "physics_hz": 60,
+  "scope": "Pact72 isolated native spring articulation and body/length/pause invariants;capsule configured,mesh contact and gameplay unqualified",
+  "source_sha256": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8",
+  "status": "PASS_ISOLATED_NATIVE_SPRING",
+  "ticks": 180,
+  "unscaled_skeleton": true,
+  "evidence_status": "SUPERSEDED_RENDER_FRAMES",
+  "superseded_by": "godot-spring-rendered-studio.json"
+}

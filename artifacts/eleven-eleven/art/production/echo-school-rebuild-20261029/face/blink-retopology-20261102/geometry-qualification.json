@@ -1,0 +1,66 @@
+{
+  "status": "PASS_SCOPED_GEOMETRY_ONLY",
+  "checks": {
+    "original65_rest_and_parents": true,
+    "all_original_vertex_morph_deltas_zero": true,
+    "full_blink_hides_all_iris_rays": true,
+    "closed_margin_gap_below_0_3mm": true,
+    "margin_clearance_at_least_0_3mm": true,
+    "source_uv_positions_weights_unchanged_outside_cut": true
+  },
+  "candidate_blend_sha256": "213e0c659f92d57f582aa3dad58e3dfb0b33f9abf17dfe7e618bc995f413987e",
+  "original_morph_delta_error_m": 0.0,
+  "minimum_margin_iris_front_clearance_m": 0.003521513193845749,
+  "closed_margin_gaps_m": {
+    "left": 3.5780729726214403e-07,
+    "right": 3.5762786865234375e-07
+  },
+  "measurements": [
+    {
+      "blink": 0,
+      "visible_iris_rays": {
+        "right": 2488,
+        "left": 2539
+      },
+      "margin_projected_iris_samples": 9,
+      "minimum_margin_iris_front_clearance_m": 0.0040979571640491486
+    },
+    {
+      "blink": 0.25,
+      "visible_iris_rays": {
+        "right": 1762,
+        "left": 1910
+      },
+      "margin_projected_iris_samples": 10,
+      "minimum_margin_iris_front_clearance_m": 0.0038369596004486084
+    },
+    {
+      "blink": 0.5,
+      "visible_iris_rays": {
+        "right": 1057,
+        "left": 1135
+      },
+      "margin_projected_iris_samples": 10,
+      "minimum_margin_iris_front_clearance_m": 0.0035571642220020294
+    },
+    {
+      "blink": 0.75,
+      "visible_iris_rays": {
+        "right": 453,
+        "left": 373
+      },
+      "margin_projected_iris_samples": 8,
+      "minimum_margin_iris_front_clearance_m": 0.003521513193845749
+    },
+    {
+      "blink": 1,
+      "visible_iris_rays": {
+        "right": 0,
+        "left": 0
+      },
+      "margin_projected_iris_samples": 2,
+      "minimum_margin_iris_front_clearance_m": 0.0053489357233047485
+    }
+  ],
+  "limits": "Independent evaluated skin/margin andoriginalrig checks only. NativeGodot/bodymotion,upperlidfaceting,neutralidentity andfinalfaceart remainopen. No runtime orsourcefile writes."
+}

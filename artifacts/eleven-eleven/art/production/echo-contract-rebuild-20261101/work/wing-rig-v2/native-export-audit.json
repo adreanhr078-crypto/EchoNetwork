@@ -1,0 +1,62 @@
+{
+  "status": "PASS_EXPORTED_BODY_JOINTS_AND_PBR_PIXELS",
+  "source_sha256": "edf2e892ccfa0c66bb829745d1b434bb462a0edda0e50fd341d5d7ab96cbd533",
+  "derivative_sha256": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8",
+  "maps": {
+    "baseColorTexture": {
+      "source": [
+        [
+          4096,
+          4096
+        ],
+        "42f35fef530a339e333f9607174812355ce2dd1672670f7c66f79d65a27df874"
+      ],
+      "derivative": [
+        [
+          4096,
+          4096
+        ],
+        "42f35fef530a339e333f9607174812355ce2dd1672670f7c66f79d65a27df874"
+      ],
+      "pixel_identical": true
+    },
+    "normal": {
+      "source": [
+        [
+          4096,
+          4096
+        ],
+        "817b9166e43bfaed9163efd164a62f39f8d782770bcc5e76104364a068563037"
+      ],
+      "derivative": [
+        [
+          4096,
+          4096
+        ],
+        "817b9166e43bfaed9163efd164a62f39f8d782770bcc5e76104364a068563037"
+      ],
+      "pixel_identical": true
+    },
+    "metallicRoughnessTexture": {
+      "source": [
+        [
+          4096,
+          4096
+        ],
+        "ae400f64b8b24535816599c1ed37aa97e2261d0ff112e8c47ee7a59ca05943b2"
+      ],
+      "derivative": [
+        [
+          4096,
+          4096
+        ],
+        "ae400f64b8b24535816599c1ed37aa97e2261d0ff112e8c47ee7a59ca05943b2"
+      ],
+      "pixel_identical": true
+    }
+  },
+  "body_joints_compared": 65,
+  "derivative_joints": 72,
+  "max_rest_joint_metric_error_m": 1.8969771027436294e-06,
+  "scope": "Original 65 body joint positions after one measured unit conversion;three 4K PBR maps pixel-identical. No motion/runtime/physics acceptance."
+}

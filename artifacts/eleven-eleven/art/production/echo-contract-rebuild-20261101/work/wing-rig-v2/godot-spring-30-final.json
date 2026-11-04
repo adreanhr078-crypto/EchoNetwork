@@ -1,0 +1,19 @@
+{
+	"body_bones": 65,
+	"body_position_error_m": 0.0,
+	"bone_length_error_m": 0.000000119209289550781,
+	"captures": [],
+	"disabled_reduced_motion_stops_solver": true,
+	"driver_sha256": "3e7289fbb4f3948491f12978fca32e3eed88261db7d30950e1864247f11496de",
+	"finite": true,
+	"maximum_wing_rotation_rad": 0.424860566854477,
+	"minimum_wing_joint_height_m": 1.41753208637238,
+	"modifier_samples": 361,
+	"pause_freezes": true,
+	"physics_hz": 30,
+	"scope": "Pact72 isolated native spring articulation and body/length/pause invariants;capsule configured,mesh contact and gameplay unqualified",
+	"source_sha256": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8",
+	"status": "PASS_ISOLATED_NATIVE_SPRING",
+	"ticks": 180,
+	"unscaled_skeleton": true
+}

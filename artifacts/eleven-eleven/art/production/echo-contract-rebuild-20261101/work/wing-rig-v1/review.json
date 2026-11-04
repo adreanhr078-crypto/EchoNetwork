@@ -1,0 +1,28 @@
+{
+  "status": "NUMERIC_WING_DERIVATIVE_PASS_VISUAL_PENDING",
+  "source_sha256": "edf2e892ccfa0c66bb829745d1b434bb462a0edda0e50fd341d5d7ab96cbd533",
+  "source_unchanged": true,
+  "body_weights_sha256_before_and_after": "cee780295b3932d121f57601eff570de0e13cd40ab37060af04fd694d16b04ee",
+  "vertices_and_uvs_changed": false,
+  "rest_deformation_error_source_units": 5.527507362065139e-07,
+  "weight_sum_max_error": 1.341104507446289e-07,
+  "wing_bones": [
+    "WingRootLeft",
+    "WingInnerLeft",
+    "WingOuterLeft",
+    "WingTipLeft",
+    "WingFanInnerLeft",
+    "WingFanMidLeft",
+    "WingFanOuterLeft"
+  ],
+  "total_bones": 72,
+  "wing_vertices": 32860,
+  "body_movement_during_wing_test_m": 0.0,
+  "wing_movement_m": 0.15305911472759767,
+  "uniform_metric_scale": 1.783059410890989,
+  "body_height_m": 1.77,
+  "blend_sha256": "679ccf36e7c6e349efc1231944bdbbfaea5604d57e4928b5ffa17d64bcdffc52",
+  "glb_sha256": "7aea804a3a54673f2ce2939a9f2bc1b0a7d4d1be5deab5f3f2bac306e6186676",
+  "runtime_integrated": false,
+  "physics_simulation": "UNVERIFIED;authored articulation only"
+}

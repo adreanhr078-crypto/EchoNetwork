@@ -1,0 +1,557 @@
+{
+  "status": "MEASURED_PROJECTED_CORRESPONDENCE_NOT_COLLISION_ACCEPTANCE",
+  "candidate_blend_sha256": "213e0c659f92d57f582aa3dad58e3dfb0b33f9abf17dfe7e618bc995f413987e",
+  "reviewer_sha256": "4653210bc1195413f4bc2019f1c219836ff330a5c0c1e99cf1e2abf4c7526788",
+  "phases": [
+    {
+      "blink": 0,
+      "eyes": {
+        "left": {
+          "source_weld_rim": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0005182132208526591
+          },
+          "source_initial_aperture": {
+            "vertices": 35,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0003574267352028926
+          },
+          "derived_ring_0": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0004939300461080931
+          },
+          "derived_ring_1": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0004419496482933605
+          },
+          "derived_ring_2": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00036519574514620734
+          },
+          "derived_ring_3": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0002890758404461291
+          },
+          "derived_ring_4": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00022940165030815862
+          },
+          "derived_ring_5": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0002147246086503518
+          },
+          "derived_ring_6": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0002147245883444282
+          }
+        },
+        "right": {
+          "source_weld_rim": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [
+              [
+                27,
+                29
+              ],
+              [
+                27,
+                30
+              ]
+            ],
+            "front_projection_signed_area_m2": -0.0005182082193926352
+          },
+          "source_initial_aperture": {
+            "vertices": 38,
+            "front_projection_proper_crossing_pairs": [
+              [
+                18,
+                21
+              ],
+              [
+                19,
+                21
+              ]
+            ],
+            "front_projection_signed_area_m2": 0.00039808044260847275
+          },
+          "derived_ring_0": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0004961542799251095
+          },
+          "derived_ring_1": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00044928779398689667
+          },
+          "derived_ring_2": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0003806517300083412
+          },
+          "derived_ring_3": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0003127813187843165
+          },
+          "derived_ring_4": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0002593707272477985
+          },
+          "derived_ring_5": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0002461743712773856
+          },
+          "derived_ring_6": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00024617437670759745
+          }
+        }
+      },
+      "strip_correspondence": {
+        "left": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            16,
+            14,
+            14,
+            10,
+            8,
+            10,
+            5
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            16,
+            10,
+            8,
+            4,
+            4,
+            4,
+            3
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "blink": 0.5,
+      "eyes": {
+        "left": {
+          "source_weld_rim": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0005182132208526591
+          },
+          "source_initial_aperture": {
+            "vertices": 35,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0003574267352028926
+          },
+          "derived_ring_0": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.000492866008483861
+          },
+          "derived_ring_1": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00043234445436374225
+          },
+          "derived_ring_2": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0003311177364337947
+          },
+          "derived_ring_3": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00022166796082617735
+          },
+          "derived_ring_4": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00013254612711843805
+          },
+          "derived_ring_5": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00011044104478286076
+          },
+          "derived_ring_6": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00011044104699592383
+          }
+        },
+        "right": {
+          "source_weld_rim": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [
+              [
+                27,
+                29
+              ],
+              [
+                27,
+                30
+              ]
+            ],
+            "front_projection_signed_area_m2": -0.0005182082193926352
+          },
+          "source_initial_aperture": {
+            "vertices": 38,
+            "front_projection_proper_crossing_pairs": [
+              [
+                18,
+                21
+              ],
+              [
+                19,
+                21
+              ]
+            ],
+            "front_projection_signed_area_m2": 0.00039808044260847275
+          },
+          "derived_ring_0": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0004951100111494355
+          },
+          "derived_ring_1": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0004394562991555384
+          },
+          "derived_ring_2": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0003436204286355604
+          },
+          "derived_ring_3": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0002350060737094095
+          },
+          "derived_ring_4": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00014214363742537373
+          },
+          "derived_ring_5": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00011844306100317059
+          },
+          "derived_ring_6": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00011844304638219949
+          }
+        }
+      },
+      "strip_correspondence": {
+        "left": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            14,
+            10,
+            12,
+            10,
+            8,
+            8,
+            1
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "right": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            16,
+            6,
+            4,
+            4,
+            4,
+            4,
+            0
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "blink": 1,
+      "eyes": {
+        "left": {
+          "source_weld_rim": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0005182132208526591
+          },
+          "source_initial_aperture": {
+            "vertices": 35,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0003574267352028926
+          },
+          "derived_ring_0": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0004918043305424669
+          },
+          "derived_ring_1": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.0004227139508886646
+          },
+          "derived_ring_2": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00029665764583541865
+          },
+          "derived_ring_3": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 0.00015231512318969465
+          },
+          "derived_ring_4": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": 3.067179855442692e-05
+          },
+          "derived_ring_5": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                3,
+                35
+              ],
+              [
+                4,
+                34
+              ],
+              [
+                6,
+                32
+              ],
+              [
+                10,
+                25
+              ]
+            ],
+            "front_projection_signed_area_m2": -7.04854952182643e-10
+          },
+          "derived_ring_6": {
+            "vertices": 36,
+            "front_projection_proper_crossing_pairs": [
+              [
+                0,
+                2
+              ],
+              [
+                3,
+                35
+              ],
+              [
+                4,
+                34
+              ],
+              [
+                6,
+                32
+              ],
+              [
+                10,
+                25
+              ]
+            ],
+            "front_projection_signed_area_m2": -6.998528423451944e-10
+          }
+        },
+        "right": {
+          "source_weld_rim": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [
+              [
+                27,
+                29
+              ],
+              [
+                27,
+                30
+              ]
+            ],
+            "front_projection_signed_area_m2": -0.0005182082193926352
+          },
+          "source_initial_aperture": {
+            "vertices": 38,
+            "front_projection_proper_crossing_pairs": [
+              [
+                18,
+                21
+              ],
+              [
+                19,
+                21
+              ]
+            ],
+            "front_projection_signed_area_m2": 0.00039808044260847275
+          },
+          "derived_ring_0": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.000494064987134557
+          },
+          "derived_ring_1": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0004296608349853015
+          },
+          "derived_ring_2": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.0003071688408815554
+          },
+          "derived_ring_3": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -0.00016016899403659135
+          },
+          "derived_ring_4": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [],
+            "front_projection_signed_area_m2": -3.247933132888292e-05
+          },
+          "derived_ring_5": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [
+              [
+                4,
+                12
+              ],
+              [
+                6,
+                11
+              ],
+              [
+                19,
+                26
+              ]
+            ],
+            "front_projection_signed_area_m2": 1.1238013852832296e-09
+          },
+          "derived_ring_6": {
+            "vertices": 34,
+            "front_projection_proper_crossing_pairs": [
+              [
+                4,
+                12
+              ],
+              [
+                6,
+                11
+              ],
+              [
+                19,
+                26
+              ],
+              [
+                21,
+                24
+              ]
+            ],
+            "front_projection_signed_area_m2": 1.1281139356000836e-09
+          }
+        }
+      },
+      "strip_correspondence": {
+        "left": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            14,
+            12,
+            12,
+            8,
+            4,
+            8,
+            10
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            3,
+            0
+          ]
+        },
+        "right": {
+          "adjacent_ring_edge_crossing_counts_XZ": [
+            16,
+            6,
+            4,
+            4,
+            4,
+            8,
+            8
+          ],
+          "within_strip_correspondence_spoke_crossing_counts_XZ": [
+            0,
+            0,
+            0,
+            2,
+            1,
+            3,
+            0
+          ]
+        }
+      }
+    }
+  ],
+  "limits": "XZ orthographic front projection only;projected crossings can be separated in depth. These counts explain parameterization risk and do not establish3Dcollision. Independent triangle-intersection-diagnosis governs proper3Dcrossings. Closed upper/lower margins intentionally coincide;collinear contacts not counted. No source orcandidate geometry writes."
+}

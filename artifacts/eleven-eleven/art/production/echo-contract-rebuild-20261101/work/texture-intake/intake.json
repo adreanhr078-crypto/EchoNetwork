@@ -1,0 +1,61 @@
+{
+  "status": "CAPTURED_PENDING_VISUAL_REVIEW",
+  "source_sha256": "20e049034e4cb0762ae0b983336fa9c4aaa5d40706316d755e4644dd47316bcc",
+  "source_unchanged": true,
+  "meshes": [
+    {
+      "name": "tripo_1007001f_a8c2_4516_905a_784768998959",
+      "vertices": 65938,
+      "polygons": 53565,
+      "triangles": 53565,
+      "quads": 0,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "shape_keys": []
+    }
+  ],
+  "bounds_min": [
+    -0.392333984375,
+    -0.3796387314796448,
+    0.0
+  ],
+  "bounds_max": [
+    0.392333984375,
+    0.3796387314796448,
+    0.99951171875
+  ],
+  "normalization_applied": false,
+  "bone_or_vertex_edits": false,
+  "rigs": [],
+  "blend_sha256": "d5a45081d7f21c422ecb8ef6be85625bf2d181a390531367b3f9549ac1f185b7",
+  "captures": [
+    {
+      "view": "front",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\texture-intake\\front.png",
+      "sha256": "78777227dffc833fa355eebba751b0a4849ee0d323b1caee738a53bf9ed46828"
+    },
+    {
+      "view": "back",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\texture-intake\\back.png",
+      "sha256": "0ed224763ab1188b044bba0e52c69557562a970c443b8d6535672e8ff19a7a62"
+    },
+    {
+      "view": "side",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\texture-intake\\side.png",
+      "sha256": "31cb64734bbabd3d1a546a17d6ad9f7e1daf38713f18b32c70ff82b891d9f905"
+    },
+    {
+      "view": "three-quarter",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\texture-intake\\three-quarter.png",
+      "sha256": "b8f8b0026baffb23aab72f41c78427ee0b16839906b5c7497a877a8dd230aa21"
+    },
+    {
+      "view": "face",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\texture-intake\\face.png",
+      "sha256": "d949e2880ed0a0026ef6a27940044711c4cef587b37c41f3c23ff45cd2de1c4e"
+    }
+  ],
+  "runtime_accepted": false,
+  "scope": "Original source geometry intake; no rig/motion/face acceptance"
+}
