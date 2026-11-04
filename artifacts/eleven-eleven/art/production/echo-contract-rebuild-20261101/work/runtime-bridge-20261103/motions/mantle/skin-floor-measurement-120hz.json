@@ -1,0 +1,974 @@
+{
+  "status": "MEASURED_NOT_RUNTIME_ACCEPTANCE",
+  "blend_sha256": "9a973089516c97cda0748fa77c156e907783c5e5fcc30416147e53b86bae5d3a",
+  "tool_sha256": "20d4e1d2a6e29195affb0311a08cfaa5722bd15fcd3adcf832c4d168a911bd3a",
+  "native_fps": 30,
+  "samples": [
+    {
+      "frame": 0.0,
+      "time": 0.0,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.09364043176174164,
+      "wing_min_z": 0.5042770504951477
+    },
+    {
+      "frame": 0.25,
+      "time": 0.008333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.09532775729894638,
+      "wing_min_z": 0.5080845355987549
+    },
+    {
+      "frame": 0.5,
+      "time": 0.016666666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.10047220438718796,
+      "wing_min_z": 0.5192580223083496
+    },
+    {
+      "frame": 0.75,
+      "time": 0.025,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.1092512235045433,
+      "wing_min_z": 0.5370256900787354
+    },
+    {
+      "frame": 1.0,
+      "time": 0.03333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.11557696014642715,
+      "wing_min_z": 0.5590724945068359
+    },
+    {
+      "frame": 1.25,
+      "time": 0.041666666666666664,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.09895768761634827,
+      "wing_min_z": 0.5818552374839783
+    },
+    {
+      "frame": 1.5,
+      "time": 0.05,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.08153386414051056,
+      "wing_min_z": 0.6039655804634094
+    },
+    {
+      "frame": 1.75,
+      "time": 0.058333333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.06397107988595963,
+      "wing_min_z": 0.6250647902488708
+    },
+    {
+      "frame": 2.0,
+      "time": 0.06666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.04671872407197952,
+      "wing_min_z": 0.644840657711029
+    },
+    {
+      "frame": 2.25,
+      "time": 0.075,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.029820192605257034,
+      "wing_min_z": 0.6638176441192627
+    },
+    {
+      "frame": 2.5,
+      "time": 0.08333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.014256971888244152,
+      "wing_min_z": 0.6822633743286133
+    },
+    {
+      "frame": 2.75,
+      "time": 0.09166666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.0020831625442951918,
+      "wing_min_z": 0.6995211243629456
+    },
+    {
+      "frame": 3.0,
+      "time": 0.1,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": -0.005795864854007959,
+      "wing_min_z": 0.7149925827980042
+    },
+    {
+      "frame": 3.25,
+      "time": 0.10833333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": -0.009870215319097042,
+      "wing_min_z": 0.7249075770378113
+    },
+    {
+      "frame": 3.5,
+      "time": 0.11666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": -0.011483798734843731,
+      "wing_min_z": 0.7304036021232605
+    },
+    {
+      "frame": 3.75,
+      "time": 0.125,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": -0.01068289577960968,
+      "wing_min_z": 0.7381654977798462
+    },
+    {
+      "frame": 4.0,
+      "time": 0.13333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": -0.007033181842416525,
+      "wing_min_z": 0.7547146081924438
+    },
+    {
+      "frame": 4.25,
+      "time": 0.14166666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.00040120104677043855,
+      "wing_min_z": 0.7803826928138733
+    },
+    {
+      "frame": 4.5,
+      "time": 0.15,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.011958996765315533,
+      "wing_min_z": 0.8105630874633789
+    },
+    {
+      "frame": 4.75,
+      "time": 0.15833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.027305729687213898,
+      "wing_min_z": 0.8443494439125061
+    },
+    {
+      "frame": 5.0,
+      "time": 0.16666666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.04611784964799881,
+      "wing_min_z": 0.8808705806732178
+    },
+    {
+      "frame": 5.25,
+      "time": 0.175,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.06712641566991806,
+      "wing_min_z": 0.9191985726356506
+    },
+    {
+      "frame": 5.5,
+      "time": 0.18333333333333332,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.08930034190416336,
+      "wing_min_z": 0.9580661058425903
+    },
+    {
+      "frame": 5.75,
+      "time": 0.19166666666666668,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.11269817501306534,
+      "wing_min_z": 0.99610435962677
+    },
+    {
+      "frame": 6.0,
+      "time": 0.2,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.13732868432998657,
+      "wing_min_z": 1.0313377380371094
+    },
+    {
+      "frame": 6.25,
+      "time": 0.20833333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.16395430266857147,
+      "wing_min_z": 1.0626516342163086
+    },
+    {
+      "frame": 6.5,
+      "time": 0.21666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.19299982488155365,
+      "wing_min_z": 1.0922532081604004
+    },
+    {
+      "frame": 6.75,
+      "time": 0.225,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.22391755878925323,
+      "wing_min_z": 1.1222214698791504
+    },
+    {
+      "frame": 7.0,
+      "time": 0.23333333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.2561096251010895,
+      "wing_min_z": 1.154632568359375
+    },
+    {
+      "frame": 7.25,
+      "time": 0.24166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.2888786494731903,
+      "wing_min_z": 1.190691351890564
+    },
+    {
+      "frame": 7.5,
+      "time": 0.25,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.3216233253479004,
+      "wing_min_z": 1.2298502922058105
+    },
+    {
+      "frame": 7.75,
+      "time": 0.25833333333333336,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.3537546396255493,
+      "wing_min_z": 1.2715306282043457
+    },
+    {
+      "frame": 8.0,
+      "time": 0.26666666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.38187626004219055,
+      "wing_min_z": 1.315112829208374
+    },
+    {
+      "frame": 8.25,
+      "time": 0.275,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.40544256567955017,
+      "wing_min_z": 1.3601815700531006
+    },
+    {
+      "frame": 8.5,
+      "time": 0.2833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.42746490240097046,
+      "wing_min_z": 1.4064233303070068
+    },
+    {
+      "frame": 8.75,
+      "time": 0.2916666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.44805604219436646,
+      "wing_min_z": 1.4533607959747314
+    },
+    {
+      "frame": 9.0,
+      "time": 0.3,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.4668463170528412,
+      "wing_min_z": 1.5005362033843994
+    },
+    {
+      "frame": 9.25,
+      "time": 0.30833333333333335,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.4831794798374176,
+      "wing_min_z": 1.5478497743606567
+    },
+    {
+      "frame": 9.5,
+      "time": 0.31666666666666665,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.49830687046051025,
+      "wing_min_z": 1.5950847864151
+    },
+    {
+      "frame": 9.75,
+      "time": 0.325,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.5131552219390869,
+      "wing_min_z": 1.6416239738464355
+    },
+    {
+      "frame": 10.0,
+      "time": 0.3333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.5281680822372437,
+      "wing_min_z": 1.6868484020233154
+    },
+    {
+      "frame": 10.25,
+      "time": 0.3416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.5432161092758179,
+      "wing_min_z": 1.7305489778518677
+    },
+    {
+      "frame": 10.5,
+      "time": 0.35,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.5582783222198486,
+      "wing_min_z": 1.7656519412994385
+    },
+    {
+      "frame": 10.75,
+      "time": 0.35833333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.5739045143127441,
+      "wing_min_z": 1.7889586687088013
+    },
+    {
+      "frame": 11.0,
+      "time": 0.36666666666666664,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.590676486492157,
+      "wing_min_z": 1.8121540546417236
+    },
+    {
+      "frame": 11.25,
+      "time": 0.375,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.6089615225791931,
+      "wing_min_z": 1.8354686498641968
+    },
+    {
+      "frame": 11.5,
+      "time": 0.38333333333333336,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.6282240152359009,
+      "wing_min_z": 1.858839511871338
+    },
+    {
+      "frame": 11.75,
+      "time": 0.39166666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.6476932764053345,
+      "wing_min_z": 1.8823142051696777
+    },
+    {
+      "frame": 12.0,
+      "time": 0.4,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.6664719581604004,
+      "wing_min_z": 1.9059453010559082
+    },
+    {
+      "frame": 12.25,
+      "time": 0.4083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.6842876076698303,
+      "wing_min_z": 1.9298324584960938
+    },
+    {
+      "frame": 12.5,
+      "time": 0.4166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7015530467033386,
+      "wing_min_z": 1.9536545276641846
+    },
+    {
+      "frame": 12.75,
+      "time": 0.425,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7183883786201477,
+      "wing_min_z": 1.9768495559692383
+    },
+    {
+      "frame": 13.0,
+      "time": 0.43333333333333335,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7348467707633972,
+      "wing_min_z": 1.9988701343536377
+    },
+    {
+      "frame": 13.25,
+      "time": 0.44166666666666665,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7507385015487671,
+      "wing_min_z": 2.0193822383880615
+    },
+    {
+      "frame": 13.5,
+      "time": 0.45,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7609294056892395,
+      "wing_min_z": 2.0383968353271484
+    },
+    {
+      "frame": 13.75,
+      "time": 0.4583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7684102058410645,
+      "wing_min_z": 2.0558903217315674
+    },
+    {
+      "frame": 14.0,
+      "time": 0.4666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.7821120619773865,
+      "wing_min_z": 2.0718441009521484
+    },
+    {
+      "frame": 14.25,
+      "time": 0.475,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8004294037818909,
+      "wing_min_z": 2.0863420963287354
+    },
+    {
+      "frame": 14.5,
+      "time": 0.48333333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8169025778770447,
+      "wing_min_z": 2.0995476245880127
+    },
+    {
+      "frame": 14.75,
+      "time": 0.49166666666666664,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8244504332542419,
+      "wing_min_z": 2.111574649810791
+    },
+    {
+      "frame": 15.0,
+      "time": 0.5,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8318030834197998,
+      "wing_min_z": 2.122551202774048
+    },
+    {
+      "frame": 15.25,
+      "time": 0.5083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8375798463821411,
+      "wing_min_z": 2.132615804672241
+    },
+    {
+      "frame": 15.5,
+      "time": 0.5166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8437384366989136,
+      "wing_min_z": 2.1419219970703125
+    },
+    {
+      "frame": 15.75,
+      "time": 0.525,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8503689169883728,
+      "wing_min_z": 2.1506240367889404
+    },
+    {
+      "frame": 16.0,
+      "time": 0.5333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.857710599899292,
+      "wing_min_z": 2.158867835998535
+    },
+    {
+      "frame": 16.25,
+      "time": 0.5416666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8658029437065125,
+      "wing_min_z": 2.16678786277771
+    },
+    {
+      "frame": 16.5,
+      "time": 0.55,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8743737936019897,
+      "wing_min_z": 2.1744213104248047
+    },
+    {
+      "frame": 16.75,
+      "time": 0.5583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8838940262794495,
+      "wing_min_z": 2.1817665100097656
+    },
+    {
+      "frame": 17.0,
+      "time": 0.5666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.8946161270141602,
+      "wing_min_z": 2.1888225078582764
+    },
+    {
+      "frame": 17.25,
+      "time": 0.575,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9080853462219238,
+      "wing_min_z": 2.1955854892730713
+    },
+    {
+      "frame": 17.5,
+      "time": 0.5833333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9246155619621277,
+      "wing_min_z": 2.2020719051361084
+    },
+    {
+      "frame": 17.75,
+      "time": 0.5916666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9427151083946228,
+      "wing_min_z": 2.2083094120025635
+    },
+    {
+      "frame": 18.0,
+      "time": 0.6,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9606979489326477,
+      "wing_min_z": 2.2143266201019287
+    },
+    {
+      "frame": 18.25,
+      "time": 0.6083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9771593809127808,
+      "wing_min_z": 2.2201483249664307
+    },
+    {
+      "frame": 18.5,
+      "time": 0.6166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 0.9921432137489319,
+      "wing_min_z": 2.2257769107818604
+    },
+    {
+      "frame": 18.75,
+      "time": 0.625,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.0060964822769165,
+      "wing_min_z": 2.2312076091766357
+    },
+    {
+      "frame": 19.0,
+      "time": 0.6333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.0196021795272827,
+      "wing_min_z": 2.236436605453491
+    },
+    {
+      "frame": 19.25,
+      "time": 0.6416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.0331997871398926,
+      "wing_min_z": 2.241464853286743
+    },
+    {
+      "frame": 19.5,
+      "time": 0.65,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.047002911567688,
+      "wing_min_z": 2.246320962905884
+    },
+    {
+      "frame": 19.75,
+      "time": 0.6583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.061034917831421,
+      "wing_min_z": 2.251037359237671
+    },
+    {
+      "frame": 20.0,
+      "time": 0.6666666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.0753110647201538,
+      "wing_min_z": 2.255030870437622
+    },
+    {
+      "frame": 20.25,
+      "time": 0.675,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.0901246070861816,
+      "wing_min_z": 2.2576327323913574
+    },
+    {
+      "frame": 20.5,
+      "time": 0.6833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1058107614517212,
+      "wing_min_z": 2.260181188583374
+    },
+    {
+      "frame": 20.75,
+      "time": 0.6916666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1224128007888794,
+      "wing_min_z": 2.262608766555786
+    },
+    {
+      "frame": 21.0,
+      "time": 0.7,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1399426460266113,
+      "wing_min_z": 2.2648603916168213
+    },
+    {
+      "frame": 21.25,
+      "time": 0.7083333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1585471630096436,
+      "wing_min_z": 2.266977548599243
+    },
+    {
+      "frame": 21.5,
+      "time": 0.7166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1782140731811523,
+      "wing_min_z": 2.2689592838287354
+    },
+    {
+      "frame": 21.75,
+      "time": 0.725,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.1986716985702515,
+      "wing_min_z": 2.270810842514038
+    },
+    {
+      "frame": 22.0,
+      "time": 0.7333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.2196307182312012,
+      "wing_min_z": 2.272536516189575
+    },
+    {
+      "frame": 22.25,
+      "time": 0.7416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.240876317024231,
+      "wing_min_z": 2.2741456031799316
+    },
+    {
+      "frame": 22.5,
+      "time": 0.75,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.26253080368042,
+      "wing_min_z": 2.275651216506958
+    },
+    {
+      "frame": 22.75,
+      "time": 0.7583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.2847727537155151,
+      "wing_min_z": 2.276973247528076
+    },
+    {
+      "frame": 23.0,
+      "time": 0.7666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.3077706098556519,
+      "wing_min_z": 2.2781124114990234
+    },
+    {
+      "frame": 23.25,
+      "time": 0.775,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.3312511444091797,
+      "wing_min_z": 2.27917742729187
+    },
+    {
+      "frame": 23.5,
+      "time": 0.7833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.3548294305801392,
+      "wing_min_z": 2.2801754474639893
+    },
+    {
+      "frame": 23.75,
+      "time": 0.7916666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.378544569015503,
+      "wing_min_z": 2.2811427116394043
+    },
+    {
+      "frame": 24.0,
+      "time": 0.8,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.4024441242218018,
+      "wing_min_z": 2.282111883163452
+    },
+    {
+      "frame": 24.25,
+      "time": 0.8083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.426313877105713,
+      "wing_min_z": 2.283167839050293
+    },
+    {
+      "frame": 24.5,
+      "time": 0.8166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.4496049880981445,
+      "wing_min_z": 2.2843849658966064
+    },
+    {
+      "frame": 24.75,
+      "time": 0.825,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.471880555152893,
+      "wing_min_z": 2.2857754230499268
+    },
+    {
+      "frame": 25.0,
+      "time": 0.8333333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.492734432220459,
+      "wing_min_z": 2.2873504161834717
+    },
+    {
+      "frame": 25.25,
+      "time": 0.8416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.512359619140625,
+      "wing_min_z": 2.2891182899475098
+    },
+    {
+      "frame": 25.5,
+      "time": 0.85,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5308072566986084,
+      "wing_min_z": 2.291083812713623
+    },
+    {
+      "frame": 25.75,
+      "time": 0.8583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5474414825439453,
+      "wing_min_z": 2.2932279109954834
+    },
+    {
+      "frame": 26.0,
+      "time": 0.8666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5615488290786743,
+      "wing_min_z": 2.295551061630249
+    },
+    {
+      "frame": 26.25,
+      "time": 0.875,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5725659132003784,
+      "wing_min_z": 2.2980704307556152
+    },
+    {
+      "frame": 26.5,
+      "time": 0.8833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5808733701705933,
+      "wing_min_z": 2.3008077144622803
+    },
+    {
+      "frame": 26.75,
+      "time": 0.8916666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5871638059616089,
+      "wing_min_z": 2.303814649581909
+    },
+    {
+      "frame": 27.0,
+      "time": 0.9,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5839564800262451,
+      "wing_min_z": 2.3071463108062744
+    },
+    {
+      "frame": 27.25,
+      "time": 0.9083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5774333477020264,
+      "wing_min_z": 2.310812473297119
+    },
+    {
+      "frame": 27.5,
+      "time": 0.9166666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.571513295173645,
+      "wing_min_z": 2.3145644664764404
+    },
+    {
+      "frame": 27.75,
+      "time": 0.925,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.565988302230835,
+      "wing_min_z": 2.3180627822875977
+    },
+    {
+      "frame": 28.0,
+      "time": 0.9333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5606125593185425,
+      "wing_min_z": 2.3209640979766846
+    },
+    {
+      "frame": 28.25,
+      "time": 0.9416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.555198073387146,
+      "wing_min_z": 2.323979139328003
+    },
+    {
+      "frame": 28.5,
+      "time": 0.95,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.54982328414917,
+      "wing_min_z": 2.3278863430023193
+    },
+    {
+      "frame": 28.75,
+      "time": 0.9583333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5446265935897827,
+      "wing_min_z": 2.3324501514434814
+    },
+    {
+      "frame": 29.0,
+      "time": 0.9666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5397510528564453,
+      "wing_min_z": 2.337442398071289
+    },
+    {
+      "frame": 29.25,
+      "time": 0.975,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5349570512771606,
+      "wing_min_z": 2.3424108028411865
+    },
+    {
+      "frame": 29.5,
+      "time": 0.9833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.530254602432251,
+      "wing_min_z": 2.347081422805786
+    },
+    {
+      "frame": 29.75,
+      "time": 0.9916666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.525790810585022,
+      "wing_min_z": 2.3514785766601562
+    },
+    {
+      "frame": 30.0,
+      "time": 1.0,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5220143795013428,
+      "wing_min_z": 2.355618715286255
+    },
+    {
+      "frame": 30.25,
+      "time": 1.0083333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5194721221923828,
+      "wing_min_z": 2.3595612049102783
+    },
+    {
+      "frame": 30.5,
+      "time": 1.0166666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5183206796646118,
+      "wing_min_z": 2.363182783126831
+    },
+    {
+      "frame": 30.75,
+      "time": 1.025,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.518254280090332,
+      "wing_min_z": 2.3663244247436523
+    },
+    {
+      "frame": 31.0,
+      "time": 1.0333333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5189815759658813,
+      "wing_min_z": 2.36883544921875
+    },
+    {
+      "frame": 31.25,
+      "time": 1.0416666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.51995050907135,
+      "wing_min_z": 2.370788812637329
+    },
+    {
+      "frame": 31.5,
+      "time": 1.05,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5208916664123535,
+      "wing_min_z": 2.3723957538604736
+    },
+    {
+      "frame": 31.75,
+      "time": 1.0583333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.521916389465332,
+      "wing_min_z": 2.3733975887298584
+    },
+    {
+      "frame": 32.0,
+      "time": 1.0666666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5230988264083862,
+      "wing_min_z": 2.3741672039031982
+    },
+    {
+      "frame": 32.25,
+      "time": 1.075,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5243732929229736,
+      "wing_min_z": 2.3747987747192383
+    },
+    {
+      "frame": 32.5,
+      "time": 1.0833333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.525394082069397,
+      "wing_min_z": 2.3751845359802246
+    },
+    {
+      "frame": 32.75,
+      "time": 1.0916666666666666,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5257753133773804,
+      "wing_min_z": 2.375128984451294
+    },
+    {
+      "frame": 33.0,
+      "time": 1.1,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5251542329788208,
+      "wing_min_z": 2.374300241470337
+    },
+    {
+      "frame": 33.25,
+      "time": 1.1083333333333334,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5237550735473633,
+      "wing_min_z": 2.3693675994873047
+    },
+    {
+      "frame": 33.5,
+      "time": 1.1166666666666667,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5219807624816895,
+      "wing_min_z": 2.3632965087890625
+    },
+    {
+      "frame": 33.75,
+      "time": 1.125,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5203794240951538,
+      "wing_min_z": 2.3585240840911865
+    },
+    {
+      "frame": 34.0,
+      "time": 1.1333333333333333,
+      "distal_wing_body_triangle_pairs": 0,
+      "body_min_z": 1.5197123289108276,
+      "wing_min_z": 2.356592893600464
+    }
+  ],
+  "wing_vertices": 32860,
+  "mount_exclusion_radius_m": 0.1,
+  "source_keys_modified": false,
+  "worst_distal_triangle_pairs": 0,
+  "limits": "No simulation or skin correction. Triangle surface intersections do not establish art/floor/capsule/camera acceptance;mount region intentionally excluded.",
+  "distal_contacts_measured": false,
+  "measurement_fps": 120
+}

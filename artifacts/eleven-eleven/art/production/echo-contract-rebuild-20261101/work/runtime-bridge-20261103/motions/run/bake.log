@@ -1,0 +1,16 @@
+FBX version: 7400
+WARNING: User property type 'charptr' is not supported
+WARNING: User property type 'KTime' is not supported
+WARNING: User property type 'KTime' is not supported
+WARNING: User property type 'charptr' is not supported
+WARNING: User property type 'KTime' is not supported
+WARNING: User property type 'KTime' is not supported
+WARNING: User property type 'charptr' is not supported
+07:57:47 | INFO: Data are loaded, start creating Blender stuff
+07:57:47 | INFO: Blender create Mesh node tripo_1007001f_a8c2_4516_905a_784768998959
+07:57:48 | INFO: glTF import finished in 0.97s
+Info: Saved as "single-motion.blend"
+SINGLE_MOTION_BLENDER {"action": "Run_Source_Retarget", "take_id": "92bf7cb4b88e3ee2a29be185:0:fd47e298", "source_rig": "Armature", "target_rig": "Armature.001", "duration": 0.8, "fps": 30, "unmapped_target_rest_bones": {"wingfanouterleft": "WingFanOuterLeft", "wingouterleft": "WingOuterLeft", "wingtipleft": "WingTipLeft", "lefttoeend": "mixamorig:LeftToe_End", "wingfanmidleft": "WingFanMidLeft", "headtopend": "mixamorig:HeadTop_End", "winginnerleft": "WingInnerLeft", "wingrootleft": "WingRootLeft", "righttoeend": "mixamorig:RightToe_End", "wingfaninnerleft": "WingFanInnerLeft"}, "max_blender_rotation_error_degrees": 0.0, "max_blender_length_error_m": 3.69285123091867e-06, "max_blender_baked_replay_position_error_m": 3.58406421779881e-06, "max_blender_baked_replay_rotation_error_degrees": 0.0, "status": "PASS", "limits": "Numerical fidelity; visual/source skin review required. No artistic perfection or contact compensation claimed."}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
