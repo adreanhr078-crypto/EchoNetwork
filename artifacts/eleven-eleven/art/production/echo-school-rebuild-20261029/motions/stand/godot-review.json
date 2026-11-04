@@ -1,0 +1,5577 @@
+{
+	"animation_names": [
+		"Stand_Source_Retarget"
+	],
+	"animation_tree": false,
+	"blending": false,
+	"errors": [],
+	"max_position_error_m": 0.00000281143684333074,
+	"max_rotation_error_degrees": 0.000244905184078749,
+	"measurements": [
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000510351185312174,
+					"rotation_degrees": 0.0000256700648812555
+				},
+				"headtopend": {
+					"position_m": 0.000000752176617879741,
+					"rotation_degrees": 0.0000260645749808347
+				},
+				"hips": {
+					"position_m": 0.0000000260770320892334,
+					"rotation_degrees": 0.0000202759988436733
+				},
+				"leftarm": {
+					"position_m": 0.000000507515267145209,
+					"rotation_degrees": 0.0000149166251770011
+				},
+				"leftfoot": {
+					"position_m": 0.00000130024909594795,
+					"rotation_degrees": 0.000143118536454216
+				},
+				"leftforearm": {
+					"position_m": 0.000000543841338185302,
+					"rotation_degrees": 0.0000074552576275624
+				},
+				"lefthand": {
+					"position_m": 0.000000578656454308657,
+					"rotation_degrees": 0.0000298332503540018
+				},
+				"lefthandindex1": {
+					"position_m": 0.0000008766392625148,
+					"rotation_degrees": 0.0000216663464153504
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000087853686636663,
+					"rotation_degrees": 0.00000763638456800664
+				},
+				"lefthandindex3": {
+					"position_m": 0.0000012656561239055,
+					"rotation_degrees": 0.0000133636717726786
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000120305537620879,
+					"rotation_degrees": 0.0000256984454032336
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000835827620448981,
+					"rotation_degrees": 0.0000181514770666535
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000105493484170438,
+					"rotation_degrees": 0.00000999373312548453
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000107464131815505,
+					"rotation_degrees": 0.0000160854489980028
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000882194058249297,
+					"rotation_degrees": 0.0000244458267394831
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000754534539737506,
+					"rotation_degrees": 0.0000296982881724259
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000822133699784899,
+					"rotation_degrees": 0.0000300267550972665
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000982686060524429,
+					"rotation_degrees": 0.0000321629186204201
+				},
+				"lefthandpinky4": {
+					"position_m": 0.0000011211576520509,
+					"rotation_degrees": 0.0000470904022619909
+				},
+				"lefthandring1": {
+					"position_m": 0.000000829126122425805,
+					"rotation_degrees": 0.0000197662893588647
+				},
+				"lefthandring2": {
+					"position_m": 0.000000884581936588802,
+					"rotation_degrees": 0.0000205305490670502
+				},
+				"lefthandring3": {
+					"position_m": 0.000000805524564384541,
+					"rotation_degrees": 0.0000314885115666521
+				},
+				"lefthandring4": {
+					"position_m": 0.000000672371015753015,
+					"rotation_degrees": 0.0000127852443938664
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000747772560316662,
+					"rotation_degrees": 0.0000309838730564499
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000102558533399133,
+					"rotation_degrees": 0.0000236142129591414
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000001119968715102,
+					"rotation_degrees": 0.0000355009715199324
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000118967477646947,
+					"rotation_degrees": 0.0000258398790212532
+				},
+				"leftleg": {
+					"position_m": 0.0000010741246114776,
+					"rotation_degrees": 0.000151637982233745
+				},
+				"leftshoulder": {
+					"position_m": 0.000000488112561924936,
+					"rotation_degrees": 0.0000172994539976986
+				},
+				"lefttoebase": {
+					"position_m": 0.00000193680693882925,
+					"rotation_degrees": 0.000103725590295491
+				},
+				"lefttoeend": {
+					"position_m": 0.00000189159663932514,
+					"rotation_degrees": 0.000123381365302487
+				},
+				"leftupleg": {
+					"position_m": 0.000000102428550974309,
+					"rotation_degrees": 0.000152804013273289
+				},
+				"neck": {
+					"position_m": 0.00000049331623586113,
+					"rotation_degrees": 0.0000133363709090704
+				},
+				"rightarm": {
+					"position_m": 0.000000675172259434476,
+					"rotation_degrees": 0.0000211968220430536
+				},
+				"rightfoot": {
+					"position_m": 0.000000175365840959785,
+					"rotation_degrees": 0.00017756144277153
+				},
+				"rightforearm": {
+					"position_m": 0.000000796341225850483,
+					"rotation_degrees": 0.0000262318389775332
+				},
+				"righthand": {
+					"position_m": 0.00000105840206288121,
+					"rotation_degrees": 0.0000218839358453295
+				},
+				"righthandindex1": {
+					"position_m": 0.00000110590315216541,
+					"rotation_degrees": 0.0000338077121950582
+				},
+				"righthandindex2": {
+					"position_m": 0.00000112266673113481,
+					"rotation_degrees": 0.0000208432673099966
+				},
+				"righthandindex3": {
+					"position_m": 0.00000131746833176294,
+					"rotation_degrees": 0.0000196923954556169
+				},
+				"righthandindex4": {
+					"position_m": 0.00000135952166147035,
+					"rotation_degrees": 0.0000202760004721173
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000112194959456247,
+					"rotation_degrees": 0.0000185570019614279
+				},
+				"righthandmiddle2": {
+					"position_m": 0.0000014186656471793,
+					"rotation_degrees": 0.0000208828498982295
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000155686825564771,
+					"rotation_degrees": 0.0000199820516746792
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000174292631527351,
+					"rotation_degrees": 0.0000219265717660565
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000102385183708975,
+					"rotation_degrees": 0.0000107994774444913
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000971208237388055,
+					"rotation_degrees": 0.00000763638375378464
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000987532189355989,
+					"rotation_degrees": 0.0000265082624606766
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000120883225918078,
+					"rotation_degrees": 0.0000292285016206456
+				},
+				"righthandring1": {
+					"position_m": 0.00000108154097233637,
+					"rotation_degrees": 0.0000144890185816287
+				},
+				"righthandring2": {
+					"position_m": 0.00000107205539734423,
+					"rotation_degrees": 0.0000344907630295618
+				},
+				"righthandring3": {
+					"position_m": 0.00000125568260500586,
+					"rotation_degrees": 0.000022132341949506
+				},
+				"righthandring4": {
+					"position_m": 0.00000121030086575047,
+					"rotation_degrees": 0.0000107994774444913
+				},
+				"righthandthumb1": {
+					"position_m": 0.0000011449678822828,
+					"rotation_degrees": 0.0000250957175688776
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000961124897003174,
+					"rotation_degrees": 0.0000048296729962466
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000108737640402978,
+					"rotation_degrees": 0.0000160182105453704
+				},
+				"righthandthumb4": {
+					"position_m": 0.0000012215374454172,
+					"rotation_degrees": 0.0000193940091482873
+				},
+				"rightleg": {
+					"position_m": 0.000000885710790043959,
+					"rotation_degrees": 0.000112348305479534
+				},
+				"rightshoulder": {
+					"position_m": 0.000000448089082283332,
+					"rotation_degrees": 0.0000149791997660264
+				},
+				"righttoebase": {
+					"position_m": 0.000000106170773506165,
+					"rotation_degrees": 0.000110009325770344
+				},
+				"righttoeend": {
+					"position_m": 0.0000000903538932561787,
+					"rotation_degrees": 0.000113394522123564
+				},
+				"rightupleg": {
+					"position_m": 0.000000110069564129844,
+					"rotation_degrees": 0.000073424533577627
+				},
+				"spine": {
+					"position_m": 0.000000071518051925068,
+					"rotation_degrees": 0.0000278492551516954
+				},
+				"spine1": {
+					"position_m": 0.000000227585971401822,
+					"rotation_degrees": 0.0000178273141192968
+				},
+				"spine2": {
+					"position_m": 0.000000257692079230765,
+					"rotation_degrees": 0.0000147877940870737
+				}
+			},
+			"time": 0.0
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000548225557395199,
+					"rotation_degrees": 0.0000211556794054717
+				},
+				"headtopend": {
+					"position_m": 0.000000751031848267303,
+					"rotation_degrees": 0.000018956851728873
+				},
+				"hips": {
+					"position_m": 0.0000000270725077911038,
+					"rotation_degrees": 0.0000208607502847474
+				},
+				"leftarm": {
+					"position_m": 0.000000357627868652344,
+					"rotation_degrees": 0.0000171818624282378
+				},
+				"leftfoot": {
+					"position_m": 0.00000141034593070799,
+					"rotation_degrees": 0.00014971256216201
+				},
+				"leftforearm": {
+					"position_m": 0.000000655142912364681,
+					"rotation_degrees": 0.0000232251548900639
+				},
+				"lefthand": {
+					"position_m": 0.000000557550379198801,
+					"rotation_degrees": 0.0000137666864210317
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000728177553810383,
+					"rotation_degrees": 0.0000270121893408521
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000833533192690084,
+					"rotation_degrees": 0.0000260225953230384
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000123006805097248,
+					"rotation_degrees": 0.0000560247202048483
+				},
+				"lefthandindex4": {
+					"position_m": 0.0000011282648983979,
+					"rotation_degrees": 0.0000344722671626449
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000811942356904183,
+					"rotation_degrees": 0.0000193940091482873
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000115175953396829,
+					"rotation_degrees": 0.000014515723434734
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000111333213226317,
+					"rotation_degrees": 0.00000742540743487705
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000957653242039669,
+					"rotation_degrees": 0.0000180861813477095
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000695901803737797,
+					"rotation_degrees": 0.0000118090663119211
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000735459479983547,
+					"rotation_degrees": 0.0000117082998258364
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000736213905838667,
+					"rotation_degrees": 0.0000129217023012534
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000717889633961022,
+					"rotation_degrees": 0.0000223952916870189
+				},
+				"lefthandring1": {
+					"position_m": 0.000000551997004549776,
+					"rotation_degrees": 0.0000124311319187405
+				},
+				"lefthandring2": {
+					"position_m": 0.000000661718956962432,
+					"rotation_degrees": 0.00000834615572583353
+				},
+				"lefthandring3": {
+					"position_m": 0.000000735459479983547,
+					"rotation_degrees": 0.000024163452921975
+				},
+				"lefthandring4": {
+					"position_m": 0.000000628680652425828,
+					"rotation_degrees": 0.0000085803186445911
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000545675561625103,
+					"rotation_degrees": 0.0000137666864210317
+				},
+				"lefthandthumb2": {
+					"position_m": 0.000000823348159428861,
+					"rotation_degrees": 0.000012074182694172
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000000947718547195109,
+					"rotation_degrees": 0.0000171606372891821
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000102225112641463,
+					"rotation_degrees": 0.0000261901247561084
+				},
+				"leftleg": {
+					"position_m": 0.0000011092110980826,
+					"rotation_degrees": 0.000154975797380428
+				},
+				"leftshoulder": {
+					"position_m": 0.000000375275618580417,
+					"rotation_degrees": 0.0000136345056218025
+				},
+				"lefttoebase": {
+					"position_m": 0.00000214636543205415,
+					"rotation_degrees": 0.000114914251199238
+				},
+				"lefttoeend": {
+					"position_m": 0.00000213722933040117,
+					"rotation_degrees": 0.000127929374889913
+				},
+				"leftupleg": {
+					"position_m": 0.000000115903830533171,
+					"rotation_degrees": 0.000154133930916683
+				},
+				"neck": {
+					"position_m": 0.000000432967851793364,
+					"rotation_degrees": 0.0000141839523970237
+				},
+				"rightarm": {
+					"position_m": 0.000000529987175923452,
+					"rotation_degrees": 0.00000500113959979016
+				},
+				"rightfoot": {
+					"position_m": 0.000000128184638015227,
+					"rotation_degrees": 0.000152911308191358
+				},
+				"rightforearm": {
+					"position_m": 0.000000718971364221943,
+					"rotation_degrees": 0.0000355727598450921
+				},
+				"righthand": {
+					"position_m": 0.000000773282692989596,
+					"rotation_degrees": 0.0000331215738307365
+				},
+				"righthandindex1": {
+					"position_m": 0.000000746286389130546,
+					"rotation_degrees": 0.0000353672534695702
+				},
+				"righthandindex2": {
+					"position_m": 0.000000890585965862556,
+					"rotation_degrees": 0.0000503074845707485
+				},
+				"righthandindex3": {
+					"position_m": 0.000000977844365479541,
+					"rotation_degrees": 0.000051453586712661
+				},
+				"righthandindex4": {
+					"position_m": 0.00000105811363937391,
+					"rotation_degrees": 0.0000532634328570497
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000743267776215362,
+					"rotation_degrees": 0.0000352545325761041
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000952742539084284,
+					"rotation_degrees": 0.0000327454781758744
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000954721485868504,
+					"rotation_degrees": 0.0000276211362028324
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000103934928574745,
+					"rotation_degrees": 0.0000378115739640348
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000669889629989484,
+					"rotation_degrees": 0.0000250957175688776
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000522391417234758,
+					"rotation_degrees": 0.0000307832487560307
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000061022029740343,
+					"rotation_degrees": 0.0000443962296050807
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000562309082852153,
+					"rotation_degrees": 0.0000531538385760577
+				},
+				"righthandring1": {
+					"position_m": 0.000000686100975144655,
+					"rotation_degrees": 0.0000341936078258938
+				},
+				"righthandring2": {
+					"position_m": 0.000000635006301763497,
+					"rotation_degrees": 0.0000156499297932494
+				},
+				"righthandring3": {
+					"position_m": 0.000000733191654944676,
+					"rotation_degrees": 0.0000202760004721173
+				},
+				"righthandring4": {
+					"position_m": 0.000000686262808358151,
+					"rotation_degrees": 0.0000218672719779091
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000785815529980027,
+					"rotation_degrees": 0.000044000416750304
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000701819374171464,
+					"rotation_degrees": 0.0000463560554415847
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000840430800508329,
+					"rotation_degrees": 0.0000331545726198899
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000100737247521465,
+					"rotation_degrees": 0.0000398265030885063
+				},
+				"rightleg": {
+					"position_m": 0.000000894690344921401,
+					"rotation_degrees": 0.000100513491025366
+				},
+				"rightshoulder": {
+					"position_m": 0.000000433516390785371,
+					"rotation_degrees": 0.0000211599833829555
+				},
+				"righttoebase": {
+					"position_m": 0.000000208083392294611,
+					"rotation_degrees": 0.0000881632414772946
+				},
+				"righttoeend": {
+					"position_m": 0.000000262949811258295,
+					"rotation_degrees": 0.0000913348250607772
+				},
+				"rightupleg": {
+					"position_m": 0.000000108881131666294,
+					"rotation_degrees": 0.0000555937101615224
+				},
+				"spine": {
+					"position_m": 0.0000000905827945985038,
+					"rotation_degrees": 0.0000146888775133694
+				},
+				"spine1": {
+					"position_m": 0.000000320917337148785,
+					"rotation_degrees": 0.000012074182694172
+				},
+				"spine2": {
+					"position_m": 0.000000241433582459649,
+					"rotation_degrees": 0.0000105260283143083
+				}
+			},
+			"time": 0.0333333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000733645777017955,
+					"rotation_degrees": 0.0000085803202730351
+				},
+				"headtopend": {
+					"position_m": 0.000000881824291809608,
+					"rotation_degrees": 0.0000167100435783493
+				},
+				"hips": {
+					"position_m": 0.0000000242616344792168,
+					"rotation_degrees": 0.0000134452405324838
+				},
+				"leftarm": {
+					"position_m": 0.000000404258372554978,
+					"rotation_degrees": 0.00000907573853332683
+				},
+				"leftfoot": {
+					"position_m": 0.00000137551523948787,
+					"rotation_degrees": 0.000134517433978905
+				},
+				"leftforearm": {
+					"position_m": 0.000000597720486439357,
+					"rotation_degrees": 0.0000184353832499627
+				},
+				"lefthand": {
+					"position_m": 0.000000605654747687367,
+					"rotation_degrees": 0.00000459771173377284
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000102731587503513,
+					"rotation_degrees": 0.0000250957175688776
+				},
+				"lefthandindex2": {
+					"position_m": 0.0000011118665952381,
+					"rotation_degrees": 0.0000207205070592896
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000139164899337629,
+					"rotation_degrees": 0.00000286364380589149
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000130875048398593,
+					"rotation_degrees": 0.0000215017090988189
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000856557562656235,
+					"rotation_degrees": 0.0000178273173761848
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000102917840649752,
+					"rotation_degrees": 0.0000100341103943879
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000011616217534538,
+					"rotation_degrees": 0.0000127981530694299
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000948655269894516,
+					"rotation_degrees": 0.0000166348974016679
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000892578327693627,
+					"rotation_degrees": 0.0000171884901953053
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000949035552366695,
+					"rotation_degrees": 0.0000153679256325286
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000111081135401037,
+					"rotation_degrees": 0.00000597641633798315
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000113023122594313,
+					"rotation_degrees": 0.0000187490329628754
+				},
+				"lefthandring1": {
+					"position_m": 0.000000938773155212402,
+					"rotation_degrees": 0.00000705332752291124
+				},
+				"lefthandring2": {
+					"position_m": 0.00000109726079244865,
+					"rotation_degrees": 0.0000144449317173004
+				},
+				"lefthandring3": {
+					"position_m": 0.000000992941863842134,
+					"rotation_degrees": 0.00000923744057955393
+				},
+				"lefthandring4": {
+					"position_m": 0.000000934030651933426,
+					"rotation_degrees": 0.0000193857855061029
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000872227246873081,
+					"rotation_degrees": 0.0000141066550458224
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000119218600502791,
+					"rotation_degrees": 0.00000836523946103331
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000135993502681231,
+					"rotation_degrees": 0.0000156499297932494
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000149102856994432,
+					"rotation_degrees": 0.0000152727675075692
+				},
+				"leftleg": {
+					"position_m": 0.00000103335014500772,
+					"rotation_degrees": 0.000158095739747876
+				},
+				"leftshoulder": {
+					"position_m": 0.000000416433465488808,
+					"rotation_degrees": 0.0000105944221479565
+				},
+				"lefttoebase": {
+					"position_m": 0.0000020739162209793,
+					"rotation_degrees": 0.0000961244501409156
+				},
+				"lefttoeend": {
+					"position_m": 0.00000207412699637644,
+					"rotation_degrees": 0.00012751845984551
+				},
+				"leftupleg": {
+					"position_m": 0.000000144855846428982,
+					"rotation_degrees": 0.000149875575919877
+				},
+				"neck": {
+					"position_m": 0.000000470272709662822,
+					"rotation_degrees": 0.0000124311319187405
+				},
+				"rightarm": {
+					"position_m": 0.000000703991190675879,
+					"rotation_degrees": 0.00000245227808961124
+				},
+				"rightfoot": {
+					"position_m": 0.000000126440539816031,
+					"rotation_degrees": 0.000161828393939825
+				},
+				"rightforearm": {
+					"position_m": 0.000000805352271981974,
+					"rotation_degrees": 0.0000181514770666535
+				},
+				"righthand": {
+					"position_m": 0.00000090013372755493,
+					"rotation_degrees": 0.0000239817674252398
+				},
+				"righthandindex1": {
+					"position_m": 0.000000845599856802437,
+					"rotation_degrees": 0.0000107994774444913
+				},
+				"righthandindex2": {
+					"position_m": 0.000000886086752416304,
+					"rotation_degrees": 0.0000141839523970237
+				},
+				"righthandindex3": {
+					"position_m": 0.00000108012864075135,
+					"rotation_degrees": 0.0000334609578441324
+				},
+				"righthandindex4": {
+					"position_m": 0.00000123383051686687,
+					"rotation_degrees": 0.0000239665659005287
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000885585450305371,
+					"rotation_degrees": 0.0000153513464441961
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000101513990102831,
+					"rotation_degrees": 0.0000172377848235357
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000977134504864807,
+					"rotation_degrees": 0.0000309531573457802
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000128123997455987,
+					"rotation_degrees": 0.000024227708065205
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000744014243991842,
+					"rotation_degrees": 0.000022132340321062
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000676322315484867,
+					"rotation_degrees": 0.0000256132093875474
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000824291532808275,
+					"rotation_degrees": 0.0000275333728420629
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000844516023335018,
+					"rotation_degrees": 0.0000338077121950582
+				},
+				"righthandring1": {
+					"position_m": 0.000000910313360691362,
+					"rotation_degrees": 0.0000160182138022584
+				},
+				"righthandring2": {
+					"position_m": 0.000000889213595200999,
+					"rotation_degrees": 0.0000168173889781816
+				},
+				"righthandring3": {
+					"position_m": 0.000000997042434391915,
+					"rotation_degrees": 0.0000429270734861732
+				},
+				"righthandring4": {
+					"position_m": 0.000000966739776231407,
+					"rotation_degrees": 0.0000479635413642536
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000894845413768053,
+					"rotation_degrees": 0.0000124311319187405
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000801101975866914,
+					"rotation_degrees": 0.0000164669901695906
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000897570771485334,
+					"rotation_degrees": 0.0000234748963183179
+				},
+				"righthandthumb4": {
+					"position_m": 0.000000968260223999096,
+					"rotation_degrees": 0.00000836523946103331
+				},
+				"rightleg": {
+					"position_m": 0.000000693544620844477,
+					"rotation_degrees": 0.000129018725758532
+				},
+				"rightshoulder": {
+					"position_m": 0.000000536339143764053,
+					"rotation_degrees": 0.00000695925801276378
+				},
+				"righttoebase": {
+					"position_m": 0.000000160241626190327,
+					"rotation_degrees": 0.0000635531145091979
+				},
+				"righttoeend": {
+					"position_m": 0.000000153938913172169,
+					"rotation_degrees": 0.0000577671096851089
+				},
+				"rightupleg": {
+					"position_m": 0.000000149615743794129,
+					"rotation_degrees": 0.0000645263117244065
+				},
+				"spine": {
+					"position_m": 0.0000000669775701567232,
+					"rotation_degrees": 0.0000192620107347858
+				},
+				"spine1": {
+					"position_m": 0.000000218438330534809,
+					"rotation_degrees": 0.0000135801009363098
+				},
+				"spine2": {
+					"position_m": 0.000000328523299231165,
+					"rotation_degrees": 0.000016555286031547
+				}
+			},
+			"time": 0.0666666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000909459288322978,
+					"rotation_degrees": 0.0000400387056257435
+				},
+				"headtopend": {
+					"position_m": 0.00000116076125777909,
+					"rotation_degrees": 0.0000334234938615395
+				},
+				"hips": {
+					"position_m": 0.0000000280016969611552,
+					"rotation_degrees": 0.0000149836649594659
+				},
+				"leftarm": {
+					"position_m": 0.000000466718063307781,
+					"rotation_degrees": 0.00000877522466391519
+				},
+				"leftfoot": {
+					"position_m": 0.00000114973352083325,
+					"rotation_degrees": 0.00015140467180542
+				},
+				"leftforearm": {
+					"position_m": 0.000000689973660428223,
+					"rotation_degrees": 0.0000214847521114791
+				},
+				"lefthand": {
+					"position_m": 0.000000698926385211962,
+					"rotation_degrees": 0.0000197662893588647
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000931419435801217,
+					"rotation_degrees": 0.0000337753550128396
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000095881182460289,
+					"rotation_degrees": 0.0000196785097136553
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000114412546281528,
+					"rotation_degrees": 0.0000165387638387544
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000116723151677434,
+					"rotation_degrees": 0.0000224146066612663
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000825502809220779,
+					"rotation_degrees": 0.0000231780277207933
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000100850843409717,
+					"rotation_degrees": 0.0000110460833038292
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000109705842987751,
+					"rotation_degrees": 0.0000232450072508302
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000925794608974684,
+					"rotation_degrees": 0.0000311905030583297
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000889369687229191,
+					"rotation_degrees": 0.00000658914811092322
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000935811897306849,
+					"rotation_degrees": 0.00000709197538428989
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000102290255199478,
+					"rotation_degrees": 0.0000159783462363261
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000109945938220335,
+					"rotation_degrees": 0.00000617143105594402
+				},
+				"lefthandring1": {
+					"position_m": 0.00000088520926055935,
+					"rotation_degrees": 0.0000073568344723892
+				},
+				"lefthandring2": {
+					"position_m": 0.000000906402249256644,
+					"rotation_degrees": 0.0000209870328598198
+				},
+				"lefthandring3": {
+					"position_m": 0.000000928457154714124,
+					"rotation_degrees": 0.0000212244762790091
+				},
+				"lefthandring4": {
+					"position_m": 0.000000898065422916261,
+					"rotation_degrees": 0.0000212459310286684
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000786839166266873,
+					"rotation_degrees": 0.0000211211971038371
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000107971743545932,
+					"rotation_degrees": 0.0000210520566286163
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000121590642265801,
+					"rotation_degrees": 0.0000284705032796283
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000127753014567134,
+					"rotation_degrees": 0.0000199132548011418
+				},
+				"leftleg": {
+					"position_m": 0.00000106415575373831,
+					"rotation_degrees": 0.000150283546737534
+				},
+				"leftshoulder": {
+					"position_m": 0.000000470331741553309,
+					"rotation_degrees": 0.0000137924956299387
+				},
+				"lefttoebase": {
+					"position_m": 0.00000174785998297011,
+					"rotation_degrees": 0.0000730263529652789
+				},
+				"lefttoeend": {
+					"position_m": 0.00000175766206211847,
+					"rotation_degrees": 0.0000856501355084017
+				},
+				"leftupleg": {
+					"position_m": 0.000000148594850202244,
+					"rotation_degrees": 0.000141880645437975
+				},
+				"neck": {
+					"position_m": 0.000000658734165881469,
+					"rotation_degrees": 0.00000853773646251592
+				},
+				"rightarm": {
+					"position_m": 0.00000100414365533652,
+					"rotation_degrees": 0.0000163813486713492
+				},
+				"rightfoot": {
+					"position_m": 0.000000285562407498219,
+					"rotation_degrees": 0.000172280972101852
+				},
+				"rightforearm": {
+					"position_m": 0.00000106499010144034,
+					"rotation_degrees": 0.0000109336376173986
+				},
+				"righthand": {
+					"position_m": 0.00000114506474346854,
+					"rotation_degrees": 0.0000128066046937739
+				},
+				"righthandindex1": {
+					"position_m": 0.00000115279533474677,
+					"rotation_degrees": 0.0000402633657595571
+				},
+				"righthandindex2": {
+					"position_m": 0.00000135709012738516,
+					"rotation_degrees": 0.0000317162820284998
+				},
+				"righthandindex3": {
+					"position_m": 0.00000162559308591881,
+					"rotation_degrees": 0.0000311129923809648
+				},
+				"righthandindex4": {
+					"position_m": 0.00000166919608091121,
+					"rotation_degrees": 0.0000229091488186876
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000104531409306219,
+					"rotation_degrees": 0.00000483070868662863
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000125488656976813,
+					"rotation_degrees": 0.0000167970611117682
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000132142304209992,
+					"rotation_degrees": 0.0000141839523970237
+				},
+				"righthandmiddle4": {
+					"position_m": 0.0000015710658090029,
+					"rotation_degrees": 0.0000144953043754568
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000112550628728059,
+					"rotation_degrees": 0.0000048296729962466
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000108359211026254,
+					"rotation_degrees": 0.0000190909589773504
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000109460165731434,
+					"rotation_degrees": 0.0000210520566286163
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000124565156056633,
+					"rotation_degrees": 0.0000344907630295618
+				},
+				"righthandring1": {
+					"position_m": 0.0000011344471886332,
+					"rotation_degrees": 0.0000241483621314556
+				},
+				"righthandring2": {
+					"position_m": 0.00000112076145342144,
+					"rotation_degrees": 0.0000353260114969044
+				},
+				"righthandring3": {
+					"position_m": 0.00000146729155403591,
+					"rotation_degrees": 0.0000326226446451875
+				},
+				"righthandring4": {
+					"position_m": 0.00000152028360389522,
+					"rotation_degrees": 0.0000273740654227333
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000118770765311638,
+					"rotation_degrees": 0.0000149836665879099
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000111013650894165,
+					"rotation_degrees": 0.0000114545752235659
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000131738397612935,
+					"rotation_degrees": 0.0000190909589773504
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000155373186316865,
+					"rotation_degrees": 0.000011830234455437
+				},
+				"rightleg": {
+					"position_m": 0.000000757801331019436,
+					"rotation_degrees": 0.000124650952352684
+				},
+				"rightshoulder": {
+					"position_m": 0.000000716850422577409,
+					"rotation_degrees": 0.00000813361691491092
+				},
+				"righttoebase": {
+					"position_m": 0.000000380928014465098,
+					"rotation_degrees": 0.0000597397611465325
+				},
+				"righttoeend": {
+					"position_m": 0.000000346897337522023,
+					"rotation_degrees": 0.0000598494726754922
+				},
+				"rightupleg": {
+					"position_m": 0.000000177645972598839,
+					"rotation_degrees": 0.000100962120832738
+				},
+				"spine": {
+					"position_m": 0.0000000728339486499863,
+					"rotation_degrees": 0.0000146888791418134
+				},
+				"spine1": {
+					"position_m": 0.000000247002475362024,
+					"rotation_degrees": 0.0000173507304422733
+				},
+				"spine2": {
+					"position_m": 0.000000344523897410909,
+					"rotation_degrees": 0.000016555282774659
+				}
+			},
+			"time": 0.1
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000539382938313793,
+					"rotation_degrees": 0.0000252847115222709
+				},
+				"headtopend": {
+					"position_m": 0.000000790499200320482,
+					"rotation_degrees": 0.0000212770001116854
+				},
+				"hips": {
+					"position_m": 0.0000000300342506420748,
+					"rotation_degrees": 0.0000128066046937739
+				},
+				"leftarm": {
+					"position_m": 0.000000342402614705861,
+					"rotation_degrees": 0.0000276203122101699
+				},
+				"leftfoot": {
+					"position_m": 0.00000120655704449746,
+					"rotation_degrees": 0.000139183434104571
+				},
+				"leftforearm": {
+					"position_m": 0.000000570151996726054,
+					"rotation_degrees": 0.0000370408900442815
+				},
+				"lefthand": {
+					"position_m": 0.000000482910309074214,
+					"rotation_degrees": 0.0000232878402132809
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000644206011202186,
+					"rotation_degrees": 0.0000347119643483259
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000672742430651851,
+					"rotation_degrees": 0.0000555018528925448
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000097625718353811,
+					"rotation_degrees": 0.0000548001172916208
+				},
+				"lefthandindex4": {
+					"position_m": 0.000000909947459604155,
+					"rotation_degrees": 0.0000657253220117785
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000710437348061532,
+					"rotation_degrees": 0.0000449185562739772
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.000000931419435801217,
+					"rotation_degrees": 0.0000412002812425148
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000103601962564426,
+					"rotation_degrees": 0.0000287724982188551
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000851854224492854,
+					"rotation_degrees": 0.000043829153295149
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000636098093309556,
+					"rotation_degrees": 0.0000237718854206982
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000709019730038563,
+					"rotation_degrees": 0.0000211384423257644
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000836060053188703,
+					"rotation_degrees": 0.0000241483653883436
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000891084482645965,
+					"rotation_degrees": 0.0000331985145527025
+				},
+				"lefthandring1": {
+					"position_m": 0.000000598323822487146,
+					"rotation_degrees": 0.0000288803956612023
+				},
+				"lefthandring2": {
+					"position_m": 0.000000727605538486387,
+					"rotation_degrees": 0.000036473227494511
+				},
+				"lefthandring3": {
+					"position_m": 0.000000676978629599034,
+					"rotation_degrees": 0.0000444475093065433
+				},
+				"lefthandring4": {
+					"position_m": 0.000000701077453868493,
+					"rotation_degrees": 0.0000537012758513866
+				},
+				"lefthandthumb1": {
+					"position_m": 0.00000066188670189149,
+					"rotation_degrees": 0.0000479103205575466
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000102463764051208,
+					"rotation_degrees": 0.0000368707664999244
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000121515859063948,
+					"rotation_degrees": 0.0000353672534695702
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000140397276027215,
+					"rotation_degrees": 0.0000540243786817013
+				},
+				"leftleg": {
+					"position_m": 0.000000818886235265381,
+					"rotation_degrees": 0.000139520821645626
+				},
+				"leftshoulder": {
+					"position_m": 0.000000304016566587961,
+					"rotation_degrees": 0.0000208922460200917
+				},
+				"lefttoebase": {
+					"position_m": 0.00000168112262599607,
+					"rotation_degrees": 0.0000659122022448637
+				},
+				"lefttoeend": {
+					"position_m": 0.00000169326631294098,
+					"rotation_degrees": 0.0000713297097337797
+				},
+				"leftupleg": {
+					"position_m": 0.000000180983562358961,
+					"rotation_degrees": 0.000142044948923487
+				},
+				"neck": {
+					"position_m": 0.000000360102831109543,
+					"rotation_degrees": 0.0000331985145527025
+				},
+				"rightarm": {
+					"position_m": 0.000000323135395774443,
+					"rotation_degrees": 0.000021737721115735
+				},
+				"rightfoot": {
+					"position_m": 0.000000283611797158301,
+					"rotation_degrees": 0.000196107921727801
+				},
+				"rightforearm": {
+					"position_m": 0.000000477999890335923,
+					"rotation_degrees": 0.0000357057092698878
+				},
+				"righthand": {
+					"position_m": 0.000000551342964172363,
+					"rotation_degrees": 0.0000205793095656496
+				},
+				"righthandindex1": {
+					"position_m": 0.000000638189078472351,
+					"rotation_degrees": 0.0000389754912832736
+				},
+				"righthandindex2": {
+					"position_m": 0.000000918115915737872,
+					"rotation_degrees": 0.0000224592781369895
+				},
+				"righthandindex3": {
+					"position_m": 0.000000931322574615479,
+					"rotation_degrees": 0.0000249208324542735
+				},
+				"righthandindex4": {
+					"position_m": 0.000000928188057969237,
+					"rotation_degrees": 0.0000361822799193592
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000532495050720172,
+					"rotation_degrees": 0.0000273272183458302
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000894193817657651,
+					"rotation_degrees": 0.0000306058786358873
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000826980908641417,
+					"rotation_degrees": 0.0000380582246055826
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000110359167138085,
+					"rotation_degrees": 0.0000406686724428358
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000436224979694089,
+					"rotation_degrees": 0.0000196182247168897
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000399006239604205,
+					"rotation_degrees": 0.0000277968550807629
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000399840104137184,
+					"rotation_degrees": 0.0000128916990348324
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000602714692377049,
+					"rotation_degrees": 0.0000218672752347971
+				},
+				"righthandring1": {
+					"position_m": 0.000000593245886193472,
+					"rotation_degrees": 0.00003499430396851
+				},
+				"righthandring2": {
+					"position_m": 0.000000549729691101675,
+					"rotation_degrees": 0.000039716537522283
+				},
+				"righthandring3": {
+					"position_m": 0.000000654295035928953,
+					"rotation_degrees": 0.0000316702849993631
+				},
+				"righthandring4": {
+					"position_m": 0.000000736213905838667,
+					"rotation_degrees": 0.0000356954989260271
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000661425247017178,
+					"rotation_degrees": 0.0000266727418181404
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000575771309740958,
+					"rotation_degrees": 0.0000196923954556169
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000703360058196267,
+					"rotation_degrees": 0.0000285727304799782
+				},
+				"righthandthumb4": {
+					"position_m": 0.000000770847066178249,
+					"rotation_degrees": 0.0
+				},
+				"rightleg": {
+					"position_m": 0.000000802486681550363,
+					"rotation_degrees": 0.000143647272678684
+				},
+				"rightshoulder": {
+					"position_m": 0.000000149012336692067,
+					"rotation_degrees": 0.0000255808864026527
+				},
+				"righttoebase": {
+					"position_m": 0.000000396003798641686,
+					"rotation_degrees": 0.0000601592418063602
+				},
+				"righttoeend": {
+					"position_m": 0.000000330325548247856,
+					"rotation_degrees": 0.0000662651577105297
+				},
+				"rightupleg": {
+					"position_m": 0.0000000553255787849594,
+					"rotation_degrees": 0.0000953172434792002
+				},
+				"spine": {
+					"position_m": 0.0000000596046447753906,
+					"rotation_degrees": 0.0000164669901695906
+				},
+				"spine1": {
+					"position_m": 0.0000000667440644974704,
+					"rotation_degrees": 0.0000199863279686151
+				},
+				"spine2": {
+					"position_m": 0.0000000842936955791629,
+					"rotation_degrees": 0.0000128916990348324
+				}
+			},
+			"time": 0.133333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000681066183005896,
+					"rotation_degrees": 0.00000749183329395498
+				},
+				"headtopend": {
+					"position_m": 0.000000534991102085769,
+					"rotation_degrees": 0.0000110661709747531
+				},
+				"hips": {
+					"position_m": 0.0000000654846274983356,
+					"rotation_degrees": 0.0000133636734011226
+				},
+				"leftarm": {
+					"position_m": 0.000000487201873511367,
+					"rotation_degrees": 0.0000268506379256948
+				},
+				"leftfoot": {
+					"position_m": 0.00000123032191368111,
+					"rotation_degrees": 0.000141520550873827
+				},
+				"leftforearm": {
+					"position_m": 0.00000064747217720651,
+					"rotation_degrees": 0.0000481095965063363
+				},
+				"lefthand": {
+					"position_m": 0.000000584953625093476,
+					"rotation_degrees": 0.0000255704855308445
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000862694321313029,
+					"rotation_degrees": 0.0000357872747728049
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000828708095923503,
+					"rotation_degrees": 0.0000356706032742024
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000120953382065636,
+					"rotation_degrees": 0.0000226393433319477
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000114845329335367,
+					"rotation_degrees": 0.0000206731812198514
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000894614743174316,
+					"rotation_degrees": 0.0000343026875185827
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000109148345472931,
+					"rotation_degrees": 0.0000445294330671398
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000010918104180746,
+					"rotation_degrees": 0.0000632444787753517
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000102561409676127,
+					"rotation_degrees": 0.0000492106265753024
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000778041851390299,
+					"rotation_degrees": 0.0000303127228906757
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000886869486294017,
+					"rotation_degrees": 0.0000229091504471316
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000101964133136789,
+					"rotation_degrees": 0.0000454348772414132
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000111709027805773,
+					"rotation_degrees": 0.0000482060883269292
+				},
+				"lefthandring1": {
+					"position_m": 0.000000667440644974704,
+					"rotation_degrees": 0.0000305932256260313
+				},
+				"lefthandring2": {
+					"position_m": 0.000000747849128401867,
+					"rotation_degrees": 0.0000235407864193208
+				},
+				"lefthandring3": {
+					"position_m": 0.000000769856853821693,
+					"rotation_degrees": 0.00000286364339878049
+				},
+				"lefthandring4": {
+					"position_m": 0.000000694160291914159,
+					"rotation_degrees": 0.0000256984437747896
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000711559721366939,
+					"rotation_degrees": 0.0000242237118636366
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000106655909348774,
+					"rotation_degrees": 0.0000388349728507803
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000102896262887953,
+					"rotation_degrees": 0.0000126922577989769
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000109541599613294,
+					"rotation_degrees": 0.0000503147278896467
+				},
+				"leftleg": {
+					"position_m": 0.000000904440355498082,
+					"rotation_degrees": 0.000148215201393079
+				},
+				"leftshoulder": {
+					"position_m": 0.000000507515267145209,
+					"rotation_degrees": 0.000013736981974084
+				},
+				"lefttoebase": {
+					"position_m": 0.00000163485503890115,
+					"rotation_degrees": 0.0000401908934879187
+				},
+				"lefttoeend": {
+					"position_m": 0.00000173712010109739,
+					"rotation_degrees": 0.0000498562883356369
+				},
+				"leftupleg": {
+					"position_m": 0.0000000943168174671882,
+					"rotation_degrees": 0.000125432097396672
+				},
+				"neck": {
+					"position_m": 0.000000446553400479388,
+					"rotation_degrees": 0.0000142863636115454
+				},
+				"rightarm": {
+					"position_m": 0.000000445292982931278,
+					"rotation_degrees": 0.00000821410601634615
+				},
+				"rightfoot": {
+					"position_m": 0.00000014619094201862,
+					"rotation_degrees": 0.000169187267224083
+				},
+				"rightforearm": {
+					"position_m": 0.000000481471261082334,
+					"rotation_degrees": 0.0000187052441037985
+				},
+				"righthand": {
+					"position_m": 0.000000695263338457153,
+					"rotation_degrees": 0.0000304020137319143
+				},
+				"righthandindex1": {
+					"position_m": 0.000000852367236348073,
+					"rotation_degrees": 0.0000326226446451875
+				},
+				"righthandindex2": {
+					"position_m": 0.00000100148668025213,
+					"rotation_degrees": 0.0000411586191312979
+				},
+				"righthandindex3": {
+					"position_m": 0.00000115580098736245,
+					"rotation_degrees": 0.0000486576069939521
+				},
+				"righthandindex4": {
+					"position_m": 0.00000117982949632278,
+					"rotation_degrees": 0.000034994307225398
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000723435618965595,
+					"rotation_degrees": 0.0000260370477635109
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000895186587968055,
+					"rotation_degrees": 0.0000131037566405539
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000912384336970717,
+					"rotation_degrees": 0.0000210563850327601
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000116734213406744,
+					"rotation_degrees": 0.0000331195154775244
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000621755305019178,
+					"rotation_degrees": 0.000029821030510249
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000466480145178139,
+					"rotation_degrees": 0.0000211211938469491
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000591746868394694,
+					"rotation_degrees": 0.0000381819179546998
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000511003406700183,
+					"rotation_degrees": 0.0000402995628127204
+				},
+				"righthandring1": {
+					"position_m": 0.000000711052450697025,
+					"rotation_degrees": 0.0000338184892374298
+				},
+				"righthandring2": {
+					"position_m": 0.000000736816843982524,
+					"rotation_degrees": 0.0000452419489673234
+				},
+				"righthandring3": {
+					"position_m": 0.000000820105526599946,
+					"rotation_degrees": 0.0000493714484475492
+				},
+				"righthandring4": {
+					"position_m": 0.00000081084772318718,
+					"rotation_degrees": 0.0000369398972044812
+				},
+				"righthandthumb1": {
+					"position_m": 0.0000007669394790355,
+					"rotation_degrees": 0.0000187830202175349
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000686262808358151,
+					"rotation_degrees": 0.0000213955084951165
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000893106800958776,
+					"rotation_degrees": 0.0000334609578441324
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000108012864075135,
+					"rotation_degrees": 0.0000137666864210317
+				},
+				"rightleg": {
+					"position_m": 0.000000845041711272643,
+					"rotation_degrees": 0.000146012763456142
+				},
+				"rightshoulder": {
+					"position_m": 0.000000408531207085616,
+					"rotation_degrees": 0.0000158673433512767
+				},
+				"righttoebase": {
+					"position_m": 0.000000252029025205047,
+					"rotation_degrees": 0.0000885046675594624
+				},
+				"righttoeend": {
+					"position_m": 0.000000288391362346374,
+					"rotation_degrees": 0.0000904355461754765
+				},
+				"rightupleg": {
+					"position_m": 0.000000163329659130795,
+					"rotation_degrees": 0.000103936200214499
+				},
+				"spine": {
+					"position_m": 0.000000103774581816651,
+					"rotation_degrees": 0.00000539973953646765
+				},
+				"spine1": {
+					"position_m": 0.000000312946554004157,
+					"rotation_degrees": 0.00000782496571084672
+				},
+				"spine2": {
+					"position_m": 0.000000316123305310612,
+					"rotation_degrees": 0.00000638905712591298
+				}
+			},
+			"time": 0.166666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000512955011799932,
+					"rotation_degrees": 0.0000276069101160754
+				},
+				"headtopend": {
+					"position_m": 0.000000635181095276494,
+					"rotation_degrees": 0.00000574317471141683
+				},
+				"hips": {
+					"position_m": 0.000000066640019724673,
+					"rotation_degrees": 0.00000490455577211147
+				},
+				"leftarm": {
+					"position_m": 0.000000299509622436744,
+					"rotation_degrees": 0.0000299916491015811
+				},
+				"leftfoot": {
+					"position_m": 0.00000145734577472467,
+					"rotation_degrees": 0.000123632197788218
+				},
+				"leftforearm": {
+					"position_m": 0.000000450990967237885,
+					"rotation_degrees": 0.000019133865219781
+				},
+				"lefthand": {
+					"position_m": 0.000000414027084616464,
+					"rotation_degrees": 0.0000185536229401343
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000063797159555179,
+					"rotation_degrees": 0.0000217335295008869
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000703806506408,
+					"rotation_degrees": 0.0000295140981288235
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000106614265860117,
+					"rotation_degrees": 0.0000334234938615395
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000109543805137946,
+					"rotation_degrees": 0.000020795128877004
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000767310325500148,
+					"rotation_degrees": 0.0000255026917788092
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000101589535006497,
+					"rotation_degrees": 0.0000071971899651522
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000011006834483851,
+					"rotation_degrees": 0.0000238302667664314
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000962756985245505,
+					"rotation_degrees": 0.0000230844752416149
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000515020531111077,
+					"rotation_degrees": 0.00000666567602233598
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000466063454496179,
+					"rotation_degrees": 0.0000184699486022411
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000649569301458541,
+					"rotation_degrees": 0.00000907573853332683
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000728491897916683,
+					"rotation_degrees": 0.0000248769182050089
+				},
+				"lefthandring1": {
+					"position_m": 0.000000549641299585346,
+					"rotation_degrees": 0.0000113607247391361
+				},
+				"lefthandring2": {
+					"position_m": 0.000000721036144568643,
+					"rotation_degrees": 0.0000232251548900639
+				},
+				"lefthandring3": {
+					"position_m": 0.000000799714939603291,
+					"rotation_degrees": 0.0000295046433829775
+				},
+				"lefthandring4": {
+					"position_m": 0.000000695109235948621,
+					"rotation_degrees": 0.0000282649382801224
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000549982075881417,
+					"rotation_degrees": 0.0000191100427125502
+				},
+				"lefthandthumb2": {
+					"position_m": 0.000000721985884410969,
+					"rotation_degrees": 0.0000250521110955283
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000000953252651925141,
+					"rotation_degrees": 0.0000206323724132889
+				},
+				"lefthandthumb4": {
+					"position_m": 0.0000009975800594475,
+					"rotation_degrees": 0.0000245821584424603
+				},
+				"leftleg": {
+					"position_m": 0.000000882571498550533,
+					"rotation_degrees": 0.000183948108934529
+				},
+				"leftshoulder": {
+					"position_m": 0.000000363249228030327,
+					"rotation_degrees": 0.0000202937570254596
+				},
+				"lefttoebase": {
+					"position_m": 0.00000192277320820722,
+					"rotation_degrees": 0.0000618558785240836
+				},
+				"lefttoeend": {
+					"position_m": 0.00000201477610062284,
+					"rotation_degrees": 0.000062558949449085
+				},
+				"leftupleg": {
+					"position_m": 0.000000122198613894398,
+					"rotation_degrees": 0.000165411895689208
+				},
+				"neck": {
+					"position_m": 0.000000304130651329615,
+					"rotation_degrees": 0.0000129199395106268
+				},
+				"rightarm": {
+					"position_m": 0.000000448027151378483,
+					"rotation_degrees": 0.0000148185684217273
+				},
+				"rightfoot": {
+					"position_m": 0.00000110595328806085,
+					"rotation_degrees": 0.000131228641510303
+				},
+				"rightforearm": {
+					"position_m": 0.000000547097897651838,
+					"rotation_degrees": 0.0000377209510556068
+				},
+				"righthand": {
+					"position_m": 0.000000633781269243627,
+					"rotation_degrees": 0.0000240273231460534
+				},
+				"righthandindex1": {
+					"position_m": 0.000000683019550251629,
+					"rotation_degrees": 0.0000365431040264184
+				},
+				"righthandindex2": {
+					"position_m": 0.000000780143750489515,
+					"rotation_degrees": 0.0000302095967892395
+				},
+				"righthandindex3": {
+					"position_m": 0.00000081125841688845,
+					"rotation_degrees": 0.0000552253626431976
+				},
+				"righthandindex4": {
+					"position_m": 0.000000831933334666246,
+					"rotation_degrees": 0.0000553045050214474
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000759374643166666,
+					"rotation_degrees": 0.0000138034534295939
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000896054302756966,
+					"rotation_degrees": 0.000029983291926989
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000818479406916595,
+					"rotation_degrees": 0.0000280911311954443
+				},
+				"righthandmiddle4": {
+					"position_m": 0.000000983476638793945,
+					"rotation_degrees": 0.0000405250273978685
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000596232666794094,
+					"rotation_degrees": 0.0000320819002746858
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000542410475645738,
+					"rotation_degrees": 0.0000268497895063724
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000496904021929367,
+					"rotation_degrees": 0.0000250957159404336
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000057403326536587,
+					"rotation_degrees": 0.0000314971911731556
+				},
+				"righthandring1": {
+					"position_m": 0.000000675665376093093,
+					"rotation_degrees": 0.0000323984307050291
+				},
+				"righthandring2": {
+					"position_m": 0.000000581908921049035,
+					"rotation_degrees": 0.0000249938502546509
+				},
+				"righthandring3": {
+					"position_m": 0.000000590055890370422,
+					"rotation_degrees": 0.0000286745961657609
+				},
+				"righthandring4": {
+					"position_m": 0.000000562309082852153,
+					"rotation_degrees": 0.0000321839809150761
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000837121717722766,
+					"rotation_degrees": 0.0000296248388343893
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000748366232983244,
+					"rotation_degrees": 0.0000239056620950443
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000949269463035307,
+					"rotation_degrees": 0.0000293777550267383
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000109135112325021,
+					"rotation_degrees": 0.0000229091504471316
+				},
+				"rightleg": {
+					"position_m": 0.000000199920052068592,
+					"rotation_degrees": 0.000113162853166788
+				},
+				"rightshoulder": {
+					"position_m": 0.000000281549148439808,
+					"rotation_degrees": 0.00000722266371459585
+				},
+				"righttoebase": {
+					"position_m": 0.00000129299780837755,
+					"rotation_degrees": 0.000106160153153525
+				},
+				"righttoeend": {
+					"position_m": 0.00000121844470868382,
+					"rotation_degrees": 0.0000983962532783462
+				},
+				"rightupleg": {
+					"position_m": 0.000000103036441601034,
+					"rotation_degrees": 0.00012974267984935
+				},
+				"spine": {
+					"position_m": 0.0000000333200098623365,
+					"rotation_degrees": 0.0000180911399596801
+				},
+				"spine1": {
+					"position_m": 0.000000216066837310791,
+					"rotation_degrees": 0.00000782496489662472
+				},
+				"spine2": {
+					"position_m": 0.000000215713285456332,
+					"rotation_degrees": 0.00000615664926267308
+				}
+			},
+			"time": 0.2
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000644895010282198,
+					"rotation_degrees": 0.00000943023776390201
+				},
+				"headtopend": {
+					"position_m": 0.000000747299168324389,
+					"rotation_degrees": 0.000011472459609762
+				},
+				"hips": {
+					"position_m": 0.0000000335276126861572,
+					"rotation_degrees": 0.00000541658660383767
+				},
+				"leftarm": {
+					"position_m": 0.000000623003984401294,
+					"rotation_degrees": 0.00000352019883878789
+				},
+				"leftfoot": {
+					"position_m": 0.00000167590042110533,
+					"rotation_degrees": 0.0000862100010683148
+				},
+				"leftforearm": {
+					"position_m": 0.000000761127068926726,
+					"rotation_degrees": 0.0000404440057952463
+				},
+				"lefthand": {
+					"position_m": 0.000000717154648555152,
+					"rotation_degrees": 0.000036473227494511
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000896085282420245,
+					"rotation_degrees": 0.0000457625787975752
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000872642772264953,
+					"rotation_degrees": 0.0000363913200183544
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000120046036045096,
+					"rotation_degrees": 0.0000296634524984441
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000122878122965631,
+					"rotation_degrees": 0.000033028084860874
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000814842849194974,
+					"rotation_degrees": 0.0000462187548144293
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.000000945521321682463,
+					"rotation_degrees": 0.0000477622266035797
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000102177943972492,
+					"rotation_degrees": 0.000016692311451667
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000850411254305072,
+					"rotation_degrees": 0.0000199418291079555
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000831399347589468,
+					"rotation_degrees": 0.00000438022408154362
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000100093222954456,
+					"rotation_degrees": 0.0000364332329099469
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000135666050482541,
+					"rotation_degrees": 0.0000427910137333435
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000123455015454965,
+					"rotation_degrees": 0.000029340512512529
+				},
+				"lefthandring1": {
+					"position_m": 0.000000848483409754408,
+					"rotation_degrees": 0.0000376340442563797
+				},
+				"lefthandring2": {
+					"position_m": 0.000000932491559524351,
+					"rotation_degrees": 0.0000250702894158658
+				},
+				"lefthandring3": {
+					"position_m": 0.000000963122602115618,
+					"rotation_degrees": 0.0000334282652024504
+				},
+				"lefthandring4": {
+					"position_m": 0.000000830330350254371,
+					"rotation_degrees": 0.0000465149948325711
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000853701294545317,
+					"rotation_degrees": 0.0000403357240401158
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000107531911908154,
+					"rotation_degrees": 0.0000551725424337139
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000122973517591163,
+					"rotation_degrees": 0.0000531332648146008
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000136506719172758,
+					"rotation_degrees": 0.0000811803563705835
+				},
+				"leftleg": {
+					"position_m": 0.000000898034500096401,
+					"rotation_degrees": 0.000209813010626162
+				},
+				"leftshoulder": {
+					"position_m": 0.000000708432310148055,
+					"rotation_degrees": 0.0000171234306007407
+				},
+				"lefttoebase": {
+					"position_m": 0.00000225650819629664,
+					"rotation_degrees": 0.000126670392267024
+				},
+				"lefttoeend": {
+					"position_m": 0.00000243149338530202,
+					"rotation_degrees": 0.000129605147983147
+				},
+				"leftupleg": {
+					"position_m": 0.0000000653785789950234,
+					"rotation_degrees": 0.000153830962167947
+				},
+				"neck": {
+					"position_m": 0.000000591230673308019,
+					"rotation_degrees": 0.00000853773483407193
+				},
+				"rightarm": {
+					"position_m": 0.000000783551740823896,
+					"rotation_degrees": 0.0000133432014174154
+				},
+				"rightfoot": {
+					"position_m": 0.00000115207274120621,
+					"rotation_degrees": 0.000122922652169886
+				},
+				"rightforearm": {
+					"position_m": 0.000000912262692054355,
+					"rotation_degrees": 0.0000140872635347072
+				},
+				"righthand": {
+					"position_m": 0.00000105251149307151,
+					"rotation_degrees": 0.0000148860495125152
+				},
+				"righthandindex1": {
+					"position_m": 0.0000011672470918711,
+					"rotation_degrees": 0.0000123132985253461
+				},
+				"righthandindex2": {
+					"position_m": 0.00000143987165301951,
+					"rotation_degrees": 0.0000199132515442538
+				},
+				"righthandindex3": {
+					"position_m": 0.00000148504113894887,
+					"rotation_degrees": 0.0000369398972044812
+				},
+				"righthandindex4": {
+					"position_m": 0.00000159303101554542,
+					"rotation_degrees": 0.0000168173906066256
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000110268592834473,
+					"rotation_degrees": 0.000019613870257642
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000127315581721632,
+					"rotation_degrees": 0.0000157485955865781
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000118311845653807,
+					"rotation_degrees": 0.0000212298420019789
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000137001575239992,
+					"rotation_degrees": 0.0000386868756399254
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000104403875411663,
+					"rotation_degrees": 0.0000123132985253461
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000101513990102831,
+					"rotation_degrees": 0.0000118379337386543
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000117076103833824,
+					"rotation_degrees": 0.0000115259442243965
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000109145287296997,
+					"rotation_degrees": 0.0000108331732076753
+				},
+				"righthandring1": {
+					"position_m": 0.00000116343619538384,
+					"rotation_degrees": 0.0000191861740978497
+				},
+				"righthandring2": {
+					"position_m": 0.00000117785168640694,
+					"rotation_degrees": 0.00000418261932340566
+				},
+				"righthandring3": {
+					"position_m": 0.00000148114838793845,
+					"rotation_degrees": 0.0000254418824230766
+				},
+				"righthandring4": {
+					"position_m": 0.00000148361993979051,
+					"rotation_degrees": 0.0000323646665471971
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000119803848974698,
+					"rotation_degrees": 0.0000125478587844389
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000942903284339991,
+					"rotation_degrees": 0.0000169038544690855
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000117227727969293,
+					"rotation_degrees": 0.000020203969508802
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000127509451885999,
+					"rotation_degrees": 0.0000248622638374807
+				},
+				"rightleg": {
+					"position_m": 0.000000344020008924417,
+					"rotation_degrees": 0.0000806714480802216
+				},
+				"rightshoulder": {
+					"position_m": 0.000000628956570380979,
+					"rotation_degrees": 0.00000975219661230895
+				},
+				"righttoebase": {
+					"position_m": 0.00000129224622469337,
+					"rotation_degrees": 0.000101762155827091
+				},
+				"righttoeend": {
+					"position_m": 0.00000122877497688023,
+					"rotation_degrees": 0.000101276592909869
+				},
+				"rightupleg": {
+					"position_m": 0.000000146995631666869,
+					"rotation_degrees": 0.000125112062554848
+				},
+				"spine": {
+					"position_m": 0.00000014180589857915,
+					"rotation_degrees": 0.00000787140404830658
+				},
+				"spine1": {
+					"position_m": 0.000000401934471483401,
+					"rotation_degrees": 0.0000108331723934533
+				},
+				"spine2": {
+					"position_m": 0.000000382817773925126,
+					"rotation_degrees": 0.00000744302638470162
+				}
+			},
+			"time": 0.233333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.00000099236171990924,
+					"rotation_degrees": 0.0000168390505402285
+				},
+				"headtopend": {
+					"position_m": 0.0000013336799611352,
+					"rotation_degrees": 0.0000162118667339268
+				},
+				"hips": {
+					"position_m": 0.0000000401226039059566,
+					"rotation_degrees": 0.0000128916990348324
+				},
+				"leftarm": {
+					"position_m": 0.000000725121822142683,
+					"rotation_degrees": 0.0000229250538312055
+				},
+				"leftfoot": {
+					"position_m": 0.00000204087427846389,
+					"rotation_degrees": 0.0000683498982291483
+				},
+				"leftforearm": {
+					"position_m": 0.000000894566255738027,
+					"rotation_degrees": 0.000044774302190955
+				},
+				"lefthand": {
+					"position_m": 0.00000091859948270212,
+					"rotation_degrees": 0.0000500623776941097
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000114918418603338,
+					"rotation_degrees": 0.0000620621372407321
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000115737623218592,
+					"rotation_degrees": 0.0000625444041873046
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000151979065776686,
+					"rotation_degrees": 0.0000472946449649712
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000143703528010519,
+					"rotation_degrees": 0.0000435277087699932
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000112619659375923,
+					"rotation_degrees": 0.0000458898384390457
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000134633171455789,
+					"rotation_degrees": 0.0000422047576100162
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000126331292449322,
+					"rotation_degrees": 0.0000311439100186901
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000121742505143629,
+					"rotation_degrees": 0.0000442102319886417
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000115731290861731,
+					"rotation_degrees": 0.0000363147766367237
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000120699405670166,
+					"rotation_degrees": 0.0000294056535292934
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000134211825297825,
+					"rotation_degrees": 0.0000283293367264242
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000132620334625244,
+					"rotation_degrees": 0.0000293560348407075
+				},
+				"lefthandring1": {
+					"position_m": 0.00000118088769340829,
+					"rotation_degrees": 0.0000396313047634848
+				},
+				"lefthandring2": {
+					"position_m": 0.00000129845477658819,
+					"rotation_degrees": 0.0000324883045292185
+				},
+				"lefthandring3": {
+					"position_m": 0.00000145613114455045,
+					"rotation_degrees": 0.000023226133584906
+				},
+				"lefthandring4": {
+					"position_m": 0.00000137370295760775,
+					"rotation_degrees": 0.0000279676039476148
+				},
+				"lefthandthumb1": {
+					"position_m": 0.00000110150222099037,
+					"rotation_degrees": 0.0000589119253562639
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000131168837924633,
+					"rotation_degrees": 0.0000559873115893513
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000145659441841417,
+					"rotation_degrees": 0.0000352950482627472
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000168859241966857,
+					"rotation_degrees": 0.0000402294159591096
+				},
+				"leftleg": {
+					"position_m": 0.000000929622274270514,
+					"rotation_degrees": 0.000203185569247562
+				},
+				"leftshoulder": {
+					"position_m": 0.000000510133588704775,
+					"rotation_degrees": 0.00001249145518394
+				},
+				"lefttoebase": {
+					"position_m": 0.00000263106790043821,
+					"rotation_degrees": 0.000172384593250263
+				},
+				"lefttoeend": {
+					"position_m": 0.00000281143684333074,
+					"rotation_degrees": 0.000187599640560325
+				},
+				"leftupleg": {
+					"position_m": 0.0000000856006536764653,
+					"rotation_degrees": 0.000173809520830212
+				},
+				"neck": {
+					"position_m": 0.000000787235933330521,
+					"rotation_degrees": 0.0000157659417720332
+				},
+				"rightarm": {
+					"position_m": 0.000000939630183438567,
+					"rotation_degrees": 0.0000205305490670502
+				},
+				"rightfoot": {
+					"position_m": 0.00000131774208966817,
+					"rotation_degrees": 0.000114201605023535
+				},
+				"rightforearm": {
+					"position_m": 0.00000107958885564585,
+					"rotation_degrees": 0.0000236335002498408
+				},
+				"righthand": {
+					"position_m": 0.00000124921155020274,
+					"rotation_degrees": 0.0000134452405324838
+				},
+				"righthandindex1": {
+					"position_m": 0.00000121469599889679,
+					"rotation_degrees": 0.00002020397276569
+				},
+				"righthandindex2": {
+					"position_m": 0.00000148182289194665,
+					"rotation_degrees": 0.0000225402704276198
+				},
+				"righthandindex3": {
+					"position_m": 0.00000172596367065125,
+					"rotation_degrees": 0.0000315434422395558
+				},
+				"righthandindex4": {
+					"position_m": 0.00000195176767192606,
+					"rotation_degrees": 0.0000335479818913272
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000132879597458668,
+					"rotation_degrees": 0.0000187453868767663
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000152553252519283,
+					"rotation_degrees": 0.0000144465064226454
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000156455098476727,
+					"rotation_degrees": 0.0000270862965702635
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000171564079209929,
+					"rotation_degrees": 0.0000460251523645248
+				},
+				"righthandpinky1": {
+					"position_m": 0.0000011103114729849,
+					"rotation_degrees": 0.0000213955068666725
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000115769648800779,
+					"rotation_degrees": 0.0000134723191134864
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000125956682950346,
+					"rotation_degrees": 0.0000234438190930809
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000135992991090461,
+					"rotation_degrees": 0.000012270675632171
+				},
+				"righthandring1": {
+					"position_m": 0.00000131839487949037,
+					"rotation_degrees": 0.000020882577948082
+				},
+				"righthandring2": {
+					"position_m": 0.00000131847912143712,
+					"rotation_degrees": 0.0000162273157821255
+				},
+				"righthandring3": {
+					"position_m": 0.00000146978641168971,
+					"rotation_degrees": 0.0000320819002746858
+				},
+				"righthandring4": {
+					"position_m": 0.00000154692429532588,
+					"rotation_degrees": 0.0000279146111230674
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000140955853566993,
+					"rotation_degrees": 0.0000161089686146501
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000122742517305596,
+					"rotation_degrees": 0.00000763638375378464
+				},
+				"righthandthumb3": {
+					"position_m": 0.0000014615296777265,
+					"rotation_degrees": 0.0000290283039725536
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000168092765306938,
+					"rotation_degrees": 0.0000214635367430874
+				},
+				"rightleg": {
+					"position_m": 0.000000382817773925126,
+					"rotation_degrees": 0.000113741107116314
+				},
+				"rightshoulder": {
+					"position_m": 0.000000648286800242204,
+					"rotation_degrees": 0.0000243215471505269
+				},
+				"righttoebase": {
+					"position_m": 0.00000140786403335369,
+					"rotation_degrees": 0.000114616532553947
+				},
+				"righttoeend": {
+					"position_m": 0.0000012968773717148,
+					"rotation_degrees": 0.000113475644689714
+				},
+				"rightupleg": {
+					"position_m": 0.000000203361267381297,
+					"rotation_degrees": 0.000158303659477401
+				},
+				"spine": {
+					"position_m": 0.0000000782310962677002,
+					"rotation_degrees": 0.0000134520156737329
+				},
+				"spine1": {
+					"position_m": 0.000000260690484310544,
+					"rotation_degrees": 0.00000546681799447734
+				},
+				"spine2": {
+					"position_m": 0.000000255745987942646,
+					"rotation_degrees": 0.0000105605961092527
+				}
+			},
+			"time": 0.266666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000992718241832335,
+					"rotation_degrees": 0.00000737230061924985
+				},
+				"headtopend": {
+					"position_m": 0.00000136180631216121,
+					"rotation_degrees": 0.0000166225700806113
+				},
+				"hips": {
+					"position_m": 0.0000000401226039059566,
+					"rotation_degrees": 0.0000163127195275434
+				},
+				"leftarm": {
+					"position_m": 0.00000106624031559477,
+					"rotation_degrees": 0.0000326673030933587
+				},
+				"leftfoot": {
+					"position_m": 0.00000034175351970589,
+					"rotation_degrees": 0.000244905184078749
+				},
+				"leftforearm": {
+					"position_m": 0.00000119664764497429,
+					"rotation_degrees": 0.0000425518604479574
+				},
+				"lefthand": {
+					"position_m": 0.00000112838790755632,
+					"rotation_degrees": 0.0000605705607048754
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000145616922964109,
+					"rotation_degrees": 0.0000619500807524168
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000152853158397193,
+					"rotation_degrees": 0.0000649403989777165
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000191023605111695,
+					"rotation_degrees": 0.0000744108299963467
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000182278358806798,
+					"rotation_degrees": 0.0000606527580440634
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000150973107793106,
+					"rotation_degrees": 0.0000459850535595449
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000175514946931798,
+					"rotation_degrees": 0.0000424838142871026
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000192128300113836,
+					"rotation_degrees": 0.0000231868718001405
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000176196488155256,
+					"rotation_degrees": 0.0000242352282195828
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000133082050979283,
+					"rotation_degrees": 0.0000351759406119253
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000149554512063332,
+					"rotation_degrees": 0.0000327369581568825
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000001800020754672,
+					"rotation_degrees": 0.0000374202295595855
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000182476867394143,
+					"rotation_degrees": 0.0000347984770641057
+				},
+				"lefthandring1": {
+					"position_m": 0.00000130723196889448,
+					"rotation_degrees": 0.0000405246300575332
+				},
+				"lefthandring2": {
+					"position_m": 0.0000014590968930861,
+					"rotation_degrees": 0.0000406781923264418
+				},
+				"lefthandring3": {
+					"position_m": 0.00000151933852521324,
+					"rotation_degrees": 0.0000338723321097436
+				},
+				"lefthandring4": {
+					"position_m": 0.00000161270656917623,
+					"rotation_degrees": 0.0000538051054406295
+				},
+				"lefthandthumb1": {
+					"position_m": 0.00000123798520235141,
+					"rotation_degrees": 0.0000687287785232451
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000151026415551314,
+					"rotation_degrees": 0.0000669123795202131
+				},
+				"lefthandthumb3": {
+					"position_m": 0.0000016747779909565,
+					"rotation_degrees": 0.0000650942934492003
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000183487873073318,
+					"rotation_degrees": 0.0000730263529652789
+				},
+				"leftleg": {
+					"position_m": 0.000000847141166104848,
+					"rotation_degrees": 0.000181068967837792
+				},
+				"leftshoulder": {
+					"position_m": 0.000000920048648822558,
+					"rotation_degrees": 0.0000146702546278207
+				},
+				"lefttoebase": {
+					"position_m": 0.000000912523148599576,
+					"rotation_degrees": 0.000146834176663286
+				},
+				"lefttoeend": {
+					"position_m": 0.00000129835314055526,
+					"rotation_degrees": 0.000145136491227631
+				},
+				"leftupleg": {
+					"position_m": 0.0000000372529029846191,
+					"rotation_degrees": 0.000161640797191381
+				},
+				"neck": {
+					"position_m": 0.00000109460165731434,
+					"rotation_degrees": 0.00000989235922978893
+				},
+				"rightarm": {
+					"position_m": 0.00000125844258036523,
+					"rotation_degrees": 0.0000191861789831817
+				},
+				"rightfoot": {
+					"position_m": 0.00000128117494568869,
+					"rotation_degrees": 0.0000994279832845793
+				},
+				"rightforearm": {
+					"position_m": 0.00000124359985420597,
+					"rotation_degrees": 0.0000191100410841062
+				},
+				"righthand": {
+					"position_m": 0.00000119330297820852,
+					"rotation_degrees": 0.0000400660048609077
+				},
+				"righthandindex1": {
+					"position_m": 0.00000130757155147876,
+					"rotation_degrees": 0.0000352019892020998
+				},
+				"righthandindex2": {
+					"position_m": 0.00000155601230744651,
+					"rotation_degrees": 0.0000396062625517003
+				},
+				"righthandindex3": {
+					"position_m": 0.00000176564617504482,
+					"rotation_degrees": 0.0000432400734499311
+				},
+				"righthandindex4": {
+					"position_m": 0.00000186502779797593,
+					"rotation_degrees": 0.0000316357424453006
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000129400086734677,
+					"rotation_degrees": 0.0000405480633666488
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000140869178721914,
+					"rotation_degrees": 0.0000385050956934384
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000146524712363316,
+					"rotation_degrees": 0.0000496383308773146
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000163919548867852,
+					"rotation_degrees": 0.0000318195384054558
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000124752182273369,
+					"rotation_degrees": 0.0000227815260342059
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000113962221348629,
+					"rotation_degrees": 0.0000337494204137448
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000120469235298515,
+					"rotation_degrees": 0.0000296859510807054
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000127976602470881,
+					"rotation_degrees": 0.0000382222056591834
+				},
+				"righthandring1": {
+					"position_m": 0.00000135952166147035,
+					"rotation_degrees": 0.0000243624878610532
+				},
+				"righthandring2": {
+					"position_m": 0.00000127315581721632,
+					"rotation_degrees": 0.0000364413621023795
+				},
+				"righthandring3": {
+					"position_m": 0.00000147694493080053,
+					"rotation_degrees": 0.0000257869317931377
+				},
+				"righthandring4": {
+					"position_m": 0.00000139156418299535,
+					"rotation_degrees": 0.0000552571173011373
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000130655234897858,
+					"rotation_degrees": 0.0000256984454032336
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000112511168026685,
+					"rotation_degrees": 0.000028367904794047
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000140292672767828,
+					"rotation_degrees": 0.0000192620107347858
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000147272930917097,
+					"rotation_degrees": 0.0000286237040339695
+				},
+				"rightleg": {
+					"position_m": 0.000000111510082945188,
+					"rotation_degrees": 0.000127849581134065
+				},
+				"rightshoulder": {
+					"position_m": 0.00000100017632576055,
+					"rotation_degrees": 0.0000138721802800394
+				},
+				"righttoebase": {
+					"position_m": 0.00000131065110053896,
+					"rotation_degrees": 0.000147997419806708
+				},
+				"righttoeend": {
+					"position_m": 0.00000119582182378508,
+					"rotation_degrees": 0.000144371083466429
+				},
+				"rightupleg": {
+					"position_m": 0.000000066640019724673,
+					"rotation_degrees": 0.0000773808187267885
+				},
+				"spine": {
+					"position_m": 0.000000124894484088145,
+					"rotation_degrees": 0.0000175439583500586
+				},
+				"spine1": {
+					"position_m": 0.000000377873732304579,
+					"rotation_degrees": 0.0000138261262553629
+				},
+				"spine2": {
+					"position_m": 0.000000695911751336098,
+					"rotation_degrees": 0.000022214527889586
+				}
+			},
+			"time": 0.3
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000860025863858027,
+					"rotation_degrees": 0.00000314421819278298
+				},
+				"headtopend": {
+					"position_m": 0.000000860993509377295,
+					"rotation_degrees": 0.00000749183329395498
+				},
+				"hips": {
+					"position_m": 0.0000000723320567885821,
+					"rotation_degrees": 0.0000132957412313475
+				},
+				"leftarm": {
+					"position_m": 0.000000358867481509151,
+					"rotation_degrees": 0.0000261204501512567
+				},
+				"leftfoot": {
+					"position_m": 0.000000500743340126064,
+					"rotation_degrees": 0.000222953159733112
+				},
+				"leftforearm": {
+					"position_m": 0.000000633606077826698,
+					"rotation_degrees": 0.000018236613747256
+				},
+				"lefthand": {
+					"position_m": 0.000000697654456871533,
+					"rotation_degrees": 0.000018500543808055
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000889213595200999,
+					"rotation_degrees": 0.0000279439752252196
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000931279714677657,
+					"rotation_degrees": 0.0000247750688036662
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000139176495395077,
+					"rotation_degrees": 0.00002626092787265
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000139268195198383,
+					"rotation_degrees": 0.0000277063722185186
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000887620274170331,
+					"rotation_degrees": 0.00000880552105025568
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000101177124633978,
+					"rotation_degrees": 0.0000170688842406203
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000011822324950117,
+					"rotation_degrees": 0.0000193657996129288
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000109612824417127,
+					"rotation_degrees": 0.0000302849058103205
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000888620377281768,
+					"rotation_degrees": 0.0000201453324973613
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000779431843511702,
+					"rotation_degrees": 0.0000195484312356262
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000109419579530368,
+					"rotation_degrees": 0.00000941331415966413
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000915451721539284,
+					"rotation_degrees": 0.00000813608645023223
+				},
+				"lefthandring1": {
+					"position_m": 0.00000110210680759337,
+					"rotation_degrees": 0.0000144637646721247
+				},
+				"lefthandring2": {
+					"position_m": 0.00000110632970518054,
+					"rotation_degrees": 0.0000235610980012943
+				},
+				"lefthandring3": {
+					"position_m": 0.000000979517608357128,
+					"rotation_degrees": 0.0000324940855054075
+				},
+				"lefthandring4": {
+					"position_m": 0.000000806075718173815,
+					"rotation_degrees": 0.0000448161271465717
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000728939482996793,
+					"rotation_degrees": 0.0000314863392223602
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000101864043244859,
+					"rotation_degrees": 0.0000179913928795374
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000105664366856217,
+					"rotation_degrees": 0.0000192620107347858
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000110077280623955,
+					"rotation_degrees": 0.000035513803658628
+				},
+				"leftleg": {
+					"position_m": 0.000000688846341745375,
+					"rotation_degrees": 0.000152823841207396
+				},
+				"leftshoulder": {
+					"position_m": 0.000000123103788496337,
+					"rotation_degrees": 0.0000190957319467054
+				},
+				"lefttoebase": {
+					"position_m": 0.000000979241235654627,
+					"rotation_degrees": 0.000144870064762185
+				},
+				"lefttoeend": {
+					"position_m": 0.00000128967155887949,
+					"rotation_degrees": 0.000136646461660461
+				},
+				"leftupleg": {
+					"position_m": 0.0000000333200098623365,
+					"rotation_degrees": 0.00014210650410657
+				},
+				"neck": {
+					"position_m": 0.000000562358479783143,
+					"rotation_degrees": 0.00000980911154422293
+				},
+				"rightarm": {
+					"position_m": 0.000000578704373310757,
+					"rotation_degrees": 0.0000232878402132809
+				},
+				"rightfoot": {
+					"position_m": 0.000000945049691836175,
+					"rotation_degrees": 0.0000875440679870141
+				},
+				"rightforearm": {
+					"position_m": 0.000000574999489799666,
+					"rotation_degrees": 0.0000302095967892395
+				},
+				"righthand": {
+					"position_m": 0.000000853538722367375,
+					"rotation_degrees": 0.00000190909573489066
+				},
+				"righthandindex1": {
+					"position_m": 0.000000912262692054355,
+					"rotation_degrees": 0.0000160182138022584
+				},
+				"righthandindex2": {
+					"position_m": 0.000000980423919827444,
+					"rotation_degrees": 0.00000919542346754567
+				},
+				"righthandindex3": {
+					"position_m": 0.00000112343298042106,
+					"rotation_degrees": 0.0000324433985575597
+				},
+				"righthandindex4": {
+					"position_m": 0.00000129939496673614,
+					"rotation_degrees": 0.00000729464582459123
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000092830765652252,
+					"rotation_degrees": 0.00000989466184960056
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000112343298042106,
+					"rotation_degrees": 0.0000192620107347858
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000106300751667732,
+					"rotation_degrees": 0.0000323984307050291
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000125205224321689,
+					"rotation_degrees": 0.0000249938502546509
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000851846095883957,
+					"rotation_degrees": 0.0000215482728264665
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000077256447639229,
+					"rotation_degrees": 0.00000749183329395498
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000851846095883957,
+					"rotation_degrees": 0.0000421127700655188
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000935455943817942,
+					"rotation_degrees": 0.0000378463510140327
+				},
+				"righthandring1": {
+					"position_m": 0.000000864781043219409,
+					"rotation_degrees": 0.0000248265080926405
+				},
+				"righthandring2": {
+					"position_m": 0.000000787368094279373,
+					"rotation_degrees": 0.0000207425529341198
+				},
+				"righthandring3": {
+					"position_m": 0.000000936879018809123,
+					"rotation_degrees": 0.0000220706336926871
+				},
+				"righthandring4": {
+					"position_m": 0.000000992130935628666,
+					"rotation_degrees": 0.000024976427532328
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000851846095883957,
+					"rotation_degrees": 0.000014311853645429
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000776720810335974,
+					"rotation_degrees": 0.0000150382959986742
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000962942522164667,
+					"rotation_degrees": 0.0000170754729250317
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000119144078780664,
+					"rotation_degrees": 0.0000123797194990921
+				},
+				"rightleg": {
+					"position_m": 0.000000430073441748391,
+					"rotation_degrees": 0.000142873879028121
+				},
+				"rightshoulder": {
+					"position_m": 0.00000042986289372493,
+					"rotation_degrees": 0.0000417651591530506
+				},
+				"righttoebase": {
+					"position_m": 0.000000905942783901992,
+					"rotation_degrees": 0.000144600628932233
+				},
+				"righttoeend": {
+					"position_m": 0.000000768413372043142,
+					"rotation_degrees": 0.000144108291687984
+				},
+				"rightupleg": {
+					"position_m": 0.00000010536712125031,
+					"rotation_degrees": 0.0000737366672091785
+				},
+				"spine": {
+					"position_m": 0.0000000730004856563937,
+					"rotation_degrees": 0.0000130322915615275
+				},
+				"spine1": {
+					"position_m": 0.0000000372529029846191,
+					"rotation_degrees": 0.0000135060962988703
+				},
+				"spine2": {
+					"position_m": 0.00000017916283923114,
+					"rotation_degrees": 0.0000157485955865781
+				}
+			},
+			"time": 0.333333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000378149081825541,
+					"rotation_degrees": 0.00000909829818223801
+				},
+				"headtopend": {
+					"position_m": 0.000000377634933101945,
+					"rotation_degrees": 0.0000208607502847474
+				},
+				"hips": {
+					"position_m": 0.0000000745058059692383,
+					"rotation_degrees": 0.0000134707354516994
+				},
+				"leftarm": {
+					"position_m": 0.0000000842936955791629,
+					"rotation_degrees": 0.0000183908469350912
+				},
+				"leftfoot": {
+					"position_m": 0.000000822167407932284,
+					"rotation_degrees": 0.000208070367108643
+				},
+				"leftforearm": {
+					"position_m": 0.00000038165595128703,
+					"rotation_degrees": 0.0000158351424996818
+				},
+				"lefthand": {
+					"position_m": 0.000000326807992223621,
+					"rotation_degrees": 0.0000207723876565871
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000560925286663405,
+					"rotation_degrees": 0.0000214000306840959
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000635279434391123,
+					"rotation_degrees": 0.0000184765096031046
+				},
+				"lefthandindex3": {
+					"position_m": 0.000000998449081635044,
+					"rotation_degrees": 0.0000207161314302699
+				},
+				"lefthandindex4": {
+					"position_m": 0.000000920026536732621,
+					"rotation_degrees": 0.0000129508538914641
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000529410783656203,
+					"rotation_degrees": 0.000018026891330226
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.000000743417103876709,
+					"rotation_degrees": 0.00000920114907663881
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.000000800244038146047,
+					"rotation_degrees": 0.0000262622289994036
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000751078005123418,
+					"rotation_degrees": 0.0000201622829709251
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000446600012082854,
+					"rotation_degrees": 0.0000124425790658168
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000438256307688789,
+					"rotation_degrees": 0.0000062313504670323
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000768096697356668,
+					"rotation_degrees": 0.0000237824833342301
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000884581936588802,
+					"rotation_degrees": 0.0000252567690517279
+				},
+				"lefthandring1": {
+					"position_m": 0.000000531085845523194,
+					"rotation_degrees": 0.0000197656754354779
+				},
+				"lefthandring2": {
+					"position_m": 0.000000651744812785182,
+					"rotation_degrees": 0.0000253706559110958
+				},
+				"lefthandring3": {
+					"position_m": 0.000000722706317901611,
+					"rotation_degrees": 0.000025552271384739
+				},
+				"lefthandring4": {
+					"position_m": 0.000000745393265333405,
+					"rotation_degrees": 0.0000290977180263658
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000434503647284146,
+					"rotation_degrees": 0.0000206323724132889
+				},
+				"lefthandthumb2": {
+					"position_m": 0.000000611776158621069,
+					"rotation_degrees": 0.0000253925943086221
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000000733806530206493,
+					"rotation_degrees": 0.0000412028672115819
+				},
+				"lefthandthumb4": {
+					"position_m": 0.000000825670895210351,
+					"rotation_degrees": 0.0000343875815610296
+				},
+				"leftleg": {
+					"position_m": 0.000000730156898498535,
+					"rotation_degrees": 0.000201589133945861
+				},
+				"leftshoulder": {
+					"position_m": 0.000000146000971312787,
+					"rotation_degrees": 0.00000597641470953915
+				},
+				"lefttoebase": {
+					"position_m": 0.0000013456705119097,
+					"rotation_degrees": 0.0000998732715248698
+				},
+				"lefttoeend": {
+					"position_m": 0.00000165926451245468,
+					"rotation_degrees": 0.000104722217562927
+				},
+				"leftupleg": {
+					"position_m": 0.0000000670552253723145,
+					"rotation_degrees": 0.000125129545529599
+				},
+				"neck": {
+					"position_m": 0.000000190973366898106,
+					"rotation_degrees": 0.0000131159178603228
+				},
+				"rightarm": {
+					"position_m": 0.000000388860343036868,
+					"rotation_degrees": 0.000022972700474111
+				},
+				"rightfoot": {
+					"position_m": 0.000000835296134482633,
+					"rotation_degrees": 0.000102439490823165
+				},
+				"rightforearm": {
+					"position_m": 0.000000630972238013783,
+					"rotation_degrees": 0.0000256700648812555
+				},
+				"righthand": {
+					"position_m": 0.000000826443681489764,
+					"rotation_degrees": 0.0000302095935323515
+				},
+				"righthandindex1": {
+					"position_m": 0.00000095413986400672,
+					"rotation_degrees": 0.0000239665675289727
+				},
+				"righthandindex2": {
+					"position_m": 0.00000109794359559601,
+					"rotation_degrees": 0.0000267273435453568
+				},
+				"righthandindex3": {
+					"position_m": 0.00000128184638015227,
+					"rotation_degrees": 0.0000124311319187405
+				},
+				"righthandindex4": {
+					"position_m": 0.00000142116778079071,
+					"rotation_degrees": 0.0000206323724132889
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000103763875358709,
+					"rotation_degrees": 0.0000195683975874723
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000128565159229765,
+					"rotation_degrees": 0.0000179089073057619
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000119664764497429,
+					"rotation_degrees": 0.00000787140404830658
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000124787777622259,
+					"rotation_degrees": 0.0000271736186227098
+				},
+				"righthandpinky1": {
+					"position_m": 0.000000966280254033336,
+					"rotation_degrees": 0.0000192478155884647
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000106175343717041,
+					"rotation_degrees": 0.0000271736153658218
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000107876587662759,
+					"rotation_degrees": 0.0000376048267141872
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000115961290703126,
+					"rotation_degrees": 0.0000529494558268937
+				},
+				"righthandring1": {
+					"position_m": 0.00000096259657311748,
+					"rotation_degrees": 0.0000287483809632609
+				},
+				"righthandring2": {
+					"position_m": 0.000000904563080439402,
+					"rotation_degrees": 0.0000361545703163078
+				},
+				"righthandring3": {
+					"position_m": 0.00000102688352399127,
+					"rotation_degrees": 0.0000255428540931049
+				},
+				"righthandring4": {
+					"position_m": 0.00000105588162568893,
+					"rotation_degrees": 0.0000308305745954689
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000090982541678386,
+					"rotation_degrees": 0.0000216758060465285
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000717889633961022,
+					"rotation_degrees": 0.0000294778033690204
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000100181910056563,
+					"rotation_degrees": 0.0000377295557536864
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000115731290861731,
+					"rotation_degrees": 0.0000312627212927046
+				},
+				"rightleg": {
+					"position_m": 0.000000415098327266605,
+					"rotation_degrees": 0.000141035548141341
+				},
+				"rightshoulder": {
+					"position_m": 0.000000198710822019166,
+					"rotation_degrees": 0.0000166649959320628
+				},
+				"righttoebase": {
+					"position_m": 0.000000737381697035744,
+					"rotation_degrees": 0.000141583343674348
+				},
+				"righttoeend": {
+					"position_m": 0.00000064785785980348,
+					"rotation_degrees": 0.000140934936357436
+				},
+				"rightupleg": {
+					"position_m": 0.0000000994729276726503,
+					"rotation_degrees": 0.0000687145263813841
+				},
+				"spine": {
+					"position_m": 0.000000184317187290617,
+					"rotation_degrees": 0.00000742157163504234
+				},
+				"spine1": {
+					"position_m": 0.000000134987161004574,
+					"rotation_degrees": 0.000018573258717849
+				},
+				"spine2": {
+					"position_m": 0.000000114032836506794,
+					"rotation_degrees": 0.0000189424253435044
+				}
+			},
+			"time": 0.366666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.0000010022138212662,
+					"rotation_degrees": 0.0000168606811618394
+				},
+				"headtopend": {
+					"position_m": 0.00000118011178074084,
+					"rotation_degrees": 0.0000233825260894812
+				},
+				"hips": {
+					"position_m": 0.000000044703483581543,
+					"rotation_degrees": 0.0000134401573445474
+				},
+				"leftarm": {
+					"position_m": 0.000000731979241663794,
+					"rotation_degrees": 0.0000211901047115663
+				},
+				"leftfoot": {
+					"position_m": 0.000000972693214862375,
+					"rotation_degrees": 0.000203412496175419
+				},
+				"leftforearm": {
+					"position_m": 0.000000804662704467773,
+					"rotation_degrees": 0.0000288267156332882
+				},
+				"lefthand": {
+					"position_m": 0.000000735006494778645,
+					"rotation_degrees": 0.000029135025678335
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000110720736756775,
+					"rotation_degrees": 0.0000355708415380637
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000119602123049845,
+					"rotation_degrees": 0.0000416070372409508
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000136103676595667,
+					"rotation_degrees": 0.0000411949920564128
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000152664199504216,
+					"rotation_degrees": 0.0000361694086980076
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000119248863938992,
+					"rotation_degrees": 0.0000362709356674389
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000115637715225603,
+					"rotation_degrees": 0.0000225552244288434
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000012616145568245,
+					"rotation_degrees": 0.0000234410279400701
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000103777256299509,
+					"rotation_degrees": 0.0000264949531878899
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000103335014500772,
+					"rotation_degrees": 0.0000197293741618988
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000120136996883957,
+					"rotation_degrees": 0.0000228110627514218
+				},
+				"lefthandpinky3": {
+					"position_m": 0.0000011854621106977,
+					"rotation_degrees": 0.0000237969211187067
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000127776911540423,
+					"rotation_degrees": 0.0000145743767306147
+				},
+				"lefthandring1": {
+					"position_m": 0.000000976708292910189,
+					"rotation_degrees": 0.0000254519657483054
+				},
+				"lefthandring2": {
+					"position_m": 0.00000110911093997856,
+					"rotation_degrees": 0.000025854709260733
+				},
+				"lefthandring3": {
+					"position_m": 0.00000106123047771689,
+					"rotation_degrees": 0.0000246116902743443
+				},
+				"lefthandring4": {
+					"position_m": 0.000000983956283562293,
+					"rotation_degrees": 0.0000390899122722724
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000896178164566663,
+					"rotation_degrees": 0.000045583537893891
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000114535566808627,
+					"rotation_degrees": 0.0000240635560249846
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000127280691231135,
+					"rotation_degrees": 0.0000298240854711872
+				},
+				"lefthandthumb4": {
+					"position_m": 0.0000015229513792292,
+					"rotation_degrees": 0.0000184233311359416
+				},
+				"leftleg": {
+					"position_m": 0.000000701502926858666,
+					"rotation_degrees": 0.000184214652647942
+				},
+				"leftshoulder": {
+					"position_m": 0.000000495113340548414,
+					"rotation_degrees": 0.0000140029296769953
+				},
+				"lefttoebase": {
+					"position_m": 0.00000151325673414249,
+					"rotation_degrees": 0.000107846178930163
+				},
+				"lefttoeend": {
+					"position_m": 0.00000179601499894488,
+					"rotation_degrees": 0.000108613970733377
+				},
+				"leftupleg": {
+					"position_m": 0.000000155572692506212,
+					"rotation_degrees": 0.000100411908688839
+				},
+				"neck": {
+					"position_m": 0.00000073855699156411,
+					"rotation_degrees": 0.0000177504857599666
+				},
+				"rightarm": {
+					"position_m": 0.000000750440278807218,
+					"rotation_degrees": 0.0000181514786950975
+				},
+				"rightfoot": {
+					"position_m": 0.000000661425247017178,
+					"rotation_degrees": 0.000135629140126713
+				},
+				"rightforearm": {
+					"position_m": 0.000000959824546953314,
+					"rotation_degrees": 0.0000340038875864779
+				},
+				"righthand": {
+					"position_m": 0.00000105630215330166,
+					"rotation_degrees": 0.0000418349086663262
+				},
+				"righthandindex1": {
+					"position_m": 0.00000102417709513247,
+					"rotation_degrees": 0.0000464816833821703
+				},
+				"righthandindex2": {
+					"position_m": 0.00000131070942188671,
+					"rotation_degrees": 0.0000468331960464551
+				},
+				"righthandindex3": {
+					"position_m": 0.00000150376274632436,
+					"rotation_degrees": 0.0000506558380536793
+				},
+				"righthandindex4": {
+					"position_m": 0.00000172242209828255,
+					"rotation_degrees": 0.000046926492859926
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000108328470105334,
+					"rotation_degrees": 0.0000451658550362358
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000133255048240244,
+					"rotation_degrees": 0.0000547747656754769
+				},
+				"righthandmiddle3": {
+					"position_m": 0.0000014283367590906,
+					"rotation_degrees": 0.0000490158288475042
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000135821449021023,
+					"rotation_degrees": 0.0000616138331221591
+				},
+				"righthandpinky1": {
+					"position_m": 0.0000010111950814462,
+					"rotation_degrees": 0.0000505644693179007
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000111360634491575,
+					"rotation_degrees": 0.0000525261580943371
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000100844647477061,
+					"rotation_degrees": 0.0000365431105401943
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000963057800618117,
+					"rotation_degrees": 0.0000469808242654389
+				},
+				"righthandring1": {
+					"position_m": 0.00000116696162422159,
+					"rotation_degrees": 0.0000494394001586522
+				},
+				"righthandring2": {
+					"position_m": 0.00000108154097233637,
+					"rotation_degrees": 0.0000468565414195948
+				},
+				"righthandring3": {
+					"position_m": 0.00000115769648800779,
+					"rotation_degrees": 0.0000440418052829294
+				},
+				"righthandring4": {
+					"position_m": 0.00000126335135064437,
+					"rotation_degrees": 0.0000236334969929528
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000115577699943969,
+					"rotation_degrees": 0.0000533266913925536
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000962942522164667,
+					"rotation_degrees": 0.0000436746107029543
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000110911093997856,
+					"rotation_degrees": 0.0000482713726467653
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000104828370695031,
+					"rotation_degrees": 0.000042385586545209
+				},
+				"rightleg": {
+					"position_m": 0.00000034012532523775,
+					"rotation_degrees": 0.000165561660426716
+				},
+				"rightshoulder": {
+					"position_m": 0.000000491746277475613,
+					"rotation_degrees": 0.00000768396363048633
+				},
+				"righttoebase": {
+					"position_m": 0.000000561315630420722,
+					"rotation_degrees": 0.000125432110424224
+				},
+				"righttoeend": {
+					"position_m": 0.000000488865396164329,
+					"rotation_degrees": 0.000126292137295423
+				},
+				"rightupleg": {
+					"position_m": 0.0000000670552253723145,
+					"rotation_degrees": 0.0000634569842031723
+				},
+				"spine": {
+					"position_m": 0.000000166600045758969,
+					"rotation_degrees": 0.0000195297839234176
+				},
+				"spine1": {
+					"position_m": 0.000000397612581082285,
+					"rotation_degrees": 0.0000149486582988643
+				},
+				"spine2": {
+					"position_m": 0.000000390160806773565,
+					"rotation_degrees": 0.0000147877940870737
+				}
+			},
+			"time": 0.4
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.00000131200044961588,
+					"rotation_degrees": 0.0000186711135460673
+				},
+				"headtopend": {
+					"position_m": 0.00000144819466640911,
+					"rotation_degrees": 0.0000245830817702066
+				},
+				"hips": {
+					"position_m": 0.0000000484287738800049,
+					"rotation_degrees": 0.00000639401288810658
+				},
+				"leftarm": {
+					"position_m": 0.00000100624220067402,
+					"rotation_degrees": 0.0000202760004721173
+				},
+				"leftfoot": {
+					"position_m": 0.00000116391333904176,
+					"rotation_degrees": 0.000191768483247505
+				},
+				"leftforearm": {
+					"position_m": 0.00000118994887543522,
+					"rotation_degrees": 0.0000161089686146501
+				},
+				"lefthand": {
+					"position_m": 0.00000112313637146144,
+					"rotation_degrees": 0.0000142100254138582
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000168021745139413,
+					"rotation_degrees": 0.00000954759158053928
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000173058879227028,
+					"rotation_degrees": 0.000013855029507864
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000212404279409384,
+					"rotation_degrees": 0.0000120658092351398
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000212575719160668,
+					"rotation_degrees": 0.00000954939426804386
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000150023322476045,
+					"rotation_degrees": 0.0000150659144088618
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000164487494203058,
+					"rotation_degrees": 0.000013758623994803
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.000001717774921417,
+					"rotation_degrees": 0.0000298248475829777
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000162169544637436,
+					"rotation_degrees": 0.00000994636168961444
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000140545682825177,
+					"rotation_degrees": 0.0000202939638378472
+				},
+				"lefthandpinky2": {
+					"position_m": 0.0000015545846281384,
+					"rotation_degrees": 0.0000118889366046375
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000160739261900744,
+					"rotation_degrees": 0.0000175390876740638
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000166366646681126,
+					"rotation_degrees": 0.0000279392853065085
+				},
+				"lefthandring1": {
+					"position_m": 0.00000128677368138597,
+					"rotation_degrees": 0.000014046314681961
+				},
+				"lefthandring2": {
+					"position_m": 0.00000146251693422528,
+					"rotation_degrees": 0.000010224279270125
+				},
+				"lefthandring3": {
+					"position_m": 0.00000147964851748839,
+					"rotation_degrees": 0.00000714442837965234
+				},
+				"lefthandring4": {
+					"position_m": 0.00000137060305860359,
+					"rotation_degrees": 0.0000115444865019673
+				},
+				"lefthandthumb1": {
+					"position_m": 0.00000128117494568869,
+					"rotation_degrees": 0.0000157196402238691
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000167532061823295,
+					"rotation_degrees": 0.0000109336376173986
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000179311496140144,
+					"rotation_degrees": 0.0000339717160468749
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000182865846909408,
+					"rotation_degrees": 0.0000292285016206456
+				},
+				"leftleg": {
+					"position_m": 0.000000695782091497676,
+					"rotation_degrees": 0.000167700054918141
+				},
+				"leftshoulder": {
+					"position_m": 0.00000085093330426389,
+					"rotation_degrees": 0.0000319452835940091
+				},
+				"lefttoebase": {
+					"position_m": 0.0000016089976497824,
+					"rotation_degrees": 0.000104982931446832
+				},
+				"lefttoeend": {
+					"position_m": 0.00000183713848400657,
+					"rotation_degrees": 0.000104551543604499
+				},
+				"leftupleg": {
+					"position_m": 0.0000000600685012841495,
+					"rotation_degrees": 0.0000960030398702821
+				},
+				"neck": {
+					"position_m": 0.000000892205093805387,
+					"rotation_degrees": 0.0000185487099245956
+				},
+				"rightarm": {
+					"position_m": 0.00000110873554604041,
+					"rotation_degrees": 0.0000239665675289727
+				},
+				"rightfoot": {
+					"position_m": 0.000000449573235528078,
+					"rotation_degrees": 0.000135810483650209
+				},
+				"rightforearm": {
+					"position_m": 0.00000108318215552572,
+					"rotation_degrees": 0.00000999316317008561
+				},
+				"righthand": {
+					"position_m": 0.00000104605726392037,
+					"rotation_degrees": 0.0000157948124556544
+				},
+				"righthandindex1": {
+					"position_m": 0.00000109824691207905,
+					"rotation_degrees": 0.0000136670451897488
+				},
+				"righthandindex2": {
+					"position_m": 0.00000130757155147876,
+					"rotation_degrees": 0.0000124384591025046
+				},
+				"righthandindex3": {
+					"position_m": 0.00000146433762893139,
+					"rotation_degrees": 0.0000284992909126056
+				},
+				"righthandindex4": {
+					"position_m": 0.00000145054980293935,
+					"rotation_degrees": 0.0000231780277207933
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000964440118877974,
+					"rotation_degrees": 0.0000130602250756285
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000125462111100205,
+					"rotation_degrees": 0.00000683018917001274
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000129013426430902,
+					"rotation_degrees": 0.0000174136339769859
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000132285049403436,
+					"rotation_degrees": 0.0000183908469350912
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000105588162568893,
+					"rotation_degrees": 0.0000118879790795674
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000102070237062435,
+					"rotation_degrees": 0.00000341509458500637
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000104701200598356,
+					"rotation_degrees": 0.0000265769160311423
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000116772253022646,
+					"rotation_degrees": 0.0000280058593539902
+				},
+				"righthandring1": {
+					"position_m": 0.00000101721570899826,
+					"rotation_degrees": 0.0000143055841360409
+				},
+				"righthandring2": {
+					"position_m": 0.000000949591026255803,
+					"rotation_degrees": 0.0000336374876871733
+				},
+				"righthandring3": {
+					"position_m": 0.00000110308860712394,
+					"rotation_degrees": 0.000022132341949506
+				},
+				"righthandring4": {
+					"position_m": 0.00000117945307920309,
+					"rotation_degrees": 0.0000198811972526186
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000124921155020274,
+					"rotation_degrees": 0.0000169038560975295
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000111111114620144,
+					"rotation_degrees": 0.00000729464419614724
+				},
+				"righthandthumb3": {
+					"position_m": 0.0000012106677331758,
+					"rotation_degrees": 0.0000141211807662749
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000130425598854345,
+					"rotation_degrees": 0.0000199418291079555
+				},
+				"rightleg": {
+					"position_m": 0.00000041106684989245,
+					"rotation_degrees": 0.000112091727843382
+				},
+				"rightshoulder": {
+					"position_m": 0.000000744352234960388,
+					"rotation_degrees": 0.0000226531753352575
+				},
+				"righttoebase": {
+					"position_m": 0.000000381058072207452,
+					"rotation_degrees": 0.0000910140346209382
+				},
+				"righttoeend": {
+					"position_m": 0.000000385004739200667,
+					"rotation_degrees": 0.0000843466116853085
+				},
+				"rightupleg": {
+					"position_m": 0.00000011500231522632,
+					"rotation_degrees": 0.0000665135670715942
+				},
+				"spine": {
+					"position_m": 0.0000000897168703772877,
+					"rotation_degrees": 0.0000119900540204036
+				},
+				"spine1": {
+					"position_m": 0.00000039679150631855,
+					"rotation_degrees": 0.0000140289326707379
+				},
+				"spine2": {
+					"position_m": 0.000000527480608525366,
+					"rotation_degrees": 0.0000231308061017709
+				}
+			},
+			"time": 0.433333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.00000086787468944749,
+					"rotation_degrees": 0.000030653478053917
+				},
+				"headtopend": {
+					"position_m": 0.00000100207023479015,
+					"rotation_degrees": 0.0000221981148025412
+				},
+				"hips": {
+					"position_m": 0.000000044703483581543,
+					"rotation_degrees": 0.0000211376215899899
+				},
+				"leftarm": {
+					"position_m": 0.000000961557930168055,
+					"rotation_degrees": 0.000024615494319521
+				},
+				"leftfoot": {
+					"position_m": 0.000000845304384711199,
+					"rotation_degrees": 0.000208386207078731
+				},
+				"leftforearm": {
+					"position_m": 0.00000114380361537769,
+					"rotation_degrees": 0.0000187830202175349
+				},
+				"lefthand": {
+					"position_m": 0.00000100624220067402,
+					"rotation_degrees": 0.0000130322891188615
+				},
+				"lefthandindex1": {
+					"position_m": 0.0000014473507690127,
+					"rotation_degrees": 0.0000226571959634858
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000136969151753874,
+					"rotation_degrees": 0.000032579718861429
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000176514299710107,
+					"rotation_degrees": 0.0000122655696460187
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000183981069312722,
+					"rotation_degrees": 0.00000914707659372143
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000139920234687452,
+					"rotation_degrees": 0.0000168583134042679
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000149340939969989,
+					"rotation_degrees": 0.0000227054027911263
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000145146793784079,
+					"rotation_degrees": 0.0000179203487532842
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000149554512063332,
+					"rotation_degrees": 0.000009545628491301
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000121130949537474,
+					"rotation_degrees": 0.0000255143009560631
+				},
+				"lefthandpinky2": {
+					"position_m": 0.0000014354699260366,
+					"rotation_degrees": 0.0000211136443805795
+				},
+				"lefthandpinky3": {
+					"position_m": 0.0000017691638731776,
+					"rotation_degrees": 0.0000265700619103593
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000168804569966596,
+					"rotation_degrees": 0.0000307950842870002
+				},
+				"lefthandring1": {
+					"position_m": 0.00000122044059480686,
+					"rotation_degrees": 0.000022401023809888
+				},
+				"lefthandring2": {
+					"position_m": 0.00000130391549646447,
+					"rotation_degrees": 0.0000127856881448556
+				},
+				"lefthandring3": {
+					"position_m": 0.00000146312402193871,
+					"rotation_degrees": 0.0000111813589608745
+				},
+				"lefthandring4": {
+					"position_m": 0.00000129719296637631,
+					"rotation_degrees": 0.0000167362631551436
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000966739776231407,
+					"rotation_degrees": 0.0000583856513391188
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000126027180158417,
+					"rotation_degrees": 0.0000422009796199434
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000133013213599043,
+					"rotation_degrees": 0.0000267250116135532
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000146990441862727,
+					"rotation_degrees": 0.0000507083162899236
+				},
+				"leftleg": {
+					"position_m": 0.000000516675072503858,
+					"rotation_degrees": 0.000172766990983393
+				},
+				"leftshoulder": {
+					"position_m": 0.000000896828339591593,
+					"rotation_degrees": 0.0000174971536126994
+				},
+				"lefttoebase": {
+					"position_m": 0.00000129189720610157,
+					"rotation_degrees": 0.000103331304921184
+				},
+				"lefttoeend": {
+					"position_m": 0.00000151727283537184,
+					"rotation_degrees": 0.0000937286377362323
+				},
+				"leftupleg": {
+					"position_m": 0.000000149011611938477,
+					"rotation_degrees": 0.000102114323125863
+				},
+				"neck": {
+					"position_m": 0.000000631598766176467,
+					"rotation_degrees": 0.000019543772257351
+				},
+				"rightarm": {
+					"position_m": 0.000000999600274553814,
+					"rotation_degrees": 0.0000341509523638387
+				},
+				"rightfoot": {
+					"position_m": 0.000000607496531301877,
+					"rotation_degrees": 0.000109775507267492
+				},
+				"rightforearm": {
+					"position_m": 0.000000973149667515827,
+					"rotation_degrees": 0.0000376538624198221
+				},
+				"righthand": {
+					"position_m": 0.000000988880401564529,
+					"rotation_degrees": 0.000039266627757929
+				},
+				"righthandindex1": {
+					"position_m": 0.00000106384277387406,
+					"rotation_degrees": 0.0000237987010079953
+				},
+				"righthandindex2": {
+					"position_m": 0.00000123211975733284,
+					"rotation_degrees": 0.0000288298780715302
+				},
+				"righthandindex3": {
+					"position_m": 0.00000139658152420452,
+					"rotation_degrees": 0.0000286237072908575
+				},
+				"righthandindex4": {
+					"position_m": 0.00000138155542117602,
+					"rotation_degrees": 0.0000236489134722716
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000908848676317575,
+					"rotation_degrees": 0.0000381843019967113
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000115462364647101,
+					"rotation_degrees": 0.0000312065660299152
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000109104587409092,
+					"rotation_degrees": 0.0000458501076624091
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000117605941341026,
+					"rotation_degrees": 0.0000366625959900236
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000112313637146144,
+					"rotation_degrees": 0.0000224156260672083
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000121542700526334,
+					"rotation_degrees": 0.0000277968518238749
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000139435383061937,
+					"rotation_degrees": 0.0000177658810695134
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000140932218073431,
+					"rotation_degrees": 0.00000704039767757578
+				},
+				"righthandring1": {
+					"position_m": 0.00000101240209460229,
+					"rotation_degrees": 0.0000188933766103174
+				},
+				"righthandring2": {
+					"position_m": 0.00000112313637146144,
+					"rotation_degrees": 0.0000187830218459789
+				},
+				"righthandring3": {
+					"position_m": 0.00000111679207748239,
+					"rotation_degrees": 0.00000490455617922247
+				},
+				"righthandring4": {
+					"position_m": 0.00000123094775972277,
+					"rotation_degrees": 0.0000200999787036034
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000103496051906404,
+					"rotation_degrees": 0.0000208432689384406
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000802452063908277,
+					"rotation_degrees": 0.0000407246453198976
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000829126122425805,
+					"rotation_degrees": 0.0000381245999828966
+				},
+				"righthandthumb4": {
+					"position_m": 0.000000864395815369789,
+					"rotation_degrees": 0.0000416603036440897
+				},
+				"rightleg": {
+					"position_m": 0.000000529987175923452,
+					"rotation_degrees": 0.0000649373309892263
+				},
+				"rightshoulder": {
+					"position_m": 0.000000730627732536959,
+					"rotation_degrees": 0.00000836523946103331
+				},
+				"righttoebase": {
+					"position_m": 0.000000822509719000664,
+					"rotation_degrees": 0.000129244519289368
+				},
+				"righttoeend": {
+					"position_m": 0.000000855435359881085,
+					"rotation_degrees": 0.000117362050050078
+				},
+				"rightupleg": {
+					"position_m": 0.000000158445317310907,
+					"rotation_degrees": 0.0000737415329998413
+				},
+				"spine": {
+					"position_m": 0.0000000921585936453084,
+					"rotation_degrees": 0.000017853033763784
+				},
+				"spine1": {
+					"position_m": 0.000000193141119098073,
+					"rotation_degrees": 0.00000860417860603382
+				},
+				"spine2": {
+					"position_m": 0.000000400689572188639,
+					"rotation_degrees": 0.0000191861757262937
+				}
+			},
+			"time": 0.466666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000823667789973115,
+					"rotation_degrees": 0.0000153916227495716
+				},
+				"headtopend": {
+					"position_m": 0.00000070722654754718,
+					"rotation_degrees": 0.0000242622359632715
+				},
+				"hips": {
+					"position_m": 0.0000000484287738800049,
+					"rotation_degrees": 0.0000177095124805604
+				},
+				"leftarm": {
+					"position_m": 0.000000560727357878932,
+					"rotation_degrees": 0.00000333409272726761
+				},
+				"leftfoot": {
+					"position_m": 0.000000993472781374294,
+					"rotation_degrees": 0.000182040184865099
+				},
+				"leftforearm": {
+					"position_m": 0.000000644206011202186,
+					"rotation_degrees": 0.0000138984275403816
+				},
+				"lefthand": {
+					"position_m": 0.00000066789789343602,
+					"rotation_degrees": 0.0000317622171767646
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000111520034806745,
+					"rotation_degrees": 0.000040137011532949
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000128186798065144,
+					"rotation_degrees": 0.0000523611087814744
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000153635596689128,
+					"rotation_degrees": 0.0000319595422496461
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000135659911393304,
+					"rotation_degrees": 0.0000425261505741342
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000103849436072778,
+					"rotation_degrees": 0.0000293063314730339
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000104648177057243,
+					"rotation_degrees": 0.0000221035054632087
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000108369454210333,
+					"rotation_degrees": 0.000017455769965406
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.000000907901494429098,
+					"rotation_degrees": 0.0000192051650117417
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000942903284339991,
+					"rotation_degrees": 0.0000349108852963244
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000970750875239901,
+					"rotation_degrees": 0.0000273340903794972
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000122525250390026,
+					"rotation_degrees": 0.0000268090360669057
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000124600796880259,
+					"rotation_degrees": 0.0000320051256540075
+				},
+				"lefthandring1": {
+					"position_m": 0.000000933079263631953,
+					"rotation_degrees": 0.0000392180089339573
+				},
+				"lefthandring2": {
+					"position_m": 0.000000942432166084473,
+					"rotation_degrees": 0.0000295879057245394
+				},
+				"lefthandring3": {
+					"position_m": 0.000000810710844234563,
+					"rotation_degrees": 0.0000242838193600065
+				},
+				"lefthandring4": {
+					"position_m": 0.000000884581936588802,
+					"rotation_degrees": 0.0000331215770876245
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000818479406916595,
+					"rotation_degrees": 0.0000337348653813005
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000111758708953857,
+					"rotation_degrees": 0.0000458779931374121
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000118707646379335,
+					"rotation_degrees": 0.0000271774031265586
+				},
+				"lefthandthumb4": {
+					"position_m": 0.0000012534702591438,
+					"rotation_degrees": 0.0000319517029202449
+				},
+				"leftleg": {
+					"position_m": 0.000000506694277646602,
+					"rotation_degrees": 0.000145472641151248
+				},
+				"leftshoulder": {
+					"position_m": 0.000000361045778163316,
+					"rotation_degrees": 0.0000295879057245394
+				},
+				"lefttoebase": {
+					"position_m": 0.00000134812796659389,
+					"rotation_degrees": 0.0000857351923952483
+				},
+				"lefttoeend": {
+					"position_m": 0.00000152310167322867,
+					"rotation_degrees": 0.0000796163922421765
+				},
+				"leftupleg": {
+					"position_m": 0.000000123778335137104,
+					"rotation_degrees": 0.0000956988465316596
+				},
+				"neck": {
+					"position_m": 0.000000426737869929639,
+					"rotation_degrees": 0.0000160693257739894
+				},
+				"rightarm": {
+					"position_m": 0.000000480548010273196,
+					"rotation_degrees": 0.0000249792626533266
+				},
+				"rightfoot": {
+					"position_m": 0.000000350810807958624,
+					"rotation_degrees": 0.0000588051124576186
+				},
+				"rightforearm": {
+					"position_m": 0.000000552147866983432,
+					"rotation_degrees": 0.00000505550072440599
+				},
+				"righthand": {
+					"position_m": 0.000000581908921049035,
+					"rotation_degrees": 0.00000854840114225168
+				},
+				"righthandindex1": {
+					"position_m": 0.000000685453414916992,
+					"rotation_degrees": 0.0000241493082574178
+				},
+				"righthandindex2": {
+					"position_m": 0.000000628857264928229,
+					"rotation_degrees": 0.0000185793881810534
+				},
+				"righthandindex3": {
+					"position_m": 0.000000733040224076831,
+					"rotation_degrees": 0.0000176952179991555
+				},
+				"righthandindex4": {
+					"position_m": 0.000000742071847525949,
+					"rotation_degrees": 0.0000343431706363459
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000674514183174324,
+					"rotation_degrees": 0.000016555286031547
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000824964672574424,
+					"rotation_degrees": 0.00000763638293956264
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000758643295739603,
+					"rotation_degrees": 0.0000226531753352575
+				},
+				"righthandmiddle4": {
+					"position_m": 0.000000832333569178445,
+					"rotation_degrees": 0.0000193940091482873
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000069829076210226,
+					"rotation_degrees": 0.0000395533153235848
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000601423835178139,
+					"rotation_degrees": 0.0000184896706874877
+				},
+				"righthandpinky3": {
+					"position_m": 0.000000602346176492574,
+					"rotation_degrees": 0.0000402995628127204
+				},
+				"righthandpinky4": {
+					"position_m": 0.000000667232654905092,
+					"rotation_degrees": 0.0000395325787177282
+				},
+				"righthandring1": {
+					"position_m": 0.000000562309082852153,
+					"rotation_degrees": 0.0000126747471406781
+				},
+				"righthandring2": {
+					"position_m": 0.000000690134527303599,
+					"rotation_degrees": 0.0000347880029123176
+				},
+				"righthandring3": {
+					"position_m": 0.000000774430418459815,
+					"rotation_degrees": 0.0000340038843295899
+				},
+				"righthandring4": {
+					"position_m": 0.000000780143750489515,
+					"rotation_degrees": 0.0000369818035822977
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000616014801835263,
+					"rotation_degrees": 0.0000246857242237757
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000658523447327752,
+					"rotation_degrees": 0.0000212973312349868
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000808654021966504,
+					"rotation_degrees": 0.0000125478587844389
+				},
+				"righthandthumb4": {
+					"position_m": 0.000000866832692736352,
+					"rotation_degrees": 0.0000265117001059541
+				},
+				"rightleg": {
+					"position_m": 0.00000049868822316057,
+					"rotation_degrees": 0.0000905090671650489
+				},
+				"rightshoulder": {
+					"position_m": 0.000000228073275820861,
+					"rotation_degrees": 0.0000177453512760443
+				},
+				"righttoebase": {
+					"position_m": 0.000000574770183447981,
+					"rotation_degrees": 0.000162719491522484
+				},
+				"righttoeend": {
+					"position_m": 0.000000573552597415983,
+					"rotation_degrees": 0.000169589623166838
+				},
+				"rightupleg": {
+					"position_m": 0.00000009835048331297,
+					"rotation_degrees": 0.0000730774861067818
+				},
+				"spine": {
+					"position_m": 0.000000133488128994941,
+					"rotation_degrees": 0.0000056167374341648
+				},
+				"spine1": {
+					"position_m": 0.000000164967701721253,
+					"rotation_degrees": 0.0000148035737094037
+				},
+				"spine2": {
+					"position_m": 0.000000140577270713038,
+					"rotation_degrees": 0.00000955502135627518
+				}
+			},
+			"time": 0.5
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.00000137240488129464,
+					"rotation_degrees": 0.0000089162137167236
+				},
+				"headtopend": {
+					"position_m": 0.00000134771096327313,
+					"rotation_degrees": 0.00000974387444926275
+				},
+				"hips": {
+					"position_m": 0.0000000521540641784668,
+					"rotation_degrees": 0.0000184222319362437
+				},
+				"leftarm": {
+					"position_m": 0.000000510351185312174,
+					"rotation_degrees": 0.0000193234079588013
+				},
+				"leftfoot": {
+					"position_m": 0.00000103453123756481,
+					"rotation_degrees": 0.000182264610502976
+				},
+				"leftforearm": {
+					"position_m": 0.000000771557893131103,
+					"rotation_degrees": 0.00000923497430112061
+				},
+				"lefthand": {
+					"position_m": 0.000000875118189469504,
+					"rotation_degrees": 0.0000201497814063608
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000108451388314279,
+					"rotation_degrees": 0.0000173349719897152
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000110472285541618,
+					"rotation_degrees": 0.0000189760706249245
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000138195719046053,
+					"rotation_degrees": 0.0000264747279134482
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000124317580230127,
+					"rotation_degrees": 0.0000264678461091173
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000985844394563173,
+					"rotation_degrees": 0.0000252729981246011
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000128703254631546,
+					"rotation_degrees": 0.0000295015558531593
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000125027759168006,
+					"rotation_degrees": 0.0000313202737604434
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000117643696739833,
+					"rotation_degrees": 0.0000283456146526173
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000118910895707813,
+					"rotation_degrees": 0.0000266667621717838
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000135731499995018,
+					"rotation_degrees": 0.0000256167659092366
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000161510990892566,
+					"rotation_degrees": 0.0000249208324542735
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000153040070927091,
+					"rotation_degrees": 0.0000156732002579652
+				},
+				"lefthandring1": {
+					"position_m": 0.00000100270528946567,
+					"rotation_degrees": 0.0000185649764516807
+				},
+				"lefthandring2": {
+					"position_m": 0.00000110710709577688,
+					"rotation_degrees": 0.0000191671701564058
+				},
+				"lefthandring3": {
+					"position_m": 0.00000122153176107531,
+					"rotation_degrees": 0.0000262457296048269
+				},
+				"lefthandring4": {
+					"position_m": 0.0000012769869499607,
+					"rotation_degrees": 0.0000206323724132889
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000882194058249297,
+					"rotation_degrees": 0.0000387751340476699
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000118095817924768,
+					"rotation_degrees": 0.0000446399164785541
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000137898155117,
+					"rotation_degrees": 0.0000413992184749532
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000145774561133294,
+					"rotation_degrees": 0.0000376933163609792
+				},
+				"leftleg": {
+					"position_m": 0.000000533952515979763,
+					"rotation_degrees": 0.000136188438988115
+				},
+				"leftshoulder": {
+					"position_m": 0.000000360102831109543,
+					"rotation_degrees": 0.0000200772993640584
+				},
+				"lefttoebase": {
+					"position_m": 0.00000135336779294448,
+					"rotation_degrees": 0.0000917320090653991
+				},
+				"lefttoeend": {
+					"position_m": 0.0000014969642734286,
+					"rotation_degrees": 0.0000878681999939347
+				},
+				"leftupleg": {
+					"position_m": 0.0000000636577865975596,
+					"rotation_degrees": 0.0000768633383072269
+				},
+				"neck": {
+					"position_m": 0.000000852078699153935,
+					"rotation_degrees": 0.0000112052710325251
+				},
+				"rightarm": {
+					"position_m": 0.00000107588039099937,
+					"rotation_degrees": 0.0000268904810649671
+				},
+				"rightfoot": {
+					"position_m": 0.000000614255100117589,
+					"rotation_degrees": 0.0000780444357106327
+				},
+				"rightforearm": {
+					"position_m": 0.00000119367507522838,
+					"rotation_degrees": 0.000026218809797114
+				},
+				"righthand": {
+					"position_m": 0.00000110911093997856,
+					"rotation_degrees": 0.00000936235933277884
+				},
+				"righthandindex1": {
+					"position_m": 0.00000116534317839978,
+					"rotation_degrees": 0.0000264172324412494
+				},
+				"righthandindex2": {
+					"position_m": 0.00000111599649699201,
+					"rotation_degrees": 0.0000293901572562188
+				},
+				"righthandindex3": {
+					"position_m": 0.00000102764010989631,
+					"rotation_degrees": 0.000028732526432507
+				},
+				"righthandindex4": {
+					"position_m": 0.00000121643131478777,
+					"rotation_degrees": 0.0000224755006960867
+				},
+				"righthandmiddle1": {
+					"position_m": 0.00000107546748040477,
+					"rotation_degrees": 0.0000261901214992204
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000114108263460366,
+					"rotation_degrees": 0.0000160182138022584
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000114661509087455,
+					"rotation_degrees": 0.0000261204501512567
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000105493484170438,
+					"rotation_degrees": 0.0000164669901695906
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000150272876453528,
+					"rotation_degrees": 0.0000373739361536414
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000162484161592147,
+					"rotation_degrees": 0.0000386090750995291
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000162811807058461,
+					"rotation_degrees": 0.0000627915563896035
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000153424082327547,
+					"rotation_degrees": 0.0000593480161448601
+				},
+				"righthandring1": {
+					"position_m": 0.00000127768225866021,
+					"rotation_degrees": 0.000024694024402828
+				},
+				"righthandring2": {
+					"position_m": 0.00000121579228107294,
+					"rotation_degrees": 0.0000385074634510099
+				},
+				"righthandring3": {
+					"position_m": 0.00000118658533665439,
+					"rotation_degrees": 0.0000412647448265765
+				},
+				"righthandring4": {
+					"position_m": 0.00000124894484088145,
+					"rotation_degrees": 0.0000375684668166242
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000117028673685127,
+					"rotation_degrees": 0.0000341936078258938
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000115269892830838,
+					"rotation_degrees": 0.0000480849679193271
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000102979856819729,
+					"rotation_degrees": 0.000029674008072432
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000104276193724218,
+					"rotation_degrees": 0.0000339395119383921
+				},
+				"rightleg": {
+					"position_m": 0.000000608033133175923,
+					"rotation_degrees": 0.00008553516736222
+				},
+				"rightshoulder": {
+					"position_m": 0.000000600757232405158,
+					"rotation_degrees": 0.00000709197619851189
+				},
+				"righttoebase": {
+					"position_m": 0.000000791455420312559,
+					"rotation_degrees": 0.000172960293799601
+				},
+				"righttoeend": {
+					"position_m": 0.00000073348735440959,
+					"rotation_degrees": 0.000176564027337201
+				},
+				"rightupleg": {
+					"position_m": 0.00000024978896817629,
+					"rotation_degrees": 0.0000726874346868663
+				},
+				"spine": {
+					"position_m": 0.0000000408509990279526,
+					"rotation_degrees": 0.0000105910537115488
+				},
+				"spine1": {
+					"position_m": 0.000000359562875473785,
+					"rotation_degrees": 0.00000271878658792392
+				},
+				"spine2": {
+					"position_m": 0.000000478290132832626,
+					"rotation_degrees": 0.0000142927422266812
+				}
+			},
+			"time": 0.533333333333333
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000481471261082334,
+					"rotation_degrees": 0.0000196379533159123
+				},
+				"headtopend": {
+					"position_m": 0.000000741606527299155,
+					"rotation_degrees": 0.0000186087897374176
+				},
+				"hips": {
+					"position_m": 0.0000000484287738800049,
+					"rotation_degrees": 0.0000156769554498221
+				},
+				"leftarm": {
+					"position_m": 0.000000622469144673232,
+					"rotation_degrees": 0.0000230805278933664
+				},
+				"leftfoot": {
+					"position_m": 0.00000086542269173151,
+					"rotation_degrees": 0.000192131456900639
+				},
+				"leftforearm": {
+					"position_m": 0.000000927709493225848,
+					"rotation_degrees": 0.0000296862865401687
+				},
+				"lefthand": {
+					"position_m": 0.00000113874511953327,
+					"rotation_degrees": 0.0000271199157965797
+				},
+				"lefthandindex1": {
+					"position_m": 0.00000128262558973802,
+					"rotation_degrees": 0.0000305097190178698
+				},
+				"lefthandindex2": {
+					"position_m": 0.00000130118792185385,
+					"rotation_degrees": 0.0000225927600629721
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000159963803980645,
+					"rotation_degrees": 0.0000292316184624557
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000149606466948171,
+					"rotation_degrees": 0.0000283196865672985
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000123202960367053,
+					"rotation_degrees": 0.0000256736132607247
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000135403922740807,
+					"rotation_degrees": 0.0000332975565165945
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.0000013463923096424,
+					"rotation_degrees": 0.0000387927147290605
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.0000012888427818325,
+					"rotation_degrees": 0.000051244461934578
+				},
+				"lefthandpinky1": {
+					"position_m": 0.00000138259974846733,
+					"rotation_degrees": 0.000026221416935953
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000148481683481805,
+					"rotation_degrees": 0.0000216663464153504
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000195608595277008,
+					"rotation_degrees": 0.0000324883045292185
+				},
+				"lefthandpinky4": {
+					"position_m": 0.00000177917615928891,
+					"rotation_degrees": 0.0000275333728420629
+				},
+				"lefthandring1": {
+					"position_m": 0.00000139435383061937,
+					"rotation_degrees": 0.0000251138682056671
+				},
+				"lefthandring2": {
+					"position_m": 0.00000169637792168942,
+					"rotation_degrees": 0.0000210217382582819
+				},
+				"lefthandring3": {
+					"position_m": 0.00000164163191129774,
+					"rotation_degrees": 0.0000291817033970624
+				},
+				"lefthandring4": {
+					"position_m": 0.00000165423023190669,
+					"rotation_degrees": 0.0000439092043451491
+				},
+				"lefthandthumb1": {
+					"position_m": 0.00000126800034649932,
+					"rotation_degrees": 0.0000315932302863173
+				},
+				"lefthandthumb2": {
+					"position_m": 0.00000154807219132636,
+					"rotation_degrees": 0.0000263150703786593
+				},
+				"lefthandthumb3": {
+					"position_m": 0.00000155686825564771,
+					"rotation_degrees": 0.0000232025846562667
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000168224801200267,
+					"rotation_degrees": 0.0000298240854711872
+				},
+				"leftleg": {
+					"position_m": 0.000000452036005071932,
+					"rotation_degrees": 0.000130708959434458
+				},
+				"leftshoulder": {
+					"position_m": 0.000000359813668637798,
+					"rotation_degrees": 0.0000269986927970058
+				},
+				"lefttoebase": {
+					"position_m": 0.00000120841889383883,
+					"rotation_degrees": 0.0000875690483179267
+				},
+				"lefttoeend": {
+					"position_m": 0.00000136539892992005,
+					"rotation_degrees": 0.0000821221962681874
+				},
+				"leftupleg": {
+					"position_m": 0.000000247668765496201,
+					"rotation_degrees": 0.0000704867554694439
+				},
+				"neck": {
+					"position_m": 0.000000602778698066686,
+					"rotation_degrees": 0.0000221004097911706
+				},
+				"rightarm": {
+					"position_m": 0.000000775576438627468,
+					"rotation_degrees": 0.00002020397276569
+				},
+				"rightfoot": {
+					"position_m": 0.000000440845269622514,
+					"rotation_degrees": 0.0000725908484165216
+				},
+				"rightforearm": {
+					"position_m": 0.00000079326815694003,
+					"rotation_degrees": 0.0000160866849869964
+				},
+				"righthand": {
+					"position_m": 0.000000831933334666246,
+					"rotation_degrees": 0.0000252729981246011
+				},
+				"righthandindex1": {
+					"position_m": 0.000000935811897306849,
+					"rotation_degrees": 0.0000283892276397425
+				},
+				"righthandindex2": {
+					"position_m": 0.000000917843806291785,
+					"rotation_degrees": 0.0000230185118606321
+				},
+				"righthandindex3": {
+					"position_m": 0.000000892080663561501,
+					"rotation_degrees": 0.0000092306564818628
+				},
+				"righthandindex4": {
+					"position_m": 0.000000777149466557603,
+					"rotation_degrees": 0.0000128088275198296
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000907014452877775,
+					"rotation_degrees": 0.0000158351392427939
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000099882254289696,
+					"rotation_degrees": 0.0000239056620950443
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000106842469449475,
+					"rotation_degrees": 0.0000229091504471316
+				},
+				"righthandmiddle4": {
+					"position_m": 0.0000010406303090349,
+					"rotation_degrees": 0.0000210520566286163
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000099246653917362,
+					"rotation_degrees": 0.0000214337997272598
+				},
+				"righthandpinky2": {
+					"position_m": 0.000000813172107427818,
+					"rotation_degrees": 0.0000267273386600248
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000065310615582348,
+					"rotation_degrees": 0.000034994310482286
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000065649720681904,
+					"rotation_degrees": 0.000050430493973387
+				},
+				"righthandring1": {
+					"position_m": 0.000000886337318206643,
+					"rotation_degrees": 0.00000984619935625254
+				},
+				"righthandring2": {
+					"position_m": 0.000000910801077225187,
+					"rotation_degrees": 0.0000346804474432097
+				},
+				"righthandring3": {
+					"position_m": 0.000000845304384711199,
+					"rotation_degrees": 0.0000289402800607446
+				},
+				"righthandring4": {
+					"position_m": 0.00000108297717815731,
+					"rotation_degrees": 0.0000277443573031905
+				},
+				"righthandthumb1": {
+					"position_m": 0.000000876005799455015,
+					"rotation_degrees": 0.0000348272679539711
+				},
+				"righthandthumb2": {
+					"position_m": 0.000000885710790043959,
+					"rotation_degrees": 0.0000326226446451875
+				},
+				"righthandthumb3": {
+					"position_m": 0.000000993808043858735,
+					"rotation_degrees": 0.0000310660997076298
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000106790503195953,
+					"rotation_degrees": 0.0000373153773075126
+				},
+				"rightleg": {
+					"position_m": 0.000000479159780297778,
+					"rotation_degrees": 0.0000940789225537433
+				},
+				"rightshoulder": {
+					"position_m": 0.000000607076628966752,
+					"rotation_degrees": 0.00002020397276569
+				},
+				"righttoebase": {
+					"position_m": 0.000000617511091149936,
+					"rotation_degrees": 0.000168451080261962
+				},
+				"righttoeend": {
+					"position_m": 0.000000549691776541295,
+					"rotation_degrees": 0.000156396777612128
+				},
+				"rightupleg": {
+					"position_m": 0.0000001413648220705,
+					"rotation_degrees": 0.0000759726641200058
+				},
+				"spine": {
+					"position_m": 0.000000130132121967108,
+					"rotation_degrees": 0.0000103650313843318
+				},
+				"spine1": {
+					"position_m": 0.000000240764450154529,
+					"rotation_degrees": 0.00000976780443379733
+				},
+				"spine2": {
+					"position_m": 0.00000024474476845171,
+					"rotation_degrees": 0.0000174463054488959
+				}
+			},
+			"time": 0.566666666666667
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.000000843608120248973,
+					"rotation_degrees": 0.0000129269898589114
+				},
+				"headtopend": {
+					"position_m": 0.000000969808638728864,
+					"rotation_degrees": 0.0000122613902445006
+				},
+				"hips": {
+					"position_m": 0.0000000493600964546204,
+					"rotation_degrees": 0.0000226141757299755
+				},
+				"leftarm": {
+					"position_m": 0.000000487201873511367,
+					"rotation_degrees": 0.0000340794994981423
+				},
+				"leftfoot": {
+					"position_m": 0.00000088721367319522,
+					"rotation_degrees": 0.000169272832185456
+				},
+				"leftforearm": {
+					"position_m": 0.000000769252153531852,
+					"rotation_degrees": 0.0000248622638374807
+				},
+				"lefthand": {
+					"position_m": 0.000000682856978073687,
+					"rotation_degrees": 0.0000294273378895562
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000880556513038755,
+					"rotation_degrees": 0.000024163452921975
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000962942522164667,
+					"rotation_degrees": 0.0000237373640364077
+				},
+				"lefthandindex3": {
+					"position_m": 0.00000126861311855464,
+					"rotation_degrees": 0.0000279015510022121
+				},
+				"lefthandindex4": {
+					"position_m": 0.00000124609709928336,
+					"rotation_degrees": 0.0000539973855940085
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.00000122959409054602,
+					"rotation_degrees": 0.0000271199157965797
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.0000013180580253902,
+					"rotation_degrees": 0.0000215662361921965
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000139793223752349,
+					"rotation_degrees": 0.000039762394505236
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000130314890611771,
+					"rotation_degrees": 0.0000471870536700954
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000894566255738027,
+					"rotation_degrees": 0.0000195254066659539
+				},
+				"lefthandpinky2": {
+					"position_m": 0.00000101503053429042,
+					"rotation_degrees": 0.0000174971536126994
+				},
+				"lefthandpinky3": {
+					"position_m": 0.00000120136996883957,
+					"rotation_degrees": 0.0000230360730006947
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000001321507056673,
+					"rotation_degrees": 0.0000105260283143083
+				},
+				"lefthandring1": {
+					"position_m": 0.000000970407768363657,
+					"rotation_degrees": 0.0000107423744272957
+				},
+				"lefthandring2": {
+					"position_m": 0.00000108451388314279,
+					"rotation_degrees": 0.0000249208324542735
+				},
+				"lefthandring3": {
+					"position_m": 0.000000979517608357128,
+					"rotation_degrees": 0.0000257409575622169
+				},
+				"lefthandring4": {
+					"position_m": 0.00000102417709513247,
+					"rotation_degrees": 0.0000355727631019801
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000736063043405011,
+					"rotation_degrees": 0.0000271207544452381
+				},
+				"lefthandthumb2": {
+					"position_m": 0.0000010893146509261,
+					"rotation_degrees": 0.0000237373640364077
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000000992046921055589,
+					"rotation_degrees": 0.0000232290745547644
+				},
+				"lefthandthumb4": {
+					"position_m": 0.000000972122393250174,
+					"rotation_degrees": 0.0000333846196464452
+				},
+				"leftleg": {
+					"position_m": 0.000000469327432028877,
+					"rotation_degrees": 0.000149207939936249
+				},
+				"leftshoulder": {
+					"position_m": 0.000000489829631078464,
+					"rotation_degrees": 0.0000125478587844389
+				},
+				"lefttoebase": {
+					"position_m": 0.00000110671226138948,
+					"rotation_degrees": 0.0000875690483179267
+				},
+				"lefttoeend": {
+					"position_m": 0.00000121222569759993,
+					"rotation_degrees": 0.0000806714480802216
+				},
+				"leftupleg": {
+					"position_m": 0.0000000999600260342959,
+					"rotation_degrees": 0.0000745525762756136
+				},
+				"neck": {
+					"position_m": 0.000000722419542853459,
+					"rotation_degrees": 0.000028981183317059
+				},
+				"rightarm": {
+					"position_m": 0.000000838711684991722,
+					"rotation_degrees": 0.0000256132093875474
+				},
+				"rightfoot": {
+					"position_m": 0.000000636338029380568,
+					"rotation_degrees": 0.0000804542918163458
+				},
+				"rightforearm": {
+					"position_m": 0.000000978042976385041,
+					"rotation_degrees": 0.0000190864840132469
+				},
+				"righthand": {
+					"position_m": 0.000000933555099891237,
+					"rotation_degrees": 0.0000149836665879099
+				},
+				"righthandindex1": {
+					"position_m": 0.000000962135118243168,
+					"rotation_degrees": 0.0000140872651631512
+				},
+				"righthandindex2": {
+					"position_m": 0.00000102807211987965,
+					"rotation_degrees": 0.0000100489976294076
+				},
+				"righthandindex3": {
+					"position_m": 0.00000113376199806225,
+					"rotation_degrees": 0.0000139818673823393
+				},
+				"righthandindex4": {
+					"position_m": 0.00000116343619538384,
+					"rotation_degrees": 0.0000169711824861377
+				},
+				"righthandmiddle1": {
+					"position_m": 0.000000926511972920707,
+					"rotation_degrees": 0.0000348481902024434
+				},
+				"righthandmiddle2": {
+					"position_m": 0.000000831399347589468,
+					"rotation_degrees": 0.0000305932256260313
+				},
+				"righthandmiddle3": {
+					"position_m": 0.000000898528924153652,
+					"rotation_degrees": 0.0000462300887846478
+				},
+				"righthandmiddle4": {
+					"position_m": 0.000000707922765741387,
+					"rotation_degrees": 0.0000439009057945408
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000103892193692445,
+					"rotation_degrees": 0.0000228174934767656
+				},
+				"righthandpinky2": {
+					"position_m": 0.0000011184807817699,
+					"rotation_degrees": 0.0000305932256260313
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000110560188204545,
+					"rotation_degrees": 0.0000443962296050807
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000114816327823064,
+					"rotation_degrees": 0.0000430034181976363
+				},
+				"righthandring1": {
+					"position_m": 0.000000926511972920707,
+					"rotation_degrees": 0.0000230083682829753
+				},
+				"righthandring2": {
+					"position_m": 0.000000999267058432451,
+					"rotation_degrees": 0.0000307743639655835
+				},
+				"righthandring3": {
+					"position_m": 0.000000821728463051841,
+					"rotation_degrees": 0.000044496681801474
+				},
+				"righthandring4": {
+					"position_m": 0.000000950993012338586,
+					"rotation_degrees": 0.0000357490649628615
+				},
+				"righthandthumb1": {
+					"position_m": 0.00000105840206288121,
+					"rotation_degrees": 0.0000196182247168897
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000115587295113073,
+					"rotation_degrees": 0.00000774302485158824
+				},
+				"righthandthumb3": {
+					"position_m": 0.0000011282648983979,
+					"rotation_degrees": 0.00000774302566581023
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000119358207939513,
+					"rotation_degrees": 0.0000181965979929199
+				},
+				"rightleg": {
+					"position_m": 0.000000566440178317862,
+					"rotation_degrees": 0.0000732667699232065
+				},
+				"rightshoulder": {
+					"position_m": 0.000000726355210645124,
+					"rotation_degrees": 0.0000109336376173986
+				},
+				"righttoebase": {
+					"position_m": 0.000000788011163876945,
+					"rotation_degrees": 0.000154133930916683
+				},
+				"righttoeend": {
+					"position_m": 0.000000746035311749438,
+					"rotation_degrees": 0.000174779786846224
+				},
+				"rightupleg": {
+					"position_m": 0.0000000979970877779124,
+					"rotation_degrees": 0.0000686916500001156
+				},
+				"spine": {
+					"position_m": 0.000000127981479636219,
+					"rotation_degrees": 0.0000127478048379335
+				},
+				"spine1": {
+					"position_m": 0.000000482982102312235,
+					"rotation_degrees": 0.0000100904586277909
+				},
+				"spine2": {
+					"position_m": 0.000000485146642859036,
+					"rotation_degrees": 0.0000122260407964377
+				}
+			},
+			"time": 0.6
+		},
+		{
+			"bones": {
+				"head": {
+					"position_m": 0.0000010163695378651,
+					"rotation_degrees": 0.000007734194614015
+				},
+				"headtopend": {
+					"position_m": 0.00000104119033039751,
+					"rotation_degrees": 0.00001341980342303
+				},
+				"hips": {
+					"position_m": 0.0000000474974513053894,
+					"rotation_degrees": 0.0000107180373317618
+				},
+				"leftarm": {
+					"position_m": 0.000000400117670551481,
+					"rotation_degrees": 0.0000258268726390499
+				},
+				"leftfoot": {
+					"position_m": 0.000000920621687328094,
+					"rotation_degrees": 0.00019249599386001
+				},
+				"leftforearm": {
+					"position_m": 0.00000054056516773926,
+					"rotation_degrees": 0.0000141839523970237
+				},
+				"lefthand": {
+					"position_m": 0.000000336185507876507,
+					"rotation_degrees": 0.0000268904810649671
+				},
+				"lefthandindex1": {
+					"position_m": 0.000000616735292169324,
+					"rotation_degrees": 0.0000293777550267383
+				},
+				"lefthandindex2": {
+					"position_m": 0.000000641961662495305,
+					"rotation_degrees": 0.0000295879057245394
+				},
+				"lefthandindex3": {
+					"position_m": 0.000000884205348938849,
+					"rotation_degrees": 0.0000261204501512567
+				},
+				"lefthandindex4": {
+					"position_m": 0.000000853928838751017,
+					"rotation_degrees": 0.0000437678716906573
+				},
+				"lefthandmiddle1": {
+					"position_m": 0.000000768530185268901,
+					"rotation_degrees": 0.0000153679256325286
+				},
+				"lefthandmiddle2": {
+					"position_m": 0.00000105377660020167,
+					"rotation_degrees": 0.0000111482030268754
+				},
+				"lefthandmiddle3": {
+					"position_m": 0.00000131670958580798,
+					"rotation_degrees": 0.0000166047451326212
+				},
+				"lefthandmiddle4": {
+					"position_m": 0.00000111838153316057,
+					"rotation_degrees": 0.0000337922094082076
+				},
+				"lefthandpinky1": {
+					"position_m": 0.000000602714692377049,
+					"rotation_degrees": 0.00002299747562108
+				},
+				"lefthandpinky2": {
+					"position_m": 0.000000658354792903992,
+					"rotation_degrees": 0.0000417651558961626
+				},
+				"lefthandpinky3": {
+					"position_m": 0.000000849758237109199,
+					"rotation_degrees": 0.0000291910702069326
+				},
+				"lefthandpinky4": {
+					"position_m": 0.000000896054302756966,
+					"rotation_degrees": 0.0000267273435453568
+				},
+				"lefthandring1": {
+					"position_m": 0.000000598462975176517,
+					"rotation_degrees": 0.0000178132557622715
+				},
+				"lefthandring2": {
+					"position_m": 0.000000886086752416304,
+					"rotation_degrees": 0.0000411320461821563
+				},
+				"lefthandring3": {
+					"position_m": 0.000000985281189969101,
+					"rotation_degrees": 0.0000408118094132761
+				},
+				"lefthandring4": {
+					"position_m": 0.000000805903539458086,
+					"rotation_degrees": 0.0000343212745783635
+				},
+				"lefthandthumb1": {
+					"position_m": 0.000000630268061740935,
+					"rotation_degrees": 0.0000149836665879099
+				},
+				"lefthandthumb2": {
+					"position_m": 0.0000008996402698358,
+					"rotation_degrees": 0.0000263738686060557
+				},
+				"lefthandthumb3": {
+					"position_m": 0.000000955535142566077,
+					"rotation_degrees": 0.0000328009136664171
+				},
+				"lefthandthumb4": {
+					"position_m": 0.00000103934928574745,
+					"rotation_degrees": 0.0000279667897256163
+				},
+				"leftleg": {
+					"position_m": 0.000000516191391852772,
+					"rotation_degrees": 0.000150446117558633
+				},
+				"leftshoulder": {
+					"position_m": 0.000000503576018218155,
+					"rotation_degrees": 0.0000199863279686151
+				},
+				"lefttoebase": {
+					"position_m": 0.00000136502785608172,
+					"rotation_degrees": 0.0000876023337132235
+				},
+				"lefttoeend": {
+					"position_m": 0.00000153424082327547,
+					"rotation_degrees": 0.0000825471550136207
+				},
+				"leftupleg": {
+					"position_m": 0.0000000897168703772877,
+					"rotation_degrees": 0.0000742144917605274
+				},
+				"neck": {
+					"position_m": 0.00000065259865777989,
+					"rotation_degrees": 0.0000111971361405385
+				},
+				"rightarm": {
+					"position_m": 0.00000109784252799727,
+					"rotation_degrees": 0.0000262873558902759
+				},
+				"rightfoot": {
+					"position_m": 0.000000762411389132467,
+					"rotation_degrees": 0.0000886949219285092
+				},
+				"rightforearm": {
+					"position_m": 0.00000119546416499361,
+					"rotation_degrees": 0.000013715400205793
+				},
+				"righthand": {
+					"position_m": 0.00000109824691207905,
+					"rotation_degrees": 0.0000145892883922944
+				},
+				"righthandindex1": {
+					"position_m": 0.00000127324301502085,
+					"rotation_degrees": 0.0000154152840408467
+				},
+				"righthandindex2": {
+					"position_m": 0.00000141686462029611,
+					"rotation_degrees": 0.0000135683557839821
+				},
+				"righthandindex3": {
+					"position_m": 0.00000157938245592959,
+					"rotation_degrees": 0.0000172889163365946
+				},
+				"righthandindex4": {
+					"position_m": 0.00000178229345237924,
+					"rotation_degrees": 0.0000291481183680702
+				},
+				"righthandmiddle1": {
+					"position_m": 0.0000011171896403539,
+					"rotation_degrees": 0.0000224755006960867
+				},
+				"righthandmiddle2": {
+					"position_m": 0.00000126861311855464,
+					"rotation_degrees": 0.00000980911235844493
+				},
+				"righthandmiddle3": {
+					"position_m": 0.00000123067718504899,
+					"rotation_degrees": 0.0000183908469350912
+				},
+				"righthandmiddle4": {
+					"position_m": 0.00000112629516024754,
+					"rotation_degrees": 0.0000171606372891821
+				},
+				"righthandpinky1": {
+					"position_m": 0.00000113562100523268,
+					"rotation_degrees": 0.0000196657752815995
+				},
+				"righthandpinky2": {
+					"position_m": 0.00000128780868635658,
+					"rotation_degrees": 0.0000253845155979534
+				},
+				"righthandpinky3": {
+					"position_m": 0.00000151823746818991,
+					"rotation_degrees": 0.0000211211922185051
+				},
+				"righthandpinky4": {
+					"position_m": 0.00000158499608460261,
+					"rotation_degrees": 0.0000355420083086545
+				},
+				"righthandring1": {
+					"position_m": 0.00000124921155020274,
+					"rotation_degrees": 0.0000139311690353835
+				},
+				"righthandring2": {
+					"position_m": 0.00000126835061564634,
+					"rotation_degrees": 0.0000444828563119402
+				},
+				"righthandring3": {
+					"position_m": 0.00000122198605367885,
+					"rotation_degrees": 0.0000521218349912326
+				},
+				"righthandring4": {
+					"position_m": 0.00000130485170757311,
+					"rotation_degrees": 0.0000512406448618492
+				},
+				"righthandthumb1": {
+					"position_m": 0.0000012506327493611,
+					"rotation_degrees": 0.0000341936078258938
+				},
+				"righthandthumb2": {
+					"position_m": 0.00000128054648484977,
+					"rotation_degrees": 0.0000178324274334471
+				},
+				"righthandthumb3": {
+					"position_m": 0.00000132024626964267,
+					"rotation_degrees": 0.0000193234079588013
+				},
+				"righthandthumb4": {
+					"position_m": 0.00000129802708670468,
+					"rotation_degrees": 0.0000225281368913988
+				},
+				"rightleg": {
+					"position_m": 0.000000643688792933972,
+					"rotation_degrees": 0.000070931327194376
+				},
+				"rightshoulder": {
+					"position_m": 0.000000619351226305298,
+					"rotation_degrees": 0.000012342862111888
+				},
+				"righttoebase": {
+					"position_m": 0.000000934654451612005,
+					"rotation_degrees": 0.000133374644092083
+				},
+				"righttoeend": {
+					"position_m": 0.000000870228120675165,
+					"rotation_degrees": 0.000143484766995344
+				},
+				"rightupleg": {
+					"position_m": 0.000000242373005221452,
+					"rotation_degrees": 0.0000707090706439019
+				},
+				"spine": {
+					"position_m": 0.0000000514255376060646,
+					"rotation_degrees": 0.0000112839558180118
+				},
+				"spine1": {
+					"position_m": 0.000000250664214718199,
+					"rotation_degrees": 0.0000139927828424506
+				},
+				"spine2": {
+					"position_m": 0.000000365905492571983,
+					"rotation_degrees": 0.0000134790820414055
+				}
+			},
+			"time": 0.633333333333333
+		}
+	],
+	"root_motion_extraction": false,
+	"sample_count": 20,
+	"status": "PASS",
+	"tracks": [
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Hips",
+			"type": 1
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Hips",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftUpLeg",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftLeg",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftFoot",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftToeBase",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightUpLeg",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightLeg",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightFoot",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightToeBase",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Spine",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Spine1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Spine2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftShoulder",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftArm",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftForeArm",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHand",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandIndex1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandIndex2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandIndex3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandMiddle1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandMiddle2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandMiddle3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandPinky1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandPinky2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandPinky3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandRing1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandRing2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandThumb1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandThumb2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_LeftHandThumb3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Neck",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_Head",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightShoulder",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightArm",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightForeArm",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHand",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandIndex1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandIndex2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandIndex3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandMiddle1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandMiddle2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandMiddle3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandPinky1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandPinky2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandPinky3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandRing1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandRing2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandRing3",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandThumb1",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandThumb2",
+			"type": 2
+		},
+		{
+			"keys": 20,
+			"path": "Armature_001/Skeleton3D:mixamorig_RightHandThumb3",
+			"type": 2
+		}
+	]
+}

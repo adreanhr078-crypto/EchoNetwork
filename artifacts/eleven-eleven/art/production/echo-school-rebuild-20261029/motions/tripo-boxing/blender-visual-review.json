@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "SOURCE_TO_TARGET_TRANSFER_FIDELITY_ONLY",
+  "blend_sha256": "af90ac9bdd9f6c242f9714f574fa6338cb2d611bc8f007c23568d0c55a8c72db",
+  "take_id": "33e93ffa594e195d6dcbf8cd:original-boxing-native24",
+  "native_clock": "96original24Hz samples retained without trimming,smoothing,IK or resampling",
+  "actual_views_reviewed": {
+    "comparison-full-frames": [
+      "back-0000.png",
+      "back-0016.png",
+      "back-0032.png",
+      "back-0048.png",
+      "back-0064.png",
+      "back-0095.png",
+      "side-0000.png",
+      "side-0016.png",
+      "side-0032.png",
+      "side-0048.png",
+      "side-0064.png",
+      "side-0095.png"
+    ]
+  },
+  "capture_identity": {
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0000.png": "28f9f967c2d2dd5dd981069915a734e54803995a42e8dc70453a9c011f334f4a",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0016.png": "a218e79cfb99e305af7c6113be354d9f52cf0136f4de73241316d9bf81b22e54",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0032.png": "16f29015a2a898d725ac30cefa3b6d09bf30284e8c97215e14642f209184a987",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0048.png": "031990f79c8321d6391704ca7afefe756e809fc4959e4715eb0a323de5355f47",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0064.png": "ed887ed656dbf3e151397e46edc3c552ef84ffa86855c30a5195b1d60f9c85b8",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\back-0095.png": "8f535f09bf3658baf46bc964cc528c2db9f225e6cd1ae05b5a3e3e2b3b022be4",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0000.png": "6428daefc5eec5129d3fb7643c690d83768a8c4b9d43ee14096c7cc2c02e1fd9",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0016.png": "29edc60985b32f95f9e0503112c62544a5b4a21b4bafaf55ed873c7f0cef85bf",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0032.png": "b3791793ea894845be97186635566ba3c856e349782bcd1680678ff69848661b",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0048.png": "4662bfe6d7f0f13a18a9ba7dc7b05788c42317f2122bca0bbb240b7ed9b5e29a",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0064.png": "d438eab2afe8b06d10efee3408582caa68c5c5b3bbee2d684bb82c70771042e4",
+    "art\\production\\echo-school-rebuild-20261029\\motions\\tripo-boxing\\comparison-full-frames\\side-0095.png": "5d6341bd49490224692130968af0a2abb12f0130b34382879c5449fb9ef8ac30"
+  },
+  "visual_findings": "Mapped65body follows the same guard/arm bends,knee rise,torso angle and return as the source. No legacy102degree bind inversion or source66neutral needle appears on target65. Hands remain open as authored.",
+  "open_gates": [
+    "Original take is a combination/guard reference,not an approved single punch.",
+    "Gameplay events,source timing integration,hand skin/self contact and artistic review remain open.",
+    "No runtime integration or pre-pact authority change."
+  ],
+  "source_keys_changed": false,
+  "source_sha256": "33e93ffa594e195d6dcbf8cdcf8c8b58a5f1d91ed2b1d5a8cc408e447e1e0045"
+}
