@@ -1,4 +1,8 @@
 extends SceneTree
+const RigProfile = preload("res://scripts/player/echo_rig_profile.gd")
+var school_mode := false
+var bone_prefix := ""
+var maximum_grip_error := 0.0
 
 var actor: EchoPlayer
 var skeleton: Skeleton3D
@@ -42,7 +46,7 @@ func _steps(count: int) -> void:
 		await process_frame
 
 func _joint(name: String) -> Vector3:
-	return skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone(name)).origin)
+	return skeleton.to_global(skeleton.get_bone_global_pose(skeleton.find_bone(bone_prefix+name)).origin)
 
 func _capture(label: String) -> void:
 	if DisplayServer.get_name() == "headless": return
@@ -54,6 +58,15 @@ func _capture(label: String) -> void:
 	var path := folder.path_join(label + ".png")
 	root.get_texture().get_image().save_png(path)
 	captures.append({"path": path, "sha256": FileAccess.get_sha256(path), "physics_frame": Engine.get_physics_frames(), "native_clock": actor.surface_motor._mantle_elapsed})
+
+func _capture_gameplay(label: String) -> void:
+	if DisplayServer.get_name() == "headless": return
+	actor.player_camera.make_current()
+	await RenderingServer.frame_post_draw
+	var path := folder.path_join(label+".png")
+	root.get_texture().get_image().save_png(path)
+	captures.append({"path":path,"sha256":FileAccess.get_sha256(path),"camera":"actual player camera","boom_hit_length_m":actor.camera_boom.get_hit_length()})
+	camera.make_current()
 
 func _sample_physics() -> void:
 	if not observing: return
@@ -93,11 +106,15 @@ func _sample_physics() -> void:
 	previous_body = actor.global_position
 	previous_hips = _joint("Hips")
 	var joints := {}
-	for name in ["Hips", "Head", "LeftHand", "RightHand", "LeftFoot", "RightFoot", "Cape_2_0", "Cape_2_1", "Cape_2_2"]: joints[name] = _joint(name)
+	var names := ["Hips", "Head", "LeftHand", "RightHand", "LeftFoot", "RightFoot"]
+	if cape != null: names.append_array(["Cape_2_0", "Cape_2_1", "Cape_2_2"])
+	for name in names: joints[name] = _joint(name)
 	samples.append({"physics_frame": Engine.get_physics_frames(), "native": motor.native_mantle_active, "clock": motor._mantle_elapsed, "clip": actor.animation_player.current_animation, "capsule": actor.global_position, "joints": joints})
 	if motor.native_mantle_active:
 		native_frames += 1
 		saw_stand = saw_stand or actor.animation_player.current_animation == "PARKOUR_STAND"
+		if motor._native_phase == 0 and motor._native_sample_time <= 0.4:
+			maximum_grip_error = maxf(maximum_grip_error,((_joint("LeftHand")+_joint("RightHand"))*0.5).distance_to(motor.hang_grip_world))
 
 func _run() -> void:
 	root.unfocusable = true
@@ -129,8 +146,10 @@ func _run() -> void:
 	root.get_node("HyperAnimeWorldManager").set_quality("low")
 	actor.set_gameplay_orbit(Vector3.ZERO)
 	skeleton = actor.find_child("Skeleton3D", true, false)
+	school_mode = RigProfile.identify(skeleton).get("id") == RigProfile.SCHOOL65_ID
+	bone_prefix = "mixamorig_" if school_mode else ""
 	cape = actor.find_child("EchoCapeMotion", true, false)
-	if not _check(cape != null or actor.get_node("ModelRoot/EchoOpeningUniform").get_meta("short_jacket_variant",false), "Missing garment driver without the approved short-jacket variant"): return
+	if not _check(school_mode or cape != null or actor.get_node("ModelRoot/EchoOpeningUniform").get_meta("short_jacket_variant",false), "Missing garment driver without an identified short uniform"): return
 	var sampler := PhysicsSampler.new()
 	sampler.process_physics_priority = 1000
 	sampler.sample = _sample_physics
@@ -152,7 +171,9 @@ func _run() -> void:
 	if not _check(actor.surface_motor.hanging, "Public jump did not catch the actual Room02 ledge"): return
 	actor.set_mobile_input_vector(Vector2.ZERO, false)
 	await _steps(4)
+	if not _check(((_joint("LeftHand")+_joint("RightHand"))*0.5).distance_to(actor.surface_motor.hang_grip_world)<0.005,"Actual braced grip left the measured edge"): return
 	await _capture("hang")
+	await _capture_gameplay("hang-gameplay")
 	previous_body = actor.global_position
 	previous_hips = _joint("Hips")
 	observing = true
@@ -181,8 +202,17 @@ func _run() -> void:
 		await _steps(1)
 	observing = false
 	await _capture("standing")
+	await _capture_gameplay("standing-gameplay")
 	var report := {"scope": "Actual Room02/current V31/public-input native mantle; final art and chapter acceptance separate", "checks": checks, "native_frames": native_frames, "saw_stand": saw_stand, "completions": completions, "maximum_body_step_m": maximum_body_step, "maximum_hip_step_m": maximum_hip_step, "protected_body_unchanged": protected_body_unchanged, "static_pose_deterministic": static_pose_deterministic, "minimum_cape_leg_clearance_m": minimum_cape_leg_clearance, "landing": actor.global_position, "samples": samples, "source_hashes": {}}
-	for path in ["scenes/environment/maintenance_vertical.tscn", "tests/v31_native_mantle_review.gd", "assets/characters/echo_v31_adopted_high.glb", "scripts/player/surface_traversal_motor.gd", "scripts/player/echo_v31_motion_adapter.gd", "engine_visuals/EchoCapeMotion.gd", "assets/animations/v31/mantle_cp45.res", "assets/animations/v31/stand_cp45.res"]: report.source_hashes[path] = FileAccess.get_sha256("res://" + path)
+	report.scope = "Actual Room02/public-input native mantle; " + ("School65 candidate" if school_mode else "default V31") + "; final art and chapter acceptance separate"
+	var sources := ["scenes/environment/maintenance_vertical.tscn", "tests/v31_native_mantle_review.gd", "scripts/player/surface_traversal_motor.gd", "scripts/player/echo_rig_profile.gd"]
+	if school_mode:
+		sources.append_array(["assets/characters/echo_school65_candidate.glb","scripts/player/echo_school_motion_adapter.gd","assets/animations/school65/hang_qualified.res","assets/animations/school65/mantle_qualified.res","assets/animations/school65/stand_qualified.res"])
+	else:
+		sources.append_array(["assets/characters/echo_v31_adopted_high.glb","scripts/player/echo_v31_motion_adapter.gd","engine_visuals/EchoCapeMotion.gd","assets/animations/v31/mantle_cp45.res","assets/animations/v31/stand_cp45.res"])
+	for path in sources: report.source_hashes[path] = FileAccess.get_sha256("res://" + path)
+	report["maximum_grip_error_m"] = maximum_grip_error
+	report["paused_phases"] = paused_phases
 	report["captures"] = captures
 	report["minimum_cape_floor_clearance_m"] = minimum_cape_floor_clearance
 	report["garment_tip_check_applicable"] = cape != null
@@ -194,12 +224,13 @@ func _run() -> void:
 		report["minimum_cape_leg_clearance_m"] = null
 		report["minimum_cape_floor_clearance_m"] = null
 		report["short_jacket_surface_review"] = "Separate actual-skin/binary and critical-pose evidence required"
-		report.source_hashes["assets/characters/echo_v31_short_jacket.glb"] = FileAccess.get_sha256("res://assets/characters/echo_v31_short_jacket.glb")
+		if not school_mode: report.source_hashes["assets/characters/echo_v31_short_jacket.glb"] = FileAccess.get_sha256("res://assets/characters/echo_v31_short_jacket.glb")
 	var file := FileAccess.open(folder.path_join("review.json"), FileAccess.WRITE)
 	report["worst_cape_contact"] = worst_cape_contact
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()
 	if not _check(native_frames >= 95 and saw_stand and completions == 1, "Native source clock/standing phase/completion not preserved"): return
+	if not _check(maximum_grip_error < 0.005 and paused_phases.size()==2,"Native support grip or pause phase coverage failed"): return
 	if not _check(maximum_body_step < 0.12 and maximum_hip_step < 0.08, "Capsule or visible hips teleported during native handoff"): return
 	if not _check(actor.is_on_floor() and actor.position.y > 3.3 and not actor.surface_motor.native_mantle_active and actor.animation_player.speed_scale == 1.0, "Native mantle did not return grounded control/playback"): return
 	if not _check(not actor.combat_available and not actor.contract_with_zero_sealed, "Human mantle granted a story power"): return

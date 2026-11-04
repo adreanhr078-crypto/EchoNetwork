@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "date": "2026-10-27",
-  "status": "LAB_SECURITY_SPECIMEN_ARCHIVE_STATIC_NATIVE_SCOPED_PASS_OTHER_CRAFT_OPEN",
+  "date": "2026-10-29",
+  "status": "ROOM07_08_DEFAULT_SCOPED_NATIVE_PASS_HOSPITAL10_ACTIVE",
   "scope": "Current High fixed-camera inventory02–08/10;01 owner baseline retained.04/03 and lab have separate scoped static art/native proof. Fixed stills do not establish moving acting,fun,audio,performance or full chapter.",
   "baseline_route": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024",
   "baseline_checks": 367,
@@ -51,7 +51,7 @@
       "capture": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-high-v3/entry.png",
       "capture_sha256": "a6dbfd2a1fce4097fc6911401796fdb503adbd9af49263645de1df3b6b245b42",
       "current_source": "godot/scripts/environment/security_checkpoint_room.gd",
-      "current_source_sha256": "48ae838444e4b46007c443d1c94dcd758b341aa9eb6c226a8b0807564f056e94",
+      "current_source_sha256": "5b58efb150c17e248a7425eb20d6f79676f1b77ec888eb1a7c86933ebf07b267",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "high_review": {
@@ -69,7 +69,9 @@
         "public_retries": 0,
         "public_report": "audits/evidence/chapter-cp45-20261020/stage13/security-20261025/architecture-public-high-v3/public-route-review.json",
         "feedback": "PASS actual diversion,one-time latch,pause/liveRM,unchanged threat phase,stale tween/collider restore,mute/silent restore"
-      }
+      },
+      "physical_atmosphere_review": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+      "chapter_functional_review": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
     },
     {
       "room": "04",
@@ -81,7 +83,7 @@
       "capture": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/readability-high-v1/entry.png",
       "capture_sha256": "36aa01112d77d29a5a89ef8d81b91c2db244b359b0b86dafce97962e52f201f0",
       "current_source": "godot/scripts/environment/specimen_containment_wing.gd",
-      "current_source_sha256": "f01e8b204f97412f9a3aa19cbf0dc283487d665317d81f4709910d469c89f919",
+      "current_source_sha256": "ec4fd6357045b5c20400a4ed967b7da576002e1bb0280fbed62bb2b5e8ae5fea",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_specimen.png",
@@ -90,7 +92,9 @@
         "report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/readability-high-v1/four-high-views.json",
         "scope": "actual four native High views;source/asset hashes in quality-report;static art only"
       },
-      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/quality-report.json"
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/specimen-20261025/quality-report.json",
+      "physical_atmosphere_review": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+      "chapter_functional_review": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
     },
     {
       "room": "05",
@@ -102,7 +106,7 @@
       "capture": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-graphite-high-v7/entry.png",
       "capture_sha256": "115945799d6b03b35562224c8fb3e7634c3021b62f0f787a32a21472deba6565",
       "current_source": "godot/scripts/environment/memory_archive_wing.gd",
-      "current_source_sha256": "5cf78f2f88a525994c00542947b49a9b20d4b23167879f1506abafb442e05931",
+      "current_source_sha256": "c22bfe485c6f653780598f4cdb07879ec37c449ea5d77dd6492a0f68087804eb",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_archive.png",
@@ -129,7 +133,9 @@
         "cold_reload": "PASS exact current actual5-file earned profile;3memories,decoder/gate,current2,camera/control,no power,silent restore",
         "feedback": "PASS existing archive presentation:6rack fits,visual-only shard motion,pause/RM,no progress mutation,single/muted bursts,silent restore,decoder guidance"
       },
-      "current_palette_report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json"
+      "current_palette_report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json",
+      "physical_atmosphere_review": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+      "chapter_functional_review": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
     },
     {
       "room": "06",
@@ -141,7 +147,7 @@
       "capture": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/structural-high-v8/entry.png",
       "capture_sha256": "240b820926ba885f636231084022eef42b6c600f104b92d2b930934fbb42a884",
       "current_source": "godot/scripts/environment/core_reactor_room.gd",
-      "current_source_sha256": "ddd7c04c9b4bc90f9f4a2242f48a2a3703dcf571d825ae3ca3f2a103c8c1dc9f",
+      "current_source_sha256": "79a85e3804b0b81d6bb0755ee4a599789e35b9c033785f8a10a5c20434721a6a",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_reactor.png",
@@ -152,19 +158,21 @@
         "camera_qualification": "4actualHigh1280x720/nooverlap/progressunchanged",
         "moving_fun_audio": "OPEN"
       },
-      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json"
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json",
+      "physical_atmosphere_review": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+      "chapter_functional_review": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
     },
     {
       "room": "07",
       "name_ar": "التطهير والحجر",
-      "status": "UV_READABILITY_AND_EQUIPMENT_POLISH_REQUIRED",
-      "observed_ar": "تراكم إضاءة وحقولUVشديد في زاويةentry، والتجهيزات الأسطوانية وحواف الجسر بسيطة. اللقطة داخل اتجاه الحقل لا تثبت أن جميع زوايا اللاعب محجوبة.",
-      "next_ar": "مقطع لاعب فعلي لدورة التحذير/الخطر قبل تعديل الشفافية، ثم تحسين محلي للمعدات والحواف دون تغيير توقيت الخطر أو التسلق.",
+      "status": "DEFAULT_PRECISION_REACTIVE_WATER_SCOPED_PASS",
+      "observed_ar": "بيئة دقيقة افتراضية؛ماء يستجيب لتماس القدم،بخار وتهوية،أجهزة ضغط وإضاءة تعقيم.11لاعب+14مسار مكتسب+42وحدة+lifecycle PASS؛قبول الفصل والأداء والصوت الكامل مفتوح.",
+      "next_ar": "Room08 surveillance architecture with coherent obsidian/cyan/signal-crimson identity and localized electrical/airflow response;then hospital10 craft/rain;03-06 targeted atmosphere polish. Preserve owner-approved01/02/09. Echo short-jacket rebuild/rig/animation after rooms.",
       "interaction_ar": "عبور UV، صعود وتشغيل تجاوز الحجر",
-      "capture": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/decon/entry.png",
-      "capture_sha256": "94761d395cc48373a85a16a651cd47d31cb05b885d715387060667ff756c601a",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/precision-reactive-20261029/decon-default-final-four-views/entry.png",
+      "capture_sha256": "2b7f214818ab837661e67585ea6f215a1a6275464fb61f0c33110fb971cf353f",
       "current_source": "godot/scripts/environment/decontamination_quarantine_wing.gd",
-      "current_source_sha256": "6dea0a16a36dfa803780b9101539e8e82a97f0a2a5af1b1fead9dbf39dc21cb9",
+      "current_source_sha256": "324dbea67caa4903d71eab72f958d3afa66c63e72ed6a1754b74ee69a9345ec8",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/entry-Campaign_decon.png",
@@ -177,31 +185,32 @@
         "moving_readability": "OPEN",
         "human_fun_acceptance": "OPEN",
         "ui_overlay": "Small runtime HUD buttons remain in v1 captures;do not use these as paid-generation inputs without clean native recapture."
-      }
+      },
+      "source_integrity_audit": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/resume-20261029/source-audit.json",
+      "native_evidence_scope": "Default presentation;actual High1280 earned route;scoped room environment review;not whole-chapter acceptance",
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/precision-reactive-20261029/quality-report.json"
     },
     {
       "room": "08",
       "name_ar": "المرآة والمراقبة",
-      "status": "ARCHITECTURE_AND_CONSOLE_POLISH_REQUIRED",
-      "observed_ar": "مسار الليزر والمنصة والمراقبة واضح، لكن الخلفيات والحواجز كتل مسطحة قليلة التفاصيل؛ الخروج المقروء محفوظ.",
-      "next_ar": "تجهيزات مراقبة وإطارات وكسوة وحواف انتقائية. حفظ الليزر والتوقيت والهدف والنص والبوابة، ثم مقطع حركة وكاميرا فعلية.",
+      "status": "DEFAULT_ENVIRONMENT_ITERATION_AND_15_EARNED_NATIVE_CHECKS_PASS_SCOPED",
+      "observed_ar": "كسوةPBR ومراوح وهواء وإضاءة وشاشات من الغرف السابقة؛15 شرط مشي ومرآة ودرج وباب وحفظ وانتقالPASS؛قبول الفصل والتمثيل والأداء مفتوح.",
+      "next_ar": "تدقيق الفصل والأداء والصوت والتمثيل مع إيكو النهائي؛الآن المستشفى10.",
       "interaction_ar": "فحص المرآة مستقل عن تجاوز قفل الأمن",
-      "capture": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/mirror/entry.png",
-      "capture_sha256": "2299b052c2a698211bc9ff9f5dd9856fa8a2ef904b2db769337ce40a38443a86",
+      "capture": "audits/evidence/chapter-cp45-20261020/stage13/surveillance-20261029/default-final/four-views/entry.png",
+      "capture_sha256": "08129839b05e341f0acbdb3f88d70b7b1643e65317bd6a26911d404af9123243",
       "current_source": "godot/scripts/environment/mirror_chamber_room.gd",
-      "current_source_sha256": "19cee2c9d08c25cf67a09b9ce6e3ba801a09b3970569948a9846aa45d4e5d486",
+      "current_source_sha256": "de0d0dcdd2f5f2bc74b9930341dd102335ea69eb36122f530f899f23eb0be90f",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
-      "previous_capture": "audits/evidence/pre-tripo-20261018/cp37/route/cp45-vram-20261024/mirror-actual-inspection.png",
-      "previous_capture_sha256": "057425dc549dce65c1185e89436b5e5e070256864054364e029f2ad6aac4264e",
+      "previous_capture": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/mirror/entry.png",
+      "previous_capture_sha256": "2299b052c2a698211bc9ff9f5dd9856fa8a2ef904b2db769337ce40a38443a86",
       "high_review": {
-        "report": "audits/evidence/chapter-cp45-20261020/stage13/rooms-high-20261024e/mirror/four-high-views.json",
-        "fixture": "Explicit cold checkpoint/spawn;not an earned journey",
+        "report": "audits/evidence/chapter-cp45-20261020/stage13/surveillance-20261029/default-final/quality-report.json",
+        "fixture": "4fixed art views plus actual earned public-input journey",
         "views_observed": 4,
-        "camera_qualification": "All four observed;no solid overlap",
-        "moving_readability": "OPEN",
-        "human_fun_acceptance": "OPEN",
-        "ui_overlay": "Small runtime HUD buttons remain in v1 captures;do not use these as paid-generation inputs without clean native recapture."
+        "moving_readability": "15_SCOPED_NATIVE_CHECKS_PASS",
+        "human_fun_acceptance": "OPEN"
       }
     },
     {
@@ -226,21 +235,23 @@
     {
       "room": "10",
       "name_ar": "المستشفى",
-      "status": "HIGH_STATIC_HEADWALL_MATERIAL_AND_ACTING_REVIEW_OPEN",
+      "status": "DEFAULT_PBR_SCOPED_NATIVE_PASS_FULL_FORWARD_PLUS_RESTORE_FAIL",
       "observed_ar": "السرير والكرسي والنافذة والمرآة موجودة فعليًا مع إيكو الحالي؛الأثاث ليس غائبًا. الجدران/منطقة رأس السرير والأداء الجسدي واليقظة تحتاج صقلاً انتقائيًا؛الحكم المتحرك منفصل.",
-      "next_ar": "قرب الوجه/السرير والنهوض والعلامة وإضاءة النافذة؛ فحص الصوت والحركة مستقل.",
+      "next_ar": "التمثيل والملابس والسمع والأداء والقبول البشري باقية.",
       "interaction_ar": "استيقاظ ثم تفاعل المرآة والعلامة؛ القتال خارج الخدمة",
       "capture": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/hospital-v2/entry.png",
       "capture_sha256": "e9d1a3e399980ff6f2148ce8dce6766e1ef4380696114c063ef755203cb2fc2a",
       "current_source": "godot/scripts/environment/hospital_bedside_room.gd",
-      "current_source_sha256": "c4ba7a43bde1b720b15ded18936a62fb164eb475a152602cf14fa8dc12225acf",
+      "current_source_sha256": "5684eccae210c3ce48fb4a11e0349a76a06c35a13bd6c1b12815afdb95493acf",
       "four_high_views": true,
       "human_fun_acceptance": "OPEN",
       "high_review": {
         "report": "audits/evidence/chapter-cp45-20261020/stage13/remaining-high-20261025/hospital-v2/four-high-views.json",
         "scope": "Actual current native High fixed-camera inventory only. No moving acting,audio,fun,device performance or room/chapter acceptance."
       },
-      "current_high_inventory_date": "2026-10-25"
+      "current_high_inventory_date": "2026-10-25",
+      "physical_atmosphere_review": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+      "chapter_functional_review": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
     }
   ],
   "interactive_assessment": {

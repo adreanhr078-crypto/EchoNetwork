@@ -107,8 +107,7 @@ func _review_melee_camera()->bool:
 	for i in 2:
 		if not _check(cinema.players[i].stream==paused_streams[i] and absf(cinema.players[i].stream_position-samples[i])<.06,"Paused quality choice restarted or sought the whole film"):return false
 	main.set_visual_quality("high")
-	for light in architecture.service_shadow_sources:
-		if not _check(light.shadow_enabled==architecture.service_shadow_sources[light],"Paused High failed to restore the service budget"):return false
+	if not _review_service_shadows(architecture):return false
 	main.set_reduced_motion(true)
 	paused=false
 	for tick in 5:await process_frame
@@ -136,8 +135,7 @@ func _review_melee_camera()->bool:
 	for tick in 20:await process_frame
 	if not _check(finish.get_shader_parameter("has_normal_map"),"High tier lost the recovered PBR micro-normal"):return false
 	if not _check(scanner_finish.get_shader_parameter("has_normal_map"),"High tier failed to restore the scanner PBR normal"):return false
-	for light in architecture.service_shadow_sources:
-		if not _check(light.shadow_enabled==architecture.service_shadow_sources[light],"High tier failed to restore the authored service shadow"):return false
+	if not _review_service_shadows(architecture):return false
 	for i in 2:
 		if not _check(not cinema.players[i].paused and cinema.panels[i].texture!=cinema.posters[i],"Motion did not resume after live accessibility change"):return false
 	if not _check(water.reflection_view.size==Vector2i(768,960),"High tier reflection target did not restore"):return false
@@ -156,15 +154,9 @@ func _review_melee_camera()->bool:
 	var report:={"checks":checks,"renderer":RenderingServer.get_current_rendering_method(),"scope":"Earned native lab: two advancing whole muted videos; pause; live Reduced Motion posters and frozen water; low/high reflection targets; no story mutations; scene unload. No full-route/performance/art acceptance."}
 	# Inspect the actual GPU-skinned neck after the compressed source was
 	# classified and stamped; this is not a detached lettering substitute.
-	var rig:Skeleton3D=avatar.find_child("Skeleton3D",true,false)
-	var profile:Dictionary=preload("res://scripts/player/echo_rig_profile.gd").identify(rig)
-	var neck:int=rig.find_bone(skin_report.bone)
-	var target:Vector3=rig.global_transform*rig.get_bone_global_pose(neck).origin
-	var outward:Vector3=(rig.global_basis*(Basis(Vector3.UP,-deg_to_rad(skin_report.angle_degrees))*profile.local_forward)).normalized()
-	var inspection:=Camera3D.new();inspection.near=.01;inspection.fov=40
-	room.add_child(inspection);inspection.environment=player.player_camera.environment
-	inspection.global_position=target+outward*.38
-	inspection.look_at(target+Vector3(0,.025,0));inspection.make_current()
+	var inspection:=preload("res://scripts/cinematics/skin_mark_inspection_camera.gd").new()
+	room.add_child(inspection)
+	if not _check(inspection.begin(player.visual_root,player.player_camera),"Actual skin inspection lost its measured native binding"):return false
 	main.hud.hide()
 	for tick in 5:await process_frame
 	await _capture("ex011-vram-decoded")
@@ -183,3 +175,12 @@ func _review_melee_camera()->bool:
 	output.store_string(JSON.stringify(report,"\t"));output.close()
 	print("LAB_PRESENTATION_LIFECYCLE ",JSON.stringify(report))
 	return true
+
+func _review_service_shadows(architecture:Node)->bool:
+	var enabled:=0
+	for light in architecture.service_shadow_sources:
+		if light.shadow_enabled:
+			enabled+=1
+			if not _check(architecture.service_shadow_sources[light],"High enabled an unauthored service shadow"):return false
+	var compatibility:bool=RenderingServer.get_current_rendering_method()=="gl_compatibility"
+	return _check(enabled==(1 if compatibility else 6),"High did not restore the measured renderer-specific shadow budget")

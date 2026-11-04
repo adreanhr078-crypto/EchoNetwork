@@ -1,0 +1,79 @@
+{
+  "status": "BODY_SOURCE_QUALIFIED_RUNTIME_CANDIDATE",
+  "target_sha256": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8",
+  "libraries": {
+    "IDLE": {
+      "file": "idle_qualified.res",
+      "sha256": "b36ee16a53cbf3614b8dd49dea90331b8a3ae18cda3ac619620fc3268ff85ae9",
+      "take_id": "99f1e32d458dafbe5f106de8:0:13373cc7",
+      "native_fps": 30,
+      "native_samples": 58,
+      "source_keys_modified": false
+    },
+    "WALK": {
+      "file": "walk_qualified.res",
+      "sha256": "d94c0d1e50471a7c7a9cfd1f70ce38cb7f526d864dc736b63ad5735fea6baa8c",
+      "take_id": "cca789212f4a334b9ec9309a:0:5173144e",
+      "native_fps": 30,
+      "native_samples": 37,
+      "source_keys_modified": false
+    },
+    "RUN": {
+      "file": "run_qualified.res",
+      "sha256": "55452a4125d2719d70131e7a1fae899e6a2dd74a29e70ef956f8f8c72f1ff1b7",
+      "take_id": "92bf7cb4b88e3ee2a29be185:0:fd47e298",
+      "native_fps": 30,
+      "native_samples": 25,
+      "source_keys_modified": false
+    },
+    "preset_jump": {
+      "file": "jump_qualified.res",
+      "sha256": "5fa213a5c7f0f18ef3f0a653c5dc84bf0b044c5a1aecd50007a0d62fd4b0faed",
+      "take_id": "34fa4178cfe703ccb9ff40f8:0:13373cc7",
+      "native_fps": 30,
+      "native_samples": 74,
+      "source_keys_modified": false
+    },
+    "PARKOUR_HANG": {
+      "file": "hang_qualified.res",
+      "sha256": "ca19b080b225ecaa3b9d9326abf17bc8a0d3c2b8692732f8f2c33ccba2eb12c5",
+      "take_id": "4623a1fd693e3506912844f9:0:bf075e31",
+      "native_fps": 30,
+      "native_samples": 29,
+      "source_keys_modified": false
+    },
+    "PARKOUR_MANTLE": {
+      "file": "mantle_qualified.res",
+      "sha256": "9f1fc96e550a450a7299e045d184ddbeb1fcaa03c3dd9e2dc6eeb9c2c53bcd91",
+      "take_id": "ec61818d927decfc379508c9:0:b0913491",
+      "native_fps": 30,
+      "native_samples": 35,
+      "source_keys_modified": false
+    },
+    "PARKOUR_STAND": {
+      "file": "stand_qualified.res",
+      "sha256": "fe3f130ae0726af44327f878ecd8598709d092df774f5e11afac8e6f95d9fb42",
+      "take_id": "8dd34e2b14939c747d1b9787:0:b0913491",
+      "native_fps": 30,
+      "native_samples": 20,
+      "source_keys_modified": false
+    },
+    "preset_biped_roll_001": {
+      "file": "roll_qualified.res",
+      "sha256": "0d4d8013bce0306c149fa66d571f86530ae0805da55dc26adb938478a7480472",
+      "take_id": "a9f64e8c1c4d8cbe9f64ebde:0:b0913491",
+      "native_fps": 30,
+      "native_samples": 72,
+      "source_keys_modified": false
+    },
+    "MELEE_HORIZONTAL": {
+      "file": "attack-horizontal_qualified.res",
+      "sha256": "afeba551caa9df47bb5a8fc927586eda2c10f5b49ccf44820b6dffa3343afbea",
+      "take_id": "088cddda8d40025753006381:0:b0913491",
+      "native_fps": 30,
+      "native_samples": 73,
+      "source_keys_modified": false
+    }
+  },
+  "scope": "Nine body sources;source keys retained. Runtime/bodyfloor/camera/wing/art acceptance separate;School opt-in only."
+}

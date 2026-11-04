@@ -1,0 +1,582 @@
+## توجيه المالك23أكتوبر2026 — سياسة الغرف السينمائية
+
+المختبر المرفوض يُصقل أولًا حتى بوابته الفعلية، ثم الغرف دون المستوى فقط. أربع صور متسقة ومشهدFlow مرجعي ومواردTripo/Blender وشيدرHyper Anime وتفاعلات سينمائية ذات غرض. توليد غرفة كاملة اختياري؛ النتيجة والجودة ومسار اللعب يحكمان. الغرف الجيدة مثل01لا تُعاد تلقائيًا. الاشتراك فُعل والكريديت المتاح مأذون لتحسين الموارد؛ لا شراء آخر ولا قبول تلقائي أو تغييرPART_3. التفصيل في `internal/production/ROOM_CINEMATIC_PRODUCTION_POLICY_2026-10-23.ar.md`.
+
+## توجيه المالك الأحدث — 2026-10-20 / خطة 11.11 من CP44
+
+تنفيذ المراحل01–14 بالترتيب المتصل حتى المستشفى، دون إذن بين المراحل. تُغلق شريحة فعلية قبل التالية؛ الفحص الشامل بعد06 وبعد11 وفي14 فقط، والفحص الموضعي بينهما. تعطيل FloatingPod في هذا الفصل قابل للرجوع: لا جسم أو ضوء أو مسح خارق قبل العقد؛ Q واللمس للمساعدة البيئية. افتتاح المدرسة والمختبر وأسئلة الأب تسبق11:11 والاستيقاظ. قرارات الأب والعقد والأمنية حية منفصلة، والتخطي لا يقبل العقد. عقد زيرو يتدرج في ثماني خطوات داخل العرض الموجود، والقبول الصريح وحده يمنح الحالة عبر السلطة الحالية. حماية Golden192 ومصادر الحركة وCanon وSFX_ONLY وHyper Anime مشتركة. الياباني والفن والأداء والإيصالات والحزمة تحتاج دليلًا؛ تأجيل الهاتف لا يعني نجاحه. التنفيذ الحاليCP45 غير مكتمل، ولا يغيّر PART_3 أو يعتمد الفصل.
+
+## توجيه المالك الأحدث — 2026-10-14 / خط أساس كامل ثم التفاصيل
+
+إنجاز الرحلة المتصلة بجودة عالية أولًا، غرفةً غرفة؛ رفع التفاصيل الدقيقة في تمريرة تالية. العيوب المانعة للعب أو قراءة المهمة والكاميرا والتقدم تصلح الآن. تشطيب الساعة والوجه والعباءة والنهوض غير المؤهل تبقى OPEN ولا توقف الغرف التالية. Canon وGolden وSFX_ONLY محفوظة، ولا ادعاء اعتماد الفن أو جاهزية الثلاثين مرحلة من الخط الأساسي. الاستشارة مستمرة مع Gemini Argon High.
+
+# 11.11 Owner Product Vision and Production Charter
+
+## Owner production acceleration and Argon consultation — 2026-10-14
+
+The Owner is dissatisfied with current visual/gameplay craft and requests an
+actual Gemini Argon High consultation before continued implementation. That
+consultation returned a shorter six-bundle production order covering all30
+existing acceptance stages, now recorded in
+`internal/production/ARGON_ROOM_PRODUCTION_PLAN_2026-10-14.ar.md`. Execute one
+complete room/player journey at a time; seek evidence-based Argon help for
+unresolved failures or inadequate quality instead of random retries. This is
+execution, not a new plan-only gate or an acceptance claim. Continue through the
+authorized inside-system chapter to hospital while preserving current PART_3,
+Manhwa authority, SFX_ONLY, Frozen Golden/source keys and device/accessibility
+gates. Godot4.8-dev7 official is the current runtime; Blender is the asset and
+motion workshop. Native phone review remains deferred. No purchase, publication,
+source replacement or phase advancement is implied by an adviser response.
+
+## Owner room-by-room execution — 2026-10-12
+
+The Owner resumed development after cleanup and directs one room at a time,
+starting with the actual adopted V31 in Room01. Review entry, objectives,
+interactive tasks, camera, movement, scenes, environmental sound and transition
+as a player before advancing. The latest steering requests abundant, high-quality
+animated visual effects and smooth control. Tie those effects to real discoveries,
+power, threat and atmosphere, with static Reduced Motion equivalents and pause,
+mute and performance preservation. Keep original anime psychological mystery,
+SFX_ONLY and the existing30-stage acceptance plan; this resumes execution and
+does not accept a room, character, chapter or phase transition.
+
+## Owner execution decision — 2026-10-10: temporary Run cape deferral
+
+The Owner explicitly accepts the existing Run provisionally despite the known
+cape/leg intersection and directs continuation to Idle, then Jump. Stop the
+rejected cloth/pitch experiments. Retain the original HD V31 body, source motion
+keys and Golden reference. Complete the exact Run's isolated Godot numerical
+replay, then verify the following motions sequentially. The failed cape visual
+report remains FAIL; this scoped exception does not accept final garment quality,
+V31 optimization/face/device performance, current-player replacement, the chapter
+or a phase transition. Finish garment deformation in its dedicated clothing pass.
+Authorization and evidence: `audits/evidence/chapter-execution-20261009/cp15-root/`.
+
+> Latest Owner decision, 2026-09-12: continue G0 in Godot 4.7.2 and cancel
+> Unity migration. This supersedes historical engine-candidate decisions below.
+> Unity files remain inactive history. Preserve the approved Manhwa, VRoid/Blender
+> pipeline, existing web services and G0 quality gates; no open-world expansion.
+
+Status: **OWNER APPROVED**  
+Version: **1.0**  
+Approved: **2026-08-28**
+
+## Owner update — 2026-10-07: room craft and adopted Echo source
+
+The Owner requests continued room-by-room color, material, effects and animation
+craft, including detailed living Zero, the explicit pact and controlled Kinja
+revenge. Code line counts are not acceptance evidence. The supplied
+`Echo_Tripo_HD_v31_8K_Source (1).glb` is now the adopted source for Echo's next
+production character; preserve the source and build a measured optimized rigged
+derivative before runtime replacement. Cape animation must be independent of
+the legs. This supersedes the earlier ban on replacing the current avatar for
+this authorized character work; Golden Walk and original motion keys stay
+protected. Adoption does not mean deformation, locomotion, face, performance,
+Canon exposure or phone acceptance has passed. No phase is advanced.
+
+The Owner authorizes Antigravity Claude Sonnet/Opus5.5, followed by Gemini3.8
+Flash if quota is exhausted, plus local agents and the available Flow/Higgsfield
+tools. Inspect real returned work. A stated0.60 API balance is not a validated
+quote or connector-credit balance; do not exceed available authorized funds.
+
+## Owner update — 2026-10-01: Third-person foundation priority
+
+The latest [controller-first execution plan](internal/production/THIRD_PERSON_FOUNDATION_PLAN_2026-10-01.ar.md)
+refines V2 without changing Canon: preserve the existing Godot player and systems,
+then verify controller, camera, real touch and parkour before broad room production.
+Mobile is landscape; partial stick means Walk and full stick means Run, with a
+separate Roll button. This supersedes the older combined mobile dash/sprint choice.
+Keep the user's camera orbit after releasing look input, with restrained landing
+framing assistance. The vertical area has a clear main route and a harder optional
+parkour route revealing an additional approved memory. No supernatural traversal
+before the Zero contract. Frozen Walk, source keys, Skeleton Retarget, Root Motion
+and the existing avatar remain protected.
+
+The Owner permits deferring phone connection difficulties while independent local
+work continues; physical-device quality/performance remain unverified until tested.
+Antigravity may advise on short, detailed read-only tasks; returned claims require
+local verification. This direction prioritizes the control foundation over further
+isolated hand-rig work. It does not accept the foundation or advance any story gate.
+
+## Owner update — 2026-09-30
+
+The revised [eight-gate production plan](internal/production/ECHO_TO_HOSPITAL_PRODUCTION_PLAN_V2_2026-09-29.ar.md) supersedes earlier batch ordering. Painted-texture soft-shaded anime art, assisted ledge catches, human survival before the contract, short attacks and one timed shadow ability after it, fast safe retries, continuous interactive Kenja scenes, combined dash/sprint mobile control and parkour-driven System memory discoveries are Owner-approved. Preserve and reuse the existing Sol-arranged animations and completed inventory. Character, controls and measured phone performance precede broad room production. These are production requirements, not accepted runtime features; the chapter still ends at hospital awakening with Japanese performance and Arabic/English subtitles.
+
+## Owner update — 2026-09-28
+
+The Owner returned the 3D work to Godot and approved the continuation plan in
+`internal/production/ECHO_SYSTEM_TO_HOSPITAL_PLAN_2026-09-28.ar.md`.
+Target chapter length is 90–120 minutes, with Japanese anime voice performance,
+Arabic/English subtitles, sequential missions and broad explicitly climbable
+surfaces with limited assist. Human survival precedes the Zero contract;
+supernatural powers follow it. This chapter ends at hospital awakening and a
+short bedside interaction. Outside-world production stays later.
+
+The later Owner instruction supersedes deferring all Blender/Higgsfield art:
+art, sound and animation enter each batch, with batch 9 for final review.
+Interactive scenes run in Godot; generated video supports references, memories
+and fixed transitions. Video-to-editable-3D and paid-key Jutsu support remain
+unverified capabilities. First delivery is a bounded maintenance traversal
+segment before mass room production. Existing opening and device gates remain
+open; an opt-in prototype does not mark the current phase accepted.
+
+## Owner update — 2026-09-23
+
+The Owner directly instructed the team to use the existing Godot 4.7 project
+for the game's 3D work and to correct its existing defects before adding new
+systems. This supersedes earlier runtime notes below for this work. It does not
+claim that the React/web shell, authentication, or authoritative services have
+been migrated; keep them intact until an integration audit defines their role.
+
+This document is durable product memory for every designer, developer, artist,
+writer, tester, and agent working on 11.11. It records the Owner's desired game,
+the agreed player journey, system order, quality bar, and production boundaries.
+
+The current narrative authority remains
+`docs/internal/narrative/current/ar/manifest.json`. This charter controls how
+the story becomes a game; it does not invent or overwrite story Canon.
+
+### Owner execution direction — 2026-10-09
+
+The Owner explicitly resumed implementation of the 30-stage playable chapter
+plan, superseding the planning-only checkpoint. Prioritize the adopted V31 and
+its actual Godot Run, then Idle and Jump in sequence; prepare Canon and the
+entry/receipt matrix in parallel. Audio is SFX_ONLY with no music or instruments.
+This starts bounded execution, not a phase transition or chapter acceptance.
+Preserve the current player until the correct V31 source, skin, motion, face
+and independent cape pass their gates. Numerical or delegated PASS alone is
+insufficient. See `internal/production/CHAPTER_EXECUTION_2026-10-09.ar.md`.
+The Owner requests Luna6 Max and all useful Antigravity workers, with deep,
+step-by-step verification and sufficient time; delegated output requires local
+inspection before acceptance and has isolated file ownership.
+
+## North star
+
+### Owner revision — 2026-09-20
+
+The complete consolidated mandate is preserved in
+`11-11/design/OWNER_PRODUCTION_MANDATE.md`. The approved outside-world city is
+**Minato-Kasumi**, an original fictional Japanese coastal city. Its name is no
+longer provisional. First accept the Definitive Inside-System Vertical Slice;
+then build only the hospital/street/residential/bus-stop/konbini cluster toward
+home. No full city production is authorized now. Preserve Echo/Zero/Kinja/Yuki/
+Shizuka and the Manhwa chronology. Human survival defense is allowed before Zero;
+supernatural combat requires despair and the contract, superseding older blanket
+combat restrictions below. Resume the accepted work at CP-20260920-12. Section 30
+of the new mandate refers to Godot according to Project Memory; the verified
+runtime in that memory remains Three/R3F, so no migration is silently inferred.
+
+### Owner revision — 2026-09-19
+
+The current production reference is
+`11-11/design/OWNER_PRODUCTION_MANDATE.md`; resume from
+`11-11/design/CONTINUATION.md`, without restarting accepted work.
+Keep the active Three/R3F architecture. Preserve existing Godot work without
+starting a migration. Current scope remains the definitive System vertical slice.
+The long-term outside world is a fictional Japanese coastal city inspired by
+Yokohama, not a reproduction. Human survival combat may precede Zero; supernatural
+transformation remains after despair and contract. City implementation is deferred.
+
+Build an original, emotionally powerful hybrid anime game that can compete in
+craft, attachment, visual quality, narrative impact, and playability with major
+global productions. Quality matters more than speed. A multi-year production
+and as many evidence-gated milestones as necessary are acceptable.
+
+The ambition is not to clone Genshin Impact or any other game. 11.11 must earn
+its own identity through the boundary between a hostile system and reality,
+Echo's fractured memory, fair puzzles, the screen-breaking transition into
+third person, relationships, transformation, and chess as part of Echo's mind.
+
+## Owner-approved product decisions
+
+1. **Hybrid format stays.** Live system UI, Manhwa, puzzles, cinematic moments,
+   and third-person play are complementary parts of one experience.
+2. **Manhwa stays.** It becomes the visual memory/archive layer: flashbacks,
+   other viewpoints, emotional chapters, clues, discoveries, and return-player
+   summaries. It is not a detached document viewer or a mandatory wall of text.
+3. **Third person arrives early.** After a short Manhwa introduction and one or
+   two fair system puzzles, a signature screen-breaking event carries the
+   player into the 3D system. Target discovery window: the first 15-25 minutes,
+   subject to the final Manhwa and playtest evidence.
+4. **Combat is earned.** Before Echo's transformation, play emphasizes escape,
+   exploration, environmental puzzles, scanning, stealth, and survival. The
+   transformation unlocks combat and carries narrative cost.
+5. **The two worlds persist.** The system contains dangerous rooms, corrupted
+   memories, failed experiments, security constructs, puzzles, and combat. The
+   hospital, home, and school provide relationships, investigation, recovery,
+   chess, and reality fractures. Story missions move between both.
+6. **Echo keeps his gravitas.** The moving UI/3D guide should be a distinct,
+   original assistant rather than a miniature duplicate of Echo. Its identity,
+   name, origin, and possible connection to Zero remain provisional until the
+   final Manhwa is reviewed.
+7. **Chess is Echo's favorite hobby.** It supports characterization,
+   relationships, school life, tactical mastery, optional competition, and
+   psychological conflict. It is not a disconnected menu game.
+8. **Puzzle count follows story value.** The campaign may need far more than 20
+   puzzles, but no target number is a quality metric. Every puzzle must offer a
+   distinct decision or interaction and reveal, change, or deepen something.
+9. **Heavy tools are allowed.** Blender, Godot, Unity, Three/R3F, procedural tooling,
+   audio/video production, and other professional tools may be used when they
+   improve the proven experience. Tool availability never justifies premature
+   production or a second disconnected runtime.
+10. **Graphics scale by device.** Players may use Auto, Low, Medium, High, or
+    Ultra. Lower tiers reduce resolution, texture size, shadows, particles,
+    post-processing, crowds, vegetation, and distant detail—not story,
+    accessibility, puzzle truth, controls, or rewards.
+11. **Quality over speed, with gates.** No deadline pressure justifies weak
+    playability, unclear objectives, broken mobile behavior, inaccessible UI,
+    rejected correct puzzle answers, authority regressions, or unmeasured 3D.
+12. **Economy comes after fun.** Profile, collection, cosmetics, store, seasons,
+    character expansion, and any random-pull system appear only in their
+    approved phase. Paid randomness is optional, never required for the story,
+    and requires economy, integrity, accessibility, regional/legal, probability
+    disclosure, spending-safety, and Owner gates.
+
+## Player identity direction
+
+The current product direction treats the player as **The Link**: a consciousness
+or signal connected to Echo through the system. Echo remains the protagonist
+and future playable vessel. This permits Echo to retain agency and speak to the
+player while the player controls his actions.
+
+This is an approved product direction, not final story Canon. Reconcile and
+lock it only after reviewing the completed Manhwa. Do not build dialogue or
+cinematics that make it irreversible before that review.
+
+## Intended player journey
+
+The journey is ordered. Later systems may be foreshadowed but not exposed as
+unfinished menus.
+
+1. Launch and authentication.
+2. A clear first objective inside the 11.11 system interface.
+3. Short, immersive Manhwa/story contact with Echo.
+4. One or two fair puzzles that teach the system language.
+5. The signature puzzle causes the interface to fracture and break.
+6. A seamless visual/audio transition takes the player into the 3D system.
+7. The original guide manifests in 3D and teaches movement through action.
+8. Echo explores rooms, scans evidence, solves environmental puzzles, hides,
+   survives, and attempts to escape.
+9. The system's torture and pressure culminate in Echo's transformation.
+10. The transformation unlocks combat and changes abilities, presentation, and
+    relationships without replacing the permanent `EX-011` skin identifier.
+11. A hard tonal cut wakes Echo in the hospital.
+12. The player reaches home and school, meets Yuki and Shizuka, investigates
+    reality, builds relationships, and discovers Echo's chess life.
+13. Reality fractures reopen access to system missions and dungeons.
+14. The core loop alternates story, exploration, dialogue, puzzle, combat,
+    memory/Manhwa discovery, authoritative reward, development, and next goal.
+15. Character, collection, profile, social, seasonal, and economy systems unlock
+    progressively only after their gameplay and integrity gates.
+
+## Core loop after the 3D transition
+
+`Objective -> explore -> observe/dialogue -> puzzle or encounter ->
+authoritative result -> visual/audio consequence -> memory/Manhwa discovery ->
+Echo/relationship response -> ability or world change -> next objective`
+
+Every playable release must let a new player answer:
+
+1. What do I do now?
+2. Why does it matter in this world?
+3. How do I do it?
+4. What changed because I acted?
+5. What meaningful step comes next?
+
+## System release order
+
+The order is a dependency contract, not a promise that every item becomes a
+separate milestone.
+
+1. Canon authority, authentication, save integrity, reward authority, rollout,
+   accessibility, localization, performance measurement, and quality gates.
+2. Final Manhwa ingestion and story-to-gameplay blueprint.
+3. Connected system UI, first objective, Manhwa memory layer, and fair opening
+   puzzles.
+4. Screen-breaking transition, loading/fallback architecture, and first 3D
+   environment.
+5. Third-person movement, camera, touch/keyboard/gamepad input, interaction,
+   checkpoints, and device quality tiers.
+6. Original guide character across UI and 3D, with contextual and optional
+   guidance that never solves or grants authority.
+7. Environmental puzzles, scanning, stealth/escape, enemy perception, and one
+   complete pre-transformation mission.
+8. Transformation cinematic and gameplay consequence.
+9. Combat foundation, abilities, enemy AI, damage/recovery, readable feedback,
+   and accessibility alternatives.
+10. Hospital, home, school, quest, dialogue, relationship, schedule, and world
+    state systems.
+11. Echo chess as an authored hobby journey; then optional Casual and Ranked
+    under their existing authority and integrity gates.
+12. Character progression, ability paths, equipment, party/companion decisions,
+    profile, and collection.
+13. Additional zones, dungeons, story arcs, puzzles, monsters, bosses,
+    cinematics, Manhwa memories, characters, and playable abilities.
+14. Cosmetic store and account-safe ownership.
+15. Daily/Weekly/seasonal return systems grounded in the world.
+16. Community and creation systems only with real moderation operations.
+17. Optional random-pull economy only after its complete product, legal,
+    integrity, disclosure, safety, and Owner approval gates.
+18. Native/mobile/desktop expansion, load validation, operations, legal, and
+    global-release gates.
+
+## Systems that must not be front-loaded
+
+Do not build or expose these to compensate for an unproven core loop:
+
+- a large open world;
+- many playable characters;
+- full combat trees;
+- a production store;
+- paid random pulls;
+- seasons, leaderboards, or social feeds;
+- large quantities of puzzles, enemies, cinematics, or collectibles;
+- multiple engines maintaining the same gameplay.
+
+First prove one excellent, connected 20-30 minute hybrid slice.
+
+## First production slice after the Manhwa handoff
+
+`Short Manhwa -> fair system puzzle -> screen fracture -> 3D arrival -> guide
+manifestation -> room exploration -> environmental puzzle -> threat/chase ->
+EX-011 discovery -> escape objective or hospital threshold`
+
+Minimum scope:
+
+- Echo plus one original guide;
+- one coherent room cluster;
+- one enemy/threat family;
+- one environmental puzzle;
+- one traversal/escape sequence;
+- one authoritative checkpoint and consequence;
+- Arabic and English live UI;
+- desktop and phone controls;
+- mute, volume, captions, Reduced Motion, non-WebGL fallback, and quality tiers.
+
+No shop, gacha, broad roster, or open world belongs in this proof.
+
+## Engine decision
+
+The current application remains the authoritative account, UI, Manhwa, puzzle,
+chess, progression, and service shell. The first measured third-person proof may
+use the existing Three/R3F runtime. Portable Godot and a future Unity workstation
+are explicitly allowed as measured engine candidates when a bounded technical
+proof shows materially better combat, animation, world streaming, tooling, or
+cross-platform quality.
+
+Do not migrate by enthusiasm. Compare actual startup cost, memory, frame time,
+input, asset streaming, visual fidelity, mobile thermals, build size,
+accessibility bridge, persistence, and integration with server receipts. Choose
+one production owner for each gameplay surface and prevent duplicate authority.
+
+## Verified production tooling
+
+The portable Blender 5.2.1 LTS toolchain is verified on 2026-08-29 for
+headless scene creation, GLB export, and Blender re-import validation. Its glTF
+pipeline reports both Draco and MeshOptimizer libraries available. This makes
+non-Canon technical prototypes, performance tests, and deterministic asset
+pipeline work safe to begin during the current phase. It does **not** unlock
+final Echo/Yuki/guide models, story cinematics, or Canon environments before
+the completed Manhwa gate.
+
+The supporting local pipeline is also verified: FFmpeg/FFprobe for delivery
+media, KTX2 tooling for GPU textures, glTF Transform and the Khronos validator
+for optimization and structural checks, Sharp/ImageMagick for image work, and
+Microsoft Edge as the required runtime QA target. Exact observed versions and
+verification date live in `docs/project-memory.json` so later agents can check
+for drift instead of assuming readiness.
+
+Godot 4.7.2 Standard is verified as a self-contained portable candidate on the
+current workstation. Its headless import/scene proof is deliberately non-Canon;
+availability does not select it as the production runtime, permit an open world,
+or give it authority over authentication, saves, rewards, or story progression.
+
+Unity remains an allowed future production option, not the current runtime by
+default. It must earn a greenlight through the measured engine comparison above.
+The Owner has declined a local Unity installation; do not install or download
+its Windows installer without a new explicit instruction. Continue local 3D
+proofs with portable Blender, the existing Three/R3F runtime, and isolated Godot
+benchmarks. A future Unity evaluation may use a separately approved workstation
+or cloud environment.
+
+## Visual identity
+
+- Obsidian structure and near-black silhouettes.
+- Signal crimson for danger, commitment, transformation, and rare emphasis.
+- Violet for memory, corruption, and system phenomena.
+- Cyan only for legibility-critical signal and guidance.
+- Pale ivory for readable information and human contrast.
+- Reflective glass, wet laboratory floors, cables, digital rain, fractures, and
+  warm domestic/school light as emotional contrast.
+- Color is never the only carrier of state.
+
+The target is premium anime direction with stable faces, deliberate silhouettes,
+strong animation, authored camera language, excellent audio, and scalable
+materials—not maximum shader cost on every surface.
+
+## Guide character contract
+
+The guide is currently **UNNAMED AND PROVISIONAL** pending the final Manhwa.
+
+- It is not Mini Echo and must not weaken or duplicate Echo.
+- It moves between UI surfaces only when guidance is useful.
+- In 3D it may fly, perch, scan, point, hide, react, and celebrate.
+- It may have a mystery and a later connection to the system or Zero.
+- It never reveals solutions, grants rewards, changes Canon, or interrupts
+  constantly.
+- It needs a quiet mode, captions, Reduced Motion treatment, and visible
+  equivalents for sound.
+- It must be original and not imitate another game's mascot in voice, behavior,
+  silhouette, or relationship to the protagonist.
+
+## Echo chess contract
+
+- Chess expresses Echo's intelligence, control, coping, and relationships.
+- School and character matches may carry authored dialogue and discoveries.
+- Tactical puzzles may connect to memory or planning without becoming every
+  puzzle's mechanic.
+- Echo/AI matches never grant Ranked rating.
+- Human Ranked remains server authoritative and optional.
+- Chess must use the 11.11 obsidian/crimson material language and preserve full
+  keyboard/touch accessibility.
+
+## Engagement and monetization
+
+The desired result is deep attachment and voluntary return, not harmful or
+coercive addiction. Use story curiosity, character bonds, mastery, meaningful
+secrets, chess improvement, welcoming returns, and world change. Refuse fake
+urgency, punitive streak loss, spam, misleading odds, pay-to-win, or progression
+designed to create frustration for sale.
+
+## Quality definition
+
+Quality means all of the following, not only visual fidelity:
+
+- immediately understandable objectives and controls;
+- satisfying movement, puzzles, combat, feedback, and pacing;
+- emotional attachment and coherent Canon;
+- correct authoritative results and recoverable persistence;
+- premium but consistent art, animation, audio, UI, and camera;
+- Arabic RTL and English LTR;
+- keyboard, touch, gamepad where relevant, captions, mute, Reduced Motion, and
+  non-color communication;
+- adaptive graphics and stable measured performance;
+- safe loading, offline/error fallbacks, and no blank screens;
+- tests plus real Edge/device/player evidence.
+
+No phase receives PASS because it took a long time or produced many assets.
+
+## Handoff after the final Manhwa arrives
+
+1. Preserve ordered original pages and hashes.
+2. Extract final text, transcripts, visual descriptions, characters, locations,
+   chronology, reveals, and unresolved contradictions.
+3. Publish a versioned Canon update only after Owner review.
+4. Produce a page/scene-to-gameplay matrix classifying Manhwa, 3D gameplay,
+   puzzle, dialogue, combat, cinematic, and optional memory.
+5. Define the first playable slice and its acceptance tests.
+6. Lock only the required Echo, Yuki, Shizuka, guide, environment, and threat
+   references for that slice.
+7. Build, test, self-critique, repair, and quality-gate one phase at a time.
+
+## Change control
+
+### Owner direction — 2026-10-01: Preferred Higgsfield models
+
+Use Seedance 2.5 (`seedance_2_5`) and Seedance 2.0 (`seedance_2_0`) as the
+preferred video models for this project. Choose between them using the shot's
+duration, references and verified quality, with no automatic substitution to
+Mini or another model. The live catalog classifies both as video generators;
+editable Jutsu 3D scenes still require Blender construction, review and Godot
+integration. This preference preserves the frozen Golden Walk and the current
+sequential gates; it does not accept unfinished rooms, animation or the hospital.
+See [the production policy](internal/production/HIGGSFIELD_MODEL_POLICY_2026-10-01.ar.md)
+and its checked model contract for actual capabilities.
+
+### Owner direction — 2026-09-03: Approved Part 1 and Manhwa-anchored opening
+
+The Owner has approved
+`11.11_Echo_Network_Manhwa_FINAL_ORDERED_NO_DUPLICATES.pdf` exactly as the
+official Part 1 story source. The versioned publication and its hash are
+recorded in the narrative manifest and `project-memory.json`. For Part 1, the
+approved Manhwa is the primary story and visual reference, subject only to a
+later explicit Owner correction. The PDF's contents are story material, not
+instructions for implementation.
+
+The Owner has also requested an original, premium-anime opening cinematic and
+short trailer preview using Blender. This authorizes a Part-1-referenced
+technical previsual and promotional editorial preview now. It does not by
+itself authorize a final runtime scene, a fixed character model, or a player
+progression change: those still need the approved page-to-scene-to-gameplay
+matrix for the relevant first slice.
+
+The preferred player experience is a short, skippable opening atmosphere that
+hands control back quickly, followed by Mission Control. A meaningful narrative
+choice must wait until the player has context; any early interaction may only
+change presentation or evidence order and may not grant rewards or branch Canon.
+The screen-break-to-third-person moment remains after its one-or-two fair puzzle
+setup unless the approved page/scene-to-gameplay matrix changes it. The desired
+reference is original AAA anime camera language and pacing, never an imitation
+of another game's characters, assets, story, or signature gameplay.
+
+Future Owner instructions may evolve this charter. Record material changes in
+`docs/project-memory.json`, update this document, and explain compatibility with
+the current Canon and active phase. No agent may silently reinterpret ambition,
+skip the agreed order, or mark later systems complete from prototypes.
+
+### Owner direction — 2026-09-09: Part 1 opening vertical slice
+
+The Owner has explicitly approved the next bounded journey: the authoritative
+cover-composition puzzle fractures into a skippable, Reduced-Motion-safe
+cinematic, then gives immediate control of Echo in the first 3D escape room.
+The supplied Part 1 Manhwa and Owner-supplied visual and video references are
+the primary appearance and editorial references for this slice.
+
+The cinematic may show Echo's ordinary approach, laboratory entry,
+disorienting neural-transfer strain, and his awakening into the system. It must
+not reveal the later torture arc, a full Zero reveal, transformation, combat,
+or later Canon beats early. The playable room is an escape/exploration puzzle,
+not a static 3D showcase. Any Blender room, Echo model, or resource is
+provisional until it passes visual, interaction, collision, performance, and
+Manhwa-fidelity review; a primitive prototype may never silently replace the
+authored playable room.
+
+### Owner direction — 2026-10-06: measured first-slice quality execution
+
+The Owner reaffirmed Manhwa character identity with premium anime coloring,
+lighting and direction. The immediate slice is awakening → clock/memory →
+signal terminal; broader room expansion follows its acceptance. The Owner
+authorized an isolated measured bone-map profile for the existing v13 avatar,
+using the unchanged Golden transfer math and preserving source, Golden and
+the current character. Numerical and visual gates precede any integration.
+The first faithful Jog transfer passed numerically but failed the visible arm
+carriage, so it was not exported or integrated. The Owner then explicitly
+authorized an isolated measured derived reference-pose rig, preserving original
+and Golden, with full numerical and visual verification before integration.
+
+The latest instruction authorizes professional implementation and assistance
+from Claude through the actual Antigravity app using Computer Use, superseding
+the older read-only external-advice scope. This does not establish tool/model
+availability: current Computer Use cannot target its window, no prompt was sent,
+and no Claude result exists. Local verification remains mandatory. The latest
+Higgsfield/Flow authorization permits specific production work when useful;
+external media does not replace interactive animation or prove scene acceptance.
+See `internal/production/OPENING_QUALITY_EXECUTION_2026-10-06.ar.md`. The active
+phase and open Canon, art, player-experience, Edge and physical-phone gates remain.
+
+Current execution follow-up 2026-10-10: CP-20261010-01 repairs authoritative opening receipt response ownership and measures actual cape/leg intersections; V31 Run/contact, facial art, phone and chapter remain open. Continue existing plan and preserve SFX_ONLY/no music and deep step-by-step evidence review.
+
+
+## Owner platform and visual priority — 2026-10-12
+
+The Owner prioritizes actual PC and Android play for future Steam/GooglePlay release. Android must remain landscape. Continue the connected30-stage chapter with strong transitions, cinematic drama and purposeful effects in Godot4.8 development, while measuring a suitable phone presentation tier. The final playable character remains the adopted original V31; current preview is not final character or chapter acceptance. No store publication, paid service, phase advancement or source/Golden replacement is implied. Current device evidence and unresolved performance are recorded in internal/production/CP18_DEVICE_EXECUTION_2026-10-12.ar.md.
+
+
+## Owner visual priority — 2026-10-15 / CP29
+
+Polish existing Rooms01–07 with Argon in the Codex browser before notifying readiness for Room08. The scoped room-presentation pass and actual connected routes are recorded in internal/production/ROOMS01_07_VISUAL_EXECUTION_2026-10-15.ar.md. Room08 was not started. This does not advance PART_3, accept character/chapter/device quality, or resolve the measured performance limits. Keep original Canon, Golden and SFX_ONLY.
+
+
+## Owner Room08 continuation — 2026-10-15 / CP30
+
+The latest direct Owner request authorizes continuing Room08 after the scoped CP29 previous-room pass, without waiting for another go-ahead. Room08 is IN_PROGRESS: original gate/restore/accessibility contracts repaired and tested; its new art/VFX and Canon presentation await actual Argon High review after browser submission failures. Do not claim Room08 visual acceptance, final device performance, actor or chapter completion. Preserve PART_3, Golden, source animation, SFX_ONLY and the two-flag order-independent mirror gate. See internal/production/ROOM08_EXECUTION_2026-10-15.ar.md.

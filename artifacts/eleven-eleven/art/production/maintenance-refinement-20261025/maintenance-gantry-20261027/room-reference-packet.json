@@ -1,0 +1,129 @@
+{
+  "state": "FOUR_REFS_FLOW_DOWNLOADED_DESIGN_REFERENCE_ONLY_AUDIO_OPEN",
+  "references": [
+    {
+      "role": "entry",
+      "file": "room-entry-concept-v2.png",
+      "sha256": "cff4963ce0a28b40c9b9601fa6c0aa7f5c78560231dfc9cfe9104b2c06061d62",
+      "review": "Reviewed as coherent design reference;native plan remains authoritative;not native implementation or gameplay proof."
+    },
+    {
+      "role": "reverse",
+      "file": "room-reverse-concept.png",
+      "sha256": "36892d60ec9b6640a438434d36c2136d200e9183dad266db0dcfa7d398d3173d",
+      "review": "Reviewed as coherent design reference;native plan remains authoritative;not native implementation or gameplay proof."
+    },
+    {
+      "role": "lateral",
+      "file": "room-lateral-concept.png",
+      "sha256": "801e3f76e3e52717cadb6bc1acb94f9053ecda2ff3321e9718e2a08170b5a83a",
+      "review": "Reviewed as coherent design reference;native plan remains authoritative;not native implementation or gameplay proof."
+    },
+    {
+      "role": "hero-detail",
+      "file": "room-hero-concept.png",
+      "sha256": "c98db4e69680759eb6821904c47d0f6245ba627bb4963adfc0a270a569704c42",
+      "review": "Reviewed as coherent design reference;native plan remains authoritative;not native implementation or gameplay proof."
+    }
+  ],
+  "entry_v1_note": "Preserved original concept;apparent sloped grating connection corrected once in entryv2 before Flow.",
+  "flow_submission_count": 1,
+  "updated_utc": "2026-10-27T04:50:23.597Z",
+  "flow": {
+    "provider": "Google Flow",
+    "project": "4b4e7520-f838-495f-b1fa-e1b115131124",
+    "requested_model": "Omni 1.1 Flash",
+    "requested_duration_s": 10,
+    "requested_resolution": "720p",
+    "aspect_ratio": "16:9",
+    "references_attached": 4,
+    "displayed_cost": 15,
+    "balance_before": 800,
+    "approval_clicks": 1,
+    "state": "DOWNLOADED_DESIGN_REFERENCE_ONLY",
+    "prompt_file": "flow-room-actual-provider-prompt.txt",
+    "note": "Flow UI proposal reports4reference support;actual job/output and fulltake/audio stillunverified.",
+    "media_id": "9eb4eb33-5335-45a0-b1ef-fd9e679238f7",
+    "identifier_kind": "ActualFloweditor mediaID,notindependentlyverifiedbackendjobID",
+    "actual_charge": 15,
+    "balance_after": 785,
+    "file": {
+      "path": "flow-room-fourrefs-omni-720p.mp4",
+      "sha256": "526f63dc50d9c5e492342e1d0d70bd6c91621f6ffde00da40608258c8ed2eeeb",
+      "bytes": 4651195
+    },
+    "duration_s": 10.005,
+    "video_frames": 240,
+    "actual_resolution": [
+      1280,
+      720
+    ],
+    "fps": 24,
+    "audio": {
+      "codec": "AAC",
+      "sample_rate": 48000,
+      "channels": 2,
+      "full_decode": true,
+      "hearing_review": "UNVERIFIED;audioinputnot supported by thismodel;do not claimheard/approved"
+    },
+    "visual_review": {
+      "all_frames_seen_as_ordered_sheets": true,
+      "sheets": 6,
+      "frames_per_sheet": 40,
+      "full_resolution_anchors": 4,
+      "decision": "DESIGN_REFERENCE_ONLY",
+      "issues": [
+        "Bakedunrequested captionfirst~3.4s",
+        "Route/cassettepositions differfromauthoritative native geometry",
+        "Generatedclimbingholdsnotnativecuegeometry"
+      ],
+      "usable": "Alloy/graphite value contrast,fastener/seam language,restrainedwarmpracticals. Do not copyfloorplan or useasgameplay/cinematicacceptance."
+    },
+    "frames": [
+      {
+        "id": "flow-room-1",
+        "file": {
+          "path": "flow-room-reference-frame-01.png",
+          "sha256": "a72fc794765a82a792dff384248bdc3fa507b8309eee1ae133a4eb2fc9a3f3b8",
+          "bytes": 700595
+        },
+        "timestamp_s": 0,
+        "review": "Reviewed;designreferenceonly",
+        "source_video_sha256": "526f63dc50d9c5e492342e1d0d70bd6c91621f6ffde00da40608258c8ed2eeeb"
+      },
+      {
+        "id": "flow-room-2",
+        "file": {
+          "path": "flow-room-reference-frame-02.png",
+          "sha256": "7af2de48fda9d02a5ea6c191f55fdf061b494d535e1ec1c2253f7ce613c5bffc",
+          "bytes": 801191
+        },
+        "timestamp_s": 2.5,
+        "review": "Reviewed;designreferenceonly",
+        "source_video_sha256": "526f63dc50d9c5e492342e1d0d70bd6c91621f6ffde00da40608258c8ed2eeeb"
+      },
+      {
+        "id": "flow-room-3",
+        "file": {
+          "path": "flow-room-reference-frame-03.png",
+          "sha256": "5a8517cbbc9ac43818d3b140e3d9b702496ee931715c25bab40ebe8eddd4f19b",
+          "bytes": 707564
+        },
+        "timestamp_s": 5,
+        "review": "Reviewed;designreferenceonly",
+        "source_video_sha256": "526f63dc50d9c5e492342e1d0d70bd6c91621f6ffde00da40608258c8ed2eeeb"
+      },
+      {
+        "id": "flow-room-4",
+        "file": {
+          "path": "flow-room-reference-frame-04.png",
+          "sha256": "651fcbb20dda12ba53f8705b0aa311773b5daefb0e986e34765014cc5b33b43d",
+          "bytes": 776941
+        },
+        "timestamp_s": 7.5,
+        "review": "Reviewed;designreferenceonly",
+        "source_video_sha256": "526f63dc50d9c5e492342e1d0d70bd6c91621f6ffde00da40608258c8ed2eeeb"
+      }
+    ]
+  }
+}

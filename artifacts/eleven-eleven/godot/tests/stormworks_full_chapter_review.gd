@@ -14,6 +14,7 @@ func _maintenance_route() -> bool:
 	for point in [Vector3(0,.1,-2.8),Vector3(-1.15,.1,-3.4)]:
 		if not await _walk(room.to_global(point)):return false
 	parkour = Pilot.new()
+	parkour.exercise_fall_retry = OS.get_cmdline_user_args().has("--fall-retry")
 	parkour.tree = self;parkour.world = main;parkour.room = room;parkour.player = player
 	parkour.capture_directory = folder.path_join("stormworks")
 	DirAccess.make_dir_recursive_absolute(parkour.capture_directory)
@@ -30,6 +31,10 @@ func _maintenance_route() -> bool:
 	if not _check(player.interact_with_nearest().get("data",{}).get("released",false),"Real service interaction rejected"):return false
 	await _frames(225)
 	if not _check(room.service_open and director.stage == 6 and director.has_confirmed_room_checkpoint() and not player.control_locked,"Pressure sequence/save/control return failed"):return false
+	if OS.get_cmdline_user_args().has("--pause-interrupt"):
+		main.native_pause_menu.set_session_paused(true)
+		await parkour._frames(1)
+		if not _check(not paused and not main.native_pause_menu.session_paused,"Course driver did not resume the real pause menu"):return false
 	for point in [Vector3(0,5.6,-17.6),Vector3(0,5.6,-18.85),Vector3(0,5.6,-19.4)]:
 		if not _check(await parkour._go_to(point),"Connected service exit blocked: "+str(point)):return false
 	await _frames(12)

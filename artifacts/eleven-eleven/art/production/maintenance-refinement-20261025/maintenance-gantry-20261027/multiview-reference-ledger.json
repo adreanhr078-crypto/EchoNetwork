@@ -1,0 +1,56 @@
+{
+  "owner_date": "2026-10-27",
+  "dimensions_m": [
+    5,
+    3.4,
+    0.5
+  ],
+  "views": [
+    {
+      "view": "front",
+      "file": "cassette-front.png",
+      "sha256": "2e2bbad6a9bf698ff6319286fd496f96b25d3c05a4fe4798c9034b8bb1d08635",
+      "bytes": 2328835,
+      "size": [
+        1521,
+        1034
+      ],
+      "review": "Reviewed same closed cassette/materials/profile direction;native envelope must be measured separately;side views slightly oblique,not metrology"
+    },
+    {
+      "view": "left",
+      "file": "cassette-left.png",
+      "sha256": "ac53a3b040e5cd5900b084347e17b9eb4cfa4c8de5b8642136d4e9b97dfb3435",
+      "bytes": 1556473,
+      "size": [
+        1521,
+        1034
+      ],
+      "review": "Reviewed same closed cassette/materials/profile direction;native envelope must be measured separately;side views slightly oblique,not metrology"
+    },
+    {
+      "view": "right",
+      "file": "cassette-right.png",
+      "sha256": "73dc4dff0344b6cd439de9cb56267c03fd2778da306cd83f5cd4d9c8f4617a9d",
+      "bytes": 1588625,
+      "size": [
+        1521,
+        1034
+      ],
+      "review": "Reviewed same closed cassette/materials/profile direction;native envelope must be measured separately;side views slightly oblique,not metrology"
+    },
+    {
+      "view": "back",
+      "file": "cassette-back.png",
+      "sha256": "541b5e50f237b962719e010ce7583e1c9a21ba73e6570632ae24f155d7303a8c",
+      "bytes": 2069249,
+      "size": [
+        1521,
+        1034
+      ],
+      "review": "Reviewed same closed cassette/materials/profile direction;native envelope must be measured separately;side views slightly oblique,not metrology"
+    }
+  ],
+  "source_role": "Design references,not native acceptance",
+  "tripo_job_submitted": false
+}

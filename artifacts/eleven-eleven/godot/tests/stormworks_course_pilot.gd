@@ -6,7 +6,36 @@ var world: Node3D
 var room: Node3D
 var player: EchoPlayer
 var capture_directory := ""
+var exercise_fall_retry := false
 var report := {"checks":[],"samples":[]}
+
+func _fall_and_retry() -> bool:
+	var director = world.get_node("SystemJourneyPreview")
+	var stage_before: int = director.stage
+	var step_before: int = director.course_step
+	var anchor: Vector3 = director._retry_anchor
+	var left_platform := false
+	var falling := false
+	var restored := false
+	var lowest := INF
+	# Walk off the first platform into the existing gap. Only the production
+	# controller may restore the actor; the driver never writes its position.
+	for frame in 240:
+		_steer(Vector3(-3.4,2.3,-6.3),false)
+		await _frames(1)
+		lowest = minf(lowest,_pos().y)
+		left_platform = left_platform or player.global_position.distance_to(anchor) > .8
+		falling = falling or (not player.is_on_floor() and player.velocity.y < -1)
+		if left_platform and falling and player.global_position.distance_to(anchor)<.4 and _pos().y > 2:
+			restored = true
+			break
+	player.set_mobile_input_vector(Vector2.ZERO,false)
+	await _frames(12)
+	var safe: bool = restored and player.is_on_floor() and director.stage==stage_before and director.course_step==step_before and not player.combat_available and not player.control_locked and not player.surface_motor.hanging and not player.surface_motor.native_mantle_active
+	report.fall_retry={"left_platform":left_platform,"falling":falling,"lowest_y":lowest,"restored_by_production_controller":restored,"stage_before":stage_before,"stage_after":director.stage,"course_step_before":step_before,"course_step_after":director.course_step}
+	report.checks.append({"check":"actual_fall_checkpoint_retry_without_progress_grant","pass":safe})
+	await _capture("fall-retry-return")
+	return safe
 
 func _pos() -> Vector3:return room.to_local(player.global_position)
 
@@ -17,10 +46,44 @@ func _capture(label: String) -> void:
 	var path := capture_directory.path_join(label+".png")
 	var saved := tree.root.get_texture().get_image().save_png(path) == OK
 	if not report.has("captures"):report.captures = []
-	report.captures.append({"path":path,"saved":saved,"room_position":str(_pos()),"animation":player.current_anim})
+	var active:=tree.root.get_camera_3d()
+	var data:={"path":path,"saved":saved,"room_position":str(_pos()),"animation":player.current_anim,"gameplay_camera_current":player.player_camera.current,"camera_position":str(active.global_position),"camera_rotation":str(active.global_rotation),"boom_length":player.camera_boom.spring_length,"player_screen":str(active.unproject_position(player.global_position+Vector3.UP))}
+	if label=="first_diagonal_gap" and OS.get_cmdline_user_args().has("--camera-diagnosis"):
+		data.occlusion=_camera_occlusion(active)
+		report.checks.append({"check":"first_gap_camera_to_avatar_not_opaque_occluded","pass":data.occlusion.is_empty()})
+		print("STORMWORKS_CAMERA_DIAGNOSIS ",JSON.stringify(data))
+	report.captures.append(data)
+
+func _camera_occlusion(camera: Camera3D) -> Array:
+	var from:=camera.global_position
+	var to:=player.global_position+Vector3.UP
+	var hits:=[]
+	for mesh: MeshInstance3D in world.find_children("*","MeshInstance3D",true,false):
+		if player.is_ancestor_of(mesh) or not mesh.mesh or not mesh.is_visible_in_tree():continue
+		if mesh.material_override is ShaderMaterial:
+			var visibility=mesh.material_override.get_shader_parameter("camera_visibility")
+			if visibility!=null and float(visibility)<=.05:continue
+		var inverse:=mesh.global_transform.affine_inverse()
+		var a:=inverse*from;var b:=inverse*to
+		if mesh.get_aabb().intersects_segment(a,b)==null:continue
+		var triangles:=mesh.mesh.get_faces()
+		var closest:=INF
+		for i in range(0,triangles.size(),3):
+			var point=Geometry3D.segment_intersects_triangle(a,b,triangles[i],triangles[i+1],triangles[i+2])
+			if point!=null:closest=minf(closest,from.distance_to(mesh.to_global(point)))
+		if closest<INF:hits.append({"mesh":str(mesh.get_path()),"distance":closest})
+	hits.sort_custom(func(a,b):return a.distance<b.distance)
+	return hits
 
 func _frames(count: int) -> void:
 	for frame in count:
+		# Match the parent connected driver: an OS focus pause is not a blocked
+		# doorway. Resume through the real menu, then reassert public input.
+		if tree.paused:
+			var menu=world.get("native_pause_menu")
+			if menu:
+				menu.resume_button.pressed.emit()
+				report.resumed_pauses=int(report.get("resumed_pauses",0))+1
 		await tree.physics_frame
 		await tree.process_frame
 		if frame % 4 == 0:
@@ -50,7 +113,15 @@ func _go_to(target: Vector3) -> bool:
 		await _frames(1)
 	player.set_mobile_input_vector(Vector2.ZERO,false)
 	await _frames(10)
-	return player.is_on_floor() and Vector2(_pos().x-target.x,_pos().z-target.z).length() < .4
+	var passed:=player.is_on_floor() and Vector2(_pos().x-target.x,_pos().z-target.z).length() < .4
+	if not passed:
+		var collisions:=[]
+		for index in player.get_slide_collision_count():
+			var collision:KinematicCollision3D=player.get_slide_collision(index)
+			collisions.append({"path":str(collision.get_collider().get_path()),"normal":str(collision.get_normal()),"point":str(collision.get_position())})
+		report.blocked_walk={"target":str(target),"position":str(_pos()),"collisions":collisions,"control_locked":player.control_locked,"animation":player.current_anim,"tree_paused":tree.paused}
+		print("STORMWORKS_BLOCKED_WALK ",JSON.stringify(report.blocked_walk))
+	return passed
 
 func _vault_course() -> void:
 	var reached := await _go_to(Vector3(-3,2.95,-13.9))
@@ -164,6 +235,7 @@ func _exercise_course() -> void:
 		report.checks.append({"check":"first_mantle_supported","pass":player.is_on_floor() and _pos().y > 2 and _pos().y < 2.6,"position":str(_pos())})
 		if report.checks.back().get("pass",false):
 			await _capture("first-mantle")
+			if exercise_fall_retry and not await _fall_and_retry(): return
 			# Use the first platform's real run-up before the diagonal gap.
 			var target := Vector3(-4.95,2.18,-8)
 			for frame in 60:

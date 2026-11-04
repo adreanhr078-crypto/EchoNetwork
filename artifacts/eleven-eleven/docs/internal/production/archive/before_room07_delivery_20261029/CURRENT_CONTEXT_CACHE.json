@@ -1,0 +1,163 @@
+{
+  "schema_version": 3,
+  "cache_updated_utc": "2026-10-29T07:57:26.263299+00:00",
+  "checkpoint": "ROOM07_WHOLE_V2_UV_REPAIRED_RETEXTURE_PENDING_NO_NATIVE_INTEGRATION",
+  "status": "ROOM07_WHOLE_V2_UV_REPAIRED_RETEXTURE_PENDING_NO_NATIVE_INTEGRATION",
+  "read_policy": "Read CURRENT_WORK and this compact cache,then only affected source/current log. Do not replay chat or historical logs.",
+  "agent_policy": {
+    "execution": "ROOT_ONLY",
+    "agents": "Stopped;never restart without direct owner request",
+    "adviser": "Argon High",
+    "adviser_session": "https://gemini.google.com/u/2/app/9dc84839d070dae7"
+  },
+  "cache_policy": "Refresh at milestones or about45active work minutes. Model prompt caching is automatic and not directly controlled;do not promise quota duration or100percent cache. Do not clear browser sign-ins or delete unique sources.",
+  "master_plan": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+  "execution_queue": "docs/internal/production/QUALITY_EXECUTION_QUEUE.json",
+  "room_inventory": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+  "invariants": [
+    "Canon/PART_3/EX-011/sourcefilm/Golden192/V31/sourcekeys protected",
+    "SFX_ONLY;no music;no powers before earned Zero contract",
+    "Rooms first,then Echo model/rig/custom animation and combat",
+    "Root may use available Tripo/Flow credits and normal legitimate commit/push;no purchase/upgrade/force/history rewrite/repo deletion",
+    "Opening sequence remains looping title -> real Manhwa cover puzzle -> fracture -> cinematic -> Echo awakening",
+    "Preserve dirty/staged/untracked work;generated video never proves gameplay"
+  ],
+  "active": {
+    "folder": "art/production/maintenance-parkour-rebuild-20261027",
+    "room_scene": "godot/scenes/environment/maintenance_stormworks.tscn",
+    "native_candidate": "godot/tests/scenes/stormworks_native_candidate.tscn",
+    "controller": "godot/scripts/systems/stormworks_journey_preview.gd",
+    "route": "godot/scripts/systems/stormworks_route.gd",
+    "checkpoint": "godot/scripts/systems/stormworks_checkpoint.gd",
+    "layout_revision": "stormworks-20261027-v3",
+    "visual": "godot/assets/environments/maintenance_stormworks/stormworks_original_pbr_metric_v8.glb",
+    "collision": "godot/assets/environments/maintenance_stormworks/stormworks_collision_portal_v7.glb",
+    "source_hashes": "art/production/maintenance-parkour-rebuild-20261027/native-current-source-hashes.json",
+    "production_main_status": "NewStormworkscontroller promoted and freshwholechapter353passed. Active currentevidence report:audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/quality-report.json",
+    "art_changes": "v8 identity visual root;v7 collision unchanged. Shared Tripo wall cassettes,9ceiling luminaires,metre-authored beveled gate/six-spoke wheel/bulkhead under preserved motion roots. Current import/review pending."
+  },
+  "tripo": {
+    "original_root": "5902b46f-a4ad-4b06-a5d2-3cf4a772bd5a",
+    "original_charge": 85,
+    "atlas_root": "36493eb5-a68d-4613-8ba7-db832165235a",
+    "atlas_charge": 25,
+    "last_verified_balance": 2540,
+    "total_new_room_charge": 110,
+    "paid_jobs_running": false,
+    "actual_atlas": "3maps4096x4096;27mesh roles;1material. All original geometry hashes retained through atlas transfer. Onlypart0 rear portal/recess later cut precisely.",
+    "atlas_registration": "960568vertices;uniformscale+yaw90;max2.82e-5normalized;1714250exactface matches+94adjacentface matches;allUVcorner errorsunder2.9e-5",
+    "ledger": "art/production/maintenance-parkour-rebuild-20261027/atlas-generation-ledger.json",
+    "rejected": "Earlier cross-scene exports must not be uploaded/used. Sources/superseded exports preserved."
+  },
+  "proofs": {
+    "isolated": "10actual-input checksPASS:firstcatch/mantle,3gaps,vault,finalcatch/mantle;one initial anchor,no later teleports.",
+    "native": "NativeHighv8:27checksPASS,11actual Forward+High player captures reviewed. One initial anchor+openingfixture. No powers. Actual save/control/IK/door/security/6rooms+6conduits confirmed. Final rigid wheelspoke alignment/leaf-fit refined after this run;route/collision/contactauthority unchanged.",
+    "portal": "V7closed capsule blockedbyServiceGateCollision;open sweep clear;wheel standing clear. Sourcepart0 had blocked both before correction.",
+    "checkpoint": "15validation/migration/atomic/recovery checksPASS. Legacy intermediate anchors reset;legacy completed routes retained.",
+    "current_high": "Highv2 completed:26functional checksPASS,11actual Forward+High player captures inspected;art REJECTED because atlas mosaic/black perimeter/placeholder service props. Not chapter/performance acceptance.",
+    "golden": "192protectedfilesPASS after runtime/motioncontact edits",
+    "postflight": "ALLCHECKSPASSED after production main promotion and fresh connected353 review. Content,TypeScript,foundation tests,build/registry/boot/save checks passed.",
+    "art_diagnosis": "Controlled LOD1/18.33/128 did not remove mosaic. Original per-part UV/PBR clearly outperformed atlas under same camera/light. v8 preserves27roles,81adaptive32..2048maps,allUVs,native positions zero error;no claim all4K.",
+    "lifecycle": "51checksPASS from byte-identical actual earned-stage5:normal/pause/skip/RM/mute,handcontact,stage6freshscene silentrestore,actual failed-save attempt blockswheel/receipt,actualretryrecovers. Source earnedfile unchanged.",
+    "fresh_chapter": "353checksPASS from actual fresh awakening,allnewparkour/service/security,all6campaignrooms,explicitpact/controlledmelee/solewish,physicalbreach,hospital/skinmark. 0recoveryrelocations;7finalcompleted. Headlessfunctional proof,notacting/audio/performance/humanfun acceptance.",
+    "current_art": "Four final fitted Forward+High fixed-camera views inspected;current sourcehashguardunchanged. 11nativeHighv8player/cinematic captures inspected. Singleatlasrejected;v8originalUV/PBRaccepted within environmentalartscope. Bright edge highlights/floor finish and avatarcraft limits remain documented."
+  },
+  "pending": [
+    "Room07: fresh targeted Texture/PBR or qualified transfer for seven repaired authored meshes; retain78 generated groups",
+    "Merge combined source; qualify atlas/LOD/material fidelity before native candidate",
+    "Room07 actual earned traversal and negative collision/save/pause/RM/mute checks, matching-source four views and player footage",
+    "Resolve/retest connected High Vulkan allocation failure; stronger-device performance UNVERIFIED",
+    "Room08 architecture,Room10 bedside craft,then Echo/acting/combat;whole-chapter audio/fun/live-services/fresh-package remain OPEN"
+  ],
+  "publication": {
+    "status": "VERIFIED_REMOTE_MAIN",
+    "commit": "d82ddccbb8d1f5bf267e4b4079838ca656a30e3e",
+    "scope": "549 selected current runtime/evidence files;82 historical LFS files remain local",
+    "large_file_warning": "GitHub accepted push with >50MB warnings;no storage was freed"
+  },
+  "next": "Use authored-uv-kit-repaired.glb (7objects/56588tri,UV already repaired) for fresh targeted Texture/PBR or qualified transfer;preserve the78 generated groups from textured-metric-source.glb. Merge into textured-metric-combined.glb,then run prepared atlas/runtime scripts. Do NOT use old seven overlapping-UV maps,do NOT repeat60credit geometry. Native integration,new VFX,actual player/render/state/performance acceptance remain pending.",
+  "active_room07": {
+    "state": "Old opt-in pod repair scoped PASS;whole-v2 source/PBR complete,but authored UV required repair and targeted retexture remains pending. No new runtime integration.",
+    "runtime": "godot/scripts/environment/decon_tripo_architecture.gd",
+    "evidence": "outputs/decon-precision-native-player-v8 actual native actor/camera/public-input;outputs/decon-precision-four-views-v9;hash matched",
+    "tests": "13 earned actual-input checks PASS through UV/stair/terminal/gate/saved exit incl west-wall negative probe;7 isolated native-player checks PASS;final lifecycle and postflight ALL PASS",
+    "arch": {
+      "root": "d0c76f99-a5c4-4dcb-81be-9164b93f7852",
+      "charges": 80,
+      "source": "43parts/1904696tri;geometry and textured originals preserved",
+      "derivative": "160k dedicated arch used only in old opt-in candidate;adaptive basecolor-only textures"
+    },
+    "whole_room_reference": "art/production/decon-redesign-20261028/whole-room-cutaway-reference-v1.png",
+    "limitations": "Current room still too simple for acceptance;new reference approximates bridge/pod placement and requires measured adaptation;rooms08/10 and character work remain open",
+    "balance_last_verified": 2260,
+    "whole_room_task": "ae2910bf-caa1-4885-90e5-a2183327e045;60geometry+20texture+5PBR=85;75parts/1905888tri;actual source and Blender preserved",
+    "multiview": "Three generated views rejected:side views add seventh pod,reverse alters entrance wall. Preserve them as rejected;do not upload.",
+    "whole_room_pbr": {
+      "sha256": "9f0483b0839321d3f6cda0d2ba9009af2d48c6e624f32acdcf7df71698791306",
+      "bytes": 67833132,
+      "meshes": 75,
+      "images": 225,
+      "materials": 75,
+      "normal_mapped": 75,
+      "metallic_roughness_mapped": 75
+    },
+    "runtime_candidate": "godot/scripts/environment/decon_tripo_architecture.gd;opt-in --decon-tripo-candidate only",
+    "candidate_assets": "shell225k;authored+TripoPBR precision pod35096tri x6,one material/3x2K maps;dedicated arch160k x2 basecolor-only adaptive maps",
+    "physical": "Original colliders retained;five additional shell guards;actual player negative wall probe PASS;central route/stair/terminal/exit unchanged",
+    "effects": "Local-clock condensation and pressure readout,existing UV/mist/motes,pause/RM native ownership;instrument state refresh during restore.",
+    "latest_proofs": "Current exact candidate 13 earned headless checks PASS;7 isolated rendered native-player checks PASS;source save hashes unchanged;latest lifecycle PASS;postflightALLPASS",
+    "visual_review": "Four fixed views and isolated actual player Forward+High1280 reviewed. Pod SCOPED_PASS. Wall/arch generated softness still rejected. Earlier connected1280 Vulkan allocation-2 crash remains unresolved;no room/chapter/performance acceptance",
+    "logs": "Current chat work/decon-tripo-*.log and outputs/decon-tripo-*",
+    "next": "Use authored-uv-kit-repaired.glb (7objects/56588tri,UV already repaired) for fresh targeted Texture/PBR or qualified transfer;preserve the78 generated groups from textured-metric-source.glb. Merge into textured-metric-combined.glb,then run prepared atlas/runtime scripts. Do NOT use old seven overlapping-UV maps,do NOT repeat60credit geometry. Native integration,new VFX,actual player/render/state/performance acceptance remain pending.",
+    "precision_pod": {
+      "geometry": "Authored precise castings/ribs;Tripo texture and PBR only;all six instances replaced",
+      "triangles_per_pod": 35096,
+      "dimensions_m": [
+        2.696000099182129,
+        2.696000099182129,
+        2.754999876022339
+      ],
+      "max_source_registration_error_m": 6.740217941114679e-05,
+      "material_count": 1,
+      "maps": "3x2048 runtime packed PBR;original adaptive part maps preserved",
+      "paid_charge_this_repair": 25,
+      "tripo_task": "10a9b3ba-37a9-406b-8653-86ad6e84e71f",
+      "verified_balance_before": 2370,
+      "verified_balance_after": 2345
+    },
+    "whole_v2": {
+      "ledger": "art/production/decon-redesign-20261028/whole-v2/generation-ledger.json",
+      "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/quality-report.json",
+      "status": "SOURCE_AND_PBR_COMPLETE_AUTHORED_UV_FIXED_TARGETED_RETEXTURE_PENDING",
+      "raw_task": "32622978-6eb8-42a7-b706-6317302e0de5",
+      "corrected_task": "9d3d5353-b17b-4567-b454-e579de1486e2",
+      "paid": 85,
+      "balance": 2260,
+      "paid_jobs_running": false,
+      "actual_PBR": "85material/255images,all85 normal+RM maps;all878528 vertices registered,maximum0.998mm",
+      "UV": "Authored floor had22272vertices but117uniqueUVs,rejected. Seven authored meshes SmartProject repaired without position changes;floor29184uniqueUVs. Repaired subset56588tri ready. Old7 maps must not be reused.",
+      "tools": "Whole-v2/tools contains source correction,registration,atlas/export and UV repair scripts. Atlas refuses missing combined corrected source. No v2 native script/flag has been added."
+    }
+  },
+  "quota_snapshot": {
+    "used_percent": 98,
+    "window_minutes": 300,
+    "resets_at_unix": 1793223164
+  },
+  "active_focus": "ROOM07_WHOLE_V2_TARGETED_TEXTURE_PENDING; existing active Stormworks fields are retained scoped room02 history",
+  "resume_audit_20261029": {
+    "evidence": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/resume-20261029/source-audit.json",
+    "scope": "READ_ONLY_FILE_INTEGRITY; no new native/runtime/art acceptance",
+    "verified_source_hashes": 8,
+    "authored_subset": {
+      "meshes": 7,
+      "triangles": 56588,
+      "positions_unchanged": true,
+      "images": 0
+    },
+    "combined_file_exists": false,
+    "paid_jobs_submitted_this_review": 0,
+    "balance_policy": "2260 is last documented balance, not queried live today",
+    "next": "Use authored-uv-kit-repaired.glb (7objects/56588tri,UV already repaired) for fresh targeted Texture/PBR or qualified transfer;preserve the78 generated groups from textured-metric-source.glb. Merge into textured-metric-combined.glb,then run prepared atlas/runtime scripts. Do NOT use old seven overlapping-UV maps,do NOT repeat60credit geometry. Native integration,new VFX,actual player/render/state/performance acceptance remain pending."
+  }
+}

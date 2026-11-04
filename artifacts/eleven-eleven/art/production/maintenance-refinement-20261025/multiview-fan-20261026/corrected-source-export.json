@@ -1,0 +1,19 @@
+{
+  "file": "fan-corrected-rigid-source.glb",
+  "sha256": "64460b2c4f94d91ccdd4209200d50d87c3b59ea12125d7cefd070acb364ea1d2",
+  "bytes": 43150204,
+  "triangles": 1775556,
+  "mesh_count": 2,
+  "scene_count": 1,
+  "mesh_nodes": [
+    "Fan_RotorMesh",
+    "Fan_FrameMesh"
+  ],
+  "textures": 0,
+  "front_axis_godot": "+Z",
+  "rotor_axis_local_godot": "-Z",
+  "export_yup": true,
+  "use_active_scene": true,
+  "source_orientation_restored": true,
+  "status": "Corrected rigid source for UV/texture;not yet game accepted"
+}

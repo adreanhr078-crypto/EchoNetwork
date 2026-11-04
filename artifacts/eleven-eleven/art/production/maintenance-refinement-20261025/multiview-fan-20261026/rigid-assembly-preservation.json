@@ -1,0 +1,48 @@
+{
+  "source_vertices_preserved": true,
+  "source_vertex_digest": "26e7eeeb841c1950b50fe8c9cc22b7937a59ae25f01743348a26b3408d0fe90f",
+  "before": {
+    "min": [
+      -0.5999999642372131,
+      -0.21155956387519836,
+      -0.5992413759231567
+    ],
+    "max": [
+      0.5999999642372131,
+      0.21155956387519836,
+      0.5992413759231567
+    ],
+    "triangles": 1775556,
+    "vertices": 906044
+  },
+  "after": {
+    "min": [
+      -0.5999999642372131,
+      -0.21155956387519836,
+      -0.5992413759231567
+    ],
+    "max": [
+      0.5999999642372131,
+      0.21155956387519836,
+      0.5992413759231567
+    ],
+    "triangles": 1775556,
+    "vertices": 906044
+  },
+  "max_bounds_delta_m": 0.0,
+  "groups": {
+    "Fan_FrameMesh": {
+      "source_objects": 51,
+      "material_slots": 1,
+      "parent": "Fan_StationaryFrame"
+    },
+    "Fan_RotorMesh": {
+      "source_objects": 13,
+      "material_slots": 1,
+      "parent": "Fan_RotorPivot"
+    }
+  },
+  "source_scene_meshes": 64,
+  "engine_draw_meshes": 2,
+  "scope": "Rigid-role join without welding/deleting triangles;copied active shared datablocks before join. Original source scene preserved. Contact proof remains prior12sample exact audit of identical geometry;nativeplay still pending."
+}

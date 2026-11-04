@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "date": "2026-10-26",
-  "checkpoint": "CP45_STAGE13_MAINTENANCE_PRECISION_NATIVE_SCOPED_ART_REFINE",
+  "date": "2026-11-03",
+  "checkpoint": "PACT423_ROUTE356_CINEMATIC62_LIFECYCLE98_PACK21_ZIP_CRC_PASS_HEAVY56_ISOLATED",
   "master_plan": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
   "scope": "Remaining CP45 craft/acceptance through hospital; package IDs are quality work, not claims that earlier gameplay is missing.",
   "active_packages": [
-    "P04"
+    "P07"
   ],
   "packages": [
     {
@@ -32,8 +32,8 @@
     {
       "id": "P04",
       "task": "only_evidenced_room_repairs",
-      "status": "SECURITY_SPECIMEN_ARCHIVE_SCOPED_PASS_REACTOR_STRUCTURAL_ART_PASS_SCOPED",
-      "evidence": "audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json"
+      "status": "ROOM07_08_10_DEFAULT_SCOPED_AND03_06_PHYSICAL_PASS",
+      "evidence": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json"
     },
     {
       "id": "P05",
@@ -43,22 +43,22 @@
     {
       "id": "P06",
       "task": "zero_interactive_pact_craft",
-      "status": "PLANNED"
+      "status": "NATIVE_PACT62_CONTROL_RESTORE_SCOPED_PASS_ART_NECK_CONTACT_OPEN"
     },
     {
       "id": "P07",
       "task": "grip_combos_iai_and_contact",
-      "status": "PLANNED"
+      "status": "SINGLECUT22_30_60_PASS_HEAVY56_ISOLATED_GODOT_PENDING_IAI_CONTACT_ART_OPEN"
     },
     {
       "id": "P08",
       "task": "opening_and_control_handoff",
-      "status": "PLANNED"
+      "status": "PACKED_PUBLIC_ENTRY_RESTORE720_UI_SCOPED_PASS_FIRSTLOAD_DRIVERFAIL_RETAINED"
     },
     {
       "id": "P09",
       "task": "wish_and_hospital_craft",
-      "status": "PLANNED"
+      "status": "CONNECTED_SOLEWISH_HOSPITAL_MIRROR61_SCOPED_PASS_ART_AUDIO_OPEN"
     },
     {
       "id": "P10",
@@ -68,21 +68,21 @@
     {
       "id": "P11",
       "task": "performance_save_live_services",
-      "status": "PLANNED"
+      "status": "INTEL720_IDLE21_52_78_MEASURED_LIFECYCLE98_PASS_DYNAMIC_DEVICE_ACCEPTANCE_OPEN"
     },
     {
       "id": "P12",
       "task": "whole_chapter_player_acceptance",
-      "status": "PLANNED"
+      "status": "FRESH_STORMWORKS_CHAPTER356_FUNCTIONAL_PASS_PLAYER_FUN_ART_AUDIO_DEVICE_OPEN"
     },
     {
       "id": "P13",
       "task": "fresh_final_package",
-      "status": "PLANNED"
+      "status": "LOCAL_WINDOWS_REVIEW21_RESOURCES233_ZIP_CRC_SHA_PASS_FINAL_PRODUCT_ACCEPTANCE_OPEN"
     }
   ],
-  "active_evidence": "audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025",
-  "next_gate": "P04 finish02 bounded art refinements,then07/08/10;P05–P13 remain OPEN.",
+  "active_evidence": "audits\\evidence\\chapter-cp45-20261020\\stage13\\device-atmosphere-20261029\\quality-report.json",
+  "next_gate": "Finish NEW heavy56 nativeGodot actualvisual review,thenPacttarget andtwo-palmgrip/contact beforeanyruntimeuse",
   "completed_scoped": [
     "Existing Tripo packed8K/4K exports recovered at unchanged3020 credits; no duplicate generation.",
     "Same102923 perimeter triangles,135 surfaces->1,three real4K PBR maps; original raw source and original derivative preserved.",
@@ -155,7 +155,7 @@
     "instruction_ar": "أعلى جودة ممكنة حتى لو احتاجت عتاداً أقوى؛ بطء الجهاز الحالي لا يوقف المهمة.",
     "effect": "Continue High art/acting/interaction work. Preserve measured IntelUHD failures without treating them as a stop gate. Other-device performance stays UNVERIFIED. No automatic graphics downgrade or processor purchase."
   },
-  "next_exact": "P04 finish currentroom02art/07/08/10;then evidence-led Echo model/customrig/animation/grip/traversal/shader/VFX rebuild as warranted;Canon+currentGoldenbaseline preserved. Availablecredits>500Echo/>1000rooms authorized;livepreflight beforepaidjobs.",
+  "next_exact": "Hospital10 targeted headwall/rain/curtain craft;then03-06 physical atmosphere and authorized Echo short-jacket rebuild.",
   "archive_palette_current": {
     "checkpoint": "CP45_STAGE13_ARCHIVE_GRAPHITE_HIGH_NATIVE51_SCOPED_PASS",
     "report": "audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/palette-quality-report.json",
@@ -175,6 +175,23 @@
     "credits": "Owner accepts >500credits for Echo and >1000for rooms when justified by quality. This authorizes available subscription credits,not purchases,blind rerolls or unbounded duplicate generation. Query live balance/taskstate/cost before each paid step.",
     "identity": "Preserve original Canon/approved Echo visual identity and progression. No automatic later power grant,serverauthority or interaction/save changes from new graphics.",
     "gate": "Inspect model/topology/skin/rig and full animation take,then actual Godot interaction/hands/feet/camera/weapon sockets/pause/RM/save-resume;no thumbnail/auto-rig-success equals final character acceptance.",
-    "provider_capabilities": "Verify actual current Tripo rigging/animation/SmartMesh capabilities at execution;do not promise unsupported custom motion generation."
+    "provider_capabilities": "Verify actual current Tripo rigging/animation/SmartMesh capabilities at execution;do not promise unsupported custom motion generation.",
+    "latest_20261029": {
+      "date": "2026-10-29",
+      "order": "after room art gates",
+      "identity": "Original approved Echo;new short jacket,NO long coat;Canon/EX-011 preserved",
+      "scope": "New model/rig if warranted;Tripo reference-led geometry/UV/PBR/rig/motion candidates,Blender qualification and Godot deformation/hands/feet/weapon/contact/control/pause/RM/save tests. Preserve current model/Golden as comparison;no automatic replacement or all-animation acceptance."
+    }
+  },
+  "source_of_truth": "CURRENT_CONTEXT_CACHE.json newest active_room07;older completed_scoped/external balances are historical,not live",
+  "owner_current_focus": "2026-11-01 character lab prepared;foundation plan before runtime integration;existing package statuses retained",
+  "character_foundation_plan": "docs/internal/production/CHARACTER_FOUNDATION_PLAN.ar.md",
+  "owner_steering": {
+    "date": "2026-11-03",
+    "source": "Direct Owner in currentchat:face canbe tool-assisted,deferred tolast oromitted;prioritize combat/connectedcinematicmissions/explicitpact/roomquality/controls andplayablelocaldownload.",
+    "face": "DEFERRED_BY_OWNER;existingdiagnostic topology/artFAIL retained,nofacial integration oracceptance.",
+    "next": "School65 existing horizontal sword source73native30Hz -> frozen transfer/nativeGodot -> existingcombatcontroller/physicalbladecontact/cancel/pause;thenconnected earnedpact->revenge->wish->hospital path.",
+    "scope": "Existing runtime/Canon/order/save/receipts/SFX_ONLY preserved;no phase advancement,publishing,agents,paid generation orpurchase implied.",
+    "release": "Local playable Windows package after relevant journey/control/save/render checks;face deferral doesnot establishart/performance/device/chapteracceptance."
   }
 }

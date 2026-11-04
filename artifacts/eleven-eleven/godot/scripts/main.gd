@@ -244,6 +244,7 @@ func _save_native_preferences() -> void:
 	# Retain independently owned entry presentation flags and other settings.
 	preferences.load(native_preferences_path)
 	preferences.set_value("presentation", "muted", audio_muted)
+	preferences.set_value("presentation", "master_volume", master_volume)
 	preferences.set_value("presentation", "reduced_motion", reduced_motion)
 	preferences.set_value("presentation", "language", presentation_language)
 	preferences.set_value("presentation", "visual_quality", visual_quality)
@@ -257,6 +258,9 @@ func _load_native_preferences() -> void:
 		return
 	_restoring_native_session = true
 	var muted: Variant = preferences.get_value("presentation", "muted", false)
+	var saved_volume: Variant = preferences.get_value("presentation", "master_volume", 1.0)
+	if (saved_volume is float or saved_volume is int) and is_finite(float(saved_volume)):
+		set_master_volume(clampf(float(saved_volume), 0.0, 1.0))
 	var motion: Variant = preferences.get_value("presentation", "reduced_motion", false)
 	var language: Variant = preferences.get_value("presentation", "language", "ar")
 	if language is String and language in ["ar", "en"]:
@@ -277,7 +281,16 @@ func get_control_preferences() -> Dictionary:
 	var settings: Dictionary = touch.control_preferences() if touch else {}
 	settings["mouse_sensitivity"] = player.mouse_look_sensitivity / 0.0022 if player else 1.0
 	settings["touch_sensitivity"] = player.touch_look_sensitivity / 0.003 if player else 1.0
+	settings["bindings"] = preload("res://scripts/ui/control_bindings.gd").current()
 	return settings
+
+var master_volume := 1.0
+
+func set_master_volume(value: float) -> void:
+	if not is_finite(value): return
+	master_volume = clampf(value, 0.0, 1.0)
+	AudioServer.set_bus_volume_db(0, linear_to_db(maxf(master_volume, .00001)))
+	_save_native_preferences()
 
 func set_control_preferences(settings: Dictionary) -> void:
 	var touch = hud.find_child("MobileTouchControls", true, false) if hud else null
@@ -285,6 +298,8 @@ func set_control_preferences(settings: Dictionary) -> void:
 	touch.apply_control_preferences(settings)
 	player.mouse_look_sensitivity = 0.0022 * touch._finite_setting(settings, "mouse_sensitivity", 1, 0.5, 2.0)
 	player.touch_look_sensitivity = 0.003 * touch._finite_setting(settings, "touch_sensitivity", 1, 0.5, 2.0)
+	if settings.has("bindings"):
+		preload("res://scripts/ui/control_bindings.gd").apply(settings.bindings)
 	_save_native_preferences()
 
 func _notification(what: int) -> void:
@@ -327,7 +342,9 @@ func _input(event: InputEvent) -> void:
 		if toggle_personal_system(): get_viewport().set_input_as_handled()
 	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M:
 		set_audio_muted(not audio_muted)
-	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
+	# R belongs to lock-on. Keep the accessibility shortcut separate so a
+	# target change never silently toggles the camera/motion preference.
+	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F8:
 		set_reduced_motion(not reduced_motion)
 
 func show_environment_help() -> void:
@@ -650,29 +667,8 @@ func apply_stylized_shaders() -> void:
 	# Keep Echo's authored texture values and a restrained neutral silhouette rim.
 	if player and player.has_node("ModelRoot"):
 		var model_root := player.get_node("ModelRoot")
-		# The avatar owns cel shading. Wings, eyes and blades retain their own
-		# authored materials; broad traversal erased their textures and effects.
 		var avatar := model_root.get_node_or_null("EchoOpeningUniform")
-		ShaderApplicator.apply_cel_shader(
-			avatar,
-			CelShader,
-			Color(1.0, 1.0, 1.0, 1.0),
-			Color(0.75, 0.8, 0.86, 1.0),
-			Color(0.42, 0.45, 0.58, 1.0),
-			3.2,
-			0.18,
-			OutlineShader,
-			0.85,
-			0.12
-		)
-		for mesh in avatar.find_children("*","MeshInstance3D",true,false):
-			for surface in mesh.mesh.get_surface_count():
-				var material: Material=mesh.get_active_material(surface)
-				if material is ShaderMaterial and material.shader==CelShader:
-					material.set_shader_parameter("skin_light_scale",0.26)
-					material.set_shader_parameter("backlight_intensity",0.035)
-					material.set_shader_parameter("diffuse_light_ceiling",1.65)
-					material.set_shader_parameter("specular_light_ceiling",0.22)
+		apply_player_avatar_style(avatar)
 
 	# Boss Monster: Threat Anime Toon Cel Shading + Crimson Abyss Rim + Dark Outlines
 	if boss and boss.has_node("ModelRoot"):
@@ -687,6 +683,25 @@ func apply_stylized_shaders() -> void:
 			0.9,
 			OutlineShader
 		)
+
+func apply_player_avatar_style(avatar:Node) -> void:
+	if not avatar or avatar.get_meta("native_cel_style_ready",false):return
+	# A newly earned source enters the same bounded lighting pipeline as Echo.
+	# Scope the authored geometry; attached aura/blades retain their own shaders.
+	var source:Node=avatar.get_node_or_null("QualifiedPactSource")
+	if not source:source=avatar
+	var avatar_outline: Shader = OutlineShader
+	if avatar.has_method("supports_inverted_hull_outline") and not avatar.supports_inverted_hull_outline(): avatar_outline = null
+	ShaderApplicator.apply_cel_shader(source,CelShader,Color.WHITE,Color(.75,.8,.86,1),Color(.42,.45,.58,1),3.2,.18,avatar_outline,.85,.12)
+	for mesh in source.find_children("*","MeshInstance3D",true,false):
+		for surface in mesh.mesh.get_surface_count():
+			var material:Material=mesh.get_active_material(surface)
+			if material is ShaderMaterial and material.shader==CelShader:
+				material.set_shader_parameter("skin_light_scale",.26)
+				material.set_shader_parameter("backlight_intensity",.035)
+				material.set_shader_parameter("diffuse_light_ceiling",1.65)
+				material.set_shader_parameter("specular_light_ceiling",.22)
+	avatar.set_meta("native_cel_style_ready",true)
 
 func play_boss_intro() -> void:
 	if not intro_camera or not player:

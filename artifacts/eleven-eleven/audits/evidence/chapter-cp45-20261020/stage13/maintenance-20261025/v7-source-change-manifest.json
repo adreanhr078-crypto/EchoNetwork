@@ -1,0 +1,14 @@
+{
+  "prior_commit": "660a32fd1068563fbfa068a61e24140da71de785",
+  "current_source_hashes": {
+    "godot\\scripts\\environment\\maintenance_fullroom_dressing.gd": "892f3b6a36b9464be7ffb7fcf8d10fcf34426edd5b2ba05803396dad6994af5a",
+    "godot\\scripts\\environment\\maintenance_precision_architecture.gd": "d396eed75cacd92f513416a135608c4cc8ed236f464e640fe04e8bbc0668d204",
+    "godot\\scripts\\environment\\maintenance_soft_shadow_lease.gd": "041e4d77a1c653ce12d6351007b003a186d168ca64abaf8643f72d51168a12e3",
+    "godot\\tests\\maintenance_shadow_lease_review.gd": "08deb954b7b2ab5c2bca8b50ae246c4c5a89f07f7b86de81e425967dc9c639f0",
+    "godot\\tests\\maintenance_dressing_public_review.gd": "76880face48c4d2350fae1b92aaffc21f083e61a4eee684693bdc6a4168c2e2e"
+  },
+  "production_verification": "PENDING",
+  "candidate_ownership": "15PASS actual native Light3D fixture loaded from exact candidate outside repo",
+  "diagnostic_cause": "Opening Sector11Facility outside-room shadows;no global SSR/shadow/filter disable",
+  "scope": "Current edits after previous v6 proof;no automatic current visual acceptance"
+}

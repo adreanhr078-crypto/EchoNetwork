@@ -320,11 +320,15 @@ func _camera_and_collision() -> bool:
 	_drag(0, touch.joystick_center + Vector2(0, 75))
 	await _steps(55)
 	var sprint_fov: float = player.player_camera.fov
-	if not _check(sprint_fov > 69 and sprint_fov <= 70, "actual sprint did not approach the bounded 70-degree FOV: %.3f" % sprint_fov): return false
+	# The shared Hyper Anime rig owns the lens when present; legacy 65..70
+	# literals predate its configured 70..92 range and rejected correct playback.
+	var lens_base: float = player.action_camera_rig.base_fov if player.action_camera_rig else player.base_fov
+	var lens_max: float = player.action_camera_rig.maximum_fov if player.action_camera_rig else player.sprint_fov
+	if not _check(sprint_fov > lens_base + 0.1 and sprint_fov <= lens_max, "actual sprint escaped the active camera's configured lens range: %.3f" % sprint_fov): return false
 	main.set_reduced_motion(true)
 	await _steps(65)
 	var reduced_fov: float = player.player_camera.fov
-	if not _check(absf(reduced_fov - 65) < 0.03, "reduced motion retained the expanded sprint FOV"): return false
+	if not _check(absf(reduced_fov - lens_base) < 0.03, "reduced motion retained the expanded sprint FOV"): return false
 	touch.reset_input()
 	await _steps(16)
 	main.set_reduced_motion(false)

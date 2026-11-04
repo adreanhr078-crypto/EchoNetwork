@@ -1,0 +1,352 @@
+{
+  "date": "2026-11-04",
+  "observed_utc": "2026-11-04T12:31:33.413484+00:00",
+  "policy": "Owner authorized cleanup and publication. No physical deletion, no history rewrite, no unique source/Canon/Golden/art/evidence image removal. Build packages/cache kept locally.",
+  "before": {
+    "tracked": 46629,
+    "untracked": 6557,
+    "staged": 9381
+  },
+  "excluded_count": 42,
+  "excluded_bytes": 6204334175,
+  "records": [
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/argon-production-20261014/first-export-before-review-boot.pck",
+      "bytes": 333492644,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "bf7a7beb7a3872e34023e6b1b4c8576876afb1d281c5fc9e8f0debb184d089a5",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage06/package/ElevenEleven-CP45-Stage06.exe",
+      "bytes": 105509376,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "2b48a76a1729d9397b56d7230944201244a3473cc55f3d4823d3dff1ecc58cd5",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage06/package/ElevenEleven-CP45-Stage06.pck",
+      "bytes": 403363856,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "2c000aa7cc4508f7f3b590e0f710277e5bd149d8cffbf0ccd785669feeafb70c",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-entry/wasm/export-configuration-pass/index.pck",
+      "bytes": 73554016,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "42163327a8f426b9c0aa8299bb884dfaaca9c405224e004276cd6ea7a20d00c0",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-entry/wasm/export/index.pck",
+      "bytes": 73664896,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "8d8bb3fed07dc9f0c1c739e7c374c10428922c3cc40a26107a2912f77210c9f0",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-camera-profile.apk",
+      "bytes": 273986190,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "8016cbada5027425585ac5e5d17d120c8705565efbf21dbaab9d0bfe3373912c",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-debug.apk",
+      "bytes": 83926623,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "bad0fb9a1ed4ddff69880ba74a817b7a9b6648876a90bd7b4c1934df2b123094",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-final.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-final.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-final.pck",
+      "bytes": 248471332,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "84e303fa2f6330b56384386f198945bdd8e49a55da8dbe95fe4e68d9d3f41726",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-gles-comparison.apk",
+      "bytes": 273986190,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "740194ef7a7050b4db4a507d2d617aea3697c7882e6d25dae85bb2d46092e10e",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-landscape-debug.apk",
+      "bytes": 273911857,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "e758f3ebfc6e072b5030d60de43c0feacfd8edd070eb65898737ad2d7ad02e01",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-mesh-profile.apk",
+      "bytes": 273986190,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "a369cfc0b73679d1bbd7a488baa45770a52f35de1f815f1246b194a276ce11fd",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-mobile-raster-debug.apk",
+      "bytes": 273981722,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "6e3339794f0bb089c09739809c2f0214a6741607777a44127357cabd5bf43678",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-packaged.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-packaged.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-packaged.pck",
+      "bytes": 248400588,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "a482eaf730bf7b88a73b7a873aded8bcc5e60d85a0716273bfa52fec6498395d",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18-phone-diagnostic.apk",
+      "bytes": 273986190,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "ec575b120ea5e9f94885749d878761a7e00230c6e40a20e043d8b08e79243484",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp18-root/EchoNetwork-CP18.pck",
+      "bytes": 58397312,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "bc9d567c9374c996b002f84f7f1302f9b8c9b937a52bb65ccbc5bb1c21af0e13",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-final.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-final.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-final.pck",
+      "bytes": 332493548,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "40389a7913491287e29fd63dbae721b3420f030a285027a601ff20f4d934015a",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-review.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-review.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp19-room02-root/EchoNetwork-CP19-review.pck",
+      "bytes": 332492812,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "d5f3642328470e4a9f8394346b48b49116e5dc8634bb94944bc9c8e4cfb4ca5a",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-final.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-final.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-final.pck",
+      "bytes": 332030240,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "b66625608c66ffa42d1cc51e392fcce94b9282719963174daa4d03d2158f963a",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-reviewed.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-reviewed.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20-reviewed.pck",
+      "bytes": 332034460,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "41df781cdac309da7476dcdcfd04ea1656a2b6a268c138a0b06da65f8f0b1856",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20.console.exe",
+      "bytes": 50176,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "4713fefc9bbe042da13a38724297710e810bcda3166dfa405c3efecf8db3cdec",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20.exe",
+      "bytes": 103035904,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "5543ab4b6fb453c5dbe7f4effa0aad7f1cc06d73c12e8436adfc9fb266ac34ee",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/chapter-execution-20261009/cp20-v31-integration/EchoNetwork-CP20.pck",
+      "bytes": 332027184,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "8dac1895921efd4683b340af5d536850a064086e7c61dd170c6c9ca7c14b5fa2",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/character-shading-20261001/stance/current-v13-neutral-idle/__pycache__/current_target_mapping.cpython-313.pyc",
+      "bytes": 129,
+      "kind": "tracked",
+      "reason": "generated_cache",
+      "sha256": "5d65db96e3c8a3463b5a5dbfa4061f4a66825f53ef0ee5a21224cea1fe408fdc",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/build/EchoNetwork.exe",
+      "bytes": 111754240,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "763f35e79cdf227089d6985681455131203fe710623e75e60d8d5942b626b4da",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/build/EchoNetwork.pck",
+      "bytes": 334175356,
+      "kind": "tracked",
+      "reason": "regenerable_runtime_package",
+      "sha256": "59cbce71efd9a325fa5dadcb3b304f1e69c8333303214e6aaca6c4ab7071ea2d",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/quality-execution-20261006/current-target/supplied-v31-20261007/v11AG/__pycache__/test_cohort_arm.cpython-313.pyc",
+      "bytes": 18190,
+      "kind": "tracked",
+      "reason": "generated_cache",
+      "sha256": "09adda95e41c140497a1eeb8da595cf9d0ac7c71ba46f4e0dbc85ec9492cb821",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/audits/evidence/sprint-natural-20261001/attempt-02/__pycache__/diagnose_saved_contact.cpython-312.pyc",
+      "bytes": 130,
+      "kind": "tracked",
+      "reason": "generated_cache",
+      "sha256": "b8aa9d315900ef21fbdc9bad1628a3298d9dfa525df08f0b6745cdd430bd116c",
+      "action": "untrack_keep_local"
+    },
+    {
+      "path": "artifacts/eleven-eleven/godot/Godot/app_userdata/11.11 â€” Echo Network/logs/godot.log",
+      "bytes": 264,
+      "kind": "tracked",
+      "reason": "generated_cache",
+      "sha256": "bdf2e70a542d5b1898093804be793f24598f4af80f744665f766f842db4571f9",
+      "action": "untrack_keep_local"
+    }
+  ],
+  "backup": "Local index and patch snapshots outside repository under current Codex workspace work/repo-cleanup; not a remote backup claim",
+  "secret_scan": "Known token/private-key patterns in tracked/untracked text under3MB: zero matches. Not a comprehensive security audit."
+}

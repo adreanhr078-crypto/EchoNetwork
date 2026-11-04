@@ -1,0 +1,127 @@
+{
+  "file": "fan-corrected-textured-pbr4k.glb",
+  "sha256": "f0d57f4e67137f9bf714392baf762910f9b18339d85ba15a6881b51d9e855f2e",
+  "bytes": 62973884,
+  "triangles": 1775556,
+  "mesh_count": 2,
+  "scene_count": 1,
+  "mesh_nodes": [
+    {
+      "name": "Fan_FrameMesh",
+      "mesh": 0
+    },
+    {
+      "name": "Fan_RotorMesh",
+      "mesh": 1
+    }
+  ],
+  "material_count": 2,
+  "materials": [
+    {
+      "name": "Fan_FrameMesh_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    },
+    {
+      "name": "material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      },
+      "normalTexture": {
+        "index": 5
+      }
+    }
+  ],
+  "images": [
+    {
+      "index": 0,
+      "name": "fan-corrected-rigid-source.glb_Fan_FrameMesh_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGB",
+      "bytes": 4325182,
+      "sha256": "e331ea63134edbed1faa61e9752d1291fbb11d25658a4badf550bea28fc6f6c1"
+    },
+    {
+      "index": 1,
+      "name": "fan-corrected-rigid-source.glb_Fan_FrameMesh_rm.png",
+      "mime": "image/png",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 3772223,
+      "sha256": "ffefcb70b1827b4d9b899f5d7d037c53bf9661464b971769bef0bdc2964f2ccf"
+    },
+    {
+      "index": 2,
+      "name": "fan-corrected-rigid-source.glb_Fan_FrameMesh_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 1138455,
+      "sha256": "45b327ba2ba390d7e0493abfaae670727afc151bbeb5e6dac56633379dd949e4"
+    },
+    {
+      "index": 3,
+      "name": "fan-corrected-rigid-source.glb_Fan_RotorMesh_basecolor.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 1050329,
+      "sha256": "72b2e34bbbe45721e837f6ab6e2313a274c839820d143c63dbff76a4c0f98760"
+    },
+    {
+      "index": 4,
+      "name": "fan-corrected-rigid-source.glb_Fan_RotorMesh_rm.png",
+      "mime": "image/png",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 901958,
+      "sha256": "5532295427798fc1ebe80d7b71d39f86be48c56a4180bafa5d8a4ae575bec631"
+    },
+    {
+      "index": 5,
+      "name": "fan-corrected-rigid-source.glb_Fan_RotorMesh_normal.jpg",
+      "mime": "image/jpeg",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "bytes": 157345,
+      "sha256": "457ecdb25a507bfe8fdf35b6be2f2a14ae23969508bfd0d9b50be5a854903066"
+    }
+  ],
+  "extensions": [
+    "KHR_materials_volume",
+    "FB_ngon_encoding"
+  ]
+}

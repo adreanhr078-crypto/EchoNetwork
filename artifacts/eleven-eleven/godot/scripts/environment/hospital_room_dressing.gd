@@ -60,6 +60,9 @@ func configure(ward: Node3D) -> void:
 		environment.ssao_radius=.28
 		environment.ssao_intensity=.8
 		environment.ssao_power=1.4
+	if not OS.get_cmdline_user_args().has("--ward-legacy-baseline"):
+		var atmosphere:Node3D=load("res://scripts/environment/hospital_pbr_atmosphere.gd").new()
+		atmosphere.name="WardPBRAtmosphere";add_child(atmosphere)
 
 func _skin_bed() -> void:
 	var furniture: Node3D = room.get_node("WardFurniture")
@@ -125,7 +128,7 @@ func _window() -> void:
 		_box("WindowFrame",Vector3(2.92,.055,.075),Vector3(0,y,-2.815),_ivory)
 
 func _process(delta: float) -> void:
-	if not is_instance_valid(room) or not rain: return
+	if not is_instance_valid(room) or not rain or not room.is_visible_in_tree(): return
 	if not room.reduced_motion: elapsed+=delta
 	rain.set_shader_parameter("elapsed",elapsed)
 	rain.set_shader_parameter("motion",0.0 if room.reduced_motion else 1.0)

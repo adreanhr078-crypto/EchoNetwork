@@ -37,8 +37,9 @@ func _light(parent:Node3D,reach:float) -> OmniLight3D:
 func configure(socket:RefCounted) -> void:
 	attachment=socket
 	if not is_instance_valid(attachment.skeleton):return
-	hand_bone=attachment.skeleton.find_bone("LeftHand")
-	arm_bone=attachment.skeleton.find_bone("LeftForeArm")
+	var hand_name: String=preload("res://scripts/player/echo_rig_profile.gd").bone(attachment.skeleton,"left_hand")
+	hand_bone=attachment.skeleton.find_bone(hand_name)
+	arm_bone=attachment.skeleton.find_bone(hand_name.trim_suffix("Hand")+"ForeArm")
 
 func present(time:float,reveal:float,strength:float,reduced:bool) -> void:
 	if not attachment or not attachment.contract_is_sealed() or not attachment.is_manifested:

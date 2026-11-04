@@ -10,6 +10,7 @@ var neck_index:=-1
 var report:Dictionary={}
 var local_forward := Vector3.ZERO
 var _ink_bind_points: Dictionary = {}
+var _model_to_skeleton := Transform3D.IDENTITY
 
 func begin(model:Node3D, previous:Camera3D) -> bool:
 	actor=model
@@ -19,6 +20,10 @@ func begin(model:Node3D, previous:Camera3D) -> bool:
 	var profile := preload("res://scripts/player/echo_rig_profile.gd").identify(skeleton)
 	if profile.is_empty(): return false
 	local_forward = profile.local_forward
+	if profile.get("id") in ["echo_school_mixamo_65","echo_pact_mixamo_72"]:
+		# These imported sources retain their own axis conversion. The ink
+		# report uses ModelRoot space; skin deformation uses skeleton space.
+		_model_to_skeleton=skeleton.global_transform.affine_inverse()*actor.global_transform
 	neck_index=skeleton.find_bone(String(report.get("bone","")))
 	if neck_index<0 or not report.get("native_skin",false): return false
 	_prepare_ink_centroid()
@@ -43,7 +48,7 @@ func _update_camera() -> void:
 	var angle:float=deg_to_rad(report.angle_degrees)
 	var outward:Vector3=Basis(Vector3.UP,-angle)*local_forward
 	var deformation:=skeleton.get_bone_global_pose(neck_index)*skeleton.get_bone_global_rest(neck_index).affine_inverse()
-	var focus:Vector3=skeleton.to_global(deformation*(point+outward*0.02))
+	var focus:Vector3=skeleton.to_global(deformation*(_model_to_skeleton*(point+outward*0.02)))
 	if not _ink_bind_points.is_empty():
 		var ink_center := Vector3.ZERO
 		for bone in _ink_bind_points:
@@ -51,8 +56,8 @@ func _update_camera() -> void:
 			var data: Dictionary = _ink_bind_points[bone]
 			ink_center += pose.basis * data.point + pose.origin * data.weight
 		focus = skeleton.to_global(ink_center)
-	var direction:Vector3=(skeleton.global_basis*deformation.basis*outward).normalized()
-	var up:Vector3=(skeleton.global_basis*deformation.basis*Vector3.UP).normalized()
+	var direction:Vector3=(skeleton.global_basis*deformation.basis*_model_to_skeleton.basis*outward).normalized()
+	var up:Vector3=(skeleton.global_basis*deformation.basis*_model_to_skeleton.basis*Vector3.UP).normalized()
 	# Reserve the lower frame for the readable confirmation panel.
 	# The adopted high collar exposes a much shorter patch than the legacy neck.
 	# Keep its measured ink centroid in frame rather than looking down at cloth.

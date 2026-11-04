@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/echo_school_motion_adapter.gd" id="1"]
+[ext_resource type="PackedScene" path="res://assets/characters/echo_school65_candidate.glb" id="2"]
+
+[node name="EchoSchoolCandidate" type="Node3D"]
+script = ExtResource("1")
+
+[node name="QualifiedSchoolSource" parent="." instance=ExtResource("2")]

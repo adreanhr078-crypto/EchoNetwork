@@ -109,6 +109,11 @@ func _run() -> void:
 	root.unfocusable = true
 	root.size = Vector2i(1280, 720)
 	var args := OS.get_cmdline_user_args()
+	for argument in args:
+		if argument.begins_with("--physics-hz="):
+			var hz := int(argument.trim_prefix("--physics-hz="))
+			if not _check(hz in [30,60],"Unsupported review physics clock"): return
+			Engine.physics_ticks_per_second = hz
 	if args.has("--compact"): root.size = Vector2i(960,540)
 	var standard := args.has("--standard")
 	record_effects = args.has("--effects") and DisplayServer.get_name() != "headless"
@@ -147,10 +152,19 @@ func _run() -> void:
 		await physics_frame
 	await _capture("00-arrival")
 	print("ROOM01_ARRIVAL")
-	player.finish_opening_recovery()
+	if args.has("--full-recovery"):
+		for frame in 900:
+			if not player.opening_recovery_active: break
+			await _frames(1)
+		if not _check(not player.opening_recovery_active,"Natural opening recovery did not return control"): return
+	else:
+		player.finish_opening_recovery()
 	_drain_dialogue()
 	await _frames(10)
-	if not _check(player.find_child("ReviewedHighSource", true, false) != null, "Current V31 missing"): return
+	var rig := player.find_child("Skeleton3D",true,false) as Skeleton3D
+	var profiles = preload("res://scripts/player/echo_rig_profile.gd")
+	var expected_id: String = profiles.SCHOOL65_ID if args.has("--echo-school-candidate") else profiles.V31_ID
+	if not _check(profiles.identify(rig).get("id")==expected_id,"Selected current avatar identity missing"): return
 	var camera := Camera3D.new()
 	camera.fov = 65
 	main.add_child(camera)

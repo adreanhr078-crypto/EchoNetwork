@@ -3124,3 +3124,73 @@ Quality first by explicit owner direction;current-device speed is nonblocking. N
 ## CP45_STAGE13_REACTOR_STRUCTURAL_HIGH_ART_PASS_SCOPED — 2026-10-25
 
 Room06 actual Forward+High4 native views:3-axis scoped static artPASS;47 originalcolliders/13gratings/14clearventrays/196054tri crown/all3maps4K/8LODs. Currentstandard public04→05→06:75checks/49uniqueimages/0retries;actualearned5filecoldreloadPASS. Same plasma radii/positions/nativeclock;wholeframelessmemorydirector retainedbyte-identical. NoGolden/motionchanges/commit/push. Currentlocalreport:audits/evidence/chapter-cp45-20261020/stage13/reactor-20261025/quality-report.json. NextP04maintenance02/07/08/10 thenP05–P13;movingacting/audio/fun/wholechapter/package/strongerhardwareOPEN. GitHub recoveryseparate,remotequotanotfreed. Resumecompactcachefirst.
+
+
+## 2026-10-29 — Room07 economical source qualification
+Eight source hashes match;seven UV-repaired authored meshes retain exact unique positions,56588 triangles,zero texture images.Combined source absent.Read-only integrity evidence in audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/resume-20261029/source-audit.json.No runtime changes,paid jobs,agents,commits or publication.Current queue/inventory synchronized with latest cache.Next:targeted Texture/PBR or qualified transfer,retain78generatedgroups,merge,native earned-save route and rendering,connected Vulkan/memory gate.Earlier353/13/7 results are historical separate candidates;no fresh runtime/art/performance PASS.
+
+
+## 2026-10-29 — Room07 targeted PBR/native candidate and Tripo cleanup
+Targeted7 material/PBR complete25credits,live2235.78source groups preserved;combined85/1222654tri;493974 runtime/3x4K compressed maps.14headless+8isolated native-player+14connected earned High1280 scoped PASS,lifecycle PASS;original earned source unchanged.4source parts10/32stairs and36/37arches deleted in Tripo UI;86mesh-node download verified,original90source retained.Current room art remains rejected;normal-off/full-detail controls did not cure source softness.No promotion,purchase,agents,commit or publication.Next existing-room selective cleanup,07art then08/10 then authorized short-jacket Echo rig/animation;Canon/Golden/V31/SFX_ONLY retained.Quality report: audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/resume-20261029/quality-report.json.
+
+
+## 2026-10-29 — Room07 default precision and physical atmosphere
+Default Room07 selectively replaces soft generated surfaces with accepted Tripo PBR pod/lab-kit and precise service frames. Six water patches react to actual animation contacts;bounded steam/airflow and physical pooled droplets.11 native-player/14 earned connected High1280/42 module plus lifecycle scoped PASS. Raw originals retained;new generation cost0.08/10 architecture,03–06 targeted polish,and short-jacket Echo remain;chapter/fun/audio/performance acceptance open. audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/precision-reactive-20261029/quality-report.json
+
+
+## 2026-10-29 — Ward10 default and physical03–06;school-uniform Echo
+Hospital native High12checks/fourviews/16unchangedcolliders and restored Compatibility/headless inspection/savePASS. Full-world Forward+ VkResult-2/signal11FAIL retained.03–06 localair/condensation/cooling and actual animation-contactdust:33lifecycle/10public-contact;fresh current Stormworks chapter353/0retries headless and postflightPASS. No chapterart/audio/fun/deviceacceptance. Owner now selects schooluniform withoutcape/longcoat;two nativeimagegen front/backreferences;TripoAgenticCanvas SmartMesh25000Quad request returned51552tri;Blenderhands inspected. Geometry100+4Ktexture20=120credits;live1620;texture running.Originalavatar/Golden/Canon preserved;ROOT_ONLY;continuecompactcache.
+
+
+## 2026-11-01 — Character lab preparation / plan only
+
+Owner requested a dedicated character/animation/physics skill, prepared environment, accurate compact map and staged game-gap plan before integration. New skill: C:/Users/yasmo/.codex/skills/echo-character-lab/SKILL.md. New tools: tools/character-lab/{doctor.py,inspect_blender.py,api_probe.gd}. Plan: docs/internal/production/CHARACTER_FOUNDATION_PLAN.ar.md. Current card/cache/map refreshed;previous docs preserved in .tmp/echo-character-lab/before-context-20261101.
+
+Evidence: audits/evidence/character-lab-20261101/quality-report.json. Preflight/postflight PASS;skill validator PASS;5GLB intake and cache5/5;10/10 room primary-source and recorded-capture hashes;Blender5.2.2 source read-only and Godot4.8-dev7 ClassDB probes;Golden192 before/after. Boxing original96samples24Hz/66joints:6336 independent raw-vs-Blender joint comparisons max5.071e-6m and14 source skin captures inspected. Target65 transfer/Godot/gameplay remain unqualified. Python venv isolated under lab;NumPy2.3.4 andPyYAML6.0.3 added;Pillow reused.
+
+School target65 has0morphs and no accessory chains. Run/Idle/Jump prior isolated gates retained;Walk remains next source/Blender/export/Godot qualification. Current renewed facial request permits bounded diagnosis after prior stop;old prototypes remain unaccepted. No current default player,source keys,Golden,Canon,save,room runtime or general settings changed. No paid generation,agents,commit,push orpublication;prior9381staged paths preserved. Room fun,acting,audio,device,full-chapter andForward+world performance remain OPEN. Next:closeWalk,then target65profile and required traversal/control/camera integration in bounded stage.
+
+
+## 2026-11-01 — School65 pilot / pact rig source / cache refresh
+
+School65 optional native player/camera pilot:21headless and20prior-rendered checks;actual opening/input/camera/save foundation renderedPASS Compatibility960x540. DefaultV31 retained. Walk37 andHang29 qualified with originalkeys;Run/Idle/Jump retained,223isolatedsamples total. EX011 fitted direct lowerneck;Golden192PASS. Evidence:audits/evidence/character-school-20261101/quality-report.json. Finalroot postflightPASS. Same-identity single-left-wing pact variant generated,Owner praised shape/color;PBR3x4K andoneMixamo65 rig downloaded,allmap pixels preserved. Observedtotal150credits,last1385;no purchases. Not runtime-qualified:wing/deformation/face/bakednecktext/motions/pactVFX remainOPEN. Compactcache,map,23sourcehashes andexplicitOwner memory note refreshed;uniqueoldstate archived. ROOT_ONLY;noagents/commit/push. Next:Mantle35thenStand20 qualification,connectedRoom02 contacts;qualifypact body andindependentwing without reroll. Room/fun/audio/device/chapter/Forward+world acceptanceOPEN.
+
+
+## 2026-11-02 — School65 native traversal and physics tool readiness
+
+Mantle35/Stand20 native30Hz qualified by frozen transfer andactual Blender/Godot views;7motions/278samples total. School65 native aliases through existing player;profile-aware hand/foot mapping,no key edits. ActualRoom02 public-input native mantle:11headless+11rendered,106frames,grip2.39e-7m,hipsstep0.04513m;32abort/drop/unload/RM/pause checks andmaintenance surfaces/stamina/headroomPASS.18captures incl actualplayercamera inspected,currenthashesmatch. Schoolpilot24 anddefaultV31native/abort/asset regressionsPASS;Golden192;finalpostflight/diffPASS. V31 default preserved. Physics:officialWiggleBones1.1.2 GPL3 packageSHA9f58389c7702d8a4d768fb0d8b53aebc441032363b9269c97bf5736d0561f8a0 installed onlyisolatedBlenderprofile,then DISABLED aftertwo disposablechain contact/length failures;neverusedonEcho. NativeJolt180tick floorcollisionPASS;spring/collision/cloth APIs present,not Echo skin/wing acceptance. Original source-render IntelGPU shutdowncrash retained;separatebake/comparison/exportPASS. Tools evidence:audits/evidence/character-tools-20261102. No newpaidgeneration,agents,commit/push.36sourcehashes/card/cache/map refreshed. Next:full waking->maintenance->gate/save/death and30/60Hz journey;wake/roll/combat thenpact wing/body/face/neckcleanup/earnedVFX gates remainOPEN.
+
+
+## 2026-11-02 — School65 actual route and isolated Pact72 wing
+
+8motions/350native samples;Roll runtime27/rendered6PASS. Production Stormworks30Hz82/headless and60Hz83/rendered withactualfall/earnedretry andpause;memory-pane camera occlusion fixed (7targeted checks/camera regressionPASS). Old11/32mantle fixture is maintenance_vertical only. Pact72 derivative:7wing bones/body65weights preserved;3x4KPBR pixel-identical;native SpringBone30/60Hz180ticks andstudio capturesPASS scoped,not runtime/contact/art acceptance. LegacyWake22 numericPASS/visualFAIL/rest-arm102..105deg;not exported. TripoCLI0.7.2 installed isolated/liveAPI0;Studio control stopped due URLconfidence. postflight+Golden192PASS;9381staged preserved,ROOT_ONLY,no paid submissions/commit/push. Next:compatibleproneWake gate,then face/combat/earned pact integration. Current card/cache/hash manifest are authoritative.
+
+
+## 2026-11-02 — Wake native runtime;boxing reference;face topology gate
+
+WAKE120_NATIVE_RUNTIME_PASS_BOXING96_LAB_PASS_FACE_MORPH_PASS_TOPOLOGY_FAIL
+
+WakeA120/24Hz fromStudio nowopt-in inexistingSchool65player;195tracks/23400keys preserved,max4.82um. Physics-sample grounding fixed;137actualskin phases floor0.102mm;15rendered checks each30/60PASS. Connectedopening→productionStormworks→valve/security:81headless30/81rendered60PASS.8base350unchanged,V31default. WakehandartOPEN;wronglate-supportassertion retained,noIKforced. WakeB144prone researchnotselected. TwoStudiojobs40credits viaCodexIAB,1345observedearlier;lastbalance refreshIABbinding unavailable,noEdgefallback/newjobs/purchase.
+
+ExistingBoxing96/24Hz frozen transferBlender/GodotPASS scoped,192native captures/12inspected,notruntimecombat. Connectedblink diagnostic preservesoutsidecut and3original4Kmaps;6geometry+7nativeRest+9nativeBody(18statesWalk/Jump/Wake)PASS scoped. Actualvisiblecreases andindependentlyconfirmed stricttrianglecrossings atneutral/intermediate/closed phases makeface topology/artFAIL. Worselinearrevision archived,best213e0c659f92 restored/cachehit;GLBac38589cc8a1 isolateddiagnostic only,noemotions/visemes/runtimeface.
+
+FinalGolden192/postflight/scopeddiffPASS;9381staged namesunchanged,ROOT_ONLY,nocommit/push. Report:audits/evidence/character-school-20261102/wake-execution/quality-report.json. Next:bijectiveeyelidsurface/cupretopology,removepropercrossings thenactualcloseupreview;do notmaskfoldswithnormals. Handart,combatgameplay,Pact72contacts/runtime/neckEX011/earnedVFX,device/performance/chapter remainOPEN. Currentcard/cache/sourcehashes updated;interruptiontime isnotactivework.
+
+Final browser addendum:CodexIAB connection recovered after computer-use kernelreset;fresh header1345confirmed,sourceA4.80/4.96s previewverified andproofsaved. No additionaljob orEdgefallback.
+
+Read-only ring correspondence followup:neutralindividualderivedring contours havezero2Dselfcrossings,butadjacentouterstrip contourscross16timespereyefrontprojection;rightsourceweldrim2projectedcrossings. Topologyneedsnested/bijectiveparameterization,notnormalpolish. Projectionisnot3Dcollision;stricttriangleevidence remainsseparate. FinalpostflightrecheckedPASS.
+
+
+## 2026-11-03 — Experience quality rebuild, scoped first delivery
+
+EXPERIENCE_UI24_CLIMB16_ROUTE88_SCHOOL_OUTLINE_SCOPED: Native pause/settings and persisted key rebind/master bus;root-owned Boot loading/retry;real cover drag;shared original46KBplate;forward wall climb after jump apex/hold mantle;wheel eligibility unified;School-only inverted-hull black-back artifact isolated and removed from presentation,source meshes/maps/motion keys intact. Rendered default22/School24,climb30/60=16,connectedSchoolheadless60=88,preflight/postflightPASS. Failed early attachment probes retained. See current card/cache and experience-rebuild-20261103/quality-report.json. Full plan,auth/newcinematics/newcourse/roommissions/Flowaudio/otherhandoffs/art/performance/Windowsreexport remainOPEN. ROOT_ONLY,nocommit/push/purchase/agents.
+
+
+## 2026-11-03 — Owner study-only cinematic quality rebuild
+
+Runtime work stopped at direct latest planning-only instruction. Current plan:CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md;scene-event ledger:CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json (53 planned events,not generated films).Studied primary production sources and selected official visual samples;TokyoGhoulJason clip region-blocked/episode not playable,full sound review not performed. No invented full-viewing/listening claims. Corrected Father=Kenja continuity. Unique footage/walking Echo response/future mirror/chair/ocean pact/gradual transformation/fist+rope revenge/System+hospital/water quality and prior controls/UI requirements are explicit. Preserve prior scopedUI24/climb16/route88;no further runtime changes,paid jobs,purchases,agents,commit orpush.
+
+
+## 2026-11-04 — Repository cleanup and consolidated production plan
+
+Owner authorized cleanup/commit/push before next production. Master:PRODUCTION_MASTER_2026-11-04.ar.md;18gated stages,53planned events unchanged.42generated review packages/cache untracked with local retention/hash manifest;no history rewrite or source/Canon/Golden deletion. Source-tree guide/repo:check added;repository URL corrected. PreflightPASS;postflight/publication pending live verification. Cascadeur installed perOwner,trial not verified active;compare Indie/Pro via actual motion/export case. ElevenStarter recommended,not purchased;REAPER60day evaluation. No new runtime integration or artistic acceptance,ROOT_ONLY.

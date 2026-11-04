@@ -143,6 +143,7 @@ func _ready() -> void:
 		for visual in guardrail.get_children():
 			if visual is MeshInstance3D: visual.material_override = steel
 	preload("res://scripts/environment/reactor_mechanical_dressing.gd").install(self)
+	preload("res://scripts/environment/room_device_atmosphere.gd").install(self,"reactor")
 
 func _build_service_route() -> void:
 	var support = preload("res://scripts/environment/room_path_support.gd")

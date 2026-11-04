@@ -251,6 +251,7 @@ func _process(delta:float) -> void:
 		used[clip]=true
 		var video:VideoStreamPlayer=_ensure_source(clip)
 		var material:ShaderMaterial=monitor.get_meta("surface").material_override
+		_update_surface_visibility(monitor.get_meta("surface"),delta)
 		material.set_shader_parameter("footage",video.get_video_texture() if video.stream_position>0.04 else sources[clip].poster)
 		material.set_shader_parameter("motion",0.0 if reduced_motion else 1.0)
 		var duration:=16.0 if clip=="reel" else 8.0
@@ -263,6 +264,28 @@ func _process(delta:float) -> void:
 			sources[id].started=false
 		else: video.paused=reduced_motion and video.stream_position>0.05
 	_update_audio(screens,delta)
+
+func _update_surface_visibility(surface: MeshInstance3D, delta: float) -> void:
+	var camera: Camera3D=main.get_viewport().get_camera_3d()
+	var obstructing:=false
+	# Memory panes have no physical collision. Keep them out of the avatar's
+	# sightline without retracting the camera or changing cinematic framing.
+	if camera==main.player.player_camera and not main.player._camera_suspended:
+		var inverse:=surface.global_transform.affine_inverse()
+		var from:=inverse*camera.global_position
+		var center: Vector3=main.player.global_position+Vector3.UP
+		var shoulder: Vector3=camera.global_basis.x*.3
+		for point in [center,center+Vector3.UP*.65,center-Vector3.UP*.7,center+shoulder,center-shoulder]:
+			if surface.custom_aabb.intersects_segment(from,inverse*point)!=null:
+				obstructing=true
+				break
+	var material: ShaderMaterial=surface.material_override
+	var stored=material.get_shader_parameter("camera_visibility")
+	var previous:=1.0 if stored==null else float(stored)
+	var wanted:=0.0 if obstructing else 1.0
+	# Clear immediately; fade the memory back only after the route is visible.
+	var opacity:=wanted if obstructing or reduced_motion or camera!=main.player.player_camera or main.player._camera_suspended else move_toward(previous,wanted,maxf(delta,0.0)*5.0)
+	material.set_shader_parameter("camera_visibility",opacity)
 
 func _ensure_source(id:String) -> VideoStreamPlayer:
 	var source:Dictionary=sources[id]

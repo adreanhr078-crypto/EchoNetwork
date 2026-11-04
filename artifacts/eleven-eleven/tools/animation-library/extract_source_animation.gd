@@ -14,8 +14,13 @@ func _run() -> void:
 	if output.contains("/golden/") or output.contains("/single-walk-20260930/") or not output.ends_with(".res") or FileAccess.file_exists(output):
 		fail("Output must be a new, unprotected derived library");return
 	var facts:Variant=JSON.parse_string(FileAccess.get_file_as_string(args[1]))
-	if not facts is Dictionary or facts.get("native_fps")!=30 or facts.get("source_glb_sha256")!=FileAccess.get_sha256(args[0]):
+	if not facts is Dictionary:
+		fail("Measured source facts must be a dictionary");return
+	var native_fps: Variant = facts.get("native_fps")
+	if not (native_fps is int or native_fps is float) or not is_finite(float(native_fps)) or float(native_fps) not in [24.0,30.0] or facts.get("source_glb_sha256")!=FileAccess.get_sha256(args[0]):
 		fail("Native source identity/timing facts do not match imported GLB");return
+	if facts.native_fps==24 and not facts.get("validated_native_gltf_clock",false):
+		fail("24Hz requires the independently validated original glTF clock");return
 	var packed:=load(args[0]) as PackedScene
 	if not packed: fail("Verified scene cannot load");return
 	var scene:=packed.instantiate()
@@ -28,9 +33,14 @@ func _run() -> void:
 	derived.set_meta("source_ground_speed_mps",facts.get("source_ground_speed_mps",0.0))
 	derived.set_meta("source_foot_contacts",facts.get("source_foot_contacts",{}))
 	derived.set_meta("source_take_id",facts.get("take_id",""))
-	derived.set_meta("source_native_fps",30)
+	derived.set_meta("source_native_fps",int(facts.native_fps))
 	derived.set_meta("source_native_samples",facts.get("native_samples",0))
 	derived.set_meta("source_blend_sha256",facts.get("blend_sha256",""))
+	if facts.has("source_skin_contacts"):
+		var contacts: Dictionary = facts.source_skin_contacts
+		if contacts.get("source_glb_sha256") != facts.source_glb_sha256 or contacts.get("action") != action or contacts.get("samples") != 481 or contacts.get("offsets", []).size() != 481:
+			fail("Measured skin contact profile does not match this exact source");return
+		derived.set_meta("source_skin_contacts", contacts)
 	var library:=AnimationLibrary.new()
 	library.add_animation(action,derived)
 	if ResourceSaver.save(library,output)!=OK: fail("Derived library save failed");return
@@ -46,7 +56,7 @@ func _run() -> void:
 			if source.track_get_key_time(track,key)!=replay.track_get_key_time(track,key) or source.track_get_key_value(track,key)!=replay.track_get_key_value(track,key):
 				fail("Saved imported source key changed");return
 			keys+=1
-	var report:Dictionary={"status":"PASS","keys_compared_exactly":keys,"tracks":source.get_track_count(),"duration":source.length,"output":output,"library_sha256":FileAccess.get_sha256(output),"source_glb_sha256":facts.source_glb_sha256,"native_fps":30,"source_take_id":facts.take_id,"source_keys_modified":false,"scope":"Standalone animation plus playback/contact metadata; no runtime replacement"}
+	var report:Dictionary={"status":"PASS","keys_compared_exactly":keys,"tracks":source.get_track_count(),"duration":source.length,"output":output,"library_sha256":FileAccess.get_sha256(output),"source_glb_sha256":facts.source_glb_sha256,"native_fps":int(facts.native_fps),"source_take_id":facts.take_id,"source_keys_modified":false,"scope":"Standalone animation plus playback/contact metadata; no runtime replacement"}
 	var file:=FileAccess.open(output+".json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"));file.close()
 	print("STANDALONE_SOURCE_ANIMATION ",JSON.stringify(report))

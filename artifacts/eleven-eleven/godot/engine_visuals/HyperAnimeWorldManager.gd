@@ -42,6 +42,7 @@ var _impact_strength := 0.0
 var _saved_scale := 1.0
 var _leased_scale := -1.0
 var _release_at := 0
+var _combat_time_effects: Dictionary = {}
 var _last_tick := 0
 var _leased_environments: Dictionary = {}
 var _owned_environment := false
@@ -191,7 +192,8 @@ func _apply_viewport_quality() -> void:
 	if not is_instance_valid(main): return
 	var viewport:=main.get_viewport()
 	viewport.scaling_3d_scale=0.65 if quality=="low" else (0.85 if quality=="medium" else 1.0)
-	viewport.msaa_3d=Viewport.MSAA_DISABLED if quality=="low" else Viewport.MSAA_4X
+	var compatibility:bool=RenderingServer.get_current_rendering_method()=="gl_compatibility"
+	viewport.msaa_3d=Viewport.MSAA_DISABLED if quality=="low" else (Viewport.MSAA_2X if compatibility else Viewport.MSAA_4X)
 	viewport.screen_space_aa=Viewport.SCREEN_SPACE_AA_FXAA if quality!="low" and RenderingServer.get_current_rendering_method()!="gl_compatibility" else Viewport.SCREEN_SPACE_AA_DISABLED
 
 func set_preset(id: String, duration: float = 0.8) -> bool:
@@ -272,16 +274,51 @@ func trigger_impact_pulse(intensity: float, duration: float, world_pos: Vector3)
 	# Only a confirmed combat event may stop time. Physical landings use the
 	# camera/VFX response and never slow human traversal.
 	if player and bool(player.get("combat_available")) and intensity >= 0.65:
-		if _leased_scale < 0.0:
-			_saved_scale = Engine.time_scale
-			_leased_scale = _saved_scale * 0.3
-			Engine.time_scale = _leased_scale
-		_release_at = Time.get_ticks_usec()+55000
+		request_combat_time_effect(player,"hit_stop",.3,.055)
+
+func request_combat_time_effect(actor: Node, kind: String, factor: float, duration: float) -> bool:
+	if not is_instance_valid(actor) or not actor.is_inside_tree() or get_tree().paused or reduced_motion: return false
+	if actor.get("reduced_motion") == true or actor.get("control_locked") == true or actor.get("combat_available") != true: return false
+	if kind not in ["hit_stop","perfect_dodge"] or not is_finite(factor) or not is_finite(duration): return false
+	if Engine.time_scale <= .001: return false
+	# A different time owner wins. Never capture our own slowed scale as a new
+	# base,or let an old delayed callback overwrite a cinematic/dodge effect.
+	if _leased_scale >= 0 and not is_equal_approx(Engine.time_scale,_leased_scale): _release_time()
+	if _leased_scale < 0: _saved_scale = Engine.time_scale
+	var key := str(actor.get_instance_id())+":"+kind
+	var expires := Time.get_ticks_usec()+int(clampf(duration,.025,.12 if kind=="hit_stop" else 1.2)*1000000.0)
+	var existing: Dictionary = _combat_time_effects.get(key,{})
+	_combat_time_effects[key] = {"actor":weakref(actor),"expires":maxi(expires,int(existing.get("expires",0))),"factor":minf(clampf(factor,.05,1.0),float(existing.get("factor",1.0)))}
+	_apply_combat_time_effects()
+	return true
+
+func _apply_combat_time_effects() -> void:
+	var factor := 1.0
+	_release_at = 9223372036854775807
+	for effect: Dictionary in _combat_time_effects.values():
+		factor = minf(factor,float(effect.factor))
+		_release_at = mini(_release_at,int(effect.expires))
+	_leased_scale = _saved_scale*factor
+	Engine.time_scale = _leased_scale
+
+func _tick_combat_time_effects(now: int) -> void:
+	if _leased_scale < 0: return
+	if get_tree().paused or reduced_motion or not is_equal_approx(Engine.time_scale,_leased_scale):
+		_release_time()
+		return
+	for key in _combat_time_effects.keys():
+		var effect: Dictionary = _combat_time_effects[key]
+		var actor: Node = effect.actor.get_ref()
+		if now >= int(effect.expires) or not is_instance_valid(actor) or not actor.is_inside_tree() or actor.get("reduced_motion") == true or actor.get("control_locked") == true or actor.get("combat_available") != true:
+			_combat_time_effects.erase(key)
+	if _combat_time_effects.is_empty(): _release_time()
+	else: _apply_combat_time_effects()
 
 func _release_time() -> void:
 	if _leased_scale >= 0.0 and is_equal_approx(Engine.time_scale,_leased_scale): Engine.time_scale = _saved_scale
 	_leased_scale = -1.0
 	_release_at = 0
+	_combat_time_effects.clear()
 
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
@@ -298,7 +335,7 @@ func _process(_delta: float) -> void:
 	var now := Time.get_ticks_usec()
 	var real_delta := clampf(float(now-_last_tick)/1000000.0,0.0,0.1)
 	_last_tick = now
-	if _leased_scale >= 0 and (now>=_release_at or get_tree().paused): _release_time()
+	_tick_combat_time_effects(now)
 	if get_tree().paused: return
 	if not reduced_motion: visual_time += real_delta * Engine.time_scale
 	RenderingServer.global_shader_parameter_set("hyper_visual_time",visual_time)

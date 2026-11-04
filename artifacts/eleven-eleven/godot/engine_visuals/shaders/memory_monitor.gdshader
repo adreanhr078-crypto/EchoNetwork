@@ -10,6 +10,7 @@ uniform float clip_duration = 8.0;
 uniform float detail = 1.0;
 uniform float drift_scale = 1.0;
 uniform float phase = 1.9;
+uniform float camera_visibility = 1.0;
 void vertex() {
     float t = hyper_visual_time * motion;
     // An intact, frameless memory pane drifts as a single rigid surface.
@@ -30,4 +31,5 @@ void fragment() {
     vec3 glass_edge = mix(vec3(0.12,0.42,0.62),vec3(0.42,0.25,0.65),0.3);
     ALBEDO = mix(memory,glass_edge*0.3,thin_edge*0.35);
     EMISSION = glass_edge*thin_edge*0.3;
+    ALPHA = camera_visibility;
 }

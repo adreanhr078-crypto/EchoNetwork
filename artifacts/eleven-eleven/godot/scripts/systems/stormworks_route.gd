@@ -24,3 +24,10 @@ static func anchor(stage: int, step: int) -> Vector3:
 		Vector3(-2.3,3.08,-14.65),Vector3(-4,3.02,-16.06),
 		Vector3(-1.8,5.65,-16.725),Vector3(1.25,5.65,-17.46),
 		Vector3(0,5.65,-18.85)][clampi(stage,0,7)]
+
+static func minimum_retry_height(stage: int, step: int) -> float:
+	# The chamber has a solid floor at y=0. Once the elevated course is earned,
+	# falling onto that floor must retry rather than strand the player below it.
+	# All authored landings are within 0.15m of their checkpoint height; leave
+	# 1.2m clearance for jump, vault and native mantle capsule travel.
+	return anchor(stage,step).y-1.2 if stage >= 2 else -0.18

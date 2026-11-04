@@ -1,3 +1,9 @@
+الأحدث: خطة تجربة `EXPERIENCE_REBUILD_2026-11-03.ar.md` ودليل `experience-rebuild-20261103/quality-report.json`؛واجهة24/تسلق16/رحلة88نطاقية،باقي المراحل مفتوحة. الكاش والبطاقة يحكمان التاريخ أدناه.
+
+<!-- CHARACTER_LAB_20261101 -->
+الأحدث3نوفمبر: Schoolاختياري وPact72مكتسب423عينة أصلية داخل اللاعب؛رحلةStormworksجديدة356PASS،تحول62،مختبر98،رحلةمكتسبةمصورة61،وتصديرمراجعةWindows21معZIPCRCوبصمةمحفوظة. الأداء720Intelمقاس21/52/78حسبالجودة؛ليسقبولفصل/أجهزة/فن. ضربةثقيلة56قيدالتأهيل المعزول،والوجه مؤجل. CURRENT_WORK والكاش يحكمان التاريخ أدناه.
+<!-- /CHARACTER_LAB_20261101 -->
+
 <!-- MAINTENANCE_CURRENT_20261026 -->
 أحدث نقطة: غرفة02 بناء دقيق؛43فحص إدخال عام/57صورة وحفظ مكتسب/إعادة تحميل PASS؛المعمارية PASS والمواد والتكوين REFINE. كاشCURRENT_CONTEXT_CACHE وmaintenance-refinement-20261025/WORK_CACHE أولاً. لقطة نشر تطوير مصرح بها؛ثم02/07/08/10 وP05–P13. قبول الفصل والأجهزة والمتعة مفتوح.
 <!-- /MAINTENANCE_CURRENT_20261026 -->
@@ -73,3 +79,21 @@ Runtime: godot/engine_visuals/EchoCapeMotion.gd, scripts/player/echo_v31_motion_
 ## CP45/13 — شاشة الساعة وجرد الجودة الحالي
 
 `dr_kinja_lab_room.gd` يملك اسم StasisClockHousing والساعة الأصلية؛ `clinical_lab_architecture.gd` و`clinical_stasis_display.gdshader` يملكان تشطيبها فقط. أدلة63/60/9 وHigh FAIL في `audits/evidence/chapter-cp45-20261020/stage13/resume-20261024c/delivery.json`. `lab_surface_probe.gd` يطابق إحداثيات viewport1920×1080 مع صورة1280×720، و`lab_stasis_story_review.gd`/`lab_stasis_reload_review.gd` يتحققان من الأمنية المكتسبة. جرد الغرف في ROOM_QUALITY_INVENTORY؛ مرشحات سابقةLow وليست قبولHigh. الكاش والبطاقة يحددان المصدر الأحدث عند تعارض الصفوف التاريخية.
+
+غرفة07 الحالية: decon_clinical_dressing.gd يعيد استخدام طقم العينات؛المصادر ومرفوضات الزوايا وTripo في art/production/decon-redesign-20261028. دليل النطاق decon-20261028/quality-report.json؛الغرفة الكاملة مرشح غير مدمج.
+
+Room07 precision pressure vessels: decon_tripo_architecture.gd installs decon_pod_precision_pbr.glb only under --decon-tripo-candidate;source tools in art/production/decon-redesign-20261028/tools;current quality report as in cache. Room art unaccepted.
+
+29 أكتوبر: غرفة07 whole-v2 مرشح فقط؛ `godot/scripts/environment/decon_whole_v2_architecture.gd` وملفات `decon_whole_v2_*`. خامات7 مكتملة،14headless/8isolated/14connectedHigh scoped PASS؛الفن والأداء OPEN. اتبع الكاش الحالي؛لا إعادة توليد للغرفة.
+
+29 أكتوبر:غرفة07 أصبحت افتراضية بتفاصيل دقيقة وماء يستجيب للقدم وبخار وتهوية. الدليل الحديث audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/precision-reactive-20261029/quality-report.json؛08و10 باقيتان للعمل الكبير؛03–06 صقل.
+
+29 أكتوبر:10افتراضية hospital_pbr_atmosphere؛03–06 room_device_atmosphere.دليلdevice-atmosphere-20261029/quality-report.json:33local+10contact+353headless scoped؛Forward+العالم الكامل فشلVulkan،لا قبولأداء.إيكو الجديدزيالمدرسة بلاعباءة فيart/production/echo-school-rebuild-20261029؛Canvasوالكاش يحددانالمتابعة.
+
+2نوفمبر متابعةWake:مصدرA120/24Hz مؤهلعدديًا وجلدالأرضيةPASS؛تماساليدOPEN.مصدرB144/24Hz محمّل يبدأprone؛هدفهقيدالتأهيل.الدليلcharacter-school-20261102/wake-execution؛40كريديت/1345؛CodexIAB،ROOT_ONLY.البطاقةتحكم.
+
+WAKE_NATIVE30_60_PASS_BOXING96_LAB_PASS_FACE_CONNECTED_BLINK_ART_OPEN:بطاقةCURRENT_WORKوالتقريريحكمان؛Wakeطبيعي30/60PASS،Boxing96مختبرPASS،رمشةمتصلةبحثيةبلااعتمادفنيأوتصدير.
+
+WAKE120_NATIVE_RUNTIME_PASS_BOXING96_LAB_PASS_FACE_MORPH_PASS_TOPOLOGY_FAIL: النهوض120 اختياري و81/81 رحلة PASS؛ القتال96 نقل مختبري فقط. الوجه native7/9 PASS لكن topology/art FAIL؛ لا دمج. البطاقة والتقرير الحاليان يحكمان.
+
+آخر توجيه للمالك:دراسة وخطة فقط؛`CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md` وسجل المشاهد الجديد هما مرجع المتابعة.

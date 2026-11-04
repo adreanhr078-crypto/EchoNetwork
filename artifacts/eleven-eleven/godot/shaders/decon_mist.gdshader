@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, blend_add, depth_draw_never, cull_disabled, shadows_disabled;
+render_mode unshaded, blend_mix, depth_draw_never, cull_disabled, shadows_disabled;
 uniform float motion_time = 0.0;
 uniform float mist_amount = 1.0;
 varying float origin_phase;
@@ -15,10 +15,10 @@ void fragment() {
 	float vortex = smoothstep(0.22,0.88,swirl_a*0.6+swirl_b*0.4);
 	// One broad purge sweep during the existing fade, no repeated flashing.
 	float purge = 1.0+sin(mist_amount*3.14159)*0.75*step(mist_amount,0.96);
-	vec3 color = mix(vec3(0.58,0.15,0.96),vec3(0.22,0.86,0.82),smoothstep(0.10,0.82,UV.y)*(0.65+0.35*vortex));
+	vec3 color = mix(vec3(0.58,0.54,0.72),vec3(0.62,0.79,0.80),smoothstep(0.10,0.82,UV.y)*(0.65+0.35*vortex));
 	float density = (jet*0.55+vortex*0.65)*edge_x*edge_y;
-	ALBEDO = color*(1.15+jet*0.45)*purge;
+	ALBEDO = color;
 	// Fade only beside the lens so crossing a curtain never floods the camera.
 	float camera_fade = smoothstep(0.35,1.1,-VERTEX.z);
-	ALPHA = clamp(density*mist_amount*purge*0.25,0.0,0.55)*camera_fade;
+	ALPHA = clamp(density*mist_amount*purge*0.075,0.0,0.12)*camera_fade;
 }

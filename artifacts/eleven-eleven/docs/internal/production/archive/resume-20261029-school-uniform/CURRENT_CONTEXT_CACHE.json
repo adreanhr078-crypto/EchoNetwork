@@ -1,0 +1,157 @@
+{
+  "schema_version": 3,
+  "cache_updated_utc": "2026-10-29T15:58:43.278897+00:00",
+  "checkpoint": "ROOM07_08_DEFAULT_SCOPED_NATIVE_PASS_HOSPITAL10_ACTIVE",
+  "status": "ROOM07_08_DEFAULT_SCOPED_NATIVE_PASS_HOSPITAL10_ACTIVE",
+  "read_policy": "Read this compact cache/CURRENT_WORK,then only changed source and active evidence. Unique previous cache/card archived,not deleted.",
+  "agent_policy": {
+    "execution": "ROOT_ONLY",
+    "agents": "Stopped;never restart without direct owner request",
+    "adviser": "Argon High",
+    "adviser_session": "https://gemini.google.com/u/2/app/9dc84839d070dae7"
+  },
+  "cache_policy": "Reuse task IDs/hashes;no duplicate generation. Model caching is automatic;no guaranteed savings or quota duration. Live balances rechecked before each spend.",
+  "master_plan": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+  "execution_queue": "docs/internal/production/QUALITY_EXECUTION_QUEUE.json",
+  "room_inventory": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+  "invariants": [
+    "Canon/PART_3/EX-011/sourcefilm/Golden192/V31/sourcekeys protected",
+    "SFX_ONLY;no music;no powers before earned Zero contract",
+    "Rooms first,then Echo model/rig/custom animation and combat",
+    "Root may use available Tripo/Flow credits and normal legitimate commit/push;no purchase/upgrade/force/history rewrite/repo deletion",
+    "Opening sequence remains looping title -> real Manhwa cover puzzle -> fracture -> cinematic -> Echo awakening",
+    "Preserve dirty/staged/untracked work;generated video never proves gameplay"
+  ],
+  "publication": {
+    "status": "VERIFIED_REMOTE_MAIN",
+    "commit": "d82ddccbb8d1f5bf267e4b4079838ca656a30e3e",
+    "scope": "549 selected current runtime/evidence files;82 historical LFS files remain local",
+    "large_file_warning": "GitHub accepted push with >50MB warnings;no storage was freed",
+    "current_work": "LOCAL_ONLY_ROOM07_DEFAULT_REFINEMENT;previous remote-main baseline retained;no new commit/push/export"
+  },
+  "room_order": "08 architecture ->10 bedside craft ->03-06 purposeful atmosphere polish ->Echo short-jacket model/rig/animation/acting/combat ->audio/performance/whole chapter/fresh package.01/02/09 preserved;07 default scoped pass.",
+  "active_room07": {
+    "folder": "art/production/decon-redesign-20261028/whole-v2",
+    "runtime": "godot/scripts/environment/decon_whole_v2_architecture.gd",
+    "integration": "DEFAULT_NATIVE",
+    "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/decon-20261028/whole-v2/precision-reactive-20261029/quality-report.json",
+    "checks": {
+      "connected_native_earned": 14,
+      "isolated_native_player": 11,
+      "hyper_module": 42,
+      "lifecycle": "PASS original state/trigger/collision identity except five measured generated perimeter guards;pause/RM/mute;duplicate/restore/interruption/gate races",
+      "source_earned_unchanged": true
+    },
+    "art": {
+      "status": "SCOPED_ROOM_ENVIRONMENT_REVIEWED",
+      "views": [
+        "entry",
+        "reverse",
+        "lateral",
+        "hero"
+      ],
+      "observed": "Final entry/reverse/lateral/hero High1280 views,actual native pressure-vessel view and connected wet crossing inspected. Precise vessel/arch silhouettes;accepted Tripo PBR wall/pod reuse;warm fixtures,live displays,physical runoff/ventilation. Echo clothing defects and full-chapter/performance/audio acceptance remain open."
+    },
+    "effects": {
+      "contact_connections": 1,
+      "elapsed": 17.015204,
+      "fade_out_transparent": true,
+      "motion": true,
+      "particle_budget": 96,
+      "particle_nodes": 8,
+      "ripple_slots": 4,
+      "wet_contacts": 3
+    },
+    "spend_this_refinement": 0,
+    "earned_source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-cp45-20261020\\stage08\\route\\attempt04-rendered\\earned\\after-reactor",
+    "known_limits": [
+      "No full chapter/fun/audio/device-performance acceptance",
+      "Echo face/clothing defects remain;authorized short-jacket replacement follows room stage",
+      "Room08 and hospital10 architecture not rebuilt in this refinement;03-06 atmosphere polish pending",
+      "Earlier intermediate default proof overlapped final particle fade correction and is superseded by final proof folders"
+    ],
+    "postflight": "PASS"
+  },
+  "retained_baseline": "Room02 Stormworks production:27nativeHigh/51earned lifecycle/353fresh chapter headless scoped PASS per27Oct report;no fresh whole-chapter acceptance claimed.Golden192 historical baseline untouched.",
+  "echo_rebuild_authorization": {
+    "date": "2026-10-29",
+    "order": "after room art gates",
+    "identity": "Original approved Echo;new short jacket,NO long coat;Canon/EX-011 preserved",
+    "scope": "New model/rig if warranted;Tripo reference-led geometry/UV/PBR/rig/motion candidates,Blender qualification and Godot deformation/hands/feet/weapon/contact/control/pause/RM/save tests. Preserve current model/Golden as comparison;no automatic replacement or all-animation acceptance."
+  },
+  "pending": [
+    "No whole-chapter/fun/audio/performance acceptance",
+    "Current scoped connected High run did not reproduce earlier Vulkan allocation failure;not proof for all scenes/devices",
+    "The cleaned86-node raw Tripo derivative is geometry-only;PBR source/native derivative are separate",
+    "Current player has visible face/clothing craft defects;Echo replacement is authorized after rooms",
+    "10 bedside craft;03-06 physical atmosphere;Echo short jacket/rig/animation;acting/combat;Japanese speech/AR-EN;live services;device performance;human fun;Windows package"
+  ],
+  "next": "Hospital10 targeted headwall/rain/curtain craft;then03-06 physical atmosphere and authorized Echo short-jacket rebuild.",
+  "working_revision": {
+    "status": "HOSPITAL10_TWO_P2_ASSETS_READY_CANDIDATE_UNDER_IMPORT",
+    "room": "10",
+    "packet": "art/production/hospital-20261029/production-packet.json",
+    "root_only": true,
+    "tripo_balance_last_observed": 2110,
+    "next": "Finish import/PBR compressed mipmaps;four-view hospital_pbr_visual_review with candidate flag,then hospital_pbr_native_review public-walk restored fixture;full earned chapter remains open. Source backups session work/before-room10.",
+    "runtime": "godot/scripts/environment/hospital_pbr_atmosphere.gd",
+    "flag": "--ward-pbr-candidate",
+    "headwall_task": "daa71823-67da-46bf-be98-eb5a5164edff",
+    "bed_task": "dbc3deb0-0071-432c-aaa1-955a654d29ea",
+    "rejected_misinput_task": "b0a55ba0-1d71-415c-bb30-fbd3fcc6cd0d",
+    "tripo_balance_live": 1740,
+    "cost": 370,
+    "cost_note": "125headwall+120wrong retained-headwall input+125correctbed;error disclosed. Correct flow selectsP2 before upload,clears old image,checks actual bed thumbnail before spend.",
+    "flow": {
+      "project": "https://flow.google.com/project/1f3f27b1-6d4d-4a32-b402-770ba6b79936",
+      "asset": "46f47460-cbef-4d3a-899d-c6073b38a8bc",
+      "cost": 12,
+      "file": "art/production/hospital-20261029/flow/hospital-reference-omni.mp4",
+      "scope": "Downloaded8s720p+AAC;16time samples viewed;reference geometry duplicates not native authority;audioUNVERIFIED/notshipped"
+    }
+  },
+  "latest_owner_effects_direction": "Strong purposeful nature/device atmosphere across rooms:water reacts to actual Echo foot contacts,airflow/condensation and electrical/thermal cues by room role,pause/RM/tier budgets,no early powers.",
+  "next_gate": "Hospital10 targeted headwall/rain/curtain craft;then03-06 physical atmosphere and authorized Echo short-jacket rebuild.",
+  "remaining_room_rebuild_candidates": [
+    "10"
+  ],
+  "room08_checkpoint": {
+    "status": "DEFAULT_ENVIRONMENT_ITERATION_AND_15_EARNED_NATIVE_CHECKS_PASS_SCOPED",
+    "flag": "DEFAULT;--surveillance-legacy-baseline diagnostic only",
+    "runtime": "godot/scripts/environment/surveillance_room_architecture.gd",
+    "packet": "art/production/surveillance-20261029/production-packet.json",
+    "tripo": {
+      "root_task": "77889562-90df-4711-bfbb-50aa94e45018",
+      "balance_live": 2110,
+      "cost": {
+        "P2_12000_quad": 100,
+        "4K_remove_lighting": 20,
+        "PBR": 5
+      },
+      "raw": "art/production/surveillance-20261029/source/server-bay-p2-raw.glb",
+      "pbr": "art/production/surveillance-20261029/source/server-bay-p2-pbr4k.glb",
+      "runtime_triangles_per_bay": 21940,
+      "native_dimensions_m": [
+        3.2,
+        3.4,
+        0.32
+      ]
+    },
+    "flow": {
+      "project": "https://flow.google.com/project/00268d78-c5dc-4ac9-85ef-cb264e4e1da4",
+      "asset": "d845cfda-2059-431f-8df7-79d23aaf37c3",
+      "file": "art/production/surveillance-20261029/flow/surveillance-reference-omni.mp4",
+      "model": "Omni1.1Flash",
+      "cost_ui": 12,
+      "starting_balance": 485,
+      "scope": "8sec720p structural reference;16time samples inspected;host cannot hear audio;audio review UNVERIFIED",
+      "refs": "entry+four-view-board+resource;all4 original views retained",
+      "download_hint": "Wait for thumbnail navigation to /edit/ to complete,then Download media->720p Original size;before clicking register download event. No more regeneration."
+    },
+    "latest_visual": "audits/evidence/chapter-cp45-20261020/stage13/surveillance-20261029/default-final/four-views/review.json",
+    "native_scope": "Production default;15 actual earned public-input checks pass;source immutable;no texture RID warnings. Broader craft/performance/human acceptance open.",
+    "next": "Hospital10 targeted headwall/rain/curtain craft;then03-06 physical atmosphere and authorized Echo short-jacket rebuild.",
+    "browser_notes": "Tripo2/Flow3 retained;Gemini4 closed,no adviser review. Upload paths use forward slashes. Flow downloaded;audio UNVERIFIED;no regenerate.",
+    "report": "audits/evidence/chapter-cp45-20261020/stage13/surveillance-20261029/default-final/quality-report.json"
+  }
+}

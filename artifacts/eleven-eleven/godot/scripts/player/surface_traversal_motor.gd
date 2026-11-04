@@ -7,6 +7,7 @@ signal vault_completed
 const REACH := 0.9
 const HANG_HEIGHT := 1.5
 const ASSIST_LIMIT := 0.25
+const RigProfile = preload("res://scripts/player/echo_rig_profile.gd")
 var last_transition_rejection := ""
 var hanging := false
 var latch_cooldown := 0.0
@@ -27,9 +28,13 @@ var last_catch_correction := 0.0
 var hang_grip_world := Vector3.ZERO
 var _hang_grip_local := Vector3.ZERO
 var _hang_elapsed := 0.0
+var _up_intent_time := 0.0
+const CLIMB_RESPONSE := 12.0
+const MANTLE_HOLD_SECONDS := 0.18
 var native_mantle_active := false
 var _native_model: Node3D
 var _native_rig: Skeleton3D
+var _native_bones: Dictionary = {}
 var _native_anchor := Vector3.ZERO
 var _native_first_anchor := Vector3.ZERO
 var _native_grip_shift := Vector3.ZERO
@@ -142,6 +147,7 @@ func _begin_transition(body: CharacterBody3D, points: Array[Vector3], support: N
 		_mantle_visual_active = true
 	hanging = false
 	_hang_elapsed = 0.0
+	_up_intent_time = 0.0
 	body.cancel_roll()
 	body.velocity = Vector3.ZERO
 	body.jump_buffer_timer = 0.0
@@ -210,6 +216,7 @@ func reset(body: CharacterBody3D) -> void:
 	_mantle_visual_active = false
 	hanging = false
 	_hang_elapsed = 0.0
+	_up_intent_time = 0.0
 	_mantle_points.clear()
 	_transition_local_points.clear()
 	_transition_support = null
@@ -233,7 +240,7 @@ func _begin_mantle(body: CharacterBody3D) -> bool:
 	return _begin_transition(body, points, top.collider, "mantle", "PARKOUR_MANTLE")
 
 func _native_joint(name: String) -> Vector3:
-	return _native_rig.to_global(_native_rig.get_bone_global_pose(_native_rig.find_bone(name)).origin)
+	return _native_rig.to_global(_native_rig.get_bone_global_pose(_native_bones[name]).origin)
 
 func sync_native_visual() -> void:
 	if not native_mantle_active or not is_instance_valid(_native_model) or not is_instance_valid(_transition_support): return
@@ -252,6 +259,14 @@ func _begin_native_mantle(body: CharacterBody3D, top: Dictionary) -> bool:
 	_native_model = body.get_node_or_null("ModelRoot/EchoOpeningUniform") as Node3D
 	_native_rig = _native_model.find_child("Skeleton3D", true, false) as Skeleton3D if _native_model else null
 	if not _native_rig or not _native_model.has_method("release_native_traversal"): return false
+	var profile := RigProfile.identify(_native_rig)
+	if profile.get("id") not in [RigProfile.V31_ID,RigProfile.SCHOOL65_ID,RigProfile.PACT72_ID]: return false
+	_native_bones.clear()
+	var roles := {"Hips":"pelvis","LeftHand":"left_hand","RightHand":"right_hand","LeftFoot":"left_foot","RightFoot":"right_foot"}
+	for joint: String in roles:
+		var bone := _native_rig.find_bone(str(profile.bones.get(roles[joint],"")))
+		if bone < 0: return false
+		_native_bones[joint] = bone
 	_transition_support = top.collider
 	_native_floor_local = _transition_support.to_local(top.position)
 	_native_first_anchor = _transition_support.to_local(_native_model.global_position)
@@ -261,7 +276,7 @@ func _begin_native_mantle(body: CharacterBody3D, top: Dictionary) -> bool:
 	_native_phase = 0
 	_native_sample_time = 0.0
 	_native_pull_duration = body.animation_player.get_animation("PARKOUR_MANTLE").length
-	_native_sole_height = minf((_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_rig.find_bone("LeftFoot")).origin).y, (_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_rig.find_bone("RightFoot")).origin).y)
+	_native_sole_height = minf((_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_bones["LeftFoot"]).origin).y, (_native_rig.global_basis * _native_rig.get_bone_global_rest(_native_bones["RightFoot"]).origin).y)
 	native_mantle_active = true
 	body.play_anim("PARKOUR_MANTLE", 0.0)
 	body.animation_player.speed_scale = 0.0
@@ -376,7 +391,13 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 		if not _climbable(wall): return false
 		if not body.is_on_floor():
 			if body.velocity.y <= 1.0 and _catch(body, wall): return true
-			if jump:
+			# A jump followed by holding forward must climb on contact without a
+			# second jump press. Only marked walls actually approached qualify.
+			# Near a reachable ledge, keep the natural jump arc until the bounded
+			# catch can succeed. Early attachment there can strand the capsule
+			# above the hand-support band. Tall walls still accept forward intent.
+			var approaching_tall_wall: bool = body.velocity.y <= 0.0 and body.velocity.dot(wall.normal) < -0.1 and _top(body, wall.normal).is_empty()
+			if jump or approaching_tall_wall:
 				_remember_contact(body, wall)
 				body.traversal.start_climbing(wall.normal, wall.position)
 				body.jump_buffer_timer = 0.0
@@ -415,6 +436,9 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 		body.velocity = normal * 1.2 + Vector3.DOWN
 		body.move_and_slide()
 		return true
+	_up_intent_time = _up_intent_time + delta if hanging and input.y < -0.6 else 0.0
+	if _up_intent_time >= MANTLE_HOLD_SECONDS and _begin_mantle(body):
+		return true
 	if jump:
 		body.jump_buffer_timer = 0.0
 		body.coyote_timer = 0.0
@@ -439,8 +463,12 @@ func tick(body: CharacterBody3D, delta: float, input: Vector2, jump: bool, drop:
 			_catch(body, wall)
 	var speed: float = 1.4 if hanging else 1.0
 	var tangent := Vector3.UP.cross(normal).normalized()
-	body.velocity = tangent * input.x * speed
-	if not hanging: body.velocity.y = -input.y * speed
+	var desired_velocity := tangent * input.x * speed
+	if not hanging: desired_velocity.y = -input.y * speed
+	# Strip wall adhesion before smoothing, so the wall-normal bias cannot
+	# accumulate or turn into a vertical impulse on the next physics tick.
+	var contact_velocity: Vector3 = body.velocity - normal * body.velocity.dot(normal)
+	body.velocity = contact_velocity.lerp(desired_velocity, 1.0 - exp(-CLIMB_RESPONSE * delta))
 	var proposed: Vector3 = body.global_position + body.velocity * delta
 	if body.velocity.length_squared() > 0.00001:
 		var next_wall := _ray(body, proposed + Vector3.UP, proposed + Vector3.UP - normal * REACH)

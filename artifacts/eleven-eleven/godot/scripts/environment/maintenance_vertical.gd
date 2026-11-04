@@ -115,11 +115,14 @@ func set_language(language: String) -> void:
 	if service_interaction:
 		service_interaction.prompt_target_name = "عجلة تنفيس الضغط" if language == "ar" else "Pressure relief wheel"
 
-func request_service_release(interactor: Node3D) -> Dictionary:
+func can_release_service(interactor: Node3D) -> bool:
 	var floor_anchor := to_global(service_floor_anchor)
+	return service_allowed and not service_open and not service_opening and interactor is EchoPlayer and service_interaction.current_interactor == interactor and not interactor.control_locked and interactor.is_on_floor() and interactor.global_position.distance_to(floor_anchor) <= 1.45
+
+func request_service_release(interactor: Node3D) -> Dictionary:
 	if not service_allowed or service_open or service_opening:
 		return {"released":false, "reason":"not_ready"}
-	if not interactor is EchoPlayer or service_interaction.current_interactor != interactor or interactor.control_locked or not interactor.is_on_floor() or interactor.global_position.distance_to(floor_anchor) > 1.45:
+	if not can_release_service(interactor):
 		return {"released":false, "reason":"out_of_reach"}
 	service_opening = true
 	_disable_interaction()

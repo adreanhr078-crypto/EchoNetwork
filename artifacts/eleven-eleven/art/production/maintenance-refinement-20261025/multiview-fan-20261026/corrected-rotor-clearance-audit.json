@@ -1,0 +1,91 @@
+{
+  "scene": "MAINTENANCE_FAN_CORRECTED_20261026",
+  "passed_sampled_contact": true,
+  "rows": [
+    {
+      "degrees": 0,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 30,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 60,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 90,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 120,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 150,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 180,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 210,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 240,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 270,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 300,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 330,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    }
+  ],
+  "blade_objects": [
+    "Rotor_tripo_part_5",
+    "Rotor_tripo_part_7",
+    "Rotor_tripo_part_8",
+    "Rotor_tripo_part_10",
+    "Rotor_tripo_part_11",
+    "Rotor_tripo_part_12",
+    "Rotor_tripo_part_24",
+    "Rotor_tripo_part_25"
+  ],
+  "source_geometry_mutated": false,
+  "elapsed_s": 2.86,
+  "scope": "Twelve rigid rotation samples; BVH broad phase plus exact 17-axis triangle SAT at1micrometre tolerance. This is not continuous collision proof, hub-bearing contact approval, native playback, art or device acceptance."
+}

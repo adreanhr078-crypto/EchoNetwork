@@ -73,6 +73,7 @@ func attach_player(scene: Node3D, body: CharacterBody3D) -> void:
 	_connect(body,"landing_executed",_on_landing)
 	_connect(body,"combat_roll_executed",_on_roll)
 	_connect(body,"attack_hit",_on_attack)
+	_connect(body,"melee_contact_confirmed",_on_melee_contact)
 	scene.tree_exiting.connect(_scene_exiting.bind(weakref(body)),CONNECT_ONE_SHOT)
 	set_reduced_motion(scene.get("reduced_motion")==true)
 
@@ -103,8 +104,8 @@ func _particles(count: int, lifetime: float, one_shot: bool) -> GPUParticles3D:
 	process.scale_max = 0.085
 	var gradient := Gradient.new()
 	gradient.set_color(0,Color(1,1,1,0.7))
-	gradient.add_point(0.25,Color.WHITE)
 	gradient.set_color(1,Color(1,1,1,0))
+	gradient.add_point(0.25,Color.WHITE)
 	var ramp := GradientTexture1D.new()
 	ramp.gradient = gradient
 	process.color_ramp = ramp
@@ -133,11 +134,16 @@ func emit_burst(position: Vector3, direction: Vector3, kind: String, energy: flo
 	var process := particles.process_material as ParticleProcessMaterial
 	var material := particles.draw_pass_1.material as ShaderMaterial
 	process.direction = direction.normalized() if direction.length_squared()>0.001 else Vector3.UP
-	process.initial_velocity_max = 1.4 if kind in ["landing","dash"] else 0.45
-	process.scale_max = 0.16 if kind=="landing" else 0.065
+	process.gravity = Vector3(0,-4.0,0) if kind=="water" else Vector3(0,-.25,0)
+	process.initial_velocity_min = .25 if kind=="water" else .1
+	process.initial_velocity_max = 1.1 if kind=="water" else (1.4 if kind in ["landing","dash"] else .45)
+	process.spread = 35.0 if kind=="water" else 70.0
+	process.scale_min = .015 if kind=="water" else .035
+	process.scale_max = .045 if kind=="water" else (.16 if kind=="landing" else .065)
 	particles.amount_ratio = 0.35 if quality=="low" else 1.0
 	material.set_shader_parameter("shape",1 if kind in ["wind","dash","attack"] else 0)
 	material.set_shader_parameter("tint",Color(0.3,0.7,0.9,0.7) if energy>0 else Color(0.42,0.43,0.48,0.35))
+	if kind=="water" and energy<=0:material.set_shader_parameter("tint",Color(.62,.78,.87,.6))
 	material.set_shader_parameter("brightness",1.1 if energy>0 else 0.22)
 	particles.restart()
 	particles.emitting = true
@@ -147,7 +153,7 @@ func emit_burst(position: Vector3, direction: Vector3, kind: String, energy: flo
 
 func _on_footstep(_left: bool, surface: String, running: bool, position: Vector3) -> void:
 	if not is_instance_valid(player): return
-	var empowered := bool(player.get("combat_available"))
+	var empowered := bool(player.get("combat_available")) and bool(player.get("contract_with_zero_sealed"))
 	get_node("/root/HyperAnimeWorldManager").imprint(position,0.45 if running else 0.22)
 	emit_burst(position,Vector3.UP,"water" if surface=="water" else "step",0.2 if empowered else 0.0)
 
@@ -161,16 +167,29 @@ func _on_landing(speed: float, heavy: bool) -> void:
 func _on_roll(direction: Vector3) -> void:
 	if not is_instance_valid(player): return
 	get_node("/root/HyperAnimeWorldManager").imprint(player.global_position,0.6)
-	emit_burst(player.global_position,-direction+Vector3.UP*0.1,"dash",0.3 if bool(player.get("combat_available")) else 0.0)
+	emit_burst(player.global_position,-direction+Vector3.UP*0.1,"dash",0.3 if bool(player.get("combat_available")) and bool(player.get("contract_with_zero_sealed")) else 0.0)
 
 func _on_attack(_damage: int, _critical: bool) -> void:
 	if not is_instance_valid(player) or not bool(player.get("combat_available")): return
+	var mixer: AnimationPlayer = player.get("animation_player")
+	if mixer and not mixer.current_animation.is_empty():
+		var clip := mixer.get_animation(mixer.current_animation)
+		if clip and bool(clip.get_meta("melee_physical_blade",false)): return
 	var origin := player.global_position+Vector3.UP
+	_emit_attack_response(origin,-player.global_basis.z,.25)
+
+func _on_melee_contact(target: Node3D, position: Vector3, damage: int, _source_seconds: float) -> void:
+	if not is_instance_valid(player) or not is_instance_valid(target) or not bool(player.get("combat_available")): return
+	var direction := (target.global_position-player.global_position).normalized()
+	get_node("/root/HyperAnimeWorldManager").imprint(Vector3(position.x,target.global_position.y,position.z),1.0)
+	_emit_attack_response(position,direction,.4 if damage>=70 else .25)
+
+func _emit_attack_response(origin: Vector3, direction: Vector3, trauma: float) -> void:
 	_attack_trail=0.18
-	emit_burst(origin,-player.global_basis.z,"attack",0.65)
+	emit_burst(origin,-direction,"attack",0.65 if bool(player.get("contract_with_zero_sealed")) else 0.0)
 	get_node("/root/HyperAnimeWorldManager").trigger_impact_pulse(0.7,0.18,origin)
 	var rig := player.get_node_or_null("DynamicActionCameraRig")
-	if rig: rig.add_trauma(0.25,-player.global_basis.z)
+	if rig: rig.combat_impact(.85 if trauma>=.4 else .55,direction)
 
 static func exponential_velocity(current: Vector2, desired: Vector2, rate: float, delta: float) -> Vector2:
 	return current.lerp(desired,1.0-exp(-maxf(rate,0.0)*maxf(delta,0.0)))

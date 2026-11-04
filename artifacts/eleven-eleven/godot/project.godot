@@ -14,6 +14,9 @@ config/name="11.11 â€” Echo Network"
 config/description="11.11 â€” Echo Network Anime Cyberpunk Action Adventure"
 run/main_scene="res://scenes/boot.tscn"
 config/features=PackedStringArray("4.8", "Forward Plus")
+config/name.school_candidate_review="11.11 — Echo Network"
+config/use_custom_user_dir.school_candidate_review=true
+config/custom_user_dir_name.school_candidate_review="EchoNetwork/SchoolPactReview20261103"
 
 [autoload]
 
@@ -26,6 +29,8 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/viewport_width.compatibility_review=1280
+window/size/viewport_height.compatibility_review=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
@@ -103,6 +108,7 @@ lock_on={
 [rendering]
 
 renderer/rendering_method="forward_plus"
+renderer/rendering_method.compatibility_review="gl_compatibility"
 reflections/reflection_atlas/reflection_count=4
 environment/glow/upscale_mode=1
 
@@ -113,6 +119,7 @@ anti_aliasing/quality/msaa_3d.mobile=0
 scaling_3d/scale.mobile=0.65
 environment/defaults/default_clear_color=Color(0.01, 0.015, 0.03, 1)
 anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/screen_space_aa.compatibility_review=0
 
 [shader_globals]
 

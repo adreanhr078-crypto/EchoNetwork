@@ -47,7 +47,8 @@ func _bind() -> bool:
 			break
 	if profile.is_empty(): return false
 	profile_id = profile.id
-	var label := "EchoOpeningUniformBody" if profile_id == RigProfile.LEGACY_ID else "EchoV31BodyAndCoat"
+	if not MASKS.has(profile_id): return false
+	var label := RigProfile.body_name(profile)
 	body = avatar.find_child(label, true, false) as MeshInstance3D
 	if not body or not body.mesh: return false
 	var source := body.get_active_material(0) as ShaderMaterial

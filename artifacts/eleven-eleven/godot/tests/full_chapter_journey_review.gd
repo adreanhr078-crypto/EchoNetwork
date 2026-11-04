@@ -171,8 +171,19 @@ func _complete_campaign() -> bool:
 	for point in [Vector3(3,0,-35),Vector3(3,0,-28.8),Vector3(0,0,-28.8)]:
 		if not await _walk_local(point): return false
 	for contact in 3:
+		# A physical blade does not inherit the former radial timer's reach.
+		# Follow the actor's real recoil with ordinary public movement each cut.
+		var strike_position:Vector3=room.to_local(campaign.kinja.global_position)+Vector3.FORWARD*1.6
+		strike_position.y=0
+		if not await _walk_local(strike_position):return false
 		player.face_world_direction(campaign.kinja.global_position-player.global_position)
-		player.perform_attack()
+		print("ACTUAL_REVENGE_CUT ",contact," distance=",player.global_position.distance_to(campaign.kinja.global_position)," avatar=",player.rig_profile.id)
+		if player.has_signal("melee_contact_confirmed"):
+			player.melee_contact_confirmed.connect(func(_target:Node3D,_point:Vector3,_damage:int,_seconds:float):_capture("revenge-impact-%d"%contact),CONNECT_ONE_SHOT)
+		Input.action_press("attack_light")
+		for tick in (40 if contact>0 else 2):await physics_frame
+		Input.action_release("attack_light")
+		for tick in 2:await physics_frame
 		if not await preload("res://tests/zero_encounter_route_input.gd").wait_melee_recovery(self,player,_capture.bind("native-melee-%d"%contact)):return false
 		if not _check(campaign.kinja.contacts==contact+1,"Actual melee did not contact Kinja exactly once"): return false
 	if not _check(not room.revenge_done and not room.wish_done,"Three attacks cannot automatically finish revenge or accept the wish"): return false
@@ -199,8 +210,19 @@ func _complete_campaign() -> bool:
 	if film: main.set_reduced_motion(false)
 	for point in [Vector3(3,0,-28.8),Vector3(3,0,-35),Vector3(0,0,-35),Vector3(0,0,-39.0)]:
 		if not await _walk_local(point): return false
-	player.set_mobile_input_vector(Vector2(0,-1),true)
-	for i in 35: await physics_frame
+	# Continue toward the physical exit using the current public camera basis.
+	# A readable combat orbit need not retain the old world-forward yaw.
+	for i in 120:
+		if campaign.hospital!=null:break
+		_resume()
+		var direction:Vector3=room.to_global(Vector3(0,0,-41.5))-player.global_position
+		direction.y=0
+		direction=direction.normalized()
+		var forward:Vector3=-player.get_viewport().get_camera_3d().global_basis.z
+		forward.y=0;forward=forward.normalized()
+		var right:Vector3=forward.cross(Vector3.UP).normalized()
+		player.set_mobile_input_vector(Vector2(direction.dot(right),-direction.dot(forward)),true)
+		await physics_frame
 	player.set_mobile_input_vector(Vector2.ZERO,false)
 	if not _check(campaign.hospital!=null and campaign.progress.completed.size()==6,"Physical breach did not transfer to the ward"): return false
 	if not _check(player.control_locked and not player.combat_available,"Hospital awakening must own input and remove combat"): return false

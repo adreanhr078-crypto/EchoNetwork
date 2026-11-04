@@ -1,0 +1,152 @@
+{
+  "schema": "maintenance-major-tripo-architecture-v1",
+  "owner_date": "2026-10-27",
+  "state": "FOUR_VIEW_SOURCE_GEOMETRY_REVIEWED_TEXTURE_RUNNING_NATIVE_OPEN",
+  "owner_direction": "Owner explicitly requests a large section or whole climbing room built with Tripo and useful features. Prioritize substantial architectural kit over further isolated finish-only passes. Mechanical parts remain separate and interact through native Godot owners.",
+  "source": "godot/assets/environments/maintenance_collision_v1.json",
+  "source_sha256": "b7f22fafba03f1ff429a66dcfe595f26890dd6f408f190807bbcb84fa90ad668",
+  "native_room_dimensions_m": [
+    9.4,
+    10.6,
+    14.6
+  ],
+  "native_room_width_note": "Clear interior between inner wallsX-4.2..5.2;do not invent a new navigable plan.",
+  "kit_native_volumes": [
+    {
+      "name": "COLL_CLIMB_FirstWall",
+      "position": [
+        0,
+        1.7000000476837158,
+        -6
+      ],
+      "size": [
+        5,
+        3.4000000953674316,
+        0.5
+      ],
+      "climbable": true
+    },
+    {
+      "name": "COLL_UpperRest",
+      "position": [
+        0,
+        3.200000047683716,
+        -7
+      ],
+      "size": [
+        5,
+        0.4000000059604645,
+        2.4000000953674316
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_GapLanding",
+      "position": [
+        4,
+        3.200000047683716,
+        -7
+      ],
+      "size": [
+        2,
+        0.4000000059604645,
+        2.4000000953674316
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_CLIMB_SecondWall",
+      "position": [
+        4,
+        4.400000095367432,
+        -9.399999618530273
+      ],
+      "size": [
+        2,
+        2,
+        0.5
+      ],
+      "climbable": true
+    },
+    {
+      "name": "COLL_FinalRest",
+      "position": [
+        4,
+        5.199999809265137,
+        -10.699999809265137
+      ],
+      "size": [
+        2,
+        0.4000000059604645,
+        2.200000047683716
+      ],
+      "climbable": false
+    },
+    {
+      "name": "COLL_ExitDeck",
+      "position": [
+        0,
+        5.199999809265137,
+        -12.300000190734863
+      ],
+      "size": [
+        6,
+        0.4000000059604645,
+        1.2000000476837158
+      ],
+      "climbable": false
+    }
+  ],
+  "first_large_module": {
+    "name": "PrimaryServiceClimbCassette",
+    "dimensions_m": [
+      5,
+      3.4,
+      0.5
+    ],
+    "native_body": "COLL_CLIMB_FirstWall",
+    "scope": "Full principal climbing facade/structural casing;authored hand/foot cue rows and native contact plane stay separate."
+  },
+  "presentation": "Original11.11 industrial memory-facility;machined graphite/alloy/ceramic with restrained amber and original cues;no characters,new power,opaque baked door,wheel or moving film in architecture.",
+  "workflow": [
+    "Four coherent room references from measured plan/current valid native references",
+    "Flow architectural camera reference;actual supported input limits/cost and entire take/audio review",
+    "Same isolated static architecture module Front/Left/Right;not unrelated room views",
+    "Tripo source quality then game-ready topology/UV/PBR with retained raw source",
+    "Native measured assembly/High/art/player/Pause/RM/save gates"
+  ],
+  "paid_generation_submitted": true,
+  "acceptance": "PENDING;contract or AI reference is not native room acceptance",
+  "updated_utc": "2026-10-27T04:42:14.999Z",
+  "source_workspace": "bd6b234b-5a6b-44f5-bd19-fa5d6ff03fb8",
+  "source_generation_charge": 30,
+  "source_raw": {
+    "file": "cassette-h31-fourview-raw.glb",
+    "bytes": 46655276,
+    "sha256": "38c1df04e7e646884691a6e27e8301e9d44406e224c752e5426d78a939ed2e04",
+    "triangles": 1943923,
+    "meshes": 1,
+    "materials": 1,
+    "images": 0
+  },
+  "geometry_review": {
+    "scope": "Blender neutral material override,front/back/left/quarter actual raw geometry renders seen",
+    "dimensions_blender": [
+      0.978759765625,
+      0.09932325780391693,
+      0.669403076171875
+    ],
+    "target_m": [
+      5,
+      0.5,
+      3.4
+    ],
+    "uniform_width_fit_m": [
+      5,
+      0.50738,
+      3.41957
+    ],
+    "decision": "Proceed texture;clean closed structural cassette,flat panels,retained side recesses;native fit and gameplay unverified",
+    "editable": "cassette-geometry-review-editable.blend"
+  }
+}

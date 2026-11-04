@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "scope": "Same triangle count per rigid role and full bidirectional vertex-nearest error <.2mm after documented normalization restore. Does not prove identical indices,continuous collision,texture quality or Godot acceptance.",
+  "roles": [
+    {
+      "canonical": "Fan_FrameMesh",
+      "textured": "FanPBRFrame",
+      "triangles_each": 1264986,
+      "distances": [
+        {
+          "target": "Fan_FrameMesh",
+          "probe": "FanPBRFrame",
+          "vertices": 676156,
+          "max_distance_m": 3.500697130220942e-05,
+          "rms_distance_m": 1.64939071642155e-05
+        },
+        {
+          "target": "FanPBRFrame",
+          "probe": "Fan_FrameMesh",
+          "vertices": 647201,
+          "max_distance_m": 4.274477032595314e-05,
+          "rms_distance_m": 1.6561490300026293e-05
+        }
+      ]
+    },
+    {
+      "canonical": "Fan_RotorMesh",
+      "textured": "FanPBRRotor",
+      "triangles_each": 510570,
+      "distances": [
+        {
+          "target": "Fan_RotorMesh",
+          "probe": "FanPBRRotor",
+          "vertices": 271274,
+          "max_distance_m": 3.389768971828744e-05,
+          "rms_distance_m": 1.3128181260710006e-05
+        },
+        {
+          "target": "FanPBRRotor",
+          "probe": "Fan_RotorMesh",
+          "vertices": 258843,
+          "max_distance_m": 3.389768971828744e-05,
+          "rms_distance_m": 1.3141329356494416e-05
+        }
+      ]
+    }
+  ],
+  "pivot_at_world_origin": [
+    0.0,
+    0.0,
+    0.0
+  ]
+}

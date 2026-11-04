@@ -100,7 +100,7 @@ static func _make_stylized_material(source_material: Material, shader: Shader, a
 	mat.set_shader_parameter("sss_color", Color(0.96, 0.45, 0.40, 1.0))
 	mat.set_shader_parameter("sss_intensity", 0.70)
 	var lower_name := mesh_name.to_lower()
-	if lower_name.begins_with("echoopeninguniform") or lower_name == "echov31bodyandcoat":
+	if lower_name.begins_with("echoopeninguniform") or lower_name in ["echov31bodyandcoat","echoschoolbody"]:
 		mat.set_shader_parameter("normalize_light_response", true)
 		# Restored authored roughness must not turn the school cloth into a
 		# full-strength stepped white highlight. Preserve its map, soften energy.

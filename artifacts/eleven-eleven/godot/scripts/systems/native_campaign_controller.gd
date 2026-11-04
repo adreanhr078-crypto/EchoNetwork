@@ -158,6 +158,11 @@ func _activate() -> void:
 	native_owner.set_process(false)
 	native_owner.set_physics_process(false)
 	main.player.set_combat_available(false)
+	if current<5 or (current==5 and not rooms[5].contract_done):
+		main.player.set_earned_contract_appearance(false)
+		main.player.contract_with_zero_sealed=false
+	elif current==5 and rooms[5].contract_done:
+		main.player.awaken_zero_pact(.65)
 	if current>0 and current<rooms.size():
 		main.player.surface_motor.reset(main.player)
 		main.player.global_position=rooms[current].to_global(rooms[current].get_safe_anchor()) if current==5 else rooms[current].to_global(ANCHORS[current])
@@ -425,6 +430,7 @@ func _begin_hospital(play_movie:=true) -> void:
 	main.player.set_combat_available(false)
 	main.player.dismiss_zero_wing()
 	main.player.set_zero_eye_active(false)
+	main.player.set_earned_contract_appearance(false)
 	# The Sector 11 guide remains in the facility. It cannot follow, light or
 	# perform tactical scans inside the real ward after the transfer.
 	if is_instance_valid(main.companion):

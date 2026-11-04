@@ -1,0 +1,221 @@
+- main:
+  - button "القائمة الرئيسية":
+    - img: menu
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - heading "محادثة مع Gemini" [level=1]
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - heading "أنت قلت راجع الصور الأربع الحالية المرفقة لغرفة الصيانة02 داخل11.11 بوصفك مديراً فنياً مستقلاً لألعاب Hyper …" [level=5]
+  - paragraph: راجع الصور الأربع الحالية المرفقة لغرفة الصيانة02 داخل11.11 بوصفك مديراً فنياً مستقلاً لألعاب Hyper Anime. الصور فعلية منGodot4.8-dev7 Forward+High1280×720:entry دخول،reverse عكس،lateral جانب،hero صمام وباب الخروج. احكم على المرئي فقط،وإذا تعذرت قراءة الصورقلFILE_READ_FAIL ولا تحكم. لكل محور أعط PASS أو REFINE:العمارة؛المعدات والمواد؛التكوين ووضوح مسار اللاعب. إن بقي مانع للقبول الثابت،حدّد اسم الملف والموضع والعيب وإصلاحاً محدوداً. افصل الاختيارات الفنية غير المانعة. المسار الأصلي:تسلق أول ثم قفزة يميناً ثم تسلق ثان وعجلة ضغط وباب. لا تقترح تغيير المسار أو إضافة عائق فوقه. هذه إعادة بناء دقيقة:جدران معياريةPBR4K،أنابيب ووصلات هندسية نظيفة،بدن مغلق بسماكة الجسم الأصلي خلف كل واجهة قبض،شبك منصات وهيكل بوابة محكم. الصورة الطافية الكاملة المتحركة بلا إطار اختيار المالك المحمي؛لا قص أو تقطيع أو إطار. حافظ على روح خدمة صناعية ضمن منشأة11.11. هذه مراجعة جودة ثابتة فقط؛الحركة والصوت والمتعة والأداء والفصل لها قبول منفصل. كن صريحاً ومختصراً.
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "تقييم المحاور الأساسية" [level=3]
+  - list:
+    - paragraph:
+      - generic: "العمارة: PASS — الجدران المعيارية، الأعمدة السوداء، الأنابيب الرأسية بوصلاتها، والأبدان المغلقة بسماكتها الكاملة خلف واجهتي التسلق الأولى والثانية مبنية بهندسة نظيفة ومحكمة الإغلاق تحافظ على روح الخدمة الصناعية لمنشأة 11.11"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg, JPG: maintenance-precision-v2-reverse.jpg, JPG: maintenance-precision-v2-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 3
+    - paragraph:
+      - generic: "المعدات والمواد: REFINE — خامات الجدران وشبك المنصات متقنة إجمالاً"
+      - superscript
+      - text: ، لكن توجد عيوب موضعية في انعكاس سطح التسلق الأول، وتسطح خامة كتف البوابة، وعدم تطابق تلاقي شبك المنصة العلوية قرب الصمام
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg, JPG: maintenance-precision-v2-reverse.jpg, JPG: maintenance-precision-v2-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 4
+    - paragraph:
+      - generic: "التكوين ووضوح مسار اللاعب: REFINE — المسار الأصلي (تسلق أول ← قفزة يميناً للمنصة الوسيطة ← تسلق ثانٍ ← عجلة ضغط وباب) مقروء بوضوح عبر التوجيه اللوني (السيان والبرتقالي)"
+      - superscript
+      - text: ، إلا أن زاوية كاميرا
+      - code: hero
+      - text: تحجب جزءاً كبيراً من الهدف النهائي، مع انغلاق لوني أسود تام (Crushed Blacks) في السقف والقاع
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg, JPG: maintenance-precision-v2-reverse.jpg, JPG: maintenance-precision-v2-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 4
+  - heading "موانع القبول الثابت والإصلاحات المحدودة" [level=3]
+  - list:
+    - paragraph:
+      - text: "الملف:"
+      - code: maintenance-precision-v2-entry.jpg
+      - superscript
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - list:
+      - paragraph:
+        - generic: "الموضع: النصف الأيمن من واجهة بدن التسلق الأول"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - generic: "العيب: انعكاس حاد ومباشر لتقسيمات الجدار الأبيض الخلفي يظهر كتشوه بصري (Reflection Probe / SSR artifact) على سطح معدني صناعي يفترض ألا يعمل كمرآة"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: "الإصلاح المحدود: رفع قيمة الخشونة ("
+        - code: Roughness
+        - text: ) لخامة واجهة التسلق قليلاً أو تعديل صندوق
+        - code: ReflectionProbe
+        - text: لمنع إسقاط الجدار الخلفي بحدة على البدن
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph:
+      - text: "الملف:"
+      - code: maintenance-precision-v2-hero.jpg
+      - superscript
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - list:
+      - paragraph:
+        - generic: "الموضع: الثلث الأيسر من الكادر، الحافة العلوية للافتة البوابة، وزاوية التقاء شبك المنصة أسفل الصمام يميناً"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - generic: "العيب: تموضع الكاميرا يساراً يجعل الكتف الرمادي الجانبي للبوابة يبتلع نحو 40% من الصورة كمساحة صماء خالية من تفاصيل السطح الدقيقة، مع قطع (Clipping) للنص المضيء أعلى البوابة، وعدم محاذاة قضبان شبك المنصة عند خط الالتقاء الزاوي"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: "الإصلاح المحدود: إزاحة كاميرا"
+        - code: hero
+        - text: قليلاً لليمين وللخلف لإظهار واجهة الباب وعجلة الضغط واللافتة العلوية كاملة، مع توحيد اتجاه/UV شبك المنصة عند الزاوية وإضافة تباين خشونة طفيف (
+        - code: Roughness/Normal
+        - text: ) لكتف البوابة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph:
+      - text: "الملفات:"
+      - code: maintenance-precision-v2-entry.jpg
+      - text: و
+      - code: maintenance-precision-v2-reverse.jpg
+      - text: و
+      - code: maintenance-precision-v2-lateral.jpg
+      - superscript
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg وJPG: maintenance-precision-v2-reverse.jpg وJPG: maintenance-precision-v2-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 2
+    - list:
+      - paragraph:
+        - text: "الموضع: سقف الغرفة في"
+        - code: entry
+        - superscript
+        - text: ، وقاع الغرفة السفلي في
+        - code: reverse
+        - text: و
+        - code: lateral
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg وJPG: maintenance-precision-v2-reverse.jpg وJPG: maintenance-precision-v2-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - generic: "العيب: سواد مطلق يطمس تفاصيل الجمالونات المعدنية في السقف ونهايات أعمدة الارتكاز وأرضية القاع"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg وJPG: maintenance-precision-v2-reverse.jpg وJPG: maintenance-precision-v2-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - generic: "الإصلاح المحدود: رفع طفيف جداً للإضاءة غير المباشرة أو إضافة إضاءة مالئة خافتة (Fill Light بارد) لكشف حدود الهندسة المعمارية في الظل دون إضعاف التباين"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg وJPG: maintenance-precision-v2-reverse.jpg وJPG: maintenance-precision-v2-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+  - heading "الاختيارات الفنية غير المانعة" [level=3]
+  - list:
+    - paragraph:
+      - text: اللوحة الفنية الطافية بلا إطار (
+      - code: maintenance-precision-v2-entry.jpg
+      - text: "):"
+      - text: اختيار فني محمي للمالك يدمج هوية Hyper Anime داخل الفراغ الصناعي؛ يُعتمد كما هو بكامل أبعاده دون إطار أو قص
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v2-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph:
+      - text: لغة الإضاءة التوجيهية للمسار (
+      - code: entry
+      - text: ","
+      - code: reverse
+      - text: ","
+      - code: lateral
+      - text: ","
+      - code: hero
+      - text: "):"
+      - text: استخدام السيان والبرتقالي على مقابض التسلق، حواف المنصات، وعجلة الضغط يحقق قراءة فورية للمسار دون الحاجة لأي تعديل في التخطيط أو العوائق
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg, JPG: maintenance-precision-v2-reverse.jpg, JPG: maintenance-precision-v2-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 3
+    - paragraph:
+      - text: التكوين الجانبي الصرف في
+      - code: maintenance-precision-v2-lateral.jpg
+      - text: ":"
+      - text: إظهار بدن التسلق الثاني من الجانب يوثق سماكة الهيكل المغلق خلف المقابض وعلاقته بالمنصة الوسيطة، وهو خيار زاوية مقبول تكمله لقطة
+      - code: entry
+      - text: الأمامية
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v2-entry.jpg وJPG: maintenance-precision-v2-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Refining visual analysis for clarity
+- region "Notifications"

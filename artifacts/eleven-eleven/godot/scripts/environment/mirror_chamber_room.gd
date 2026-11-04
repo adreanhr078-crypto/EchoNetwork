@@ -50,6 +50,8 @@ var reduced_motion := false:
 		if reduced_motion==value: return
 		reduced_motion = value
 		if _presentation: _presentation.sync_accessibility()
+		var architecture:=get_node_or_null("SurveillanceTripoArchitecture")
+		if architecture:architecture.sync_accessibility()
 		if value and gate_open and is_instance_valid(_gate) and (_gate.position.y<_gate_open_y-0.001 or not _gate_shape.disabled):
 			_kill_gate_tween()
 			_animate_gate()
@@ -58,6 +60,8 @@ var audio_muted := false:
 		if audio_muted==value: return
 		audio_muted = value
 		if _presentation: _presentation.sync_accessibility()
+		var architecture:=get_node_or_null("SurveillanceTripoArchitecture")
+		if architecture:architecture.sync_accessibility()
 var player: Node3D
 var presentation_language:="ar"
 var _telemetry:Node3D
@@ -113,6 +117,9 @@ func _ready() -> void:
 	_presentation = preload("res://scripts/environment/mirror_room_presentation.gd").new()
 	_presentation.name = "SurveillancePresentation"
 	add_child(_presentation)
+	if not OS.get_cmdline_user_args().has("--surveillance-legacy-baseline"):
+		var architecture:Node3D=load("res://scripts/environment/surveillance_room_architecture.gd").new()
+		architecture.name="SurveillanceTripoArchitecture";add_child(architecture)
 
 func _physics_process(_delta: float) -> void:
 	if not player or not is_instance_valid(player):

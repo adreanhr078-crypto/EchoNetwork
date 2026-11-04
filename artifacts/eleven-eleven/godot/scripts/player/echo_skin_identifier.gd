@@ -16,11 +16,11 @@ func _attach_identifier() -> void:
 	if not placement_report.is_empty(): return
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
 	var rig_profile := preload("res://scripts/player/echo_rig_profile.gd").identify(skeleton)
-	var v31_skin: bool = rig_profile.get("id") == preload("res://scripts/player/echo_rig_profile.gd").V31_ID
+	var v31_skin: bool = rig_profile.get("id") in [preload("res://scripts/player/echo_rig_profile.gd").V31_ID, preload("res://scripts/player/echo_rig_profile.gd").SCHOOL65_ID, preload("res://scripts/player/echo_rig_profile.gd").PACT72_ID]
 	# The adopted coat has warm red cloth. Its measured neck skin is pale peach;
 	# the legacy warm-only classifier otherwise accepts cloth as exposed skin.
 	if v31_skin: _skin_minimum = Vector3(0.65, 0.50, 0.45)
-	var body_name := "EchoV31BodyAndCoat" if rig_profile.get("id") == preload("res://scripts/player/echo_rig_profile.gd").V31_ID else "EchoOpeningUniformBody"
+	var body_name := preload("res://scripts/player/echo_rig_profile.gd").body_name(rig_profile)
 	var body := find_child(body_name, true, false) as MeshInstance3D
 	var neck_bone: String = str(rig_profile.get("bones",{}).get("neck",""))
 	var head_bone: String = str(rig_profile.get("bones",{}).get("head",""))
@@ -60,13 +60,18 @@ func _attach_identifier() -> void:
 		if bone < 0: bone = skeleton.find_bone(body.skin.get_bind_name(bind))
 		bind_matrices.append(skeleton.get_bone_global_rest(bone) * body.skin.get_bind_pose(bind))
 	var rest_points := PackedVector3Array()
+	# School65 retains the source armature's axis conversion and metric scale.
+	# Project in ModelRoot space so the neck band and avatar forward use the same axes.
+	var projection_transform := Transform3D.IDENTITY
+	if rig_profile.get("id") in [preload("res://scripts/player/echo_rig_profile.gd").SCHOOL65_ID,preload("res://scripts/player/echo_rig_profile.gd").PACT72_ID]:
+		projection_transform = global_transform.affine_inverse() * skeleton.global_transform
 	for v in vertices.size():
 		var position := Vector3.ZERO
 		for i in influence_count:
 			position += (bind_matrices[source_bones[v * influence_count + i]] * vertices[v]) * source_weights[v * influence_count + i]
-		rest_points.append(position)
-	var neck := skeleton.get_bone_global_rest(skeleton.find_bone(neck_bone)).origin
-	var head := skeleton.get_bone_global_rest(skeleton.find_bone(head_bone)).origin
+		rest_points.append(projection_transform * position)
+	var neck := projection_transform * skeleton.get_bone_global_rest(skeleton.find_bone(neck_bone)).origin
+	var head := projection_transform * skeleton.get_bone_global_rest(skeleton.find_bone(head_bone)).origin
 	var up := (head - neck).normalized()
 	var triangles: Array = []
 	var projection_triangles: Array = []
@@ -81,6 +86,10 @@ func _attach_identifier() -> void:
 			projection_triangles.append([a,b,c])
 		# V31's Head pivot lies at the lower neck, below the visible chin.
 		var upper_neck: float = head.y + 0.015 if v31_skin else head.y - 0.006
+		if rig_profile.get("id") in [preload("res://scripts/player/echo_rig_profile.gd").SCHOOL65_ID,preload("res://scripts/player/echo_rig_profile.gd").PACT72_ID]:
+			# Its Head pivot is at face height, not V31's lower neck. Restrict ink
+			# to its lower quarter. The midpoint is visibly on this model's chin.
+			upper_neck = lerpf(neck.y,head.y,0.25)
 		if center.y < neck.y - 0.018 or center.y > upper_neck: continue
 		if not _skin_texel(atlas, (uv[a] + uv[b] + uv[c]) / 3.0): continue
 		triangles.append([a, b, c])
@@ -127,7 +136,7 @@ func _attach_identifier() -> void:
 		for height in heights: placement_centers.append(neck+up*float(height))
 	# A different collar exposes a smaller neck patch. Fit complete lettering
 	# deterministically, largest first; never place partial ink or a floating mesh.
-	var font_scales := [1.0,0.75,0.5] if rig_profile.id == preload("res://scripts/player/echo_rig_profile.gd").V31_ID else [1.0]
+	var font_scales := [1.0,0.75,0.5] if v31_skin else [1.0]
 	#Finite placement search over measured neck skin, never another bone.
 	for font_scale in font_scales:
 		if not chosen.is_empty(): break
@@ -155,6 +164,9 @@ func _attach_identifier() -> void:
 					chosen_font_scale = float(font_scale)
 					break
 	if chosen.is_empty():
+		placement_report = {"status":"NO_COMPLETE_EXPOSED_PATCH", "skin_triangles":triangles.size(),
+			"neck_rest":neck,"head_rest":head,"placement_centers":placement_centers,
+			"atlas_skin_only":false,"ink_pixels":0}
 		push_warning("EX-011: complete lettering cannot fit exposed neck; no floating substitute")
 		return
 	# Ink lives in the body's own UV atlas, so skinning/face deformation cannot

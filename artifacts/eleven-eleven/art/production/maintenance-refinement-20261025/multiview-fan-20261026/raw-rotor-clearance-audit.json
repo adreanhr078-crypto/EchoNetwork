@@ -1,0 +1,126 @@
+{
+  "scope": "READONLY actual generated semantic blade parts against stationary source geometry;12rotationangles,broadBVH+exact17axis triangleSAT,tolerance1micrometre;not game acceptance",
+  "blade_parts": [
+    "tripo_part_10",
+    "tripo_part_11",
+    "tripo_part_12",
+    "tripo_part_24",
+    "tripo_part_25",
+    "tripo_part_5",
+    "tripo_part_7",
+    "tripo_part_8"
+  ],
+  "candidate_hub_parts": [
+    "tripo_part_17",
+    "tripo_part_23",
+    "tripo_part_30",
+    "tripo_part_41",
+    "tripo_part_9"
+  ],
+  "rows": [
+    {
+      "degrees": 0,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 30,
+      "broad_pairs": 1727,
+      "exact_surface_intersections": 1727,
+      "static_parts": {
+        "tripo_part_4": 936,
+        "tripo_part_6": 791
+      }
+    },
+    {
+      "degrees": 60,
+      "broad_pairs": 1247,
+      "exact_surface_intersections": 1247,
+      "static_parts": {
+        "tripo_part_4": 623,
+        "tripo_part_6": 624
+      }
+    },
+    {
+      "degrees": 90,
+      "broad_pairs": 1805,
+      "exact_surface_intersections": 1805,
+      "static_parts": {
+        "tripo_part_4": 1267,
+        "tripo_part_6": 538
+      }
+    },
+    {
+      "degrees": 120,
+      "broad_pairs": 2207,
+      "exact_surface_intersections": 2207,
+      "static_parts": {
+        "tripo_part_4": 1048,
+        "tripo_part_6": 1159
+      }
+    },
+    {
+      "degrees": 150,
+      "broad_pairs": 836,
+      "exact_surface_intersections": 836,
+      "static_parts": {
+        "tripo_part_4": 472,
+        "tripo_part_6": 364
+      }
+    },
+    {
+      "degrees": 180,
+      "broad_pairs": 0,
+      "exact_surface_intersections": 0,
+      "static_parts": {}
+    },
+    {
+      "degrees": 210,
+      "broad_pairs": 1893,
+      "exact_surface_intersections": 1893,
+      "static_parts": {
+        "tripo_part_4": 1119,
+        "tripo_part_6": 774
+      }
+    },
+    {
+      "degrees": 240,
+      "broad_pairs": 1273,
+      "exact_surface_intersections": 1273,
+      "static_parts": {
+        "tripo_part_4": 658,
+        "tripo_part_6": 615
+      }
+    },
+    {
+      "degrees": 270,
+      "broad_pairs": 1593,
+      "exact_surface_intersections": 1593,
+      "static_parts": {
+        "tripo_part_4": 560,
+        "tripo_part_6": 1033
+      }
+    },
+    {
+      "degrees": 300,
+      "broad_pairs": 2166,
+      "exact_surface_intersections": 2166,
+      "static_parts": {
+        "tripo_part_4": 1346,
+        "tripo_part_6": 820
+      }
+    },
+    {
+      "degrees": 330,
+      "broad_pairs": 878,
+      "exact_surface_intersections": 878,
+      "static_parts": {
+        "tripo_part_4": 501,
+        "tripo_part_6": 377
+      }
+    }
+  ],
+  "elapsed_s": 3.01,
+  "source_geometry_mutated": false
+}

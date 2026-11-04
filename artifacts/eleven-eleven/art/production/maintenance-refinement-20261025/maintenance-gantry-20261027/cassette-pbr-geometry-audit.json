@@ -1,0 +1,90 @@
+{
+  "status": "GEOMETRY_PASS_MATERIAL_RENDER_REVIEW_PENDING",
+  "scope": "Full bidirectional nearest-vertex comparison and equal triangle counts; not identical indices, native collision, or visual acceptance.",
+  "source": "cassette-h31-fourview-pbr4k.glb",
+  "sha256": "e62c4ab0b174b83433492592ab32211d5e17fe8821367b22e3c459059bdefce6",
+  "raw_bounds_blender": {
+    "min": [
+      -0.4893798828125,
+      -0.049661628901958466,
+      0.0
+    ],
+    "max": [
+      0.4893798828125,
+      0.049661628901958466,
+      0.669403076171875
+    ],
+    "size": [
+      0.978759765625,
+      0.09932325780391693,
+      0.669403076171875
+    ]
+  },
+  "pbr_bounds_blender": {
+    "min": [
+      -0.4893798828125,
+      -0.049661628901958466,
+      0.0
+    ],
+    "max": [
+      0.4893798828125,
+      0.049661628901958466,
+      0.669403076171875
+    ],
+    "size": [
+      0.978759765625,
+      0.09932325780391693,
+      0.669403076171875
+    ]
+  },
+  "triangles_each": 1943923,
+  "distances": [
+    {
+      "target": "tripo_node_c317fd42-2afc-4747-822e-b4f08cdb9b40",
+      "probe": "CassettePBRMesh",
+      "vertices": 1017670,
+      "max_source_units": 0.0,
+      "max_at_5m_width_m": 0.0,
+      "rms_source_units": 0.0
+    },
+    {
+      "target": "CassettePBRMesh",
+      "probe": "tripo_node_c317fd42-2afc-4747-822e-b4f08cdb9b40",
+      "vertices": 971962,
+      "max_source_units": 0.0,
+      "max_at_5m_width_m": 0.0,
+      "rms_source_units": 0.0
+    }
+  ],
+  "images": [
+    {
+      "name": "metal_storage_crate_3d_model_basecolor.jpg",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "metal_storage_crate_3d_model_normal.jpg",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "metal_storage_crate_3d_model_rm.png",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Viewer Node",
+      "size": [
+        256,
+        256
+      ]
+    }
+  ],
+  "raw_scene_preserved": "MAINTENANCE_CASSETTE_REVIEW_20261027"
+}

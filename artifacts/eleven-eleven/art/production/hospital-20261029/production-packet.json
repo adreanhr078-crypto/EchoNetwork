@@ -1,0 +1,134 @@
+{
+  "room": "10",
+  "stage": "DEFAULT_SCOPED_NATIVE_PASS_FULL_FORWARD_PLUS_RESTORE_FAIL",
+  "references": [
+    {
+      "role": "entry",
+      "path": "art/production/hospital-20261029/references/entry.png",
+      "sha256": "d7b8a56f5db55fa5916fdb0796c7b45904ca132a35b8a77bdc5dea423bd35337"
+    },
+    {
+      "role": "reverse",
+      "path": "art/production/hospital-20261029/references/reverse.png",
+      "sha256": "a41ac6ee40c671ad1071e9d394d4a8a97d14bc961b6385bd08ef3a514a4d4915"
+    },
+    {
+      "role": "lateral",
+      "path": "art/production/hospital-20261029/references/lateral.png",
+      "sha256": "11d93ff4cadf73acea3874f50953e7d46ffa03340edb11d1563051d6e9ccaa9e"
+    },
+    {
+      "role": "resource",
+      "path": "art/production/hospital-20261029/references/resource.png",
+      "sha256": "f5782de0e9bd6a5a7b1930b0c01b049f1e200d707c8dccf331fd628860446f07"
+    },
+    {
+      "role": "headwall-isolated",
+      "path": "art/production/hospital-20261029/references/headwall-isolated.png",
+      "sha256": "41da64f6d9ec5a4ac8c32833c75fec347ea934c93348bd518a7f30524c0bb10b"
+    }
+  ],
+  "shape_authority": "Native6.4x5.8x3.2m;bed long axisX;window2.87x1.8m south;clocknorth11:11;eastvanity. Concepts are material/light targets;may widen glazing/add doors. Preserve native anchors.",
+  "tripo": {
+    "balance_live": 2110,
+    "planned": "ONE P2 shallow headwall12000quad100credits;4K remove-light20;PBR5;verify each live submission",
+    "root_task": "daa71823-67da-46bf-be98-eb5a5164edff",
+    "P2_cost": 100,
+    "texture_quick_cost": 20,
+    "texture_status": "QUICK_TEXTURE_RUNNING_RESOLUTION_UNVERIFIED",
+    "faces_ui": 12755,
+    "vertices_ui": 11257,
+    "raw": "art/production/hospital-20261029/source/headwall-p2-raw.glb",
+    "headwall": {
+      "root_task": "daa71823-67da-46bf-be98-eb5a5164edff",
+      "P2": 100,
+      "texture": 20,
+      "PBR": 5,
+      "maps": [
+        {
+          "name": "room10-headwall-p2-pbr_basecolor.jpg",
+          "mime": "image/jpeg",
+          "size": [
+            4096,
+            4096
+          ],
+          "bytes": 3850644
+        },
+        {
+          "name": "room10-headwall-p2-pbr_rm.png",
+          "mime": "image/png",
+          "size": [
+            4096,
+            4096
+          ],
+          "bytes": 14607347
+        },
+        {
+          "name": "room10-headwall-p2-pbr_normal.jpg",
+          "mime": "image/jpeg",
+          "size": [
+            4096,
+            4096
+          ],
+          "bytes": 1175995
+        }
+      ],
+      "remove_lighting": false,
+      "note": "Quick Texture20 reused4K setting;no Remove Lighting claim. Uniform result reviewed;no reroll."
+    },
+    "balance_expected_after_headwall": 1985,
+    "rejected_misinput": {
+      "task": "b0a55ba0-1d71-415c-bb30-fbd3fcc6cd0d",
+      "cost": 120,
+      "reason": "Switched generator mode after upload;P2 retained prior headwall image. Raw geometry inspection detected mismatch;not a bed;no PBR/integration. Corrected flow selectsP2 BEFORE upload and visually verifiesbed before spend."
+    },
+    "bed_correct": {
+      "task": "dbc3deb0-0071-432c-aaa1-955a654d29ea",
+      "P2": 100,
+      "texture": 20,
+      "PBR": 5,
+      "raw_geometry": "Actual bed visually verified inTripo before texture",
+      "settings": "4K,RemoveLighting checked,requested12000Quad,one output",
+      "maps": [
+        {
+          "name": "room10-bed-p2-correct-pbr4k_basecolor.jpg",
+          "size": [
+            4096,
+            4096
+          ]
+        },
+        {
+          "name": "room10-bed-p2-correct-pbr4k_rm.png",
+          "size": [
+            4096,
+            4096
+          ]
+        },
+        {
+          "name": "room10-bed-p2-correct-pbr4k_normal.jpg",
+          "size": [
+            4096,
+            4096
+          ]
+        }
+      ],
+      "balance_live_after": 1740
+    },
+    "total_spent_this_room": 370
+  },
+  "flow": {
+    "status": "DOWNLOADED_VISUAL_REVIEW_PENDING",
+    "scope": "Reference visuals only;audio acceptance separate",
+    "project": "https://flow.google.com/project/1f3f27b1-6d4d-4a32-b402-770ba6b79936",
+    "live_balance_before": 473,
+    "model": "Omni1.1Flash",
+    "cost_ui": 12,
+    "refs": "entry+four-view-board+resource;all3loaded",
+    "asset": "46f47460-cbef-4d3a-899d-c6073b38a8bc",
+    "file": "art/production/hospital-20261029/flow/hospital-reference-omni.mp4",
+    "visual_review": "16time samples0-7.5s viewed;stable dolly,no actors;use materials/light only. Duplicate IV props/additional wall clock/window width in reference are not native authority.",
+    "audio": "UNVERIFIED;not shipped"
+  },
+  "native_status": "12Highplayerchecks/fourviews16unchangedcolliders;restoredCompatibility/headlesspublicinspectionPASS;fresh353headless0retries;postflightPASS;wholechapterart/audio/fun/deviceOPEN",
+  "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/hospital-20261029/quality-report.json"
+}

@@ -1,0 +1,249 @@
+- main:
+  - button "القائمة الرئيسية":
+    - img: menu
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - heading "محادثة مع Gemini" [level=1]
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - heading "أنت قلت راجع الصور الأربع المرفقة الحالية لغرفة الصيانة02 داخل11.11 بوصفك مديراً فنياً مستقلاً لألعاب Hyper …" [level=5]
+  - paragraph: راجع الصور الأربع المرفقة الحالية لغرفة الصيانة02 داخل11.11 بوصفك مديراً فنياً مستقلاً لألعاب Hyper Anime. هذه لقطات فعلية منGodot4.8-dev7 Forward+High1280×720:entry دخول،reverse عكس،lateral جانب،hero صمام وباب الخروج. احكم على ما تراه فقط؛إن تعذرت قراءة الصورقلFILE_READ_FAIL ولا تصدر حكماً. أعط حكماً مستقلاً PASS أو REFINE لكل محور:العمارة،المعدات والمواد،التكوين ووضوح مسار اللاعب. إذا بقي عيب يمنع القبول الثابت فحدّد الصورة والموضع والعيب وإجراءً محدوداً؛افصل التفضيل الاختياري. المسار:جدار قبض أول،استراحة،قفزة فجوة إلى اليمين،جدار قبض ثان،استراحة وعجلة تنفيس ضغط ثم باب أصلي. المصدر الجديد تصميم غرفة كاملة مولد ثمTripoH3.1مع4K PBR؛اشتقاق مقاس يحفظ الفيزياء ومواقع القبض،ويكمله شبك منصات حقيقي وواجهات بوابة مقاسة. فحص39شرط لعب فعلي وإعادة تحميل الملفات المكتسبة ناجحان،لكن لا تعتمد الصور بناء على تلك الأرقام. لا تقترح تغيير المسار أو إضافة حواجز فوقه أو منح قدرات مبكرة. الصورة الطافية الكاملة المتحركة بلا إطار اختيار المالك المحمي؛لا قص أو تقطيع أو تأطير لها. هذه مراجعة جودة ثابتة محددة وليست قبول حركة اليد أو الصوت أو المتعة أو الأداء أو الفصل. استخدم أسماء ملفات الصور الحالية لربط ملاحظاتك. كن صريحاً ودقيقاً ومختصراً.
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - heading "الأحكام المستقلة للمحاور الثلاثة" [level=3]
+  - list:
+    - paragraph:
+      - generic: "العمارة (Architecture): REFINE — وجود فجوات هيكلية مكشوفة في واجهة بوابة الخروج"
+      - superscript
+      - text: ، وحواف هندسية متآكلة في الجدار الأوسط
+      - superscript
+      - text: ، وافتقار جدار القبض الثاني لأي سماكة أو دعامة إنشائية خلفية
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-hero.jpg, JPG: maintenance-fullroom-v9-entry.jpg, JPG: maintenance-fullroom-v9-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 4
+    - paragraph:
+      - generic: "المعدات والمواد (Props & Materials): REFINE — تنافر بصري حاد بين الأسطح الشبكية الحادة وخامات Tripo H3.1 المخبوزة ذات التفاصيل المذابة على الجدار الأيمن وخلفية جدار القبض الثاني"
+      - superscript
+      - text: ، مع تداخل هيكلي عند وحدة الصمام وسواد فاحم يطمس معالم إطار الباب
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg, JPG: maintenance-fullroom-v9-reverse.jpg, JPG: maintenance-fullroom-v9-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 3
+    - paragraph:
+      - generic: "التكوين ووضوح مسار اللاعب (Composition & Player Path Readability): PASS — التوجيه البصري ناجح ومقروء بوضوح عبر التباين اللوني (السيان والبرتقالي) من جدار القبض الأول"
+      - superscript
+      - text: ، مروراً بعلامات القفز الجانبية الصفراء على المنصات الشبكية
+      - superscript
+      - text: ، وصولاً إلى عجلة تنفيس الضغط وبوابة الخروج
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg, JPG: maintenance-fullroom-v9-reverse.jpg, JPG: maintenance-fullroom-v9-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 4
+  - heading "العيوب المانعة للقبول الثابت (إصلاحات إلزامية)" [level=3]
+  - table:
+    - rowgroup:
+      - row "الصورة الموضع العيب البصري الإجراء المحدود المطلوب":
+        - columnheader "الصورة"
+        - columnheader "الموضع"
+        - columnheader "العيب البصري"
+        - columnheader "الإجراء المحدود المطلوب"
+    - rowgroup:
+      - 'row "maintenance-fullroom-v9-hero.jpg يسار كتلة باب الخروج السوداء اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. فجوة عمودية واسعة تفصل إطار البوابة الأسود عن الجدار المجاور وتكشف الغرفة الخلفية بالكامل رغم إغلاق الباب . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. توسيع كتلة الإطار الجانبي الأسود للبوابة أو تحريكها لليسار لسد الفجوة البصرية تماماً دون تحريك موقع الباب الفعلي . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "maintenance-fullroom-v9-hero.jpg":
+          - code: maintenance-fullroom-v9-hero.jpg
+        - 'cell "يسار كتلة باب الخروج السوداء اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: يسار كتلة باب الخروج السوداء
+            - superscript
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+        - 'cell "فجوة عمودية واسعة تفصل إطار البوابة الأسود عن الجدار المجاور وتكشف الغرفة الخلفية بالكامل رغم إغلاق الباب . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: فجوة عمودية واسعة تفصل إطار البوابة الأسود عن الجدار المجاور وتكشف الغرفة الخلفية بالكامل رغم إغلاق الباب
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+        - 'cell "توسيع كتلة الإطار الجانبي الأسود للبوابة أو تحريكها لليسار لسد الفجوة البصرية تماماً دون تحريك موقع الباب الفعلي . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: توسيع كتلة الإطار الجانبي الأسود للبوابة أو تحريكها لليسار لسد الفجوة البصرية تماماً دون تحريك موقع الباب الفعلي
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+      - 'row "maintenance-fullroom-v9-lateral.jpg و maintenance-fullroom-v9-reverse.jpg منتصف المشهد (ظهر وحافة جدار القبض الثاني) اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. يظهر جدار القبض الثاني كشريحة رقيقة معلقة في الهواء بلا هيكل داعم، مع تشوه وتموج معدني مشوه على سطحه الخلفي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. إضافة صندوق إسناد خلفي بسيط (Back-box/Pillar) ذي حواف صلبة خلف لوح القبض الثاني لإخفاء الظهر المشوه ومنحه سماكة معمارية مقنعة دون المساس بواجهة القبض . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "maintenance-fullroom-v9-lateral.jpg و maintenance-fullroom-v9-reverse.jpg":
+          - code: maintenance-fullroom-v9-lateral.jpg
+          - text: و
+          - code: maintenance-fullroom-v9-reverse.jpg
+        - 'cell "منتصف المشهد (ظهر وحافة جدار القبض الثاني) اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: منتصف المشهد (ظهر وحافة جدار القبض الثاني)
+            - superscript
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "يظهر جدار القبض الثاني كشريحة رقيقة معلقة في الهواء بلا هيكل داعم، مع تشوه وتموج معدني مشوه على سطحه الخلفي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: يظهر جدار القبض الثاني كشريحة رقيقة معلقة في الهواء بلا هيكل داعم، مع تشوه وتموج معدني مشوه على سطحه الخلفي
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "إضافة صندوق إسناد خلفي بسيط (Back-box/Pillar) ذي حواف صلبة خلف لوح القبض الثاني لإخفاء الظهر المشوه ومنحه سماكة معمارية مقنعة دون المساس بواجهة القبض . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: إضافة صندوق إسناد خلفي بسيط (Back-box/Pillar) ذي حواف صلبة خلف لوح القبض الثاني لإخفاء الظهر المشوه ومنحه سماكة معمارية مقنعة دون المساس بواجهة القبض
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-reverse.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+      - 'row "maintenance-fullroom-v9-lateral.jpg و maintenance-fullroom-v9-entry.jpg الحافة السفلية للجدار الأزرق الأوسط اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. حافة سفلية متعرجة ومقصوصة بشكل عشوائي (Jagged mesh tear) تطفو فوق الفراغ الأسود السفلي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. قص الحافة السفلية باستقامة أو تغطيتها بعارضة معدنية أفقية (Trim beam) تفصل الجدار الأزرق عن الفراغ السفلي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "maintenance-fullroom-v9-lateral.jpg و maintenance-fullroom-v9-entry.jpg":
+          - code: maintenance-fullroom-v9-lateral.jpg
+          - text: و
+          - code: maintenance-fullroom-v9-entry.jpg
+        - 'cell "الحافة السفلية للجدار الأزرق الأوسط اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: الحافة السفلية للجدار الأزرق الأوسط
+            - superscript
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "حافة سفلية متعرجة ومقصوصة بشكل عشوائي (Jagged mesh tear) تطفو فوق الفراغ الأسود السفلي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: حافة سفلية متعرجة ومقصوصة بشكل عشوائي (Jagged mesh tear) تطفو فوق الفراغ الأسود السفلي
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "قص الحافة السفلية باستقامة أو تغطيتها بعارضة معدنية أفقية (Trim beam) تفصل الجدار الأزرق عن الفراغ السفلي . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: قص الحافة السفلية باستقامة أو تغطيتها بعارضة معدنية أفقية (Trim beam) تفصل الجدار الأزرق عن الفراغ السفلي
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+      - 'row "maintenance-fullroom-v9-entry.jpg و maintenance-fullroom-v9-lateral.jpg الجدار الصناعي الأيمن (أنابيب وألواح Tripo H3.1) اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. أنابيب ملتوية ومذابة هندسياً مع بقع لونية نحاسية/رمادية ضبابية تتعارض مع أسلوب Hyper Anime الحاد . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. تنعيم أو استبدال قطاع الأنابيب المذاب بأسطوانات هندسية نظيفة وتوحيد تدرج الخشونة (Roughness/Albedo) مع الجدران المعيارية . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "maintenance-fullroom-v9-entry.jpg و maintenance-fullroom-v9-lateral.jpg":
+          - code: maintenance-fullroom-v9-entry.jpg
+          - text: و
+          - code: maintenance-fullroom-v9-lateral.jpg
+        - 'cell "الجدار الصناعي الأيمن (أنابيب وألواح Tripo H3.1) اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: الجدار الصناعي الأيمن (أنابيب وألواح Tripo H3.1)
+            - superscript
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "أنابيب ملتوية ومذابة هندسياً مع بقع لونية نحاسية/رمادية ضبابية تتعارض مع أسلوب Hyper Anime الحاد . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: أنابيب ملتوية ومذابة هندسياً مع بقع لونية نحاسية/رمادية ضبابية تتعارض مع أسلوب Hyper Anime الحاد
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+        - 'cell "تنعيم أو استبدال قطاع الأنابيب المذاب بأسطوانات هندسية نظيفة وتوحيد تدرج الخشونة (Roughness/Albedo) مع الجدران المعيارية . اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: تنعيم أو استبدال قطاع الأنابيب المذاب بأسطوانات هندسية نظيفة وتوحيد تدرج الخشونة (Roughness/Albedo) مع الجدران المعيارية
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+              - generic: + 1
+      - 'row "maintenance-fullroom-v9-hero.jpg يمين الباب (وحدة عجلة تنفيس الضغط) اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. تلاحم ضيق وتداخل بصري بين أنبوب الإضاءة السيان الأيمن وحامل العجلة، مع سواد قاتم عديم الانعكاس على كامل هيكل إطار الباب . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر. إزاحة شريط الإضاءة السيان الأيمن سنتيمترات قليلة عن قاعدة العجلة، ورفع قيمة Albedo/Metallic لإطار الباب الأسود لإبراز حوافه . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - cell "maintenance-fullroom-v9-hero.jpg":
+          - code: maintenance-fullroom-v9-hero.jpg
+        - 'cell "يمين الباب (وحدة عجلة تنفيس الضغط) اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: يمين الباب (وحدة عجلة تنفيس الضغط)
+            - superscript
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+        - 'cell "تلاحم ضيق وتداخل بصري بين أنبوب الإضاءة السيان الأيمن وحامل العجلة، مع سواد قاتم عديم الانعكاس على كامل هيكل إطار الباب . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: تلاحم ضيق وتداخل بصري بين أنبوب الإضاءة السيان الأيمن وحامل العجلة، مع سواد قاتم عديم الانعكاس على كامل هيكل إطار الباب
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+        - 'cell "إزاحة شريط الإضاءة السيان الأيمن سنتيمترات قليلة عن قاعدة العجلة، ورفع قيمة Albedo/Metallic لإطار الباب الأسود لإبراز حوافه . اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - paragraph:
+            - text: إزاحة شريط الإضاءة السيان الأيمن سنتيمترات قليلة عن قاعدة العجلة، ورفع قيمة Albedo/Metallic لإطار الباب الأسود لإبراز حوافه
+            - superscript
+            - text: .
+            - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+              - generic: JPG
+  - heading "التفضيلات الاختيارية (تحسينات غير مانعة)" [level=3]
+  - list:
+    - paragraph:
+      - code: maintenance-fullroom-v9-entry.jpg
+      - text: و
+      - code: maintenance-fullroom-v9-reverse.jpg
+      - text: "(أعلى اليسار وأقصى اليمين):"
+      - text: تخفيف نصف قطر هالات التوهج الضبابية الزرقاء (Light Sprites/Bloom blobs) الطافية فوق فتحة التهوية اليسرى
+      - superscript
+      - text: وفوق المقبض الأيمن
+      - superscript
+      - text: لتبدو أكثر حدة واتساقاً مع أشرطة النيون.
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-fullroom-v9-entry.jpg وJPG: maintenance-fullroom-v9-reverse.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 1
+    - paragraph:
+      - code: maintenance-fullroom-v9-hero.jpg
+      - text: "(أسفل اليمين):"
+      - text: محاذاة فرق الارتفاع الطفيف عند خط التقاء المنصتين الشبكيتين لتشكيل سطح مستوٍ بصرياً عند زاوية الالتفاف
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-fullroom-v9-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Identifying further game environment art flaws
+- region "Notifications"

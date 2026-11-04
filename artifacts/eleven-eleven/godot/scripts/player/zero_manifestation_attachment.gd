@@ -58,6 +58,9 @@ func configure(node: Node3D, socket_role: String) -> bool:
 			profile = identified
 			break
 	if not is_instance_valid(skeleton): return false
+	# School/Pact faces use their own approved source appearance. These legacy
+	# socket measurements belong only to the original v13/V31 meshes.
+	if profile.id in [RigProfile.SCHOOL65_ID,RigProfile.PACT72_ID]:return false
 	if socket_role == "eye": _collect_eyelids(avatar_root)
 	var forward: Vector3 = profile.local_forward
 	var left := Vector3.UP.cross(forward).normalized()
@@ -94,6 +97,7 @@ func configure(node: Node3D, socket_role: String) -> bool:
 
 func update_socket(delta: float = 0.0) -> bool:
 	if not is_instance_valid(host) or not is_instance_valid(skeleton) or not is_instance_valid(avatar_root) or not (avatar_root as Node3D).visible or bone_index < 0: return false
+	if not host.is_inside_tree() or not skeleton.is_inside_tree() or not avatar_root.is_inside_tree():return false
 	var deformation := skeleton.get_bone_global_pose(bone_index) * skeleton.get_bone_global_rest(bone_index).affine_inverse()
 	if not skin_bones.is_empty():
 		var blended := Transform3D(Basis(Vector3.ZERO, Vector3.ZERO, Vector3.ZERO), Vector3.ZERO)
@@ -262,7 +266,7 @@ func _collect_eyelids(node: Node) -> void:
 	for child in node.get_children(): _collect_eyelids(child)
 
 func _bind_skin_influences(socket_point: Vector3) -> void:
-	var mesh_name := "EchoOpeningUniformBody" if profile.id == RigProfile.LEGACY_ID else "EchoV31BodyAndCoat"
+	var mesh_name := RigProfile.body_name(profile)
 	var body := avatar_root.find_child(mesh_name, true, false) as MeshInstance3D
 	if not body or not body.mesh or not body.skin: return
 	var arrays := body.mesh.surface_get_arrays(0)

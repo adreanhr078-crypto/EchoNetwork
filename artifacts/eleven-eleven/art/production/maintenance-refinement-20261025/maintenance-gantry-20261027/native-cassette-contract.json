@@ -1,0 +1,51 @@
+{
+  "status": "PREPARED_NATIVE_REVIEW_PENDING",
+  "source": "cassette-h31-fourview-pbr4k.glb",
+  "source_sha256": "e62c4ab0b174b83433492592ab32211d5e17fe8821367b22e3c459059bdefce6",
+  "asset": "godot/assets/environments/maintenance_cp45/maintenance_primary_cassette_pbr4k.glb",
+  "asset_sha256": "6cade8811bc22eda85e6b754df8d517e00baf115096eaf22e4bb9e070ae061a3",
+  "bytes": 76040852,
+  "buffer_and_embedded_images_byte_identical": true,
+  "source_triangles": 1943923,
+  "mesh_count": 1,
+  "dimensions_m": [
+    4.998,
+    3.398,
+    0.498
+  ],
+  "component_fit_axis_scale": [
+    5.106462459466202,
+    5.076164303624345,
+    5.0139313893946875
+  ],
+  "max_axis_scale_ratio": 1.0184547938304926,
+  "front_axis": "+Z",
+  "pivot": "center of original first-wall solid",
+  "native_body": "COLL_CLIMB_FirstWall",
+  "native_position_m": [
+    0,
+    1.7,
+    -6
+  ],
+  "native_collision_size_m": [
+    5,
+    3.4,
+    0.5
+  ],
+  "maps_actual_sizes": {
+    "basecolor": [
+      4096,
+      4096
+    ],
+    "normal": [
+      4096,
+      4096
+    ],
+    "roughness_metallic": [
+      4096,
+      4096
+    ]
+  },
+  "geometry_review": "Raw and PBR have equal triangle counts and zero full bidirectional nearest-vertex distance; three PBR render views reviewed.",
+  "scope": "Complete principal 5m cassette, with sub-2.5percent axis fitting within the unchanged solid. No new holds, rungs, collision, motion, or gameplay authority."
+}

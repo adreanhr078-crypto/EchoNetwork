@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 		_advance(4)
 	if stage == 6 and room.service_open and has_confirmed_room_checkpoint() and player.is_on_floor() and Route.EXIT_REGION.has_point(point):_advance(7)
 	room.service_allowed = stage == 5 and has_confirmed_room_checkpoint()
-	if stage > 0 and (point.y < -.18 or absf(point.x)>9.4 or point.z < -20.2):
+	if stage > 0 and (point.y < Route.minimum_retry_height(stage,course_step) or absf(point.x)>9.4 or point.z < -20.2):
 		_pending_landing = -1
 		_pending_vault = false
 		player.surface_motor.reset(player)

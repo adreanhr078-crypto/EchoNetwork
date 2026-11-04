@@ -106,7 +106,10 @@ func take_damage(_amount: float, from: Vector3=Vector3.ZERO) -> void:
 	if not active or completed or contacts>=3: return
 	contacts+=1
 	if trauma_pose: trauma_pose.set_contact_count(contacts)
-	_recoil=(global_position-from).normalized()*0.75
+	# Legacy damage callers omit the optional origin. The actual attacker,
+	# rather than the world's origin,must own the direction of a revenge hit.
+	var source := player.global_position if from.is_zero_approx() and is_instance_valid(player) else from
+	_recoil=(global_position-source).normalized()*(1.1+.45*contacts)
 	_recoil.y=0
 	pressure_changed.emit(contacts)
 

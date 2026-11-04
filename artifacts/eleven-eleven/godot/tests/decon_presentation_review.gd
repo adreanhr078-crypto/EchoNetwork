@@ -9,7 +9,13 @@ func _run() -> void:
 	room = load("res://scenes/environment/decontamination_quarantine_wing.tscn").instantiate()
 	root.add_child(room)
 	room.set_audio_muted(true)
-	_check(_collisions(original)==_collisions(room),"Decon presentation changed authored collision geometry")
+	var physical:=_collisions(room)
+	var guards:=0
+	for key in physical.keys():
+		if String(key).begins_with("DeconTripoArchitecture/GeneratedWall"):
+			guards+=1;physical.erase(key)
+	_check(_collisions(original)==physical,"Decon presentation changed original collision geometry")
+	_check(guards==5 if room.has_node("DeconTripoArchitecture") else guards==0,"Generated perimeter guard budget changed")
 	_check(original.get_state()==room.get_state(),"Decon presentation changed initial durable state/schema")
 	_check(original.find_children("*","Area3D",true,false).size()==room.find_children("*","Area3D",true,false).size(),"Presentation invented a new trigger/hazard")
 	var closed: Dictionary = room.get_state()
@@ -31,10 +37,15 @@ func _run() -> void:
 	await create_timer(0.12).timeout
 	_check(room._uv_timer==clock and room._mist_time==mist_clock and not room._mist_cards[0].visible and not room._air_motes._air.visible,"Reduced Motion retained mist/dust animation")
 	_check(room._uv_pulse_light.light_energy>0 and room._terminal_light.light_energy>0,"Reduced Motion hid functional lighting")
+	var instruments:Node=room.get_node_or_null("DeconTripoArchitecture/ClinicalInstrumentDetail")
+	if instruments:
+		_check(instruments._readout.get_shader_parameter("motion")==0.0 and instruments._glass.get_shader_parameter("motion")==0.0,"Reduced Motion retained instrument/condensation movement")
 	room.reduced_motion = false
 	paused = true
 	await create_timer(0.12).timeout
 	_check(room._uv_timer==clock and room._mist_time==mist_clock,"Pause advanced decon local time")
+	if instruments:
+		_check(is_equal_approx(instruments._glass.get_shader_parameter("elapsed"),mist_clock),"Paused glass clock diverged from room clock")
 	paused = false
 	room.set_audio_muted(false)
 	room.execute_quarantine_override()

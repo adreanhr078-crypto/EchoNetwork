@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-04",
+  "observed_utc": "2026-11-04T11:34:02.149578+00:00",
+  "scope": "18stage tooling evaluation and production preparation;no new runtime integration",
+  "authorization": {
+    "needed_Blender_Flow_Tripo_assets_and_animations": true,
+    "needed_tool_open_download_install": true,
+    "owner_will_handle_new_subscription_payments": true,
+    "new_generation_permission_needed": false,
+    "live_cost_and_quality_gate_before_each_paid_case": true,
+    "agents_authorized": false
+  },
+  "hardware": {
+    "cpu": "Intel Core i3-1215U",
+    "gpu": "Intel UHD Graphics",
+    "physical_RAM_GiB_observed": 7.7,
+    "C_free_GiB_observed": 17.1,
+    "limitations": "Not a qualified premium rendering workstation;no dedicated GPU acceptance."
+  },
+  "installed": {
+    "blender": {
+      "version_observed": "5.2.2 LTS",
+      "path": "C:\\Tools\\Blender-5.2.2-portable\\blender-5.2.2-windows-x64\\blender.exe"
+    },
+    "godot": {
+      "version_observed": "4.8.dev7.official.c971f93e7",
+      "path": "C:\\Tools\\Godot-4.8-dev7\\Godot_v4.8-dev7_win64_console.exe"
+    },
+    "ffmpeg_on_PATH": true,
+    "KTX_tools_directory_present": true,
+    "character_doctor": {
+      "status": "PASS_INTAKE_ONLY",
+      "assets": 5,
+      "cache_hits": 5,
+      "rooms_source_match": 9,
+      "rooms_capture_match": 10
+    }
+  },
+  "accounts": {
+    "Flow": {
+      "verified_current_account_credits": 1050,
+      "tier": "PRO",
+      "current_UI_route": "https://flow.google.com/u/2/",
+      "other_accounts": {
+        "count_reported_by_owner_total": 5,
+        "approx_credits_each_reported": 1000,
+        "verified": false
+      },
+      "new_spend_this_audit": 0
+    },
+    "Tripo": {
+      "verified_header_credits": 1345,
+      "route": "https://studio.tripo3d.ai/",
+      "new_spend_this_audit": 0
+    },
+    "ElevenLabs": {
+      "plan_observed": "Free",
+      "remaining_credits_observed": 10000,
+      "observed_date": "2026-11-04",
+      "purchase": false,
+      "generation": false,
+      "recommendation": "CreativeStarter1USDthen6USD/month;30kcredits;commercial production during paid term"
+    }
+  },
+  "download": {
+    "tool": "REAPER",
+    "version": "7.84 x64",
+    "source": "https://www.reaper.fm/files/7.x/reaper784_x64-install.exe",
+    "bytes": 17192416,
+    "sha256": "a343286bd67d8515b561e5c6b7cc284a8d258d87a73f5518ec2e233d46ff9755",
+    "authenticode": "Valid",
+    "signer": "Cockos Incorporated",
+    "installed": false,
+    "executed": false
+  },
+  "opened_pages": [
+    "https://cascadeur.com/plans",
+    "https://www.reaper.fm/download.php",
+    "https://elevenlabs.io/pricing",
+    "https://flow.google.com/u/2/",
+    "https://studio.tripo3d.ai/"
+  ],
+  "new_paid_generation_count": 0,
+  "purchases": 0,
+  "runtime_edits": false,
+  "phase_advanced": false,
+  "Cascadeur": {
+    "installation": "owner confirmed 2026-11-04",
+    "trial_active_verified": false,
+    "current_action": "Owner activates Pro14daytrial;no paid purchase needed now",
+    "paid_choice": "Indie initially sufficient for export/current revenue;Pro only after actual environment-contact/retargeting sample benefit"
+  }
+}

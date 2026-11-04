@@ -14,7 +14,7 @@ static func spawn_number(parent: Node, world_pos: Vector3, damage: int, is_crit:
 	label.no_depth_test = true
 	label.render_priority = 10
 	label.fixed_size = true
-	label.pixel_size = 0.0035
+	label.pixel_size = 0.0012
 
 	if is_deflect:
 		label.text = "DEFLECT!"
@@ -41,12 +41,19 @@ static func spawn_number(parent: Node, world_pos: Vector3, damage: int, is_crit:
 	label.scale = Vector3(0.1, 0.1, 0.1)
 
 	parent.add_child(label)
+	if parent.get("reduced_motion")==true:
+		label.scale=Vector3.ONE
+		var quiet:=label.create_tween()
+		quiet.tween_interval(.65)
+		quiet.tween_property(label,"modulate:a",0.0,.2)
+		quiet.tween_callback(label.queue_free)
+		return
 
 	var tree := parent.get_tree()
 	if not tree:
 		return
 
-	var tween := tree.create_tween().set_parallel(true)
+	var tween := label.create_tween().set_parallel(true)
 	
 	# Scale punch (0.1 -> 1.3 -> 1.0)
 	tween.tween_property(label, "scale", Vector3(1.3, 1.3, 1.3), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

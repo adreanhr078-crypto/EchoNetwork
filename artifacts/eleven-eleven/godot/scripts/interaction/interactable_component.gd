@@ -77,6 +77,9 @@ func _exit_tree() -> void:
 func trigger_interaction(interactor: Node3D) -> Dictionary:
 	if not is_enabled:
 		return {"success": false, "reason": "disabled"}
+	var owner_node := get_parent()
+	if owner_node and owner_node.has_method("can_interact") and not owner_node.can_interact(interactor):
+		return {"success": false, "reason": "unavailable"}
 	
 	emit_signal("interaction_requested", interactor)
 	emit_signal("interaction_executed", interactor, verb)

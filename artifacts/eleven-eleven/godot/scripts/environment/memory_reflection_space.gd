@@ -17,6 +17,39 @@ var _update_clock := 0.0
 var _step_clock := 0.0
 var _ripple_index := 0
 var physical_basins:Array[MeshInstance3D]=[]
+var reflection_visible_fraction:=0.0
+var reflection_updates:=0
+
+func visible_water_fraction(camera:Camera3D)->float:
+	var viewport_rect:=camera.get_viewport().get_visible_rect()
+	var inside:Vector3=camera.global_position-camera.global_basis.z*maxf(camera.near*2.0,.1)
+	var fraction:=0.0
+	var surfaces:Array[MeshInstance3D]=physical_basins.duplicate()
+	surfaces.append(water)
+	for surface in surfaces:
+		if not is_instance_valid(surface) or not surface.is_visible_in_tree():continue
+		var half:Vector2=(surface.mesh as PlaneMesh).size*.5
+		var polygon:Array[Vector3]=[]
+		for point in [Vector3(-half.x,0,-half.y),Vector3(half.x,0,-half.y),Vector3(half.x,0,half.y),Vector3(-half.x,0,half.y)]:polygon.append(surface.to_global(point))
+		# Clip the physical water rectangle before projecting. A basin crossing
+		# the near plane must not invert into a full-screen rectangle.
+		for plane in camera.get_frustum():
+			if polygon.is_empty():break
+			var inward:float=1.0 if plane.distance_to(inside)>=0 else -1.0
+			var clipped:Array[Vector3]=[]
+			var previous:Vector3=polygon.back()
+			var before:float=plane.distance_to(previous)*inward
+			for point in polygon:
+				var after:float=plane.distance_to(point)*inward
+				if (before>=0)!=(after>=0):clipped.append(previous.lerp(point,before/(before-after)))
+				if after>=0:clipped.append(point)
+				previous=point;before=after
+			polygon=clipped
+		if polygon.is_empty():continue
+		var bounds:=Rect2(camera.unproject_position(polygon[0]),Vector2.ZERO)
+		for point in polygon:bounds=bounds.expand(camera.unproject_position(point))
+		fraction+=bounds.intersection(viewport_rect).get_area()/maxf(1.0,viewport_rect.get_area())
+	return clampf(fraction,0.0,1.0)
 
 func configure(director: Node, room: Node3D) -> void:
 	trial = director
@@ -98,10 +131,19 @@ func _process(delta: float) -> void:
 	var low:bool=is_instance_valid(trial.main) and trial.main.visual_quality=="low"
 	var resolution:=Vector2i(320,400) if low else Vector2i(768,960)
 	if reflection_view.size!=resolution:reflection_view.size=resolution
-	if _update_clock < 1.0/(15.0 if full_surface else (6.0 if low else 12.0)): return
-	_update_clock = 0.0
 	var source: Camera3D = get_viewport().get_camera_3d()
 	if not is_instance_valid(source): return
+	reflection_visible_fraction=visible_water_fraction(source)
+	if reflection_visible_fraction<=.0001:
+		reflection_view.render_target_update_mode=SubViewport.UPDATE_DISABLED
+		return
+	# Preserve the selected-tier reflection pixels. Tiny edge puddles need
+	# fewer fresh captures; a prominent/full subjective surface keeps its rate.
+	var refresh:float=15.0 if full_surface else (6.0 if low else 12.0)
+	if reflection_visible_fraction<.025:refresh=minf(refresh,3.0)
+	elif reflection_visible_fraction<.10:refresh=minf(refresh,6.0)
+	if _update_clock < 1.0/refresh:return
+	_update_clock=0.0
 	var eye := source.global_position
 	eye.y = 2.0*water.global_position.y-eye.y
 	var height: float = water.global_position.y-eye.y
@@ -122,6 +164,7 @@ func _process(delta: float) -> void:
 	var vp: Projection = reflection_camera.get_camera_projection()*Projection(reflection_camera.global_transform.affine_inverse())
 	_set_surface_parameter("reflection_vp",vp)
 	reflection_view.render_target_update_mode = SubViewport.UPDATE_ONCE
+	reflection_updates+=1
 
 
 func _set_surface_parameter(parameter:StringName,value:Variant)->void:

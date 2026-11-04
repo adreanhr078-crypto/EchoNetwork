@@ -7,6 +7,7 @@ var _language := "ar"
 var _reduced_motion := false
 var _title_review := false
 var _handoff_started := false
+var _loading_screen: CanvasLayer
 
 func _ready() -> void:
 	# The browser shell already owns title, played cover and transfer. The
@@ -145,10 +146,41 @@ func _save_entry_preferences() -> bool:
 func _enter_chapter() -> void:
 	if _handoff_started: return
 	_handoff_started = true
+	_loading_screen = preload("res://scripts/ui/chapter_loading_screen.gd").new()
+	_loading_screen.language = _language
+	_loading_screen.reduced_motion = _reduced_motion
+	# Root ownership survives Boot and the outgoing film being freed.
+	get_tree().root.add_child(_loading_screen)
+	_loading_screen.retry_requested.connect(_retry_chapter)
+	# Present the curtain BEFORE any synchronous script-heavy scene loading.
+	await _loading_frame()
 	if _title_review: _launch_review.call_deferred()
 	else: _launch_native.call_deferred()
 
+func _loading_frame() -> void:
+	await get_tree().process_frame
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
+
+func _retry_chapter() -> void:
+	if not is_instance_valid(_loading_screen) or _loading_screen.phase != "failed": return
+	_loading_screen.set_phase("resources")
+	await _loading_frame()
+	if _title_review: _launch_review.call_deferred()
+	else: _launch_native.call_deferred()
+
+func _finish_loaded_scene() -> void:
+	if is_instance_valid(_loading_screen):
+		_loading_screen.set_phase("camera")
+		# Let _ready/deferred character binding and the active camera draw under
+		# the curtain. No timer pretends that shader compilation has completed.
+		await _loading_frame()
+		await _loading_frame()
+		_loading_screen.dismiss()
+	queue_free()
+
 func _take_native_scene() -> PackedScene:
+	if is_instance_valid(_loading_screen): _loading_screen.set_phase("resources")
 	# Every entry path must consume the preload it requested. A synchronous
 	# load alone leaves the threaded request holding scene resources at exit.
 	var status:=ResourceLoader.load_threaded_get_status(NATIVE_SCENE)
@@ -158,18 +190,27 @@ func _take_native_scene() -> PackedScene:
 
 func _launch_native() -> void:
 	var native_scene:=_take_native_scene()
+	if native_scene == null:
+		if is_instance_valid(_loading_screen): _loading_screen.set_phase("failed")
+		return
+	if is_instance_valid(_loading_screen): _loading_screen.set_phase("scene")
 	var main = native_scene.instantiate()
 	main.opening_transfer_presented = true
 	get_tree().root.add_child(main)
 	get_tree().current_scene = main
-	queue_free()
+	_finish_loaded_scene()
 
 func _launch_review() -> void:
 	var smoke := "--review-smoke" in OS.get_cmdline_user_args()
 	var save_root := "user://chapter_cp24_smoke_%d/" % OS.get_process_id() if smoke else "user://chapter_cp24_review/"
 	if _title_review: save_root = _preferences_path.get_base_dir() + "/"
 	DirAccess.make_dir_recursive_absolute(save_root)
-	var main = _take_native_scene().instantiate()
+	var native_scene := _take_native_scene()
+	if native_scene == null:
+		if is_instance_valid(_loading_screen): _loading_screen.set_phase("failed")
+		return
+	if is_instance_valid(_loading_screen): _loading_screen.set_phase("scene")
+	var main = native_scene.instantiate()
 	main.native_checkpoint_path = save_root+"opening.json"
 	main.native_preferences_path = save_root+"preferences.cfg"
 	if _title_review:
@@ -184,4 +225,4 @@ func _launch_review() -> void:
 		var probe := preload("res://scripts/systems/native_review_probe.gd").new()
 		probe.save_root = save_root
 		main.add_child(probe)
-	queue_free()
+	_finish_loaded_scene()

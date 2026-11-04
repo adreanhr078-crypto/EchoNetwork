@@ -1,0 +1,1090 @@
+
+> workspace@0.0.0 agent:postflight
+> node artifacts/eleven-eleven/tools/project-doctor/index.mjs agent:postflight
+
+
+============================================================
+Content validation
+============================================================
+
+> eleven-eleven@0.0.0 validate:content
+> tsx tools/validate-content.ts
+
+{
+  "valid": true,
+  "schemaVersion": 1,
+  "contentVersion": "canon-echo-network-evolving-v1",
+  "counts": {
+    "chapters": 7,
+    "puzzles": 2,
+    "memories": 70,
+    "dialogues": 0,
+    "endings": 0,
+    "cinematicEpisodes": 0,
+    "cinematicScenes": 0,
+    "cinematicCues": 0,
+    "cinematicAssets": 0
+  },
+  "capacity": {
+    "puzzles": 2000,
+    "memories": 5000,
+    "chapters": 50,
+    "dialogues": 10000,
+    "endings": 100,
+    "cinematics": 500,
+    "assets": 20000
+  },
+  "presentation": {
+    "emotionVisual": "valid"
+  }
+}
+PASS Content validation
+
+============================================================
+TypeScript
+============================================================
+
+> eleven-eleven@0.0.0 typecheck
+> tsc --noEmit -p tsconfig.json --pretty false
+
+PASS TypeScript
+
+============================================================
+Foundation tests
+============================================================
+
+> eleven-eleven@0.0.0 test
+> tsx --test src/__tests__/*.test.ts
+
+▶ achievement progression domain
+  ✔ keeps static definitions separate from saved player progress (8.5471ms)
+  ✔ does not unlock first_puzzle when no puzzle is complete (1.3234ms)
+  ✔ synchronizes puzzle and Echo achievements monotonically (1.049ms)
+  ✔ applies direct Puzzle Reward progress and derived progress together (48.9571ms)
+  ✔ resynchronizes Echo achievements through canonical actions (1.6732ms)
+✔ achievement progression domain (65.191ms)
+▶ achievement save compatibility and read models
+  ✔ preserves legacy unlocked achievements with missing progress (10.1038ms)
+  ✔ corrects old canonical targets without relocking them (2.6506ms)
+  ✔ round-trips current, target, and unlockedAt without loss (3.9004ms)
+  ✔ builds achievement UI models from canonical state (0.8355ms)
+✔ achievement save compatibility and read models (18.2134ms)
+✔ the authenticated ticket boundary rejects a new queue ticket for a server-leased account (153.1702ms)
+▶ Application Shell
+  ✔ registers each screen once and keeps the priority flow available (4.1901ms)
+  ✔ uses four primary navigation categories and keeps secondary systems reachable (2.1605ms)
+  ✔ keeps one Puzzle Hub with three approved Part 1 modes and protects its deep link (12.6516ms)
+  ✔ keeps live hint purchases sequential and transparent per active stage (5.4341ms)
+  ✔ reads Manhwa badges and player counters from canonical progression (16.6234ms)
+  ✔ keeps the legacy night runtime out of the active application boot path (15.9245ms)
+  ✔ derives the psychological state screen from canonical Echo values (0.6223ms)
+  ✔ reveals Echo presentation only from server-issued Canon receipts (2.0627ms)
+  ✔ keeps the compact mission dock in phone document flow so it cannot cover a puzzle (12.8142ms)
+  ✔ maps every screen icon to a system, action, and label (0.7095ms)
+  ✔ derives the dashboard from canonical domain state (1.3531ms)
+  ✔ keeps puzzle and memory registries empty and editor-ready (0.5168ms)
+  ✔ adapts the existing puzzle runtime without creating content in UI (0.3628ms)
+  ✔ keeps Echo artwork as a replaceable presentation asset (3.0715ms)
+  ✔ keeps cinematic environments outside narrative content data (0.9875ms)
+  ✔ keeps the legacy ward dormant while the authoritative opening room owns Play (0.4377ms)
+✔ Application Shell (83.8433ms)
+▶ guest account linking
+  ✔ closes a sign-in panel after authentication without closing account management (1.5564ms)
+  ✔ exposes a dedicated, accessible link flow only to signed-in guests (3.184ms)
+  ✔ links the existing anonymous Firebase identity instead of creating a new player (2.0329ms)
+  ✔ keeps actionable Google failures visible and lays out the choices for phones (5.1623ms)
+  ✔ keeps account errors in the active interface language without exposing configuration keys (2.6905ms)
+  ✔ keeps auth retryable and bounds every Firebase operation (15.9922ms)
+✔ guest account linking (33.4468ms)
+▶ Awakening Ward progression authority
+  ✔ does not activate the monitor before power is restored (7.5568ms)
+  ✔ does not open the drawer before the mirror clue is recorded (1.8873ms)
+  ✔ requires opening the drawer and then taking the keycard explicitly (0.663ms)
+  ✔ does not unlock A-07 without the keycard (0.3411ms)
+  ✔ repairs inconsistent client saves instead of trusting door flags (0.8657ms)
+  ✔ survives the same serialization path used by local and cloud saves (11.4606ms)
+✔ Awakening Ward progression authority (25.5757ms)
+▶ Awakening Ward navigation and mobile runtime
+  ✔ spawns in walkable space and finds a route from capsule to A-07 (7.4915ms)
+  ✔ keeps the mirror and storage outside the clear exit corridor (0.7899ms)
+  ✔ prevents movement outside the map and into obstacles (3.8167ms)
+  ✔ keeps the full player silhouette clear of visible wall edges (0.4502ms)
+  ✔ forwards independent touch movement, run, and interaction commands (0.5992ms)
+  ✔ resolves a stable zoom for every target landscape ratio (0.2713ms)
+✔ Awakening Ward navigation and mobile runtime (14.1527ms)
+▶ Puzzle registry and preserved prototypes
+  ✔ uses a real rotatable circuit instead of a one-click completion (0.6721ms)
+  ✔ registers only the four room puzzle interfaces for A-01 (0.2757ms)
+  ✔ routes the active Story Puzzle experience through the puzzle screen (0.2529ms)
+  ✔ keeps the legacy ward dormant without deleting its module (2.247ms)
+✔ Puzzle registry and preserved prototypes (3.7752ms)
+▶ Awakening Ward production art pass
+  ✔ ships compressed production assets for every visual layer (1.2412ms)
+  ✔ keeps eight directional animation rows with integral frame geometry (0.188ms)
+  ✔ maps screen movement to the correct authored facing direction (0.7759ms)
+  ✔ uses full-height atlases and mirrors symmetrical movement poses (0.2282ms)
+  ✔ grounds props, pickups, and wall modules on their authored baselines (0.2089ms)
+  ✔ keeps front walls visible while placing a nearby player above them (3.6005ms)
+  ✔ loads the authored atlases instead of the old floor and wall placeholders (4.1838ms)
+✔ Awakening Ward production art pass (11.0053ms)
+▶ story puzzle interaction accessibility
+  ✔ keeps every official interaction available without audio-only controls (6.3348ms)
+  ✔ uses the final publication reader and does not keep a legacy unlock UI (4.5808ms)
+  ✔ supports keyboard, ARIA, focus restoration, and live feedback (11.9775ms)
+  ✔ keeps the signed-out Puzzle screen fallback stable across renders (2.7789ms)
+  ✔ keeps visual Daily and Weekly boards stable while draft responses refresh (0.638ms)
+  ✔ keeps stage-owned clipping without restricting interactive transition hit testing (14.3849ms)
+  ✔ honors reduced motion for rewards, shards, and the manhwa viewer (4.8565ms)
+✔ story puzzle interaction accessibility (48.7807ms)
+▶ canonical story authority
+  ✔ uses both Owner-approved Echo Network references and no old Long Fall authority (2.85ms)
+  ✔ keeps unreached secrets out of the runtime-safe projection (0.6965ms)
+  ✔ publishes no unfinished Manhwa chapter as current Canon (4.2358ms)
+  ✔ keeps the data registry aligned with the evolving Canon labels (1.6634ms)
+✔ canonical story authority (12.7614ms)
+▶ Anime cinematic scene system
+  ✔ keeps the authored cinematic registry empty and editor-ready (3.3782ms)
+  ✔ supports Japanese voice cues with Arabic subtitles (0.326ms)
+  ✔ compiles camera, expression, subtitle and audio timelines off-store (1.1485ms)
+  ✔ branches choice scenes through the shared Decision Ledger (0.9887ms)
+  ✔ pauses playback without writing frame time into game state (0.2222ms)
+  ✔ migrates older saves to the cinematic checkpoint state (4.8086ms)
+✔ Anime cinematic scene system (12.5218ms)
+▶ cloud player gateway
+  ✔ rejects save access without a Firebase bearer token (51.6916ms)
+  ✔ bootstraps the D1 identity and only reads the dedicated cloud-save path (8.9613ms)
+  ✔ creates the first cloud save at revision one (14.6328ms)
+  ✔ returns a conflict before writing over a newer revision (2.5934ms)
+✔ cloud player gateway (82.275ms)
+▶ collection achievement presentation localization
+  ✔ gives every authoritative achievement an Arabic and English presentation (4.2805ms)
+  ✔ uses the server-owned record only as a safe fallback for future IDs (1.3908ms)
+✔ collection achievement presentation localization (8.516ms)
+▶ Phase 5 memory collection definitions
+  ✔ keeps the verified opening split and unique shard bindings (2.5558ms)
+✔ Phase 5 memory collection definitions (4.7233ms)
+▶ Phase 5 collection progression
+  ✔ keeps the initial achievement catalog within the planned 20–30 range (4.0657ms)
+  ✔ opens reconstruction only after a complete chapter shard set (1.1402ms)
+  ✔ keeps Secrets Found separate from shard progress (3.1895ms)
+  ✔ does not include XP, coins, level, or rank in recovery (0.9601ms)
+  ✔ masks hidden achievement names and descriptions before unlock (0.8123ms)
+  ✔ supports a complete known collection without requiring owner content (0.3947ms)
+✔ Phase 5 collection progression (12.7138ms)
+▶ core journey localization
+  ✔ keeps the first sign-in decision understandable in English without changing authentication authority (11.0863ms)
+  ✔ keeps the main-menu decision and server-read objective in the selected language (6.3245ms)
+  ✔ keeps the language control truthful by localizing its own settings surface (5.266ms)
+  ✔ renders the onboarding story in the selected language and direction (2.4963ms)
+  ✔ keeps Manhwa titles, descriptions, loading, and recovery states locale-aware (3.9196ms)
+  ✔ uses the selected locale for the first three puzzle briefings, feedback, and reward (5.76ms)
+  ✔ keeps Puzzle Hub and Story Puzzle chrome localized instead of mixing English into Arabic play (11.3595ms)
+  ✔ keeps post-reward achievement feedback in the selected language and direction (13.9837ms)
+  ✔ keeps the Chess lobby and authoritative match briefing in the selected language (2.1844ms)
+  ✔ keeps Co-op training, lobby, and its server-owned live evidence in the selected language (2.3533ms)
+  ✔ keeps the network hub legible before a player chooses Chess or Co-op (1.4001ms)
+  ✔ keeps live community rooms and all known realtime rejections in the selected language (3.286ms)
+✔ core journey localization (72.6706ms)
+▶ Core Player Loop
+  ✔ gives a first-time player one readable published objective instead of a menu choice (3.1253ms)
+  ✔ moves from the Chapter 1 evidence page to its puzzle and then to the next published evidence page (3.4525ms)
+  ✔ ignores stale secret identifiers that are not part of the published Chapter 1 route (0.4851ms)
+  ✔ keeps only the two published puzzle solutions out of the public catalog and client readiness path (21.6907ms)
+  ✔ keeps mandatory first-time identity setup inside an accessible modal focus boundary (3.4029ms)
+  ✔ lands a newly authenticated player in Mission Control before any Manhwa route (7.9834ms)
+  ✔ does not expose developer configuration keys to a player when sign-in is unavailable (13.3335ms)
+✔ Core Player Loop (56.9114ms)
+▶ demo mode
+  ✔ is opt-in and accepts only web destinations (3.1098ms)
+  ✔ counts only unique puzzles from the official Story Puzzle campaign (0.4568ms)
+  ✔ reaches the demo boundary without changing campaign state (0.5114ms)
+✔ demo mode (6.4677ms)
+▶ Cinematic design system foundation
+  ✔ clamps game metrics before rendering them (1.6971ms)
+  ✔ builds isolated class names without false values (0.5461ms)
+  ✔ moves tab focus around disabled items (0.411ms)
+✔ Cinematic design system foundation (5.369ms)
+✔ the default development command starts the web, player API, and realtime runtimes (228.287ms)
+✔ Vite keeps same-origin API calls connected to the local player service (3.4246ms)
+✔ the local runtime allow-lists only the machine private LAN origins for phone testing (1.6861ms)
+▶ Echo Agent guidance boundary
+  ✔ accepts a bounded conversation request without player authority fields (7.004ms)
+  ✔ fails closed for malformed intents and keeps all permitted intents read-only (0.4796ms)
+✔ Echo Agent guidance boundary (10.5713ms)
+✔ Echo Agent protocol produces deterministic encouragement without a puzzle solution or authority claim (2.2638ms)
+✔ Echo Agent protocol rejects free chat and client-supplied authority-like payloads (0.4546ms)
+✔ Echo Agent session endpoint gives an opaque origin-bound ticket with no provider or Firebase secret in the URL (71.1072ms)
+✔ Echo Agent session endpoint fails closed before authentication for disabled or untrusted origins (3.2688ms)
+✔ Echo Agent endpoint mirrors an explicitly admitted private LAN host only for local WS development (1.2814ms)
+✔ Echo Agent ticket is short-lived, origin-bound, and contains no Firebase UID (17.1783ms)
+✔ Echo Agent subject is stable per player but tickets reject tampering, wrong secrets, and expiry (7.4275ms)
+✔ Echo Agent tickets reject public HTTP origins and cannot be stretched past two minutes (7.3853ms)
+▶ EchoAvatarHUD Component & Emotion States
+  ✔ renders default calm state with correct accessibility labels and stable badge (28.7648ms)
+  ✔ elevates to surge state when perfectDodgeSurgeActive is true (15.2961ms)
+  ✔ switches to combat state during combat or sprinting (3.8773ms)
+  ✔ triggers hurt critical state when HP is low (< 35%) (4.3689ms)
+  ✔ displays stealth concealed state when isStealth is active (4.0594ms)
+  ✔ displays triumph state on stage victory (3.6017ms)
+✔ EchoAvatarHUD Component & Emotion States (64.2693ms)
+▶ Echo Duel chess engine
+  ✔ keeps the local duel separate from rewards, ranked authority, and the live room (7.177ms)
+  ✔ keeps the board keyboard-operable and forwards only a chosen promotion to the live room (4.0782ms)
+  ✔ uses separate bounded search policies for the three local strengths (0.4925ms)
+  ✔ returns only a legal black response and varies a reviewed opening by duel seed (39.204ms)
+  ✔ finds a forced mate when Black Echo has one (103.557ms)
+  ✔ rejects malformed positions, the player turn, and stale worker output (8.6958ms)
+  ✔ settles a failed or silent Worker instead of leaving the board thinking forever (502.7768ms)
+  ✔ replaces the terminal Worker port when a player starts a new duel (2.0019ms)
+✔ Echo Duel chess engine (670.4352ms)
+▶ legacy Echo write isolation
+  ✔ keeps all formerly merged channels independent at runtime (6.3038ms)
+  ✔ keeps deprecated helpers same-semantic and projection one-way (0.902ms)
+  ✔ partializes canonical Echo authority and projects the saved snapshot (7.9876ms)
+  ✔ still migrates independent legacy values without losing them (1.6927ms)
+✔ legacy Echo write isolation (19.0193ms)
+▶ isolated active Echo sources
+  ✔ routes personality source output by same-semantic canonical metrics (3.4817ms)
+  ✔ keeps the deprecated transformation command from writing metrics (2.066ms)
+  ✔ applies recurring world effects canonically and preserves fractions (3.3111ms)
+  ✔ keeps the legacy puzzle source from writing transformationStage (5.475ms)
+  ✔ leaves no active application import or stage assignment behind (7.218ms)
+  ✔ keeps Puzzle source adapters free of compatibility Echo writes (3.0066ms)
+✔ isolated active Echo sources (25.4267ms)
+✔ Echo Director encourages a rejected puzzle attempt without exposing an answer (1.3459ms)
+✔ Echo Director reacts to a verified reward but never describes a new grant (0.4107ms)
+✔ Story activity conversion preserves the source but adds no authority payload (1.1771ms)
+▶ canonical Echo metric domain
+  ✔ defines only the seven independent canonical metrics (2.588ms)
+  ✔ validates, clamps, and applies canonical effects without mutation (2.5894ms)
+  ✔ rejects empty, non-finite, and compatibility-field effects (0.7324ms)
+✔ canonical Echo metric domain (8.0174ms)
+▶ standalone Echo event transaction
+  ✔ applies once atomically and projects without semantic merging (2.4286ms)
+  ✔ accepts an identical retry without changing the first timestamp (2.0633ms)
+  ✔ detects a payload conflict for the same event key (1.4797ms)
+  ✔ rejects malformed events without changing canonical state (4.3154ms)
+  ✔ preserves receipts and idempotency through save reload (8.1828ms)
+✔ standalone Echo event transaction (19.4914ms)
+▶ Echo event migration and compatibility authority
+  ✔ does not fabricate Echo receipts from source-owned receipts (3.2067ms)
+  ✔ drops malformed standalone receipts during migration (1.4786ms)
+  ✔ never lets compatibility fields overwrite canonical save metrics (0.9679ms)
+✔ Echo event migration and compatibility authority (6.1632ms)
+▶ legacy runtime Manhwa isolation boundary
+  ✔ keeps pre-replacement runtime events isolated from the current Canon publication state (2.0483ms)
+  ✔ contains no unapproved future or final transformation in Runtime data (0.5924ms)
+  ✔ does not import author-only canon into the evolution Runtime (4.3912ms)
+  ✔ does not transition from metrics or legacy stage values (0.8716ms)
+✔ legacy runtime Manhwa isolation boundary (9.6719ms)
+▶ pure receipt-driven Echo evolution engine
+  ✔ requires a published event definition and its valid source proof (0.7428ms)
+  ✔ returns a deterministic plan without mutating progress (0.6787ms)
+  ✔ cannot skip the immediately required previous stage (0.4232ms)
+  ✔ does not replay a reached stage or overwrite its timestamp (0.3192ms)
+  ✔ keeps a current stage monotonic when future definitions are added (0.3224ms)
+  ✔ never regresses after psychological metrics decrease (0.3486ms)
+  ✔ fails safely for unknown future and permanent current stages (0.2786ms)
+  ✔ rejects malformed, branching, and ambiguous definitions (0.2019ms)
+✔ pure receipt-driven Echo evolution engine (3.9789ms)
+▶ Echo evolution persistence and migration
+  ✔ starts at the safe initial stage (3.9219ms)
+  ✔ never infers canonical evolution from legacy transformationStage (4.9751ms)
+  ✔ preserves an unknown future stage without exposing a definition (1.2198ms)
+  ✔ normalizes ledgers without inventing timestamps or hidden content (3.1007ms)
+  ✔ round-trips current, reached, and reached-at state through reload (7.4499ms)
+  ✔ does not mutate a migration input (1.1944ms)
+✔ Echo evolution persistence and migration (24.2391ms)
+▶ Echo gateway Canon knowledge gate
+  ✔ strips a forged future Canon topic when no server receipt validates it (115.8504ms)
+  ✔ rejects provider-backed chat without a verified player session (2.4221ms)
+  ✔ keeps a prompt-injection attempt in the untrusted player message lane (6.27ms)
+  ✔ drops browser-provided personal context and caps the full provider dialogue at eight messages (7.2705ms)
+  ✔ uses a deterministic non-answer for puzzle and chess requests without consuming provider quota (584.2081ms)
+  ✔ fails closed when a browser forges Canon narrative payloads while the story snapshot is unavailable (3.7831ms)
+  ✔ returns a retryable 429 before calling a provider when quota is exhausted (1.8139ms)
+✔ Echo gateway Canon knowledge gate (724.8755ms)
+▶ Echo Mind and Character Archive
+  ✔ detects player language from the conversation input (1.5557ms)
+  ✔ keeps the local fallback conversational when the AI gateway is offline (9.0565ms)
+  ✔ uses recent dialogue locally and avoids repeating the last reply (0.9708ms)
+  ✔ keeps locked character knowledge out of Echo responses (0.561ms)
+  ✔ sends AI only player-discovered narrative knowledge (2.5046ms)
+  ✔ never gives the AI knowledge context a player-authored memory channel (0.8762ms)
+  ✔ does not inject retired puzzle dialogue into Echo knowledge (0.9126ms)
+  ✔ gates Canon Echo knowledge by authoritative story receipts (1.0994ms)
+  ✔ opens only Echo by default inside the character archive (2.0368ms)
+  ✔ keeps the Lina file locked until a current Canon event exists (3.5314ms)
+  ✔ reveals discovered characters through canonical narrative signals (2.0076ms)
+✔ Echo Mind and Character Archive (27.597ms)
+▶ living Echo Mind relationship
+  ✔ extracts only explicit personal memories from player dialogue (8.1039ms)
+  ✔ derives relationship tone locally without allowing model writes (0.8624ms)
+  ✔ never interrupts the player merely because a conversation counter was reached (0.4418ms)
+  ✔ keeps at most four temporary turns and persists only accessibility preferences (2.857ms)
+  ✔ clears temporary dialogue and all derived personal state back to a new-session baseline (0.8499ms)
+  ✔ keeps Echo Mind focused on a bounded, player-invoked conversation (6.0989ms)
+✔ living Echo Mind relationship (21.1379ms)
+▶ Echo Network foundation
+  ✔ signs, verifies, expires, and rejects tampered one-use ticket material (21.5263ms)
+  ✔ implements standard clocks and the two deterministic anomaly win rules (12.9284ms)
+  ✔ matches the published Glicko-2 worked example within rounding tolerance (1.2036ms)
+  ✔ keeps provisional chess together before issuing broad server-owned rank bands (0.3903ms)
+  ✔ ships twelve reviewed co-op cases with unique server-only fingerprints (7.8361ms)
+  ✔ directs short sessions ethically and gates ads away from gameplay (4.0046ms)
+  ✔ blocks links and personal data while keeping normal Arabic and English messages (2.8896ms)
+  ✔ canonicalizes private party codes and preserves the earliest cleanup deadline (0.5623ms)
+  ✔ keeps eight-week seasons deterministic and archive-safe (3.0454ms)
+✔ Echo Network foundation (57.8579ms)
+▶ Phase 4 Echo presence and attachment boundaries
+  ✔ keeps retired Echo visual slots separate from the published runtime state (2.5535ms)
+  ✔ starts stable and reacts to verified puzzle activity only inside its window (3.8824ms)
+  ✔ keeps retired receipts from unlocking a future transformation (1.5558ms)
+  ✔ never unlocks a transformation or knowledge topic from client-only state (0.8032ms)
+  ✔ keeps the Lina moment locked until its current Canon event chain (0.8082ms)
+✔ Phase 4 Echo presence and attachment boundaries (12.3649ms)
+▶ Echo Mind provider pool
+  ✔ normalizes provider response formats without exposing reasoning blocks (2.1392ms)
+  ✔ recognizes Gemini keys without exposing them to the client (0.5324ms)
+  ✔ uses the Gemini REST shape and returns only model text (44.0306ms)
+  ✔ recognizes a keyless Cloudflare Workers AI binding (0.351ms)
+  ✔ caps every free-chat provider deadline at six seconds even when remote config is malformed or too high (0.7404ms)
+  ✔ silently falls through to the next model after a provider failure (2.0263ms)
+✔ Echo Mind provider pool (51.9991ms)
+▶ canon-safe Echo status read model
+  ✔ exposes the published awakening stage and canonical metrics (11.5219ms)
+  ✔ cannot change when legacy Echo fields change (1.8452ms)
+  ✔ replaces unknown and unpublished stages without leaking their IDs (1.0471ms)
+  ✔ counts Echo knowledge only when a server-issued Canon receipt exists (1.1169ms)
+  ✔ renders an accessible, keyboard-focusable, spoiler-safe panel (29.7399ms)
+  ✔ keeps the Canon-safe display stable across persistence reload (14.8442ms)
+  ✔ keeps active UI wiring canonical and honors reduced motion (6.394ms)
+✔ canon-safe Echo status read model (69.4011ms)
+▶ Echo voice gateway security boundary
+  ✔ advertises the authorization header for cross-origin preflight (41.2033ms)
+  ✔ requires a verified player session before reading audio (4.1924ms)
+  ✔ stops an undeclared oversized stream at the eight-megabyte boundary (48.2159ms)
+  ✔ returns 429 before any transcription provider call when quota is exhausted (3.3832ms)
+✔ Echo voice gateway security boundary (99.5061ms)
+▶ Phase 6.5 Echo transformation presentation
+  ✔ maps only the published opening stage to an approved in-game asset (4.4349ms)
+  ✔ keeps the visual progression monotonic without publishing a fifth state (0.4793ms)
+  ✔ records presentation acknowledgement without unlocking a stage (3.249ms)
+✔ Phase 6.5 Echo transformation presentation (10.3728ms)
+▶ Emotion Visual System
+  ✔ validates the editor-authored presentation configuration (3.5401ms)
+  ✔ blends humanity into a hopeful low-glitch presentation (2.4662ms)
+  ✔ turns anger into stronger camera, pulse and glitch intent (0.7263ms)
+  ✔ makes corruption the strongest distortion profile (0.5988ms)
+  ✔ exports stable CSS hooks without platform assets (1.7485ms)
+  ✔ responds continuously to small personality changes (0.7125ms)
+✔ Emotion Visual System (12.0358ms)
+▶ Floating Companion State Machine & Physics
+  ✔ creates initial state correctly positioned relative to spawn (1.8767ms)
+  ✔ calculates rotated target position following player yaw (0.5091ms)
+  ✔ applies sinusoidal hover oscillation when reduced motion is disabled (0.3089ms)
+  ✔ disables hover vertical oscillation under reduced motion (0.2638ms)
+  ✔ smoothly dampens position updates without overshooting (0.6679ms)
+  ✔ snaps closer when distance exceeds leash limit (0.304ms)
+  ✔ triggers emotions and decays back to idle/following after duration (0.3639ms)
+✔ Floating Companion State Machine & Physics (6.9584ms)
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+[zustand persist middleware] Unable to update item '11-11-game-store-v5', the given storage is currently unavailable.
+▶ Phase 1 foundation
+  ✔ validates the content manifest and scalable capacity (1.8979ms)
+  ✔ uses one contiguous chapter progression map (0.3623ms)
+  ✔ does not complete a chapter until its configured range is resolved (1.5639ms)
+  ✔ unlocks the next chapter only after the configured chapter range (3.906ms)
+  ✔ boots safely with an empty authored puzzle registry (0.3919ms)
+  ✔ creates the active game state without browser-only bootstrap work (0.3791ms)
+  ✔ manages currency and unique memory fragments through store actions (7.7769ms)
+  ✔ exposes paged content access for large future registries (0.5253ms)
+  ✔ keeps answer matching independent from stored puzzle state (7.9326ms)
+  ✔ clamps canonical Echo personality effects (0.5397ms)
+  ✔ migrates legacy puzzle status into versioned progression (8.0962ms)
+  ✔ normalizes player resources when loading a save (4.4284ms)
+✔ Phase 1 foundation (40.5667ms)
+▶ canonical game progression persistence
+  ✔ keeps independent Echo channels independent in the initial model (5.5971ms)
+  ✔ uses canonical values before normalized legacy fallbacks (13.7ms)
+  ✔ separates shard balance, permanent discovery, and lifetime spending (16.4865ms)
+  ✔ retires local campaign receipts while preserving unlocked achievements (3.3833ms)
+  ✔ does not mutate the save object supplied to migration (1.3703ms)
+  ✔ round-trips legacy saves without losing canonical or unrelated data (8.9497ms)
+✔ canonical game progression persistence (53.0064ms)
+▶ game progression resource commands
+  ✔ adds, checks, and spends canonical coins (5.2422ms)
+  ✔ rejects invalid resource values without changing balances (0.8374ms)
+  ✔ keeps shard discovery permanent and increments balance only once (2.1736ms)
+  ✔ never relocks an unlocked page when shard balance is spent (6.7388ms)
+✔ game progression resource commands (18.34ms)
+▶ canonical Echo effects
+  ✔ clamps independent Echo channels without legacy semantic merging (1.0866ms)
+  ✔ rejects non-finite Echo deltas without changing state (2.0403ms)
+✔ canonical Echo effects (3.543ms)
+▶ atomic puzzle reward transaction
+  ✔ applies the complete reward exactly once in one store write (3.6102ms)
+  ✔ rejects a failure in the final reward section without partial grants (1.541ms)
+  ✔ allows a new reward version for the same puzzle independently (2.0173ms)
+  ✔ keeps receipts idempotent after persistence reload (7.9739ms)
+  ✔ rejects a conflicting payload for the same receipt atomically (1.3552ms)
+  ✔ rejects compatibility Echo fields from Puzzle rewards (1.151ms)
+  ✔ rejects malformed rewards without applying any field (1.7805ms)
+✔ atomic puzzle reward transaction (20.4165ms)
+▶ legacy resource wrappers
+  ✔ routes compatibility actions through canonical progression (0.9791ms)
+  ✔ isolates deprecated Echo controls from canonical channels (1.1262ms)
+✔ legacy resource wrappers (2.4478ms)
+▶ GameplayHUD Component Integrations & Combat State
+  ✔ renders EchoAvatarHUD inside GameplayHUD with player vitals (29.1647ms)
+  ✔ renders Phase II enrage banner and boss warning when monsterPhase === 2 (7.6019ms)
+  ✔ renders Kinetic Counter / Stagger window banner when monsterStaggered is active (9.5349ms)
+  ✔ renders Ground Slam Danger telegraph warning banner when slamWarning is active (9.077ms)
+  ✔ renders Combo Counter with appropriate multiplier badge when comboCount >= 2 (9.3312ms)
+  ✔ renders MAX CHAIN ×3 combo badge when comboMultiplier is 3 (8.0314ms)
+  ✔ respects reducedMotion by turning off CSS animation inline style (8.4217ms)
+✔ GameplayHUD Component Integrations & Combat State (85.0431ms)
+▶ Global foundation contracts
+  ✔ uses one locale runtime with deterministic RTL/LTR and title fallback (87.9563ms)
+  ✔ fails moderation-sensitive flags closed and preserves explicit archive behavior (0.6897ms)
+  ✔ keeps offline access honest about server-owned progress and rewards (3.1876ms)
+  ✔ ships a lightweight, decorative, and accessible privacy visual contract (3.0051ms)
+  ✔ converts authoritative receipts into presentation-only data without a grant path (0.7878ms)
+  ✔ rejects arbitrary telemetry fields and emits only bounded aggregate columns (2.1084ms)
+✔ Global foundation contracts (100.6821ms)
+▶ Telemetry gateway
+  ✔ authenticates requests and writes the approved aggregate event only (59.5983ms)
+  ✔ rejects unauthenticated, malformed, and unconfigured telemetry safely (5.861ms)
+✔ Telemetry gateway (65.8699ms)
+▶ global leaderboard gateway
+  ✔ awards a verified Manhwa completion once and derives total XP from the ledger (76.3763ms)
+  ✔ rejects a final-page claim without the server-side reading sequence (4.4695ms)
+  ✔ rejects client-authored XP before touching the database (3.3183ms)
+  ✔ rejects a later Manhwa chapter until its previous reward exists (5.6435ms)
+  ✔ returns the current player even when outside the requested top list (2.8828ms)
+✔ global leaderboard gateway (95.5433ms)
+▶ live challenge engine
+  ✔ keeps authored templates solvable without runtime AI (2.0331ms)
+  ✔ does not repeat an exact daily challenge across a full year (9.5857ms)
+  ✔ is deterministic and rotates consecutive mechanics (1.7079ms)
+  ✔ normalizes answers but does not accept a different answer (0.2766ms)
+✔ live challenge engine (17.0332ms)
+▶ live challenge progression and hint integrity
+  ✔ maps Daily and Weekly to the only authoritative story gates (1.5495ms)
+  ✔ fails closed without the required server Manhwa receipt (1.7556ms)
+  ✔ keeps Weekly out of a Chapter 1 projection until Chapter 2 is receipted (2.0357ms)
+  ✔ enforces the same gate for deep-link reads and every Daily/Weekly write (94.3097ms)
+  ✔ reports a raced INSERT OR IGNORE as an existing hint, never a second purchase (0.3659ms)
+  ✔ keeps the completed-story-puzzle guard inside the D1 migration authority (2.302ms)
+  ✔ keeps perfect Daily and Weekly receipts behind a D1 hint-race guard (2.9206ms)
+✔ live challenge progression and hint integrity (107.6189ms)
+▶ live challenge reward transaction
+  ✔ commits the final progress state and rare ownership in one batch (3.469ms)
+  ✔ does not replay presentation rewards for an idempotent duplicate (0.4989ms)
+✔ live challenge reward transaction (5.7381ms)
+▶ live challenge server windows
+  ✔ prices every Daily and Weekly hint through the server-owned live ledger (7.0906ms)
+  ✔ changes the daily period at 11:11 UTC, not at a client-selected clock (1.9573ms)
+  ✔ uses a Monday-starting weekly recovery window (0.5407ms)
+  ✔ keeps daily and weekly challenge instances varied and deterministic (2.7904ms)
+  ✔ rejects unknown actions and non-numeric hint indices at the boundary (1.7178ms)
+✔ live challenge server windows (16.8806ms)
+▶ local full-stack authority environment
+  ✔ gives Pages Functions and the realtime Worker one D1 persistence root (7.1474ms)
+✔ local full-stack authority environment (10.2881ms)
+▶ corrected Final Manhwa access definitions
+  ✔ keeps all 70 physical pages under immutable V3 IDs but exposes only p1–9 (1.4523ms)
+✔ corrected Final Manhwa access definitions (3.4237ms)
+▶ corrected Manhwa reader-window synchronization
+  ✔ synchronizes only the published 1–9 opening window from verified current puzzle IDs (4.1722ms)
+  ✔ never lets retained V2 puzzle IDs change the V3 reader window (0.964ms)
+  ✔ keeps the generic legacy transaction atomic without granting a V3 reader page (4.688ms)
+  ✔ rejects a V2 page ID at the V3 archive action boundary (0.718ms)
+✔ corrected Manhwa reader-window synchronization (11.1912ms)
+▶ corrected Final Manhwa migration boundary
+  ✔ resets an old-manifest reader to the V3 opening window while preserving the account shell (7.3668ms)
+  ✔ does not accept V2 page records or checkpoints even when a save claims the V3 manifest (2.1999ms)
+  ✔ keeps a V3 opening-page Continue Reading checkpoint (1.8905ms)
+✔ corrected Final Manhwa migration boundary (12.0638ms)
+▶ corrected final Manhwa Archive read model
+  ✔ preserves the 70-page catalog while exposing only the initial p1–7 reading window (4.1413ms)
+  ✔ unlocks p8–9 only after current receipt-derived access and keeps p10–70 sealed (1.353ms)
+  ✔ never renders V2 page IDs as V3 unlocked content (1.1868ms)
+  ✔ derives the shell badge from current-publication unlocked minus viewed IDs (0.916ms)
+✔ corrected final Manhwa Archive read model (10.1508ms)
+▶ corrected V3 Manhwa page-view boundary
+  ✔ keeps every supplied page effect-free until an Owner-approved page matrix exists (2.8016ms)
+  ✔ rejects retired IDs and unreleased V3 pages before changing local state (3.87ms)
+  ✔ records the released cover once without inventing rewards, flags, or Echo effects (4.4969ms)
+  ✔ requires the reader window for released chapter pages and saves a valid continuation point (3.3555ms)
+  ✔ keeps the generic page transaction atomic for a future authored V3 effect (2.7712ms)
+  ✔ permits a later effect version to be appended once to an already read V3 page (3.7994ms)
+✔ corrected V3 Manhwa page-view boundary (23.7906ms)
+▶ Manhwa reader localization and direction
+  ✔ maps horizontal keyboard navigation to the active reading direction (2.5351ms)
+  ✔ localizes reader chrome, ARIA labels, and recovery copy without changing the reader boundary (3.8545ms)
+✔ Manhwa reader localization and direction (8.5313ms)
+▶ Manhwa reader window
+  ✔ does not re-lock a verified puzzle source when the local view cache lags (1.758ms)
+  ✔ still opens only the next sequential record from the server-unlocked window (0.731ms)
+  ✔ allows the whole authoritative window after every page in it is read (0.392ms)
+✔ Manhwa reader window (6.0677ms)
+▶ Manhwa Viewer unlocked-page boundary
+  ✔ excludes locked pages from opening and navigation (5.3678ms)
+  ✔ calls the canonical view callback only from image onLoad (4.1776ms)
+  ✔ keeps the viewer session open when recording a page rerenders its parent (6.1105ms)
+  ✔ opens the reader directly when Story Puzzles requests Manhwa continuation (5.7989ms)
+  ✔ exposes dialog, focus trap, Escape, and page keyboard controls (5.8976ms)
+✔ Manhwa Viewer unlocked-page boundary (29.6875ms)
+▶ Manhwa Viewer browser history marker
+  ✔ adds one marker and lets first Back close without changing route (1.0987ms)
+  ✔ cleans Close and unmount exactly once without duplicate entries (1.2103ms)
+  ✔ keeps the development Viewer open through a stale Strict Mode cleanup (0.6461ms)
+✔ Manhwa Viewer browser history marker (3.6735ms)
+▶ Manhwa Viewer web orientation adapter
+  ✔ does not reject the Viewer when orientation lock is unavailable (0.9396ms)
+  ✔ returns to the exact orientation that existed before opening the reader (1.7269ms)
+  ✔ does not impose landscape when a portrait lock was rejected (0.5808ms)
+  ✔ unlocks only when the browser cannot report a previous orientation (0.368ms)
+✔ Manhwa Viewer web orientation adapter (4.1928ms)
+▶ Milestone 1 first-player experience contract
+  ✔ explains the story, Manhwa, puzzle, and Echo loop during onboarding (3.712ms)
+  ✔ gives the first Echo contact one clear next action (2.5348ms)
+  ✔ keeps reward presentation accessible and visibly connected to Echo (3.582ms)
+  ✔ routes post-reward continuation through the current story objective (1.8997ms)
+  ✔ keeps paid Story hints instructional rather than shipping exact answer strings (1.7127ms)
+  ✔ keeps Manhwa progress truthful inside the accessible reader window (3.7613ms)
+  ✔ ships the bounded decorative asset used by the first-contact layer (0.6481ms)
+  ✔ uses optimized art on the first player’s identity and objective paths (3.1363ms)
+  ✔ keeps Echo’s experimental identity as a decorative collar mark, not game state (3.7122ms)
+  ✔ renders Yuki’s experimental number only over the published portrait surface (2.6359ms)
+  ✔ keeps authored voice status truthful until audio assets are published (1.3977ms)
+  ✔ routes opening-room feedback through the mute and SFX-volume preferences (1.3454ms)
+  ✔ mounts a replaceable Echo cue audio bridge without touching reward authority (3.357ms)
+✔ Milestone 1 first-player experience contract (36.6635ms)
+▶ Milestone 2 puzzle playability contract
+  ✔ keeps multi-stage challenges sequential instead of allowing a future-stage jump (5.7708ms)
+  ✔ turns every authoritative rejected completion into a safe, mechanic-aware retry moment (6.1234ms)
+  ✔ does not silently fill in a signal choice or expose a direct anomaly marker (3.0253ms)
+✔ Milestone 2 puzzle playability contract (17.4884ms)
+▶ Mini Echo companion
+  ✔ appears only from a verified reward projection and stays in normal layout flow (10.6283ms)
+  ✔ keeps the original 2.5D companion asset inside the mobile budget (0.8817ms)
+  ✔ reacts beside verified puzzle feedback and a legal Echo-chess move without covering either board (8.2879ms)
+  ✔ uses brief contextual animation with a Reduced Motion equivalent (2.6618ms)
+✔ Mini Echo companion (25.5956ms)
+▶ Phase 3F canonical narrative event integration
+  ✔ applies a Memory event atomically with source-owned idempotency (39.8827ms)
+  ✔ rejects a conflicting Memory receipt without partial changes (1.4362ms)
+  ✔ records a Memory fragment under the Memory-owned receipt (0.9923ms)
+  ✔ rejects an invalid Echo metric before changing any source field (0.4343ms)
+  ✔ rejects an invalid Story flag before applying Echo or Memory state (0.4377ms)
+  ✔ keeps a permanent Dialogue choice idempotent (1.0119ms)
+  ✔ adapts authored Memory and Dialogue data without legacy metrics (2.1806ms)
+  ✔ does not incorrectly block an authored repeatable Dialogue choice (3.2947ms)
+  ✔ validates Knowledge audience without equating player and Echo (1.6132ms)
+  ✔ rejects missing and unpublished Story Events atomically (3.8085ms)
+  ✔ detects a conflicting independent Story Event payload (2.4379ms)
+  ✔ supports future Cinematic source ownership without Runtime content (1.0466ms)
+  ✔ records a fixture Story Event without inventing an Evolution stage (1.0057ms)
+  ✔ never projects Narrative effects into legacy semantic aliases (2.4793ms)
+  ✔ keeps legacy source receipts protected without inventing metadata (0.6609ms)
+  ✔ migrates legacy evidence, round-trips receipts, and preserves unknown IDs (6.6343ms)
+  ✔ keeps runtime narrative registries limited to approved final-Manhwa gates (5.718ms)
+✔ Phase 3F canonical narrative event integration (78.1616ms)
+▶ Phase 2 narrative foundation
+  ✔ unlocks memories and fragments from data conditions (3.2696ms)
+  ✔ advances dialogue graphs and persists player decisions (1.1241ms)
+  ✔ evaluates data-driven endings from personality and decisions (0.5686ms)
+  ✔ migrates older saves into the V7 narrative state (8.3238ms)
+  ✔ restores opening-room checkpoints from the canonical save flags (1.4553ms)
+✔ Phase 2 narrative foundation (16.8293ms)
+✔ requires the authenticated account receipt; rejects client-authored receipt and malformed challenges (30.8193ms)
+✔ S256 proof binds a random, hashed, five-minute single-use grant; a wrong proof does not burn it (8.7436ms)
+✔ expires at the exact deadline, rejects missing codes, and bounds concurrent issuance in SQL (9.2089ms)
+✔ a title tap receipt cannot replace the played cover prerequisite (7.1824ms)
+▶ protected Echo Network replay gateway
+  ✔ returns only a participant-owned replay whose receipt and R2 object agree (50.0397ms)
+  ✔ does not reveal a replay to a player without a participant receipt (2.4368ms)
+  ✔ rejects a replay that is not tied to the immutable receipt (3.1207ms)
+✔ protected Echo Network replay gateway (57.5724ms)
+✔ first-time onboarding only targets generated subject identities (1.5538ms)
+✔ onboarding indicator tracks all four player-facing stages (1.1802ms)
+▶ opening handoff authority
+  ✔ requires the server cover receipt and accepts an idempotent existing receipt (1.6337ms)
+  ✔ resumes from verified server state without asking to submit the cover again (0.3955ms)
+  ✔ accepts only played room events in canonical order, while ignoring presentation cues (1.7962ms)
+✔ opening handoff authority (6.3712ms)
+▶ opening receipts: actual SQLite concurrent insertion ownership
+  ✔ recovery: exactly one concurrent winner, repeat false and isolated account (normal metadata) (7.7829ms)
+  ✔ recovery: exactly one concurrent winner, repeat false and isolated account (omitted metadata) (2.4347ms)
+  ✔ recovery: exactly one concurrent winner, repeat false and isolated account (malformed metadata) (2.2633ms)
+  ✔ room: exactly one concurrent winner, repeat false and isolated account (normal metadata) (5.2011ms)
+  ✔ room: exactly one concurrent winner, repeat false and isolated account (omitted metadata) (4.2956ms)
+  ✔ room: exactly one concurrent winner, repeat false and isolated account (malformed metadata) (8.8184ms)
+  ✔ room requires the same account cover receipt and rejects incomplete events (2.5812ms)
+  ✔ recovery: a lost post-write response throws, stored receipt retries false (4.3278ms)
+  ✔ recovery: failed write cannot claim an award, subsequent legitimate insertion can (1.5346ms)
+  ✔ recovery: SQLite ignoring the insertion without a stored receipt returns 503 (3.2374ms)
+  ✔ room: a lost post-write response throws, stored receipt retries false (1.2874ms)
+  ✔ room: failed write cannot claim an award, subsequent legitimate insertion can (1.9318ms)
+  ✔ room: SQLite ignoring the insertion without a stored receipt returns 503 (1.719ms)
+✔ opening receipts: actual SQLite concurrent insertion ownership (50.3461ms)
+▶ Opening room player movement
+  ✔ accelerates responsively and decelerates without an instant speed snap (3.442ms)
+  ✔ uses delta time and clamps the player to the room (2.5063ms)
+  ✔ stops on an AABB obstacle while preserving sliding movement (0.5977ms)
+✔ Opening room player movement (8.5296ms)
+▶ Echo visual animation state
+  ✔ selects idle, walk, run, interaction, and locked states deterministically (0.4436ms)
+  ✔ maps only animation clips that actually exist in a supplied GLB (0.5703ms)
+✔ Echo visual animation state (1.3984ms)
+▶ Opening room interactions
+  ✔ selects the nearest in-range interaction whose condition passes (1.4667ms)
+  ✔ keeps all opening interactions data-driven and spoiler-safe (2.3801ms)
+  ✔ uses one reachable spatial contract for every canonical room clue (1.1274ms)
+✔ Opening room interactions (5.6997ms)
+▶ Opening room camera containment
+  ✔ selects the authored corridor and chamber bounds from player position (0.7334ms)
+  ✔ pulls the camera arm inside a wall and restores full distance in open space (0.6048ms)
+✔ Opening room camera containment (1.6739ms)
+▶ Echo locomotion feedback
+  ✔ repairs leaked idle and stand hip offsets without changing the other clips (3.1806ms)
+  ✔ emits footsteps from travelled distance instead of elapsed time (0.4435ms)
+  ✔ keeps gait phase stable while changing to the longer sprint step (0.1653ms)
+  ✔ matches playback rate to the audited walk and run cycles (0.1656ms)
+✔ Echo locomotion feedback (4.2877ms)
+▶ Echo model fit
+  ✔ centres an offset asset, plants its lowest point, and fits target height (0.2481ms)
+  ✔ falls back safely for invalid bounds (0.1422ms)
+✔ Echo model fit (0.491ms)
+▶ Opening room puzzle state
+  ✔ moves through every stage in the required order (0.4005ms)
+  ✔ keeps the door locked until solved, then emits its unlock event (0.2311ms)
+  ✔ grants the recovered memory only once for repeated events (0.1784ms)
+✔ Opening room puzzle state (0.9329ms)
+✔ executes the shipped browser predicate against parent, sibling, self and absent message sources (4.6852ms)
+▶ Private party launch experience
+  ✔ does not expose a live board until an authoritative snapshot arrives (4.2408ms)
+  ✔ keeps private launch selection local while the server remains the authority (12.4741ms)
+  ✔ hands the same room controller from the party surface to the selected match surface (6.4573ms)
+  ✔ labels the local and opposing chess side from the authoritative player color (4.184ms)
+✔ Private party launch experience (30ms)
+✔ uses the same-origin player API when no URL is configured (1.66ms)
+✔ keeps the local API URL during local development (0.3893ms)
+✔ does not send a hosted player to a local machine (1.386ms)
+✔ preserves a configured remote API URL (0.4339ms)
+▶ player experience entitlements
+  ✔ keeps a signed-out player on the safe identity surfaces (4.5303ms)
+  ✔ keeps Manhwa reachable while a signed-in player record synchronizes (0.5443ms)
+  ✔ does not throw away a Home or Manhwa deep link during the initial auth check (0.3388ms)
+  ✔ reveals only Home and the Manhwa objective before the first verified clue (1.0065ms)
+  ✔ opens Story Puzzles only after a server-issued puzzle status allows it (0.9073ms)
+  ✔ unlocks rewards and Chapter 1 surfaces without prematurely exposing Network (0.5523ms)
+  ✔ opens Play Together and Weekly only at Chapter 2, with ranked still closed (0.7177ms)
+  ✔ opens Ranked display only after Chapter 3 and a server Network snapshot confirms every prerequisite (1.8773ms)
+  ✔ fails closed when the rollout policy expires or the browser is offline (0.9569ms)
+  ✔ keeps optional channels closed until a validated server rollout arrives (0.4814ms)
+  ✔ does not claim that Part 2 is available without both verified completion and rollout (0.3391ms)
+✔ player experience entitlements (16.7049ms)
+▶ player profile identity and authority
+  ✔ keeps the Profile screen hidden from primary navigation (2.3391ms)
+  ✔ preserves Subject ID and Join Date when the username changes (1.8023ms)
+  ✔ uses only fixed in-game Avatar IDs and keeps external URLs out of the contract (1.3557ms)
+  ✔ maps the selected Avatar to its own Profile presentation (0.5388ms)
+  ✔ normalizes usernames for global reservation checks (1.0556ms)
+  ✔ rejects retired puzzle claims and all client-authored reward values (1.1797ms)
+  ✔ protects the append-only ledgers at the database layer (9.8761ms)
+✔ player profile identity and authority (20.5529ms)
+▶ server-authoritative player progression
+  ✔ derives level from total XP with one shared deterministic curve (1.362ms)
+  ✔ keeps the verified Manhwa source in the shared XP source contract (10.3445ms)
+  ✔ keeps the retired puzzle claim endpoint closed (0.5314ms)
+  ✔ validates Manhwa chapter completion against the official final page range (1.0209ms)
+  ✔ rejects chapter claims before the chapter end and never accepts client XP (0.4625ms)
+  ✔ rejects forged XP amounts before routing to any reward validator (0.5411ms)
+✔ server-authoritative player progression (16.4033ms)
+✔ player request timeout settles a stalled network operation (12.7885ms)
+✔ player request converts a network rejection into a settled transport error (1.6989ms)
+✔ player sync machine always settles successful and degraded attempts (1.4906ms)
+✔ player sync machine turns every required failure into a terminal error (0.3828ms)
+✔ player sync reset clears prior terminal and failure state (0.7558ms)
+▶ player profile gateway
+  ✔ creates a D1 profile without making a Firestore profile write a login dependency (58.7742ms)
+  ✔ rejects a rare avatar until the verified weekly ledger owns it (44.9458ms)
+  ✔ rejects external avatar values before writing profile data (9.1479ms)
+  ✔ rejects a username owned by another UID without merging profiles (5.5544ms)
+  ✔ atomically replaces a player username without leaving a stale reservation (6.1617ms)
+✔ player profile gateway (127.0827ms)
+▶ canonical progression presentation contract
+  ✔ does not present ongoing-story endings or truncate authoritative achievements (11.7781ms)
+✔ canonical progression presentation contract (16.6229ms)
+▶ Stage 3 progressive disclosure UI
+  ✔ derives and enforces route access in the application shell without an intrusion overlay (4.4739ms)
+  ✔ keeps the Home surface focused on one objective and one continuation action (31.5372ms)
+  ✔ renders only server-entitled puzzle channels instead of decorative locked tabs (1.6539ms)
+✔ Stage 3 progressive disclosure UI (40.0542ms)
+✔ src\__tests__\puzzleLazyGenerator.test.ts (342.9671ms)
+▶ puzzle and achievement reward audio
+  ✔ creates a deterministic ascending completion signature (1.5365ms)
+  ✔ clamps unsafe volume and keeps muted plans silent (0.4187ms)
+✔ puzzle and achievement reward audio (3.9768ms)
+▶ Ranked story admission
+  ✔ does not apply a story gate to Casual chess (2.1392ms)
+  ✔ refuses Ranked before the server-issued Chapter 3 receipt (0.6832ms)
+  ✔ allows the next Rank gate to evaluate only after Chapter 3 is verified (6.9573ms)
+✔ Ranked story admission (11.8796ms)
+▶ Realtime match reload recovery
+  ✔ never lets a superseded or explicitly cancelled ticket open a room (6.731ms)
+  ✔ keeps only a minimal match locator and rejects tampered browser state (2.3271ms)
+  ✔ re-issues a membership-checked ticket instead of persisting authority state (2.6763ms)
+  ✔ keeps a recoverable locator when a terminal snapshot closes before its receipt, but never retries a stored receipt as a reward action (2.8507ms)
+  ✔ sends explicit leave intent only for Chess or a private party, never a Co-op match (2.7758ms)
+  ✔ retries the same membership-checked room and localizes Worker error codes (19.6594ms)
+  ✔ bounds a silent authoritative snapshot and preserves only a non-authoritative rejected-attempt signal (9.9745ms)
+✔ Realtime match reload recovery (49.6964ms)
+✔ a phone on an explicitly allow-listed private LAN receives the desktop realtime host (35.5875ms)
+✔ a forged, public, or unconfigured Origin cannot rewrite a local realtime target (1.118ms)
+✔ a production HTTPS realtime origin stays configured even when a LAN origin is present (0.6457ms)
+▶ bounded JSON request bodies
+  ✔ accepts a valid body when Content-Length is absent (48.2793ms)
+  ✔ rejects oversized bodies before route parsing (1.8914ms)
+  ✔ returns a structured error for malformed JSON (1.2525ms)
+✔ bounded JSON request bodies (53.1562ms)
+▶ responsive player journey contract
+  ✔ makes portrait the default viewport policy and keeps the shell explicit (14.124ms)
+  ✔ gives phone portrait a reachable shell, objective, onboarding, and opening route (5.8462ms)
+  ✔ does not continue to advertise a landscape-only mobile journey (3.0493ms)
+  ✔ keeps short landscape onboarding headings clear of decorative header branding (3.2592ms)
+✔ responsive player journey contract (28.5963ms)
+▶ authoritative rollout action gates
+  ✔ fails closed before D1 for every Network entry point (69.4451ms)
+  ✔ does not treat the Community flag as permission for Play Together (4.6403ms)
+  ✔ gates Community, social state, and Forge before they can create a profile or submission (11.224ms)
+  ✔ requires the specific Daily or Weekly flag before a live action can write a draft, hint, or reward (9.2713ms)
+  ✔ does not materialize a Daily or Weekly snapshot while every live mode is closed (1.9657ms)
+✔ authoritative rollout action gates (100.0767ms)
+▶ client rollout-policy boundary
+  ✔ accepts only a complete policy shape from the authenticated endpoint (4.0166ms)
+  ✔ loads the policy with an expected UID and keeps optional UI closed while it is absent (29.4705ms)
+✔ client rollout-policy boundary (35.4287ms)
+▶ player rollout policy gateway
+  ✔ requires a valid Firebase bearer token before returning any policy (42.4956ms)
+  ✔ fails closed when no deployment policy is configured (7.3223ms)
+  ✔ returns only validated policy flags and never echoes deployment-only fields (7.337ms)
+  ✔ denies every flag when deployment policy is malformed, invalid, or expired (1.2462ms)
+  ✔ fails closed when a caller cannot provide a valid current clock (3.1439ms)
+  ✔ handles preflight using the shared no-store CORS policy (1.2708ms)
+✔ player rollout policy gateway (65.1662ms)
+▶ Sector 11 Story-Driven Tasks & Containment Encounter
+  ✔ defines the 6 canonical Sector 11 stages with complete bilingual copy and threat ratings (2.532ms)
+  ✔ progresses chronologically from Stasis Awakening to Quarantine Escape (0.7969ms)
+  ✔ maps companion emotional states synchronously to combat threat escalation (0.3265ms)
+✔ Sector 11 Story-Driven Tasks & Containment Encounter (5.6061ms)
+▶ shell navigation history contract
+  ✔ keeps browser history authoritative for route changes (14.2266ms)
+✔ shell navigation history contract (16.4843ms)
+✔ single-flight reuses one bootstrap for duplicate triggers (4.7334ms)
+✔ single-flight invalidates stale work when the UID changes (0.4904ms)
+▶ smart live puzzle generator
+  ✔ creates deterministic, materially distinct daily instances without a 1000-item pool (49.3298ms)
+  ✔ varies weekly mechanics and eventually exercises the full mechanic family (4.1344ms)
+  ✔ keeps the account reward sealed until verified weekly completion (3.2576ms)
+  ✔ builds image pieces and wiring answers from visible, valid evidence (5.6607ms)
+  ✔ creates exactly one visible anomaly and one valid load-balance choice (7.1154ms)
+✔ smart live puzzle generator (73.0644ms)
+▶ Stage 3 interaction reliability
+  ✔ keeps developer diagnostics opt-in so they cannot cover player controls (7.8155ms)
+  ✔ keeps compact shell controls named, touch-sized, and visibly interactive (4.6685ms)
+  ✔ keeps the language settings usable at phone width instead of pushing cards beyond the viewport (3.1957ms)
+  ✔ gives local and verified Chess an intentional board-first recovery path without changing authority (3.5901ms)
+  ✔ keeps a pending terminal room visible and every chess square touch-sized on a narrow phone (3.7656ms)
+  ✔ labels the home surface honestly across browser form factors (2.1229ms)
+  ✔ makes every generic puzzle composer explicit, reversible, and touch-sized (4.9193ms)
+  ✔ keeps special puzzle inputs stateful and replaces the reduced-motion answer dump with controlled observation (3.7441ms)
+  ✔ ports the authoritative reward presentation outside transformed stages and keeps it phone-reachable (4.5571ms)
+✔ Stage 3 interaction reliability (40.8097ms)
+▶ Stage 3 Play Together disclosure
+  ✔ keeps Network focused on the entitled Chess and Co-op journey (4.2709ms)
+  ✔ does not publish ranked or anomaly queues before the entitled gate (9.1836ms)
+  ✔ keeps the verified chess prerequisite separate from the local Echo duel (1.9442ms)
+✔ Stage 3 Play Together disclosure (19.0197ms)
+▶ Stage 3 opening puzzle vertical slice
+  ✔ keeps Signal selections stable in either tap order without deciding correctness on the client (2.9377ms)
+  ✔ makes the opening signal tactile while keeping the displayed candidates separate from server truth (5.5604ms)
+  ✔ keeps later signal stages playable through visible candidates without publishing a target field (3.3672ms)
+  ✔ keeps the route timeline explicit: full input never silently discards a prior symbol (0.4601ms)
+  ✔ offers an optional desktop drag path without removing the keyboard route controls (3.6596ms)
+  ✔ gives the visible route one unambiguous source and sink without moving verification to the client (3.3012ms)
+  ✔ removes answer-like prose from the first three public puzzle records while retaining a fair observable rule (11.2756ms)
+  ✔ gives the published archive route a touch and keyboard path (16.093ms)
+  ✔ normalizes Torn Memory drafts to physical canvas pieces without learning its solution (1.1553ms)
+  ✔ ships bounded, versioned puzzle art and keeps the signal atmosphere non-interactive (67.0576ms)
+✔ Stage 3 opening puzzle vertical slice (117.6455ms)
+▶ Stage 3 remaining Story Puzzle playability
+  ✔ keeps every remaining puzzle self-contained with a player goal, in-world brief, reference, and progressive hints (6.2359ms)
+  ✔ keeps special interactions backed by a valid visible input model instead of an empty surface (0.7626ms)
+  ✔ starts the load-balancing puzzle from a truthful visible baseline and prevents a plainly incomplete submission (10.7815ms)
+  ✔ labels multi-stage work as a draft and serializes its persistence before final verification (15.5985ms)
+  ✔ keeps remaining puzzle controls keyboard-labelled and touch-sized without importing server solutions (19.7799ms)
+✔ Stage 3 remaining Story Puzzle playability (61.2327ms)
+▶ Stage 3.2 continuous signal tuning
+  ✔ pads the dial span around the broadcast centres without exposing any answer (1.4338ms)
+  ✔ locks exactly one reading at each centre and never two (0.7473ms)
+  ✔ starts in an unarmed between-readings state until the player deliberately tunes a probe (0.3683ms)
+  ✔ raises acquisition clarity monotonically toward a centre without naming correctness (0.4679ms)
+  ✔ builds a deterministic live wave that changes with clarity only (0.9785ms)
+  ✔ keeps tuning feedback free of server answer authority (4.4542ms)
+✔ Stage 3.2 continuous signal tuning (10.6842ms)
+▶ Stage 3.2 sequence contradiction diagnosis
+  ✔ accepts a coherent ordering silently so success needs no diagnosis (0.6555ms)
+  ✔ names an impossible link at its step without revealing the fixed order (0.4036ms)
+  ✔ detects a missing documented entry and exit (1.5536ms)
+  ✔ Echo explains the contradiction kind on rejection while never importing solutions (9.3883ms)
+✔ Stage 3.2 sequence contradiction diagnosis (12.6528ms)
+▶ Stage 3 surface accessibility regressions
+  ✔ keeps the shell skip link touch-sized while it becomes the first keyboard focus (5.261ms)
+  ✔ keeps real localized Manhwa navigation labels on phone layouts (3.4875ms)
+  ✔ uses one touch-sized Manhwa page scrubber instead of seventy-one tiny tab stops (3.1154ms)
+  ✔ keeps optional image rotation and achievement notices safe for touch and keyboard play (5.5022ms)
+  ✔ treats pawn promotion as a focus-contained modal decision (2.7089ms)
+  ✔ serializes Live challenge terminal actions before preserving the current draft (2.3825ms)
+✔ Stage 3 surface accessibility regressions (24.6593ms)
+▶ EX-000 Stasis Monster Combat Systems & State Logic
+  ✔ triggers Phase 2 transition when HP drops to or below 350 (2.7521ms)
+  ✔ calculates shockwave expansion radius accurately across windup duration (0.7596ms)
+  ✔ calculates combo multiplier based on hit streak thresholds (0.2603ms)
+  ✔ enforces stamina costs and prevents dodging when depleted (4.1515ms)
+  ✔ applies 2x kinetic stagger multiplier to incoming counter attacks (2.981ms)
+✔ EX-000 Stasis Monster Combat Systems & State Logic (13.4234ms)
+▶ Story-Driven Task System — Sector 11 Mission Progression
+  ✔ enforces multi-step exploration rather than immediate door opening (3.2654ms)
+  ✔ progresses through contextual clues in any order before unlocking the exit (1.3684ms)
+  ✔ validates that all interactive entities have defined spatial positions and collision margins (0.4578ms)
+✔ Story-Driven Task System — Sector 11 Mission Progression (11.2802ms)
+▶ Story puzzle client error presentation
+  ✔ explains a raced post-completion hint purchase without suggesting a retry or a solution (1.6746ms)
+✔ Story puzzle client error presentation (3.4727ms)
+▶ Story Puzzle completion continuation
+  ✔ turns an authoritative reward receipt into a visible next objective and a verified continuation (5.3592ms)
+  ✔ keeps Echo feedback readable in retry, receipt, and completed states without exposing an answer (22.5066ms)
+✔ Story Puzzle completion continuation (30.3278ms)
+▶ corrected opening Story Puzzle catalog
+  ✔ publishes exactly two main puzzles from Chapter 1 (2.7163ms)
+  ✔ anchors every opening puzzle to a released page in the immutable new edition (0.6456ms)
+  ✔ keeps the two approved opening mechanics distinct and self-briefed (0.3322ms)
+  ✔ keeps authoritative server solutions and Echo impacts in one-to-one alignment (1.4889ms)
+  ✔ does not bind an unreconciled transformation or retired puzzle to the active slice (0.3554ms)
+  ✔ verifies both opening solutions only in the server definition (1.3456ms)
+  ✔ rejects a client-supplied reward value at the draft boundary (1.2469ms)
+  ✔ keeps append-only receipt ledgers and a separate mutable draft table (10.1135ms)
+  ✔ does not migrate retired local campaign progress into the corrected opening campaign (12.104ms)
+✔ corrected opening Story Puzzle catalog (33.1387ms)
+▶ server-authoritative Story Puzzle gateway
+  ✔ records an accessible completion, XP, coins, and shard exactly once (8.1963ms)
+  ✔ accepts the authoritative correct submission for every Story puzzle through the reward gateway (2.3401ms)
+  ✔ rejects incorrect opening-slice submissions before any reward receipt is written (7.0784ms)
+  ✔ keeps retired secret routes closed at the gateway (0.4905ms)
+  ✔ persists the current archive-route draft without exposing its solution (3.0524ms)
+  ✔ keeps every hint priced atomically, rejects insufficient coins, and removes only the perfect bonus (3.1675ms)
+  ✔ calculates perfect status inside the completion batch when a paid hint wins the race (1.1686ms)
+  ✔ persists the current puzzle draft and restores it from a fresh snapshot (2.2638ms)
+✔ server-authoritative Story Puzzle gateway (30.1702ms)
+▶ Story Puzzle Manhwa access
+  ✔ starts with only the approved reading window needed to reach the first clue (1.7331ms)
+  ✔ reveals the second clue but never crosses the published opening boundary (0.4529ms)
+  ✔ never lets a V2 puzzle ID bypass a current publication gate (2.5873ms)
+  ✔ publishes exactly pages 1–9 while retaining the 70-page immutable source (0.4787ms)
+  ✔ keeps pages 10–70 sealed after both approved opening puzzles (0.399ms)
+  ✔ passes only accessible pages to the fullscreen reader (3.9667ms)
+✔ Story Puzzle Manhwa access (12.1955ms)
+▶ corrected opening puzzle public-clue boundary
+  ✔ ships only the two approved opening records to the public catalog (35.4276ms)
+  ✔ keeps server verification material outside the public catalog (32.251ms)
+  ✔ does not expose unpublished-page bindings or retired Canon transformations (33.2096ms)
+✔ corrected opening puzzle public-clue boundary (115.3991ms)
+▶ Story puzzle visual asset accessibility
+  ✔ keeps image reconstruction recoverable when its visual source cannot load (7.0154ms)
+  ✔ maps visual-forensics points by their named grid coordinates and provides a text evidence view (10.4224ms)
+  ✔ keeps the non-drag click path and does not import server-side puzzle answers (8.7028ms)
+  ✔ makes the opening cover a real touch/mouse drag puzzle with a reduced-motion fallback (3.7383ms)
+  ✔ hands the verified composition into one recoverable cinematic and the authored room (7.5847ms)
+  ✔ automatically requests opening verification without fabricating a development receipt (2.0055ms)
+  ✔ flushes a local draft before a confirmed hint purchase and does not rehydrate the active puzzle on its snapshot response (2.5705ms)
+  ✔ never presents a malformed hint price as free or lets it reset the current draft (3.2801ms)
+  ✔ states base verified coins in the reward moment, not only a perfect bonus (7.4399ms)
+  ✔ serializes autosave, hint, and completion writes so a stale draft cannot replace a receipt (6.8629ms)
+  ✔ keeps a deferred autosave ahead of the current draft and terminal receipt (24.7097ms)
+✔ Story puzzle visual asset accessibility (87.1554ms)
+▶ authoritative Story State projection
+  ✔ starts a new player at the safe initial Echo state (6.5695ms)
+  ✔ does not bind corrected Manhwa art to a Canon transformation without an Owner-approved matrix (2.5481ms)
+  ✔ rejects malformed or unknown server receipts without inventing XP, fragments, or character revelations (1.5535ms)
+  ✔ persists the server story snapshot across a reload without adding legacy rewards or transformations (12.6323ms)
+✔ authoritative Story State projection (25.5261ms)
+▶ corrected authoritative Story State gateway
+  ✔ rejects client-supplied Canon event IDs and V2 page identifiers (55.0594ms)
+  ✔ records a published baseline page but refuses p8/p9 without a verified current puzzle (12.1736ms)
+  ✔ permits p8/p9 only after the V3 signal-sync receipt and records no unapproved Canon event (3.4936ms)
+  ✔ does not backfill retired V2 rewards or events into the corrected story snapshot (1.7273ms)
+  ✔ maps only a correctly namespaced V3 Chapter 1 reward to the public completion state (2.3544ms)
+  ✔ defines append-only D1 guards for Canon and reader records (2.8593ms)
+✔ corrected authoritative Story State gateway (79.9967ms)
+▶ verified chess training client contract
+  ✔ accepts a server-issued active board but never a client FEN submit shape (5.0777ms)
+  ✔ rejects inconsistent terminal and active snapshots rather than rendering a false unlock (0.7038ms)
+  ✔ fails closed when server version fields are not real safe integers (1.5187ms)
+  ✔ fails closed when a Network response claims Ranked without its authoritative prerequisites (0.6344ms)
+✔ verified chess training client contract (11.3345ms)
+▶ verified chess training gateway
+  ✔ issues only one UID-bound board and fails closed before D1 when Network is disabled (60.8144ms)
+  ✔ rejects illegal and legal-but-wrong moves without changing the server board (9.1227ms)
+  ✔ uses versioning and immutable idempotency responses for accepted moves (4.1778ms)
+  ✔ expires a stale board instead of accepting a late move (1.5016ms)
+  ✔ requires all three server-validated lessons and only stamps the training milestone (9.3318ms)
+✔ verified chess training gateway (86.6112ms)
+▶ weekly rare reward sequence
+  ✔ alternates unique story shards with avatars in the intended character order (6.1776ms)
+  ✔ never exposes a character asset in the pre-completion preview (0.36ms)
+✔ weekly rare reward sequence (8.3885ms)
+ℹ tests 649
+ℹ suites 120
+ℹ pass 649
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11775.7239
+PASS Foundation tests
+
+============================================================
+Production build
+============================================================
+
+> eleven-eleven@0.0.0 build
+> vite build --config vite.config.ts
+
+vite v8.1.5 building client environment for production...
+[2K
+transforming...✓ 2671 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                        1.86 kB │ gzip:   0.77 kB
+dist/assets/echoChess.worker-DlpAbuif.js              42.15 kB
+dist/assets/LeaderboardScreen-DEn04SZ3.css             3.79 kB │ gzip:   1.13 kB
+dist/assets/ProgressScreen-j7RJnAfI.css                4.35 kB │ gzip:   1.05 kB
+dist/assets/MiniEchoCompanion-C95ohBs0.css             4.77 kB │ gzip:   1.42 kB
+dist/assets/PuzzleHubScreen-DEARFz-l.css               8.56 kB │ gzip:   2.26 kB
+dist/assets/PsychologicalStateScreen-Djz2k7j0.css      9.96 kB │ gzip:   2.49 kB
+dist/assets/LiveChallengesScreen-CIqHBcLZ.css         14.34 kB │ gzip:   3.16 kB
+dist/assets/MemoryScreen-DkdthzqM.css                 17.27 kB │ gzip:   3.77 kB
+dist/assets/ProfileScreen-CAQ63jLI.css                19.46 kB │ gzip:   4.12 kB
+dist/assets/AwakeningWardScreen-DlKM56AC.css          23.00 kB │ gzip:   5.67 kB
+dist/assets/GameplayScreen-DTZOdrQx.css               26.04 kB │ gzip:   5.81 kB
+dist/assets/EchoNetworkScreen-CQaaV3on.css            51.22 kB │ gzip:   9.95 kB
+dist/assets/PuzzleScreen-DwvPsVeG.css                 60.37 kB │ gzip:  11.33 kB
+dist/assets/index-DMeDIzWB.css                       253.22 kB │ gzip:  45.32 kB
+dist/assets/lock-Y208xJPy.js                           0.20 kB │ gzip:   0.18 kB
+dist/assets/triangle-alert-BY3X7DLh.js                 0.25 kB │ gzip:   0.21 kB
+dist/assets/x-Da_uQ44q.js                              0.30 kB │ gzip:   0.21 kB
+dist/assets/clapperboard-C26EDVnj.js                   0.35 kB │ gzip:   0.26 kB
+dist/assets/zap-DQpjeDko.js                            0.43 kB │ gzip:   0.28 kB
+dist/assets/index.esm-m6keV9l1.js                      0.69 kB │ gzip:   0.39 kB
+dist/assets/DialogueScreen-DsS8USnL.js                 3.39 kB │ gzip:   1.48 kB
+dist/assets/FinalChoiceSystem-BdVRn-4S.js              3.65 kB │ gzip:   1.47 kB
+dist/assets/storyPuzzleStore-DZ7w2yG0.js               4.16 kB │ gzip:   1.64 kB
+dist/assets/LeaderboardScreen-CXqUDB24.js              4.39 kB │ gzip:   1.55 kB
+dist/assets/MainMenuScreen-DOXeZQgM.js                 5.65 kB │ gzip:   2.36 kB
+dist/assets/CharactersScreen-CIrh5SS0.js               5.86 kB │ gzip:   1.92 kB
+dist/assets/playerProgressionApi-Fvg1mhi1.js           6.00 kB │ gzip:   2.33 kB
+dist/assets/MiniEchoCompanion-BQFmXImX.js              6.75 kB │ gzip:   2.99 kB
+dist/assets/PuzzleHubScreen-DjGh0bOv.js                7.39 kB │ gzip:   3.12 kB
+dist/assets/ProgressScreen-C_O4V77n.js                 7.48 kB │ gzip:   2.41 kB
+dist/assets/PsychologicalStateScreen-_YD940_w.js       7.51 kB │ gzip:   3.10 kB
+dist/assets/authService-CTCtFJy8.js                    7.75 kB │ gzip:   2.36 kB
+dist/assets/DashboardScreen-CE3pJtj7.js                7.81 kB │ gzip:   2.55 kB
+dist/assets/EndingResultScreen-9uUiv4fh.js             8.86 kB │ gzip:   2.16 kB
+dist/assets/CinematicPlayerScreen-vrkFiE2D.js          9.90 kB │ gzip:   3.56 kB
+dist/assets/SettingsScreen-uL2ZflkY.js                12.55 kB │ gzip:   3.94 kB
+dist/assets/ProfileScreen-DUFxcozY.js                 13.78 kB │ gzip:   4.11 kB
+dist/assets/MemoryScreen-CMi78mes.js                  21.93 kB │ gzip:   7.42 kB
+dist/assets/EchoPresence-BD5_0Ybl.js                  22.39 kB │ gzip:   6.68 kB
+dist/assets/shellStore-B8vOJn5Z.js                    28.58 kB │ gzip:   9.45 kB
+dist/assets/EchoMindScreen-D71p0gnv.js                31.26 kB │ gzip:  12.37 kB
+dist/assets/design-system-CY51IyIG.js                 31.28 kB │ gzip:   9.48 kB
+dist/assets/LiveChallengesScreen-1QacXyI7.js          31.80 kB │ gzip:  10.57 kB
+dist/assets/index.esm-qChYK288.js                     32.06 kB │ gzip:  10.46 kB
+dist/assets/AwakeningWardScreen-ovjvLa4I.js           53.03 kB │ gzip:  17.67 kB
+dist/assets/jsx-runtime-CcffSn4Q.js                   78.99 kB │ gzip:  21.56 kB
+dist/assets/PuzzleScreen-D9jKnkv9.js                  85.68 kB │ gzip:  25.59 kB
+dist/assets/index.esm-cIqSqoyI.js                    127.19 kB │ gzip:  36.12 kB
+dist/assets/EchoNetworkScreen-Ch_ZnV1j.js            133.75 kB │ gzip:  41.75 kB
+dist/assets/gameStore-CEiTUeBu.js                    171.67 kB │ gzip:  46.51 kB
+dist/assets/index-Dlq5187O.js                        348.83 kB │ gzip: 106.74 kB
+dist/assets/index.esm-stn1pqkW.js                    555.25 kB │ gzip: 161.96 kB
+dist/assets/GameplayScreen-D7mGkQzu.js               635.25 kB │ gzip: 196.76 kB
+dist/assets/three-runtime-CJ4nR4RN.js                725.15 kB │ gzip: 184.83 kB
+dist/assets/phaser-runtime-B6yz5-Rx.js             1,197.99 kB │ gzip: 319.08 kB
+
+✓ built in 3.35s
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+PASS Production build
+============================================================
+DOCTOR: CONTENT REGISTRY
+============================================================
+PASS content registry
+  content version: canon-echo-network-evolving-v1
+  chapters: 7
+  authored puzzles: 0
+  authored memories: 0
+  authored dialogues: 0
+  authored endings: 0
+  puzzle capacity: 2000
+
+============================================================
+DOCTOR: BOOT GRAPH
+============================================================
+PASS boot graph
+  root, App, bootstrap, and ErrorBoundary are present
+  no active batch_01 imports found
+
+============================================================
+DOCTOR: SAVE FOUNDATION
+============================================================
+PASS save foundation
+  versioned migration and progress-only persistence are present
+
+============================================================
+DOCTOR: FOUNDATION FILES
+============================================================
+PASS foundation files
+  found PHASE_1_CHECKPOINT.md
+  found data/manifest.json
+  found src/domain/progression/progression.ts
+  found src/domain/echo/echoPersonality.ts
+  found src/stores/gameStore.ts
+
+============================================================
+POSTFLIGHT SUMMARY
+============================================================
+PASS Content validation
+PASS TypeScript
+PASS Foundation tests
+PASS Production build
+PASS content registry
+PASS boot graph
+PASS save foundation
+PASS foundation files
+
+ALL CHECKS PASSED

@@ -1,0 +1,160 @@
+{
+  "state": "PBR_GEOMETRY_REVIEWED_NATIVE_ASSET_PREPARED_IMPORT_RUNNING",
+  "owner_date": "2026-10-27",
+  "provider": "Tripo Studio",
+  "asset": "PrimaryServiceClimbCassette",
+  "purpose": "Substantial complete5m-by3.4m principal climbing architecture;native cues/contact/gameplay remain separate.",
+  "dimensions_m": [
+    5,
+    3.4,
+    0.5
+  ],
+  "multiview": [
+    "cassette-front.png",
+    "cassette-left.png",
+    "cassette-right.png",
+    "cassette-back.png"
+  ],
+  "model": "H3.1-BestQuality",
+  "ultra_mesh": true,
+  "target_triangles": 2000000,
+  "texture": {
+    "state": "COMPLETED_LIBRARY_READY",
+    "resolution": "4K",
+    "remove_lighting": true,
+    "balance_before": 2675,
+    "displayed_cost": 20,
+    "submission_clicks": 1,
+    "balance_after": 2655,
+    "actual_charge": 20
+  },
+  "generate_in_parts": false,
+  "privacy": "Private",
+  "balance_before": 2705,
+  "displayed_cost": 30,
+  "submission_clicks": 1,
+  "authorization": "Standing owner availablecredit quality mandate and explicit27Oct large-room-section/fourangles direction;no purchase.",
+  "native_acceptance": "PENDING;four design references are not gameplay acceptance",
+  "updated_utc": "2026-10-27T11:08:00.194Z",
+  "workspace": "bd6b234b-5a6b-44f5-bd19-fa5d6ff03fb8",
+  "identifier_kind": "Studio workspace root,not separately verifiedAPIjobID",
+  "actual_charge": 30,
+  "balance_after": 2675,
+  "actual_triangles_ui": 1943923,
+  "actual_vertices_ui": 971962,
+  "raw_source": {
+    "file": "cassette-h31-fourview-raw.glb",
+    "bytes": 46655276,
+    "sha256": "38c1df04e7e646884691a6e27e8301e9d44406e224c752e5426d78a939ed2e04",
+    "triangles": 1943923,
+    "meshes": 1,
+    "materials": 1,
+    "images": 0
+  },
+  "geometry_review": {
+    "scope": "Blender neutral material override,front/back/left/quarter actual raw geometry renders seen",
+    "dimensions_blender": [
+      0.978759765625,
+      0.09932325780391693,
+      0.669403076171875
+    ],
+    "target_m": [
+      5,
+      0.5,
+      3.4
+    ],
+    "uniform_width_fit_m": [
+      5,
+      0.50738,
+      3.41957
+    ],
+    "decision": "Proceed texture;clean closed structural cassette,flat panels,retained side recesses;native fit and gameplay unverified",
+    "editable": "cassette-geometry-review-editable.blend"
+  },
+  "pbr": {
+    "state": "COMPLETED_UI_READY",
+    "balance_before": 2655,
+    "displayed_cost": 5,
+    "submission_clicks": 1,
+    "actual_charge": 5,
+    "balance_after": 2650
+  },
+  "total_verified_charge": 55,
+  "pbr_source": {
+    "file": "cassette-h31-fourview-pbr4k.glb",
+    "sha256": "e62c4ab0b174b83433492592ab32211d5e17fe8821367b22e3c459059bdefce6",
+    "bytes": 76040392,
+    "triangles": 1943923,
+    "mesh_count": 1,
+    "scene_count": 1,
+    "mesh_nodes": [
+      {
+        "name": "tripo_node_c317fd42-2afc-4747-822e-b4f08cdb9b40",
+        "mesh": 0
+      }
+    ],
+    "material_count": 1,
+    "materials": [
+      {
+        "name": "tripo_node_c317fd42-2afc-4747-822e-b4f08cdb9b40_material",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 0
+          },
+          "metallicRoughnessTexture": {
+            "index": 1
+          }
+        },
+        "normalTexture": {
+          "index": 2
+        },
+        "doubleSided": true
+      }
+    ],
+    "images": [
+      {
+        "index": 0,
+        "name": "metal_storage_crate_3d_model_basecolor.jpg",
+        "mime": "image/jpeg",
+        "size": [
+          4096,
+          4096
+        ],
+        "mode": "RGB",
+        "bytes": 4119800,
+        "sha256": "188e1705550059e1ee9d862869bd2e0db9d54b0828f053edd7f0d59b1268faa5"
+      },
+      {
+        "index": 1,
+        "name": "metal_storage_crate_3d_model_rm.png",
+        "mime": "image/png",
+        "size": [
+          4096,
+          4096
+        ],
+        "mode": "RGB",
+        "bytes": 13914250,
+        "sha256": "051d5f169f9688f1963c493c133b2f72c2a4af7b34dd9a9e89267f435c68ea3c"
+      },
+      {
+        "index": 2,
+        "name": "metal_storage_crate_3d_model_normal.jpg",
+        "mime": "image/jpeg",
+        "size": [
+          4096,
+          4096
+        ],
+        "mode": "RGB",
+        "bytes": 2111729,
+        "sha256": "acc424700a4c1a56e3ffc52cae2af726721c3b1f0c3340e183c3e5fc35b2197f"
+      }
+    ],
+    "extensions": [
+      "KHR_materials_volume",
+      "FB_ngon_encoding"
+    ]
+  },
+  "pbr_geometry_audit": "cassette-pbr-geometry-audit.json",
+  "native_contract": "native-cassette-contract.json",
+  "front_axis": "+Z;confirmed after actual PBR render: amber indicator face"
+}

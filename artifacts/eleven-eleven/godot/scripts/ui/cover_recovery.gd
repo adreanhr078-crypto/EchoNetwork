@@ -27,6 +27,36 @@ var language_button: Button
 var reference: TextureRect
 var _reference_open := false
 var _scale := 1.0
+var _dragging_index := -1
+var _piece_tweens: Dictionary = {}
+
+class CoverPiece extends Button:
+	var puzzle: CanvasLayer
+	var piece_index := 0
+	func _get_drag_data(_at: Vector2) -> Variant:
+		if puzzle.completed or puzzle._reference_open: return null
+		puzzle._dragging_index = piece_index
+		puzzle.selected = -1
+		var preview := TextureRect.new()
+		preview.texture = icon
+		preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		preview.size = size * .85
+		preview.position = -preview.size * .5
+		preview.modulate.a = .85
+		var anchor := Control.new()
+		anchor.add_child(preview)
+		set_drag_preview(anchor)
+		puzzle._refresh()
+		return {"board": puzzle.get_instance_id(), "piece": piece_index}
+	func _can_drop_data(_at: Vector2, data: Variant) -> bool:
+		return not puzzle.completed and not puzzle._reference_open and data is Dictionary and data.get("board") == puzzle.get_instance_id() and data.get("piece") is int and data.piece >= 0 and data.piece < puzzle.PIECE_COUNT
+	func _drop_data(_at: Vector2, data: Variant) -> void:
+		if _can_drop_data(_at, data): puzzle._swap(data.piece, piece_index)
+	func _notification(what: int) -> void:
+		if what == NOTIFICATION_DRAG_END and is_instance_valid(puzzle):
+			puzzle._dragging_index = -1
+			puzzle._refresh()
 
 func _ready() -> void:
 	layer = 80
@@ -35,10 +65,20 @@ func _ready() -> void:
 	background.color = Color("080e19")
 	add_child(background)
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var atmosphere := TextureRect.new()
+	atmosphere.texture = preload("res://assets/textures/ui/memory-aperture-v1.webp")
+	atmosphere.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	atmosphere.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	atmosphere.modulate = Color(.55, .55, .6)
+	atmosphere.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(atmosphere)
+	atmosphere.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	board = Control.new()
 	add_child(board)
 	for index in PIECE_COUNT:
-		var tile := Button.new()
+		var tile := CoverPiece.new()
+		tile.puzzle = self
+		tile.piece_index = index
 		tile.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tile.expand_icon = true
 		tile.add_theme_constant_override("icon_max_width", 0)
@@ -142,18 +182,31 @@ func _shuffle() -> void:
 	_refresh()
 
 func _select(index: int) -> void:
-	if completed or _reference_open: return
+	if completed or _reference_open or _dragging_index >= 0: return
 	if selected < 0:
 		selected = index
 	elif selected == index:
 		selected = -1
 	else:
-		history.append(order.duplicate())
-		var previous := order[selected]
-		order[selected] = order[index]
-		order[index] = previous
-		selected = -1
+		_swap(selected, index)
+		return
 	_refresh()
+
+func _swap(source: int, destination: int) -> void:
+	if completed or _reference_open or source == destination or source < 0 or source >= PIECE_COUNT or destination < 0 or destination >= PIECE_COUNT: return
+	history.append(order.duplicate())
+	var previous := order[source]
+	order[source] = order[destination]
+	order[destination] = previous
+	selected = -1
+	_refresh()
+	if not reduced_motion:
+		for index in [source, destination]:
+			if _piece_tweens.has(index) and _piece_tweens[index].is_valid(): _piece_tweens[index].kill()
+			tiles[index].modulate.a = .4
+			var settling := create_tween()
+			settling.tween_property(tiles[index], "modulate:a", 1.0, .14)
+			_piece_tweens[index] = settling
 	for position in PIECE_COUNT:
 		if order[position] != position: return
 	completed = true
@@ -176,7 +229,7 @@ func _refresh() -> void:
 	var ar := language == "ar"
 	panel.layout_direction = Control.LAYOUT_DIRECTION_RTL if ar else Control.LAYOUT_DIRECTION_LTR
 	heading.text = "قبل أن تتذكّر ما حدث…" if ar else "Before you remember what happened…"
-	detail.text = "أَعِدْ للصورة وجهها الأول.\nست قطع فقط؛ اختر قطعتين لتبديلهما.\nلا مؤقت ولا عقوبة. يمكنك مشاهدة الغلاف كاملًا." if ar else "Restore the image that came before.\nJust six pieces. Select two to swap.\nNo timer or penalty. The full cover is always available."
+	detail.text = "أَعِدْ للصورة وجهها الأول.\nاسحب قطعة وأفلتها فوق أخرى، أو اختر قطعتين لتبديلهما.\nلا مؤقت ولا عقوبة. يمكنك مشاهدة الغلاف كاملًا." if ar else "Restore the image that came before.\nDrag a piece onto another, or select two to swap.\nNo timer or penalty. The full cover is always available."
 	status.text = ("اكتملت الصورة. تنفتح القناة…" if ar else "Image restored. The channel opens…") if completed else (("قطعة محددة؛ اختر موضعها" if ar else "Piece selected; choose its place") if selected >= 0 else ("بوابة الاستعادة · الأثر الأول" if ar else "RECOVERY GATEWAY · FIRST TRACE"))
 	undo_button.text = "تراجع" if ar else "Undo"
 	reset_button.text = "إعادة الخلط" if ar else "Shuffle again"
@@ -194,7 +247,11 @@ func _refresh() -> void:
 		style.bg_color = Color.TRANSPARENT
 		style.border_color = Color("8bdfff") if selected == index else Color("23374b")
 		style.set_border_width_all(3 if selected == index else 1)
-		for state in ["normal", "hover", "pressed"]: tile.add_theme_stylebox_override(state, style)
+		tile.add_theme_stylebox_override("normal", style)
+		var highlight := style.duplicate()
+		highlight.border_color = Color("8bdfff")
+		highlight.set_border_width_all(3)
+		for state in ["hover", "pressed"]: tile.add_theme_stylebox_override(state, highlight)
 		var focus := style.duplicate()
 		focus.border_color = Color.WHITE
 		focus.set_border_width_all(3)

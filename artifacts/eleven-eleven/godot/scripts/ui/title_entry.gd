@@ -19,6 +19,7 @@ var audible := false
 var _starting := false
 var loop_count := 0
 var _ui_scale := 1.0
+var _pulse_clock := 0.0
 
 func _ready() -> void:
 	layer = 80
@@ -60,6 +61,14 @@ func _ready() -> void:
 	)
 	start_button = _button(root, "Tap to Start", Vector2(.5,.88), Vector2(380,56), _start)
 	start_button.add_theme_font_size_override("font_size", roundi(25*_ui_scale))
+	for state in ["normal", "hover", "pressed"]:
+		var plate := StyleBoxFlat.new()
+		plate.bg_color = Color(.03,.15,.25,.14 if state == "normal" else .4)
+		plate.border_color = Color(.45,.86,1,.65)
+		plate.set_border_width_all(1)
+		plate.set_corner_radius_all(8)
+		start_button.add_theme_stylebox_override(state, plate)
+	start_button.add_theme_color_override("font_color", Color("a2eaff"))
 	motion_button = _button(root, "", Vector2(.96,.05), Vector2(56,48), toggle_motion)
 	language_button = _button(root, "English", Vector2(.04,.05), Vector2(110,48), _language)
 	sound_button = _button(root, "", Vector2(.88,.05), Vector2(56,48), _sound)
@@ -111,6 +120,11 @@ func _refresh() -> void:
 
 func _process(_delta: float) -> void:
 	if not reduced_motion and video.is_playing(): poster.hide()
+	if not reduced_motion and not _starting:
+		_pulse_clock += _delta
+		start_button.modulate.a = .8 + .2 * sin(_pulse_clock * 2.1)
+	else:
+		start_button.modulate.a = 1.0
 
 func toggle_motion() -> void:
 	reduced_motion = not reduced_motion

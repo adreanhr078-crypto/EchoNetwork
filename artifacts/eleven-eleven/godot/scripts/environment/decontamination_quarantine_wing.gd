@@ -99,6 +99,13 @@ func _ready() -> void:
 	_build_presentation()
 	var finish = preload("res://scripts/environment/room_panel_finish.gd")
 	finish.apply(self,["ObservationCatwalkDeck","CatwalkStairSupport","CatwalkStairLanding"],finish.material(Color(0.30,0.37,0.45),Vector2(3.6,2.4),0.22,0.56))
+	preload("res://scripts/environment/decon_clinical_dressing.gd").install(self)
+	if OS.get_cmdline_user_args().has("--decon-whole-v2-candidate"):
+		load("res://scripts/environment/decon_whole_v2_architecture.gd").install(self)
+	elif OS.get_cmdline_user_args().has("--decon-tripo-candidate"):
+		load("res://scripts/environment/decon_tripo_architecture.gd").install(self)
+	elif not OS.get_cmdline_user_args().has("--decon-procedural-baseline"):
+		load("res://scripts/environment/decon_whole_v2_architecture.gd").install(self)
 
 func _physics_process(delta: float) -> void:
 	_update_uv_pulses(delta)
@@ -168,8 +175,10 @@ func _build_room_hull() -> void:
 	wall_mat.albedo_texture = CERAMIC
 	wall_mat.uv1_scale = Vector3(3.0, 3.0, 1.0)
 	
-	var floor_mat := _material(Color(0.40, 0.46, 0.52), 0.22, 0.62)
-	floor_mat.albedo_texture = GRAPHITE
+	# The original dark graphite multiplied the finish into an unreadable void.
+	# Keep the same physical floor while giving its walking surface clinical detail.
+	var floor_mat := _material(Color(0.55, 0.59, 0.62), 0.22, 0.62)
+	floor_mat.albedo_texture = CERAMIC
 	floor_mat.uv1_scale = Vector3(4.0, 4.0, 1.0)
 	
 	var center_z := -ROOM_LENGTH * 0.5 # -16.0m
@@ -605,6 +614,8 @@ func _process(delta: float) -> void:
 	for card in _mist_cards: card.visible = not reduced_motion and _mist_amount>0.001
 
 func _refresh_presentation_state() -> void:
+	var instruments:=get_node_or_null("DeconTripoArchitecture/ClinicalInstrumentDetail")
+	if instruments:instruments.refresh()
 	# Leave the sensor active: an older checkpoint can register the terminal
 	# again without requiring the player to leave and re-enter its area.
 	if is_instance_valid(_terminal_body):
@@ -619,10 +630,10 @@ func _refresh_presentation_state() -> void:
 	if _terminal_screen_material: _terminal_screen_material.emission = color
 	if _gate_status_material: _gate_status_material.emission = Color(0.25,0.95,0.65) if gate_open or override_done else Color(1,0.65,0.15)
 	if _arch_emitter_material:
-		var emitter_color := Color(0.25,0.95,0.65) if override_done else Color(0.58,0.16,0.96)
+		var emitter_color := Color(0.25,0.80,0.65) if override_done else Color(0.38,0.22,0.68)
 		_arch_emitter_material.albedo_color = Color(emitter_color.r*0.35,emitter_color.g*0.35,emitter_color.b*0.35)
 		_arch_emitter_material.emission = emitter_color
-		_arch_emitter_material.emission_energy_multiplier = 0.75 if override_done else 1.1
+		_arch_emitter_material.emission_energy_multiplier = 0.5 if override_done else 0.6
 	if _arch_fill:
 		_arch_fill.light_color = Color(0.25,0.90,0.72) if override_done else Color(0.65,0.70,0.95)
 		_arch_fill.light_energy = 0.55 if override_done else 0.95

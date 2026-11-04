@@ -33,6 +33,11 @@ uniform vec4 metallic_channel=vec4(1,0,0,0);
 uniform vec4 ao_channel=vec4(1,0,0,0);
 uniform vec3 uv_scale=vec3(1.0);
 uniform vec3 uv_offset=vec3(0.0);
+// Opt-in clipping for a generated room perimeter, in the owning room's frame.
+// The native route and its interactive equipment occupy the open centre.
+uniform bool perimeter_only=false;
+uniform vec3 perimeter_origin=vec3(0.0);
+uniform vec4 perimeter_limits=vec4(9.45,-28.9,1.35,3.2);
 varying vec3 world_position;
 varying vec3 world_normal;
 
@@ -41,6 +46,12 @@ void vertex(){
 	world_normal=MODEL_NORMAL_MATRIX*NORMAL;
 }
 void fragment(){
+	if(perimeter_only){
+		vec3 p=world_position-perimeter_origin;
+		if(abs(world_normal.y)>.8&&p.y<.7){discard;}
+		if(abs(p.x)<perimeter_limits.x&&p.z>perimeter_limits.y){discard;}
+		if(p.z<perimeter_limits.y&&abs(p.x)<perimeter_limits.z&&p.y<perimeter_limits.w){discard;}
+	}
 	// Retained generated perimeter sheets have outward-facing exterior
 	// normals. Double-sided interior rendering needs the corresponding normal
 	// flip; otherwise a lit solid ceiling reads as an unlit black aperture.

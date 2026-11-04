@@ -46,7 +46,12 @@ const SAFE_ANCHOR_MIRROR := Vector3(1.80, 0.0, -1.00)
 var state: RoomState = RoomState.BED_RECLINED
 var current_anchor: Vector3 = SAFE_ANCHOR_BEDSIDE
 var reduced_motion := false
-var audio_muted := false
+var audio_muted := false:
+	set(value):
+		audio_muted=value
+		if is_inside_tree():
+			var atmosphere:=get_node_or_null("WardPresentation/WardPBRAtmosphere")
+			if atmosphere:atmosphere.sync_audio()
 var presentation_language := "ar"
 var player: Node3D
 
@@ -266,6 +271,7 @@ func _build_mirror_station() -> void:
 	reflection.name="WardMirrorReflection"
 	reflection.glass_size=Vector2(0.72,1.02)
 	reflection.reflection_height=512
+	reflection.visibility_gated_updates=true
 	reflection.active_distance=5.0
 	reflection.position=Vector3(2.94,1.65,-1.0)
 	add_child(reflection)

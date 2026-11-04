@@ -44,6 +44,9 @@ func _walk(target: Vector3) -> bool:
 
 func _run() -> void:
 	await _frames(8)
+	if OS.has_feature("school_candidate_review") and OS.get_cmdline_user_args().has("--review-avatar-binding"):
+		await _candidate_avatar_binding()
+		return
 	main.set_audio_muted(true)
 	main.set_reduced_motion(true)
 	main.player.finish_opening_recovery()
@@ -132,4 +135,54 @@ func _run() -> void:
 	for name in ["opening.json","preferences.cfg","maintenance.json","route.json","campaign.json"]:
 		for suffix in ["",".bak",".tmp"]:
 			if FileAccess.file_exists(save_root+name+suffix): DirAccess.remove_absolute(save_root+name+suffix)
+	get_tree().quit(0)
+
+func _candidate_avatar_binding() -> void:
+	# Explicit packed-resource fixture only. Campaign/save/receipt authority is
+	# never granted by this binding probe or by the normal title/start flow.
+	main.set_audio_muted(true)
+	var player:EchoPlayer=main.player
+	var manifest:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/review/packaged_runtime_manifest.json"))
+	var missing:Array=[]
+	for path:String in manifest.resources:
+		if not ResourceLoader.exists(path) and not FileAccess.file_exists(path):missing.append(path)
+	if not _check(missing.is_empty(),"Packed production resources missing: "+str(missing)):return
+	player.finish_opening_recovery()
+	var normal:=player.visual_root.get_node("EchoOpeningUniform")
+	var camera_id:=player.player_camera.get_instance_id()
+	if not _check(player.rig_profile.id=="echo_school_mixamo_65","Packed review did not select its School65 feature"):return
+	if not _check(RenderingServer.get_current_rendering_method()=="gl_compatibility","Packed compatibility feature did not select its renderer"):return
+	if not _check(OS.get_user_data_dir().replace("\\","/").ends_with("EchoNetwork/SchoolPactReview20261103"),"Review user data is not isolated from production"):return
+	if not _check(not player.set_earned_contract_appearance(true),"Packed presentation granted an unearned pact"):return
+	player.awaken_zero_pact(.9) # Binding fixture; not a campaign acceptance.
+	await _frames(8)
+	if not _check(player.rig_profile.id=="echo_pact_mixamo_72","Packed Pact72 bindings or exact source hashes are missing"):return
+	var avatar:=player.visual_root.get_node("EchoOpeningUniform")
+	var sources:Dictionary=avatar.source_libraries()
+	if not _check(sources.size()==9,"Packed build omitted a qualified Pact72 source"):return
+	var samples:=0
+	for alias:String in sources:
+		var clip:Animation=player.animation_player.get_animation(alias)
+		if not _check(int(clip.get_meta("source_native_fps",0))==30,"Packed source clock changed"):return
+		samples+=int(clip.get_meta("source_native_samples",0))
+	if not _check(samples==423,"Packed native samples changed"):return
+	if not _check(player.set_earned_contract_appearance(false) and player.visual_root.get_node("EchoOpeningUniform")==normal and player.player_camera.get_instance_id()==camera_id,"Packed cached handoff changed actor/camera ownership"):return
+	player.contract_with_zero_sealed=false
+	var before_motion:bool=main.reduced_motion
+	var key:=InputEventKey.new()
+	key.keycode=KEY_R;key.physical_keycode=KEY_R;key.pressed=true
+	if not _check(InputMap.event_is_action(key,"lock_on"),"Packed R target binding is missing"):return
+	Input.parse_input_event(key)
+	await _frames(2)
+	key=key.duplicate();key.pressed=false;Input.parse_input_event(key)
+	if not _check(main.reduced_motion==before_motion,"R target input silently changed the motion preference"):return
+	key=InputEventKey.new();key.keycode=KEY_F8;key.physical_keycode=KEY_F8;key.pressed=true
+	Input.parse_input_event(key)
+	await _frames(2)
+	key=key.duplicate();key.pressed=false;Input.parse_input_event(key)
+	if not _check(main.reduced_motion!=before_motion,"Packed accessibility shortcut did not respond"):return
+	var report:={"status":"PASS","checks":checks,"required_resources":manifest.resources.size(),"source_samples":samples,"features":{"school":OS.has_feature("school_candidate_review"),"compatibility":OS.has_feature("compatibility_review")},"renderer":RenderingServer.get_current_rendering_method(),"user_data_dir":OS.get_user_data_dir(),"scope":"Release exe/PCK resource availability,source binding,render/user-data features and cached avatar ownership. Fixture-only actor pact,not story/receipt authority;real story route has separate evidence."}
+	var file:=FileAccess.open(OS.get_executable_path().get_base_dir()+"/packed-avatar-review.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(report,"\t"));file.close()
+	print("PACKED_AVATAR_REVIEW ",JSON.stringify(report))
 	get_tree().quit(0)

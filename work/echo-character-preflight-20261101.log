@@ -1,0 +1,38 @@
+
+> workspace@0.0.0 agent:preflight
+> node artifacts/eleven-eleven/tools/project-doctor/index.mjs agent:preflight
+
+
+============================================================
+DOCTOR: CONTENT REGISTRY
+============================================================
+PASS content registry
+  content version: canon-echo-network-evolving-v1
+  chapters: 7
+  authored puzzles: 0
+  authored memories: 0
+  authored dialogues: 0
+  authored endings: 0
+  puzzle capacity: 2000
+
+============================================================
+DOCTOR: BOOT GRAPH
+============================================================
+PASS boot graph
+  root, App, bootstrap, and ErrorBoundary are present
+  no active batch_01 imports found
+
+============================================================
+DOCTOR: SAVE FOUNDATION
+============================================================
+PASS save foundation
+  versioned migration and progress-only persistence are present
+
+============================================================
+PREFLIGHT SUMMARY
+============================================================
+PASS content registry
+PASS boot graph
+PASS save foundation
+
+ALL CHECKS PASSED

@@ -1,0 +1,38 @@
+07:27:07 | INFO: Data are loaded, start creating Blender stuff
+07:27:07 | INFO: Blender create Mesh node tripo_mesh_00c33059-9b3e-4b84-86e1-a3a007c6a97b
+07:27:13 | INFO: glTF import finished in 6.13s
+INFO Draco is available, use library at C:\Tools\Blender-5.2.2-portable\blender-5.2.2-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Tools\Blender-5.2.2-portable\blender-5.2.2-windows-x64\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:27:23 | INFO: Starting glTF 2.0 export
+07:27:23 | INFO: Extracting primitive: MeasuredEntryServiceFloor
+07:27:24 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+07:27:25 | INFO: Primitives created: 1
+07:27:25 | INFO: Extracting primitive: MeasuredFirstClimbMachinery
+07:27:26 | INFO: Primitives created: 1
+07:27:26 | INFO: Extracting primitive: MeasuredGrating_COLL_ExitDeck
+07:27:26 | INFO: Primitives created: 1
+07:27:26 | INFO: Extracting primitive: MeasuredGrating_COLL_FinalRest
+07:27:26 | INFO: Primitives created: 1
+07:27:26 | INFO: Extracting primitive: MeasuredGrating_COLL_GapLanding
+07:27:26 | INFO: Primitives created: 1
+07:27:26 | INFO: Extracting primitive: MeasuredGrating_COLL_ServiceVestibule
+07:27:26 | INFO: Primitives created: 1
+07:27:26 | INFO: Extracting primitive: MeasuredGrating_COLL_UpperRest
+07:27:27 | INFO: Primitives created: 1
+07:27:27 | INFO: Extracting primitive: MeasuredLeftPressureBulkhead
+07:27:28 | INFO: Primitives created: 1
+07:27:28 | INFO: Extracting primitive: MeasuredRearServiceBulkhead
+07:27:28 | INFO: Primitives created: 1
+07:27:29 | INFO: Extracting primitive: MeasuredRightPressureBulkhead
+07:27:29 | INFO: Primitives created: 1
+07:27:29 | INFO: Extracting primitive: MeasuredSecondClimbMachinery
+07:27:29 | INFO: Primitives created: 1
+07:27:29 | INFO: Extracting primitive: UpperPressureBayBeamCrown
+07:27:30 | INFO: Primitives created: 1
+07:27:31 | INFO: Finished glTF 2.0 export in 7.783870697021484 s
+
+Info: Saved as "maintenance-measured-fullroom-editable.blend"
+MAINTENANCE_MEASURED_PREFAB {"source": "full-room-h31-pbr4k.glb", "source_sha256": "0daaeee7ff7064f006a7897c47fc8ac7e39986d8324083e184da35494a3ca01c", "source_triangles": 1913491, "derivative": "godot/assets/environments/maintenance_cp45/maintenance_measured_fullroom_pbr4k.glb", "derivative_sha256": "2bdc6a0d2534c14b435fcf5a8cb831656e833e36698d0c0c27e813f4024a58aa", "derivative_bytes": 80516640, "triangles": 1553260, "physics_objects_added": 0, "scope": "Measured modular derivative of whole-room Tripo source. Source proportion remapping/clipped cut-boundaries explicit;not exact image geometry,not art/player acceptance. Original grip/contact/gate/wheel/camera/save owners remain native."}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

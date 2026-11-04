@@ -530,6 +530,20 @@ func _return_clearance(player:EchoPlayer, rotation:Vector3, settled_shoulder:=fa
 func _handoff_clearance(player:EchoPlayer, rotation:Vector3) -> float:
 	return minf(_return_clearance(player,rotation),_return_clearance(player,rotation,true))
 
+func _combat_frame_depth_ok(player:EchoPlayer, rotation:Vector3, clearance:float) -> bool:
+	if player.reduced_camera_motion:return true
+	var campaign:=main.get_node_or_null("NativeCampaignController")
+	var opponent:Node3D=campaign.kinja if campaign else null
+	if not is_instance_valid(opponent):return true
+	var basis:Basis=(player.global_basis*Basis.from_euler(rotation)).orthonormalized()
+	var origin:Vector3=player.camera_boom.global_position+basis.z*clearance
+	var hero_depth:float=(player.global_position+Vector3.UP-origin).dot(-basis.z)
+	var actor_depth:float=(opponent.global_position+Vector3.UP-origin).dot(-basis.z)
+	# A physically clear one-metre lens can still put Kinja across most of the
+	# foreground. Keep both actors at comparable depth using the same bounded,
+	# collision-tested orbit; deliberate manual look retains ownership.
+	return actor_depth>=hero_depth*.8
+
 func _ensure_gameplay_return_clearance(combat_action:=false) -> void:
 	# A close confrontation can leave the old orbit against the other actor,
 	# retracting the gameplay lens into Echo. Resolve only this encounter's
@@ -542,10 +556,11 @@ func _ensure_gameplay_return_clearance(combat_action:=false) -> void:
 	player.camera_boom.force_update_transform()
 	if is_instance_valid(actor):actor.force_update_transform()
 	var preferred:Vector3=player.camera_target_rotation
-	if _handoff_clearance(player,preferred)>=1.0:return
+	var readable_length:=2.4 if combat_action and not player.reduced_camera_motion else 1.0
+	var preferred_clearance:=_handoff_clearance(player,preferred)
+	if preferred_clearance>=readable_length and (not combat_action or _combat_frame_depth_ok(player,preferred,preferred_clearance)):return
 	var fallback:=preferred
 	var fallback_clearance:=0.0
-	var readable_length:=2.4 if combat_action else 1.0
 	for degrees in [15.0,30.0,45.0,60.0,75.0,90.0]:
 		var best:Vector3=preferred
 		var best_clearance:=0.0
@@ -553,7 +568,7 @@ func _ensure_gameplay_return_clearance(combat_action:=false) -> void:
 			var candidate:=Vector3(preferred.x,preferred.y+deg_to_rad(degrees)*side,0)
 			if absf(angle_difference(_clearance_origin.y,candidate.y))>PI/2+.001:continue
 			var clearance:=_handoff_clearance(player,candidate)
-			if clearance>best_clearance:
+			if clearance>best_clearance and (not combat_action or _combat_frame_depth_ok(player,candidate,clearance)):
 				best=candidate
 				best_clearance=clearance
 		if best_clearance>fallback_clearance:
@@ -783,11 +798,7 @@ func _apply_encounter_stage(restoring: bool) -> void:
 	if not encounter_live: return
 	_clear_encounter_mark()
 	if encounter_step == 6:
-		_encounter_mark = preload("res://scripts/cinematics/skin_mark_inspection_camera.gd").new()
-		add_child(_encounter_mark)
-		if not _encounter_mark.begin(model, _previous):
-			_encounter_mark.queue_free()
-			_encounter_mark = null
+		_begin_encounter_skin_inspection()
 		contract_cinematic_shot="mark"
 		var wing:Node=main.player.find_child("ZeroShadowWing",true,false)
 		if wing:
@@ -857,20 +868,28 @@ func _tick_encounter(delta: float) -> void:
 			encounter_completed.emit()
 
 func _tick_contract_cinematic() -> void:
-	if not is_instance_valid(_camera) or not is_instance_valid(_encounter_mark):return
-	var owns:bool=_camera.current or _encounter_mark.camera.current
+	if not is_instance_valid(_camera):return
+	# A first earned avatar switch stamps its instance-local skin deferred.
+	# Acquire the close-up when that skin is ready; never freeze the whole
+	# cinematic because the report was empty in the consent callback.
+	if not is_instance_valid(_encounter_mark) and _camera.current:
+		_begin_encounter_skin_inspection()
+	var mark_ready:bool=is_instance_valid(_encounter_mark) and is_instance_valid(_encounter_mark.camera)
+	var owns:bool=_camera.current or (mark_ready and _encounter_mark.camera.current)
 	if not owns:return
 	if room.reduced_motion or _elapsed<.65:
 		contract_cinematic_shot="mark"
-		_encounter_mark.camera.make_current()
+		if mark_ready:_encounter_mark.camera.make_current()
 		return
 	var wing:Node=main.player.find_child("ZeroShadowWing",true,false)
 	var eye:Node=main.player.find_child("ZeroEyeSingularity",true,false)
-	if not wing or not eye or not wing.mount_valid or not eye.mount_valid:return
-	var rig:Skeleton3D=wing.attachment.skeleton
-	for name in ["LeftShoulder","RightShoulder","LeftHand"]:
+	var native_pact:bool=main.player.rig_profile.get("id")==preload("res://scripts/player/echo_rig_profile.gd").PACT72_ID
+	if not native_pact and (not wing or not eye or not wing.mount_valid or not eye.mount_valid):return
+	var rig:Skeleton3D=main.player._recovery_skeleton if native_pact else wing.attachment.skeleton
+	var prefix:="mixamorig_" if native_pact else ""
+	for name in [prefix+"LeftShoulder",prefix+"RightShoulder",prefix+"LeftHand"]:
 		if rig.find_bone(name)<0:return
-	var left:Vector3=(rig.to_global(rig.get_bone_global_pose(rig.find_bone("LeftShoulder")).origin)-rig.to_global(rig.get_bone_global_pose(rig.find_bone("RightShoulder")).origin)).normalized()
+	var left:Vector3=(rig.to_global(rig.get_bone_global_pose(rig.find_bone(prefix+"LeftShoulder")).origin)-rig.to_global(rig.get_bone_global_pose(rig.find_bone(prefix+"RightShoulder")).origin)).normalized()
 	var forward:Vector3=(main.player.visual_root.global_basis*main.player.model_local_forward).normalized()
 	var center:Vector3=main.player.global_position+Vector3.UP*1.25+left*.25
 	var desired:Vector3
@@ -879,13 +898,21 @@ func _tick_contract_cinematic() -> void:
 		desired=center-forward*3.0+left*2.0+Vector3.UP*.65
 		_camera.fov=42
 	elif _elapsed<2.75:
-		contract_cinematic_shot="eye"
-		center=eye.global_position
-		desired=center+forward*.40+left*.055+Vector3.UP*.015
-		_camera.fov=28
+		if native_pact:
+			# Frame the approved textured face as a portrait. This source has
+			# no qualified procedural iris socket or facial deformation rig.
+			contract_cinematic_shot="portrait"
+			center=rig.to_global(rig.get_bone_global_pose(rig.find_bone(prefix+"Head")).origin)+Vector3.UP*.08
+			desired=center+forward*1.05+left*.12+Vector3.UP*.04
+			_camera.fov=36
+		else:
+			contract_cinematic_shot="eye"
+			center=eye.global_position
+			desired=center+forward*.40+left*.055+Vector3.UP*.015
+			_camera.fov=28
 	elif _elapsed<3.6:
 		contract_cinematic_shot="hand"
-		center=rig.to_global(rig.get_bone_global_pose(rig.find_bone("LeftHand")).origin)
+		center=rig.to_global(rig.get_bone_global_pose(rig.find_bone(prefix+"LeftHand")).origin)
 		desired=center+forward*.48+left*.26+Vector3.UP*.17
 		_camera.fov=36
 	else:
@@ -902,10 +929,20 @@ func _tick_contract_cinematic() -> void:
 	var fractions:PackedFloat32Array=main.player.get_world_3d().direct_space_state.cast_motion(probe)
 	_camera.global_position=center+(desired-center)*maxf(0.0,fractions[0]-.015)
 	if _camera.global_position.distance_to(center)<.2:
-		_encounter_mark.camera.make_current()
+		if mark_ready:_encounter_mark.camera.make_current()
 		return
 	_camera.look_at(center)
 	_camera.make_current()
+
+func _begin_encounter_skin_inspection() -> void:
+	if is_instance_valid(_encounter_mark) or not is_instance_valid(_previous):return
+	var model:Node3D=main.player.visual_root
+	if model.placement_report.is_empty() or not model.placement_report.get("native_skin",false):return
+	_encounter_mark=preload("res://scripts/cinematics/skin_mark_inspection_camera.gd").new()
+	add_child(_encounter_mark)
+	if not _encounter_mark.begin(model,_previous):
+		_encounter_mark.queue_free()
+		_encounter_mark=null
 
 func sync_encounter_preferences() -> void:
 	if not encounter_live: return
@@ -934,7 +971,7 @@ func _release_encounter_power() -> void:
 	if encounter_live and encounter_step == 7 and room.contract_done and not get_tree().paused: main.player.execute_iai_slash()
 
 func _observe_encounter_power(action_name: String) -> void:
-	if action_name=="melee" and encounter_step==8 and not encounter_live and room.contract_done and not room.revenge_done:
+	if action_name in ["melee","iai"] and encounter_step==8 and not encounter_live and room.contract_done and not room.revenge_done:
 		# The power lane can leave the approach orbit behind Kinja. At an
 		# actual attack only, reuse the existing bounded clearance solver if
 		# the actor would retract the lens into Echo. Clear/manual views keep

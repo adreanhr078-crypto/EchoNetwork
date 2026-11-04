@@ -1,0 +1,34 @@
+{
+  "SurveillanceBayP2": {
+    "asset": "surveillance_server_bay_p2.glb",
+    "triangles": 21940,
+    "vertices": 34382,
+    "sha256": "c5d538042b684aff5cb8761fb8af5e554f52dc8510432091867178ac48a2d669"
+  },
+  "calibration": {
+    "original_blender_xyz": [
+      0.99951171875,
+      0.10888674110174179,
+      0.93212890625
+    ],
+    "target_native_width_height_depth": [
+      3.2,
+      3.4,
+      0.32
+    ],
+    "front": "native+Z;Blender-Y",
+    "original_uv_materials_preserved": true
+  },
+  "SurveillanceCeilingTruss": {
+    "asset": "surveillance_ceiling_truss.glb",
+    "triangles": 4752,
+    "vertices": 2464,
+    "sha256": "356aa7f6a9172f88f771b634e54160e9e865c87671413a5a520cf5799c1675d1"
+  },
+  "SurveillanceOpenRail": {
+    "asset": "surveillance_open_rail.glb",
+    "triangles": 1728,
+    "vertices": 896,
+    "sha256": "64846015a357139967fa13d4869f6a14ad96b965e7c8c5455b801d7ace82debf"
+  }
+}

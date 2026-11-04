@@ -61,8 +61,8 @@ func _ready() -> void:
 	_dialogue_panel.offset_top=-310
 	_dialogue_panel.offset_bottom=-30
 	var style := StyleBoxFlat.new()
-	style.bg_color=Color(.025,.035,.055,.96)
-	style.border_color=Color(.43,.57,.69,.8)
+	style.bg_color=Color(.018,.035,.055,.72)
+	style.border_color=Color(.43,.77,.89,.8)
 	style.set_border_width_all(1)
 	style.content_margin_left=24;style.content_margin_right=24
 	style.content_margin_top=16;style.content_margin_bottom=16
@@ -104,6 +104,15 @@ func _button(parent: Node, text: String, callback: Callable) -> Button:
 	button.custom_minimum_size=Vector2(120,52)
 	button.add_theme_font_override("font",FONT)
 	button.add_theme_font_size_override("font_size",20)
+	for state in ["normal", "hover", "pressed", "focus"]:
+		var plate := StyleBoxFlat.new()
+		plate.bg_color = Color(.06,.14,.19,.7 if state == "normal" else .95)
+		plate.border_color = Color(.4,.78,.9,.35 if state == "normal" else .9)
+		plate.set_border_width_all(1)
+		plate.set_corner_radius_all(5)
+		plate.content_margin_left = 16
+		plate.content_margin_right = 16
+		button.add_theme_stylebox_override(state,plate)
 	parent.add_child(button)
 	button.pressed.connect(callback)
 	return button

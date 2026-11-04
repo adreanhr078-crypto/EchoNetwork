@@ -21,6 +21,8 @@ var _follow_velocity := Vector3.ZERO
 var _compression := 0.0
 var _compression_velocity := 0.0
 var _punch := Vector3.ZERO
+var _combat_pulse := 0.0
+var _combat_lens := 0.0
 var _noise := FastNoiseLite.new()
 
 func _ready() -> void:
@@ -81,9 +83,18 @@ func add_trauma(amount: float, direction: Vector3 = Vector3.ZERO) -> void:
 	trauma = clampf(trauma + amount,0.0,1.0)
 	_punch = direction.limit_length(1.0)
 
+func combat_impact(strength: float, direction: Vector3) -> void:
+	if reduced_motion or not is_instance_valid(camera) or not camera.current: return
+	if not is_finite(strength) or not direction.is_finite(): return
+	_combat_pulse = maxf(_combat_pulse,clampf(strength,0.0,1.0))
+	var local_direction := arm.global_basis.inverse()*direction if is_instance_valid(arm) else direction
+	add_trauma(strength,Vector3(-local_direction.z,local_direction.x,0.0))
+
 func set_reduced_motion(enabled: bool) -> void:
 	reduced_motion = enabled
 	if enabled:
+		_combat_pulse = 0.0
+		_combat_lens = 0.0
 		trauma = 0.0
 		_compression = 0.0
 		_compression_velocity = 0.0
@@ -97,10 +108,14 @@ func tick_lens(delta: float, suspended: bool = false) -> void:
 	if not is_instance_valid(camera): return
 	if suspended or not camera.current:
 		trauma = 0.0
+		_combat_pulse = 0.0
+		_combat_lens = 0.0
 		camera.rotation = Vector3.ZERO
 		return
 	_phase += delta
 	trauma = maxf(0.0,trauma-delta*1.8)
+	_combat_pulse *= exp(-10.0*delta)
+	_combat_lens = lerpf(_combat_lens,_combat_pulse,1.0-exp(-32.0*delta))
 	if reduced_motion:
 		camera.rotation = Vector3.ZERO
 		camera.fov = base_fov
@@ -115,10 +130,10 @@ func tick_lens(delta: float, suspended: bool = false) -> void:
 	var angles := Vector3(low*0.012, high*0.014,bank+low*shake*0.012)
 	angles.x *= shake
 	angles.y *= shake
-	angles += _punch * shake * 0.008
+	angles += _punch * (shake*0.008+_combat_lens*0.018)
 	camera.rotation = camera.rotation.lerp(angles,1.0-exp(-22.0*delta))
-	var wanted := lerpf(base_fov,maximum_fov,ratio) + shake * 1.3
-	camera.fov = lerpf(camera.fov,clampf(wanted,base_fov,maximum_fov),1.0-exp(-6.0*delta))
+	var wanted := lerpf(base_fov,maximum_fov,ratio) + shake * 1.3 - _combat_lens*5.0
+	camera.fov = lerpf(camera.fov,clampf(wanted,base_fov-5.0,maximum_fov),1.0-exp(-14.0*delta))
 
 func _process(delta: float) -> void:
 	if external or not is_instance_valid(target): return

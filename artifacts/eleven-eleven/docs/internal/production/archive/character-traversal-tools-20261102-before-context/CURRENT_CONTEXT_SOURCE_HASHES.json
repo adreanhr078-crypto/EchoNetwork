@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "checkpoint": "CHARACTER_EXECUTION_20261101",
+  "read_policy": "Read only hashes foraffectedfiles;invalidate changed sources,not wholehistory",
+  "files": {
+    "godot/scripts/player/echo_player.gd": "c41d2858556d5015aa38dc5e755e3e5504766880b9b5f27b90f110411cd84cca",
+    "godot/scripts/player/echo_rig_profile.gd": "d831f630bac79a4c5f736bf6108250820be11d65c334be08e2ef8f603d72edfa",
+    "godot/scripts/player/echo_skin_identifier.gd": "e5220bfe859e5712edc1dda46df681d5e442b5be6f2109bbda03bea4c85311d2",
+    "godot/scripts/player/echo_school_motion_adapter.gd": "d64219d7212b07dc1d8d2837cd43e237b5a9b49c342a62e56c37460538e7a4a1",
+    "godot/scenes/characters/echo_school_candidate.tscn": "a124b52383fcf329a4d707f5b735020c74d8048f5f8dea84f9d684bbbe1b129b",
+    "godot/assets/characters/echo_school65_candidate.glb": "8b726c218e192e31f7ccf0f50675ad5b3f84e3e3c3ea3e3e20820d85c2ac2632",
+    "godot/scripts/player/echo_contract_hair.gd": "4bb756bc381483353d969cee384f961d104dbfd8944f2e3667441bdd51f10e18",
+    "godot/scripts/player/zero_manifestation_attachment.gd": "1789057865fc306d1be819ecf67d54d7b5815a370f5d400db14b3d93e91d5152",
+    "godot/scripts/combat/shader_applicator.gd": "88dff6da0ea9a3cf6060c20c9b4d8eab32c0e28ab4a23e8021729f348caaa697",
+    "godot/tests/player_foundation_smoke.gd": "4752208bf82c28129dbed9e6ee2b2fc7d529255e972cd2a81010e143b34e4704",
+    "godot/tests/school_character_pilot_review.gd": "82603ca655cbe69b68be4b155c94f7110053aef5c72e8450d9f8fafacbc5a5bc",
+    "tools/character-lab/doctor.py": "2af52184199fb44c47a13f1f7ffff8e1ee57a15032f348ead20048218280f7b6",
+    "tools/character-lab/qualify_godot_motion.py": "1dc5e676f63237b04a64e7de3ad2be9c08fc64779a350b0856eada634286d272",
+    "tools/character-lab/inspect_tripo_variant.py": "407de8a781f7723d576485b43b42d320216d86c0888528c20fff890ef27286c3",
+    "tools/animation-library/school_parkour_motion.py": "d69ae039b5aed295968033ffcc7fa7ab1dac8c62655b74e806dad13c76e9297a",
+    "art/production/echo-contract-rebuild-20261101/production-packet.json": "63eb9d508960973b12398dbc78ae5ecabf7e2bbe12c591d78c86044d618b7b4a",
+    "art/production/echo-contract-rebuild-20261101/source/contract-texture4k.glb": "20e049034e4cb0762ae0b983336fa9c4aaa5d40706316d755e4644dd47316bcc",
+    "art/production/echo-contract-rebuild-20261101/source/contract-pbr4k.glb": "b0d40f8ed9b1378e3195a8f1985678a7d63b8f814ad75e45a3eb97f7a3754230",
+    "godot/assets/animations/school65/idle_qualified.res": "ef1356dc0ef9f7553fdadafe5acd956ecab0c56a4ca06c3ef6aee5ea203e7595",
+    "godot/assets/animations/school65/walk_qualified.res": "7312020bc72f51b6dd55b9faa78387000f49733e55894f3191fe250d7cc8ab2f",
+    "godot/assets/animations/school65/run_qualified.res": "a4864e9f0d4449500dfa3f8874b349345aabdac052470a6d975b1427840fcf9d",
+    "godot/assets/animations/school65/jump_qualified.res": "12dc7b8fca6f5dc52da77c0b5f9a76d8010ccebcd21e0480c936f4a2c81c2f71",
+    "art/production/echo-contract-rebuild-20261101/source/contract-rig4k.glb": "edf2e892ccfa0c66bb829745d1b434bb462a0edda0e50fd341d5d7ab96cbd533"
+  }
+}

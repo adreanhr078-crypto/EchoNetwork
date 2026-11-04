@@ -116,6 +116,7 @@ func _ready() -> void:
 	finish.apply(self,["Floor"],finish.material(Color(0.18,0.23,0.29),Vector2(4.8,4.8)))
 	finish.apply(self,["CoverPlinth_","TerminalShieldPlinth"],finish.material(Color(0.28,0.35,0.43),Vector2(2.2,1.8),0.22,0.55))
 	preload("res://scripts/environment/specimen_mechanical_dressing.gd").install(self)
+	preload("res://scripts/environment/room_device_atmosphere.gd").install(self,"specimen")
 
 func _process(delta: float) -> void:
 	var cone_shader := _scanner_cone.material_override as ShaderMaterial

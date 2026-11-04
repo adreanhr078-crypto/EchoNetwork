@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_NATIVE_ACCEPTANCE_PENDING",
+  "source": "fan-corrected-textured-pbr4k.glb",
+  "source_sha256": "f0d57f4e67137f9bf714392baf762910f9b18339d85ba15a6881b51d9e855f2e",
+  "asset": "godot/assets/environments/maintenance_cp45/maintenance_ventilation_fan_pbr.glb",
+  "asset_sha256": "781a2bcde1f87f2f27c709259f732b6eb4d03192e31006f755743994875f2cf9",
+  "bytes": 62974344,
+  "buffer_and_embedded_images_byte_identical": true,
+  "retained_source_triangles": 1775556,
+  "rigid_meshes": 2,
+  "pivot": "FanPBRRotorPivot",
+  "axis_local": "-Z",
+  "front_axis": "+Z",
+  "dimensions_m": [
+    1.2,
+    1.19846,
+    0.42312
+  ],
+  "frame_texture_actual_sizes": {
+    "basecolor": 4096,
+    "normal": 2048,
+    "roughness_metallic": 2048
+  },
+  "rotor_texture_actual_sizes": {
+    "basecolor": 2048,
+    "normal": 1024,
+    "roughness_metallic": 1024
+  },
+  "texture_note": "Studio4K choice allocates different per-part map sizes;not all maps4K.8K gated by paid upgrade;no purchase.",
+  "geometry_error_max_m": 4.27448e-05,
+  "collision_scope": "Earlier12 exact blade-stator sampled poses before texture,plus per-role full bidirectional vertex preservation <.043mm;native play/art/motion not yet accepted."
+}

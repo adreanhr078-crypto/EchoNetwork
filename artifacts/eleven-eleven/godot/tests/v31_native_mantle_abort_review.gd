@@ -71,7 +71,7 @@ func _run() -> void:
 			if not _check(not actor.surface_motor.native_mantle_active and not actor.traversal.is_climbing() and actor.surface_motor._mantle_points.is_empty() and actor.velocity.y < 0 and actor.animation_player.speed_scale == 1.0, "Abort retained native ownership, inherited replacement support or failed to release into gravity"): return
 			if not _check(completions == 0 and not actor.contract_with_zero_sealed and not actor.combat_available, "Aborted mantle emitted completion or granted a power"): return
 			var skeleton := actor.find_child("Skeleton3D", true, false) as Skeleton3D
-			var hips := skeleton.find_bone("Hips")
+			var hips := skeleton.find_bone(preload("res://scripts/player/echo_rig_profile.gd").bone(skeleton,"pelvis"))
 			var previous_hips := skeleton.to_global(skeleton.get_bone_global_pose(hips).origin)
 			var maximum_step := 0.0
 			var recovery_samples: Array = []

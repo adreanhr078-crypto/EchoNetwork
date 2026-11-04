@@ -143,6 +143,14 @@ func _run() -> void:
 	check(not vfx.ambient[0].visible,"Reduced Motion kept ambient movement")
 	hyper.set_reduced_motion(false)
 	vfx.set_reduced_motion(false)
+	check(vfx.emit_burst(Vector3(0,.02,0),Vector3.UP,"water"),"Wet contact failed to emit physical droplets")
+	var reused:GPUParticles3D=vfx.pool[0]
+	var wet:ParticleProcessMaterial=reused.process_material
+	check(wet.color_ramp.gradient.sample(1.0).a==0.0,"Pooled particles disappear before fading to transparent")
+	check(wet.gravity.y< -1.0 and reused.draw_pass_1.material.get_shader_parameter("brightness")<.3,"Unempowered water gained magic or floating dust motion")
+	vfx.set_reduced_motion(true);vfx.set_reduced_motion(false)
+	check(vfx.emit_burst(Vector3.ZERO,Vector3.UP,"step"),"Dry contact failed after pooled water reuse")
+	check(wet.gravity.y> -1.0 and wet.scale_max>.045 and vfx.pool.size()==12,"Water response leaked into a reused dry-footstep slot or expanded the pool")
 	Engine.time_scale=0.7
 	hyper.trigger_impact_pulse(0.9,0.2,Vector3.ZERO)
 	check(is_equal_approx(Engine.time_scale,0.7),"Human impact granted combat time stop")

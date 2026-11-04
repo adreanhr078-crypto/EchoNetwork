@@ -1,0 +1,44 @@
+{
+	"LOD_levels": [
+		9
+	],
+	"PBR": [
+		{
+			"channel": "color_map",
+			"size": [
+				4096,
+				4096
+			]
+		},
+		{
+			"channel": "normal_map",
+			"size": [
+				4096,
+				4096
+			]
+		},
+		{
+			"channel": "roughness_map",
+			"size": [
+				4096,
+				4096
+			]
+		},
+		{
+			"channel": "metallic_map",
+			"size": [
+				4096,
+				4096
+			]
+		}
+	],
+	"bounds_room": [
+		"[P: (-2.499, 0.001, -6.249), S: (4.998, 3.398, 0.498)]"
+	],
+	"mesh_count": 1,
+	"native_contact_and_cues": "Compared to preserved baseline by enclosing contract test",
+	"scope": "Actual renderer, source hash, full static component envelope, 4K channels and retained LOD0. Not public movement, room art or device performance acceptance.",
+	"source_sha256": "6cade8811bc22eda85e6b754df8d517e00baf115096eaf22e4bb9e070ae061a3",
+	"status": "PASS",
+	"triangles_lod0": 1943923
+}

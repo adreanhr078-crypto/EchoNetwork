@@ -1,0 +1,203 @@
+- main:
+  - button "القائمة الرئيسية":
+    - img: menu
+  - 'button "فتح أداة اختيار الوضع - الخيار الحالي: ‎Argon مرتفع"':
+    - generic: Argon
+    - generic: مرتفع
+    - img: keyboard_arrow_down
+  - heading "محادثة مع Gemini" [level=1]
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - button "عرض الصورة التي تم تحميلها في عرض مبسّط":
+    - img "معاينة للصورة التي تم تحميلها"
+  - heading "أنت قلت راجع الصور الأربع الحالية المرفقة لغرفة الصيانة02 في11.11 كمدير فني مستقل لألعاب Hyper Anime. هذه صو…" [level=5]
+  - paragraph: راجع الصور الأربع الحالية المرفقة لغرفة الصيانة02 في11.11 كمدير فني مستقل لألعاب Hyper Anime. هذه صور فعلية Godot4.8-dev7 Forward+High1280×720،لاصورمفهومية:entry دخول،reverse عكس،lateral جانب،hero هدف الباب والصمام. احكم على المرئي فقط؛إن فشل فتح الصورقلFILE_READ_FAIL ولا تحكم. لكل محور أعط PASS أو REFINE:العمارة؛المعدات والمواد؛التكوين ووضوح مسار اللاعب. إن بقي مانع للقبول الثابتحدّد الملف والموضع والعيب وإصلاحاً محدوداً،وافصل التفضيل الاختياري. المسار الأصلي:تسلق أول ثم قفزة يميناً ثم تسلق ثان وعجلة ضغط وباب. لا تغيير في أبعاد المسار أو المقابض. الصورة الطافية الكاملة المتحركة بلا إطار اختيار المالك المحمي؛لا قص أو تقسيم أو إطار. أسفل المنصات فراغ السقوط الأصلي؛لا تضف أرضية أو جسراً زائفاً،ويمكن نقد إظهار الهندسة الموجودة بالإضاءة. الجدران معياريةPBR4K،الأبدان خلف التسلق مغلقة،الأنابيب والوصلات هندسية نظيفة،الباب محكم بكتف وحشوة وتحويلة علوية مصنعة،الشبك مضبوط علىشبكة عالمية،والـhero يصور الهدف واللافتة كاملة. تنبيه تشخيصي لايعني قبولاً:اختبار منفصل أعاد نفس البقعة على جسم التسلق عندتعطيلSSR،بينما تغيّرت عندتعطيل ظلDirectionallight؛ليست دليلاً علىمرآة/ReflectionProbe. الإعداد الإنتاجي يبقيSSRوالظلالمفعلة،معنعومةظل محلية1.25درجة تُستعاد عندخروجاللاعب؛صورالتشخيص ليستالمرفقات. افحص النتيجة الحالية بنفسك،لاتعتمدعلىالشرح كحكم جودة. هذه مراجعة ثابتة فقط،وليست قبول حركة/صوت/متعة/أداء أوفصل. كن صريحاً ومختصراً.
+  - button "توسيع":
+    - img: expand_more
+  - button "نَسْخ الطلب":
+    - img: copy
+  - button "تعديل":
+    - img: edit
+  - heading "قال Gemini" [level=6]
+  - paragraph: "تقييم المحاور الثلاثة:"
+  - list:
+    - paragraph:
+      - generic: "العمارة: PASS — الوحدات الجدارية المعيارية، إغلاق الأبدان الخلفية لكتل التسلق، محاذاة الشبك، وتفصيل الباب بكتفيه وحشوته وتحويلته العلوية متقنة هندسياً ومقروءة بوضوح"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg, JPG: maintenance-precision-v6-reverse.jpg, JPG: maintenance-precision-v6-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 3
+    - paragraph:
+      - generic: "المعدات والمواد: REFINE — توجد عيوب إضاءة وظلال ومجسمات ضوئية شاردة تؤثر مباشرة على نظافة الأسطح في اللقطات الثابتة"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg وJPG: maintenance-precision-v6-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 2
+    - paragraph:
+      - generic: "التكوين ووضوح مسار اللاعب: REFINE — تسلسل المسار (التسلق الأول، القفز يميناً، التسلق الثاني، الصمام والباب) واضح، لكن السواد المطلق في فراغ السقوط يطمس الهندسة السفلية ويفقد اللقطات عمقها المكاني"
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg, JPG: maintenance-precision-v6-reverse.jpg, JPG: maintenance-precision-v6-lateral.jpg\" ومواقع إلكترونية أخرى. اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+        - generic: + 3
+  - paragraph: "موانع القبول الثابت (Blockers):"
+  - list:
+    - paragraph: "تشوه ظل التسلق الأول ونقطة التسرب اللوني:"
+    - list:
+      - paragraph:
+        - text: "الملف والموضع:"
+        - code: maintenance-precision-v6-entry.jpg
+        - text: — النصف الأيمن من الواجهة الأمامية لكتلة التسلق الأولى (بين الصفين الثاني والرابع من الأعلى)، والحافة اليسرى الفاصلة بين الصفين الثاني والثالث
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - generic: "العيب: نعومة الظل المحلية (1.25 درجة) لم تُخفِ العيب بل حوّلته إلى بقعة ظل رمادية محببة (Dithered Shadow Banding/Blotch) تشوّه معدن الواجهة، مع وجود نقطة برتقالية شاردة على الإطار الأيسر"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+      - paragraph:
+        - text: "الإصلاح المحدود: بدلاً من الاكتفاء بتنعيم زاوية ظل"
+        - code: DirectionalLight3D
+        - text: ، ارفع قيمة
+        - code: shadow_normal_bias
+        - text: أو عطّل إلقاء الظل (
+        - code: cast_shadow = Off
+        - text: ) على العارضة السقفية/المجسم العلوي الذي يلقي هذا الظل الجزئي على واجهة التسلق، وعالج تداخل الرؤوس المسبب للنقطة البرتقالية في الحافة اليسرى
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+    - paragraph: "طمس هندسة فراغ السقوط بالسواد المطلق (Black Crush):"
+    - list:
+      - paragraph:
+        - text: "الملف والموضع:"
+        - code: maintenance-precision-v6-reverse.jpg
+        - text: (أسفل المنصات بالكامل)
+        - superscript
+        - text: ، و
+        - code: maintenance-precision-v6-lateral.jpg
+        - text: (الربع السفلي الأيسر أسفل المنصة العلوية)
+        - superscript
+        - text: ، و
+        - code: maintenance-precision-v6-entry.jpg
+        - text: (يمين ويسار قاعدة التسلق)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-reverse.jpg وJPG: maintenance-precision-v6-lateral.jpg وJPG: maintenance-precision-v6-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: "العيب: غياب الإضاءة في حفرة السقوط يحوّل الفراغ إلى بقعة سوداء مسطحة ("
+        - code: "#000000"
+        - text: ) تبتلع الجدران المعيارية والأعمدة والأنابيب الموجودة فعلياً في الأسفل، مما يضعف الإحساس بارتفاع الفجوة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg وJPG: maintenance-precision-v6-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+      - paragraph:
+        - text: "الإصلاح المحدود: دون إضافة أي أرضية أو جسر، أضف إضاءة خافتة جداً بدون ظلال ("
+        - code: OmniLight3D
+        - text: بطاقة منخفضة ولون أزرق بارد) داخل عمق الحفرة لإظهار تدرج الجدران والأعمدة السفلية وتأكيد عمق السقوط بصرياً
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg وJPG: maintenance-precision-v6-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 2
+    - paragraph: "كبسولة الإضاءة الزرقاء الطافية والتوهج الشارد حول اللوحة المتحركة:"
+    - list:
+      - paragraph:
+        - text: "الملف والموضع:"
+        - code: maintenance-precision-v6-entry.jpg
+        - text: (أعلى يمين اللوحة الطافية وأقصى الزاوية العلوية اليسرى للشاشة)
+        - superscript
+        - text: ، و
+        - code: maintenance-precision-v6-reverse.jpg
+        - text: (يمين المنتصف بجوار الحافة الخلفية للوحة الطافية)
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - generic: "العيب: مع احترام بقاء الصورة الطافية كاملة وبلا إطار، يظهر مجسم كبسولة/وحدة إضاءة زرقاء ساطعة معلقة في الهواء خلف/أعلى اللوحة، مع هالة زرقاء ضبابية (Glare/Bloom) تشتت العين في لقطتي الدخول والعكس"
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+      - paragraph:
+        - text: "الإصلاح المحدود: أخفِ مجسم الكبسولة المضيئة المعلق ("
+        - code: visible = false
+        - text: ) وخفّف مدى/طاقة مصدر الضوء الأزرق العلوي لمنع التوهج الضبابي الشارد في الزاوية العلوية وحول ظهر اللوحة
+        - superscript
+        - text: .
+        - 'button "اطّلِع على تفاصيل المصدر للمعلومات المقتبَسة من \"JPG: maintenance-precision-v6-entry.jpg وJPG: maintenance-precision-v6-reverse.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+          - generic: JPG
+          - generic: + 1
+  - paragraph: "تفضيلات اختيارية (ليست موانع قبول):"
+  - list:
+    - paragraph:
+      - text: "توحيد حالة وحدات الإضاءة الجدارية: في"
+      - code: maintenance-precision-v6-lateral.jpg
+      - text: (أعلى اليمين)، وحدة الإضاءة الجدارية اليمنى مطفأة وسوداء تماماً مقارنة بالوحدة اليسرى المشتغلة؛ يُفضل تفعيل خامة الإضاءة الذاتية (
+      - code: Emission
+      - text: ) لها أو إضاءتها بشكل متسق
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-lateral.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph:
+      - text: "إبراز تفاصيل السقف: في"
+      - code: maintenance-precision-v6-entry.jpg
+      - text: (أعلى المشهد)، السقف خلف الجسور المعدنية غارق في السواد؛ رفع طفيف جداً للإضاءة المحيطة العلوية سيُظهر هندسة الجسور بوضوح أكبر
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-entry.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+    - paragraph:
+      - text: "تباين عداد الضغط: في"
+      - code: maintenance-precision-v6-hero.jpg
+      - text: (يمين الباب)، رفع إضاءة المؤشر الداخلي لعداد الضغط قليلاً سيمنحه حضوراً بصرياً يوازي حلقة الصمام الصفراء
+      - superscript
+      - text: .
+      - 'button "اطّلِع على تفاصيل المصدر للنص المقتبَس من \"JPG: maintenance-precision-v6-hero.jpg\". اضغط على Enter لفتح مربّع حوار المصادر."':
+        - generic: JPG
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - button:
+    - img: arrow_downward
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "التحميل والأدوات":
+    - img: plus
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Evaluating game environment details
+- region "Notifications"

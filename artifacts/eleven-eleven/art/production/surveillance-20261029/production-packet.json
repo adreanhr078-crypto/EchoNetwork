@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-29T13:17:48.496860+00:00",
+  "room": "08",
+  "stage": "DEFAULT_ENVIRONMENT_ITERATION_AND_15_EARNED_NATIVE_CHECKS_PASS_SCOPED",
+  "selected_references": [
+    "entry",
+    "reverse",
+    "lateral",
+    "resource"
+  ],
+  "references": [
+    {
+      "role": "entry",
+      "file": "art/production/surveillance-20261029/references/entry.png",
+      "sha256": "1938302cb920101fdf5f9cf79cc06e6a0035b397f45d5d7fe147b7e080638505"
+    },
+    {
+      "role": "reverse",
+      "file": "art/production/surveillance-20261029/references/reverse.png",
+      "sha256": "1d700d0e8b94171b111a9da0886dad9d9b910f0869d972d0d6e8d08937fd4a97"
+    },
+    {
+      "role": "lateral",
+      "file": "art/production/surveillance-20261029/references/lateral.png",
+      "sha256": "06a59b9d62082ec4568825214ab5b8ffcb8ae87fd3637eeca815863be69a14b6"
+    },
+    {
+      "role": "resource",
+      "file": "art/production/surveillance-20261029/references/resource.png",
+      "sha256": "ca4b4599d714d364fed8ddf72839bcbf2ec9cbde629e85a67fc0864363d4255c"
+    },
+    {
+      "role": "bay-isolated",
+      "file": "art/production/surveillance-20261029/references/bay-isolated.png",
+      "sha256": "807ba5f71b268ba56c5d041e2447a1e26687ca52507cb6b08e1a18754830782c"
+    },
+    {
+      "role": "entry-v1-rejected-stair-direction",
+      "file": "art/production/surveillance-20261029/references/entry-v1-rejected-stair-direction.png",
+      "sha256": "7969c392188716552cd4c01947ad3393dc3b1583d385e7b71d9c8c097de12b96"
+    }
+  ],
+  "geometry_authority": {
+    "hull_m": [
+      28,
+      8,
+      36
+    ],
+    "dais_center": [
+      0,
+      2.4,
+      -18
+    ],
+    "dais_size": [
+      8,
+      8
+    ],
+    "stairs": "Transverse X-axis native ramps at z-16.6;preserve existing collision/path;concept art is appearance guidance,not a new route",
+    "mirror_center": [
+      8.5,
+      1.6,
+      -10
+    ],
+    "monitor_bank_center": [
+      0,
+      5.7,
+      -35.6
+    ],
+    "approximation": "Image references do not prove exact hidden geometry;native measured layout prevails. Entry-v1 has rejected front-stair orientation;v2 used."
+  },
+  "tripo": {
+    "preflight_balance": 2235,
+    "planned": "One P2 topology-ready isolated wall bay;replicate and reuse successful Tripo kit. No blind full-room reroll.",
+    "generation": "COMPLETE_RAW_SAVED",
+    "upload_status": "FIXED:use forward slashes in cua_repl JavaScript paths;backslash JS escaping caused invalid path filenames",
+    "task_id": "77889562-90df-4711-bfbb-50aa94e45018",
+    "model": "P2.0",
+    "topology": "Quad",
+    "requested_faces": 12000,
+    "actual_faces_ui": 12414,
+    "vertices_ui": 13341,
+    "generation_credits": 100,
+    "texture_credits": 20,
+    "balance_after_texture_submit": 2115,
+    "texture_settings": {
+      "resolution": "4K",
+      "remove_lighting": true
+    },
+    "texture": "RUNNING"
+  },
+  "flow": {
+    "stage": "DOWNLOADED_REVIEW_PENDING",
+    "selected_references_all_four_required": true,
+    "project_url": "https://flow.google.com/project/00268d78-c5dc-4ac9-85ef-cb264e4e1da4",
+    "preflight_balance": 485,
+    "selected_model": "Omni1.1Flash",
+    "cost_per_output": 12,
+    "count": 1,
+    "planned_submission": "entry+four-view-board+resource;all4 original view files retained;board contains each original view",
+    "board_sha256": "841cfda728efd921c643b010f0842f7e0c77e6428c9ca2ac9c65b55c1eb2c56e",
+    "asset_url": "https://flow.google.com/project/00268d78-c5dc-4ac9-85ef-cb264e4e1da4/edit/d845cfda-2059-431f-8df7-79d23aaf37c3",
+    "submitted_images": [
+      "entry.png",
+      "four-view-board.jpg",
+      "resource.png"
+    ],
+    "all_four_views_represented": true,
+    "model_fallback": "Veo3.1Quality displayed error marks on valid loaded reference images and disabled generation;switch to Omni enabled generation. No paid Veo job.",
+    "file": "flow/surveillance-reference-omni.mp4",
+    "sha256": "4fb2f81025111628c6a5bb4fdcb6582af877f2b819ca7e5b635c7c218307436f"
+  },
+  "acceptance": "NO_NATIVE_INTEGRATION_OR_ART_ACCEPTANCE_YET",
+  "quality_report": "audits/evidence/chapter-cp45-20261020/stage13/surveillance-20261029/default-final/quality-report.json",
+  "tripo_completed": {
+    "root_task": "77889562-90df-4711-bfbb-50aa94e45018",
+    "total_cost": 125,
+    "balance_last_observed": 2110,
+    "4K": true,
+    "PBR": true
+  },
+  "native_status": "DEFAULT_15_EARNED_CHECKS_PASS_SCOPED"
+}

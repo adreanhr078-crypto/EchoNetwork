@@ -4,9 +4,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adreanhr078-crypto/11.11..git"
+    "url": "https://github.com/adreanhr078-crypto/EchoNetwork.git"
   },
   "scripts": {
+    "repo:check": "python tools/repository/inventory.py --check",
     "build": "npm --prefix artifacts/eleven-eleven run build",
     "dev": "npm --prefix artifacts/eleven-eleven run dev",
     "dev:api": "npm --prefix artifacts/eleven-eleven run dev:api",

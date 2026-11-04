@@ -77,6 +77,7 @@ func _run() -> void:
 	player.set_combat_available(true)
 	await _steps(8)
 	var start := player.global_position
+	player.awaken_zero_pact(0.0) # Explicit earned-power fixture; never a route unlock.
 	var charged_wall := _body(start + forward*1.1, wall_size)
 	var covered := _body(start + forward*3, Vector3(.4, 1.8, .4), true) as Target
 	var behind := _body(start - forward, Vector3(.4, 1.8, .4), true) as Target

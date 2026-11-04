@@ -102,12 +102,22 @@ func _apply_service_shadow_budget()->void:
 	var tier:String=world.quality
 	if tier==_service_shadow_tier:return
 	_service_shadow_tier=tier
-	# Six ceiling fill omnis otherwise render six shadow faces each. Low and
-	# medium keep their illumination, the focal surgical spotlight and Zero's
-	# authored shadow; high/ultra restore every original service shadow.
+	# Six broad fill omnis multiply the same room's shadow draws. Compatibility
+	# high keeps one original ceiling shadow beside the contract stage plus
+	# the authored focal light. All fills still illuminate the original 4K kit.
+	# Forward+ retains its full authored high/ultra shadow set.
+	var compatibility:bool=RenderingServer.get_current_rendering_method()=="gl_compatibility"
+	var focal:Node3D=laboratory.get_node_or_null("ZeroContractAltar") if is_instance_valid(laboratory) else null
+	var shadow_key:OmniLight3D
+	var nearest:=INF
+	if compatibility and tier in ["high","ultra"]:
+		for light in service_shadow_sources:
+			if not is_instance_valid(light) or not service_shadow_sources[light]:continue
+			var distance:float=light.global_position.distance_squared_to(focal.global_position if focal else laboratory.global_position)
+			if distance<nearest:nearest=distance;shadow_key=light
 	for light in service_shadow_sources:
 		if is_instance_valid(light):
-			light.shadow_enabled=service_shadow_sources[light] and tier in ["high","ultra"]
+			light.shadow_enabled=service_shadow_sources[light] and tier in ["high","ultra"] and (not compatibility or light==shadow_key)
 	if is_instance_valid(laboratory) and is_instance_valid(laboratory._surgical_light):
 		laboratory._surgical_light.light_size=.18 if tier in ["high","ultra"] else 0.0
 	for finish in architectural_materials.values():

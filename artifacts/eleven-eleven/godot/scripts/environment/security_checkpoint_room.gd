@@ -53,6 +53,7 @@ func _ready() -> void:
 	_build_room()
 	set_language(_language)
 	preload("res://scripts/environment/security_mechanical_dressing.gd").install(self)
+	preload("res://scripts/environment/room_device_atmosphere.gd").install(self,"security")
 
 func _physics_process(delta: float) -> void:
 	elapsed += delta

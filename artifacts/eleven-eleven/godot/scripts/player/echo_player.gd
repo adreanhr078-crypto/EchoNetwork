@@ -4,6 +4,34 @@ extends CharacterBody3D
 const OpeningWakeContacts = preload("res://scripts/player/opening_wake_contacts.gd")
 const SurfaceTraversalMotor = preload("res://scripts/player/surface_traversal_motor.gd")
 @export var surface_traversal_enabled := true
+@export var avatar_scene_override: PackedScene
+
+func _enter_tree() -> void:
+	var candidate := avatar_scene_override
+	if not candidate and (OS.get_cmdline_user_args().has("--echo-school-candidate") or OS.has_feature("school_candidate_review")):
+		candidate = load("res://scenes/characters/echo_school_candidate.tscn") as PackedScene
+	if not candidate: return
+	var model_root := get_node_or_null("ModelRoot")
+	var old_model := get_node_or_null("ModelRoot/EchoOpeningUniform")
+	if not model_root or not old_model: return
+	var replacement := candidate.instantiate() as Node3D
+	if not replacement: return
+	var candidate_rig := replacement.find_child("Skeleton3D",true,false) as Skeleton3D
+	if EchoRigProfileScript.identify(candidate_rig).is_empty() or not replacement.find_child("AnimationPlayer",true,false):
+		replacement.free()
+		push_warning("Unsupported avatar candidate; current qualified avatar retained")
+		return
+	var sibling_index := old_model.get_index()
+	model_root.remove_child(old_model)
+	old_model.free()
+	replacement.name = "EchoOpeningUniform"
+	model_root.add_child(replacement)
+	# Consumers discover the first skeleton. Keep the avatar ahead of the dormant wing rig.
+	model_root.move_child(replacement,sibling_index)
+	# Fidelity comes first; this candidate has no measured runtime IK/contact gate yet.
+	var ik := get_node_or_null("ProceduralFootIK")
+	if ik: ik.set("enabled",false)
+
 var surface_motor = SurfaceTraversalMotor.new()
 var _requested_traversal_jump := false
 var _requested_traversal_drop := false
@@ -103,6 +131,7 @@ signal combo_changed(combo_count: int, combo_multiplier: int)
 signal perfect_dodge_triggered()
 signal attack_hit(damage: int, is_crit: bool)
 signal weapon_sheathed()
+signal melee_contact_confirmed(target: Node3D, position: Vector3, damage: int, source_seconds: float)
 signal iai_charged()
 signal iai_executed(damage: int)
 signal combat_action_started(action_name: String)
@@ -444,6 +473,7 @@ var _opening_tween: Tween = null
 var _landing_recoil: float = 0.0
 var _last_safe_ground_position: Vector3 = Vector3.ZERO
 var _suppress_attack_until_release: bool = false
+var _keyboard_charge_owned := false
 
 func _ready() -> void:
 	floor_snap_length = 0.45
@@ -599,7 +629,10 @@ func play_anim(anim_name: String, blend_time: float = 0.2) -> void:
 		if previous_clip and previous_clip.length > 0.0:
 			gait_phase = fposmod(animation_player.current_animation_position / previous_clip.length, 1.0)
 	current_anim = resolved_anim
-	animation_player.play(resolved_anim, blend_time)
+	var selected_clip: Animation = animation_player.get_animation(resolved_anim)
+	var action_duration := float(selected_clip.get_meta("runtime_action_duration_seconds",0.0))
+	var playback_speed := selected_clip.length/action_duration if is_finite(action_duration) and action_duration>0.01 else 1.0
+	animation_player.play(resolved_anim, blend_time,playback_speed)
 	# Sources can begin on different feet. Map the measured support landmarks
 	# while changing pace; no source keys or root-motion settings are changed.
 	if gait_phase >= 0.0:
@@ -641,6 +674,8 @@ func _play_opening_recovery() -> void:
 			break
 	if not recovery_clip.is_empty():
 		play_anim(recovery_clip, 0.0)
+		animation_player.advance(0.0)
+		_align_recovery_feet_to_floor()
 		while opening_recovery_active and is_inside_tree() and animation_player.is_playing() and animation_player.current_animation == recovery_clip:
 			await get_tree().process_frame
 			# Never apply the prone offset to the newly playing idle after skip.
@@ -671,6 +706,10 @@ func _align_recovery_feet_to_floor() -> void:
 		return
 	var clip: Animation = animation_player.get_animation(animation_player.current_animation)
 	var phase: float = animation_player.current_animation_position / maxf(clip.length, 0.01)
+	var candidate := visual_root.get_node_or_null("EchoOpeningUniform")
+	if rig_profile.get("id") == "echo_school_mixamo_65" and candidate and candidate.has_method("opening_contact_alignment") and animation_player.current_animation == "preset_wakeup":
+		visual_root.position = visual_root.basis * candidate.opening_contact_alignment(phase)
+		return
 	# Bake contact from the deformed V13 body, including hands/knees while rising.
 	# A guessed prone offset sank the kneeling pose and floated the early roll.
 	if visual_root.find_child("EchoOpeningUniformBody", true, false) and animation_player.current_animation.to_lower().contains("wakeup"):
@@ -683,7 +722,10 @@ func finish_opening_recovery() -> void:
 		return
 	if _opening_tween and _opening_tween.is_running():
 		_opening_tween.kill()
-	visual_root.position.y = 0.0
+	if rig_profile.get("id") == "echo_school_mixamo_65":
+		visual_root.position = Vector3.ZERO
+	else:
+		visual_root.position.y = 0.0
 	visual_root.rotation.x = 0.0
 	visual_root.rotation.z = 0.0
 	opening_recovery_active = false
@@ -698,6 +740,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	if control_locked:
+		is_charging_iai=false
+		iai_charge=0.0
+		_keyboard_charge_owned=false
 		_cancel_attack()
 		clear_traversal_input()
 		velocity.x = move_toward(velocity.x, 0.0, 20.0 * delta)
@@ -867,7 +912,12 @@ func _physics_process(delta: float) -> void:
 	# Attack & Iai Charge Input (Keyboard/Mouse)
 	if combat_available and Input.is_action_just_pressed("attack_light") and not _suppress_attack_until_release:
 		start_iai_charge()
-	if combat_available and Input.is_action_just_released("attack_light") and not _suppress_attack_until_release:
+		_keyboard_charge_owned = is_charging_iai
+	# A render-frame release edge can fall between physics ticks. Retain the
+	# keyboard hold's ownership until its sampled released state is consumed.
+	# Modal handoffs release actions defensively; that release is not an attack.
+	# Only a hold acquired by this keyboard path may consume its release edge.
+	if combat_available and _keyboard_charge_owned and not Input.is_action_pressed("attack_light") and not _suppress_attack_until_release:
 		execute_iai_slash()
 	if not Input.is_action_pressed("attack_light"):
 		_suppress_attack_until_release = false
@@ -1072,7 +1122,11 @@ func set_combat_available(available: bool) -> void:
 		_built_weapon_visuals_applied = bool(result.get("applied",false))
 		if is_instance_valid(_hip_weapon_mesh): visuals.apply_weapon_visuals(_hip_weapon_mesh)
 	combat_available = available
-	if not available: _cancel_attack()
+	if not available:
+		_cancel_attack()
+		is_charging_iai=false
+		iai_charge=0.0
+		_keyboard_charge_owned=false
 	var standard_katana = find_child("KatanaBlade", true, false) as Node3D
 	if standard_katana:
 		standard_katana.visible = available and not is_shadow_katana_equipped and not is_sheathed
@@ -1129,7 +1183,7 @@ func _apply_camera_look(relative: Vector2, sensitivity: float) -> void:
 	_camera_look_cooldown = 0.35
 
 func toggle_void_sight() -> void:
-	if not combat_available:
+	if not combat_available or not contract_with_zero_sealed:
 		return
 	is_void_sight_active = not is_void_sight_active
 	set_zero_eye_active(is_void_sight_active, 999.0 if is_void_sight_active else 0.0)
@@ -1150,7 +1204,7 @@ func trigger_deflect_attempt() -> void:
 		facial_controller.set_combat_focus(1.0, 0.08)
 
 func start_iai_charge() -> void:
-	if opening_recovery_active or control_locked or not combat_available:
+	if opening_recovery_active or control_locked or not combat_available or is_attacking or _attack_recovery>0 or is_dodging:
 		return
 	if is_sheathed:
 		unsheath_weapon()
@@ -1177,6 +1231,7 @@ func update_iai_charge(delta: float) -> void:
 				glow.light_energy = 5.5
 
 func execute_iai_slash(charge_ratio: float = -1.0) -> void:
+	_keyboard_charge_owned = false
 	if opening_recovery_active or control_locked or not combat_available or is_attacking or _attack_recovery > 0 or is_dodging:
 		is_charging_iai = false
 		iai_charge = 0.0
@@ -1186,6 +1241,26 @@ func execute_iai_slash(charge_ratio: float = -1.0) -> void:
 	var eff_ratio: float = charge_ratio if charge_ratio >= 0.0 else iai_charge
 	is_charging_iai = false
 	iai_charge = 0.0
+
+	# The contract owns powered attacks. The qualified native cut owns damage;
+	# the collision sweep only approaches the target and never awards a hit.
+	if eff_ratio >= 0.7 and not contract_with_zero_sealed:
+		perform_attack()
+		return
+	if eff_ratio >= 0.7 and animation_player and animation_player.has_animation("MELEE_HORIZONTAL") and bool(animation_player.get_animation("MELEE_HORIZONTAL").get_meta("melee_physical_blade",false)):
+		if not is_on_floor(): return
+		var approach: Vector3 = (visual_root.global_basis * model_local_forward).normalized()
+		approach.y = 0.0
+		approach = approach.normalized()
+		var blocker := move_and_collide(approach*5.5,true)
+		var distance := 5.5
+		if blocker:
+			distance = blocker.get_travel().length()
+			var body := blocker.get_collider() as Node
+			if body and body.has_method("take_damage"): distance = maxf(0.0,distance-1.2)
+		move_and_collide(approach*distance)
+		perform_attack(true)
+		return
 
 	var katana = find_child("KatanaBlade", true, false)
 	if katana:
@@ -1295,6 +1370,17 @@ func _iai_contact_target(start: Vector3, end: Vector3, forward: Vector3, blocker
 
 var is_shadow_katana_equipped: bool = false
 var contract_with_zero_sealed: bool = false
+var _earned_avatar_bridge: Node
+
+func set_earned_contract_appearance(enabled: bool) -> bool:
+	if enabled and not contract_with_zero_sealed:return false
+	if rig_profile.get("id") not in [EchoRigProfileScript.SCHOOL65_ID,EchoRigProfileScript.PACT72_ID]:return false
+	if not _earned_avatar_bridge:
+		_earned_avatar_bridge=preload("res://scripts/player/echo_earned_avatar_bridge.gd").new()
+		_earned_avatar_bridge.name="EarnedAvatarBridge"
+		add_child(_earned_avatar_bridge)
+		_earned_avatar_bridge.configure(self)
+	return _earned_avatar_bridge.set_earned_presentation(enabled)
 
 func equip_shadow_katana() -> void:
 	is_shadow_katana_equipped = true
@@ -1315,6 +1401,14 @@ func equip_shadow_katana() -> void:
 
 func awaken_zero_pact(intensity: float = 1.6) -> void:
 	contract_with_zero_sealed = true
+	if set_earned_contract_appearance(true):
+		var legacy_wing:=find_child("ZeroShadowWing",true,false)
+		if legacy_wing and legacy_wing.has_method("dismiss_wing"):legacy_wing.dismiss_wing()
+		manifest_zero_wing(intensity)
+		return
+	if rig_profile.get("id")==EchoRigProfileScript.SCHOOL65_ID:
+		push_warning("Earned Pact72 presentation unavailable;foreign manifestation sockets refused")
+		return
 	set_zero_eye_active(true, intensity)
 	manifest_zero_wing(intensity)
 	var hair = get_node_or_null("EchoContractHair")
@@ -1328,16 +1422,29 @@ func awaken_zero_pact(intensity: float = 1.6) -> void:
 	hair.reveal(restoring)
 
 func manifest_zero_wing(intensity: float = 1.0) -> void:
+	if not contract_with_zero_sealed: return
+	if rig_profile.get("id")==EchoRigProfileScript.PACT72_ID:
+		var avatar:=visual_root.get_node_or_null("EchoOpeningUniform")
+		if avatar and avatar.has_method("set_wing_manifested"):avatar.set_wing_manifested(true,intensity)
+		return
 	var wing = find_child("ZeroShadowWing", true, false)
 	if wing and wing.has_method("manifest_wing"):
 		wing.manifest_wing(intensity)
 
 func dismiss_zero_wing() -> void:
+	if rig_profile.get("id")==EchoRigProfileScript.PACT72_ID:
+		var avatar:=visual_root.get_node_or_null("EchoOpeningUniform")
+		if avatar and avatar.has_method("set_wing_manifested"):avatar.set_wing_manifested(false)
+		return
 	var wing = find_child("ZeroShadowWing", true, false)
 	if wing and wing.has_method("dismiss_wing"):
 		wing.dismiss_wing()
 
 func set_zero_eye_active(active: bool, intensity: float = 1.0) -> void:
+	if active and not contract_with_zero_sealed: return
+	# The approved Pact72 texture contains its violet irises. A foreign rig's
+	# procedural eye socket must not be projected onto that face.
+	if rig_profile.get("id")==EchoRigProfileScript.PACT72_ID:return
 	var eye = find_child("ZeroEyeSingularity", true, false)
 	if eye and eye.has_method("activate_singularity"):
 		if active:
@@ -1426,6 +1533,9 @@ var _attack_recovery := 0.0
 var _grounded_melee_active := false
 var _grounded_melee_length := 0.0
 var _grounded_melee_cancel_at := 0.0
+var _native_blade_contact = preload("res://scripts/player/native_blade_contact.gd").new()
+var _native_melee_step := 1
+var _native_melee_powered := false
 
 func _cancel_attack() -> void:
 	if not is_attacking and _attack_recovery <= 0: return
@@ -1433,21 +1543,27 @@ func _cancel_attack() -> void:
 	_attack_recovery = 0.0
 	is_attacking = false
 	_grounded_melee_active = false
+	_native_melee_powered = false
+	_native_blade_contact.clear()
 var is_sheathed: bool = false
 
 const KATANA_READY_TRANSFORM := Transform3D(Basis(Vector3(0.965926, -0.258819, 0), Vector3(0.258819, 0.965926, 0), Vector3(0, 0, 1)), Vector3(0.42, 0.75, 0.15))
 const KATANA_SHEATHED_TRANSFORM := Transform3D(Basis(Vector3(0.866, 0, -0.5), Vector3(0, 1, 0), Vector3(0.5, 0, 0.866)), Vector3(-0.28, 0.62, 0.08))
 
-func perform_attack() -> void:
+func perform_attack(powered: bool = false) -> void:
 	if opening_recovery_active or control_locked or not combat_available or _attack_recovery > 0 or is_dodging:
 		return
 	var grounded:bool=animation_player!=null and animation_player.has_animation("MELEE_HORIZONTAL")
+	if rig_profile.get("id") == EchoRigProfileScript.SCHOOL65_ID and not grounded: return
 	if grounded and not is_on_floor():return
 	if is_sheathed:
 		unsheath_weapon()
 	is_attacking = true
-	var current_step: int = combo_step
-	combo_step = 1 if combo_step >= 3 else combo_step + 1
+	var current_step: int = 3 if powered and contract_with_zero_sealed else combo_step
+	_native_melee_powered = powered and contract_with_zero_sealed
+	_native_melee_step = current_step
+	_native_blade_contact.clear()
+	if not _native_melee_powered: combo_step = 1 if combo_step >= 3 else combo_step + 1
 	combo_step_timer = 0.85
 
 	var forward_dir: Vector3 = visual_root.global_basis * model_local_forward if visual_root else -global_basis.z
@@ -1479,6 +1595,7 @@ func perform_attack() -> void:
 	_attack_sequence += 1
 	var sequence := _attack_sequence
 	var verified_clip:bool=animation_player!=null and animation_player.has_animation(anim_clip)
+	var physical_blade:bool=verified_clip and bool(animation_player.get_animation(anim_clip).get_meta("melee_physical_blade",false))
 	# Until this rig's Golden gate passes, preserve the native idle/walk speed.
 	# A missing attack must not speed up an unrelated fallback animation.
 	var clip_length:float=animation_player.get_animation(anim_clip).length if verified_clip else 0.9
@@ -1487,12 +1604,13 @@ func perform_attack() -> void:
 	_grounded_melee_cancel_at=float(animation_player.get_animation(anim_clip).get_meta("melee_cancel_seconds",clip_length)) if grounded else clip_length
 	combo_step_timer = _attack_recovery+0.7
 	if verified_clip: animation_player.speed_scale=1.0
-	combat_action_started.emit("melee")
+	combat_action_started.emit("iai" if _native_melee_powered else "melee")
 	if is_inside_tree():
 		# Damage follows the same pausable physics clock as native playback and
 		# recovery. An always-processing timer could hit while the world is paused.
 		var contact_at:float=float(animation_player.get_animation(anim_clip).get_meta("melee_contact_seconds",clip_length*.52)) if grounded else _attack_recovery*.52
-		get_tree().create_timer(contact_at, false, true).timeout.connect(_apply_melee_contact.bind(current_step,sequence))
+		if not physical_blade:
+			get_tree().create_timer(contact_at, false, true).timeout.connect(_apply_melee_contact.bind(current_step,sequence))
 		if grounded:
 			get_tree().create_timer(maxf(0.0,contact_at-.08), false, true).timeout.connect(_present_melee_swing.bind(current_step,sequence))
 		else:
@@ -1522,7 +1640,7 @@ func _present_melee_swing(current_step:int, sequence:int) -> void:
 	# Flash Katana Slash Arc Ribbon Mesh with step-based angle
 	var slash_arc = find_child("SlashArc", true, false)
 	if slash_arc:
-		_present_slash_arc(slash_arc, .8)
+		_present_slash_arc(slash_arc,1.05 if _native_melee_powered else .8)
 		if _grounded_melee_active or current_step == 1:
 			slash_arc.rotation.z = 0.0 # Horizontal sweep
 		elif current_step == 2:
@@ -1538,13 +1656,23 @@ func _present_melee_swing(current_step:int, sequence:int) -> void:
 	if tassel and tassel.has_method("apply_impulse"):
 		tassel.apply_impulse(Vector3(randf_range(-14.0, 14.0), randf_range(8.0, 18.0), randf_range(-8.0, 8.0)))
 
-func _apply_melee_contact(step: int, sequence: int) -> void:
+func sync_native_blade_contact() -> void:
+	if not is_attacking or not _grounded_melee_active or control_locked or not combat_available or is_dodging or not animation_player: return
+	if animation_player.current_animation.is_empty(): return
+	var clip := animation_player.get_animation(animation_player.current_animation)
+	if not clip or not bool(clip.get_meta("melee_physical_blade",false)): return
+	var hit: Dictionary = _native_blade_contact.sample(self,clip,_attack_sequence)
+	if not hit.is_empty():
+		_apply_melee_contact(_native_melee_step,_attack_sequence,hit.target,hit.position)
+
+func _apply_melee_contact(step: int, sequence: int, physical_target: Node3D = null, physical_position := Vector3.ZERO) -> void:
 	if not is_inside_tree() or sequence != _attack_sequence or not is_attacking or control_locked or not combat_available or is_dodging: return
 	var forward := (visual_root.global_basis * model_local_forward if visual_root else -global_basis.z).normalized()
 	var candidates: Array[Node] = get_tree().get_nodes_in_group("damageable")
 	# Preserve legacy actors which predate the damageable group.
 	for node in get_parent().get_children():
 		if node != self and node.has_method("take_damage") and not candidates.has(node): candidates.append(node)
+	if physical_target: candidates = [physical_target]
 	var nearest: Node3D
 	var best := INF
 	for node in candidates:
@@ -1561,24 +1689,24 @@ func _apply_melee_contact(step: int, sequence: int) -> void:
 		nearest=node
 		best=distance
 	if not nearest: return
-	var base_dmg: int = [35,48,70][clampi(step-1,0,2)]
-	var damage := base_dmg*(3 if perfect_dodge_surge else combo_multiplier)
+	var base_dmg: int = 180 if _native_melee_powered else [35,48,70][clampi(step-1,0,2)]
+	var source_seconds: float = animation_player.current_animation_position if animation_player else 0.0
+	var critical: bool = step==3 or perfect_dodge_surge
+	var damage := base_dmg if _native_melee_powered else base_dmg*(3 if perfect_dodge_surge else combo_multiplier)
 	register_hit_landed(base_dmg)
 	nearest.take_damage(damage)
-	var contact := (global_position+nearest.global_position)*0.5+Vector3.UP
+	var contact: Vector3 = physical_position if physical_target else (global_position+nearest.global_position)*0.5+Vector3.UP
+	if physical_target:
+		melee_contact_confirmed.emit(nearest,contact,damage,source_seconds)
 	ImpactSpawner.spawn_katana_sparks(get_parent(),contact,Vector3.UP,step==3)
-	ImpactSpawner.spawn_damage_number(get_parent(),contact+Vector3.UP*0.35,damage,step==3 or perfect_dodge_surge)
+	ImpactSpawner.spawn_damage_number(get_parent(),contact+Vector3.UP*0.35,damage,critical)
 	if facial_controller: facial_controller.set_combat_focus(1.0,0.12)
-	if step==3 and player_camera and not reduced_camera_motion: ImpactSpawner.trigger_screen_shake(player_camera,0.15,0.22)
+	if step==3 and player_camera and not reduced_camera_motion and not action_camera_rig: ImpactSpawner.trigger_screen_shake(player_camera,0.15,0.22)
 	trigger_hit_stop([0.04,0.06,0.1][clampi(step-1,0,2)])
 
 func trigger_hit_stop(duration: float = 0.06) -> void:
-	Engine.time_scale = 0.05
-	var tree = get_tree() if is_inside_tree() else null
-	if tree:
-		tree.create_timer(duration * 0.05).timeout.connect(func():
-			Engine.time_scale = 0.2 if perfect_dodge_surge else 1.0
-		)
+	var world := get_node_or_null("/root/HyperAnimeWorldManager")
+	if world: world.request_combat_time_effect(self,"hit_stop",.12,duration)
 
 func _present_slash_arc(arc: MeshInstance3D, world_radius: float) -> void:
 	arc.visible = not reduced_motion
@@ -1693,14 +1821,15 @@ func _setup_weapon_attachment() -> void:
 		Basis.IDENTITY.scaled(Vector3.ONE * s),
 		Vector3(-0.017, 0.075, -0.002)
 	)
-	if rig_profile.get("id") == EchoRigProfileScript.V31_ID:
+	if rig_profile.get("id") in [EchoRigProfileScript.V31_ID, EchoRigProfileScript.SCHOOL65_ID,EchoRigProfileScript.PACT72_ID]:
 		# Measure the palm and across-knuckle axis from this rig's actual rests.
 		# The built blades' guard is at0; grip centre is local-Y=-0.12m.
 		s = 1.0 / skeleton.global_basis.get_scale().y
 		var hand_rest: Transform3D = skeleton.get_bone_global_rest(skeleton.find_bone(hand_bone))
-		var middle: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandMiddle1")).origin
-		var index: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandIndex1")).origin
-		var pinky: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone("RightHandPinky1")).origin
+		var prefix := hand_bone.trim_suffix("RightHand")
+		var middle: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone(prefix+"RightHandMiddle1")).origin
+		var index: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone(prefix+"RightHandIndex1")).origin
+		var pinky: Vector3 = skeleton.get_bone_global_rest(skeleton.find_bone(prefix+"RightHandPinky1")).origin
 		var y_axis: Vector3 = (hand_rest.basis.inverse() * (index - pinky)).normalized()
 		var forward_axis: Vector3 = hand_rest.basis.inverse() * (middle - hand_rest.origin)
 		var x_axis: Vector3 = y_axis.cross(forward_axis).normalized()
@@ -1746,6 +1875,11 @@ func _setup_weapon_attachment() -> void:
 				_hip_weapon_mesh.transform = Transform3D(hip_basis, Vector3(-0.16, -0.04, 0.05))
 				_hip_weapon_socket.add_child(_hip_weapon_mesh)
 				_hip_weapon_mesh.visible = combat_available and is_sheathed
+		if _hip_weapon_mesh and _hip_weapon_mesh.get_parent()!=_hip_weapon_socket:
+			_hip_weapon_mesh.reparent(_hip_weapon_socket)
+			var hip_basis:=Basis.from_euler(Vector3(deg_to_rad(-35),deg_to_rad(15),deg_to_rad(10))).scaled(Vector3.ONE*s)
+			_hip_weapon_mesh.transform=Transform3D(hip_basis,Vector3(-.16,-.04,.05))
+			_hip_weapon_mesh.visible=combat_available and is_sheathed
 
 func sheath_weapon() -> void:
 	is_sheathed = true
@@ -1927,11 +2061,8 @@ func trigger_perfect_deflect(attacker: Node = null) -> void:
 func trigger_perfect_dodge() -> void:
 	perfect_dodge_surge = true
 	emit_signal("perfect_dodge_triggered")
-	# Bullet time time dilation
-	Engine.time_scale = 0.2
-	var tree = get_tree() if is_inside_tree() else null
-	if tree:
-		tree.create_timer(1.2 * 0.2).timeout.connect(func(): Engine.time_scale = 1.0)
+	var world := get_node_or_null("/root/HyperAnimeWorldManager")
+	if world: world.request_combat_time_effect(self,"perfect_dodge",.2,1.2)
 
 func get_wallet() -> EconomyManager:
 	return wallet
@@ -1960,6 +2091,8 @@ func get_nearest_interactable() -> Node:
 	for item in nearby_interactables:
 		if is_instance_valid(item):
 			if item is InteractableComponent and not item.is_enabled:continue
+			var owner_node: Node = item.get_parent()
+			if owner_node and owner_node.has_method("can_interact") and not owner_node.can_interact(self): continue
 			var item_pos = get_interaction_focus(item)
 			var d = (item_pos - my_pos).length()
 			if d < min_dist:
