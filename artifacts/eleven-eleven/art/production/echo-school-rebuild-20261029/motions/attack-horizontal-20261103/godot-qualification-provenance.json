@@ -1,0 +1,27 @@
+{
+  "source_sha256": "25247f8434032b99c2591c6ce283398a3fe0e5f8dfe8c77bc79d492330e2367b",
+  "blender_reference_sha256": "0c74d0e7cd46b653928de005e4e930b0fac1c65ef4541a96c5589230ea6f01fb",
+  "reviewer_sha256": "31d896dedba5fde7ebcb6ed9f0b3c280a48c6d15ac03e1ff775918df2b89079d",
+  "frozen_numeric_reviewer_sha256": "7239018e6700842ff63e551f329e74f367361f3b532302a8b029a327dfd68a8a",
+  "render_adaptation": "Camera bounds and reference-native render times; entire numerical evaluation remains verbatim",
+  "profile_sha256": "19cfc6b7d4b10e8145d701a84f3c39fe678636d11c348651769a27015dd72ef7",
+  "native_clock_profile_sha256": null,
+  "native_fps": 30,
+  "project": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\.tmp\\echo-character-lab\\cases\\attack-horizontal-20261103-25247f843403-godot",
+  "rendered": true,
+  "renderer": "Compatibility",
+  "visual_status": "PASS_SCOPED_SOURCE_TRANSFER_ONLY",
+  "visual_reviewed_frames": [
+    0,
+    12,
+    24,
+    30,
+    48,
+    72
+  ],
+  "visual_reviewed_views": [
+    "back",
+    "side"
+  ],
+  "visual_limits": "12actualPBRviews inspected;native73samples all65joints replayPASS. Actualweapon grip/physicalinput verified separately. Finalcombat/character/art notimplied."
+}
