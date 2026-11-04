@@ -1,0 +1,158 @@
+{
+  "objects": [
+    [
+      "Node_0",
+      false,
+      null
+    ],
+    [
+      "node_0",
+      false,
+      null
+    ],
+    [
+      "RootNode",
+      false,
+      null
+    ],
+    [
+      "Armature",
+      false,
+      null
+    ],
+    [
+      "tripo_199ec380_473a_4937_96db_68c5fd60d13a",
+      true,
+      108934
+    ],
+    [
+      "SchoolUniformMetricRoot",
+      false,
+      null
+    ],
+    [
+      "EchoSchool_BodyPreserved",
+      false,
+      96116
+    ],
+    [
+      "EchoFace_Controls",
+      false,
+      12347
+    ],
+    [
+      "UpperTeeth",
+      false,
+      64
+    ],
+    [
+      "LowerTeeth",
+      false,
+      64
+    ],
+    [
+      "MouthInterior",
+      false,
+      85
+    ],
+    [
+      "Pupil_L",
+      false,
+      33
+    ],
+    [
+      "Pupil_R",
+      false,
+      33
+    ],
+    [
+      "Icosphere",
+      true,
+      42
+    ]
+  ],
+  "controls": {
+    "Basis": {
+      "value": 1.0,
+      "delta_max_local": 0.0
+    },
+    "Jaw_Open": {
+      "value": 0.13524572551250458,
+      "delta_max_local": 0.009803518812866242
+    },
+    "Smile_L": {
+      "value": 9.269237466469349e-07,
+      "delta_max_local": 0.0034405773644856294
+    },
+    "Cheek_Raise_L": {
+      "value": 3.244233255372819e-07,
+      "delta_max_local": 0.0013778217545117061
+    },
+    "Blink_L": {
+      "value": 0.0,
+      "delta_max_local": 0.008512377738952637
+    },
+    "Eye_Squint_L": {
+      "value": 0.017002146691083908,
+      "delta_max_local": 0.0035752058029174805
+    },
+    "Brow_Frown_L": {
+      "value": 0.04584764689207077,
+      "delta_max_local": 0.0018349792966786945
+    },
+    "Smile_R": {
+      "value": 8.301738603222475e-07,
+      "delta_max_local": 0.0034406502662184544
+    },
+    "Cheek_Raise_R": {
+      "value": 2.905608482706157e-07,
+      "delta_max_local": 0.0013778127544048634
+    },
+    "Blink_R": {
+      "value": 0.0,
+      "delta_max_local": 0.008512377738952637
+    },
+    "Eye_Squint_R": {
+      "value": 0.004319126717746258,
+      "delta_max_local": 0.0035752058029174805
+    },
+    "Brow_Frown_R": {
+      "value": 0.0233661700040102,
+      "delta_max_local": 0.0018349794696186832
+    },
+    "Brow_Inner_Up": {
+      "value": 0.0,
+      "delta_max_local": 0.001590132713317871
+    },
+    "Mouth_Grimace": {
+      "value": 0.0,
+      "delta_max_local": 0.00085175037384034
+    }
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "jaw": 0.13524572551250458,
+      "smile": 9.269237466469349e-07,
+      "evaluated_delta": 0.0013260536166302677
+    },
+    {
+      "frame": 97,
+      "jaw": 0.41138046979904175,
+      "smile": 0.7829523086547852,
+      "evaluated_delta": 0.004019760359002006
+    },
+    {
+      "frame": 121,
+      "jaw": 0.5384528636932373,
+      "smile": 0.7626407742500305,
+      "evaluated_delta": 0.005265927267951657
+    },
+    {
+      "frame": 240,
+      "jaw": 0.005171102937310934,
+      "smile": 0.007353427819907665,
+      "evaluated_delta": 0.00030124187471785853
+    }
+  ]
+}

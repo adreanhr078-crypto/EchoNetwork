@@ -1,0 +1,12 @@
+{
+  "status": "REVIEWED_FOR_BOUNDED_LOCAL_RETOPOLOGY_ONLY",
+  "source_sha256": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+  "reviewer": "Root agent;actual front and both three-quarter diagnostic captures inspected",
+  "scope": "The two bounded face regions enclose the painted ocular surface below the separate brows and exclude the front hair. This is region acceptance,not neutral/blink art acceptance.",
+  "captures": {
+    "eye-rim-region-front.png": "5874bac4fca284b59ab5d3c1e59ab50cc8f9c30fbe255c98bf01acf9357fee6b",
+    "eye-rim-region-threequarter.png": "217c53ca8b2fcbeaa091cde73f9fc221606d2b91769e4352033d9e31dab24afe",
+    "eye-rim-region-reverse-threequarter.png": "2fa9a274710efb67d9a099e20a9d56e5ec2a97e8ea6aa4eeb8880cc1a63c2d27"
+  },
+  "prior_masks": "Sclera-only lower contour incomplete;whole-eye geodesic weights overlap and are not approved deformation masks;texture islands include upper lid/hair. None deform the face."
+}

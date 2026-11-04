@@ -1,0 +1,117 @@
+{
+  "checkpoint": "WAKE120_NATIVE_RUNTIME_PASS_BOXING96_LAB_PASS_FACE_MORPH_PASS_TOPOLOGY_FAIL",
+  "motions": [
+    {
+      "motion": "run",
+      "take_id": "92bf7cb4b88e3ee2a29be185:0:fd47e298",
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "samples": 25,
+      "godot_position_max_m": 4.37619974036352e-06,
+      "godot_rotation_max_deg": 0.000211564630126992,
+      "runtime_integrated": true
+    },
+    {
+      "motion": "idle",
+      "take_id": "99f1e32d458dafbe5f106de8:0:13373cc7",
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "samples": 58,
+      "godot_position_max_m": 2.45267870013777e-06,
+      "godot_rotation_max_deg": 0.00024182752914502,
+      "runtime_integrated": true
+    },
+    {
+      "motion": "jump",
+      "take_id": "34fa4178cfe703ccb9ff40f8:0:13373cc7",
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "samples": 74,
+      "godot_position_max_m": 2.65417452283145e-06,
+      "godot_rotation_max_deg": 0.000260847051541023,
+      "runtime_integrated": true
+    },
+    {
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "motion": "walk",
+      "take_id": "cca789212f4a334b9ec9309a:0:5173144e",
+      "samples": 37,
+      "godot_position_max_m": 2.24553127736726e-06,
+      "godot_rotation_max_deg": 0.000188821064750867,
+      "godot_visual_review": "74 actual Compatibility480x640 PBR front-labelled/side frames inspected. Gait coherent,skin anduniform intact,no Tpose/obvious mesh explosion. Runtime/capsule/IK/sole andfinalart separate.",
+      "blend_sha256": "5c486ee6e470a056d172bc627ac2f005fb779f7aae9edc392e5b270b34812634",
+      "glb_sha256": "21d7ab1f0e990e1397c4f7c3b3af1dd0f3ea3f7f1318d30e1d454fb790928e10",
+      "render_contact_sha256": "06f0bf4bb19bc75ce1dee73434283cea2a0c4282decdf67fe041a0f81c95a864",
+      "runtime_integrated": true
+    },
+    {
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "motion": "hang",
+      "take_id": "4623a1fd693e3506912844f9:0:bf075e31",
+      "samples": 29,
+      "godot_position_max_m": 3.81961262974073e-06,
+      "godot_rotation_max_deg": 0.000448179106182108,
+      "blend_sha256": "e5306d159b0a8cb33ed3366a6655727caa43bc06e9696a9484e44f37a69defb4",
+      "glb_sha256": "146c3568ef913c5582a4bb89900265d4e90ce396fc205ac8c105ee54eae3f5f0",
+      "visual": "58freshCompatibilityframesaftercamera-framingcorrectioninspected;arms/handsandfullbodyvisible. Sourcebraced->freehangpreserved;runtimewall-supportposeonlysample0",
+      "runtime_accepted": false,
+      "runtime_integrated": true
+    },
+    {
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "motion": "mantle",
+      "take_id": "ec61818d927decfc379508c9:0:b0913491",
+      "samples": 35,
+      "godot_position_max_m": 4.10669645134476e-06,
+      "godot_rotation_max_deg": 0.0003225592426802,
+      "blend_sha256": "39e17d6f8cfe6ef9682fe56e960a1723541b6bf8527989502fb505e9a174e97d",
+      "glb_sha256": "b838a8ed665db3cbeb5c7fc2e00016d63e20f607af081dc6c1566fce81d2c20f",
+      "visual": "70 fullframed Blender and70 actual PBR Godot Compatibility captures inspected;coherent preserved source;camera-only diagnostic fix documented",
+      "runtime_accepted": false,
+      "runtime_integrated": true
+    },
+    {
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "motion": "stand",
+      "take_id": "8dd34e2b14939c747d1b9787:0:b0913491",
+      "samples": 20,
+      "godot_position_max_m": 2.81143684333074e-06,
+      "godot_rotation_max_deg": 0.000244905184078749,
+      "blend_sha256": "3997d13c5b4a5be5f290042072c0004fb8498ad5f3eb4c4e3983630be19054ce",
+      "glb_sha256": "2e70137b95679552be75120bfc27c874bbcf9b3cc7b6fcbffe01511f21a602d2",
+      "visual": "40 Blender and40 PBR Godot Compatibility captures inspected;preserved crouch to upright,fullbody/no deformation explosion. Source-render shutdown IntelGPU crash retained;completed capture artifacts verified. Separate comparison/export processes exited0.",
+      "runtime_accepted": false,
+      "runtime_integrated": true
+    },
+    {
+      "status": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "motion": "roll",
+      "take_id": "a9f64e8c1c4d8cbe9f64ebde:0:b0913491",
+      "samples": 72,
+      "godot_position_max_m": 8.2156930147903e-06,
+      "godot_rotation_max_deg": 0.000423944993447014,
+      "blend_sha256": "283161a31c1567ffae7dbf5820372a0f655042545b1c772a070c1fc1a58a58ee",
+      "glb_sha256": "e3bf12b48dd6f16ebb6c17a401f3f159eca7341bede7646e02523adea36fabac",
+      "visual": "Source/Blender/Godot qualified;full source played in existing0.72s action clock without key changes;capsule displacement authoritative;fullroute androll pilot separate gates.",
+      "runtime_accepted": "SCOPED_PILOT_27_AND_SIX_ACTUAL_ROLL_CAPTURES_PASS",
+      "runtime_integrated": true
+    }
+  ],
+  "total_original_samples": 350,
+  "golden192": "PASS",
+  "pbr_pixels": "source-normalized basecolor/normal/ORM pixel-identical",
+  "runtime_replaced": false,
+  "remaining": "Face topology/artFAIL;WakehandartOPEN;continuousboxing reference96labPASS,gameplay combatunintegrated;Pact72contact/runtime/EX011/VFX/performance/chapterOPEN.",
+  "candidate_integrated": true,
+  "runtime_scope": "Optional School65. Latest source-preserving WakeA journey:81headless30Hz and81renderedCompatibility60Hz checks withfall/retry/pause.8base motions350keys preserved;V31default. Earlier82/83are historical separate runs.",
+  "legacy_fixture_scope": "Old11mantle/32abort fixture uses maintenance_vertical;not production Stormworks acceptance.",
+  "base_motion_count": 8,
+  "qualified_recovery": {
+    "motion": "wake",
+    "source_case": "motions/wake-studio-20261102",
+    "samples": 120,
+    "fps": 24,
+    "native_duration_s": 4.958333333333333,
+    "godot_joint_max_m": 4.817415629077e-06,
+    "runtime_integrated": "OPT_IN_ONLY",
+    "runtime_gate": "15rendered checks each30/60Hz PASS;natural/pause/skip/unload;hand/art OPEN"
+  },
+  "total_base_plus_recovery_samples": 470
+}

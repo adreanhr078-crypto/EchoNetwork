@@ -1,0 +1,43 @@
+{
+  "status": "FACIAL_RIG_AUTHORED_REVIEW_REQUIRED",
+  "source_sha256": "6be4a91050c5457b0b68287bb9b47aea0b3bc33cc6f894dbcac27a6eec642d48",
+  "body_rest65_unchanged": true,
+  "source_motion_keys_changed": false,
+  "reference_fps": 24,
+  "reference_samples": 240,
+  "face_vertices": 17983,
+  "static_vertices": 96116,
+  "face_shapes": [
+    "Jaw_Open",
+    "Smile_L",
+    "Cheek_Raise_L",
+    "Blink_L",
+    "Eye_Squint_L",
+    "Brow_Frown_L",
+    "Smile_R",
+    "Cheek_Raise_R",
+    "Blink_R",
+    "Eye_Squint_R",
+    "Brow_Frown_R",
+    "Brow_Inner_Up",
+    "Mouth_Grimace"
+  ],
+  "extra_meshes": [
+    "UpperTeeth",
+    "LowerTeeth",
+    "MouthInterior",
+    "Pupil_L",
+    "Pupil_R"
+  ],
+  "calibration": {
+    "jaw_gain": 7.2,
+    "jaw_neutral_baseline": 0.020046330988407135,
+    "smile_gain": 0.92,
+    "blink_gain": 1.65,
+    "cheek_from_smile": 0.35,
+    "notes": "Stylized reference estimates are calibrated controls,not ground-truth 3D reconstruction. No smoothing or body motion edits."
+  },
+  "runtime_integrated": false,
+  "tears": "OPEN_optional_control_not_in_original_master",
+  "first_video_is_master": true
+}

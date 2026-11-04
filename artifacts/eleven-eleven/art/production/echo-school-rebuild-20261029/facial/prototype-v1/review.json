@@ -1,0 +1,16 @@
+{
+  "status": "FAIL_ART_REVIEW",
+  "observed": [
+    "teeth protrude through neutral lips",
+    "polygonal cheek/jaw deformation",
+    "manual control renders were reevaluated by animation and did not isolate requested poses"
+  ],
+  "remedy": [
+    "place dental arches inside actual lip plane",
+    "weld UV-split head topology except collapsed mouth slit;subdivide facial derivative only",
+    "zero morph influence at shared body boundary",
+    "mute facial action for static control evidence",
+    "neutral-baseline calibration for jaw"
+  ],
+  "source_and_body_keys_untouched": true
+}

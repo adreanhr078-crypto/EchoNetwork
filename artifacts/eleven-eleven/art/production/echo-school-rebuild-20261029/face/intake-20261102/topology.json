@@ -1,0 +1,289 @@
+{
+  "status": "HEAD_TOPOLOGY_CAPTURE_PENDING_SEMANTIC_REVIEW",
+  "source_sha256": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+  "rig_bones": 65,
+  "morphs": [],
+  "head_selection": "Existing Head/HeadTop_End weights >0.5; intake only, no face feature selection/deformation",
+  "head_vertices": 63026,
+  "whole_mesh_components_after_position_weld_analysis_only": 32,
+  "head_components": [
+    {
+      "id": 0,
+      "all_vertices": 59373,
+      "head_vertices": 42285,
+      "low": [
+        -0.11392226070165634,
+        -0.12510019540786743,
+        1.5278558731079102
+      ],
+      "high": [
+        0.10532543063163757,
+        0.12338056415319443,
+        1.7445241212844849
+      ]
+    },
+    {
+      "id": 2,
+      "all_vertices": 11855,
+      "head_vertices": 11855,
+      "low": [
+        -0.09930577874183655,
+        -0.021924767643213272,
+        1.598359227180481
+      ],
+      "high": [
+        0.10446561872959137,
+        0.1388568878173828,
+        1.7402253150939941
+      ]
+    },
+    {
+      "id": 4,
+      "all_vertices": 4030,
+      "head_vertices": 4030,
+      "low": [
+        -0.09758614003658295,
+        -0.00472885649651289,
+        1.6843386888504028
+      ],
+      "high": [
+        0.10360582917928696,
+        0.05545678734779358,
+        1.7600005865097046
+      ]
+    },
+    {
+      "id": 7,
+      "all_vertices": 1440,
+      "head_vertices": 1440,
+      "low": [
+        0.016766583546996117,
+        -0.023644352331757545,
+        1.5940600633621216
+      ],
+      "high": [
+        0.10790479928255081,
+        0.029662948101758957,
+        1.7144312858581543
+      ]
+    },
+    {
+      "id": 11,
+      "all_vertices": 782,
+      "head_vertices": 782,
+      "low": [
+        -0.0795305073261261,
+        0.04943818598985672,
+        1.6164147853851318
+      ],
+      "high": [
+        -0.01848502829670906,
+        0.09844648838043213,
+        1.7187303304672241
+      ]
+    },
+    {
+      "id": 12,
+      "all_vertices": 714,
+      "head_vertices": 714,
+      "low": [
+        -0.10790370404720306,
+        0.015046381391584873,
+        1.6361899375915527
+      ],
+      "high": [
+        -0.007307680789381266,
+        0.054596927016973495,
+        1.724748969078064
+      ]
+    },
+    {
+      "id": 13,
+      "all_vertices": 644,
+      "head_vertices": 644,
+      "low": [
+        -0.014186045154929161,
+        0.039980459958314896,
+        1.7109922170639038
+      ],
+      "high": [
+        0.016766564920544624,
+        0.07523204386234283,
+        1.7539819478988647
+      ]
+    },
+    {
+      "id": 14,
+      "all_vertices": 598,
+      "head_vertices": 598,
+      "low": [
+        0.01590678282082081,
+        -0.020205175504088402,
+        1.656825304031372
+      ],
+      "high": [
+        0.10016665607690811,
+        0.006448487751185894,
+        1.717010736465454
+      ]
+    },
+    {
+      "id": 24,
+      "all_vertices": 260,
+      "head_vertices": 108,
+      "low": [
+        -0.020204657688736916,
+        -0.02622375637292862,
+        1.54075288772583
+      ],
+      "high": [
+        0.014187137596309185,
+        0.0012896871194243431,
+        1.5493507385253906
+      ]
+    },
+    {
+      "id": 26,
+      "all_vertices": 136,
+      "head_vertices": 136,
+      "low": [
+        -0.041699498891830444,
+        -0.04857843741774559,
+        1.5889012813568115
+      ],
+      "high": [
+        -0.028802571818232536,
+        -0.04255986586213112,
+        1.6043776273727417
+      ]
+    },
+    {
+      "id": 27,
+      "all_vertices": 130,
+      "head_vertices": 130,
+      "low": [
+        0.022785115987062454,
+        -0.04771862179040909,
+        1.5889012813568115
+      ],
+      "high": [
+        0.035682033747434616,
+        -0.04255983605980873,
+        1.6043777465820312
+      ]
+    },
+    {
+      "id": 28,
+      "all_vertices": 116,
+      "head_vertices": 116,
+      "low": [
+        -0.062334559857845306,
+        -0.06663411110639572,
+        1.5974992513656616
+      ],
+      "high": [
+        -0.013326256535947323,
+        -0.03826090320944786,
+        1.615554928779602
+      ]
+    },
+    {
+      "id": 29,
+      "all_vertices": 114,
+      "head_vertices": 114,
+      "low": [
+        0.0073088183999061584,
+        -0.06663411855697632,
+        1.5983589887619019
+      ],
+      "high": [
+        0.055457327514886856,
+        -0.038260865956544876,
+        1.6155550479888916
+      ]
+    },
+    {
+      "id": 30,
+      "all_vertices": 37,
+      "head_vertices": 37,
+      "low": [
+        -0.04943765327334404,
+        -0.053737200796604156,
+        1.5932003259658813
+      ],
+      "high": [
+        -0.01934482902288437,
+        -0.044279471039772034,
+        1.605237603187561
+      ]
+    },
+    {
+      "id": 31,
+      "all_vertices": 37,
+      "head_vertices": 37,
+      "low": [
+        0.013327374123036861,
+        -0.053737182170152664,
+        1.5932002067565918
+      ],
+      "high": [
+        0.04342018812894821,
+        -0.04427943006157875,
+        1.6052374839782715
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "path": "texture-front.png",
+      "sha256": "205f1a361525bbdfd02d02be3e2490f2bd4cc78bacba497c706d881d7daa4d09"
+    },
+    {
+      "path": "texture-threequarter.png",
+      "sha256": "7f6025e8098c4e0a9893993b0d16ba022e2edff17d5f178fe8bbc2a7a6d2d27a"
+    },
+    {
+      "path": "texture-side.png",
+      "sha256": "3ab1c22a9430aca63520d544f5189a711f2c6f1621d5652b304b7f71f4820385"
+    },
+    {
+      "path": "material-front.png",
+      "sha256": "9bdd6e29f50be91cf97fba6a6b9c33f61497c8a2bd93c53aa7b0ae6f2a4339a2"
+    },
+    {
+      "path": "material-threequarter.png",
+      "sha256": "eb3038be8fdb598c075d0bc9071e9b04e547ec9168650743d3fcd0a4b9bbc9ba"
+    },
+    {
+      "path": "material-side.png",
+      "sha256": "56fa9dabfca74f6041847a1bc4d828f58a912775d4986fc831ad0a9a9bd8948e"
+    },
+    {
+      "path": "vertex-front.png",
+      "sha256": "4ed455f96f8c77edcac44318bd53243cab47a539c3c20ea03d18e135fd826e19"
+    },
+    {
+      "path": "vertex-threequarter.png",
+      "sha256": "bfbe570014445b319586e71399ba311e33e6fa099bec19eb7b368b9a3e615c4a"
+    },
+    {
+      "path": "vertex-side.png",
+      "sha256": "6aef3fecb80b3c8b70b1c5a074e810711d44968497ea54ef146a465286430f4b"
+    },
+    {
+      "path": "wireframe-front.png",
+      "sha256": "8a05af0aad98d731577b6cf8a77520f5fd5c76e471bd5cc2ad974812b290fc18"
+    },
+    {
+      "path": "wireframe-threequarter.png",
+      "sha256": "62820c0cc7de49310cbe3d3939b5f32539534f6c161c5f41cd4e758edffd9ac8"
+    },
+    {
+      "path": "wireframe-side.png",
+      "sha256": "dd609788b50a802e4b59d71f7c9902358edfc7ec0bc2d5fb119237005bab71fb"
+    }
+  ],
+  "source_geometry_or_weights_modified": false,
+  "eyelid_mouth_semantics": "UNREVIEWED; no Blink/viseme groups or shapes created",
+  "diagnostic_wire_repair": "Disabled even-offset wire miters on thin triangles; source geometry unchanged; rejected diagnostic captures retained."
+}

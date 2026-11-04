@@ -1,0 +1,63 @@
+{
+  "status": "MEASURED_SHADING_DIAGNOSIS",
+  "phases": [
+    {
+      "blink": 0,
+      "skin_faces": 280,
+      "flipped_skin_faces_vs_neutral": [],
+      "mean_custom_vs_automatic_normal_degrees": 0.0,
+      "max_custom_vs_automatic_normal_degrees": 0.0
+    },
+    {
+      "blink": 0.5,
+      "skin_faces": 280,
+      "flipped_skin_faces_vs_neutral": [
+        51183,
+        51220,
+        51235,
+        51251,
+        51278,
+        51279,
+        51429,
+        51436,
+        51470,
+        51504,
+        51540
+      ],
+      "mean_custom_vs_automatic_normal_degrees": 0.0,
+      "max_custom_vs_automatic_normal_degrees": 0.0
+    },
+    {
+      "blink": 1,
+      "skin_faces": 280,
+      "flipped_skin_faces_vs_neutral": [
+        51170,
+        51183,
+        51184,
+        51199,
+        51205,
+        51220,
+        51235,
+        51241,
+        51242,
+        51251,
+        51278,
+        51279,
+        51288,
+        51290,
+        51410,
+        51429,
+        51436,
+        51470,
+        51472,
+        51504,
+        51505,
+        51519,
+        51539,
+        51540
+      ],
+      "mean_custom_vs_automatic_normal_degrees": 0.0,
+      "max_custom_vs_automatic_normal_degrees": 0.0
+    }
+  ]
+}

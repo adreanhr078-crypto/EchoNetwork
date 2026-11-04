@@ -1,0 +1,28 @@
+{
+  "status": "OWNER_ACCEPTED_BASE_DECODED_ASSISTANT_VISUAL_REVIEW_PENDING",
+  "flow_asset_id": "0024b552-83e2-456f-af38-43d823cb868d",
+  "sha256": "9d77073ea2d9e51d83ae2aa4887cd0a2bc474851a9358aa52b610b7f63f1c682",
+  "duration": "10.026667",
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "24/1"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "aac",
+      "r_frame_rate": "0/0",
+      "sample_rate": "48000",
+      "channels": 2
+    }
+  ],
+  "review_frames": 20,
+  "owner_acceptance": "User explicitly said video is excellent and accepted;requested matching facial rig and additional tears/pupil dilation/longer hysterical facial laughter.",
+  "model": "Omni1.1Flash",
+  "new_user_preference": "Always Omni for Flow",
+  "source_unchanged": true,
+  "audio_assistant_review": "Decoded;auditory inspection not yet established"
+}

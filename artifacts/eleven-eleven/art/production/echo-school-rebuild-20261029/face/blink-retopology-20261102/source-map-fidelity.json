@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "original_three_maps": {
+    "basecolor": {
+      "source_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "candidate_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "pixel_exact": true,
+      "source_decoded_sha256": "f5f32680248f6d59d72529b49cbf343f100f64118a21706852ca8919ab63a99d",
+      "candidate_decoded_sha256": "f5f32680248f6d59d72529b49cbf343f100f64118a21706852ca8919ab63a99d"
+    },
+    "normal": {
+      "source_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "candidate_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "pixel_exact": true,
+      "source_decoded_sha256": "58fae11fd9e48f356b23114f15feb6eb3e2699628fd2b4b4ec0750b845ef7c25",
+      "candidate_decoded_sha256": "58fae11fd9e48f356b23114f15feb6eb3e2699628fd2b4b4ec0750b845ef7c25"
+    },
+    "metallic_roughness": {
+      "source_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "candidate_shape": [
+        4096,
+        4096,
+        4
+      ],
+      "pixel_exact": true,
+      "source_decoded_sha256": "d42817bccbd712c0075687c183fd51c66b8e5d12a700fa6a3ea3d2bf62c5b54e",
+      "candidate_decoded_sha256": "d42817bccbd712c0075687c183fd51c66b8e5d12a700fa6a3ea3d2bf62c5b54e"
+    }
+  },
+  "new_skin_atlas": "Additional512x256localderivative;originalmapsarecomparedseparately",
+  "source_glb_sha256": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+  "diagnostic_glb_sha256": "ac38589cc8a115b1589060b8bec952aab324a3846d2e8fd0125e0733f37470dc"
+}

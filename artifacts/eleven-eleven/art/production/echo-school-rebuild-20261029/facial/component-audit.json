@@ -1,0 +1,357 @@
+{
+  "status": "READ_ONLY_COMPONENT_AUDIT",
+  "source_blend_sha256": "6be4a91050c5457b0b68287bb9b47aea0b3bc33cc6f894dbcac27a6eec642d48",
+  "virtual_weld_epsilon_m": 1e-06,
+  "actual_source_welded": false,
+  "total_components": 32,
+  "body_vertices": 108934,
+  "albedo_image": "echo-school-p2-pbr-rig_basecolor.jpg",
+  "head_components": [
+    {
+      "component": 30,
+      "vertices_with_uv_splits": 59373,
+      "unique_points": 13867,
+      "bounds_min": [
+        -0.5567170497692537,
+        -0.12510013613357832,
+        0.9517930662669534
+      ],
+      "bounds_max": [
+        0.557577329313743,
+        0.1534733732169427,
+        1.7445240670165658
+      ],
+      "face_front_roi_vertices": 9491,
+      "face_roi_mean_rgb": [
+        0.45284411311149597,
+        0.43735188245773315,
+        0.4498152732849121
+      ],
+      "first_vertex": 576
+    },
+    {
+      "component": 16,
+      "vertices_with_uv_splits": 551,
+      "unique_points": 147,
+      "bounds_min": [
+        -0.026223498353913396,
+        -0.05287737170891935,
+        1.529575417722842
+      ],
+      "bounds_max": [
+        0.02020543912021624,
+        -0.013326801238099453,
+        1.5570888588204694
+      ],
+      "face_front_roi_vertices": 547,
+      "face_roi_mean_rgb": [
+        0.8061320781707764,
+        0.6790376901626587,
+        0.6688059568405151
+      ],
+      "first_vertex": 1872
+    },
+    {
+      "component": 13,
+      "vertices_with_uv_splits": 260,
+      "unique_points": 64,
+      "bounds_min": [
+        -0.020204935241365067,
+        -0.047718596629734114,
+        1.5355939828004477
+      ],
+      "bounds_max": [
+        0.014186869863015525,
+        0.0012897131114443492,
+        1.552789881846374
+      ],
+      "face_front_roi_vertices": 160,
+      "face_roi_mean_rgb": [
+        0.6745338439941406,
+        0.43951016664505005,
+        0.43455901741981506
+      ],
+      "first_vertex": 1878
+    },
+    {
+      "component": 9,
+      "vertices_with_uv_splits": 136,
+      "unique_points": 39,
+      "bounds_min": [
+        -0.04169979739839485,
+        -0.04857839755582539,
+        1.5889011718507946
+      ],
+      "bounds_max": [
+        -0.028802868810888036,
+        -0.04255982894932356,
+        1.6043774827084933
+      ],
+      "face_front_roi_vertices": 136,
+      "face_roi_mean_rgb": [
+        0.471626341342926,
+        0.46995413303375244,
+        0.5063442587852478
+      ],
+      "first_vertex": 3249
+    },
+    {
+      "component": 19,
+      "vertices_with_uv_splits": 130,
+      "unique_points": 37,
+      "bounds_min": [
+        0.022784833692086705,
+        -0.04771859129875407,
+        1.5889010612837942
+      ],
+      "bounds_max": [
+        0.03568176301062466,
+        -0.042559813826348956,
+        1.604377581428881
+      ],
+      "face_front_roi_vertices": 130,
+      "face_roi_mean_rgb": [
+        0.5622325539588928,
+        0.5760184526443481,
+        0.6210562586784363
+      ],
+      "first_vertex": 10683
+    },
+    {
+      "component": 8,
+      "vertices_with_uv_splits": 116,
+      "unique_points": 43,
+      "bounds_min": [
+        -0.06233486914125776,
+        -0.06663407961092768,
+        1.5974991211784482
+      ],
+      "bounds_max": [
+        -0.013326552446016068,
+        -0.03826086192270912,
+        1.6155548199141752
+      ],
+      "face_front_roi_vertices": 116,
+      "face_roi_mean_rgb": [
+        0.433874249458313,
+        0.40351584553718567,
+        0.40679511427879333
+      ],
+      "first_vertex": 2430
+    },
+    {
+      "component": 21,
+      "vertices_with_uv_splits": 114,
+      "unique_points": 43,
+      "bounds_min": [
+        0.0073085283986572954,
+        -0.06663408128799368,
+        1.5983589141738785
+      ],
+      "bounds_max": [
+        0.05545705399368449,
+        -0.03826083803263172,
+        1.615554809236636
+      ],
+      "face_front_roi_vertices": 114,
+      "face_roi_mean_rgb": [
+        0.504300057888031,
+        0.45583096146583557,
+        0.4501892924308777
+      ],
+      "first_vertex": 10437
+    },
+    {
+      "component": 10,
+      "vertices_with_uv_splits": 37,
+      "unique_points": 20,
+      "bounds_min": [
+        -0.049437954241175044,
+        -0.05373716563034185,
+        1.593200146051151
+      ],
+      "bounds_max": [
+        -0.019345123146336525,
+        -0.044279423688414594,
+        1.6052372787462879
+      ],
+      "face_front_roi_vertices": 37,
+      "face_roi_mean_rgb": [
+        0.5564387440681458,
+        0.5364070534706116,
+        0.5338632464408875
+      ],
+      "first_vertex": 3387
+    },
+    {
+      "component": 20,
+      "vertices_with_uv_splits": 37,
+      "unique_points": 20,
+      "bounds_min": [
+        0.01332709088059892,
+        -0.05373715388101931,
+        1.5932000381340505
+      ],
+      "bounds_max": [
+        0.04341991494887708,
+        -0.04427940157550326,
+        1.6052372706003548
+      ],
+      "face_front_roi_vertices": 37,
+      "face_roi_mean_rgb": [
+        0.49305781722068787,
+        0.4800211489200592,
+        0.48097512125968933
+      ],
+      "first_vertex": 10545
+    },
+    {
+      "component": 22,
+      "vertices_with_uv_splits": 1440,
+      "unique_points": 350,
+      "bounds_min": [
+        0.016766277624397613,
+        -0.023644319952541463,
+        1.594059928457765
+      ],
+      "bounds_max": [
+        0.10790454225556284,
+        0.02966297561484811,
+        1.7144312371651085
+      ],
+      "face_front_roi_vertices": 36,
+      "face_roi_mean_rgb": [
+        0.23769068717956543,
+        0.24041397869586945,
+        0.265359491109848
+      ],
+      "first_vertex": 11178
+    },
+    {
+      "component": 7,
+      "vertices_with_uv_splits": 782,
+      "unique_points": 187,
+      "bounds_min": [
+        -0.07953080813523523,
+        0.0494382368468783,
+        1.6164147157000388
+      ],
+      "bounds_max": [
+        -0.018485335128503377,
+        0.09844653737194667,
+        1.71873021515764
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 7710
+    },
+    {
+      "component": 11,
+      "vertices_with_uv_splits": 714,
+      "unique_points": 175,
+      "bounds_min": [
+        -0.10790402573521232,
+        0.015046432064846255,
+        1.6361897955542979
+      ],
+      "bounds_max": [
+        -0.007307991585586368,
+        0.05459698635432392,
+        1.7247487815130622
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 7419
+    },
+    {
+      "component": 12,
+      "vertices_with_uv_splits": 644,
+      "unique_points": 154,
+      "bounds_min": [
+        -0.014186358524854075,
+        0.03998050151156411,
+        1.7109920570608685
+      ],
+      "bounds_max": [
+        0.01676626456116642,
+        0.07523209004814138,
+        1.753981808860318
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 8730
+    },
+    {
+      "component": 14,
+      "vertices_with_uv_splits": 4030,
+      "unique_points": 972,
+      "bounds_min": [
+        -0.09758647848226883,
+        -0.004728826586246447,
+        1.6843385092418297
+      ],
+      "bounds_max": [
+        0.10360556834077717,
+        0.05545681745193409,
+        1.7600003745700539
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 8202
+    },
+    {
+      "component": 15,
+      "vertices_with_uv_splits": 169,
+      "unique_points": 45,
+      "bounds_min": [
+        0.00558890699106293,
+        -0.04341963152115384,
+        1.42382062798831
+      ],
+      "bounds_max": [
+        0.05545701277274662,
+        0.005588687031870767,
+        1.4805670947034562
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 9945
+    },
+    {
+      "component": 23,
+      "vertices_with_uv_splits": 11855,
+      "unique_points": 2847,
+      "bounds_min": [
+        -0.099306089414708,
+        -0.021924732916081623,
+        1.5983590070566043
+      ],
+      "bounds_max": [
+        0.10446535790142043,
+        0.13885692960921206,
+        1.7402250880225487
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 7650
+    },
+    {
+      "component": 24,
+      "vertices_with_uv_splits": 598,
+      "unique_points": 146,
+      "bounds_min": [
+        0.015906480086009925,
+        -0.02020514247423937,
+        1.6568250692325648
+      ],
+      "bounds_max": [
+        0.10016639333475492,
+        0.00644851145331161,
+        1.7170106226384483
+      ],
+      "face_front_roi_vertices": 0,
+      "face_roi_mean_rgb": [],
+      "first_vertex": 13329
+    }
+  ]
+}
