@@ -348,5 +348,38 @@
     }
   ],
   "backup": "Local index and patch snapshots outside repository under current Codex workspace work/repo-cleanup; not a remote backup claim",
-  "secret_scan": "Known token/private-key patterns in tracked/untracked text under3MB: zero matches. Not a comprehensive security audit."
+  "secret_scan": "Known token/private-key patterns in tracked/untracked text under3MB: zero matches. Not a comprehensive security audit.",
+  "publication": {
+    "verified_utc": "2026-11-04T13:24:52.954931+00:00",
+    "production_sync_commit": "278843a6a2afc663c9af6e1ae4b5287ed36617ba",
+    "batches": 9,
+    "temporary_branch_removed": true,
+    "method": "bounded forward commits/pushes;LFS hook retained;remoteSHA checked after each batch;no force/history rewrite",
+    "note": "This receipt records the verified production sync commit;the receipt itself is committed afterward."
+  },
+  "checks": {
+    "preflight": "PASS",
+    "postflight": "PASS",
+    "repo_hygiene": "PASS zero tracked generated violations",
+    "climb_30_60Hz": "PASS16",
+    "large_file_index": "PASS all8 actual>100MiB files backed by smaller Git blobs",
+    "source_whitespace": "PASS excludes byte-preserved archived/raw captures",
+    "full_historical_whitespace_and_LFS_fsck": "NOT_CLAIMED;raw whitespace retained;full-history fsck not completed;LFS publication itself completed through normal hooks",
+    "art_audio_fun_device_chapter": "OPEN no new runtime integration or art acceptance"
+  },
+  "lfs_rule_simplification": {
+    "removed_redundant_rules": 215,
+    "all_index_paths_checked": 53148,
+    "all_attributes_byte_identical": true,
+    "attributes_sha256": "868c91c98c43d26e6eab507b9a501f043127bafa771c952a3fd8a29538ef4af5",
+    "before_bytes": 177691,
+    "after_bytes": 148213,
+    "preserved_final_extension_rules": [
+      "blend",
+      "glb",
+      "fbx",
+      "mp4",
+      "webm"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checkpoint": "OWNER_STUDY_PLAN_ONLY_CINEMATIC_REBUILD_20261103",
+  "checkpoint": "REPOSITORY_CLEANUP_PUBLISHED_MASTER_PLAN_READY_20261104",
   "read_policy": "Read only hashes foraffectedfiles;invalidate changed sources,not wholehistory",
   "files": {
     "art/production/echo-contract-rebuild-20261101/production-packet.json": "4cdc27cd1f03aa3bd4826357cd393f86cd3732ca66136d5277af2ed4feab49b7",
@@ -168,9 +168,9 @@
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/shading-diagnosis.json": "4192bc8ea4f2f9a6147975874f3c8e7cd7794781f77e86260b74d2998f6c49ed",
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/source-iris-occlusion-reference.json": "1b7cd108a54be59a45232bb73c1c5879fa1d5cd991da4593e532aafd72ccf662",
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/source-map-fidelity.json": "2f496a9f0a5ad7d31a55dd02eb3f01b56e6d862a2330a749319f12d17ab1b547",
-    "docs/11-11/design/CONTINUATION.md": "a4f1075944c558c4929e024dbc8060379e5e79e39c9307299c13416410355983",
-    "docs/internal/production/CURRENT_CONTEXT_CACHE.json": "5c03aa5ff8b36f0d64749526fa255b3c17dbdc260bed221ce03a413c9dd575a8",
-    "docs/internal/production/CURRENT_WORK.ar.md": "35651645eca551fbd2452f4f9b9ddee6635ab01a11b4fb6338e9e3c217d97067",
+    "docs/11-11/design/CONTINUATION.md": "ea8140c022a294d8b876cb0ab38e10482fef747c09337bdbbbd64f8cdb287e7c",
+    "docs/internal/production/CURRENT_CONTEXT_CACHE.json": "3eba4778c51ee49e019bbed1129305fb1ef661e921e7974a456564bd59e6099c",
+    "docs/internal/production/CURRENT_WORK.ar.md": "b1ced71cdb2551569361aa1337babef775991fa82b876075ec9587d4b852f4e9",
     "docs/internal/production/WORK_TREE.ar.md": "2053d14fc7419d0213677f41b77cc2f96c996e43bd129a5ac012a633e902bb7c",
     "tools/character-lab/bake_blink_skin_atlas.py": "125e8449310b0c44868d85c955156743f9ebc16b2f4c83a5350d9417e6e04330",
     "tools/character-lab/blink_blender_reference.py": "a838490885079908cc2e057dfa230bd4092bb59948de879995226f59869eb6aa",
@@ -277,14 +277,14 @@
     "audits/evidence/experience-rebuild-20261103/quality-report.json": "498acd6d50a6224d0ed17232889d6e53335d363abc80f760246d6323266763d2",
     "docs/internal/production/CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md": "42f1fd36073d61ccf51d5417d76b1096cef4dea46355728d2e69d14a85979867",
     "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json": "3dee038a1714672a43c16633b6adecf14f525c0a334eef32ebacc82de13b455e",
-    "docs/project-memory.json": "2a37a7dd4ee224d1bce844c1cdeb95d041518f345f078834f952781f7b333210",
-    "docs/PROJECT_VISION.md": "bfe0cbe56a03227b74ea1800b094ed516c5c8f40092d48ea4b9755845b07446b",
+    "docs/project-memory.json": "f31a5c3a8472290defa5bde6168c00b5be5d9f81d485461b5c878d31f110849d",
+    "docs/PROJECT_VISION.md": "047cbb24454b739aba3cb9350d45f78c16d3ba8d04a78762b1bc675e55d7744c",
     "docs/internal/production/BENCHMARK_STUDY_UPDATE_2026-11-03.ar.md": "2eb96f7078f5ed2a815c93c6ff9d49025e39bb3fd537be2075d6f63dd1c1ed9e",
     "docs/internal/production/ASTA_POWER_COST_STUDY_2026-11-04.ar.md": "f88500b63f922dcaf0a747728376d363cd278dc2d66b46d55e02a50357d00b14",
     "docs/internal/production/TOOLING_AUDIT_2026-11-04.json": "2ff4ac7a2ce008fa6e31c373ce1cfb7edf2930ceae531313ab504c0d135969d8",
     "docs/internal/production/TOOLING_AND_PRODUCTION_CAPACITY_2026-11-04.ar.md": "bbf2badbd0feeee59b08e2d5c27acc90b4ee9f3132fdcdc9e927f3c6f1642d04",
     "docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md": "e9e92c75389ae0c145c4b1bd78190a20cea8806425fd693dbb8c79bc1817cbe5",
-    "docs/internal/production/REPOSITORY_CLEANUP_2026-11-04.json": "a42bffaa1fd497e8545c6eee88265f66cd4614101018b14baf1392f3a0bd42c1"
+    "docs/internal/production/REPOSITORY_CLEANUP_2026-11-04.json": "c75f3b395df1ecfb213f92ccd720b25860cb187c0f7c25eb6da259cc318abf0e"
   },
   "updated_utc": "2026-11-02T20:20:18.418651+00:00",
   "updated": "2026-11-03T13:44:38.131204+00:00"

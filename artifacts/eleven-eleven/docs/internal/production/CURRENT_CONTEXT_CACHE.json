@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-04T12:48:06.918552+00:00",
-  "checkpoint": "REPOSITORY_ORGANIZED_MASTER_PLAN_PREPARED_20261104",
+  "updated": "2026-11-04T13:24:52.954931+00:00",
+  "checkpoint": "REPOSITORY_CLEANUP_PUBLISHED_MASTER_PLAN_READY_20261104",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -46,13 +46,11 @@
   },
   "limits": "Allroom art/fun/audio/device/chapter acceptance OPEN;prior IntelUHD fullworld Forward+ failure retained;V31default;9381staged untouched",
   "next": [
-    "Finish authorized repository publication with LFS and remote SHA verification,then deliver consolidated plan;no new runtime work until prerequisite handoff.",
-    "Experience plan A/C/D next: real room owner-position replay and native account entry; preserve all passed gates, then source-qualified traversal/new course/room01 missions/cinematics/audio.",
-    "Finish NEW heavy56 nativeGodot actualvisual review,thenPacttarget andtwo-palmgrip/contact beforeanyruntimeuse",
-    "DistinctIai draw stillneedscompatible short source;localSword/Samurai100Hz longtakes cached inlocal-sword-source-candidates.json,not accepted",
-    "EX011 source-writing cleanup/legibility:actualPactnative ink report only62pixels at4K,geometrybindingPASS isnotartlegibility",
-    "Room-by-room art/fun/audio/performance/device andchapteracceptance stillOPEN;face deferred byOwner",
-    "Preserve qualifiedZIP/sourcehashes/index;no paidgeneration/stage/commit/push;ROOT_ONLY/minimalArabic"
+    "Deliver master plan after verified repository sync 278843a6a2afc663c9af6e1ae4b5287ed36617ba",
+    "Verify Owner Starter/Protrial activation and live cost before generation;REAPER evaluation first",
+    "Qualify bounded Japanese voice and motion/export/contact samples;choose CascadeurIndie/Pro from result",
+    "Signature chair→ocean→pact→transformation→contact animatic,then playable slice before broad production",
+    "Canon/Golden/V31/EX011/server authority/SFX_ONLY and art/audio/fun/device gates remain protected/open;ROOT_ONLY"
   ],
   "hash_manifest": "docs/internal/production/CURRENT_CONTEXT_SOURCE_HASHES.json",
   "wake": {
@@ -316,8 +314,19 @@
     "generated_bytes": 6204334175,
     "local_files_retained": true,
     "history_rewritten": false,
-    "publication": "PENDING_VERIFICATION",
+    "publication": "VERIFIED_PRODUCTION_SYNC_REMOTE_MAIN",
     "checks": "preflight/postflight PASS;hygiene zero;climb16 PASS30/60;source whitespace PASS excluding byte-preserved historical captures;all8 actual>100MiB files use smaller Git blobs",
-    "next": "publish qualified work;then voice/motion qualification and signature animatic before production expansion"
-  }
+    "next": "Deliver master plan;then verify owner subscription activation and qualify voice/motion samples before new runtime production",
+    "published_production_commit": "278843a6a2afc663c9af6e1ae4b5287ed36617ba",
+    "batches": 9,
+    "temporary_branch_removed": true,
+    "lfs_redundant_rules_removed": 215
+  },
+  "prior_technical_queue_20261104": [
+    "Experience plan A/C/D next: real room owner-position replay and native account entry; preserve all passed gates, then source-qualified traversal/new course/room01 missions/cinematics/audio.",
+    "Finish NEW heavy56 nativeGodot actualvisual review,thenPacttarget andtwo-palmgrip/contact beforeanyruntimeuse",
+    "DistinctIai draw stillneedscompatible short source;localSword/Samurai100Hz longtakes cached inlocal-sword-source-candidates.json,not accepted",
+    "EX011 source-writing cleanup/legibility:actualPactnative ink report only62pixels at4K,geometrybindingPASS isnotartlegibility",
+    "Room-by-room art/fun/audio/performance/device andchapteracceptance stillOPEN;face deferred byOwner"
+  ]
 }
