@@ -1,0 +1,2659 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "status": "COMPREHENSIVE_PLAN_NOT_RUNTIME_ACCEPTANCE",
+  "phase_count": 40,
+  "requirement_count": 127,
+  "requirements": [
+    {
+      "id": "R001",
+      "requirement_ar": "جمع كل الخطط والاتفاقات في خطة واحدة مفصلة",
+      "primary_phase": "P01",
+      "acceptance_ar": "لا مطلب ظاهر في هذه المحادثة بلا مرجع ومرحلة وقبول",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R002",
+      "requirement_ar": "تنظيف الشجرة وترتيب المستودع ورفع التعديلات أولًا",
+      "primary_phase": "P00",
+      "acceptance_ar": "إيصال GitHub ومطابقةSHAونظافةGit،مع حفظ الأصول",
+      "status": "VERIFIED_PRIOR_GATE_WITH_CONTINUING_POLICY",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R003",
+      "requirement_ar": "الكاش والتخزين المؤقت وتقليل إعادة قراءة السياق",
+      "primary_phase": "P00",
+      "acceptance_ar": "بطاقة وكاش وبصمات؛لا وعد بتحكم بكاش المزود أوتصفير السياق",
+      "status": "VERIFIED_PRIOR_GATE_WITH_CONTINUING_POLICY",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R004",
+      "requirement_ar": "توفير الاستخدام مع الجودة وإعادة استعمال السليم",
+      "primary_phase": "P04",
+      "acceptance_ar": "سبب وتكلفة وقرار لكل محاولة وعدم إعادة توليد السليم",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R005",
+      "requirement_ar": "تقييم الأدوات وتنزيل المفيد وتأهيله لكل المراحل",
+      "primary_phase": "P04",
+      "acceptance_ar": "عينة وتوافق وترخيص قبل الاشتراك الطويل؛المالك ينجز الدفع",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R006",
+      "requirement_ar": "اعتبار Flow وTripo وBlender أدوات موجودة",
+      "primary_phase": "P04",
+      "acceptance_ar": "عدم طلب شراءها ثانية،والتحقق الحي منالحسابوالرصيدقبلالصرف",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R007",
+      "requirement_ar": "حسابات Flow الخمسة المبلغ عنها وحدود تحقق الأرصدة",
+      "primary_phase": "P04",
+      "acceptance_ar": "حساب واحد1050رُصد سابقًا؛لااعتبار5000رصيدًا متحققًا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R008",
+      "requirement_ar": "إنتاج العناصر والملابس والشخصيات والغرف والحركات عند الحاجة",
+      "primary_phase": "P04",
+      "acceptance_ar": "إنتاجمأذونببوابةودليلوليساستنزافًاعشوائيًا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R009",
+      "requirement_ar": "تغيير جذري للمتعة والهوية والجودة",
+      "primary_phase": "P39",
+      "acceptance_ar": "تحسنمثبتباللعب،لاوعداسطوريمنخطةأواشتراك",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R010",
+      "requirement_ar": "استبدال المهام غير الممتعة",
+      "primary_phase": "P24",
+      "acceptance_ar": "قراروفعلونتيجة،وتجربةلاعبغيرموجه",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R011",
+      "requirement_ar": "حفظ معمار الغرفة الأولى وتحسين مهامها",
+      "primary_phase": "P24",
+      "acceptance_ar": "حفظالمعماروتغييرالمهماتالفاشلة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R012",
+      "requirement_ar": "كيانات ومواجهات وقتالات ذات أدوار ممتعة",
+      "primary_phase": "P27",
+      "acceptance_ar": "دوروسلوكوقراءةومقاومةوتفاعل،لاعددأعداءاعتباطي",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R013",
+      "requirement_ar": "تشوه ظهر إيكو الأسود",
+      "primary_phase": "P07",
+      "acceptance_ar": "مراجعةالحاليزواياوحركاتوجودات؛الإصلاحالسابقمحدود",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R014",
+      "requirement_ar": "استجابة E وصمام التنفيس",
+      "primary_phase": "P11",
+      "acceptance_ar": "تطابقالتنبيهوالأهليةوالضغطالأولوالمدىوالزاوية",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R015",
+      "requirement_ar": "إزالة جمود التحكم وتحسين الترابط والمرونة",
+      "primary_phase": "P11",
+      "acceptance_ar": "تسارعوفرملةوالتفافواستئنافوإلغاءمقروءة",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R016",
+      "requirement_ar": "قفزة عادية واضحة",
+      "primary_phase": "P12",
+      "acceptance_ar": "مدخلووظيفةوقوسوهبوطواضحة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R017",
+      "requirement_ar": "قفزة باركور مختلفة وأقوى بأنيميشن خاص",
+      "primary_phase": "P12",
+      "acceptance_ar": "فرقعمليوبصريحقيقيلااستبدالصورةفقط",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R018",
+      "requirement_ar": "تسلق للأعلى بعد القفز بالاستمرار للأمام",
+      "primary_phase": "P13",
+      "acceptance_ar": "إمساكوصعودوحافةبمرونةدونحدّةأوقفزموضع",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R019",
+      "requirement_ar": "تماس اليد والقدم ووزن الجسم أثناء التسلق",
+      "primary_phase": "P13",
+      "acceptance_ar": "وزنوارتكازوعدمعبورأوانزلاقومراجعةفياللعب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R020",
+      "requirement_ar": "كاميرا محترفة للباركور",
+      "primary_phase": "P14",
+      "acceptance_ar": "كشفالهبوطومنعالحجبوتوقعالاتجاهوتصادممقبول",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R021",
+      "requirement_ar": "تعليمات التحكم والأفعال",
+      "primary_phase": "P11",
+      "acceptance_ar": "تعليمتدريجيوإشاراتتتوافقمعالربطالحالي",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R022",
+      "requirement_ar": "إعادة تعيين الأزرار والحساسية والحفظ",
+      "primary_phase": "P21",
+      "acceptance_ar": "خياراتفعليةمحفوظةورفضتعارضواستعادةأصل",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R023",
+      "requirement_ar": "إعادة إنشاء غرفة الباركور الضعيفة",
+      "primary_phase": "P25",
+      "acceptance_ar": "إعادةتخطيطجذريةثمفن،لازخرفةنفسالمسار",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R024",
+      "requirement_ar": "مسار أفقي طويل لا ينتهي بعشر ثوانٍ",
+      "primary_phase": "P25",
+      "acceptance_ar": "مدةمنالتنوعوالإتقانلاالانتظارأوالمشيفارغًا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R025",
+      "requirement_ar": "عنصر النار في الباركور",
+      "primary_phase": "P26",
+      "acceptance_ar": "خطرمقروءوضغطتوقيتومقابلبصريوسمعي",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R026",
+      "requirement_ar": "عنصر الكهرباء في الباركور",
+      "primary_phase": "P26",
+      "acceptance_ar": "قراءةدورةوتوقيتوفعل مختلفعنالنار",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R027",
+      "requirement_ar": "عنصر الرياح في الباركور",
+      "primary_phase": "P26",
+      "acceptance_ar": "دفعومساروقرارمختلفلاطلاءلوني",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R028",
+      "requirement_ar": "تنوع وتأثيرات وعناصر مع متعة فعلية",
+      "primary_phase": "P26",
+      "acceptance_ar": "كثافةمقروءةوفروعوراحةوتحداختياريدونحجباللاعب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R029",
+      "requirement_ar": "أنيميشن ومؤثرات وصوت فتح البوابات",
+      "primary_phase": "P23",
+      "acceptance_ar": "تحضيرووزنوحركةوصوتوصدمةواستجابةمترابطة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R030",
+      "requirement_ar": "الماء الأسود على الأرض",
+      "primary_phase": "P22",
+      "acceptance_ar": "إعادةإنتاجالعيبوسببهوبديلالانعكاسوالجودةوالزاوية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R031",
+      "requirement_ar": "مراجعة كل غرفة وتحديد ما يحتاج إعادة بناء",
+      "primary_phase": "P27",
+      "acceptance_ar": "قرارمكتوبلكلغرفة؛حفظالجيدوإعادةالبناءحينيفشلإصلاحبنيوي",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R032",
+      "requirement_ar": "جودة مواد الغرف والأجهزة والإضاءة",
+      "primary_phase": "P10",
+      "acceptance_ar": "هويةموحدةوتباينوقراءةوموادمميزةداخللعبمقاس",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R033",
+      "requirement_ar": "استبدال الأصوات البدائية المشابهة للخامة الموحدة",
+      "primary_phase": "P37",
+      "acceptance_ar": "مصادرمتنوعةومكانيةومزجوتوقيتمرتبطبالفعل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R034",
+      "requirement_ar": "خامات صوت عبر Google Flow",
+      "primary_phase": "P37",
+      "acceptance_ar": "خام مناسب بلا موسيقى وبتكلفة متحققة؛دمجه محليًا تفاعليًا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R035",
+      "requirement_ar": "الإيقاع والصوت والرهبة والانفعال",
+      "primary_phase": "P37",
+      "acceptance_ar": "استماعوأداءوصمتونفسوصوتبيئي،لالقطاتجميلةصامتة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R036",
+      "requirement_ar": "أزرار مرنة مترابطة وردود فعل متجانسة",
+      "primary_phase": "P20",
+      "acceptance_ar": "رفع/ضغط/تركيز/تعطيلوانتقالوردصوتيموحد",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R037",
+      "requirement_ar": "صقل مشهد جري إيكو الحالي",
+      "primary_phase": "P18",
+      "acceptance_ar": "احتفاظبالهويةومقارنةالتحسينببديلدونإفسادالسليم",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R038",
+      "requirement_ar": "Tab/Tap شفافة زرقاء نابضة بتأثير بسيط",
+      "primary_phase": "P18",
+      "acceptance_ar": "استجابةواضحةللفأرة/المفتاح/اللمسوبديلقلةحركة",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R039",
+      "requirement_ar": "خيار مشهد بداية أو تحميل بديل أقوى وحركة مستمرة",
+      "primary_phase": "P18",
+      "acceptance_ar": "خياربديلصريحومقارنة؛تفسيرمؤقتحلقةحركةسلسةوليسCanonجديدًا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R040",
+      "requirement_ar": "سلاسة لغز تركيب صورة الغلاف كاملًا",
+      "primary_phase": "P19",
+      "acceptance_ar": "الحركةوالحلكاملًايُراجعان،لالسحبالتقنيفقط",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R041",
+      "requirement_ar": "سحب وإفلات قطع الغلاف",
+      "primary_phase": "P19",
+      "acceptance_ar": "معاينةومكانإسقاطوتثبيت/تبديلوتراجعوإلغاءبلاعلق",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R042",
+      "requirement_ar": "خلفية مانهوا قوية ذات عمق بدل الأزرق المسطح",
+      "primary_phase": "P20",
+      "acceptance_ar": "تكوينوعمقمنفنمعتمدومقروئيةوبديلجهازضعيف",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R043",
+      "requirement_ar": "إخراج ومؤثرات شاشة الاستراحة",
+      "primary_phase": "P21",
+      "acceptance_ar": "إخراجوحركةودخولخروجمعوقفةمنسقةوقلةحركة",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R044",
+      "requirement_ar": "خيارات تحكم وإعدادات وحساب وحفظ فعلية",
+      "primary_phase": "P21",
+      "acceptance_ar": "رحلةوهدفوعرضوصوتووصولوحسابوحفظواستئناف",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R045",
+      "requirement_ar": "ضيف وFacebook وGoogle قبل البداية",
+      "primary_phase": "P17",
+      "acceptance_ar": "جلساتحقيقيةوحفظضيفوإلغاءورفضوشبكةوتبديلحساب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R046",
+      "requirement_ar": "ترتيب إشارة البداية بعد اختيار الدخول",
+      "primary_phase": "P17",
+      "acceptance_ar": "ترتيبرحلةملزمولايقفزاللاعبعليه",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R047",
+      "requirement_ar": "تحميل بين المراحل وخاصة بعد السينمائي",
+      "primary_phase": "P16",
+      "acceptance_ar": "ستارةقبلالتحريروحتىالإطارالمستقروخطأقابلللإعادة",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R048",
+      "requirement_ar": "منع تشوه العالم والسواد غير المقصود",
+      "primary_phase": "P16",
+      "acceptance_ar": "اختبارتشغيلباردوتخطٍوفقدمواردواستئناف",
+      "status": "SCOPED_PRIOR_TECHNICAL_WORK_FINAL_REVIEW_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R049",
+      "requirement_ar": "شاشة تحميل وبداية قوية ومقروءة",
+      "primary_phase": "P16",
+      "acceptance_ar": "هويةوحالةحقيقيةوسلاسةبدوننسبةمزيفةأوانتظارمصطنع",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R050",
+      "requirement_ar": "إعادة إخراج الافتتاح المرفوض",
+      "primary_phase": "P29",
+      "acceptance_ar": "فيلمجديدمخصصبإيقاعوحواروردودوتمثيل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R051",
+      "requirement_ar": "أسئلة إيكو وردود كينجا وأداء المستمع",
+      "primary_phase": "P05",
+      "acceptance_ar": "نواياوتوقيتونظروردفعل،لانصمعزرصامت",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R052",
+      "requirement_ar": "واجهة سؤال وحوار شفافة قوية",
+      "primary_phase": "P20",
+      "acceptance_ar": "نصحيواسممتحدثوترجمةوحالاتواضحةوقراراتحقيقية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R053",
+      "requirement_ar": "افتتاح بعودة إيكو من المدرسة",
+      "primary_phase": "P29",
+      "acceptance_ar": "حدثE01مربوطبالصفحةوالأداءوالكاميرا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R054",
+      "requirement_ar": "دخول المختبر وأسئلة الأب التفاعلية",
+      "primary_phase": "P29",
+      "acceptance_ar": "E02/E03واستمراريةوعلاقةأبواضحة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R055",
+      "requirement_ar": "أنيميشن جلوس إيكو على الكرسي",
+      "primary_phase": "P29",
+      "acceptance_ar": "أنيميشنجلوسوارتكازوانتقاللاقطعإلىوضعيةثابتة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R056",
+      "requirement_ar": "أفعال فشل ونجاح التجربة ثم نجاحها",
+      "primary_phase": "P29",
+      "acceptance_ar": "أفعالوتغذيةراجعةوسردمعتمدوحفظدوننهايةمخترعة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R057",
+      "requirement_ar": "دخول العالم بسينمائي ثم تحميل جاهزية",
+      "primary_phase": "P29",
+      "acceptance_ar": "تسليممرئيوملكيةتحكموستارةجاهزية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R058",
+      "requirement_ar": "منع تكرار المشهدين طوال اللعبة",
+      "primary_phase": "P36",
+      "acceptance_ar": "مادةفريدةللحدثومعرفوحفظومنعإعادةتلقائية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R059",
+      "requirement_ar": "مشاهد متعددة خاصة بالأحداث وعرض محترف",
+      "primary_phase": "P36",
+      "acceptance_ar": "كللقطةتغيرمعرفةأوشعورًاأوفعلًا؛لاعددقسري",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R060",
+      "requirement_ar": "تذكر إيكو وتعليقه أثناء المشي عند رؤية الأثر",
+      "primary_phase": "P36",
+      "acceptance_ar": "مُحفزسياقيوتوقيتوأولويةحوارومنعالإزعاج",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R061",
+      "requirement_ar": "مشهد ذاكرة خاص بشيزوكا",
+      "primary_phase": "P28",
+      "acceptance_ar": "مادةوكشفوهدفخاصبدلالفيلمالمكرر",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R062",
+      "requirement_ar": "مشهد ذاكرة مختلف خاص بيوكي",
+      "primary_phase": "P28",
+      "acceptance_ar": "معنىوصورةوحوارمختلفةللعلاقة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R063",
+      "requirement_ar": "إيكو كبير العمر حيًا في المرآة",
+      "primary_phase": "P28",
+      "acceptance_ar": "انعكاسحيومحاذاةوحركةواستجابةومصدرCanon",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R064",
+      "requirement_ar": "إعادة تصميم مهمة المختبر وسينمائياتها",
+      "primary_phase": "P30",
+      "acceptance_ar": "إعادةمنطقالتحقيقوالصراعوالأفعالواللقطاتالمخصصة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R065",
+      "requirement_ar": "كرسي وقيود وتعذيب درامي ومشاهد هجينة",
+      "primary_phase": "P30",
+      "acceptance_ar": "تمثيلقيودومقاومةوضغطوردودواستمرارية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R066",
+      "requirement_ar": "إعادة إنشاء شخصية كينجا البدائية",
+      "primary_phase": "P08",
+      "acceptance_ar": "شخصيةووجهولباسRigوأداءمؤهلان",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R067",
+      "requirement_ar": "لا سيف أو قوة قبل العقد",
+      "primary_phase": "P31",
+      "acceptance_ar": "فحصحفظوتخطيواستئنافلايسمحبقوةقبولغيرمكتسب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R068",
+      "requirement_ar": "غرق إيكو والعقد في قاع المحيط",
+      "primary_phase": "P31",
+      "acceptance_ar": "غرقوعمقوصوتوحضورزيروبلاتلخيصمخل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R069",
+      "requirement_ar": "محادثة زيرو العميقة المتسلسلة",
+      "primary_phase": "P31",
+      "acceptance_ar": "عرضواعتراضوفهموثمنوقبوللاطوافأيقونات",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R070",
+      "requirement_ar": "ضحكة إيكو الهستيرية قبل القتال",
+      "primary_phase": "P32",
+      "acceptance_ar": "نفسوتصاعدوتحولنفسيوإيقاعوردكينجا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R071",
+      "requirement_ar": "كسر الكرسي وفك القيود",
+      "primary_phase": "P32",
+      "acceptance_ar": "شد وارتكاز وكسر وتماس واستمرارية واضحة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R072",
+      "requirement_ar": "تدرج الشعر والعين والتحول إلى الهيئة المعتمدة",
+      "primary_phase": "P32",
+      "acceptance_ar": "تدرجوهويةمعتمدةلامجردتبديلموديلفوري",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R073",
+      "requirement_ar": "أول ضربة سينمائية ثم عدة ضربات للمستخدم",
+      "primary_phase": "P33",
+      "acceptance_ar": "تسليمتحكمسلسومدىووقفةصالحةوضرباتمتعددة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R074",
+      "requirement_ar": "التحام باليدين وحركات قوية واستقبال خصم",
+      "primary_phase": "P15",
+      "acceptance_ar": "مصدرحركةوردواستقبالوتماسمقروء",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R075",
+      "requirement_ar": "خنق تمثيلي بالحبل وتقييد كينجا بتفاعل سينمائي",
+      "primary_phase": "P33",
+      "acceptance_ar": "أنيميشنمخصصواستمراريةالحبلوتحكممقصود",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R076",
+      "requirement_ar": "انتقام بأداة مختبر أو حقن بعد التقييد",
+      "primary_phase": "P33",
+      "acceptance_ar": "حدثأصليمؤلفبأصولوصوتوردودلاخطواتطبيةتعليمية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R077",
+      "requirement_ar": "إيكو فوق كينجا وضربات قوية متعددة",
+      "primary_phase": "P33",
+      "acceptance_ar": "ارتكازوضرباتمتعددةومقاومةوتبعات",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R078",
+      "requirement_ar": "دم وتأثيرات متزامنة مع الضرب",
+      "primary_phase": "P33",
+      "acceptance_ar": "تزامنفعليوقراءةالخصموخيارتخفيضبصري",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R079",
+      "requirement_ar": "تدخل النظام فجأة بإيقاع وهيبة",
+      "primary_phase": "P34",
+      "acceptance_ar": "توقيتواحدوحضورمعتمدوتفسيرحدثلاواجهةعشوائية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R080",
+      "requirement_ar": "تجمد إيكو وقوله إنه لا يستطيع الحركة",
+      "primary_phase": "P34",
+      "acceptance_ar": "قفلدراميمفهومومحاولاتحركةواسترجاعمأمون",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R081",
+      "requirement_ar": "نافذة النظام والأمنية والقرار المعتمد",
+      "primary_phase": "P34",
+      "acceptance_ar": "قراروحفظوتقدمخادملاقرارصامتمنالفيلم",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R082",
+      "requirement_ar": "مسك الرأس والصداع الشديد ثم الإغماء",
+      "primary_phase": "P34",
+      "acceptance_ar": "أداءوتنفسواتزانوانهياروتوقيتواضح",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R083",
+      "requirement_ar": "سواد مقصود وفتح العينين في المستشفى",
+      "primary_phase": "P35",
+      "acceptance_ar": "سوادمقصودوانتقالوحسجسدوصوتوسقفواستعادةسيطرة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R084",
+      "requirement_ar": "تسلسل كامل لا اختصار للكرسي والعقد والانتقام",
+      "primary_phase": "P36",
+      "acceptance_ar": "مخطط53حدثًاوبطاقاتتغطيةومونتاجثمليستقطعتينمعادتين",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R085",
+      "requirement_ar": "كانيكي مرجع نفسي لفقدان الإنسانية",
+      "primary_phase": "P02",
+      "acceptance_ar": "تحليلنفسيومنهجأداءأصليدوننسخهويةأوقصة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R086",
+      "requirement_ar": "التركيز على Tokyo Ghoul12 والكلام والردود",
+      "primary_phase": "P02",
+      "acceptance_ar": "تدويناللقطةوالقصدوالاستقبالوالصوتوحدودالمشاهدة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R087",
+      "requirement_ar": "طلب أول حلقتين وآخر حلقتين من الموسم الأول",
+      "primary_phase": "P02",
+      "acceptance_ar": "توثيقالمتاحوالفجوات؛لاادعاءمشاهدةالحلقات1/2/11/12كاملة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R088",
+      "requirement_ar": "ضحكة Light القصيرة فقط على YouTube",
+      "primary_phase": "P02",
+      "acceptance_ar": "تحليلالمقطعالقصيروالنفسوالتدرج،بلاشاهدلمشهدكامل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R089",
+      "requirement_ar": "مقطع قتال Black Clover المقصود وترقيمه الصحيح",
+      "primary_phase": "P02",
+      "acceptance_ar": "مقطعقتالالدراسةموثق؛لاافتراضترقيمموسمالموقعإذالميرتبطبمرجع",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R090",
+      "requirement_ar": "عقد أستا وليبي مرجع لزيرو",
+      "primary_phase": "P02",
+      "acceptance_ar": "اختياروإرادةوردودوثمن،لااستيرادذراعأومؤقت",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R091",
+      "requirement_ar": "أول ظهور قوة الشيطان وأول تحول لأستا",
+      "primary_phase": "P02",
+      "acceptance_ar": "فصلأحداثالظهوروالتحولعنصفقةالذراعوالتعاقد",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R092",
+      "requirement_ar": "صفقة الذراع والسيطرة الجزئية واليأس والمساعدة",
+      "primary_phase": "P02",
+      "acceptance_ar": "تسجيلفروقالمشاهدومعنىالسيطرةوالاختياردونتغييرCanon",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R093",
+      "requirement_ar": "انتقام Solo Leveling والخيانة وإيقاع القوة",
+      "primary_phase": "P02",
+      "acceptance_ar": "قرارفيتغيرميزانالقوةوالتوقيتوردالخصم",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R094",
+      "requirement_ar": "Genshin: الرسم والأنيميشن والشيدر والواجهة واللعب",
+      "primary_phase": "P02",
+      "acceptance_ar": "شرحGDCوعيناتلعبمحددةوعلاقةالفنوالتحكممعحدودالدليل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R095",
+      "requirement_ar": "Spider-Man: الكاميرا والتحكم والعبور",
+      "primary_phase": "P14",
+      "acceptance_ar": "استنتاجوظيفيواختبارفعليلكاميرتناومسارنا",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R096",
+      "requirement_ar": "Demon Slayer والأنمي النفسي والقتال العالي الجودة",
+      "primary_phase": "P02",
+      "acceptance_ar": "المصدرالمتاحوالدرسالمحددأوالفجوةمسجلان؛لامشاهدةمختلقة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R097",
+      "requirement_ar": "الوجه والنظرة والنفس والأداء والسمع",
+      "primary_phase": "P09",
+      "acceptance_ar": "مراجعةقربوردودومزيج،لاتكفيتحويلاتعظامرقمية",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R098",
+      "requirement_ar": "Tripo للأصول والملابس والشخصيات والغرف والأنيميشن",
+      "primary_phase": "P04",
+      "acceptance_ar": "مرشحومشتقوتأهيلمستندللمرجعلااستبدالتلقائي",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R099",
+      "requirement_ar": "Blender للتصحيح والتأليف والمصادر",
+      "primary_phase": "P04",
+      "acceptance_ar": "ملفاتمصدرقابلةللتعديلوGoldenومفاتيحالأصللايمسهاالتجميل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R100",
+      "requirement_ar": "Flow للمشاهد والذاكرة والصوت حسب الحاجة",
+      "primary_phase": "P04",
+      "acceptance_ar": "الهويةوالموسيقىالممنوعةوالرصيدوالتكلفةمرصودةقبلطلبمأذون",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R101",
+      "requirement_ar": "هل تكفي حصة ElevenLabs المجانية ذات10k",
+      "primary_phase": "P04",
+      "acceptance_ar": "يكفيمقارنةصغيرة،لايكفيترخيصصوتتجاريللفصل",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R102",
+      "requirement_ar": "Starter بدولار أول شهر وتجديده وحصته",
+      "primary_phase": "P04",
+      "acceptance_ar": "التحققعندالدفعوالضرائبوالتفعيل؛لااشتراكCreator/Proلمجردالبدء",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R103",
+      "requirement_ar": "الفرق بين Creative وAgents وAPI",
+      "primary_phase": "P04",
+      "acceptance_ar": "Creativeللملفات،Agentsللمحادثةالحية،APIللأتمتة؛لاشراءالثلاث",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R104",
+      "requirement_ar": "تثبيت Cascadeur وتفعيل تجربة Pro14 يومًا",
+      "primary_phase": "P04",
+      "acceptance_ar": "تفعيلوتشغيلوتصديرفعليقبلتوصيةمدفوعة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R105",
+      "requirement_ar": "مقارنة Indie وPro بحسب الحاجة والإيراد والجودة",
+      "primary_phase": "P04",
+      "acceptance_ar": "Indieللتصديرتحتشرطالإيراد؛Proفقطإنأثبتتبيئة/retargeting/ربطمشاهدفائدة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R106",
+      "requirement_ar": "REAPER والتقييم المجاني والرخصة المناسبة",
+      "primary_phase": "P04",
+      "acceptance_ar": "تقييمكامل60يومًا؛بعده60$بأهليةالإيرادأو225$لنفسالوظائف",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R107",
+      "requirement_ar": "البدائل الأرخص وعدم ضمان الجودة بخطة أغلى",
+      "primary_phase": "P04",
+      "acceptance_ar": "لاتوجدضمانات؛مقارنةعينةوالاستفادةمنBlenderوالأدواتالموجودة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R108",
+      "requirement_ar": "بحث الأدوات الناقصة قبل الشراء والتثبيت",
+      "primary_phase": "P04",
+      "acceptance_ar": "التوافقوالحاجةوالحقوقتسبقشراءوتثبيتأدواتثقيلة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R109",
+      "requirement_ar": "عتاد مؤهل وتأجيل Painter عند عدم التوافق",
+      "primary_phase": "P03",
+      "acceptance_ar": "تأهيلجهازوفعلقياس؛PainterمؤجلعلىUHDو8GB",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R110",
+      "requirement_ar": "Canon والأب والعلامة والهيئة والجناح المعتمدة",
+      "primary_phase": "P01",
+      "acceptance_ar": "تثبيتالمراجعوبوابةالقبولالصريحوالصفحات",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R111",
+      "requirement_ar": "Golden والمصدر وV31 والمسار الحالي",
+      "primary_phase": "P07",
+      "acceptance_ar": "عدمإعادةأنظمةأوتأهيلشامللمصادرلمتتغير",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R112",
+      "requirement_ar": "سلطة الخادم والإيصالات والحفظ والاختيار",
+      "primary_phase": "P17",
+      "acceptance_ar": "لافتحقدرةأومكافأةأوتجاوزلغزمنالعرض",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R113",
+      "requirement_ar": "الحفظ والاستئناف والتخطي والإعادة دون كسر القصة",
+      "primary_phase": "P36",
+      "acceptance_ar": "ملكيةحدثوكاميراومدخلوسلطةولقطاتمتصلة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R114",
+      "requirement_ar": "تقليل الحركة والوميض والرجفة والدم والكتم والترجمة",
+      "primary_phase": "P21",
+      "acceptance_ar": "بدائلفعليةمرئيةومحفوظةمعقراءةالخطر",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R115",
+      "requirement_ar": "الصوت بلا موسيقى أو آلات وفق التوجيه القائم",
+      "primary_phase": "P37",
+      "acceptance_ar": "كلbriefوتوليدومزجيحترمSFX_ONLY",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R116",
+      "requirement_ar": "المتعة واللعب معياران مستقلان عن PASS التقني",
+      "primary_phase": "P39",
+      "acceptance_ar": "رأيلاعبينغيرموجهينومراجعةصوتوفنوأجهزةمنفصلة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R117",
+      "requirement_ar": "درجات الجودة والقياس30/60Hz والأداء المركب",
+      "primary_phase": "P38",
+      "acceptance_ar": "أهدافوفريماتp95/p99وماءوقتالمقاسةمعهويةلعبواحدة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R118",
+      "requirement_ar": "فصل متصل من البداية للمستشفى وحزمة Windows",
+      "primary_phase": "P39",
+      "acceptance_ar": "حسابجديدوحفظموجودواختباربناءومواردومطابقةمصدر",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R119",
+      "requirement_ar": "حفظ الأصول والأدلة الفريدة أثناء التنظيف",
+      "primary_phase": "P00",
+      "acceptance_ar": "مستبعداتمحليةببصماتوتاريخمحفوظونشرمتحقق",
+      "status": "VERIFIED_PRIOR_GATE_WITH_CONTINUING_POLICY",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R120",
+      "requirement_ar": "ROOT_ONLY وعدم إنتاج اللعبة قبل تسليم الخطة",
+      "primary_phase": "P00",
+      "acceptance_ar": "لاوكلاءولاإنتاجلعبجديدبهذهالمراجعة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R121",
+      "requirement_ar": "المستوى العالمي هدف يقاس ولا يضمن",
+      "primary_phase": "P39",
+      "acceptance_ar": "طموحغيرمضمون؛مقارنةعادلةبعدمنتجقابلللعب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R122",
+      "requirement_ar": "ترابط أسئلة الأب والتجربة والتعذيب بسبب ونتيجة",
+      "primary_phase": "P05",
+      "acceptance_ar": "سببونتيجةوانفعالواستمراريةفصلواحد",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R123",
+      "requirement_ar": "انعكاس المستشفى والعلامة واستعادة الجسد والسيطرة",
+      "primary_phase": "P35",
+      "acceptance_ar": "تفاعلوانعكاسحقيقيانحيثالمصدر،لابديلصورةساكنة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R124",
+      "requirement_ar": "تغطية جميع الأحداث53 بالصورة والصوت والتحكم والحفظ",
+      "primary_phase": "P36",
+      "acceptance_ar": "ربطالسجلالأصليكاملاًدونإنشاءسجلقصصيمنافس",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R125",
+      "requirement_ar": "تفصيل كل المتفق عليه بمراحل ومعايير ظاهرة",
+      "primary_phase": "P01",
+      "acceptance_ar": "حزمتفصيلومصفوفةتغطيةوثغراتواضحةلاعنوانعاموحسب",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+    },
+    {
+      "id": "R126",
+      "requirement_ar": "دليل تنفيذ وتسليم واضح لأي Agent مع حالة المشروع الحالية",
+      "primary_phase": "P01",
+      "acceptance_ar": "مسارات حقيقية وبصمات وحالة PASS/OPEN/UNVERIFIED وأوامر وفحوص وبوابات ومجهولات صريحة",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Direct latest Owner steering in current conversation"
+    },
+    {
+      "id": "R127",
+      "requirement_ar": "رفع الخطة التفصيلية والدراسات وحالة المشروع كحزمة كاملة",
+      "primary_phase": "P00",
+      "acceptance_ar": "GitHubمطابق للنسخة المحلية وحزمة محدثة وتحقق من اكتمال الملفات والروابط",
+      "status": "PLANNED_NOT_ACCEPTED",
+      "source": "Direct latest Owner steering in current conversation"
+    }
+  ],
+  "phases": [
+    {
+      "id": "P00",
+      "title_ar": "تثبيت المصدر والشجرة ونتيجة النشر",
+      "depends_on": "مكتملة للبوابة السابقة",
+      "tools": "Git / LFS / repo:check / الكاش",
+      "actions_ar": [
+        "اعتماد خريطة المشروع والبطاقة والكاش وإيصال GitHub الحالي",
+        "حفظ المصادر وCanon وGolden والأدلة الفريدة",
+        "إبقاء الحزم المولدة محليًا مع بصماتها ومنع عودتها إلى التتبع",
+        "فحص المطابقة ونظافة Git بعد تحديث الخطة"
+      ],
+      "acceptance_ar": [
+        "إيصال الرفع السابق متحقق",
+        "التنظيف لا يعني محو التاريخ أو قبول اللعبة",
+        "لا ملفات فريدة تُحذف لمجرد كثرتها"
+      ],
+      "status": "VERIFIED_PRIOR_REPOSITORY_GATE",
+      "depends_on_phase_ids": [],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R002",
+        "R003",
+        "R119",
+        "R120",
+        "R127"
+      ]
+    },
+    {
+      "id": "P01",
+      "title_ar": "مصفوفة المتطلبات والمانهوا والاستمرارية",
+      "depends_on": "P00",
+      "tools": "Canon manifest / JSON / الخطة",
+      "actions_ar": [
+        "جمع كل طلب في سجل مرقم وربطه بمرحلة وشرط قبول",
+        "ربط الأحداث53 بصفحات المانهوا المعتمدة دون اختراع أرقام",
+        "تثبيت الأب كينجا وإيكو ويوكي وهيئاتهم والعلامة",
+        "تمييز التوجيه الحالي عن القيود المؤرخة القديمة"
+      ],
+      "acceptance_ar": [
+        "لا مطلب بلا مرحلة ولا حدث بلا مصدر أو علامة انتظار",
+        "لا قوى أو سيف قبل القبول الصريح للعقد",
+        "سلطة الحفظ والتقدم والمرحلة محفوظة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P00"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "canon_manifest"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R001",
+        "R110",
+        "R125",
+        "R126"
+      ]
+    },
+    {
+      "id": "P02",
+      "title_ar": "استكمال الدراسة وتحويلها إلى قرارات إخراج",
+      "depends_on": "P01",
+      "tools": "المراجع المرئية المتاحة / نصوص / تحليل لقطات",
+      "actions_ar": [
+        "تحليل التحول النفسي والكلام وردود المستمع في Tokyo Ghoul12 واستكمال فجوات الحلقات المطلوبة المتاحة",
+        "دراسة ضحكة Light القصيرة وحدها والنفس والصمت والتصاعد",
+        "فصل ظهور قوة أستا وتحوله واليأس وصفقة الذراع عن عقد ليبي ومراجعة مقطع القتال",
+        "تحويل Genshin وSpider-Man وSolo Leveling وDemon Slayer إلى قرارات رسم وتحكم وإيقاع موثقة"
+      ],
+      "acceptance_ar": [
+        "الاستنتاج مرتبط بعينة أو نص وقرار تطبيقي أصلي",
+        "المشاهدة الجزئية لا تُسمى حلقة كاملة أو استماعًا فعليًا",
+        "لا نسخ أصوات ممثلين أو حوار أو أصول"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R096"
+      ]
+    },
+    {
+      "id": "P03",
+      "title_ar": "أجهزة الإطلاق وميزانية الأداء والعتاد",
+      "depends_on": "P00 / P01",
+      "tools": "Godot profiler / قياس الجهاز",
+      "actions_ar": [
+        "تحديد منصات الإطلاق والأجهزة قبل وعد الدعم",
+        "استخدام الجهاز الحالي كمرجع منخفض دون اعتباره محطة مراجعة عليا",
+        "تثبيت نسخ الأدوات المؤهلة ومشهد قياس ممثل",
+        "تحديد ميزانيات الإطار والذاكرة والأصل والتحميل"
+      ],
+      "acceptance_ar": [
+        "60fps وبديل30fps أهداف مقترحة إلى أن تُقاس",
+        "لا شراء عتاد أو ترقية محرك عمياء",
+        "لا قبول هاتف أوUltra من لقطة أوheadless"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P00",
+        "P01"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R109"
+      ]
+    },
+    {
+      "id": "P04",
+      "title_ar": "تأهيل الأدوات والتراخيص وعينات الاشتراكات",
+      "depends_on": "P01 / P03",
+      "tools": "Blender / Cascadeur / ElevenLabs / REAPER / Flow / Tripo",
+      "actions_ar": [
+        "التحقق من التفعيل والرصيد والتكلفة والحقوق قبل التوليد",
+        "تصدير عينة واحدة من Blender/Cascadeur وتأهيلها في Godot",
+        "اختبار صوتين أصليين للخوف وزيرو والضحكة",
+        "استخدام REAPER للتقييم وتأجيل أي شراء أو أداة إضافية إلى فجوة مثبتة"
+      ],
+      "acceptance_ar": [
+        "Pro تجربة14 يومًا الآن،والشراء من نتيجة العينة",
+        "أهلية Indie وREAPER من الإيراد الإجمالي لا الربح",
+        "توافق الأداة والتصدير والحقوق وجودة الناتج بوابات مستقلة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P03"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108"
+      ]
+    },
+    {
+      "id": "P05",
+      "title_ar": "كتابة الفصل والحوار والتوتر النفسي",
+      "depends_on": "P01 / P02",
+      "tools": "وثائق القصة / بطاقات أداء",
+      "actions_ar": [
+        "كتابة الفصل كاملًا وفق الصفحات والتوجيهات",
+        "تحديد نية كل جملة وما تعرفه الشخصية ورد المستمع والتنفس والوقفة",
+        "بناء العجز والرفض والانهيار والاختيار وفقدان الإنسانية تدريجيًا",
+        "صياغة القرارات والرفض والتأجيل والحفظ حيث يسمح Canon"
+      ],
+      "acceptance_ar": [
+        "لا طواف بين أيقونات لتمرير كل جملة",
+        "الحوار لا يستبدل الفعل والتمثيل ورد الفعل",
+        "النص واللغة والترجمة معتمدة قبل التسجيل النهائي"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P02"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "canon_manifest"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R051",
+        "R122"
+      ]
+    },
+    {
+      "id": "P06",
+      "title_ar": "قصة مصورة ومونتاج أولي لشريحة التوقيع",
+      "depends_on": "P04 / P05",
+      "tools": "Blender / مواد مؤقتة / Flowعند الحاجة",
+      "actions_ar": [
+        "رسم تسلسل الكرسي والانهيار والغرق والمحيط وزيرو والقبول والضحكة والتحول وأول التحام",
+        "تحديد هدف ومدة واتجاه نظر وصوت ومالك تحكم لكل لقطة",
+        "استعمال الموجود والكاش ومواد مؤقتة داخلية قبل النهائيات",
+        "مراجعة مونتاج متصل قبل دفعة الأصول والتسجيل"
+      ],
+      "acceptance_ar": [
+        "يفهم المشاهد العلاقة والاختيار والانقلاب دون شرح المطور",
+        "مادة جديدة خاصة بالأحداث لا مشهدان معادان",
+        "الإيقاع والوضوح يسبقان تلميع صورة منفردة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P04",
+        "P05"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "canon_manifest"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": []
+    },
+    {
+      "id": "P07",
+      "title_ar": "إيكو الحالي والمستقبلي واستمرارية هيئاته",
+      "depends_on": "P01 / P04",
+      "tools": "Tripo / Blender / character lab / Godot",
+      "actions_ar": [
+        "تثبيت هوية School وPact وإيكو المستقبلي",
+        "إعادة اختبار عيب الظهر في زوايا وحركات وجودات مختلفة",
+        "صون Golden وساعة المصدر والمفاتيح والخامات وتعديل مشتقات موثقة فقط",
+        "تأهيل الملابس والأطراف والجلوس والقفز والضرب والعلامة"
+      ],
+      "acceptance_ar": [
+        "إصلاح الظهر السابق لا يغلق قبول الهيئة كلها",
+        "إيكو في المرآة جسم حي متحرك",
+        "لا أصل أقل جودة أو تقاطع ملابس مؤذٍ يستبدل أصلًا سليمًا"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P04"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "player",
+        "school_motion",
+        "v31_motion",
+        "pact_packet",
+        "golden_manifest"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R013",
+        "R111"
+      ]
+    },
+    {
+      "id": "P08",
+      "title_ar": "إعادة بناء كينجا كشخصية مؤلفة",
+      "depends_on": "P01 / P05 / P04",
+      "tools": "Tripo / Blender / Rig / Godot",
+      "actions_ar": [
+        "تصميم كينجا كأب وباحث له عمر ووجه وقامة ولباس مناسبون",
+        "تأهيلTopology وRig للجلوس والقيود والالتحام وتلقي الضرب",
+        "تأليف الأصابع والإيماءات والنظر والأدوات المرتبطة به",
+        "مراجعة قرب وبعد وضوء وحركة وردود مقابل إيكو"
+      ],
+      "acceptance_ar": [
+        "شخصية مقنعة وليست هدفًا جامدًا",
+        "الانفعال يُفهم من الأداء لا النص وحده",
+        "Rig الوجه لا يُفترض جاهزًا لمجرد نجاح Tripo"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P04",
+        "P05"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "kenja_actor",
+        "pact_packet"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R066"
+      ]
+    },
+    {
+      "id": "P09",
+      "title_ar": "الوجه والشعر والعين والملابس والجناح",
+      "depends_on": "P07 / P08",
+      "tools": "Blender / مسارGolden / مختبر الشخصية",
+      "actions_ar": [
+        "تأهيل النظرة والرمش والتعابير والشفاه للمشاهد المطلوبة",
+        "إصلاح هندسة الجفن والتشوه قبل إخفائه بالمادة",
+        "إضافة حركة شعر وملابس وجناح مقيدة بالتلامس والأداء",
+        "تقييم البديل العملي أو الفنان المتخصص إذا فشل التأهيل"
+      ],
+      "acceptance_ar": [
+        "تأجيل الوجه القديم لا يعني جاهزية لقطات الحوار والضحكة",
+        "لا طي أو عبور شديد في الراحة والانتقال",
+        "القبول داخل اللعبة منفصل عن التشخيص المعزول"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P07",
+        "P08"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "pact_packet",
+        "golden_manifest"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R097"
+      ]
+    },
+    {
+      "id": "P10",
+      "title_ar": "هوية الرسم والشيدر والخامات",
+      "depends_on": "P03 / P07 / P08",
+      "tools": "HyperAnime الحالي / Blender / Godot shaders",
+      "actions_ar": [
+        "تثبيت لوحة اللون والإضاءة والتباين والحواف",
+        "تأليف ظل الوجه واتجاه الضوء وقراءة العين والشعر والجلد",
+        "تمييز القماش والمعدن والزجاج والماء",
+        "اختبار الشخصيات في المكان والحركة وعلى درجات جودة"
+      ],
+      "acceptance_ar": [
+        "لا أزرق مسطح أو مرشح يفسد كل المواد",
+        "المسار الحالي للرسم محفوظ",
+        "مستوى قنشن مرجع يحتاج مراجعة فعلية وليس وصفًا جاهزًا"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P03",
+        "P07",
+        "P08"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "materials",
+        "world",
+        "vfx"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R032"
+      ]
+    },
+    {
+      "id": "P11",
+      "title_ar": "التحكم الأساسي والتفاعل وتعليم الأزرار",
+      "depends_on": "P03 / P04",
+      "tools": "Godot / playerالحالي / bindings",
+      "actions_ar": [
+        "توحيد أهلية تنبيهE وتنفيذ الصمام والتفاعل من أول ضغط",
+        "ضبط التسارع والفرملة والالتفاف وربط الحركات",
+        "تخزين إدخال وسماح توقيت دون تكرار أو تسرب بعد قائمة",
+        "تعليم سياقي وإعادة تعيين ورفض التعارض واستعادة وحفظ"
+      ],
+      "acceptance_ar": [
+        "التفاعل يعمل من المدى والزاوية المعلنين",
+        "التحكم يستجيب بعد الوقفة والحوار والتفاعل",
+        "شعور اللاعب لا يُستبدل باختبار دالة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P03",
+        "P04"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "player",
+        "traversal",
+        "controls",
+        "prompt",
+        "interaction"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R014",
+        "R015",
+        "R021"
+      ]
+    },
+    {
+      "id": "P12",
+      "title_ar": "القفزة العادية وقفزة الباركور",
+      "depends_on": "P07 / P11",
+      "tools": "Blender / Cascadeur / Godot",
+      "actions_ar": [
+        "تعريف قفزة عادية وأخرى للباركور بوظيفة ومدخل واضحين",
+        "تأليف أنيميشن مختلف وقوس ووزن وهبوط",
+        "فصل التصادم وقرار الحركة عن التجميل السينمائي",
+        "اختبار حافة وسقف وضغط مبكر ومتأخر وقفز متتابع"
+      ],
+      "acceptance_ar": [
+        "الفرق بين القفزتين واضح ونافع",
+        "لا سحب قسري إلى خطر أو انقطاع عند الهبوط",
+        "التماس والوقفة والاستئناف30/60Hz مقبولة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P07",
+        "P11"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "player",
+        "school_motion",
+        "v31_motion"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R016",
+        "R017"
+      ]
+    },
+    {
+      "id": "P13",
+      "title_ar": "التسلق للأعلى والإمساك وصعود الحافة",
+      "depends_on": "P11 / P12",
+      "tools": "Godot motor / Blender / Cascadeur",
+      "actions_ar": [
+        "القفز إلى سطح مؤهل ثم الاستمرار للأمام للصعود",
+        "وصل الإمساك والتسلق الجانبي والعلوي وصعود الحافة",
+        "تأليف اليدين والقدمين ووزن الجسم",
+        "اختبار النزول والقفز بعيدًا وفقد السطح والعائق العلوي"
+      ],
+      "acceptance_ar": [
+        "لا انتقال حاد أو يد داخل الجدار",
+        "السقف والسطوح غير المؤهلة تعالج بوضوح",
+        "فحص16 شرطًا سابقًا محدود ولا يقبل الأنيميشن النهائي"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P11",
+        "P12"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "traversal",
+        "school_motion",
+        "climb_test"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R018",
+        "R019"
+      ]
+    },
+    {
+      "id": "P14",
+      "title_ar": "كاميرا الباركور واللعب والاستقبال",
+      "depends_on": "P11 / P12 / P13",
+      "tools": "DynamicActionCameraRig الحالي / Godot",
+      "actions_ar": [
+        "توقع اتجاه الحركة وكشف مكان الهبوط والتهديد",
+        "تصادم كاميرا لا يمر بالجدار أو يحجب إيكو",
+        "ضبط مجال الرؤية والإزاحة والتتبع حسب الفعل",
+        "حساسية وعكس محور وتقليل حركة ورجفة واستعادة بعد السينمائي"
+      ],
+      "acceptance_ar": [
+        "المسار مقروء في السرعة والضيق والهبوط",
+        "لا اهتزاز مستمر أو دوار لإيهام القوة",
+        "تُختبر كاميرتنا بتحكم فعلي"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P11",
+        "P12",
+        "P13"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "camera",
+        "player"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R020",
+        "R095"
+      ]
+    },
+    {
+      "id": "P15",
+      "title_ar": "نموذج أول التحام وقتال يدين",
+      "depends_on": "P04 / P07 / P08 / P11 / P14",
+      "tools": "Godot combat / Blender / Cascadeur",
+      "actions_ar": [
+        "تأهيل ضربة ورد خصم في الموضع والمدى والتوقيت",
+        "حركات يدين متعددة مع مقاومة وتعافٍ وقراءة نية",
+        "ضربة مؤلفة تنتهي بوقفة واتجاه صالحين للاعب",
+        "ربط الصوت والصدمة والمؤثر بالتماس"
+      ],
+      "acceptance_ar": [
+        "النموذج معزول ولا يفتح قتال الحملة قبل العقد",
+        "لا قطع سيف بدل الملاكمة",
+        "القرار والاتصال والاستجابة واضحة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P04",
+        "P07",
+        "P08",
+        "P11",
+        "P14"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "contract_cinematics",
+        "kenja_actor",
+        "player"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R074"
+      ]
+    },
+    {
+      "id": "P16",
+      "title_ar": "نظام التحميل والانتقالات وعدم كشف العالم ناقصًا",
+      "depends_on": "P03 / P11",
+      "tools": "Godot loaders / Bootالحالي / UI",
+      "actions_ar": [
+        "تغطية أول تشغيل ودخول العالم وما بعد السينمائي وتبديل المراحل والمستشفى",
+        "عرض الستارة قبل تحرير الموارد ورفعها بعد استقرار الجسم والكاميرا",
+        "تقدم حقيقي وخطأ وإعادة وتخطٍ واستئناف،وتقييم تحميل خلفي أوتهيئة مسبقة فقط بعد إثبات سلامة حياة الموارد؛المسار المتزامن خلف الستارة محفوظ إلى أن يتأهل بديله",
+        "إخراج بصري وبديل ثابت للأجهزة الضعيفة وقلة الحركة"
+      ],
+      "acceptance_ar": [
+        "لا سواد معيب أو عالم مشوه مكشوف",
+        "لا انتظار مصطنع أو نسبة مزيفة",
+        "السواد الدرامي بعد الإغماء مفهوم ومختلف"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P03",
+        "P11"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "boot",
+        "loading"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R047",
+        "R048",
+        "R049"
+      ]
+    },
+    {
+      "id": "P17",
+      "title_ar": "الحساب والضيف قبل إشارة البداية",
+      "depends_on": "P16 / P11",
+      "tools": "الخدمات الحالية / Google / Facebook / nativeentry",
+      "actions_ar": [
+        "اختيار ضيف وGoogle وFacebook قبل إشارة البداية",
+        "جلسة فعلية ورفض وإلغاء وانقطاع وانتهاء وتسجيل خروج",
+        "ربط حفظ الضيف دون خلط حسابات",
+        "اختبار خدمات الحفظ ونسخةWindows ومفاتيح المزود الخادمية"
+      ],
+      "acceptance_ar": [
+        "لا أزرار نجاح وهمية أو قبول fixture بدل الحساب الحي",
+        "لا أسرار أو سلطة تقدم في العميل",
+        "Agents غير مطلوب لهذا الدخول"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P11",
+        "P16"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "boot",
+        "native_account",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R045",
+        "R046",
+        "R112"
+      ]
+    },
+    {
+      "id": "P18",
+      "title_ar": "مشهد البداية البديل وإشارةTab/Tap",
+      "depends_on": "P06 / P07 / P10 / P16 / P17",
+      "tools": "Blender / Flow / Godot UI",
+      "actions_ar": [
+        "مقارنة الجري الحالي المحسن ببديل أصلي أقوى في التحريك والكاميرا والتكوين",
+        "تفسير مؤقت لعبارة لا نهائي كحلقة حركة مستمرة وسلسة إلى أن يتحدد المرجع إن كان غير ذلك",
+        "وصل بداية الحلقة بنهايتها والنفس والقدم والشعر والضوء",
+        "إشارةTab/Tap شفافة زرقاء نابضة مع رد ضغط وتركيز ولمس"
+      ],
+      "acceptance_ar": [
+        "الاستبدال خيار صريح إذا كان أنسب",
+        "الحركة لا تؤخر الدخول أو تحرق كشفًا غير معتمد",
+        "حلقة القائمة المقصودة لا تبرر تكرار مشاهد القصة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P06",
+        "P07",
+        "P10",
+        "P16",
+        "P17"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "title",
+        "boot"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R037",
+        "R038",
+        "R039"
+      ]
+    },
+    {
+      "id": "P19",
+      "title_ar": "لغز تركيب الغلاف والسحب والإفلات",
+      "depends_on": "P11 / P16 / P18",
+      "tools": "CoverRecoveryالحالي / Godot UI",
+      "actions_ar": [
+        "تقييم لغز القطع الحالي2×3 وتغيير تصميمه إن فشل في المتعة دون تغيير سلطته القصصية",
+        "سحب ومعاينة رفع ومكان إسقاط وتثبيت أو تبديل وإلغاء سلس",
+        "تراجع وإعادة ومرجع وفأرة ولوحة مفاتيح ولمس حسب المنصة",
+        "إكمال قوي وانتقال وصوت غير موسيقي وربط بالمانهوا"
+      ],
+      "acceptance_ar": [
+        "لا قطعة عالقة أو تركيب مفاجئ أو أزرار جامدة",
+        "لا حل تلقائي أو مكافأة أو إيصال من العرض",
+        "وجودdrag تقنيًا ليس قبولًا للسلاسة واللغز كله"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P11",
+        "P16",
+        "P18"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "cover",
+        "boot",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R040",
+        "R041"
+      ]
+    },
+    {
+      "id": "P20",
+      "title_ar": "خلفية المانهوا والواجهة الموحدة",
+      "depends_on": "P01 / P10 / P19",
+      "tools": "الفن المعتمد / Godot / webdesignالحالي",
+      "actions_ar": [
+        "خلفية مانهوا وغلاف ذات عمق وتكوين من الفن المعتمد",
+        "طبقات وضوء أو حركة خفيفة لا تنافس النص",
+        "نظام شفافية ولون وأزرار وتركيز وتعطيل وانتقال واحد",
+        "خط عربي وRTL وترجمة ومقاسات ومساحات آمنة"
+      ],
+      "acceptance_ar": [
+        "المؤثر لا يغطي النص أو الهدف أو القطع",
+        "لا كشف مبكر لصفحات أو تحول غير مكتسب",
+        "كل زر له حالة واستجابة فعلية"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P10",
+        "P19"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "cover",
+        "pause",
+        "title"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R036",
+        "R042",
+        "R052"
+      ]
+    },
+    {
+      "id": "P21",
+      "title_ar": "شاشة الاستراحة والإعدادات والملف والحفظ",
+      "depends_on": "P11 / P16 / P17 / P20",
+      "tools": "NativePauseMenu / bindings / AudioBus / save",
+      "actions_ar": [
+        "قائمة رحلة وهدف ومهمة وحفظ واستئناف وحساب وخروج",
+        "إعداد تحكم وربط وحساسية ومحاور وعرض وجودة وصوت وترجمة ووصول",
+        "عمق وشفافية وحركة ووقفة منسقة للفيلم واللعب",
+        "حفظ الخيارات واختبار الإغلاق والتركيز والضغط المطول"
+      ],
+      "acceptance_ar": [
+        "لا قائمة شكلية أو إعدادات وهمية",
+        "لا ضربة أو حركة تتسرب عند الاستئناف",
+        "الحساب والحفظ والبدائل مختبرة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P11",
+        "P16",
+        "P17",
+        "P20"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "pause",
+        "controls",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R022",
+        "R043",
+        "R044",
+        "R114"
+      ]
+    },
+    {
+      "id": "P22",
+      "title_ar": "إصلاح الماء والمحيط والانعكاسات",
+      "depends_on": "P03 / P10",
+      "tools": "Godot shaders / reflection / Blender",
+      "actions_ar": [
+        "إعادة إنتاج الماء الأسود من موضع المالك وتشخيص السبب",
+        "فصل العمق واللون والتعريض والانعكاس والشفافية والبديل المنخفض",
+        "بناء الغرق وقاع المحيط بحجم وعمق وقراءة للشخصيات",
+        "اختبار الزوايا والحركة والتقاطعات والأداء"
+      ],
+      "acceptance_ar": [
+        "لا سواد يخفي التفاصيل بسبب عيب رسم",
+        "القبول داخل مكان اللعب لا من صورة فنية فقط",
+        "الماء متكامل مع الكاميرا والصوت والجودة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P03",
+        "P10"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "world",
+        "materials"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R030"
+      ]
+    },
+    {
+      "id": "P23",
+      "title_ar": "البوابات والأجهزة والمؤثرات التفاعلية",
+      "depends_on": "P10 / P11 / P16 / P37",
+      "tools": "Godot animations / VFX / sound / Tripoprops",
+      "actions_ar": [
+        "تحضير وقفل وتحرير وحركة ووزن وصوت ومؤثر لفتح البوابة",
+        "تفاعل واضح للصمام والضغط والكهرباء والأجهزة",
+        "ربط العرض بالفعل والتوقيت والتصادم والسلطة",
+        "بدائل وميض ودم ورجفة وكتم وقلة حركة"
+      ],
+      "acceptance_ar": [
+        "البوابة قوية ومقروءة وتشعر بالوزن",
+        "المخرج لا تحجبه الجزيئات أو تبقى مصادمته مغلقة",
+        "لا تكرار فعل أو صوت أو مكافأة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P10",
+        "P11",
+        "P16"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "interaction",
+        "prompt",
+        "vfx"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R029"
+      ]
+    },
+    {
+      "id": "P24",
+      "title_ar": "إعادة تصميم مهام الغرفة الأولى",
+      "depends_on": "P01 / P05 / P11 / P23",
+      "tools": "Godot / أدواتالسرد / غرفة01الحالية",
+      "actions_ar": [
+        "حفظ معمار الغرفة الأولى المقبول واستبدال المهام المملة",
+        "ملاحظة وتعارض وفرضية وتجربة وقرار ونتيجة",
+        "تفاعل جسدي واستدلال وخطر وتعليق له معنى",
+        "هدف وتقدم ونتيجة وحفظ وإعادة عادلة"
+      ],
+      "acceptance_ar": [
+        "اللاعب يعرف ماذا ولماذا وكيف وما تغير",
+        "لا سلسلة نقر رموز أو مشي فارغ",
+        "تعاد المهمة غير الممتعة ولو نجح كودها"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P01",
+        "P05",
+        "P11",
+        "P23"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "journey",
+        "campaign"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R010",
+        "R011"
+      ]
+    },
+    {
+      "id": "P25",
+      "title_ar": "إعادة إنشاء غرفة الباركور أفقيًا",
+      "depends_on": "P12 / P13 / P14 / P23",
+      "tools": "Godot blockout / Blender / Tripo",
+      "actions_ar": [
+        "إعادة تخطيط غرفة الباركور إلى مسار أفقي ممتد",
+        "نموذج هندسي للارتفاع والقفز والتسلق والهبوط",
+        "فروع مهارة واستراحات وكشف بصري وخاتمة",
+        "إنتاج الفن بعد إثبات المسار مع إعادة استعمال الأصول السليمة"
+      ],
+      "acceptance_ar": [
+        "لا نهاية بعشر ثوانٍ ولا تمطيط بممرات ميتة",
+        "5–8دقائق هدف أولي يتغير باللعب",
+        "كاميرا وتصادم واسترجاع ووضوح ومتعة مترابطة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P12",
+        "P13",
+        "P14",
+        "P23"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "stormworks",
+        "route",
+        "traversal",
+        "camera"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R023",
+        "R024"
+      ]
+    },
+    {
+      "id": "P26",
+      "title_ar": "النار والكهرباء والرياح والإتقان",
+      "depends_on": "P25 / P23",
+      "tools": "Godot gameplay / VFX / SFX",
+      "actions_ar": [
+        "نار تغير التوقيت وكهرباء تتطلب قراءة دورة ورياح تغير الدفع والمسار",
+        "تعليم آمن ثم اختيار وتركيب مهارات وراحة وتحدٍ اختياري",
+        "نقاط استعادة مستحقة وفشل وسقوط وإعادة سريعة",
+        "دمج القفزتين والتسلق والبدائل وسط المؤثرات"
+      ],
+      "acceptance_ar": [
+        "ثلاثة أدوار فعلية لا ثلاثة ألوان",
+        "التهديد عادل ومقروء مع الكتم وقلة الحركة",
+        "الإتقان يتحسن بلا توقيت خفي"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P23",
+        "P25"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "route",
+        "vfx",
+        "traversal"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R025",
+        "R026",
+        "R027",
+        "R028"
+      ]
+    },
+    {
+      "id": "P27",
+      "title_ar": "الغرف الأخرى والكيانات وقرار الإصلاح أو البناء",
+      "depends_on": "P24 / P25 / P26",
+      "tools": "Godot / Tripo / Blender / أدلةالغرف",
+      "actions_ar": [
+        "جرد الأمن والعينات والأرشيف والمفاعل والتطهير والمرآة والمختبر والمستشفى",
+        "قرار حفظ أو صقل أو إعادة مهام أو تخطيط أو بناء كامل لكل غرفة",
+        "تأهيلRoom07 وUV والخامات على المصدر الصحيح واستثمار الجيد",
+        "كيانات بأدوار قريبة وبعيدة وبيئية وتمهيد ومقاومة وبحث واسترداد"
+      ],
+      "acceptance_ar": [
+        "لا هدم شامل ولا قبول من دليل قديم",
+        "الفشل البنيوي الذي لا يصلحه الصقل يستدعي إعادة البناء",
+        "القدرات البشرية قبل العقد والقوى المكتسبة بعده"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P24",
+        "P25",
+        "P26"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "campaign",
+        "journey"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R012",
+        "R031"
+      ]
+    },
+    {
+      "id": "P28",
+      "title_ar": "الأرشيف والمرآة وذكريات شيزوكا ويوكي",
+      "depends_on": "P05 / P20 / P24 / P27 / P36",
+      "tools": "Flow / liveGodot / dialogues / save",
+      "actions_ar": [
+        "ذاكرة خاصة بأثر شيزوكا لها سؤال وكشف وصورة",
+        "ذاكرة أخرى ليوكي مختلفة في المعنى والفعل",
+        "تعليق إيكو أثناء السير عند المحفز مع أولوية الحوار ومنع الإعادة",
+        "مرآة لإيكو الكبير حيًا ومحاذيًا ويتحرك داخل معناها المعتمد"
+      ],
+      "acceptance_ar": [
+        "لا فيلم عام مكرر مع عنوان مختلف",
+        "لا إجابة جاهزة عند كل أيقونة",
+        "الانعكاس ليس صورة على جانب المرآة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P05",
+        "P20",
+        "P24",
+        "P27"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "campaign",
+        "cine_camera",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R061",
+        "R062",
+        "R063"
+      ]
+    },
+    {
+      "id": "P29",
+      "title_ar": "الافتتاح من المدرسة إلى التجربة",
+      "depends_on": "P05 / P06 / P07 / P08 / P16 / P37",
+      "tools": "Blender / Flow / Godot director / JPvoice",
+      "actions_ar": [
+        "عودة إيكو من المدرسة ومروره ودخوله المختبر",
+        "أسئلة الأب وردود إيكو والنظر والاستقبال في حوار شفاف",
+        "جلوس وارتكاز وتفاعل فشل ونجاح التجربة",
+        "نجاح ودخول سينمائي للعالم وتحميل ساتر"
+      ],
+      "acceptance_ar": [
+        "افتتاح جديد يراجع كاملًا بدل القديم المرفوض",
+        "فشل التفاعل لا يخلق نهاية غير معتمدة",
+        "التخطي والاستئناف لا يتجاوزان قرارًا أو يكشفان عالمًا ناقصًا"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P16"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "opening_film",
+        "boot"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R050",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057"
+      ]
+    },
+    {
+      "id": "P30",
+      "title_ar": "مهمة المختبر والكرسي والقيود والانهيار",
+      "depends_on": "P05 / P06 / P08 / P09 / P27 / P36",
+      "tools": "Godot / Blender / Flow / JPvoice",
+      "actions_ar": [
+        "تحقيق وأدلة وصراع مع الأب بدل مهمة أيقونات",
+        "جلوس وقيود ومقاومة وضغط وألم وردود كينجا",
+        "مشاهد هجينة متعددة خاصة بالحدث وملكية تحكم واضحة",
+        "انهيار يمهد المحيط والاختيار دون اختصار إلى السلاح"
+      ],
+      "acceptance_ar": [
+        "العاطفة والسبب والنتيجة متصلة",
+        "الجسد والكرسي والقيود والأدوات مستمرة بين اللقطات",
+        "لا قتال مكتسب قبل العقد"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P05",
+        "P06",
+        "P08",
+        "P09",
+        "P27"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "campaign",
+        "kenja_actor",
+        "cine_camera"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R064",
+        "R065"
+      ]
+    },
+    {
+      "id": "P31",
+      "title_ar": "الغرق وقاع المحيط وعقد زيرو المتسلسل",
+      "depends_on": "P22 / P30 / P36 / P37",
+      "tools": "Godot / Flow / Blender / الحواروالحفظ",
+      "actions_ar": [
+        "غرق يعبر عن العمق والعزلة وحضور قادم",
+        "وصول قاع المحيط وكشف زيرو تدريجيًا",
+        "تفاوض متصل فيه عرض واعتراض وسؤال وثمن ورد وفهم",
+        "قبول صريح واحد أو رفض وتأجيل وفق المصدر وحفظ القرار"
+      ],
+      "acceptance_ar": [
+        "القوة والثمن والاختيار مفهومة",
+        "لا طواف أيقونات أو قبول من التخطي",
+        "لا صلاحية قوة في الحفظ والاستئناف قبل العقد"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P22",
+        "P30"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "contract_cinematics",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R067",
+        "R068",
+        "R069"
+      ]
+    },
+    {
+      "id": "P32",
+      "title_ar": "الضحكة والتحول التدريجي والتحرر",
+      "depends_on": "P31 / P07 / P09 / P36 / P37",
+      "tools": "Blender / Godot shaders / JPacting / VFX",
+      "actions_ar": [
+        "عودة لجسم المختبر باستمرارية القيود",
+        "نفس وانكسار وضحكة تتصاعد ورد كينجا عليها",
+        "تدرج الشعر والعين والعلامة والهيئة إلى المعتمد",
+        "شد وارتكاز وكسر كرسي وفك قيود وحضور قبل الهجوم"
+      ],
+      "acceptance_ar": [
+        "التغير النفسي يظهر في الجسد والكلام",
+        "لا لون فوري أو ضحكةloop أو مؤثر يخفي تشوهًا",
+        "العقد والمشهد واللعب متصلون"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P07",
+        "P09",
+        "P31"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "contract_cinematics",
+        "pact_packet",
+        "vfx"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R070",
+        "R071",
+        "R072"
+      ]
+    },
+    {
+      "id": "P33",
+      "title_ar": "انتقام إيكو والقتال التفاعلي الكامل",
+      "depends_on": "P15 / P32 / P36 / P37",
+      "tools": "Godot combat / pairedanimation / Flowمرجعي",
+      "actions_ar": [
+        "هجوم يدين مؤلف ثم عدة ضربات للمستخدم بحركات وردود مختلفة",
+        "التحام ومقاومة ودفاع وتراجع كينجا",
+        "حبل وخنق تمثيلي وتقييد ثم أداة مختبر أو حقن ضمن السرد",
+        "إيكو فوق كينجا بضربات وارتكاز وتبعات ودم"
+      ],
+      "acceptance_ar": [
+        "لا فيلم يسرق فعل اللاعب أوQTE مطول مكرر",
+        "الاتصال والمدى والاتجاه والاستقبال والكاميرا واضحة",
+        "المؤثرات قابلة للخفض والحدث ليس تعليمات طبية"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P15",
+        "P32"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "contract_cinematics",
+        "kenja_actor",
+        "player"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R073",
+        "R075",
+        "R076",
+        "R077",
+        "R078"
+      ]
+    },
+    {
+      "id": "P34",
+      "title_ar": "تدخل النظام والتجميد والأمنية والانهيار",
+      "depends_on": "P33 / P16 / P36 / P37",
+      "tools": "Godot director / SystemWindowالحالي / save",
+      "actions_ar": [
+        "تجميد متزامن للعالم والقتال وإيكو وإيقاع الصوت",
+        "إيكو يحاول ويعلن أنه لا يستطيع الحركة",
+        "ظهور النظام والرهبة والأمنية أو القرار المعتمد",
+        "مسك الرأس وصداع وتنفس واختلال وانهيار"
+      ],
+      "acceptance_ar": [
+        "تجميد درامي مفهوم لا عطل",
+        "لا قرار أمنية أو تقدم مفترض من الفيلم",
+        "الحفظ والوقفة والبدائل لا تكسر السلطة والتوقيت"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P16",
+        "P33"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "contract_cinematics",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R079",
+        "R080",
+        "R081",
+        "R082"
+      ]
+    },
+    {
+      "id": "P35",
+      "title_ar": "فتح العينين في المستشفى وختام الجزء",
+      "depends_on": "P34 / P16 / P22 / P36 / P37",
+      "tools": "Godot / Blender / Flow / JPvoice",
+      "actions_ar": [
+        "سواد درامي ثم فتح عينين وإدراك السقف والجسد والصوت",
+        "استعادة حركة وفعل ونهوض ووضوح الهدف",
+        "فحصEX-011 والجسم بانعكاس حي حيث يطلب المصدر",
+        "ختام بأثر وغموض دون فتح أنظمة الواقع اللاحقة مبكرًا"
+      ],
+      "acceptance_ar": [
+        "لا استيقاظ مسلح قبل العقد",
+        "لا سواد تحميل معلق",
+        "رحلة وحفظ وارتكاز وكاميرا وغرفة تراجع فنيًا"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P16",
+        "P22",
+        "P34"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "campaign",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R083",
+        "R123"
+      ]
+    },
+    {
+      "id": "P36",
+      "title_ar": "الإخراج المستمر وملكية المشاهد والكلام أثناء السير",
+      "depends_on": "عملأفقيمنP05ولاينتظرP35",
+      "tools": "Shotledger / Godot director / subtitles / Flow",
+      "actions_ar": [
+        "بطاقة هدف وصورة وفعل ورد ونظر وصوت وتوقيت لكل حدث",
+        "معرف فريد وحالة مشاهدة ومنع إعادة الذكريات تلقائيًا",
+        "تعليق سياقي أثناء السير بأولوية واحدة دون اختناق الجمل",
+        "انتقال كاميرا وإدخال ووقفة وتخطٍ واسترجاع وحفظ"
+      ],
+      "acceptance_ar": [
+        "كل مشهد له غرض لا عدد قسري",
+        "المستمع ورد فعله جزء من الحوار",
+        "كل53 حدثًا له مصدر وصوت وتحكم وحفظ ومراجعة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P05"
+      ],
+      "delivery_mode": "incremental_crosscutting",
+      "inspect_source_roles": [
+        "cine_camera",
+        "save",
+        "campaign"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R058",
+        "R059",
+        "R060",
+        "R084",
+        "R113",
+        "R124"
+      ]
+    },
+    {
+      "id": "P37",
+      "title_ar": "الأداء الصوتي والمؤثرات والمزج والإيقاع",
+      "depends_on": "عملأفقيمنP04وأولشريحة",
+      "tools": "ElevenLabs / Flow / REAPER / Godot Audio",
+      "actions_ar": [
+        "أداء أصلي لإيكو وكينجا وزيرو ونطق وترجمةJP وخوف وهمس وغضب وضحكة",
+        "خطوة حسب السطح وهبوط وملابس وضغط وأجهزة وبوابات وضرب وحبل",
+        "مكان وصدى وماء وصداع وصمت ونفس وتصاعد بلا موسيقى",
+        "تنويع ومنع قص الموجة وموازنة وتوقيت وتفضيلات"
+      ],
+      "acceptance_ar": [
+        "لا خامة بدائية موحدة أو صوت منفصل عن الفعل",
+        "الاستماع والأداء والمزج داخل اللعب مستقل عنPCM",
+        "الحقوق والرصيد والسعر والنموذج مؤهلة"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P04"
+      ],
+      "delivery_mode": "incremental_crosscutting",
+      "inspect_source_roles": [
+        "pact_audio"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R033",
+        "R034",
+        "R035",
+        "R115"
+      ]
+    },
+    {
+      "id": "P38",
+      "title_ar": "الأداء والاختبارات وإغلاق الفجوات",
+      "depends_on": "منأولشريحةومراجعةكلمرحلة",
+      "tools": "Godot profiler / tests / أجهزةمستهدفة",
+      "actions_ar": [
+        "اختبار إدخال وتصادم وسقوط وإعادة ووقفة وتخطٍ ومكتسبات وحفظ وسلطة30/60Hz",
+        "قياسp95/p99 والتعثر والذاكرة والماء والقتال والتحميل",
+        "تحسين عنق مثبت وLOD وخامات وضوء وجزيئات وموارد وأصوات",
+        "حفظ الفشل والمصدر والبصمة وفصل القبول التقني عن الفني"
+      ],
+      "acceptance_ar": [
+        "لا دليل قديم أو مختلف المصدر يقبل الحالي",
+        "درجات الجودة لا تغير حقيقة اللعب والقصة",
+        "التحميل البارد واللعب الطبيعي جزء من القياس"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P03"
+      ],
+      "delivery_mode": "incremental_crosscutting",
+      "inspect_source_roles": [
+        "experience_test",
+        "climb_test",
+        "journey_test",
+        "chapter_test",
+        "native_contract_test"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "primary_requirement_ids": [
+        "R117"
+      ]
+    },
+    {
+      "id": "P39",
+      "title_ar": "تجارب اللاعبين والفصل الكامل والتسليم",
+      "depends_on": "جميعالحزموبواباتها",
+      "tools": "playtests / Windowsbuild / Git/LFS / ترخيص",
+      "actions_ar": [
+        "تجارب لاعبين غير موجهين لفهم الهدف والمتعة والانهيار والعقد",
+        "رحلة كاملة من الحساب والغلاف للمدرسة والعالم والغرف والعقد والقتال والمستشفى",
+        "حزمةWindows وموارد وترخيص وحفظ وإعدادات وأخطاء وأداء",
+        "مقارنة محددة ثم إصدار موثق المصدر وتخزين حزم خارج الشجرة"
+      ],
+      "acceptance_ar": [
+        "خمسة لاعبين بداية مقترحة لا إثبات سوق",
+        "لا ضمان تفوق عالمي أو قبول من خطة",
+        "الأنظمة اللاحقة تنتظر بوابة الفصل والتوجيه"
+      ],
+      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "depends_on_phase_ids": [
+        "P00",
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20",
+        "P21",
+        "P22",
+        "P23",
+        "P24",
+        "P25",
+        "P26",
+        "P27",
+        "P28",
+        "P29",
+        "P30",
+        "P31",
+        "P32",
+        "P33",
+        "P34",
+        "P35",
+        "P36",
+        "P37",
+        "P38"
+      ],
+      "delivery_mode": "bounded_phase_bundle",
+      "inspect_source_roles": [
+        "chapter_test",
+        "campaign",
+        "save"
+      ],
+      "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
+      "crosscutting_slice_gates": [
+        "P36:input/camera/scene/save ownership for this slice",
+        "P37:temporary or final audio/voice/SFX as this slice requires",
+        "P38:scoped source/runtime/device verification for this slice"
+      ],
+      "primary_requirement_ids": [
+        "R009",
+        "R116",
+        "R118",
+        "R121"
+      ]
+    }
+  ],
+  "story_event_ledger": "CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+  "story_event_ids": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "M01",
+    "M02",
+    "M03",
+    "L01",
+    "L02",
+    "L03",
+    "L04",
+    "L05",
+    "L06",
+    "L07",
+    "L08",
+    "O01",
+    "O02",
+    "O03",
+    "O04",
+    "O05",
+    "O06",
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "H01",
+    "H02",
+    "H03",
+    "H04"
+  ],
+  "assumption_title_infinite": "Optional stronger seamless motion loop for title/loading;not a newly approved story event or specific unnamed reference",
+  "review_limits": [
+    "Visible conversation and current linked plans are mapped;new corrections remain addenda with IDs",
+    "Selected visual studies and transcripts are not full episode/listening completion",
+    "All live account balances and trial/commercial terms recheck before spending"
+  ],
+  "runtime_edits": false,
+  "agent_handoff": "AGENT_EXECUTION_HANDOFF_2026-11-04.ar.md",
+  "project_state": "PROJECT_IMPLEMENTATION_STATE_2026-11-04.json",
+  "execution_contract": {
+    "dependencies": "depends_on_phase_ids is the hard prerequisite DAG;human depends_on text is explanatory",
+    "numbers_not_linear_schedule": true,
+    "crosscutting": "P36/P37/P38 begin incrementally;each content slice closes applicable local gates,globalfinal acceptance atP39",
+    "context_economy": "FilterJSONbycurrentP/R and source roles;do not reread all127requirements for each edit",
+    "acceptance": "Requirements+phase gates+runtime/art/audio/device scope;not text existence",
+    "current_request": "Plan/studies/current-state documentation and publication only;no new gameplay production",
+    "source_state": "PROJECT_IMPLEMENTATION_STATE_2026-11-04.json",
+    "human_state": "CURRENT_IMPLEMENTATION_STATUS_2026-11-04.ar.md",
+    "agent_handbook": "AGENT_EXECUTION_HANDOFF_2026-11-04.ar.md",
+    "ambiguity_policy": "Mark source/Canon/rights/activation gaps and proceed only with independent qualified work;do not guess or falsely close"
+  }
+}

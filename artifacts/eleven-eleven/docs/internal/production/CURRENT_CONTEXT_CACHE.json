@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-04T13:24:52.954931+00:00",
-  "checkpoint": "REPOSITORY_CLEANUP_PUBLISHED_MASTER_PLAN_READY_20261104",
+  "updated": "2026-11-04T16:42:43.892763+00:00",
+  "checkpoint": "COMPREHENSIVE_PLAN_40_PHASES_127_REQUIREMENTS_53_EVENTS_AGENT_HANDOFF_20261104",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -44,9 +44,9 @@
     "lab_lifecycle": "audits/evidence/character-school-20261103/lab-lifecycle-native-pact-budgeted/presentation-review.json",
     "performance": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json"
   },
-  "limits": "Allroom art/fun/audio/device/chapter acceptance OPEN;prior IntelUHD fullworld Forward+ failure retained;V31default;9381staged untouched",
+  "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
   "next": [
-    "Deliver master plan after verified repository sync 278843a6a2afc663c9af6e1ae4b5287ed36617ba",
+    "Deliver/publish40phase/127requirement/53event comprehensive plan with current-state snapshot and Agent handbook;no new runtime production.",
     "Verify Owner Starter/Protrial activation and live cost before generation;REAPER evaluation first",
     "Qualify bounded Japanese voice and motion/export/contact samples;choose CascadeurIndie/Pro from result",
     "Signature chair→ocean→pact→transformation→contact animatic,then playable slice before broad production",
@@ -241,7 +241,7 @@
   },
   "last_implemented_checkpoint": "EXPERIENCE_UI24_CLIMB16_ROUTE88_SCHOOL_OUTLINE_SCOPED",
   "latest_owner_directive": {
-    "mode": "REPOSITORY_CLEANUP_PUBLICATION_THEN_MASTER_PLAN_AND_GATED_PRODUCTION",
+    "mode": "COMPREHENSIVE_PLAN_ONLY_NO_NEW_RUNTIME_PRODUCTION",
     "plan": "docs/internal/production/CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md",
     "ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
     "scene_events": 53,
@@ -304,7 +304,7 @@
     "Cascadeur": {
       "installed": "owner confirmed current chat",
       "trial": "not yet verified active",
-      "decision": "test Pro14days then choose Indie/Pro/Blender by actual sample;Indie revenue condition fits owner current no-revenue statement"
+      "decision": "Pro14daytrial first;paidIndie conditional on gross revenue<100k/year,not zero profit;chooseProonlyafter demonstrated contact/export/time benefit"
     }
   },
   "repository_cleanup_20261104": {
@@ -328,5 +328,21 @@
     "DistinctIai draw stillneedscompatible short source;localSword/Samurai100Hz longtakes cached inlocal-sword-source-candidates.json,not accepted",
     "EX011 source-writing cleanup/legibility:actualPactnative ink report only62pixels at4K,geometrybindingPASS isnotartlegibility",
     "Room-by-room art/fun/audio/performance/device andchapteracceptance stillOPEN;face deferred byOwner"
-  ]
+  ],
+  "comprehensive_plan": {
+    "master": "docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md",
+    "coverage": "docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json",
+    "phases": 40,
+    "requirements": 127,
+    "story_events": 53,
+    "status": "PLANNED_OR_SCOPED_PRIOR_WORK_NOT_FINAL_ACCEPTANCE",
+    "title_option": "Optional stronger seamless motion loop;unnamed infinite reference remains an explicit assumption",
+    "no_new_runtime_or_generation": true,
+    "next": "Deliver consolidated plan and complete bundle;then follow owner steering for bounded qualification samples",
+    "agent_handoff": "docs/internal/production/AGENT_EXECUTION_HANDOFF_2026-11-04.ar.md",
+    "project_state": "docs/internal/production/PROJECT_IMPLEMENTATION_STATE_2026-11-04.json",
+    "current_status_md": "docs/internal/production/CURRENT_IMPLEMENTATION_STATUS_2026-11-04.ar.md",
+    "provenance_open": "Pact production-packet index hash differs;resolve consumers/source before asset work;do not silently bless",
+    "dependency_graph": "40nodesDAGverified;crosscuttingP36/P37/P38incremental"
+  }
 }

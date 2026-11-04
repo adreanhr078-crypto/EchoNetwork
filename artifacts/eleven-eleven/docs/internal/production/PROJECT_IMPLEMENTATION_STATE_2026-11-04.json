@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-11-04T16:42:43.892763+00:00",
+  "scope": "Read-only source/evidence inspection during planning revision;no new runtime acceptance",
+  "baseline_git_head_before_this_docs_revision": "a408d23548265306c8005a0fcfa85288494381a0",
+  "repository_root_windows_example": "C:\\Users\\yasmo\\EchoNetwork",
+  "app_relative_root": "artifacts/eleven-eleven",
+  "current_phase": "PART_3_SCREEN_BREAK_AND_FIRST_3D_ESCAPE_VERTICAL_SLICE",
+  "current_phase_gate": [
+    "Preserve the server-authoritative cover-puzzle receipt before the visual transition and prevent duplicate submission or reward replay",
+    "Deliver one skippable, mute-aware, Reduced-Motion-safe cinematic that ends with Echo's system arrival and does not expose later Canon beats",
+    "Hand player control into one cohesive 3D escape room with clear objectives, interaction, keyboard/touch, a non-WebGL fallback, and device quality tiers",
+    "Prove the Arabic and English handoff in Edge across loading/error/retry, refresh/resume, reduced motion, mute, and responsive target viewports",
+    "Validate provisional Blender assets against Manhwa fidelity, interaction bindings, collision, lighting, performance, and accessible fallback before relying on them"
+  ],
+  "phase_advanced": false,
+  "runtime_entry": "godot/scenes/boot.tscn → scripts/boot.gd → title/account/opening/cover via existing flow → scenes/native_journey.tscn → journey/campaign controllers",
+  "code_roles": {
+    "boot": {
+      "path": "godot/scripts/boot.gd",
+      "exists": true,
+      "sha256": "0e01ffd174dd36efc73a136f276e022f9d691a471e7a53323923ffa6d78fa3e4",
+      "bytes": 10392,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "0e01ffd174dd36efc73a136f276e022f9d691a471e7a53323923ffa6d78fa3e4"
+    },
+    "boot_scene": {
+      "path": "godot/scenes/boot.tscn",
+      "exists": true,
+      "sha256": "da985aa87a215f5d1a59e7be681243098dd1ffd2b0a39c8869a902479349af3f",
+      "bytes": 173,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": null
+    },
+    "native_scene": {
+      "path": "godot/scenes/native_journey.tscn",
+      "exists": true,
+      "sha256": "9f50b4c9a349dbaa006e253dc9c0ef8335ee2a260cc5ba7cbe1934328b22b962",
+      "bytes": 741,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "9f50b4c9a349dbaa006e253dc9c0ef8335ee2a260cc5ba7cbe1934328b22b962"
+    },
+    "main": {
+      "path": "godot/scripts/main.gd",
+      "exists": true,
+      "sha256": "4d18d60965040971e61e92143a14d69c7b10afeb95d02788a79ec5c70ca270c7",
+      "bytes": 53435,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "4d18d60965040971e61e92143a14d69c7b10afeb95d02788a79ec5c70ca270c7"
+    },
+    "title": {
+      "path": "godot/scripts/ui/title_entry.gd",
+      "exists": true,
+      "sha256": "f1715346a52a9a07d192b3f10a1c57e5b4257fb85d5ad231fd9c1f3cdc0673bf",
+      "bytes": 6181,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "f1715346a52a9a07d192b3f10a1c57e5b4257fb85d5ad231fd9c1f3cdc0673bf"
+    },
+    "opening_film": {
+      "path": "godot/scripts/ui/school_lab_opening.gd",
+      "exists": true,
+      "sha256": "5bd2966f106b2878af1b8d4f568d9c459b335530541d7a77b418c17be526173d",
+      "bytes": 11805,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "5bd2966f106b2878af1b8d4f568d9c459b335530541d7a77b418c17be526173d"
+    },
+    "cover": {
+      "path": "godot/scripts/ui/cover_recovery.gd",
+      "exists": true,
+      "sha256": "7181c7950ac037ef9d1b8c4c50e665011aeda921e74cdeccc385cb416e9322e9",
+      "bytes": 11058,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "7181c7950ac037ef9d1b8c4c50e665011aeda921e74cdeccc385cb416e9322e9"
+    },
+    "pause": {
+      "path": "godot/scripts/ui/native_pause_menu.gd",
+      "exists": true,
+      "sha256": "c9057e9638b30e348606070f36ed5d87b6322b40552666c81406f9735757e285",
+      "bytes": 18261,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "c9057e9638b30e348606070f36ed5d87b6322b40552666c81406f9735757e285"
+    },
+    "controls": {
+      "path": "godot/scripts/ui/control_bindings.gd",
+      "exists": true,
+      "sha256": "427de60d7b26079f57ead7ab711e6f90627a9c034ed64ae02ec2c8b07ef80db0",
+      "bytes": 2228,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "427de60d7b26079f57ead7ab711e6f90627a9c034ed64ae02ec2c8b07ef80db0"
+    },
+    "loading": {
+      "path": "godot/scripts/ui/chapter_loading_screen.gd",
+      "exists": true,
+      "sha256": "338a56fec228608bb753ce47325a312a9c3f0adf44a374ad2e681e453b8df2e5",
+      "bytes": 4326,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "338a56fec228608bb753ce47325a312a9c3f0adf44a374ad2e681e453b8df2e5"
+    },
+    "player": {
+      "path": "godot/scripts/player/echo_player.gd",
+      "exists": true,
+      "sha256": "5a4fe9887e151de7980e5b0895a2b246c09bb90f7d58a7029eac98dca3e47c37",
+      "bytes": 105680,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "5a4fe9887e151de7980e5b0895a2b246c09bb90f7d58a7029eac98dca3e47c37"
+    },
+    "traversal": {
+      "path": "godot/scripts/player/surface_traversal_motor.gd",
+      "exists": true,
+      "sha256": "84a57878414459e408587b34d294f11c1d821ab92302a15cbeb91daf8b2eb3cd",
+      "bytes": 25167,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "84a57878414459e408587b34d294f11c1d821ab92302a15cbeb91daf8b2eb3cd"
+    },
+    "school_motion": {
+      "path": "godot/scripts/player/echo_school_motion_adapter.gd",
+      "exists": true,
+      "sha256": "3d5676d4c0aedf231eedda9130a2c3ddcb54f1382a1af26018b5231ecc3993b0",
+      "bytes": 10198,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "3d5676d4c0aedf231eedda9130a2c3ddcb54f1382a1af26018b5231ecc3993b0"
+    },
+    "v31_motion": {
+      "path": "godot/scripts/player/echo_v31_motion_adapter.gd",
+      "exists": true,
+      "sha256": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a",
+      "bytes": 8989,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "a3f4460b0bf6b3099ca89c1f0813d023ac907e944a1049639138b196fe8a768a"
+    },
+    "journey": {
+      "path": "godot/scripts/systems/native_journey_controller.gd",
+      "exists": true,
+      "sha256": "1deae05e3b4f0f0124bf13c8ff9d3557b4043b3440c77803d2e46aaef594de65",
+      "bytes": 9824,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "1deae05e3b4f0f0124bf13c8ff9d3557b4043b3440c77803d2e46aaef594de65"
+    },
+    "campaign": {
+      "path": "godot/scripts/systems/native_campaign_controller.gd",
+      "exists": true,
+      "sha256": "d65fe4665a09e7593bbd0b77ee3c94e22b7f5e2d796fbe2013e225d2d6cfb272",
+      "bytes": 38116,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "d65fe4665a09e7593bbd0b77ee3c94e22b7f5e2d796fbe2013e225d2d6cfb272"
+    },
+    "stormworks": {
+      "path": "godot/scripts/systems/stormworks_journey_preview.gd",
+      "exists": true,
+      "sha256": "b53075bfa2028165291a204a9ed2520c90d1003943d5706fd8810874bd6a6f75",
+      "bytes": 9012,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "b53075bfa2028165291a204a9ed2520c90d1003943d5706fd8810874bd6a6f75"
+    },
+    "route": {
+      "path": "godot/scripts/systems/stormworks_route.gd",
+      "exists": true,
+      "sha256": "361b88eea1cd04a1d1f429d8dec899a34be6452ba906e0a208ee3bd5a2190a96",
+      "bytes": 1737,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "361b88eea1cd04a1d1f429d8dec899a34be6452ba906e0a208ee3bd5a2190a96"
+    },
+    "save": {
+      "path": "godot/scripts/systems/save_manager.gd",
+      "exists": true,
+      "sha256": "76aabad5e8d295b1e360e0ef369b14144291b11106d2d784f242d4f3d6fb7de9",
+      "bytes": 5717,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": null
+    },
+    "native_account": {
+      "path": "godot/scripts/systems/native_entry_gate.gd",
+      "exists": true,
+      "sha256": "a20d2482d095ae3925307d7cfdfc745907c37f9e00140bfde492654c9b57cd9c",
+      "bytes": 5676,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "a20d2482d095ae3925307d7cfdfc745907c37f9e00140bfde492654c9b57cd9c"
+    },
+    "prompt": {
+      "path": "godot/scripts/ui/interaction_prompt_hud.gd",
+      "exists": true,
+      "sha256": "eb5c9d927b5d8500e465f7c33bed1087f65128f30e8819c4f7fded29950e5009",
+      "bytes": 3386,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "eb5c9d927b5d8500e465f7c33bed1087f65128f30e8819c4f7fded29950e5009"
+    },
+    "interaction": {
+      "path": "godot/scripts/interaction/interactable_component.gd",
+      "exists": true,
+      "sha256": "580a68df56fdcb7213942ae0ba52bc710a96e5d1f945305318e31a4f3838d01c",
+      "bytes": 3418,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "580a68df56fdcb7213942ae0ba52bc710a96e5d1f945305318e31a4f3838d01c"
+    },
+    "camera": {
+      "path": "godot/engine_visuals/camera/DynamicActionCameraRig.gd",
+      "exists": true,
+      "sha256": "6106cfc4a2c5412f3eee6ebac429399a14e89082535f75eeafb797058193e6a6",
+      "bytes": 5639,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "6106cfc4a2c5412f3eee6ebac429399a14e89082535f75eeafb797058193e6a6"
+    },
+    "materials": {
+      "path": "godot/engine_visuals/HyperMaterialAdapter.gd",
+      "exists": true,
+      "sha256": "e5d7410be2b4304cac37159586a7b18110d98755afdaa3c8bb4f4ecc75bafdd9",
+      "bytes": 7115,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "e5d7410be2b4304cac37159586a7b18110d98755afdaa3c8bb4f4ecc75bafdd9"
+    },
+    "world": {
+      "path": "godot/engine_visuals/HyperAnimeWorldManager.gd",
+      "exists": true,
+      "sha256": "52af5a282d31f2b4ae15b7cdf74bb7c48a60665854299be2a6bde0423c367cb9",
+      "bytes": 24247,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "52af5a282d31f2b4ae15b7cdf74bb7c48a60665854299be2a6bde0423c367cb9"
+    },
+    "vfx": {
+      "path": "godot/engine_visuals/vfx/KineticVFXOrchestrator.gd",
+      "exists": true,
+      "sha256": "57e8d04532d759b2ef5f5a2aa394c95178a23533f88ef0a1e844d69da6caa349",
+      "bytes": 12614,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "57e8d04532d759b2ef5f5a2aa394c95178a23533f88ef0a1e844d69da6caa349"
+    },
+    "contract_cinematics": {
+      "path": "godot/scripts/cinematics/pact_revenge_presentation.gd",
+      "exists": true,
+      "sha256": "6b4bb10458eaa071d07b89de20b0a463aae5234c23f1a5251cc148a5843a3671",
+      "bytes": 49468,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "6b4bb10458eaa071d07b89de20b0a463aae5234c23f1a5251cc148a5843a3671"
+    },
+    "kenja_actor": {
+      "path": "godot/scripts/characters/kinja_revenge_actor.gd",
+      "exists": true,
+      "sha256": "72675d5daf1de1f637e1986fe5a87d9dcfe76aa7bc5098c79497dad8d818a329",
+      "bytes": 4804,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "72675d5daf1de1f637e1986fe5a87d9dcfe76aa7bc5098c79497dad8d818a329"
+    },
+    "cine_camera": {
+      "path": "godot/scripts/cinematics/cine_camera_director.gd",
+      "exists": true,
+      "sha256": "1738d0c68035e2d6823601219d8cfa20dd20bbf889093818e0570c5d9a6d77e1",
+      "bytes": 6200,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": null
+    },
+    "pact_audio": {
+      "path": "godot/scripts/audio/pact_audio_director.gd",
+      "exists": true,
+      "sha256": "fea6263b031f007d1eede06854dcf0398aeb00c1ece754594e4863c898550e02",
+      "bytes": 4442,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": null
+    },
+    "canon_manifest": {
+      "path": "docs/internal/narrative/current/ar/manifest.json",
+      "exists": true,
+      "sha256": "b878a05e2af186ef47fcf4a10a1f51e9d23d459708c5f26cd0087dad71199cc5",
+      "bytes": 2268,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "b878a05e2af186ef47fcf4a10a1f51e9d23d459708c5f26cd0087dad71199cc5"
+    },
+    "project_config": {
+      "path": "godot/project.godot",
+      "exists": true,
+      "sha256": "34740263ef7ed1803b6b35da30be37c4eeaab60de53326294ec7ee0d64656bdf",
+      "bytes": 8264,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "34740263ef7ed1803b6b35da30be37c4eeaab60de53326294ec7ee0d64656bdf"
+    },
+    "golden_manifest": {
+      "path": "art/production/master-animation-library/golden/walk-v1/GoldenReference.json",
+      "exists": true,
+      "sha256": "b3334466bb9bf8ed802cbd3822ad495baf1a93603be48e040e65f9a690a56414",
+      "bytes": 29288,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "b3334466bb9bf8ed802cbd3822ad495baf1a93603be48e040e65f9a690a56414"
+    },
+    "pact_packet": {
+      "path": "art/production/echo-contract-rebuild-20261101/production-packet.json",
+      "exists": true,
+      "sha256": "4cdc27cd1f03aa3bd4826357cd393f86cd3732ca66136d5277af2ed4feab49b7",
+      "bytes": 5609,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": false,
+      "expected_source_index_sha256": "63eb9d508960973b12398dbc78ae5ecabf7e2bbe12c591d78c86044d618b7b4a"
+    },
+    "experience_test": {
+      "path": "godot/tests/experience_entry_review.gd",
+      "exists": true,
+      "sha256": "f743f743d4ddbc7fb9e7bdbbe478d292cac4f37e32982fa214e83f7eff2ceff9",
+      "bytes": 7420,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "f743f743d4ddbc7fb9e7bdbbe478d292cac4f37e32982fa214e83f7eff2ceff9"
+    },
+    "climb_test": {
+      "path": "godot/tests/climb_forward_review.gd",
+      "exists": true,
+      "sha256": "cf8681c0f0a0aeaa2d047e43492f14a899e0098a10b23a1106b7552da760ec91",
+      "bytes": 2894,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "cf8681c0f0a0aeaa2d047e43492f14a899e0098a10b23a1106b7552da760ec91"
+    },
+    "back_test": {
+      "path": "godot/tests/character_back_review.gd",
+      "exists": true,
+      "sha256": "3147bffa743d65bb221bde47c5567d0be3650822d33c9f5f5ccaaa19e80708fd",
+      "bytes": 2804,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "3147bffa743d65bb221bde47c5567d0be3650822d33c9f5f5ccaaa19e80708fd"
+    },
+    "journey_test": {
+      "path": "godot/tests/school_character_journey_review.gd",
+      "exists": true,
+      "sha256": "c55a349539005524f03c98f55936f4295b86fb9a4e3a81c0ac4c4f9348511b33",
+      "bytes": 3841,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "c55a349539005524f03c98f55936f4295b86fb9a4e3a81c0ac4c4f9348511b33"
+    },
+    "chapter_test": {
+      "path": "godot/tests/full_chapter_journey_review.gd",
+      "exists": true,
+      "sha256": "ffcc303c6753241edbd42aa639f5f9e19553ddb3a6e3be8a9b0e668403f3ea8b",
+      "bytes": 26141,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "ffcc303c6753241edbd42aa639f5f9e19553ddb3a6e3be8a9b0e668403f3ea8b"
+    },
+    "native_contract_test": {
+      "path": "godot/tests/native_pact_cinematic_review.gd",
+      "exists": true,
+      "sha256": "1f74231f4c8a3f5ae635663312b9126f39c4f7ded3ddbb4f841cd1e9909814c1",
+      "bytes": 4270,
+      "read_current_bytes_this_revision": true,
+      "source_index_match": true,
+      "expected_source_index_sha256": "1f74231f4c8a3f5ae635663312b9126f39c4f7ded3ddbb4f841cd1e9909814c1"
+    }
+  },
+  "default_avatar": "V31;School65onlywith--echo-school-candidate",
+  "last_implemented_checkpoint": "EXPERIENCE_UI24_CLIMB16_ROUTE88_SCHOOL_OUTLINE_SCOPED",
+  "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
+  "recorded_native_state": {
+    "base_motions": {
+      "default": "V31 preserved",
+      "opt_in": "--echo-school-candidate",
+      "motions": "Base8/350 unchanged;WakeA120@24Hz opt-in;native horizontal melee73@30Hz added. Total543mixed-clock original samples;defaultV31preserved.",
+      "journey": "Latest WakeA production route30Hz81headless/60Hz81rendered afterphysics alignment;historical82/83separate. Stage5earned lifecycle51historical.",
+      "wake": "A120/24Hz integrated opt-in;8base350unchanged;470withrecovery. Native/bodyground/natural30/60PASS scoped;hand/artOPEN. B144researchnotselected."
+    },
+    "pact_runtime": {
+      "packet": "art/production/echo-contract-rebuild-20261101/production-packet.json",
+      "case": "art/production/echo-contract-rebuild-20261101/work/wing-rig-v2",
+      "state": "72bones(65body+7wing),32860wingverts;bodyweights preserved;3x4K pixel-identical;native rest65joint error1.90um",
+      "spring": "Isolated30/60Hz180ticks PASS;bodyzero,length0.12um,pause/RM;rendered studio views inspected",
+      "runtime": "9qualified sources/423native30Hz samples;22002keys exact;actual65body-joint max5.34um/26binding checks;54PBR views inspected. Earned native avatar cached attached/hidden with stableSkinRIDs. New source enters existing bounded cel material pipeline once;original3x4K maps/source shape unchanged. Native marked-skin camera waits for deferred ink and transforms model/skeleton axes correctly. EX011source scribbles/legibility still ART_OPEN. Wing120Hz45X45Z analyticprofile;all observed contact within.13m reviewed anatomical mount,NOTcollision-free/finalcontact;Springoff. PublicGPU Roll6checks PASS,lowestSchool1.55mm/Pact1.77mm.",
+      "motions": "9/423native30Hz body sources individually qualified and bound only after explicit contract;not direct reuse of School libraries."
+    },
+    "source_index_isolated_work": "Face deferred;SpringBone disabled;nativePact423 and earnedcontrol integrated scoped. DistinctIai/art/neck/contact/performance/device acceptanceOPEN."
+  },
+  "evidence": {
+    "experience": {
+      "path": "audits/evidence/experience-rebuild-20261103/quality-report.json",
+      "checkpoint": "EXPERIENCE_UI24_CLIMB16_ROUTE88_SCHOOL_OUTLINE_SCOPED",
+      "status": "PARTIAL_PLAN_IN_PROGRESS",
+      "checks": {
+        "preflight": "PASS",
+        "postflight": "PASS",
+        "native_ui_default_rendered": 22,
+        "native_ui_school_rendered": 24,
+        "climb_30_60": 16,
+        "connected_school_headless_60": 88,
+        "traversal_reliability": "PASS scoped"
+      },
+      "source_matches": 20,
+      "runtime_source_mismatches": [],
+      "documentation_hashes_changed_since_historical_report": [
+        "docs/internal/production/EXPERIENCE_REBUILD_2026-11-03.ar.md"
+      ],
+      "back_diagnosis": {
+        "cause": "expanded inverted hull draws through close School garment folds",
+        "original_geometry_and_maps_edited": false,
+        "diagnostic_torso_ROI_dark_pixels_before": 17,
+        "after": 0,
+        "scope": "one measured idle ROI plus reviewed source/cel images; not universal contact/art acceptance",
+        "runtime_policy": "only School65 disables hull; existing derived profiles retain their outline policy"
+      },
+      "interpretation": "Historical scoped22default/24School rendered,16climb and88headless journey;runtime hashes still match;not final art/fun/account/chapter acceptance"
+    },
+    "native_contract": {
+      "path": "audits/evidence/character-school-20261103/native-pact-cinematic-cel-rendered/review.json",
+      "recorded_status": "PASS",
+      "checks": 62,
+      "reloads": 3,
+      "scope": "Actual explicit-consent UI/native Pact72 cinematic,source-attached aura,pause/Reduced Motion/save restore/public power release. Visual inspection and final art/contact/device acceptance remain separate.",
+      "rerun_in_this_revision": false
+    },
+    "performance": {
+      "path": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json",
+      "status": "MEASURED",
+      "renderer": "gl_compatibility",
+      "scope": "One earned lab/Pact72 idle view;240 actual process wall intervals per tier after120warm frames. Separate screenshots;not GPU duration,resident VRAM,moving combat,wholechapter or device-family acceptance.",
+      "water_screen_fraction_all_tiers_zero": true,
+      "tiers": {
+        "high": {
+          "mean_fps": 21.2240511655276,
+          "p95_ms": 58.832,
+          "p99_ms": 66.867,
+          "frames": 240,
+          "render_scale": 1.0
+        },
+        "low": {
+          "mean_fps": 77.900200106139,
+          "p95_ms": 20.305,
+          "p99_ms": 21.91,
+          "frames": 240,
+          "render_scale": 0.649999976158142
+        },
+        "medium": {
+          "mean_fps": 52.3986462809733,
+          "p95_ms": 30.726,
+          "p99_ms": 34.838,
+          "frames": 240,
+          "render_scale": 0.850000023841858
+        }
+      },
+      "interpretation": "Historical warm idle singleview;not moving combat,cold loading,visible water acceptance,GPU time or VRAM or wholechapter"
+    }
+  },
+  "tools_and_accounts": {
+    "source": "TOOLING_AUDIT_2026-11-04.json plus owner confirmations",
+    "account_observations_are_not_live_balances": true,
+    "Flow_Tripo": "Owner subscribed;prior Flow1050currentaccount/Tripo1345;otherFlowaccounts unverified",
+    "ElevenLabs": "PriorFree10000untouched;Starter activation must be checked",
+    "Cascadeur": "Owner confirmed installed;Pro14day activation not verified;Indie eligibility conditional gross revenue<100k not zero profit",
+    "REAPER": "Signed7.84installer downloaded;not installed by our audit;60dayevaluation",
+    "hardware": "Priori3-1215U/IntelUHD/~7.7GiBRAM;disk space is mutable;no targetGPU acceptance"
+  },
+  "open_gates": [
+    "127requirements are coverage,not127completed features",
+    "New opening not artistically accepted",
+    "Google/Facebook/guest native live integration and account lifecycle need proof",
+    "Distinct parkour jump/climb contact and new horizontal elemental course need production/fun review",
+    "Unique Shizuka/Yuki memories,future live mirror,full chair/ocean/pact/transformation/revenge/System/hospital sequence not newly produced",
+    "Face topology/acting and hands/neck/wing contact remain open or isolated;no blind integration",
+    "Black water actual ownerposition and moving mixed-load performance need proof",
+    "Full audio/Japanese acting/fun/device/chapter/export acceptance open"
+  ],
+  "ambiguities": [
+    "Infinite title reference interpreted provisionally as seamless motion loop;no new Canon assumed",
+    "Exact BlackClover last-episode reference follows documented clip not guessed season numbering",
+    "Manhwa page mapping of each event still required",
+    "Trial/Beta/commercial terms,current credits/subscription state and targethardware must be checked at use"
+  ],
+  "authorization": "Current request is comprehensive plan+studies+current-state handoff and publication;no new gameplay production this revision;ROOT_ONLY;owner handles subscriptions;later direct start steering governs bounded asset production",
+  "current_entry_order_observed": {
+    "first": "Boot creates title_entry before optional account gate",
+    "optional_native_account": "Only when network/native_entry_origin is configured;entry confirmed then opening film",
+    "local": "Local save may resume,otherwise cover_completed presentation preference/cover puzzle→opening film→native chapter",
+    "target_not_yet_proven": "Owner wants guest/Google/Facebook beforeTab/Tap;current local/title-first flow does not prove this",
+    "authority": "Local cover_completed preference is presentation state,not an account receipt or reward entitlement"
+  },
+  "loading_guardrail": "Boot source documents a4.8dev7 threaded42 vs synchronous0 RefCounted leak diagnosis;current scene load is synchronous behind completed curtain. Do not replace with background threaded load blindly;requalify resource lifetime first.",
+  "provenance_open_gates": [
+    {
+      "role": "pact_packet",
+      "path": "art/production/echo-contract-rebuild-20261101/production-packet.json",
+      "actual_sha256": "4cdc27cd1f03aa3bd4826357cd393f86cd3732ca66136d5277af2ed4feab49b7",
+      "indexed_sha256": "63eb9d508960973b12398dbc78ae5ecabf7e2bbe12c591d78c86044d618b7b4a",
+      "action": "Resolve source/packet provenance and consumers before touching Pact assets;do not silently bless index or reroll source"
+    }
+  ]
+}
