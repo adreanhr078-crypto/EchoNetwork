@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checkpoint": "EREN_BOTH_LAUGHS_128_REQUIREMENTS_STUDY_ONLY_20261104",
+  "checkpoint": "BASELINE_REVIEW_EARLY_FUN_GATES_20261104",
   "read_policy": "Read only hashes foraffectedfiles;invalidate changed sources,not wholehistory",
   "files": {
     "art/production/echo-contract-rebuild-20261101/production-packet.json": "4cdc27cd1f03aa3bd4826357cd393f86cd3732ca66136d5277af2ed4feab49b7",
@@ -168,9 +168,9 @@
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/shading-diagnosis.json": "4192bc8ea4f2f9a6147975874f3c8e7cd7794781f77e86260b74d2998f6c49ed",
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/source-iris-occlusion-reference.json": "1b7cd108a54be59a45232bb73c1c5879fa1d5cd991da4593e532aafd72ccf662",
     "art/production/echo-school-rebuild-20261029/face/blink-retopology-20261102/source-map-fidelity.json": "2f496a9f0a5ad7d31a55dd02eb3f01b56e6d862a2330a749319f12d17ab1b547",
-    "docs/11-11/design/CONTINUATION.md": "e9f24dc17bb90482ba8c53781a91095fe8897f3e0c59240e09815a4bcd06146e",
-    "docs/internal/production/CURRENT_CONTEXT_CACHE.json": "a4697718098f8cf8f42f57b8f915bfa8cf78bb1b8ad9390d51060ff57eea1045",
-    "docs/internal/production/CURRENT_WORK.ar.md": "edc9deeb1388347a3f815922402e1c2270ef8d07ccf9a5c11f486d157647240a",
+    "docs/11-11/design/CONTINUATION.md": "2684f9cf3eb11935c4814f5479566c8efd5cdb4f28b6be2ab59f5d9e0a05c6ba",
+    "docs/internal/production/CURRENT_CONTEXT_CACHE.json": "40d23a9c01ab82f192cc2db1c80273b20b31fa8c9a393550c2262921c6918bdd",
+    "docs/internal/production/CURRENT_WORK.ar.md": "cafeb5f268a37db9e6186e301b82495e75803c4c86ca7f8afe9bdfb5cab3b08c",
     "docs/internal/production/WORK_TREE.ar.md": "2053d14fc7419d0213677f41b77cc2f96c996e43bd129a5ac012a633e902bb7c",
     "tools/character-lab/bake_blink_skin_atlas.py": "125e8449310b0c44868d85c955156743f9ebc16b2f4c83a5350d9417e6e04330",
     "tools/character-lab/blink_blender_reference.py": "a838490885079908cc2e057dfa230bd4092bb59948de879995226f59869eb6aa",
@@ -277,21 +277,23 @@
     "audits/evidence/experience-rebuild-20261103/quality-report.json": "498acd6d50a6224d0ed17232889d6e53335d363abc80f760246d6323266763d2",
     "docs/internal/production/CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md": "42f1fd36073d61ccf51d5417d76b1096cef4dea46355728d2e69d14a85979867",
     "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json": "79e4018bfbfe6a1a66379eb72088a4a023d73c985e19a95851f1948d7eeff79e",
-    "docs/project-memory.json": "0debef0c02c8434839e38adc1adbbfa6ac384a51e5da56a8b059aa4f3ff80ef1",
-    "docs/PROJECT_VISION.md": "6ad8777daef2d72ffbb409ca2e2221cb23fb260b128926b743d88454134f2077",
+    "docs/project-memory.json": "40a96a0cb08aeaad94bf4ccd927b77de6d84e25ae788bb3efb59c90a7066de9e",
+    "docs/PROJECT_VISION.md": "346e2e3280ce6349be7bcf1b325e113d30e08d4b229fb489dc412d17ab6c6be6",
     "docs/internal/production/BENCHMARK_STUDY_UPDATE_2026-11-03.ar.md": "2eb96f7078f5ed2a815c93c6ff9d49025e39bb3fd537be2075d6f63dd1c1ed9e",
     "docs/internal/production/ASTA_POWER_COST_STUDY_2026-11-04.ar.md": "f88500b63f922dcaf0a747728376d363cd278dc2d66b46d55e02a50357d00b14",
     "docs/internal/production/TOOLING_AUDIT_2026-11-04.json": "2ff4ac7a2ce008fa6e31c373ce1cfb7edf2930ceae531313ab504c0d135969d8",
     "docs/internal/production/TOOLING_AND_PRODUCTION_CAPACITY_2026-11-04.ar.md": "a4aac75c13a95c5bc9dfed96970e001f51abe3bac259e59b82c1daf07298611e",
-    "docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md": "d6415f00b23c209c3beb46183bcbb234694efdc6d5bb2dbe14256b0e989ec7d3",
+    "docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md": "1c26f41bc7dc61063e10b24652538340959ce0d697fe45271d0e719cc330e002",
     "docs/internal/production/REPOSITORY_CLEANUP_2026-11-04.json": "c75f3b395df1ecfb213f92ccd720b25860cb187c0f7c25eb6da259cc318abf0e",
-    "docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json": "1d1bda4a41787b25b9dfef451811dfc6f277d8dd34e356a68b7b6dbd527ffe32",
-    "docs/internal/production/PROJECT_IMPLEMENTATION_STATE_2026-11-04.json": "d2c05e526f2cad6b908523c29867132cc8a17077abbfa827a1f65b0131cf4e08",
-    "docs/internal/production/AGENT_EXECUTION_HANDOFF_2026-11-04.ar.md": "5aeb170e799f2fc714e050ea0254b224822db87970d94694b2f698e379e49bdf",
+    "docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json": "6778a8b38676a4c969c8343a5af42790ed0640d61b17a59e3947d01c2cee9eae",
+    "docs/internal/production/PROJECT_IMPLEMENTATION_STATE_2026-11-04.json": "fb6574ed8de00e7087f68513908ef5f90ff62615808a5ca68fb09564fa19fce8",
+    "docs/internal/production/AGENT_EXECUTION_HANDOFF_2026-11-04.ar.md": "755b3248651d13a8096a8d8a2486c26c0e2dd943456096ebec8bc99f38340be1",
     "docs/internal/production/CURRENT_IMPLEMENTATION_STATUS_2026-11-04.ar.md": "35411c4e67d4708702213ba61f89534f3941459e0abe67f2d7c6d387b1a46c74",
     "docs/internal/production/EREN_LAUGHTER_OBSERVATIONS_2026-11-04.json": "6d429a238e1b016b628985f5955e4af4fe4bf2b336ba44b9cb3b3305bd2b39b7",
-    "docs/internal/production/EREN_LAUGHTER_STUDY_2026-11-04.ar.md": "f056f58a7a47936d6af014bb74fe6008966a16b0f07f109a061166c94e9a6f78"
+    "docs/internal/production/EREN_LAUGHTER_STUDY_2026-11-04.ar.md": "f056f58a7a47936d6af014bb74fe6008966a16b0f07f109a061166c94e9a6f78",
+    "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md": "50cc084496be5ea4165e0472705b32a5935db9496e9705662ca7d47da1313574",
+    "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json": "ac34ae1984acf527faba05b49fc979257f815fa192c58ef12c6ef21a43c77aef"
   },
-  "updated_utc": "2026-11-04T17:46:32.631472+00:00",
-  "updated": "2026-11-04T17:46:32.631472+00:00"
+  "updated_utc": "2026-11-04T18:26:40.537617+00:00",
+  "updated": "2026-11-04T18:26:40.537617+00:00"
 }

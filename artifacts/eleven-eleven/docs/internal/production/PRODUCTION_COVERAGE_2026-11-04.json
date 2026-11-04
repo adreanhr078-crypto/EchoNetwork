@@ -73,9 +73,32 @@
       "id": "R009",
       "requirement_ar": "تغيير جذري للمتعة والهوية والجودة",
       "primary_phase": "P39",
-      "acceptance_ar": "تحسنمثبتباللعب،لاوعداسطوريمنخطةأواشتراك",
+      "acceptance_ar": "تحسنمثبتباللعب،لاوعداسطوريمنخطةأواشتراك؛بطاقة مهمة فعل/قرار/نتيجة واختبار مبكر لكلشريحة وفقMISSION_FUN_CONTRACT،لا انتظارP39",
       "status": "PLANNED_NOT_ACCEPTED",
-      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources",
+      "crosscutting_phases": [
+        "P06",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P24",
+        "P25",
+        "P26",
+        "P27",
+        "P28",
+        "P29",
+        "P30",
+        "P31",
+        "P32",
+        "P33",
+        "P34",
+        "P35",
+        "P36",
+        "P38",
+        "P39"
+      ]
     },
     {
       "id": "R010",
@@ -929,9 +952,32 @@
       "id": "R116",
       "requirement_ar": "المتعة واللعب معياران مستقلان عن PASS التقني",
       "primary_phase": "P39",
-      "acceptance_ar": "رأيلاعبينغيرموجهينومراجعةصوتوفنوأجهزةمنفصلة",
+      "acceptance_ar": "رأيلاعبينغيرموجهينومراجعةصوتوفنوأجهزةمنفصلة؛بطاقة مهمة فعل/قرار/نتيجة واختبار مبكر لكلشريحة وفقMISSION_FUN_CONTRACT،لا انتظارP39",
       "status": "PLANNED_NOT_ACCEPTED",
-      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources",
+      "crosscutting_phases": [
+        "P06",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P24",
+        "P25",
+        "P26",
+        "P27",
+        "P28",
+        "P29",
+        "P30",
+        "P31",
+        "P32",
+        "P33",
+        "P34",
+        "P35",
+        "P36",
+        "P38",
+        "P39"
+      ]
     },
     {
       "id": "R117",
@@ -1256,12 +1302,14 @@
         "رسم تسلسل الكرسي والانهيار والغرق والمحيط وزيرو والقبول والضحكة والتحول وأول التحام",
         "تحديد هدف ومدة واتجاه نظر وصوت ومالك تحكم لكل لقطة",
         "استعمال الموجود والكاش ومواد مؤقتة داخلية قبل النهائيات",
-        "مراجعة مونتاج متصل قبل دفعة الأصول والتسجيل"
+        "مراجعة مونتاج متصل قبل دفعة الأصول والتسجيل",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "يفهم المشاهد العلاقة والاختيار والانقلاب دون شرح المطور",
         "مادة جديدة خاصة بالأحداث لا مشهدان معادان",
-        "الإيقاع والوضوح يسبقان تلميع صورة منفردة"
+        "الإيقاع والوضوح يسبقان تلميع صورة منفردة",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -1466,13 +1514,15 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R014",
         "R015",
         "R021"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P12",
@@ -1505,12 +1555,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R016",
         "R017"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P13",
@@ -1543,12 +1595,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R018",
         "R019"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P14",
@@ -1581,12 +1635,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R020",
         "R095"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P15",
@@ -1622,11 +1678,13 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R074"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P16",
@@ -1950,12 +2008,14 @@
         "حفظ معمار الغرفة الأولى المقبول واستبدال المهام المملة",
         "ملاحظة وتعارض وفرضية وتجربة وقرار ونتيجة",
         "تفاعل جسدي واستدلال وخطر وتعليق له معنى",
-        "هدف وتقدم ونتيجة وحفظ وإعادة عادلة"
+        "هدف وتقدم ونتيجة وحفظ وإعادة عادلة",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "اللاعب يعرف ماذا ولماذا وكيف وما تغير",
         "لا سلسلة نقر رموز أو مشي فارغ",
-        "تعاد المهمة غير الممتعة ولو نجح كودها"
+        "تعاد المهمة غير الممتعة ولو نجح كودها",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -1973,12 +2033,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R010",
         "R011"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P25",
@@ -1989,12 +2051,14 @@
         "إعادة تخطيط غرفة الباركور إلى مسار أفقي ممتد",
         "نموذج هندسي للارتفاع والقفز والتسلق والهبوط",
         "فروع مهارة واستراحات وكشف بصري وخاتمة",
-        "إنتاج الفن بعد إثبات المسار مع إعادة استعمال الأصول السليمة"
+        "إنتاج الفن بعد إثبات المسار مع إعادة استعمال الأصول السليمة",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "لا نهاية بعشر ثوانٍ ولا تمطيط بممرات ميتة",
         "5–8دقائق هدف أولي يتغير باللعب",
-        "كاميرا وتصادم واسترجاع ووضوح ومتعة مترابطة"
+        "كاميرا وتصادم واسترجاع ووضوح ومتعة مترابطة",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2014,12 +2078,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R023",
         "R024"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P26",
@@ -2030,12 +2096,14 @@
         "نار تغير التوقيت وكهرباء تتطلب قراءة دورة ورياح تغير الدفع والمسار",
         "تعليم آمن ثم اختيار وتركيب مهارات وراحة وتحدٍ اختياري",
         "نقاط استعادة مستحقة وفشل وسقوط وإعادة سريعة",
-        "دمج القفزتين والتسلق والبدائل وسط المؤثرات"
+        "دمج القفزتين والتسلق والبدائل وسط المؤثرات",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "ثلاثة أدوار فعلية لا ثلاثة ألوان",
         "التهديد عادل ومقروء مع الكتم وقلة الحركة",
-        "الإتقان يتحسن بلا توقيت خفي"
+        "الإتقان يتحسن بلا توقيت خفي",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2052,14 +2120,16 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R025",
         "R026",
         "R027",
         "R028"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P27",
@@ -2070,12 +2140,14 @@
         "جرد الأمن والعينات والأرشيف والمفاعل والتطهير والمرآة والمختبر والمستشفى",
         "قرار حفظ أو صقل أو إعادة مهام أو تخطيط أو بناء كامل لكل غرفة",
         "تأهيلRoom07 وUV والخامات على المصدر الصحيح واستثمار الجيد",
-        "كيانات بأدوار قريبة وبعيدة وبيئية وتمهيد ومقاومة وبحث واسترداد"
+        "كيانات بأدوار قريبة وبعيدة وبيئية وتمهيد ومقاومة وبحث واسترداد",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "لا هدم شامل ولا قبول من دليل قديم",
         "الفشل البنيوي الذي لا يصلحه الصقل يستدعي إعادة البناء",
-        "القدرات البشرية قبل العقد والقوى المكتسبة بعده"
+        "القدرات البشرية قبل العقد والقوى المكتسبة بعده",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2092,12 +2164,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R012",
         "R031"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P28",
@@ -2108,12 +2182,14 @@
         "ذاكرة خاصة بأثر شيزوكا لها سؤال وكشف وصورة",
         "ذاكرة أخرى ليوكي مختلفة في المعنى والفعل",
         "تعليق إيكو أثناء السير عند المحفز مع أولوية الحوار ومنع الإعادة",
-        "مرآة لإيكو الكبير حيًا ومحاذيًا ويتحرك داخل معناها المعتمد"
+        "مرآة لإيكو الكبير حيًا ومحاذيًا ويتحرك داخل معناها المعتمد",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "لا فيلم عام مكرر مع عنوان مختلف",
         "لا إجابة جاهزة عند كل أيقونة",
-        "الانعكاس ليس صورة على جانب المرآة"
+        "الانعكاس ليس صورة على جانب المرآة",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2132,13 +2208,15 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R061",
         "R062",
         "R063"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P29",
@@ -2173,7 +2251,8 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R050",
@@ -2182,7 +2261,8 @@
         "R055",
         "R056",
         "R057"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P30",
@@ -2193,12 +2273,14 @@
         "تحقيق وأدلة وصراع مع الأب بدل مهمة أيقونات",
         "جلوس وقيود ومقاومة وضغط وألم وردود كينجا",
         "مشاهد هجينة متعددة خاصة بالحدث وملكية تحكم واضحة",
-        "انهيار يمهد المحيط والاختيار دون اختصار إلى السلاح"
+        "انهيار يمهد المحيط والاختيار دون اختصار إلى السلاح",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "العاطفة والسبب والنتيجة متصلة",
         "الجسد والكرسي والقيود والأدوات مستمرة بين اللقطات",
-        "لا قتال مكتسب قبل العقد"
+        "لا قتال مكتسب قبل العقد",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2218,12 +2300,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R064",
         "R065"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P31",
@@ -2255,13 +2339,15 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R067",
         "R068",
         "R069"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P32",
@@ -2297,13 +2383,15 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R070",
         "R071",
         "R072"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P33",
@@ -2314,12 +2402,14 @@
         "هجوم يدين مؤلف ثم عدة ضربات للمستخدم بحركات وردود مختلفة",
         "التحام ومقاومة ودفاع وتراجع كينجا",
         "حبل وخنق تمثيلي وتقييد ثم أداة مختبر أو حقن ضمن السرد",
-        "إيكو فوق كينجا بضربات وارتكاز وتبعات ودم"
+        "إيكو فوق كينجا بضربات وارتكاز وتبعات ودم",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "لا فيلم يسرق فعل اللاعب أوQTE مطول مكرر",
         "الاتصال والمدى والاتجاه والاستقبال والكاميرا واضحة",
-        "المؤثرات قابلة للخفض والحدث ليس تعليمات طبية"
+        "المؤثرات قابلة للخفض والحدث ليس تعليمات طبية",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2336,7 +2426,8 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R073",
@@ -2344,7 +2435,8 @@
         "R076",
         "R077",
         "R078"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P34",
@@ -2376,14 +2468,16 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R079",
         "R080",
         "R081",
         "R082"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P35",
@@ -2416,12 +2510,14 @@
       "crosscutting_slice_gates": [
         "P36:input/camera/scene/save ownership for this slice",
         "P37:temporary or final audio/voice/SFX as this slice requires",
-        "P38:scoped source/runtime/device verification for this slice"
+        "P38:scoped source/runtime/device verification for this slice",
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ],
       "primary_requirement_ids": [
         "R083",
         "R123"
-      ]
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
     },
     {
       "id": "P36",
@@ -2459,6 +2555,10 @@
         "R084",
         "R113",
         "R124"
+      ],
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
+      "crosscutting_slice_gates": [
+        "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
       ]
     },
     {
@@ -2504,12 +2604,14 @@
         "اختبار إدخال وتصادم وسقوط وإعادة ووقفة وتخطٍ ومكتسبات وحفظ وسلطة30/60Hz",
         "قياسp95/p99 والتعثر والذاكرة والماء والقتال والتحميل",
         "تحسين عنق مثبت وLOD وخامات وضوء وجزيئات وموارد وأصوات",
-        "حفظ الفشل والمصدر والبصمة وفصل القبول التقني عن الفني"
+        "حفظ الفشل والمصدر والبصمة وفصل القبول التقني عن الفني",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "لا دليل قديم أو مختلف المصدر يقبل الحالي",
         "درجات الجودة لا تغير حقيقة اللعب والقصة",
-        "التحميل البارد واللعب الطبيعي جزء من القياس"
+        "التحميل البارد واللعب الطبيعي جزء من القياس",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2537,12 +2639,14 @@
         "تجارب لاعبين غير موجهين لفهم الهدف والمتعة والانهيار والعقد",
         "رحلة كاملة من الحساب والغلاف للمدرسة والعالم والغرف والعقد والقتال والمستشفى",
         "حزمةWindows وموارد وترخيص وحفظ وإعدادات وأخطاء وأداء",
-        "مقارنة محددة ثم إصدار موثق المصدر وتخزين حزم خارج الشجرة"
+        "مقارنة محددة ثم إصدار موثق المصدر وتخزين حزم خارج الشجرة",
+        "تطبيقبطاقةالمهمةوبوابةالمتعةالمبكرةفيMISSION_FUN_CONTRACT؛P39قبولمتصللايؤجلاختبارالشرائح"
       ],
       "acceptance_ar": [
         "خمسة لاعبين بداية مقترحة لا إثبات سوق",
         "لا ضمان تفوق عالمي أو قبول من خطة",
-        "الأنظمة اللاحقة تنتظر بوابة الفصل والتوجيه"
+        "الأنظمة اللاحقة تنتظر بوابة الفصل والتوجيه",
+        "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
       "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
       "depends_on_phase_ids": [
@@ -2689,5 +2793,7 @@
     "event": "T02",
     "auditory": "UNVERIFIED",
     "runtime": "UNCHANGED"
-  }
+  },
+  "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
+  "baseline_review": "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md"
 }

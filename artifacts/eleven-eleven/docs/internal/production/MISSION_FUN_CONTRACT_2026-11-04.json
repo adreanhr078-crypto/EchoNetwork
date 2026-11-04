@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "status": "WORKING_BASELINE_RECOMMENDED_NOT_RUNTIME_OR_OWNER_PRODUCT_ACCEPTANCE",
+  "primary_existing_requirements": [
+    "R009",
+    "R116",
+    "R121",
+    "R125"
+  ],
+  "phase_count_unchanged": 40,
+  "requirements_unchanged": 128,
+  "story_events_unchanged": 53,
+  "required_mission_fields": [
+    "mission_id",
+    "phase",
+    "room",
+    "canon_event_ids",
+    "canon_pages_or_TO_MAP",
+    "earned_state",
+    "player_motivation",
+    "observable_goal",
+    "player_verbs_in_order",
+    "meaningful_decisions",
+    "teaching_and_escalation",
+    "world_feedback",
+    "failure_reason_and_checkpoint",
+    "retry_target_seconds_provisional",
+    "input_and_camera_ownership",
+    "difficulty_and_accessibility",
+    "authoritative_save_and_rewards",
+    "assets_audio_and_performance_budget",
+    "test_build_hashes",
+    "playtest_findings_and_revision",
+    "acceptance_decision"
+  ],
+  "mission_candidates_not_locked_story": [
+    {
+      "id": "MC01",
+      "phase": "P24",
+      "name": "استعادة ممر الضغط",
+      "state": "human_pre_pact",
+      "decision": "اختبار دليل الضغط ثم اختيار توقيت/طريقة عبور صالحة؛أهلية الصمام من التنفيذ الحالي",
+      "acceptance": "قرار وفهم واستجابة،لا ثلاثةأزرار وحل وحيد واضح بلا تفكير"
+    },
+    {
+      "id": "MC02",
+      "phase": "P25/P26",
+      "name": "مسار عبور متغير",
+      "state": "human_pre_pact",
+      "decision": "نافذة دورة بيئية أو فرع مهارة؛تعليم ثم تركيب ثم كشف",
+      "acceptance": "قفزتان وتسلق وعناصر بوظائف؛لا سير ميت أو تهديد محجوب"
+    },
+    {
+      "id": "MC03",
+      "phase": "P28",
+      "name": "أثر وذاكرة ومرآة",
+      "state": "as_approved_event_map",
+      "decision": "استدلال وتجريب قرينة مع فعل؛كل ذاكرة خاصة",
+      "acceptance": "لا إعادة فيلم أو إجابةجاهزة لكل أيقونة؛كشف موافق للمصدر"
+    },
+    {
+      "id": "MC04",
+      "phase": "P30",
+      "name": "تحقيق ومواجهة المختبر",
+      "state": "human_pre_pact",
+      "decision": "بحث واستدلال قبل الكرسي؛وظيفة إدخال مقاومة مفهومة بلا فرع انتصار مزيف",
+      "acceptance": "سبب ونتيجة وردالأب وملكية إدخال؛لا قتال مكتسب أو QTEحشو"
+    },
+    {
+      "id": "MC05",
+      "phase": "P15/P33",
+      "name": "التحام وفرصة",
+      "state": "isolated_test_or_explicitly_earned_pact_only",
+      "decision": "مسافة وتوقيت وقراءة ومقاومة وتعافٍ؛تسليم لعب بعد ضربةمؤلفة",
+      "acceptance": "أكثرمنفعل ذيوظيفة واتصالفعلي،لا فيلممنضغطةواحدة"
+    }
+  ],
+  "remaining_rooms_policy": "Fill and qualify mission card in P27before final production;examples do not mean all missions are finally designed",
+  "early_playtest_gates": [
+    {
+      "id": "FG_CONTROL",
+      "applies_to": [
+        "P11",
+        "P12",
+        "P13",
+        "P14"
+      ],
+      "before": "final polish or broad course production"
+    },
+    {
+      "id": "FG_ROOM01",
+      "applies_to": [
+        "P24"
+      ],
+      "before": "final room mission production or duplication to other rooms"
+    },
+    {
+      "id": "FG_PARKOUR",
+      "applies_to": [
+        "P25",
+        "P26"
+      ],
+      "before": "full course art and effects"
+    },
+    {
+      "id": "FG_CONTACT",
+      "applies_to": [
+        "P15",
+        "P33"
+      ],
+      "before": "broad enemy/encounter production;isolated prototype doesnot unlockcampaign combat"
+    },
+    {
+      "id": "FG_SEQUENCE",
+      "applies_to": [
+        "P06",
+        "P29",
+        "P30",
+        "P31",
+        "P32",
+        "P34",
+        "P35",
+        "P36"
+      ],
+      "before": "broad film asset generation/final acting;explicit pact authority protected"
+    }
+  ],
+  "playtest_protocol": {
+    "initial_players": 5,
+    "not_statistical_or_market_proof": true,
+    "no_solution_coaching_on_first_attempt": true,
+    "recording_requires_participant_consent": true,
+    "measures": [
+      "goal_comprehension",
+      "decisions",
+      "failure_causes",
+      "retries",
+      "confusion",
+      "dead_travel",
+      "threat_and_landing_readability",
+      "desire_to_continue_and_why",
+      "clarity_control_fun_separate_1to5"
+    ],
+    "provisional_go_no_go_not_universal": {
+      "understand_goal_and_meaningful_step_without_help": "4of5",
+      "control_and_fun_each_at_least_4of5_with_reasons": "4of5",
+      "progress_or_save_blocker": "zero",
+      "parkour_retry_seconds_after_fall_excluding_cold_load": 3
+    },
+    "numbers_do_not_override_observed_boredom_or_owner_rejection": true,
+    "repeat_with_new_players_after_causal_revision": true,
+    "temporary_and_final_art_both_tested": true
+  },
+  "current_acceptance": {
+    "plan_coverage": "REVIEWED_WITH_KNOWN_GAPS_EXPLICIT",
+    "actual_mission_fun": "UNVERIFIED_NOT_PLAYTESTED_THIS_REVIEW",
+    "audio": "UNVERIFIED",
+    "runtime": "NO_NEW_PRODUCTION",
+    "global_superiority": "NOT_ESTABLISHED_OR_GUARANTEED"
+  },
+  "study_gaps": [
+    "TokyoGhoulrequestedepisodes/fullsubjectiveaudioincomplete",
+    "BlackCloverexactlast_episodeunresolved",
+    "Canonpage_mappingandJPdialogueapproval",
+    "targetdevice/mixedload/coldloading",
+    "Pactpacket_provenance_beforeassetwork"
+  ],
+  "sources_read_scope": "GDCsessionoverviewtextandInsomniacofficialarticle;notfulllectures",
+  "document": "BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md"
+}

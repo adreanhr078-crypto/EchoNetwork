@@ -915,5 +915,18 @@
     "auditory_review": "UNVERIFIED",
     "runtimeChanged": false,
     "phaseAdvanced": false
+  },
+  "ownerRevision20261104BaselineReview": {
+    "request": "Check missingdetails/studies/missionfun and readinessas phasedprojectbasis",
+    "document": "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
+    "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
+    "verdict": "RECOMMENDED_WORKING_BASELINE_NOT_RUNTIME_ACCEPTANCE",
+    "counts_unchanged": [
+      40,
+      128,
+      53
+    ],
+    "phaseAdvanced": false,
+    "runtimeChanged": false
   }
 }

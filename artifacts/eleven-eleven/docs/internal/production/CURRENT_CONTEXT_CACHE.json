@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-04T17:46:32.631472+00:00",
-  "checkpoint": "EREN_BOTH_LAUGHS_128_REQUIREMENTS_STUDY_ONLY_20261104",
+  "updated": "2026-11-04T18:26:40.537617+00:00",
+  "checkpoint": "BASELINE_REVIEW_EARLY_FUN_GATES_20261104",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -46,7 +46,7 @@
   },
   "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
   "next": [
-    "Deliver updated40phase/128requirement/53event plan with Erenbothlaughs study;no runtime production",
+    "Deliver baseline review and early mission fun gates;no runtime production until later start steering",
     "Verify Owner Starter/Protrial activation and live cost before generation;REAPER evaluation first",
     "Qualify bounded Japanese voice and motion/export/contact samples;choose CascadeurIndie/Pro from result",
     "Signature chair→ocean→pact→transformation→contact animatic,then playable slice before broad production",
@@ -345,7 +345,9 @@
     "current_status_md": "docs/internal/production/CURRENT_IMPLEMENTATION_STATUS_2026-11-04.ar.md",
     "provenance_open": "Pact production-packet index hash differs;resolve consumers/source before asset work;do not silently bless",
     "dependency_graph": "40nodesDAGverified;crosscuttingP36/P37/P38incremental",
-    "eren_study": "EREN_LAUGHTER_STUDY_2026-11-04.ar.md"
+    "eren_study": "EREN_LAUGHTER_STUDY_2026-11-04.ar.md",
+    "baseline_review": "BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
+    "mission_fun_contract": "MISSION_FUN_CONTRACT_2026-11-04.json"
   },
   "eren_laughter_study": {
     "requirement": "R128",
@@ -368,5 +370,14 @@
     "hannes_visual_scope": "sampled screenshots across completed shortclip playback",
     "sasha": "partialvisualsamples",
     "audio": "UNVERIFIED"
+  },
+  "baseline_review": {
+    "document": "BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
+    "contract": "MISSION_FUN_CONTRACT_2026-11-04.json",
+    "status": "RECOMMENDED_WORKING_BASELINE_NOT_PRODUCT_ACCEPTANCE",
+    "early_fun_gates": true,
+    "mission_cards_before_final_assets": true,
+    "no_count_or_canon_change": true,
+    "new_runtime": false
   }
 }

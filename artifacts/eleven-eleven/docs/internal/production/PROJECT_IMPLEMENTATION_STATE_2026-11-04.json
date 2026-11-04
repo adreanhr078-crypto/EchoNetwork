@@ -473,7 +473,7 @@
     "hardware": "Priori3-1215U/IntelUHD/~7.7GiBRAM;disk space is mutable;no targetGPU acceptance"
   },
   "open_gates": [
-    "127requirements are coverage,not127completed features",
+    "128requirements are coverage,not128completed features",
     "New opening not artistically accepted",
     "Google/Facebook/guest native live integration and account lifecycle need proof",
     "Distinct parkour jump/climb contact and new horizontal elemental course need production/fun review",
@@ -505,5 +505,11 @@
       "indexed_sha256": "63eb9d508960973b12398dbc78ae5ecabf7e2bbe12c591d78c86044d618b7b4a",
       "action": "Resolve source/packet provenance and consumers before touching Pact assets;do not silently bless index or reroll source"
     }
-  ]
+  ],
+  "planning_revision": {
+    "date": "2026-11-04",
+    "baseline_review": "BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
+    "runtime_snapshot_not_refreshed": true,
+    "scope": "Correct planning count and add early fun contract only"
+  }
 }
