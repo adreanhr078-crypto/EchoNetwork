@@ -1,0 +1,61 @@
+{
+  "baseColorTexture": {
+    "source": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "f1fb3777df5a253493fb2847f975f193792d4bf97b1b8fa7583eaa0d5ffd6638",
+      "encoded_sha256": "ff9e4e12d787048a4fa923551308d9634b3d1378bbef8785fe1596c2b168bd6e"
+    },
+    "metric": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "f1fb3777df5a253493fb2847f975f193792d4bf97b1b8fa7583eaa0d5ffd6638",
+      "encoded_sha256": "ff9e4e12d787048a4fa923551308d9634b3d1378bbef8785fe1596c2b168bd6e"
+    },
+    "pixels_equal": true
+  },
+  "metallicRoughnessTexture": {
+    "source": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "34281674c914b6fa889524cf3a3189e9da9fc020d736431184a8efe0f4664cd1",
+      "encoded_sha256": "8cc3c31bd9ec8ec820242b789689449fdc7ce2e030726836ecf73ff7554f8cbf"
+    },
+    "metric": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "34281674c914b6fa889524cf3a3189e9da9fc020d736431184a8efe0f4664cd1",
+      "encoded_sha256": "8cc3c31bd9ec8ec820242b789689449fdc7ce2e030726836ecf73ff7554f8cbf"
+    },
+    "pixels_equal": true
+  },
+  "normalTexture": {
+    "source": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "2b4956645564e7ce68bf33617b4853ed6bd9ff08b85c9c7e73296932e411cbcd",
+      "encoded_sha256": "07e890eb7c43741734ebcedb62cb136945a3e1ddd47060c2c2c926a111cb2eb8"
+    },
+    "metric": {
+      "size": [
+        4096,
+        4096
+      ],
+      "pixels_sha256": "2b4956645564e7ce68bf33617b4853ed6bd9ff08b85c9c7e73296932e411cbcd",
+      "encoded_sha256": "07e890eb7c43741734ebcedb62cb136945a3e1ddd47060c2c2c926a111cb2eb8"
+    },
+    "pixels_equal": true
+  },
+  "status": "PASS",
+  "sampler_note": "Packed ORM is shared by roughness/metallic slots;both preserved pixel-identically. Exporter multiple image-node sampler warning retained. Metric samplers explicitly linear/trilinear,repeat default;material factors and slot semantics retained. No texture regeneration."
+}

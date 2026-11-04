@@ -1,0 +1,182 @@
+{
+  "rig": "EchoOpeningUniformRig",
+  "action": "preset:wakeup",
+  "bones": {
+    "tripo::Root": {
+      "parent": null,
+      "rest_head_world": [
+        0.0,
+        0.0,
+        0.006729781627655029
+      ]
+    },
+    "tripo::1_Left_Limb_0": {
+      "parent": "tripo::Root",
+      "rest_head_world": [
+        0.03398599848151207,
+        -0.053105246275663376,
+        0.5023030042648315
+      ]
+    },
+    "tripo::1_Left_Limb_1": {
+      "parent": "tripo::1_Left_Limb_0",
+      "rest_head_world": [
+        0.014320619404315948,
+        -0.06490457057952881,
+        0.26631587743759155
+      ]
+    },
+    "tripo::1_Left_Limb_2": {
+      "parent": "tripo::1_Left_Limb_1",
+      "rest_head_world": [
+        0.0025214236229658127,
+        -0.07277080416679382,
+        0.06572672724723816
+      ]
+    },
+    "tripo::1_Left_Limb_3": {
+      "parent": "tripo::1_Left_Limb_2",
+      "rest_head_world": [
+        0.09298316389322281,
+        -0.08457020670175552,
+        0.0067299604415893555
+      ]
+    },
+    "tripo::1_Right_Limb_0": {
+      "parent": "tripo::Root",
+      "rest_head_world": [
+        0.030052851885557175,
+        0.0609552226960659,
+        0.5023031830787659
+      ]
+    },
+    "tripo::1_Right_Limb_1": {
+      "parent": "tripo::1_Right_Limb_0",
+      "rest_head_world": [
+        0.014320563524961472,
+        0.06882146745920181,
+        0.26631593704223633
+      ]
+    },
+    "tripo::1_Right_Limb_2": {
+      "parent": "tripo::1_Right_Limb_1",
+      "rest_head_world": [
+        -0.0053449273109436035,
+        0.07275458425283432,
+        0.06572699546813965
+      ]
+    },
+    "tripo::1_Right_Limb_3": {
+      "parent": "tripo::1_Right_Limb_2",
+      "rest_head_world": [
+        0.0890500396490097,
+        0.08848705142736435,
+        0.006730258464813232
+      ]
+    },
+    "tripo::Spine_0": {
+      "parent": "tripo::Root",
+      "rest_head_world": [
+        0.02611970715224743,
+        0.001958433073014021,
+        0.5888316631317139
+      ]
+    },
+    "tripo::Spine_1": {
+      "parent": "tripo::Spine_0",
+      "rest_head_world": [
+        0.01825343631207943,
+        0.001958433073014021,
+        0.6556947231292725
+      ]
+    },
+    "tripo::Spine_2": {
+      "parent": "tripo::Spine_1",
+      "rest_head_world": [
+        0.006454081274569035,
+        0.001958431676030159,
+        0.7304238677024841
+      ]
+    },
+    "bone_6": {
+      "parent": "tripo::Spine_2",
+      "rest_head_world": [
+        -0.0014121740823611617,
+        0.04128965362906456,
+        0.7972869873046875
+      ]
+    },
+    "tripo::0_Right_Limb_0": {
+      "parent": "bone_6",
+      "rest_head_world": [
+        -0.0014121669810265303,
+        0.10815268009901047,
+        0.7500894069671631
+      ]
+    },
+    "tripo::0_Right_Limb_1": {
+      "parent": "tripo::0_Right_Limb_0",
+      "rest_head_world": [
+        0.0025209642481058836,
+        0.1435508280992508,
+        0.6399623155593872
+      ]
+    },
+    "tripo::0_Right_Limb_2": {
+      "parent": "tripo::0_Right_Limb_1",
+      "rest_head_world": [
+        0.014320353977382183,
+        0.19468145072460175,
+        0.5180357098579407
+      ]
+    },
+    "tripo::Head_0": {
+      "parent": "tripo::Spine_2",
+      "rest_head_world": [
+        -0.001412158366292715,
+        0.0019584321416914463,
+        0.8169527053833008
+      ]
+    },
+    "tripo::Head_1": {
+      "parent": "tripo::Head_0",
+      "rest_head_world": [
+        0.006454011425375938,
+        0.001958431676030159,
+        0.8484175205230713
+      ]
+    },
+    "tripo::Spine_3": {
+      "parent": "tripo::Spine_2",
+      "rest_head_world": [
+        -0.0014121804852038622,
+        -0.03343972563743591,
+        0.7972872257232666
+      ]
+    },
+    "tripo::Spine_4": {
+      "parent": "tripo::Spine_3",
+      "rest_head_world": [
+        -0.0014121849089860916,
+        -0.10423573106527328,
+        0.7500894665718079
+      ]
+    },
+    "tripo::0_Left_Limb_0": {
+      "parent": "tripo::Spine_4",
+      "rest_head_world": [
+        0.0025209165178239346,
+        -0.1396339237689972,
+        0.6399622559547424
+      ]
+    },
+    "tripo::0_Left_Limb_1": {
+      "parent": "tripo::0_Left_Limb_0",
+      "rest_head_world": [
+        0.018253393471240997,
+        -0.19076448678970337,
+        0.5180354714393616
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "candidate": {
+    "take_id": "8ab9934de73b07898a24bf31:preset-wakeup:legacy22",
+    "file_sha256": "8ab9934de73b07898a24bf31c53c6243e3204818eb9f834e1630beea5ecc8362",
+    "source_take": "preset:wakeup",
+    "rig": "EchoOpeningUniformRig",
+    "rig_hash": "474f3c98e204bad507d77efb85d8b5806c852594176c42c17627d6728cf2d636",
+    "original_filename": "echo_opening_uniform_v11.glb",
+    "fps": 24,
+    "source_frame_range": [
+      1,
+      73
+    ]
+  },
+  "entry": {
+    "sha256": "8ab9934de73b07898a24bf31c53c6243e3204818eb9f834e1630beea5ecc8362",
+    "working_copy": "godot/assets/characters/echo_opening_uniform_v11.glb"
+  },
+  "raw_reference": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-school-rebuild-20261029\\motions\\wake\\native-source\\exact-native-source.json",
+  "source_roles": {
+    "hips": "tripo::Spine_0",
+    "spine": "tripo::Spine_1",
+    "spine2": "tripo::Spine_2",
+    "neck": "tripo::Head_0",
+    "head": "tripo::Head_1",
+    "rightshoulder": "bone_6",
+    "rightarm": "tripo::0_Right_Limb_0",
+    "rightforearm": "tripo::0_Right_Limb_1",
+    "righthand": "tripo::0_Right_Limb_2",
+    "leftshoulder": "tripo::Spine_3",
+    "leftarm": "tripo::Spine_4",
+    "leftforearm": "tripo::0_Left_Limb_0",
+    "lefthand": "tripo::0_Left_Limb_1",
+    "leftupleg": "tripo::1_Left_Limb_0",
+    "leftleg": "tripo::1_Left_Limb_1",
+    "leftfoot": "tripo::1_Left_Limb_2",
+    "lefttoebase": "tripo::1_Left_Limb_3",
+    "rightupleg": "tripo::1_Right_Limb_0",
+    "rightleg": "tripo::1_Right_Limb_1",
+    "rightfoot": "tripo::1_Right_Limb_2",
+    "righttoebase": "tripo::1_Right_Limb_3"
+  },
+  "scope": "Existing source;native24Hz. 73authored samples plus evaluatedtime0 clamp;original keys/source unchanged. Explicit existing legacy role hierarchy and measured rest positions."
+}

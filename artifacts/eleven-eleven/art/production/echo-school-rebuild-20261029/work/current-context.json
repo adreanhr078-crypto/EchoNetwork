@@ -1,0 +1,123 @@
+{
+  "schema_version": 4,
+  "updated_utc": "2026-10-30T08:57:58.979710+00:00",
+  "checkpoint": "SCHOOL65_RUN_IDLE_JUMP_PASS_WALK_DIAGNOSED_BAKED_RENDERED_FACIAL_RIG_STOPPED_BY_OWNER",
+  "read_policy": "Current card/cache first;reuse IDs/hashes;read changed sections only. Unique prior cache/card are archived,not deleted. No guarantee of provider caching or quota duration.",
+  "agent_policy": "ROOT_ONLY;no agents unlessOwner explicitly asks",
+  "protected": [
+    "Canon/PART_3/EX-011 onskin",
+    "Golden192 and V31/source keys",
+    "server authority/save semantics",
+    "SFX_ONLY",
+    "no powers before explicit Zero contract",
+    "01/02/09 preserved"
+  ],
+  "room07": "DEFAULT scoped pass;prior report retained in archived cache",
+  "room08": "DEFAULT scoped15earned checks;prior report retained in archived cache",
+  "hospital10": {
+    "status": "DEFAULT_SCOPED_NATIVE_PASS_FULL_FORWARD_PLUS_RESTORE_FAIL",
+    "high": "1280x720 actual player12checks + fourviews;16colliders unchanged;native cloth/rain pause/RM/mute/hidden;mirror LDR-to-linear sampling corrected locally",
+    "restored_fixture": "Actual public walk/window/mirror/EX011 dismissal/save PASS headless and Compatibility1280;not earned preceding journey",
+    "source_blender_audit": "audits/evidence/chapter-cp45-20261020/stage13/hospital-20261029/blender-source-review.json",
+    "failure": "Full-world Forward+ VkResult -2 and signal11;device/performance acceptance remains OPEN;no quality downgrade inproduction",
+    "legacy_flag": "--ward-legacy-baseline"
+  },
+  "rooms03_06": {
+    "status": "LOCAL_RENDERED_EFFECT_LIFECYCLE_PASS;fresh headless353 connected checksPASS",
+    "runtime": "godot/scripts/environment/room_device_atmosphere.gd",
+    "scope": "03rigid fans/air + actual contact dust;04pipe condensation;05rack extraction/contactdust;06cooling follows native isolation. bounded/pause/RM/hidden/quality. no newcolliders/progression.",
+    "checks": "33local lifecycle checks;10actual public contact checks;fan was moved clear of baycolumn after visualreview",
+    "evidence": "audits/evidence/chapter-cp45-20261020/stage13/device-atmosphere-20261029"
+  },
+  "echo": {
+    "packet": "art\\production\\echo-school-rebuild-20261029\\production-packet.json",
+    "owner": "SCHOOL UNIFORM;NO CAPE/CLOAK/LONG COAT;native imagegen images;simple animatable model",
+    "canvas": "https://studio.tripo3d.ai/canvas/projects/01a188f6-1000-797b-9b42-752836ec57e2",
+    "status": "RIG65_RUN_IDLE_JUMP_ISOLATED_PASS_NATIVE_INTEGRATION_OPEN",
+    "geometry_quote": 100,
+    "balance_observed": 1535,
+    "runtime_replaced": false,
+    "spent_geometry": 100,
+    "spent_texture": 20,
+    "spent_pbr": 5,
+    "spent_rig": 20,
+    "target_profile": "art\\production\\echo-school-rebuild-20261029\\target-profile.json",
+    "motion_gates": {
+      "run": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "idle": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+      "jump": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS"
+    },
+    "motion_workspace": "https://studio.tripo3d.ai/workspace/animate/0ef01d44-5824-4f1e-a4e9-5faa678afbb9",
+    "facial": {
+      "approved_flow_url": "https://flow.google.com/project/eb52b2c6-8d67-4979-a4cc-ba9cefb0439f/edit/0024b552-83e2-456f-af38-43d823cb868d",
+      "approved_local": "facial/flow-owner-approved-base.mp4",
+      "approved_sha256": "9d77073ea2d9e51d83ae2aa4887cd0a2bc474851a9358aa52b610b7f63f1c682",
+      "model_policy": "OMNI_ALWAYS",
+      "source": "User generated and explicitly accepted base;assistant downloaded original720p.",
+      "base_media": "1280x720,24fps,10.026667s,h264+aac48k stereo",
+      "native_image_reference": "references/face-neutral-native.png",
+      "native_images_total": 3,
+      "assistant_visual_review": "20frames at2fps inspected:identity coherent,face transitions neutral->smile->laugh->recovery. Audio decoded,auditory review not established.",
+      "capture": {
+        "file": "facial/capture-base/face-capture.json",
+        "coverage": 1.0,
+        "samples": 240,
+        "fps": 24,
+        "coefficients": 52,
+        "model": "GoogleMediaPipeFaceLandmarker official;isolated local venv;no external face-data upload",
+        "raw_samples_preserved": true,
+        "not_yet_a_rig": true
+      },
+      "topology": "facial/topology-inspection.json;108934vertices;0shape keys;actual mouth/eye topology inspected. Facialcontrols not yet authored.",
+      "component_audit": "COMPLETE32components;coloredfront/cutawayactually inspected;assignments cached",
+      "pending_flow_edit": {
+        "submissions": 1,
+        "model": "Omni1.1Flash",
+        "parent_asset": "0024b552-83e2-456f-af38-43d823cb868d",
+        "prompt_scope": "Same10secondacceptedvideo;facial laugh1..9s;tearswell3s thenoneclearstream/cheek;pupils1.5xgradually3..6s;greyblueirisretained;noidentity/body/camera/music/dialogue changes",
+        "status": "SUBMITTED_ONCE_RESULT_UNREVIEWED",
+        "credits": "Editor quote not exposed;regular10sOmni quote observed15. Actual deduction not asserted. Do not resubmit.",
+        "selection": "NOT_SELECTED_OWNER_PREFERS_ORIGINAL"
+      },
+      "higgsfield": "Read-only catalog:3d_rigging Meshy exposes body skeleton/pre-canned actions,no facial controls;facial rig search returnednone. No paid job submitted.",
+      "selected_master": "FIRST_ORIGINAL0024b552",
+      "status": "FACIAL_RIG_EXPERIMENTS_STOPPED_BY_OWNER",
+      "approved_master": "first Flow Omni clip0024b552;facial/flow-owner-approved-base.mp4;sha256:9d77073ea2d9e51d83ae2aa4887cd0a2bc474851a9358aa52b610b7f63f1c682",
+      "runtime_integrated": false,
+      "prototype_status": "UNACCEPTED;preserved only as local research evidence;not indexed,not integrated",
+      "paid_generation_remaining": 0,
+      "cinematic_direction": "Reuse first accepted Omni video as reference for psychological cutscenes; consent/contract/save gate remains native and authoritative; no face rig."
+    }
+  },
+  "economy": {
+    "new_flow_credit_spend": 0,
+    "new_tripo_geometry_quote": 100,
+    "reuse": "Existing hospital Tripo/Flow/Blender sources reused;no roomregeneration",
+    "new_native_images": 3,
+    "new_tripo_spent_observed": 205,
+    "flow": "Base generated byOwner;one assistantOmni edit pending. No duplicate generation."
+  },
+  "verification": {
+    "fresh_current_chapter": "PASS353checks;0retries;freshlocalpublicinput to hospital;headless only",
+    "correct_command": "Godot --headless --path godot --script res://tests/stormworks_full_chapter_review.gd -- device-atmosphere-20261029-final --full-chapter --standard --quality=high",
+    "discarded_runs": "Missing --full-chapter skipped maintenance/security;not a gameplay regression. Absolute folder was also an invalid version argument. Logs retained.",
+    "postflight": "PASS content,typecheck,foundationtests,productionbuild,registry/boot/save",
+    "fresh_report": "audits/evidence/pre-tripo-20261018/cp37/route/device-atmosphere-20261029-final/full-chapter.json"
+  },
+  "next": "Finish Walk source and isolated Godot numerical/visual qualification; preserve user worktree; create scoped checkpoint after change review.",
+  "source_hashes": {
+    "godot/scripts/environment/hospital_bedside_room.gd": "5684eccae210c3ce48fb4a11e0349a76a06c35a13bd6c1b12815afdb95493acf",
+    "godot/scripts/environment/hospital_room_dressing.gd": "f79e702647daf5555edf5778cb679fc4a25345c7e1ad6fda30f037a5fa5341a2",
+    "godot/scripts/environment/hospital_pbr_atmosphere.gd": "ae74abd4696a83f604cc5b969fbd185870c98669217c122f90115358d218fa10",
+    "godot/shaders/ward_curtain.gdshader": "249a3871e3a2555032d0cadd2f930969eca5b8d3d5b23954ac96502900df9edb",
+    "godot/shaders/ward_wet_glass.gdshader": "75fbac95b61d24b3146fe5b250ced72fe06a9c6efe2263cb9ce252b743a28183",
+    "godot/scripts/environment/room_device_atmosphere.gd": "4e0a9b8790d95055071adbc9c296952164a3c23bb9fbf0b9d39fadf52e170a9c",
+    "godot/shaders/physical_air.gdshader": "b75a150b1041f0f52866987609c04c06951b76179cb8d669c33d13aff38aad1c",
+    "godot/scripts/environment/security_checkpoint_room.gd": "5b58efb150c17e248a7425eb20d6f79676f1b77ec888eb1a7c86933ebf07b267",
+    "godot/scripts/environment/specimen_containment_wing.gd": "ec4fd6357045b5c20400a4ed967b7da576002e1bb0280fbed62bb2b5e8ae5fea",
+    "godot/scripts/environment/memory_archive_wing.gd": "c22bfe485c6f653780598f4cdb07879ec37c449ea5d77dd6492a0f68087804eb",
+    "godot/scripts/environment/core_reactor_room.gd": "79a85e3804b0b81d6bb0755ee4a599789e35b9c033785f8a10a5c20434721a6a"
+  },
+  "archive": "docs\\internal\\production\\archive\\resume-20261029-school-uniform",
+  "owner_latest": "Owner stopped face rig due complexity/credit efficiency. Use first accepted Omni video as cinematic reference and psych scenes at contract moments. Continue school body rig only. No further paid generation. User requests review all changes and checkpoint before upload."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "SOURCE_B_DOWNLOADED_REVIEW_PENDING",
+  "provider": "Tripo Studio",
+  "browser": "Codex IAB per explicit Owner steering",
+  "initial_balance": 1385,
+  "current_verified_balance": 1345,
+  "total_charged_credits": 40,
+  "new_purchase": false,
+  "jobs": [
+    {
+      "label": "Waking to Standing",
+      "source_sha256": "ba5cc3b26bb0be15fb2d16dae7ccd241dfca273b24dbf96be15d07016756d894",
+      "task_id": "NOT_EXPOSED_IN_UI",
+      "credits": 20,
+      "native_fps": 24,
+      "native_samples": 120,
+      "status": "Source fidelity/bodyfloor/runtime81routePASS;support intent/contact artOPEN;no IK proposal enabled"
+    },
+    {
+      "label": "Slow Wake-Up Roll to Stand",
+      "source_sha256": "c4359440bac2f0f9e4ad7af0176ac3b148097069ffdea40b4c586783c537536b",
+      "task_id": "NOT_EXPOSED_IN_UI",
+      "credits": 20,
+      "native_fps": 24,
+      "native_samples": 144,
+      "status": "Downloaded;raw9504/Blender import max1.9923um;visual review pending"
+    }
+  ],
+  "reroll_policy": "Two bounded motion attempts;never reroll approved character geometry/looks. Retain failed evidence. No automatic third paid job."
+}

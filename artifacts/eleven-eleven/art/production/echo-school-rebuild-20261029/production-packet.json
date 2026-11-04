@@ -1,0 +1,85 @@
+{
+  "status": "RIG65_RUN_IDLE_JUMP_ISOLATED_PASS_NATIVE_INTEGRATION_OPEN",
+  "owner_direction": "School uniform matching school-to-lab arrival;NO cloak/cape/long coat;simple animation-friendly clothing;original Echo identity. User selected native image generation over Flow.",
+  "reference_generator": "native image_gen;two original coherent front/back views",
+  "references": [
+    {
+      "path": "art\\production\\echo-school-rebuild-20261029\\references\\back-tpose.png",
+      "sha256": "3817f9ec7ac011b8a7207bd4deddcc4b3f550f70b8bd1584d5599b033c5dcb52"
+    },
+    {
+      "path": "art\\production\\echo-school-rebuild-20261029\\references\\front-tpose.png",
+      "sha256": "8614eb375e53ed3633db6b6480519140fea13463ff6f922b7f34f6d6afbd6698"
+    }
+  ],
+  "canvas": "https://studio.tripo3d.ai/canvas/projects/01a188f6-1000-797b-9b42-752836ec57e2",
+  "tripo_balance_observed": 1575,
+  "new_tripo_spend": 165,
+  "runtime_replaced": false,
+  "protected": "Current avatar/Golden/source keys retained until candidate model,rig,deformation and native gates pass",
+  "canvas_node": "5d22b56e-3589-498d-a95d-1af80130fe6d",
+  "settings": {
+    "polycount": 25000,
+    "topology": "Quad",
+    "texture": false,
+    "multiview": "front+back;left/right absent"
+  },
+  "quoted_geometry_cost": 100,
+  "flow_new_credit_cost": 0,
+  "flow_draft": "cleared;native imagegen selected byOwner",
+  "user_latest": "School uniform;NO cloak/cape/long coat;ordinary school blazer/shirt/tie/trousers/loafers;simple for animation",
+  "geometry_cost": 100,
+  "texture_cost": 20,
+  "actual_geometry": {
+    "vertices": 26068,
+    "faces": 28691,
+    "triangles": 51552,
+    "quads": 22861,
+    "raw_fbx": "source/echo-school-p2-raw.fbx",
+    "native_blender": "source/echo-school-metric-geometry.blend",
+    "height_m": 1.76,
+    "hands": "Five separate fingers viewed from top/palm;no rigacceptance yet"
+  },
+  "texture_node": "0419711a-ad1b-478c-be32-0bfb10e134d7",
+  "texture_settings": {
+    "resolution": "4K",
+    "remove_lighting": true,
+    "refs": "front+back auto-wired from geometry node",
+    "status": "COMPLETE"
+  },
+  "pbr_cost": 5,
+  "rig_cost": 20,
+  "pbr_node": "c321ba26-8a99-45f0-8104-ebb59d6263a8",
+  "rig_node": "749f9944-497c-4f40-9fa8-f8e5a1befb4c",
+  "rig_settings": {
+    "kind": "Humanoid",
+    "skeleton_preset": "Mixamo",
+    "joints": 65
+  },
+  "download": {
+    "fbx_export_preset": "Blender",
+    "zip": "source/echo-school-p2-pbr-mixamo-rig.zip",
+    "glb": "source/echo-school-p2-pbr-rig.glb"
+  },
+  "target_profile": "target-profile.json",
+  "visual_review": {
+    "front": "source/rig-pbr-front.png",
+    "face": "source/rig-pbr-face.png",
+    "scope": "Actual exact metric blend PBR renders inspected;full hands separately inspected. Skin and motion gates still open. Neutral eyes;no cape;school uniform.",
+    "render_log_note": "Both renders saved;render-only continuation final print lacked local variable;logger fixed. No asset bake rerun needed."
+  },
+  "owner_motion_request": "Use Tripo custom text/preset motion for combat,interaction,revenge and hysterical laughter;best compatible rig preset. Existing Mixamo65 retained;no duplicate paid rig.",
+  "motion_gates": {
+    "run": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+    "idle": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS",
+    "jump": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS"
+  },
+  "tripo_motion_workspace": {
+    "url": "https://studio.tripo3d.ai/workspace/animate/0ef01d44-5824-4f1e-a4e9-5faa678afbb9",
+    "upload": "existing final65joint GLB;OriginalUV on;Y90front;zero credits",
+    "features_observed": "Text-to-Motion20 for5seconds;Multi-stage Motion;Preset library including box01/02/03,kicks,hit,laugh01/02,greetings,etc. Video-to-Motion disabled.",
+    "custom_laugh_prompt": "prepared in UI,NOT submitted yet;finish sequential Run/Idle/Jump qualification first",
+    "quota_indicator": "99 observed after upload;not interpreted as storage percent until popup inspected"
+  },
+  "motion_ledger": "tripo-motion-ledger.json"
+}

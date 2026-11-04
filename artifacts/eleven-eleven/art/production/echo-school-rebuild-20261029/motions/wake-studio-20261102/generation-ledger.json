@@ -1,0 +1,28 @@
+{
+  "status": "DOWNLOADED_SOURCE_REVIEW_PENDING",
+  "provider": "Tripo Studio",
+  "asset_id": "0ef01d44-5824-4f1e-a4e9-5faa678afbb9",
+  "animation_label": "Waking to Standing",
+  "task_id": "NOT_EXPOSED_IN_CURRENT_UI",
+  "requested_duration_s": 5,
+  "actual_duration_s": 4.958333333333333,
+  "source_sha256": "ba5cc3b26bb0be15fb2d16dae7ccd241dfca273b24dbf96be15d07016756d894",
+  "cost": {
+    "before": 1385,
+    "charged_by_observed_balance_delta": 20,
+    "after": 1365,
+    "new_purchase": false
+  },
+  "export": {
+    "GLB": true,
+    "animations": 1,
+    "current_frame": false,
+    "skeleton": true,
+    "stay_in_place": false,
+    "texture_resolution": "2K current workspace copy; target retains its qualified maps"
+  },
+  "native_integrated": false,
+  "source_keys_changed": false,
+  "attempt": 1,
+  "policy": "No blind retries; source -> Blender -> Godot -> skin/contact gate"
+}

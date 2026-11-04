@@ -1,0 +1,166 @@
+{
+  "status": "MEASURED_REFERENCE_POSE_INCOMPATIBILITY",
+  "alignment_yaw_degrees": -89.42900297009554,
+  "rest_limb_directions": {
+    "leftarm": {
+      "aligned_source_rest_direction": [
+        -0.3054787516593933,
+        -0.03702736645936966,
+        -0.9514786601066589
+      ],
+      "target_rest_direction": [
+        0.9941071271896362,
+        0.03427991271018982,
+        -0.10283908247947693
+      ],
+      "angle_degrees": 101.95238275951526
+    },
+    "leftforearm": {
+      "aligned_source_rest_direction": [
+        -0.38282138109207153,
+        -0.1219802126288414,
+        -0.9157339334487915
+      ],
+      "target_rest_direction": [
+        0.9878876209259033,
+        -0.10963376611471176,
+        -0.1098112091422081
+      ],
+      "angle_degrees": 105.32260300167465
+    },
+    "leftupleg": {
+      "aligned_source_rest_direction": [
+        -0.050589609891176224,
+        0.08244160562753677,
+        -0.9953110814094543
+      ],
+      "target_rest_direction": [
+        0.0688013955950737,
+        2.5553067217742864e-08,
+        -0.9976304173469543
+      ],
+      "angle_degrees": 8.321356923383581
+    },
+    "leftleg": {
+      "aligned_source_rest_direction": [
+        -0.039700835943222046,
+        0.058283619582653046,
+        -0.9975103139877319
+      ],
+      "target_rest_direction": [
+        0.06130604073405266,
+        0.061306752264499664,
+        -0.9962344765663147
+      ],
+      "angle_degrees": 5.792782045943956
+    },
+    "rightarm": {
+      "aligned_source_rest_direction": [
+        0.3061564862728119,
+        -0.03093196451663971,
+        -0.9514786005020142
+      ],
+      "target_rest_direction": [
+        -0.994490385055542,
+        0.033149298280477524,
+        -0.09944875538349152
+      ],
+      "angle_degrees": 102.17344183200272
+    },
+    "rightforearm": {
+      "aligned_source_rest_direction": [
+        0.38606300950050354,
+        -0.08504835516214371,
+        -0.9185433983802795
+      ],
+      "target_rest_direction": [
+        -0.9880003333091736,
+        -0.07701022177934647,
+        -0.13388334214687347
+      ],
+      "angle_degrees": 104.59016083583917
+    },
+    "rightupleg": {
+      "aligned_source_rest_direction": [
+        0.03257698565721512,
+        0.06680939346551895,
+        -0.9972338080406189
+      ],
+      "target_rest_direction": [
+        -0.06880221515893936,
+        -2.555337452747608e-08,
+        -0.9976303577423096
+      ],
+      "angle_degrees": 6.960804158171374
+    },
+    "rightleg": {
+      "aligned_source_rest_direction": [
+        0.018537400290369987,
+        0.09774199873209,
+        -0.995039165019989
+      ],
+      "target_rest_direction": [
+        -0.061307042837142944,
+        0.06130673736333847,
+        -0.9962342977523804
+      ],
+      "angle_degrees": 5.030651182220539
+    }
+  },
+  "native_torso_directions": [
+    {
+      "source_frame": 1,
+      "head_minus_hips_direction": [
+        0.14853808283805847,
+        -0.9663712382316589,
+        0.2099120169878006
+      ],
+      "hips": [
+        0.025250645354390144,
+        0.007171884179115295,
+        0.5888292193412781
+      ]
+    },
+    {
+      "source_frame": 25,
+      "head_minus_hips_direction": [
+        0.22774159908294678,
+        -0.9551412463188171,
+        0.18931186199188232
+      ],
+      "hips": [
+        0.024510279297828674,
+        0.00939515046775341,
+        0.5888292193412781
+      ]
+    },
+    {
+      "source_frame": 49,
+      "head_minus_hips_direction": [
+        0.048149242997169495,
+        0.07113166898488998,
+        0.9963041543960571
+      ],
+      "hips": [
+        0.0207656379789114,
+        -0.016056522727012634,
+        0.5888292193412781
+      ]
+    },
+    {
+      "source_frame": 73,
+      "head_minus_hips_direction": [
+        -0.07543155550956726,
+        -0.001208696747198701,
+        0.9971502423286438
+      ],
+      "hips": [
+        0.026143191382288933,
+        0.0023782525677233934,
+        0.5888292193412781
+      ]
+    }
+  ],
+  "source_unchanged": true,
+  "decision": "Keep native source and failed bake isolated. Rest-delta numeric fidelity alone is insufficient for this legacy22 source; no runtime export."
+}

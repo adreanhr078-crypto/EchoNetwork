@@ -1,0 +1,128 @@
+{
+  "glb_sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+  "bytes": 30767700,
+  "joint_count": 65,
+  "joint_names": [
+    "mixamorig:Hips",
+    "mixamorig:LeftUpLeg",
+    "mixamorig:LeftLeg",
+    "mixamorig:LeftFoot",
+    "mixamorig:LeftToeBase",
+    "mixamorig:LeftToe_End",
+    "mixamorig:RightUpLeg",
+    "mixamorig:RightLeg",
+    "mixamorig:RightFoot",
+    "mixamorig:RightToeBase",
+    "mixamorig:RightToe_End",
+    "mixamorig:Spine",
+    "mixamorig:Spine1",
+    "mixamorig:Spine2",
+    "mixamorig:LeftShoulder",
+    "mixamorig:LeftArm",
+    "mixamorig:LeftForeArm",
+    "mixamorig:LeftHand",
+    "mixamorig:LeftHandIndex1",
+    "mixamorig:LeftHandIndex2",
+    "mixamorig:LeftHandIndex3",
+    "mixamorig:LeftHandIndex4",
+    "mixamorig:LeftHandMiddle1",
+    "mixamorig:LeftHandMiddle2",
+    "mixamorig:LeftHandMiddle3",
+    "mixamorig:LeftHandMiddle4",
+    "mixamorig:LeftHandPinky1",
+    "mixamorig:LeftHandPinky2",
+    "mixamorig:LeftHandPinky3",
+    "mixamorig:LeftHandPinky4",
+    "mixamorig:LeftHandRing1",
+    "mixamorig:LeftHandRing2",
+    "mixamorig:LeftHandRing3",
+    "mixamorig:LeftHandRing4",
+    "mixamorig:LeftHandThumb1",
+    "mixamorig:LeftHandThumb2",
+    "mixamorig:LeftHandThumb3",
+    "mixamorig:LeftHandThumb4",
+    "mixamorig:Neck",
+    "mixamorig:Head",
+    "mixamorig:HeadTop_End",
+    "mixamorig:RightShoulder",
+    "mixamorig:RightArm",
+    "mixamorig:RightForeArm",
+    "mixamorig:RightHand",
+    "mixamorig:RightHandIndex1",
+    "mixamorig:RightHandIndex2",
+    "mixamorig:RightHandIndex3",
+    "mixamorig:RightHandIndex4",
+    "mixamorig:RightHandMiddle1",
+    "mixamorig:RightHandMiddle2",
+    "mixamorig:RightHandMiddle3",
+    "mixamorig:RightHandMiddle4",
+    "mixamorig:RightHandPinky1",
+    "mixamorig:RightHandPinky2",
+    "mixamorig:RightHandPinky3",
+    "mixamorig:RightHandPinky4",
+    "mixamorig:RightHandRing1",
+    "mixamorig:RightHandRing2",
+    "mixamorig:RightHandRing3",
+    "mixamorig:RightHandRing4",
+    "mixamorig:RightHandThumb1",
+    "mixamorig:RightHandThumb2",
+    "mixamorig:RightHandThumb3",
+    "mixamorig:RightHandThumb4"
+  ],
+  "animations": [],
+  "materials": [
+    {
+      "name": "tripo_199ec380_473a_4937_96db_68c5fd60d13a",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        },
+        "baseColorFactor": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          1.0
+        ]
+      },
+      "normalTexture": {
+        "index": 2
+      },
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929
+          ]
+        }
+      }
+    }
+  ],
+  "images": [
+    {
+      "name": "echo-school-p2-pbr-rig_basecolor.jpg",
+      "bufferView": 0,
+      "mimeType": "image/jpeg"
+    },
+    {
+      "name": "echo-school-p2-pbr-rig_rm.png",
+      "bufferView": 1,
+      "mimeType": "image/png"
+    },
+    {
+      "name": "echo-school-p2-pbr-rig_normal.jpg",
+      "bufferView": 2,
+      "mimeType": "image/jpeg"
+    }
+  ],
+  "fbx_archive_members": [
+    "tripo_convert_4d219680-90f5-42e4-8008-c1e793b98d05.fbx",
+    "tripo_convert_4d219680-90f5-42e4-8008-c1e793b98d05.fbm/tripo_rgb_71ecb37a-fb54-48c8-ad38-15eec04a75c9.jpg",
+    "tripo_convert_4d219680-90f5-42e4-8008-c1e793b98d05.fbm/echo-school-p2-pbr-mixamo-rig_roughness.JPEG",
+    "tripo_convert_4d219680-90f5-42e4-8008-c1e793b98d05.fbm/echo-school-p2-pbr-mixamo-rig_metallic.JPEG",
+    "tripo_convert_4d219680-90f5-42e4-8008-c1e793b98d05.fbm/tripo_normal_d0ea78bc-ed80-4774-a6cc-8fc7f5d497a2.jpg"
+  ]
+}

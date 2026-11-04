@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "observed": "Initial target pose side-0000 actually inspected: limbs splayed andpose doesnot match visibleoriginal wake. Numerical sample replayPASS doesnot prove semantic source/target rest-pose compatibility. Do not export/integrate.",
+  "next": "Measure source/target reference pose difference before any retry;prefer a compatible native rig source."
+}

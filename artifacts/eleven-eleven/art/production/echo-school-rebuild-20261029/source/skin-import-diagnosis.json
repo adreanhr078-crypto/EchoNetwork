@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Node_0",
+    "type": "EMPTY",
+    "parent": null,
+    "parent_type": "OBJECT",
+    "modifiers": [],
+    "vertex_groups": null,
+    "bones": null
+  },
+  {
+    "name": "node_0",
+    "type": "EMPTY",
+    "parent": "Node_0",
+    "parent_type": "OBJECT",
+    "modifiers": [],
+    "vertex_groups": null,
+    "bones": null
+  },
+  {
+    "name": "RootNode",
+    "type": "EMPTY",
+    "parent": "node_0",
+    "parent_type": "OBJECT",
+    "modifiers": [],
+    "vertex_groups": null,
+    "bones": null
+  },
+  {
+    "name": "Armature",
+    "type": "ARMATURE",
+    "parent": "RootNode",
+    "parent_type": "OBJECT",
+    "modifiers": [],
+    "vertex_groups": null,
+    "bones": 65
+  },
+  {
+    "name": "tripo_199ec380_473a_4937_96db_68c5fd60d13a",
+    "type": "MESH",
+    "parent": "Armature",
+    "parent_type": "OBJECT",
+    "modifiers": [
+      {
+        "name": "Armature",
+        "type": "ARMATURE",
+        "object": "Armature"
+      }
+    ],
+    "vertex_groups": 65,
+    "bones": null
+  },
+  {
+    "name": "Icosphere",
+    "type": "MESH",
+    "parent": null,
+    "parent_type": "OBJECT",
+    "modifiers": [],
+    "vertex_groups": 0,
+    "bones": null
+  }
+]

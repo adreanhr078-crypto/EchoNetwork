@@ -1,0 +1,6 @@
+{
+  "status": "CAUSE_MEASURED",
+  "cause": "Default animation/fps30 rebaked the native24Hz curves. Every fourth native sample (0,4,8...) matched;intermediate samples differed max8.178mm/1.934deg. Original exported clocks retain120 samples at24Hz.",
+  "fix": "Set animation/fps24 in this isolated case only,retain frozen optimizer-off/compression-off/retarget/root. Native source keys andBlender transfer unchanged.",
+  "retry": 2
+}

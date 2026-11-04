@@ -1,0 +1,149 @@
+{
+  "source": {
+    "sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+    "samplers": [
+      {},
+      {},
+      {}
+    ],
+    "textures": [
+      {
+        "source": 0,
+        "sampler": 0
+      },
+      {
+        "source": 1,
+        "sampler": 1
+      },
+      {
+        "source": 2,
+        "sampler": 2
+      }
+    ],
+    "materials": [
+      {
+        "name": "tripo_199ec380_473a_4937_96db_68c5fd60d13a",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 0
+          },
+          "metallicRoughnessTexture": {
+            "index": 1
+          },
+          "baseColorFactor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ]
+        },
+        "normalTexture": {
+          "index": 2
+        },
+        "extensions": {
+          "KHR_materials_specular": {
+            "specularColorFactor": [
+              0.800000011920929,
+              0.800000011920929,
+              0.800000011920929
+            ]
+          }
+        }
+      }
+    ],
+    "images": [
+      {
+        "name": "echo-school-p2-pbr-rig_basecolor.jpg",
+        "bufferView": 0,
+        "mimeType": "image/jpeg"
+      },
+      {
+        "name": "echo-school-p2-pbr-rig_rm.png",
+        "bufferView": 1,
+        "mimeType": "image/png"
+      },
+      {
+        "name": "echo-school-p2-pbr-rig_normal.jpg",
+        "bufferView": 2,
+        "mimeType": "image/jpeg"
+      }
+    ],
+    "skin_joints": [
+      65
+    ]
+  },
+  "metric": {
+    "sha256": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+    "samplers": [
+      {
+        "magFilter": 9729,
+        "minFilter": 9987
+      }
+    ],
+    "textures": [
+      {
+        "sampler": 0,
+        "source": 0
+      },
+      {
+        "sampler": 0,
+        "source": 1
+      },
+      {
+        "sampler": 0,
+        "source": 2
+      }
+    ],
+    "materials": [
+      {
+        "extensions": {
+          "KHR_materials_specular": {
+            "specularColorFactor": [
+              0.800000011920929,
+              0.800000011920929,
+              0.800000011920929
+            ]
+          }
+        },
+        "name": "tripo_199ec380_473a_4937_96db_68c5fd60d13a",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1
+          ],
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ],
+    "images": [
+      {
+        "bufferView": 6,
+        "mimeType": "image/jpeg",
+        "name": "echo-school-p2-pbr-rig_normal"
+      },
+      {
+        "bufferView": 7,
+        "mimeType": "image/jpeg",
+        "name": "echo-school-p2-pbr-rig_basecolor"
+      },
+      {
+        "bufferView": 8,
+        "mimeType": "image/png",
+        "name": "echo-school-p2-pbr-rig_rm"
+      }
+    ],
+    "skin_joints": [
+      65
+    ]
+  }
+}

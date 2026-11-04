@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "runtime_replaced": false,
+  "workspace_asset": "0ef01d44-5824-4f1e-a4e9-5faa678afbb9",
+  "workspace_url": "https://studio.tripo3d.ai/workspace/animate/0ef01d44-5824-4f1e-a4e9-5faa678afbb9",
+  "confirmed_balance_after_generation": 1575,
+  "latest_balance_observed": 1535,
+  "model_pipeline_spend": 145,
+  "motion_generation_spend": 20,
+  "workspace_humanoid_rig_quote_submitted": 20,
+  "workspace_humanoid_rig_spend_confirmed": 20,
+  "latest_owner": "If Multi-stage does not work,use ordinary Tripo animation generation. No further Multi-stage reroll.",
+  "generated": [
+    {
+      "title": "Boxing Jab and Kick",
+      "mode": "Multi-stage Motion",
+      "duration_stages_seconds": [
+        2,
+        2
+      ],
+      "stage_1": "Compact left-foot-forward guard,left jab,right straight punch,return guard;human limits,no weapons,props,magic or travel.",
+      "stage_2": "Right front kick at waist height,retract,plant foot,return guard;continuous same facing,no extra attacks or travel.",
+      "waypoints_xz": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "generation_status": "COMPLETE_VISIBLE_LIBRARY_ENTRY",
+      "application": "SUCCESS after WorkspaceHumanoid/Mixamo;actual character moving,3.96s UI timeline. No extra balance deduction observed for application. Initial external-upload rejection retained.",
+      "download": "motions/tripo-boxing/source.glb",
+      "download_sha256": "33e93ffa594e195d6dcbf8cdcf8c8b58a5f1d91ed2b1d5a8cc408e447e1e0045",
+      "next": "Inspect original generated motion/native timing and qualify on retained target;no regenerated Multi-stage trial. Next new motions use ordinary text generation perOwner."
+    }
+  ],
+  "workspace_rig": {
+    "status": "COMPLETE_AI_MOTION_APPLIED",
+    "type": "Humanoid",
+    "skeleton_preset": "Mixamo",
+    "cause": "Workspace import of existing65joint GLB was not accepted as platform-supported humanoid for AI motion. AutoRig20 UI requires platform rig;static model not regenerated. Canvas-qualified target remains unchanged.",
+    "target_policy": "Preserve qualified Canvas65 target and source keys;new Workspace motion/rig is an authoring source until isolated same-target qualification.",
+    "no_new_model_generation": true
+  },
+  "local_motion_gates": {
+    "run": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS25samples",
+    "idle": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS58samples",
+    "jump": "ISOLATED_SOURCE_TRANSFER_AND_VISUAL_PASS74samples",
+    "golden192": "PASS"
+  },
+  "ui_recovery": "Old user-tab binding became unavailable. Same Codex browser2,new tab4 at exact existing workspace URL restored control;no other browser or account.",
+  "badge99": "Visible notification bell badge;not evidence of generation/storage quota. Do not use it as a quota gate.",
+  "flow_new_spend": 0,
+  "latest_owner_steering": "FIRST Flow video is best;use it as canonical facial reference. No further paid generation. Tears/pupil dilation remain optional facial-rig controls. Always Omni if video work later resumes.",
+  "bridge_trial": "Official1.0.1 plugin installed only in isolated asset-intake project. Loopback60650 listens;UI transientConnected but clients close1000 and no file transfer verified. Deferred perOwner;owned intake editor stopped. Main game settings unchanged.",
+  "ordinary_laugh_spend_confirmed": 20,
+  "ordinary_laugh": {
+    "title": "Hysterical Laughter",
+    "status": "COMPLETE_VISIBLE_LIBRARY_ENTRY_BODY_ONLY_NOT_FACIAL",
+    "duration_requested_seconds": 5,
+    "cost": 20,
+    "owner_correction": "Owner wants hysterical facial laughter,not body-only. Stop further body laugh generation. Face needs actual rig/morphs;Flow cinematic optional."
+  },
+  "next_authorized_step": "Author actual facial controls matching first accepted clip0024b552 using cached240/240 face samples. Native components audited:irises9/19,brows8/21,upper lashes10/20,mouth interior16/tongue13;main face incomponent30. Mouth boundary audit running. Preserve body65 rig and all source keys. No further paid generation.",
+  "new_facial_requirement": {
+    "priority": "FACIAL_RIG_AND_FACE_PERFORMANCE",
+    "body_only_laughter_accepted": false,
+    "current_target_shapes": 0,
+    "current_v31_shapes": 0,
+    "source_animation_24fps": "Boxing delivered96samples24Hz,66skin joints;not compatible with frozen30Hz retarget contract without separate diagnosis. Original saved unchanged."
+  },
+  "facial": {
+    "approved_flow_url": "https://flow.google.com/project/eb52b2c6-8d67-4979-a4cc-ba9cefb0439f/edit/0024b552-83e2-456f-af38-43d823cb868d",
+    "approved_local": "facial/flow-owner-approved-base.mp4",
+    "approved_sha256": "9d77073ea2d9e51d83ae2aa4887cd0a2bc474851a9358aa52b610b7f63f1c682",
+    "model_policy": "OMNI_ALWAYS",
+    "source": "User generated and explicitly accepted base;assistant downloaded original720p.",
+    "base_media": "1280x720,24fps,10.026667s,h264+aac48k stereo",
+    "native_image_reference": "references/face-neutral-native.png",
+    "native_images_total": 3,
+    "assistant_visual_review": "20frames at2fps inspected:identity coherent,face transitions neutral->smile->laugh->recovery. Audio decoded,auditory review not established.",
+    "capture": {
+      "file": "facial/capture-base/face-capture.json",
+      "coverage": 1.0,
+      "samples": 240,
+      "fps": 24,
+      "coefficients": 52,
+      "model": "GoogleMediaPipeFaceLandmarker official;isolated local venv;no external face-data upload",
+      "raw_samples_preserved": true,
+      "not_yet_a_rig": true
+    },
+    "topology": "facial/topology-inspection.json;108934vertices;0shape keys;actual mouth/eye topology inspected. Facialcontrols not yet authored.",
+    "component_audit": "COMPLETE32components;coloredfront/cutawayactually inspected;assignments cached",
+    "pending_flow_edit": {
+      "submissions": 1,
+      "model": "Omni1.1Flash",
+      "parent_asset": "0024b552-83e2-456f-af38-43d823cb868d",
+      "prompt_scope": "Same10secondacceptedvideo;facial laugh1..9s;tearswell3s thenoneclearstream/cheek;pupils1.5xgradually3..6s;greyblueirisretained;noidentity/body/camera/music/dialogue changes",
+      "status": "SUBMITTED_ONCE_RESULT_UNREVIEWED",
+      "credits": "Editor quote not exposed;regular10sOmni quote observed15. Actual deduction not asserted. Do not resubmit.",
+      "selection": "NOT_SELECTED_OWNER_PREFERS_ORIGINAL"
+    },
+    "higgsfield": "Read-only catalog:3d_rigging Meshy exposes body skeleton/pre-canned actions,no facial controls;facial rig search returnednone. No paid job submitted.",
+    "selected_master": "FIRST_ORIGINAL0024b552"
+  }
+}
