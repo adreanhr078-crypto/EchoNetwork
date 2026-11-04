@@ -1,0 +1,3324 @@
+{
+  "status": "SUPPORT_PHASE_MEASUREMENT_PENDING_VISUAL_INTENT_REVIEW",
+  "source_sha256": "c4359440bac2f0f9e4ad7af0176ac3b148097069ffdea40b4c586783c537536b",
+  "blend_sha256": "a6f382026dd26ee18728b237943a09486d36951de10697dbab8c41a10d5adcc2",
+  "native_fps": 24,
+  "samples": [
+    {
+      "sample": 0,
+      "time": 0.0,
+      "phase": 0.0,
+      "source": {
+        "left_hand_gap_m": 0.09662403759917297,
+        "right_hand_gap_m": 0.0016484653044366135,
+        "floor_before_alignment_m": -0.06473970413208008,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.09314058310475815,
+        "right_hand_gap_m": 0.013632484527677236,
+        "floor_before_alignment_m": -0.1241529473014588,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 1,
+      "time": 0.041666666666666664,
+      "phase": 0.006993006993006993,
+      "source": {
+        "left_hand_gap_m": 0.09998713088552119,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06514310836791992,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.08851457086480223,
+        "right_hand_gap_m": 0.004206543539152216,
+        "floor_before_alignment_m": -0.11687659778370472,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 2,
+      "time": 0.08333333333333333,
+      "phase": 0.013986013986013986,
+      "source": {
+        "left_hand_gap_m": 0.10491551051916094,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06632727384567261,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.08401343925803013,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.1142421793475049,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 3,
+      "time": 0.125,
+      "phase": 0.02097902097902098,
+      "source": {
+        "left_hand_gap_m": 0.10478741281133398,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06765413284301758,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.07899165608733436,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.11594843643604463,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 4,
+      "time": 0.16666666666666666,
+      "phase": 0.027972027972027972,
+      "source": {
+        "left_hand_gap_m": 0.09014326594196682,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06974828243255615,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.06320677665421096,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.11897377272562355,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 5,
+      "time": 0.20833333333333334,
+      "phase": 0.03496503496503497,
+      "source": {
+        "left_hand_gap_m": 0.07128595164099381,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07310634851455688,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.04530117311225379,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.12528464095887842,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 6,
+      "time": 0.25,
+      "phase": 0.04195804195804196,
+      "source": {
+        "left_hand_gap_m": 0.05993123130685656,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07600098848342896,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.03395383594023488,
+        "right_hand_gap_m": 0.00016040154486984814,
+        "floor_before_alignment_m": -0.13006465064194983,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 7,
+      "time": 0.2916666666666667,
+      "phase": 0.04895104895104895,
+      "source": {
+        "left_hand_gap_m": 0.05521867305884606,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07547962665557861,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.03167147542728933,
+        "right_hand_gap_m": 0.002665482452102047,
+        "floor_before_alignment_m": -0.13147000391565586,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 8,
+      "time": 0.3333333333333333,
+      "phase": 0.055944055944055944,
+      "source": {
+        "left_hand_gap_m": 0.054124557983413105,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07325023412704468,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.03234749354985027,
+        "right_hand_gap_m": 0.00460474897170228,
+        "floor_before_alignment_m": -0.12930340955884861,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 9,
+      "time": 0.375,
+      "phase": 0.06293706293706294,
+      "source": {
+        "left_hand_gap_m": 0.0545058917539079,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07169538736343384,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.033118285240659184,
+        "right_hand_gap_m": 0.005369354232799536,
+        "floor_before_alignment_m": -0.1269549275430894,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 10,
+      "time": 0.4166666666666667,
+      "phase": 0.06993006993006994,
+      "source": {
+        "left_hand_gap_m": 0.05387533818551213,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.07009422779083252,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.033187449111008904,
+        "right_hand_gap_m": 0.006494481787708145,
+        "floor_before_alignment_m": -0.12478203667030138,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 11,
+      "time": 0.4583333333333333,
+      "phase": 0.07692307692307693,
+      "source": {
+        "left_hand_gap_m": 0.052774987330572745,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06808924674987793,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.034649371854750505,
+        "right_hand_gap_m": 0.009524866360480624,
+        "floor_before_alignment_m": -0.12366164010344284,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 12,
+      "time": 0.5,
+      "phase": 0.08391608391608392,
+      "source": {
+        "left_hand_gap_m": 0.0701378283735645,
+        "right_hand_gap_m": 0.01828351689520355,
+        "floor_before_alignment_m": -0.07700419425964355,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.059325026151437865,
+        "right_hand_gap_m": 0.03567001042810716,
+        "floor_before_alignment_m": -0.14655631087253643,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 13,
+      "time": 0.5416666666666666,
+      "phase": 0.09090909090909091,
+      "source": {
+        "left_hand_gap_m": 0.04938673954384267,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06542789936065674,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.023890188788098468,
+        "right_hand_gap_m": 0.0033051298397459156,
+        "floor_before_alignment_m": -0.11102135228891327,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 14,
+      "time": 0.5833333333333334,
+      "phase": 0.0979020979020979,
+      "source": {
+        "left_hand_gap_m": 0.044896132769789786,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.06307333707809448,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.015447793481362021,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.10250528525921411,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 15,
+      "time": 0.625,
+      "phase": 0.1048951048951049,
+      "source": {
+        "left_hand_gap_m": 0.036834432470936984,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.05832040309906006,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.006762824389659694,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.09302455097953581,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 16,
+      "time": 0.6666666666666666,
+      "phase": 0.11188811188811189,
+      "source": {
+        "left_hand_gap_m": 0.019689949401848292,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.04739135503768921,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.011573428860053955,
+        "floor_before_alignment_m": -0.08357099071039431,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 17,
+      "time": 0.7083333333333334,
+      "phase": 0.11888111888111888,
+      "source": {
+        "left_hand_gap_m": 0.0201487548058721,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.047669410705566406,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.016066471164239662,
+        "floor_before_alignment_m": -0.08313637640399187,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 18,
+      "time": 0.75,
+      "phase": 0.1258741258741259,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.009539685733054352,
+        "floor_before_alignment_m": -0.03683626651763916,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.04424040424601735,
+        "floor_before_alignment_m": -0.08351474685154915,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 19,
+      "time": 0.7916666666666666,
+      "phase": 0.13286713286713286,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.028608910846067852,
+        "floor_before_alignment_m": -0.038314759731292725,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.06301767628750676,
+        "floor_before_alignment_m": -0.08645172372550491,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 20,
+      "time": 0.8333333333333334,
+      "phase": 0.13986013986013987,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.04031463158259236,
+        "floor_before_alignment_m": -0.03980308771133423,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.07327781266807464,
+        "floor_before_alignment_m": -0.08828226014969955,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 21,
+      "time": 0.875,
+      "phase": 0.14685314685314685,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.04044103823157012,
+        "floor_before_alignment_m": -0.036061227321624756,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.07265575523357426,
+        "floor_before_alignment_m": -0.08110982627579467,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 22,
+      "time": 0.9166666666666666,
+      "phase": 0.15384615384615385,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.02884618754084635,
+        "floor_before_alignment_m": -0.02586495876312256,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.06034218270342275,
+        "floor_before_alignment_m": -0.06298560797961873,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 23,
+      "time": 0.9583333333333334,
+      "phase": 0.16083916083916083,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.01137078539320466,
+        "floor_before_alignment_m": -0.012470841407775879,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.043030633529301206,
+        "floor_before_alignment_m": -0.03948420757712799,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 24,
+      "time": 1.0,
+      "phase": 0.16783216783216784,
+      "source": {
+        "left_hand_gap_m": 0.001918611955596451,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": -0.0016660094261169434,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.0292074737545304,
+        "floor_before_alignment_m": -0.018098695968379732,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 25,
+      "time": 1.0416666666666667,
+      "phase": 0.17482517482517482,
+      "source": {
+        "left_hand_gap_m": 0.0071457805496543845,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": 0.0028532743453979492,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.02420362052864286,
+        "floor_before_alignment_m": -0.005129042054575031,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 26,
+      "time": 1.0833333333333333,
+      "phase": 0.18181818181818182,
+      "source": {
+        "left_hand_gap_m": 0.005109640004038474,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": 0.006416916847229004,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.025660386773410277,
+        "floor_before_alignment_m": -0.000314092998081644,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 27,
+      "time": 1.125,
+      "phase": 0.1888111888111888,
+      "source": {
+        "left_hand_gap_m": 0.00197547380940083,
+        "right_hand_gap_m": 0.0,
+        "floor_before_alignment_m": 0.008831024169921875,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.02898726376340607,
+        "floor_before_alignment_m": 0.0005300625167541933,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 28,
+      "time": 1.1666666666666667,
+      "phase": 0.1958041958041958,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.0004381956242991729,
+        "floor_before_alignment_m": 0.010438799858093262,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.031544711998177925,
+        "floor_before_alignment_m": 0.001066069498876803,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 29,
+      "time": 1.2083333333333333,
+      "phase": 0.20279720279720279,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.000853244880599909,
+        "floor_before_alignment_m": 0.01241832971572876,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.03201690641109652,
+        "floor_before_alignment_m": 0.004232153961058021,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 30,
+      "time": 1.25,
+      "phase": 0.2097902097902098,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.000281138533679643,
+        "floor_before_alignment_m": 0.015122532844543457,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.0314023916785656,
+        "floor_before_alignment_m": 0.008776408699884332,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 31,
+      "time": 1.2916666666666667,
+      "phase": 0.21678321678321677,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.00026739868052988604,
+        "floor_before_alignment_m": 0.0178225040435791,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.0313680702357073,
+        "floor_before_alignment_m": 0.013338401300492131,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 32,
+      "time": 1.3333333333333333,
+      "phase": 0.22377622377622378,
+      "source": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.0009440336025663802,
+        "floor_before_alignment_m": 0.020242393016815186,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.03231970348303595,
+        "floor_before_alignment_m": 0.017438905435835844,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 33,
+      "time": 1.375,
+      "phase": 0.23076923076923078,
+      "source": {
+        "left_hand_gap_m": 0.0021110755908711237,
+        "right_hand_gap_m": 0.004468728700191348,
+        "floor_before_alignment_m": 0.021699607372283936,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0,
+        "right_hand_gap_m": 0.03371435173082245,
+        "floor_before_alignment_m": 0.022026402120506553,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 34,
+      "time": 1.4166666666666667,
+      "phase": 0.23776223776223776,
+      "source": {
+        "left_hand_gap_m": 0.008504810562932464,
+        "right_hand_gap_m": 0.012249026237419318,
+        "floor_before_alignment_m": 0.021502822637557983,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.004416615645408302,
+        "right_hand_gap_m": 0.03934729698260399,
+        "floor_before_alignment_m": 0.023727533014017903,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 35,
+      "time": 1.4583333333333333,
+      "phase": 0.24475524475524477,
+      "source": {
+        "left_hand_gap_m": 0.01754885751640385,
+        "right_hand_gap_m": 0.021840130728607184,
+        "floor_before_alignment_m": 0.021188974380493164,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.013381856135110663,
+        "right_hand_gap_m": 0.048511534490953495,
+        "floor_before_alignment_m": 0.023573300049278254,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 36,
+      "time": 1.5,
+      "phase": 0.2517482517482518,
+      "source": {
+        "left_hand_gap_m": 0.02816558919963204,
+        "right_hand_gap_m": 0.03242008188186525,
+        "floor_before_alignment_m": 0.020825713872909546,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.024700308428545356,
+        "right_hand_gap_m": 0.059106076025021104,
+        "floor_before_alignment_m": 0.022749759272131895,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 37,
+      "time": 1.5416666666666667,
+      "phase": 0.25874125874125875,
+      "source": {
+        "left_hand_gap_m": 0.04210424745534821,
+        "right_hand_gap_m": 0.04395722518936005,
+        "floor_before_alignment_m": 0.01993200182914734,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.038690342832271976,
+        "right_hand_gap_m": 0.06985487841996946,
+        "floor_before_alignment_m": 0.02184063436983173,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 38,
+      "time": 1.5833333333333333,
+      "phase": 0.26573426573426573,
+      "source": {
+        "left_hand_gap_m": 0.05690872784185521,
+        "right_hand_gap_m": 0.0560008406221905,
+        "floor_before_alignment_m": 0.018936604261398315,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.05327019788678242,
+        "right_hand_gap_m": 0.08175777605114395,
+        "floor_before_alignment_m": 0.02043905309542297,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 39,
+      "time": 1.625,
+      "phase": 0.2727272727272727,
+      "source": {
+        "left_hand_gap_m": 0.06942710804659881,
+        "right_hand_gap_m": 0.07022782441169541,
+        "floor_before_alignment_m": 0.017115086317062378,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.06599157986289436,
+        "right_hand_gap_m": 0.09537652739829713,
+        "floor_before_alignment_m": 0.01802418965171847,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 40,
+      "time": 1.6666666666666667,
+      "phase": 0.27972027972027974,
+      "source": {
+        "left_hand_gap_m": 0.08239203347870949,
+        "right_hand_gap_m": 0.08461175960064178,
+        "floor_before_alignment_m": 0.015215009450912476,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.0791400802479886,
+        "right_hand_gap_m": 0.1091155071147965,
+        "floor_before_alignment_m": 0.015509354184983164,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 41,
+      "time": 1.7083333333333333,
+      "phase": 0.2867132867132867,
+      "source": {
+        "left_hand_gap_m": 0.09629517949859244,
+        "right_hand_gap_m": 0.09863888137240677,
+        "floor_before_alignment_m": 0.013539522886276245,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.09316107448604523,
+        "right_hand_gap_m": 0.12248819212508867,
+        "floor_before_alignment_m": 0.013425886233218923,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 42,
+      "time": 1.75,
+      "phase": 0.2937062937062937,
+      "source": {
+        "left_hand_gap_m": 0.1105513868988351,
+        "right_hand_gap_m": 0.11121734701188603,
+        "floor_before_alignment_m": 0.012667477130889893,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.10755256044753574,
+        "right_hand_gap_m": 0.13443946512044277,
+        "floor_before_alignment_m": 0.012715865751781992,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 43,
+      "time": 1.7916666666666667,
+      "phase": 0.3006993006993007,
+      "source": {
+        "left_hand_gap_m": 0.12156176537480384,
+        "right_hand_gap_m": 0.11960457613921,
+        "floor_before_alignment_m": 0.013630211353302002,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.11879160457343227,
+        "right_hand_gap_m": 0.14226158066159642,
+        "floor_before_alignment_m": 0.015104339836727881,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 44,
+      "time": 1.8333333333333333,
+      "phase": 0.3076923076923077,
+      "source": {
+        "left_hand_gap_m": 0.13086393495650436,
+        "right_hand_gap_m": 0.12502069248544695,
+        "floor_before_alignment_m": 0.01470895204693079,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1248912436296436,
+        "right_hand_gap_m": 0.14368965479190438,
+        "floor_before_alignment_m": 0.02104581760171404,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 45,
+      "time": 1.875,
+      "phase": 0.3146853146853147,
+      "source": {
+        "left_hand_gap_m": 0.13875344285775235,
+        "right_hand_gap_m": 0.1300272621223417,
+        "floor_before_alignment_m": 0.014741865918040276,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1278374394128372,
+        "right_hand_gap_m": 0.14275655901646533,
+        "floor_before_alignment_m": 0.026974058684969066,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 46,
+      "time": 1.9166666666666667,
+      "phase": 0.32167832167832167,
+      "source": {
+        "left_hand_gap_m": 0.14544714755886193,
+        "right_hand_gap_m": 0.13468535473372573,
+        "floor_before_alignment_m": 0.014619397930800915,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.13498008610222678,
+        "right_hand_gap_m": 0.14714549104680663,
+        "floor_before_alignment_m": 0.02688378749248443,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 47,
+      "time": 1.9583333333333333,
+      "phase": 0.32867132867132864,
+      "source": {
+        "left_hand_gap_m": 0.14977338803676155,
+        "right_hand_gap_m": 0.13896509109327232,
+        "floor_before_alignment_m": 0.015032109804451466,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.13972999968345148,
+        "right_hand_gap_m": 0.1511335338949975,
+        "floor_before_alignment_m": 0.027700395167957383,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 48,
+      "time": 2.0,
+      "phase": 0.3356643356643357,
+      "source": {
+        "left_hand_gap_m": 0.15064386223081233,
+        "right_hand_gap_m": 0.14272495071353894,
+        "floor_before_alignment_m": 0.016738172620534897,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.14322164798847983,
+        "right_hand_gap_m": 0.15676732294813409,
+        "floor_before_alignment_m": 0.028578356056591387,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 49,
+      "time": 2.0416666666666665,
+      "phase": 0.34265734265734266,
+      "source": {
+        "left_hand_gap_m": 0.14840623136274428,
+        "right_hand_gap_m": 0.14586953739776493,
+        "floor_before_alignment_m": 0.019162913784384727,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.14357242869927567,
+        "right_hand_gap_m": 0.16184225367736788,
+        "floor_before_alignment_m": 0.030704418329736693,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 50,
+      "time": 2.0833333333333335,
+      "phase": 0.34965034965034963,
+      "source": {
+        "left_hand_gap_m": 0.1468584236940269,
+        "right_hand_gap_m": 0.1492143857444979,
+        "floor_before_alignment_m": 0.020896969363093376,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.14270144486166286,
+        "right_hand_gap_m": 0.1652807404509693,
+        "floor_before_alignment_m": 0.03344318891426504,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 51,
+      "time": 2.125,
+      "phase": 0.35664335664335667,
+      "source": {
+        "left_hand_gap_m": 0.14561654574594637,
+        "right_hand_gap_m": 0.15278515559006497,
+        "floor_before_alignment_m": 0.022264065220952034,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1412092592041662,
+        "right_hand_gap_m": 0.16813990220096608,
+        "floor_before_alignment_m": 0.03638522980065902,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 52,
+      "time": 2.1666666666666665,
+      "phase": 0.36363636363636365,
+      "source": {
+        "left_hand_gap_m": 0.14410897338758244,
+        "right_hand_gap_m": 0.15524269346836475,
+        "floor_before_alignment_m": 0.022899148985743523,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1409184099605886,
+        "right_hand_gap_m": 0.1720532538429181,
+        "floor_before_alignment_m": 0.03654499000340231,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 53,
+      "time": 2.2083333333333335,
+      "phase": 0.3706293706293706,
+      "source": {
+        "left_hand_gap_m": 0.14629035012612004,
+        "right_hand_gap_m": 0.16081643994957737,
+        "floor_before_alignment_m": 0.02144264057278633,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1444976021331049,
+        "right_hand_gap_m": 0.1785928549367332,
+        "floor_before_alignment_m": 0.032877216028497004,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 54,
+      "time": 2.25,
+      "phase": 0.3776223776223776,
+      "source": {
+        "left_hand_gap_m": 0.14866938257905526,
+        "right_hand_gap_m": 0.16515350716753102,
+        "floor_before_alignment_m": 0.020213039591908455,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.14775443272281757,
+        "right_hand_gap_m": 0.18328673561697478,
+        "floor_before_alignment_m": 0.030267122018563256,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 55,
+      "time": 2.2916666666666665,
+      "phase": 0.38461538461538464,
+      "source": {
+        "left_hand_gap_m": 0.1533479082677256,
+        "right_hand_gap_m": 0.1692276906999682,
+        "floor_before_alignment_m": 0.01834789104759693,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.15336710353918717,
+        "right_hand_gap_m": 0.18767929939177003,
+        "floor_before_alignment_m": 0.026576606765949796,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 56,
+      "time": 2.3333333333333335,
+      "phase": 0.3916083916083916,
+      "source": {
+        "left_hand_gap_m": 0.1598308036570412,
+        "right_hand_gap_m": 0.17212564702015604,
+        "floor_before_alignment_m": 0.01697232946753502,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.16070482885454052,
+        "right_hand_gap_m": 0.19079004948530515,
+        "floor_before_alignment_m": 0.023835301388085983,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 57,
+      "time": 2.375,
+      "phase": 0.3986013986013986,
+      "source": {
+        "left_hand_gap_m": 0.1671272734038361,
+        "right_hand_gap_m": 0.1729337353449234,
+        "floor_before_alignment_m": 0.015792828053236008,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.16891504702662555,
+        "right_hand_gap_m": 0.19191220712126547,
+        "floor_before_alignment_m": 0.02136068939169913,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 58,
+      "time": 2.4166666666666665,
+      "phase": 0.40559440559440557,
+      "source": {
+        "left_hand_gap_m": 0.17467852494677816,
+        "right_hand_gap_m": 0.17362520666608217,
+        "floor_before_alignment_m": 0.014461833983659744,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.177422302215682,
+        "right_hand_gap_m": 0.1930010021858996,
+        "floor_before_alignment_m": 0.01848943720858158,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 59,
+      "time": 2.4583333333333335,
+      "phase": 0.4125874125874126,
+      "source": {
+        "left_hand_gap_m": 0.18236691409612193,
+        "right_hand_gap_m": 0.17485998679098508,
+        "floor_before_alignment_m": 0.012848937883973122,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.1859669594092931,
+        "right_hand_gap_m": 0.1944966416171191,
+        "floor_before_alignment_m": 0.015217217785363732,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 60,
+      "time": 2.5,
+      "phase": 0.4195804195804196,
+      "source": {
+        "left_hand_gap_m": 0.18973832879671998,
+        "right_hand_gap_m": 0.17818512043015777,
+        "floor_before_alignment_m": 0.010346625000238419,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.19355723129697372,
+        "right_hand_gap_m": 0.19800407674706544,
+        "floor_before_alignment_m": 0.01044958342096956,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 61,
+      "time": 2.5416666666666665,
+      "phase": 0.42657342657342656,
+      "source": {
+        "left_hand_gap_m": 0.19379250531943248,
+        "right_hand_gap_m": 0.17934980583547638,
+        "floor_before_alignment_m": 0.007736376486718655,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.19836901802507168,
+        "right_hand_gap_m": 0.1992964974488913,
+        "floor_before_alignment_m": 0.005623734380667869,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 62,
+      "time": 2.5833333333333335,
+      "phase": 0.43356643356643354,
+      "source": {
+        "left_hand_gap_m": 0.1985444533483718,
+        "right_hand_gap_m": 0.18004648905285398,
+        "floor_before_alignment_m": 0.005032430402934551,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.2037449600633324,
+        "right_hand_gap_m": 0.19985718538065234,
+        "floor_before_alignment_m": 0.0006933296394755027,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 63,
+      "time": 2.625,
+      "phase": 0.4405594405594406,
+      "source": {
+        "left_hand_gap_m": 0.20291440125696708,
+        "right_hand_gap_m": 0.17773041303642137,
+        "floor_before_alignment_m": 0.0030562751926481724,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.2085160753715045,
+        "right_hand_gap_m": 0.19757435340525983,
+        "floor_before_alignment_m": -0.0027665762405521066,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 64,
+      "time": 2.6666666666666665,
+      "phase": 0.44755244755244755,
+      "source": {
+        "left_hand_gap_m": 0.20685639237413922,
+        "right_hand_gap_m": 0.1723014015407469,
+        "floor_before_alignment_m": 0.001976044848561287,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.21267141059812675,
+        "right_hand_gap_m": 0.19212301656081623,
+        "floor_before_alignment_m": -0.0044447520128235276,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 65,
+      "time": 2.7083333333333335,
+      "phase": 0.45454545454545453,
+      "source": {
+        "left_hand_gap_m": 0.20855467496764782,
+        "right_hand_gap_m": 0.16190005237704527,
+        "floor_before_alignment_m": 0.001381885027512908,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.21423043963686675,
+        "right_hand_gap_m": 0.18136174370161484,
+        "floor_before_alignment_m": -0.0049574785142085355,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 66,
+      "time": 2.75,
+      "phase": 0.46153846153846156,
+      "source": {
+        "left_hand_gap_m": 0.20791704999886895,
+        "right_hand_gap_m": 0.14875133989481001,
+        "floor_before_alignment_m": 0.001043563475832343,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.21296863291189883,
+        "right_hand_gap_m": 0.16764602377835858,
+        "floor_before_alignment_m": -0.004716466497704283,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 67,
+      "time": 2.7916666666666665,
+      "phase": 0.46853146853146854,
+      "source": {
+        "left_hand_gap_m": 0.20492551920974567,
+        "right_hand_gap_m": 0.13721488874067475,
+        "floor_before_alignment_m": 0.0017671907553449273,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.20946902904048811,
+        "right_hand_gap_m": 0.15637950974504977,
+        "floor_before_alignment_m": -0.0031230626245746787,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 68,
+      "time": 2.8333333333333335,
+      "phase": 0.4755244755244755,
+      "source": {
+        "left_hand_gap_m": 0.204337079034395,
+        "right_hand_gap_m": 0.14097923404316712,
+        "floor_before_alignment_m": 0.0017465403070673347,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.20829752164755988,
+        "right_hand_gap_m": 0.15988659647865386,
+        "floor_before_alignment_m": -0.0029631131773141407,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 69,
+      "time": 2.875,
+      "phase": 0.4825174825174825,
+      "source": {
+        "left_hand_gap_m": 0.2002635083869338,
+        "right_hand_gap_m": 0.16543805382884744,
+        "floor_before_alignment_m": 0.0018801859114319086,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.20279309197008616,
+        "right_hand_gap_m": 0.182333881622459,
+        "floor_before_alignment_m": -0.0018726815669345136,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 70,
+      "time": 2.9166666666666665,
+      "phase": 0.48951048951048953,
+      "source": {
+        "left_hand_gap_m": 0.1943326371949919,
+        "right_hand_gap_m": 0.1964734120069021,
+        "floor_before_alignment_m": 0.0018143884371966124,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.19592111918076455,
+        "right_hand_gap_m": 0.21115963887350764,
+        "floor_before_alignment_m": -0.001566604361835126,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 71,
+      "time": 2.9583333333333335,
+      "phase": 0.4965034965034965,
+      "source": {
+        "left_hand_gap_m": 0.19330072282285268,
+        "right_hand_gap_m": 0.2210572343177452,
+        "floor_before_alignment_m": 0.001761726918630302,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.19446497045986952,
+        "right_hand_gap_m": 0.23418149705852784,
+        "floor_before_alignment_m": -0.0010728926303659346,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 72,
+      "time": 3.0,
+      "phase": 0.5034965034965035,
+      "source": {
+        "left_hand_gap_m": 0.19863786277805556,
+        "right_hand_gap_m": 0.24527029022126234,
+        "floor_before_alignment_m": 0.000934980867896229,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.19963055020066692,
+        "right_hand_gap_m": 0.2555466041371262,
+        "floor_before_alignment_m": -0.0013055587155847317,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 73,
+      "time": 3.0416666666666665,
+      "phase": 0.5104895104895105,
+      "source": {
+        "left_hand_gap_m": 0.20948979128992026,
+        "right_hand_gap_m": 0.2649899199559802,
+        "floor_before_alignment_m": 0.0005604359321296215,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.21126797248009258,
+        "right_hand_gap_m": 0.27452229637047215,
+        "floor_before_alignment_m": -0.0014398640518154225,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 74,
+      "time": 3.0833333333333335,
+      "phase": 0.5174825174825175,
+      "source": {
+        "left_hand_gap_m": 0.22217033953817003,
+        "right_hand_gap_m": 0.28125921215576843,
+        "floor_before_alignment_m": 0.0003789184847846627,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.22500433799028605,
+        "right_hand_gap_m": 0.29015592679186963,
+        "floor_before_alignment_m": -0.0013225218107586446,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 75,
+      "time": 3.125,
+      "phase": 0.5244755244755245,
+      "source": {
+        "left_hand_gap_m": 0.2427577225383875,
+        "right_hand_gap_m": 0.29369315491456394,
+        "floor_before_alignment_m": 0.0003361168201081455,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.24669137142731784,
+        "right_hand_gap_m": 0.3030120068599113,
+        "floor_before_alignment_m": -0.0010420616626765334,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 76,
+      "time": 3.1666666666666665,
+      "phase": 0.5314685314685315,
+      "source": {
+        "left_hand_gap_m": 0.26822424526251865,
+        "right_hand_gap_m": 0.30434156309021637,
+        "floor_before_alignment_m": 0.0005478797247633338,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.2720087616889198,
+        "right_hand_gap_m": 0.3151024068796488,
+        "floor_before_alignment_m": -0.0004717838554193197,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 77,
+      "time": 3.2083333333333335,
+      "phase": 0.5384615384615384,
+      "source": {
+        "left_hand_gap_m": 0.29800679037769556,
+        "right_hand_gap_m": 0.31883344839974104,
+        "floor_before_alignment_m": 0.0009258105419576168,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.3029357233912249,
+        "right_hand_gap_m": 0.3308641580189608,
+        "floor_before_alignment_m": 0.00018107862366991583,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 78,
+      "time": 3.25,
+      "phase": 0.5454545454545454,
+      "source": {
+        "left_hand_gap_m": 0.3329815667533061,
+        "right_hand_gap_m": 0.34541592247148,
+        "floor_before_alignment_m": 0.0015348023734986782,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.3390377710438252,
+        "right_hand_gap_m": 0.36048459446538517,
+        "floor_before_alignment_m": 0.0005694100455223426,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 79,
+      "time": 3.2916666666666665,
+      "phase": 0.5524475524475524,
+      "source": {
+        "left_hand_gap_m": 0.3733619394872296,
+        "right_hand_gap_m": 0.39051477215938624,
+        "floor_before_alignment_m": 0.0018207847606390715,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.37915263973985264,
+        "right_hand_gap_m": 0.4064479082027003,
+        "floor_before_alignment_m": 0.0008745466197035989,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 80,
+      "time": 3.3333333333333335,
+      "phase": 0.5594405594405595,
+      "source": {
+        "left_hand_gap_m": 0.4175842296876505,
+        "right_hand_gap_m": 0.4441099674138591,
+        "floor_before_alignment_m": 0.0015757846413180232,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.4223862489839069,
+        "right_hand_gap_m": 0.460896649927391,
+        "floor_before_alignment_m": 0.000496436169348207,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 81,
+      "time": 3.375,
+      "phase": 0.5664335664335665,
+      "source": {
+        "left_hand_gap_m": 0.46540215884719677,
+        "right_hand_gap_m": 0.5020836561834592,
+        "floor_before_alignment_m": 0.0009377373498864472,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.4686156605243746,
+        "right_hand_gap_m": 0.5188255559402729,
+        "floor_before_alignment_m": -0.00034678936146602304,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 82,
+      "time": 3.4166666666666665,
+      "phase": 0.5734265734265734,
+      "source": {
+        "left_hand_gap_m": 0.5161911262156853,
+        "right_hand_gap_m": 0.5602666198333114,
+        "floor_before_alignment_m": 0.00030177264125086367,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.5175165199199235,
+        "right_hand_gap_m": 0.5764152061153591,
+        "floor_before_alignment_m": -0.0010430933542844535,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 83,
+      "time": 3.4583333333333335,
+      "phase": 0.5804195804195804,
+      "source": {
+        "left_hand_gap_m": 0.5682076461458495,
+        "right_hand_gap_m": 0.6169729215626109,
+        "floor_before_alignment_m": -0.00015707820421084762,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.5678083326284057,
+        "right_hand_gap_m": 0.6324593104955474,
+        "floor_before_alignment_m": -0.0016549912519187712,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 84,
+      "time": 3.5,
+      "phase": 0.5874125874125874,
+      "source": {
+        "left_hand_gap_m": 0.6198471638375743,
+        "right_hand_gap_m": 0.6711050599980577,
+        "floor_before_alignment_m": -0.0005835925112478435,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.617703114607976,
+        "right_hand_gap_m": 0.6856687389130716,
+        "floor_before_alignment_m": -0.0022155805664098812,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 85,
+      "time": 3.5416666666666665,
+      "phase": 0.5944055944055944,
+      "source": {
+        "left_hand_gap_m": 0.6685149297500836,
+        "right_hand_gap_m": 0.7203546558458703,
+        "floor_before_alignment_m": -0.0012911539524793625,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.6647622441239359,
+        "right_hand_gap_m": 0.7337540112977399,
+        "floor_before_alignment_m": -0.0033062272310274824,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 86,
+      "time": 3.5833333333333335,
+      "phase": 0.6013986013986014,
+      "source": {
+        "left_hand_gap_m": 0.7137357421032146,
+        "right_hand_gap_m": 0.7648070404888064,
+        "floor_before_alignment_m": -0.0020709296222776175,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.708233663571705,
+        "right_hand_gap_m": 0.7765121456163986,
+        "floor_before_alignment_m": -0.004247397438995536,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 87,
+      "time": 3.625,
+      "phase": 0.6083916083916084,
+      "source": {
+        "left_hand_gap_m": 0.7533176951908838,
+        "right_hand_gap_m": 0.8021107673874789,
+        "floor_before_alignment_m": -0.0025686428416520357,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.7466036411450055,
+        "right_hand_gap_m": 0.8122652614587943,
+        "floor_before_alignment_m": -0.00499977342144609,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 88,
+      "time": 3.6666666666666665,
+      "phase": 0.6153846153846154,
+      "source": {
+        "left_hand_gap_m": 0.7857184211371956,
+        "right_hand_gap_m": 0.8296884349591027,
+        "floor_before_alignment_m": -0.0028124176897108555,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.7780883636367305,
+        "right_hand_gap_m": 0.8391784412899876,
+        "floor_before_alignment_m": -0.005374025884072792,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 89,
+      "time": 3.7083333333333335,
+      "phase": 0.6223776223776224,
+      "source": {
+        "left_hand_gap_m": 0.8102614811267914,
+        "right_hand_gap_m": 0.8489190335739341,
+        "floor_before_alignment_m": -0.0030241834465414286,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8019560418974088,
+        "right_hand_gap_m": 0.8567426503294757,
+        "floor_before_alignment_m": -0.00574737854178341,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 90,
+      "time": 3.75,
+      "phase": 0.6293706293706294,
+      "source": {
+        "left_hand_gap_m": 0.8285363577681873,
+        "right_hand_gap_m": 0.8617998552510915,
+        "floor_before_alignment_m": -0.0030944424215704203,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8197812815478509,
+        "right_hand_gap_m": 0.8680517827798345,
+        "floor_before_alignment_m": -0.005899436415351249,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 91,
+      "time": 3.7916666666666665,
+      "phase": 0.6363636363636364,
+      "source": {
+        "left_hand_gap_m": 0.8423468336805628,
+        "right_hand_gap_m": 0.8702354591480492,
+        "floor_before_alignment_m": -0.003137161023914814,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8333758257012158,
+        "right_hand_gap_m": 0.8749987636486514,
+        "floor_before_alignment_m": -0.006009937436948873,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 92,
+      "time": 3.8333333333333335,
+      "phase": 0.6433566433566433,
+      "source": {
+        "left_hand_gap_m": 0.8527295745912247,
+        "right_hand_gap_m": 0.8757396009699446,
+        "floor_before_alignment_m": -0.0031947146635502577,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8437858906701763,
+        "right_hand_gap_m": 0.8790604406230882,
+        "floor_before_alignment_m": -0.006141402208184559,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 93,
+      "time": 3.875,
+      "phase": 0.6503496503496503,
+      "source": {
+        "left_hand_gap_m": 0.8597113633052669,
+        "right_hand_gap_m": 0.8787233566453527,
+        "floor_before_alignment_m": -0.0033760848455131054,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8510012503670535,
+        "right_hand_gap_m": 0.8806601585443222,
+        "floor_before_alignment_m": -0.006469270749271898,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 94,
+      "time": 3.9166666666666665,
+      "phase": 0.6573426573426573,
+      "source": {
+        "left_hand_gap_m": 0.8641899200464507,
+        "right_hand_gap_m": 0.8797092955614574,
+        "floor_before_alignment_m": -0.0036365266423672438,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8558327357865771,
+        "right_hand_gap_m": 0.8803342899994759,
+        "floor_before_alignment_m": -0.006915349596223335,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 95,
+      "time": 3.9583333333333335,
+      "phase": 0.6643356643356644,
+      "source": {
+        "left_hand_gap_m": 0.8670543190047435,
+        "right_hand_gap_m": 0.8783790230443075,
+        "floor_before_alignment_m": -0.003942482639104128,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8591277391028949,
+        "right_hand_gap_m": 0.8788002454081769,
+        "floor_before_alignment_m": -0.007428140252905071,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 96,
+      "time": 4.0,
+      "phase": 0.6713286713286714,
+      "source": {
+        "left_hand_gap_m": 0.8689652848641761,
+        "right_hand_gap_m": 0.8762956022107495,
+        "floor_before_alignment_m": -0.0042253159917891026,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8615719675953855,
+        "right_hand_gap_m": 0.8755466519243312,
+        "floor_before_alignment_m": -0.007920720696943093,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 97,
+      "time": 4.041666666666667,
+      "phase": 0.6783216783216783,
+      "source": {
+        "left_hand_gap_m": 0.8702372410352546,
+        "right_hand_gap_m": 0.8741593878080308,
+        "floor_before_alignment_m": -0.004647593945264816,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8626415394116176,
+        "right_hand_gap_m": 0.872242841462772,
+        "floor_before_alignment_m": -0.008669186326589445,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 98,
+      "time": 4.083333333333333,
+      "phase": 0.6853146853146853,
+      "source": {
+        "left_hand_gap_m": 0.8691927174165717,
+        "right_hand_gap_m": 0.8716460210420498,
+        "floor_before_alignment_m": -0.005057656671851873,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8620276679841375,
+        "right_hand_gap_m": 0.8685647419861473,
+        "floor_before_alignment_m": -0.009414852226714772,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 99,
+      "time": 4.125,
+      "phase": 0.6923076923076923,
+      "source": {
+        "left_hand_gap_m": 0.8669828131427895,
+        "right_hand_gap_m": 0.8689258926061103,
+        "floor_before_alignment_m": -0.005401690490543842,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.860462452844607,
+        "right_hand_gap_m": 0.8647205231979925,
+        "floor_before_alignment_m": -0.010047558284024252,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 100,
+      "time": 4.166666666666667,
+      "phase": 0.6993006993006993,
+      "source": {
+        "left_hand_gap_m": 0.8648185517694014,
+        "right_hand_gap_m": 0.8662094476728691,
+        "floor_before_alignment_m": -0.005703962408006191,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8589019593362295,
+        "right_hand_gap_m": 0.861004506264551,
+        "floor_before_alignment_m": -0.010590158778004224,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 101,
+      "time": 4.208333333333333,
+      "phase": 0.7062937062937062,
+      "source": {
+        "left_hand_gap_m": 0.8632604276508491,
+        "right_hand_gap_m": 0.8637106192238597,
+        "floor_before_alignment_m": -0.006080500781536102,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8578941881594524,
+        "right_hand_gap_m": 0.8576849860311874,
+        "floor_before_alignment_m": -0.011259520335308191,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 102,
+      "time": 4.25,
+      "phase": 0.7132867132867133,
+      "source": {
+        "left_hand_gap_m": 0.8621629329348547,
+        "right_hand_gap_m": 0.8617470381491293,
+        "floor_before_alignment_m": -0.0064716278575360775,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8572520273131532,
+        "right_hand_gap_m": 0.8549490674207925,
+        "floor_before_alignment_m": -0.011951865526559484,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 103,
+      "time": 4.291666666666667,
+      "phase": 0.7202797202797203,
+      "source": {
+        "left_hand_gap_m": 0.8611946184355502,
+        "right_hand_gap_m": 0.8603758288790028,
+        "floor_before_alignment_m": -0.006796638015657663,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8566284283728126,
+        "right_hand_gap_m": 0.8529244165347403,
+        "floor_before_alignment_m": -0.012520453448855535,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 104,
+      "time": 4.333333333333333,
+      "phase": 0.7272727272727273,
+      "source": {
+        "left_hand_gap_m": 0.8598981642053912,
+        "right_hand_gap_m": 0.8592607407104206,
+        "floor_before_alignment_m": -0.007058574352413416,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8555860841359665,
+        "right_hand_gap_m": 0.8512512358017175,
+        "floor_before_alignment_m": -0.012966480499848188,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 105,
+      "time": 4.375,
+      "phase": 0.7342657342657343,
+      "source": {
+        "left_hand_gap_m": 0.8585368899060036,
+        "right_hand_gap_m": 0.8581786496579182,
+        "floor_before_alignment_m": -0.007183551322668791,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8543986591530691,
+        "right_hand_gap_m": 0.8497556597496563,
+        "floor_before_alignment_m": -0.013170448072950671,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 106,
+      "time": 4.416666666666667,
+      "phase": 0.7412587412587412,
+      "source": {
+        "left_hand_gap_m": 0.8574727696566234,
+        "right_hand_gap_m": 0.8569254478909618,
+        "floor_before_alignment_m": -0.007326411549001932,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8534645523072536,
+        "right_hand_gap_m": 0.8482223078704159,
+        "floor_before_alignment_m": -0.013419397330019284,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 107,
+      "time": 4.458333333333333,
+      "phase": 0.7482517482517482,
+      "source": {
+        "left_hand_gap_m": 0.8570325634228039,
+        "right_hand_gap_m": 0.8558652043609649,
+        "floor_before_alignment_m": -0.007493213750422001,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8531172128728501,
+        "right_hand_gap_m": 0.8469974865706896,
+        "floor_before_alignment_m": -0.013727712858241127,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 108,
+      "time": 4.5,
+      "phase": 0.7552447552447552,
+      "source": {
+        "left_hand_gap_m": 0.8568626557712127,
+        "right_hand_gap_m": 0.8552483287172943,
+        "floor_before_alignment_m": -0.007575314026325941,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8530154725250692,
+        "right_hand_gap_m": 0.8462484318805404,
+        "floor_before_alignment_m": -0.013887782115188986,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 109,
+      "time": 4.541666666666667,
+      "phase": 0.7622377622377622,
+      "source": {
+        "left_hand_gap_m": 0.8575287785495923,
+        "right_hand_gap_m": 0.8564521025185418,
+        "floor_before_alignment_m": -0.007544888183474541,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8537171087992418,
+        "right_hand_gap_m": 0.8472718605397993,
+        "floor_before_alignment_m": -0.013841767146230085,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 110,
+      "time": 4.583333333333333,
+      "phase": 0.7692307692307693,
+      "source": {
+        "left_hand_gap_m": 0.8585717547833712,
+        "right_hand_gap_m": 0.8590367959669014,
+        "floor_before_alignment_m": -0.00752627057954669,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8547764591414404,
+        "right_hand_gap_m": 0.8496015908555657,
+        "floor_before_alignment_m": -0.013812466587844206,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 111,
+      "time": 4.625,
+      "phase": 0.7762237762237763,
+      "source": {
+        "left_hand_gap_m": 0.8596538053759694,
+        "right_hand_gap_m": 0.8619184502485835,
+        "floor_before_alignment_m": -0.007444573566317558,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8558657695311304,
+        "right_hand_gap_m": 0.8521995825976063,
+        "floor_before_alignment_m": -0.013666293935962647,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 112,
+      "time": 4.666666666666667,
+      "phase": 0.7832167832167832,
+      "source": {
+        "left_hand_gap_m": 0.8607001207904055,
+        "right_hand_gap_m": 0.8643052468745456,
+        "floor_before_alignment_m": -0.007378814276307821,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.856909635745516,
+        "right_hand_gap_m": 0.8543369264999241,
+        "floor_before_alignment_m": -0.013541586324602959,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 113,
+      "time": 4.708333333333333,
+      "phase": 0.7902097902097902,
+      "source": {
+        "left_hand_gap_m": 0.8609738246102775,
+        "right_hand_gap_m": 0.8649959023919236,
+        "floor_before_alignment_m": -0.007346607279032469,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.85715225814744,
+        "right_hand_gap_m": 0.8548942574871334,
+        "floor_before_alignment_m": -0.01347490514004057,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 114,
+      "time": 4.75,
+      "phase": 0.7972027972027972,
+      "source": {
+        "left_hand_gap_m": 0.8602336957130123,
+        "right_hand_gap_m": 0.8642182002808528,
+        "floor_before_alignment_m": -0.00731950206682086,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8563276533862486,
+        "right_hand_gap_m": 0.8541215007706163,
+        "floor_before_alignment_m": -0.013420306104556036,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 115,
+      "time": 4.791666666666667,
+      "phase": 0.8041958041958042,
+      "source": {
+        "left_hand_gap_m": 0.8587962098171095,
+        "right_hand_gap_m": 0.862430031056097,
+        "floor_before_alignment_m": -0.007292154710739851,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8547540389905903,
+        "right_hand_gap_m": 0.8524639223883625,
+        "floor_before_alignment_m": -0.013366499148405162,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 116,
+      "time": 4.833333333333333,
+      "phase": 0.8111888111888111,
+      "source": {
+        "left_hand_gap_m": 0.8572133787342574,
+        "right_hand_gap_m": 0.8603885002603991,
+        "floor_before_alignment_m": -0.007250640075653791,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8530115700255394,
+        "right_hand_gap_m": 0.8506266266743523,
+        "floor_before_alignment_m": -0.013289253516908007,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 117,
+      "time": 4.875,
+      "phase": 0.8181818181818182,
+      "source": {
+        "left_hand_gap_m": 0.856190275744806,
+        "right_hand_gap_m": 0.8587017623638145,
+        "floor_before_alignment_m": -0.007191326469182968,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8518494101920491,
+        "right_hand_gap_m": 0.849180562797432,
+        "floor_before_alignment_m": -0.013176753461711072,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 118,
+      "time": 4.916666666666667,
+      "phase": 0.8251748251748252,
+      "source": {
+        "left_hand_gap_m": 0.8557831054355458,
+        "right_hand_gap_m": 0.8572607209506241,
+        "floor_before_alignment_m": -0.007136999629437923,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8513307943718392,
+        "right_hand_gap_m": 0.8480182557638322,
+        "floor_before_alignment_m": -0.013070612950819705,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 119,
+      "time": 4.958333333333333,
+      "phase": 0.8321678321678322,
+      "source": {
+        "left_hand_gap_m": 0.8555416473335348,
+        "right_hand_gap_m": 0.8555965010549557,
+        "floor_before_alignment_m": -0.007112259976565838,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8509907859062039,
+        "right_hand_gap_m": 0.8466744542032248,
+        "floor_before_alignment_m": -0.013011308273740998,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 120,
+      "time": 5.0,
+      "phase": 0.8391608391608392,
+      "source": {
+        "left_hand_gap_m": 0.8554867407665248,
+        "right_hand_gap_m": 0.8537165720705348,
+        "floor_before_alignment_m": -0.0071263862773776054,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8508484338401349,
+        "right_hand_gap_m": 0.8451642189665062,
+        "floor_before_alignment_m": -0.013024500831001496,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 121,
+      "time": 5.041666666666667,
+      "phase": 0.8461538461538461,
+      "source": {
+        "left_hand_gap_m": 0.855344975868233,
+        "right_hand_gap_m": 0.8516700407609743,
+        "floor_before_alignment_m": -0.007149434648454189,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8506313470769061,
+        "right_hand_gap_m": 0.8434896697940041,
+        "floor_before_alignment_m": -0.013053745070250183,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 122,
+      "time": 5.083333333333333,
+      "phase": 0.8531468531468531,
+      "source": {
+        "left_hand_gap_m": 0.8551712303057378,
+        "right_hand_gap_m": 0.8499683178370482,
+        "floor_before_alignment_m": -0.007181120570749044,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8504060096594336,
+        "right_hand_gap_m": 0.8421145469585691,
+        "floor_before_alignment_m": -0.013107747148333493,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 123,
+      "time": 5.125,
+      "phase": 0.8601398601398601,
+      "source": {
+        "left_hand_gap_m": 0.8552841398609905,
+        "right_hand_gap_m": 0.8488864943153404,
+        "floor_before_alignment_m": -0.007209897506982088,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8504831175998634,
+        "right_hand_gap_m": 0.8412735062012896,
+        "floor_before_alignment_m": -0.013156937525551339,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 124,
+      "time": 5.166666666666667,
+      "phase": 0.8671328671328671,
+      "source": {
+        "left_hand_gap_m": 0.8554261508215563,
+        "right_hand_gap_m": 0.8483526630377052,
+        "floor_before_alignment_m": -0.0072326152585446835,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8505983640384283,
+        "right_hand_gap_m": 0.8408659184479615,
+        "floor_before_alignment_m": -0.013183969386466793,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 125,
+      "time": 5.208333333333333,
+      "phase": 0.8741258741258742,
+      "source": {
+        "left_hand_gap_m": 0.8554320670503914,
+        "right_hand_gap_m": 0.8482402579926854,
+        "floor_before_alignment_m": -0.007249154150485992,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8506190519664858,
+        "right_hand_gap_m": 0.8407865322990098,
+        "floor_before_alignment_m": -0.013221922958891665,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 126,
+      "time": 5.25,
+      "phase": 0.8811188811188811,
+      "source": {
+        "left_hand_gap_m": 0.8554413587912264,
+        "right_hand_gap_m": 0.8484848711415045,
+        "floor_before_alignment_m": -0.007239582482725382,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8506446197773446,
+        "right_hand_gap_m": 0.8409800819037978,
+        "floor_before_alignment_m": -0.013204092118391861,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 127,
+      "time": 5.291666666666667,
+      "phase": 0.8881118881118881,
+      "source": {
+        "left_hand_gap_m": 0.855587448770696,
+        "right_hand_gap_m": 0.8490765022821495,
+        "floor_before_alignment_m": -0.007240818347781897,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8508182059981544,
+        "right_hand_gap_m": 0.8414654385864189,
+        "floor_before_alignment_m": -0.013208752928710835,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 128,
+      "time": 5.333333333333333,
+      "phase": 0.8951048951048951,
+      "source": {
+        "left_hand_gap_m": 0.8557401403202337,
+        "right_hand_gap_m": 0.8499367962688996,
+        "floor_before_alignment_m": -0.007264344021677971,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8510129744885856,
+        "right_hand_gap_m": 0.8421795790334052,
+        "floor_before_alignment_m": -0.013258683080852806,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 129,
+      "time": 5.375,
+      "phase": 0.9020979020979021,
+      "source": {
+        "left_hand_gap_m": 0.8560723714556769,
+        "right_hand_gap_m": 0.8510588575780977,
+        "floor_before_alignment_m": -0.007297389674931765,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8514022649594596,
+        "right_hand_gap_m": 0.8431316401633844,
+        "floor_before_alignment_m": -0.013323451243241692,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 130,
+      "time": 5.416666666666667,
+      "phase": 0.9090909090909091,
+      "source": {
+        "left_hand_gap_m": 0.8565109997532364,
+        "right_hand_gap_m": 0.8521303646499706,
+        "floor_before_alignment_m": -0.007302193436771631,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8519264249222153,
+        "right_hand_gap_m": 0.844021831450556,
+        "floor_before_alignment_m": -0.013336582913325871,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 131,
+      "time": 5.458333333333333,
+      "phase": 0.916083916083916,
+      "source": {
+        "left_hand_gap_m": 0.8570312381545163,
+        "right_hand_gap_m": 0.8530697214179072,
+        "floor_before_alignment_m": -0.0072777108289301395,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8525490142370792,
+        "right_hand_gap_m": 0.8447941387189691,
+        "floor_before_alignment_m": -0.013294961459936831,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 132,
+      "time": 5.5,
+      "phase": 0.9230769230769231,
+      "source": {
+        "left_hand_gap_m": 0.8578636618730354,
+        "right_hand_gap_m": 0.8539159378351651,
+        "floor_before_alignment_m": -0.007231904659420252,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8534912452144578,
+        "right_hand_gap_m": 0.845508405517697,
+        "floor_before_alignment_m": -0.013215923390821064,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 133,
+      "time": 5.541666666666667,
+      "phase": 0.9300699300699301,
+      "source": {
+        "left_hand_gap_m": 0.8586910132407193,
+        "right_hand_gap_m": 0.8545474434498759,
+        "floor_before_alignment_m": -0.007179900072515011,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8544145186209339,
+        "right_hand_gap_m": 0.8460409290364997,
+        "floor_before_alignment_m": -0.01312391020513841,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 134,
+      "time": 5.583333333333333,
+      "phase": 0.9370629370629371,
+      "source": {
+        "left_hand_gap_m": 0.8594691356393653,
+        "right_hand_gap_m": 0.8550415736530342,
+        "floor_before_alignment_m": -0.007145760115236044,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8552675735081452,
+        "right_hand_gap_m": 0.8464631937246333,
+        "floor_before_alignment_m": -0.01306233084305434,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 135,
+      "time": 5.625,
+      "phase": 0.9440559440559441,
+      "source": {
+        "left_hand_gap_m": 0.8600904932495563,
+        "right_hand_gap_m": 0.8555437644599455,
+        "floor_before_alignment_m": -0.007147905416786671,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8559385734203652,
+        "right_hand_gap_m": 0.8469142591858378,
+        "floor_before_alignment_m": -0.0130632951038501,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 136,
+      "time": 5.666666666666667,
+      "phase": 0.951048951048951,
+      "source": {
+        "left_hand_gap_m": 0.860545161009101,
+        "right_hand_gap_m": 0.8559562614394383,
+        "floor_before_alignment_m": -0.007173735182732344,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8564279831467453,
+        "right_hand_gap_m": 0.8472961945408649,
+        "floor_before_alignment_m": -0.013109845303165436,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 137,
+      "time": 5.708333333333333,
+      "phase": 0.958041958041958,
+      "source": {
+        "left_hand_gap_m": 0.8605986374423575,
+        "right_hand_gap_m": 0.8561273721538925,
+        "floor_before_alignment_m": -0.007186101283878088,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8564994946019772,
+        "right_hand_gap_m": 0.8474641603712758,
+        "floor_before_alignment_m": -0.013137695393870543,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 138,
+      "time": 5.75,
+      "phase": 0.965034965034965,
+      "source": {
+        "left_hand_gap_m": 0.8606590341706412,
+        "right_hand_gap_m": 0.8562549356258428,
+        "floor_before_alignment_m": -0.007173283025622368,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.85655565703012,
+        "right_hand_gap_m": 0.8476028183248533,
+        "floor_before_alignment_m": -0.013116138485030715,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 139,
+      "time": 5.791666666666667,
+      "phase": 0.972027972027972,
+      "source": {
+        "left_hand_gap_m": 0.8605334903910469,
+        "right_hand_gap_m": 0.8560398185728298,
+        "floor_before_alignment_m": -0.007127367425709963,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8563971281444558,
+        "right_hand_gap_m": 0.847423771442768,
+        "floor_before_alignment_m": -0.013031550861081553,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 140,
+      "time": 5.833333333333333,
+      "phase": 0.9790209790209791,
+      "source": {
+        "left_hand_gap_m": 0.8603557946207713,
+        "right_hand_gap_m": 0.8555222199738648,
+        "floor_before_alignment_m": -0.007079369388520718,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8561686529999667,
+        "right_hand_gap_m": 0.846969800432539,
+        "floor_before_alignment_m": -0.012941197251223975,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 141,
+      "time": 5.875,
+      "phase": 0.986013986013986,
+      "source": {
+        "left_hand_gap_m": 0.8601320513510603,
+        "right_hand_gap_m": 0.8546947686949892,
+        "floor_before_alignment_m": -0.007034191861748695,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.855891875442817,
+        "right_hand_gap_m": 0.8462454413874386,
+        "floor_before_alignment_m": -0.012854966410417857,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 142,
+      "time": 5.916666666666667,
+      "phase": 0.993006993006993,
+      "source": {
+        "left_hand_gap_m": 0.8600110432092877,
+        "right_hand_gap_m": 0.8536274017447325,
+        "floor_before_alignment_m": -0.006994857452809811,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.855722313822875,
+        "right_hand_gap_m": 0.8453103358325718,
+        "floor_before_alignment_m": -0.012779235281284601,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    },
+    {
+      "sample": 143,
+      "time": 5.958333333333333,
+      "phase": 1.0,
+      "source": {
+        "left_hand_gap_m": 0.8599973248246585,
+        "right_hand_gap_m": 0.8523850234149808,
+        "floor_before_alignment_m": -0.006940420717000961,
+        "hand_vertices": {
+          "left": 1404,
+          "right": 1469
+        }
+      },
+      "target": {
+        "left_hand_gap_m": 0.8556691189511583,
+        "right_hand_gap_m": 0.8441996633618263,
+        "floor_before_alignment_m": -0.012677394027146802,
+        "hand_vertices": {
+          "left": 2524,
+          "right": 2844
+        }
+      }
+    }
+  ],
+  "selection": "Existing Hand and finger bone weights >0.5;lowest hand skin is a conservative palm-gap lower bound",
+  "source_gap_scale": "Original source gaps scaled once by measured target/source leg ratio",
+  "keys_or_geometry_changed": false,
+  "warning": "A low gap alone does not establish support intent; align intervals with actual source poses and hand velocity."
+}

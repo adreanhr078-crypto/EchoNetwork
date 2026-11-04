@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "blend_sha256": "c54f7181c9c4cef676fc56fe559033a9513c932c9bed66906e7f35a62afc903b",
+  "observed": "20 native source/target comparison captures inspected: back0/20/40/60/79/99/119 andside0/10/20/30/40/50/60/70/79/90/99/110/119. Target65 follows supine->seated->squat->standing without splayed limbs or source neutral-bone needle. Body,uniform,hands readable;fixed targetrest maintained. Skin/floor contacts andruntime transitions remain separate gates.",
+  "evidence": [
+    {
+      "path": "target-back-contact.jpg",
+      "sha256": "20ed5f8f332feb000cf37700481d7ee56404e632a0f7ddcd5f932e526b8c1898"
+    },
+    {
+      "path": "target-side-contact.jpg",
+      "sha256": "b3ad0294dc8633ab577c0e2a46e016a9566922163adf6fbcbfa04b82fd500a53"
+    }
+  ]
+}

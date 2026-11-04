@@ -1,0 +1,894 @@
+- heading "قال Gemini" [level=6]
+  - paragraph:
+    - text: لتحديد ما إذا كانت فجوة الـ 9.75 سم في الطور
+    - code: 0.32..0.41
+    - text: هي ارتكاز أرضي ناقص بسبب اختلاف أبعاد ذراع
+    - code: School65
+    - text: عن المصدر، أم حركة نهوض تعتمد على الجذع/الفخذ دون لمس الأرض، يجب أولاً إجراء
+    - text: فحص كينماتيكي حتمي على الـ 120 عينة الأصلية (
+    - code: 24Hz
+    - text: )
+    - text: قبل كتابة أي تعديل وقت تشغيل.
+  - 'heading "1) قياسات القرار: كيف نفصل نافذة الارتكاز ( Support ) عن التحرير ( Release )؟" [level=3]':
+    - text: "1) قياسات القرار: كيف نفصل نافذة الارتكاز ("
+    - code: Support
+    - text: ) عن التحرير (
+    - code: Release
+    - text: )؟
+  - paragraph:
+    - text: لا يجوز إجبار الكف على الأرض بمجرد كونه في الطور
+    - code: 0.32..0.41
+    - text: (الموافق تقريباً للعينات
+    - code: 38..49
+    - text: من أصل
+    - code: "120"
+    - text: عند الانتقال من الجلوس
+    - code: sit
+    - text: إلى القرفصاء
+    - code: crouch
+    - text: ). يُفصل الارتكاز الحقيقي عن حركة اليد الحرة عبر 4 قياسات رقمية مجتمعة تُحسب على سطح جلد
+    - code: Hand/Fingers
+    - text: الموزون بعد تطبيق الإزاحة الرأسية للجسم ومرساة
+    - code: XZ
+    - text: ":"
+  - list:
+    - paragraph:
+      - text: ثبات القاع الرأسي (
+      - code: Vertical Plateau
+      - text: "وليس القيمة اللحظية فقط):"
+    - list:
+      - paragraph:
+        - text: ارسم منحنى أخفض نقطة في جلد كل كف
+        - math:
+          - generic: "y"
+          - generic: min
+          - generic: ⁡
+          - generic: ","
+          - generic: hand
+          - generic: (
+          - generic: k
+          - generic: )
+        - text: "y"
+        - generic: min
+        - text: ","
+        - generic: hand
+        - text: (k)
+        - text: عبر العينات
+        - code: k = 0..119
+        - text: .
+      - paragraph:
+        - text: الارتكاز الحقيقي يُظهر قاعاً مسطحاً (Plateau) تتقارب فيه السرعة الرأسية للكف من الصفر
+        - math:
+          - generic: ∣
+          - generic: "y"
+          - generic: ˙
+          - generic: min
+          - generic: ⁡
+          - generic: ","
+          - generic: hand
+          - generic: ∣
+          - generic: ≤
+          - generic: "0.08"
+          - generic: m/s
+        - text: ∣
+        - generic: "y"
+        - text: ˙
+        - generic: min
+        - text: ","
+        - generic: hand
+        - text: ∣ ≤
+        - text: "0.08"
+        - generic: m/s
+        - text: لمدة لا تقل عن
+        - text: 4 إلى 6 عينات متتالية عند 24Hz (
+        - code: 0.16s..0.25s
+        - text: )
+        - text: بالتزامن مع بدء ارتفاع الحوض (
+        - math:
+          - generic: "y"
+          - generic: ˙
+          - generic: hips
+          - generic: ">"
+          - generic: "0"
+        - generic: "y"
+        - text: ˙
+        - generic: hips
+        - text: ">"
+        - generic: "0"
+        - text: ). إذا كان المنحنى مجرد قوس سريع يعكس اتجاهه في عينة واحدة، فاليد تلوّح للتوازن ولا ترتكز.
+    - paragraph:
+      - text: تباطؤ الانزلاق الأفقي في فضاء المرساة (
+      - code: Horizontal Slip Deceleration
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: أثناء حمل الوزن، تنخفض السرعة الأفقية للكف بالنسبة لمرساة
+        - code: XZ
+        - text: الثابتة (
+        - math:
+          - generic: ∥
+          - generic: v
+          - generic: x
+          - generic: z
+          - generic: ","
+          - generic: palm
+          - generic: ∥
+        - text: ∥
+        - text: v
+        - text: xz,
+        - generic: palm
+        - text: ∥
+        - text: ) إلى حدها الأدنى بينما يتحرك الحوض للأمام/الأعلى. إذا كانت الكف تندفع أفقياً بسرعة عالية مع الجذع، فهي في طور تحرير (
+        - code: Release / Swing
+        - text: ).
+    - paragraph:
+      - text: اتجاه ناظم راحة الكف أو البراجم (
+      - code: Palm/Knuckle Normal Orientation
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: احسب متجه ناظم الكف
+        - math:
+          - generic: "n"
+          - generic: ^
+          - generic: palm
+        - generic: "n"
+        - text: ^
+        - generic: palm
+        - text: في فضاء العالم؛ الارتكاز يتطلب أن يواجه باطن الكف (أو ظهر الأصابع في ارتكاز القبضة) سطح الأرض (
+        - math:
+          - generic: "n"
+          - generic: ^
+          - generic: palm
+          - generic: ⋅
+          - generic: U
+          - generic: P
+          - generic: <
+          - generic: −
+          - generic: "0.35"
+        - generic: "n"
+        - text: ^
+        - generic: palm
+        - text: ⋅
+        - generic: UP
+        - text: <
+        - generic: −0.35
+        - text: )، أو أن تكون الكف متجهة نحو الفخذ/الركبة (وعندها يكون الارتكاز على الركبة/الفخذ لا على الأرض!).
+    - paragraph:
+      - text: نسبة الوصول التشريحية (
+      - code: Anatomical Reach Ratio
+      - text: "— القياس الحاسم):"
+    - list:
+      - paragraph:
+        - text: ليكن
+        - math:
+          - generic: L
+          - generic: arm
+          - generic: =
+          - generic: L
+          - generic: upper
+          - generic: +
+          - generic: L
+          - generic: lower
+        - text: L
+        - generic: arm
+        - text: =
+        - text: L
+        - generic: upper
+        - text: +
+        - text: L
+        - generic: lower
+        - text: مجموع طولي العضد والساعد في
+        - code: School65
+        - text: ، ولتكن
+        - math:
+          - generic: D
+          - generic: floor
+          - generic: (
+          - generic: k
+          - generic: )
+        - text: D
+        - generic: floor
+        - text: (k)
+        - text: المسافة من مفصل الكتف العالمي (
+        - code: UpperArm.origin
+        - text: بعد إزاحة الجسم الرأسية) إلى النقطة المستهدفة على الأرض مباشرة تحت الكف (مع طرح سُمك جلد الكف أسفل الرسغ).
+      - paragraph:
+        - text: احسب النسبة
+        - math:
+          - generic: ρ
+          - generic: (
+          - generic: k
+          - generic: )
+          - generic: =
+          - generic: D
+          - generic: floor
+          - generic: (
+          - generic: k
+          - generic: )
+          - generic: L
+          - generic: arm
+        - generic: ρ(k) =
+        - text: L
+        - generic: arm
+        - text: D
+        - generic: floor
+        - text: (k)
+        - text: خلال
+        - code: 0.32..0.41
+        - text: ":"
+      - list:
+        - paragraph:
+          - text: إذا كان
+          - math:
+            - generic: ρ
+            - generic: (
+            - generic: k
+            - generic: )
+            - generic: ≤
+            - generic: "0.985"
+          - generic: ρ(k) ≤
+          - generic: "0.985"
+          - text: ":"
+          - text: الذراع تملك طولاً كافياً للوصول للأرض دون خلع أو قفل مفصل المرفق (
+          - code: 180°
+          - text: )، وفجوة الـ
+          - code: 9.75 سم
+          - text: ناتجة فعلاً عن زوايا الريتارغت، والحل هو
+          - code: Two-Bone IK
+          - text: .
+        - paragraph:
+          - text: إذا كان
+          - math:
+            - generic: "0.985"
+            - generic: <
+            - generic: ρ
+            - generic: (
+            - generic: k
+            - generic: )
+            - generic: ≤
+            - generic: "1.03"
+          - generic: 0.985 <
+          - generic: ρ(k) ≤
+          - generic: "1.03"
+          - text: ":"
+          - text: الذراع تحتاج مساهمة ميلان صغيرة من عظمة الترقوة (
+          - code: Shoulder / Clavicle
+          - text: بحد
+          - math:
+            - generic: ≤
+            - generic: "8"
+            - generic: ∘
+            - generic: .
+            - generic: ".10"
+            - generic: ∘
+          - generic: ≤
+          - text: "8"
+          - generic: ∘
+          - text: ..1
+          - text: "0"
+          - generic: ∘
+          - text: ) قبل حل الـ
+          - code: Two-Bone IK
+          - text: .
+        - paragraph:
+          - text: إذا كان
+          - math:
+            - generic: ρ
+            - generic: (
+            - generic: k
+            - generic: )
+            - generic: ">"
+            - generic: "1.03"
+          - generic: ρ(k) >
+          - generic: "1.03"
+          - text: ":"
+          - text: الكتف مرتفع تشريحياً بحيث يستحيل أن تلمس الكف الأرض دون كسر طول العظام أو خفض الحوض (وهما ممنوعان)؛ وهذا يثبت رياضياً أن اليد في هذا الطور إما ترتكز على الساق/الركبة أو في طور رفع، ولا يجوز جذبها للأرض.
+  - heading "2) تصميم أصغر إصلاح وقت تشغيل ( Post-Mixer Analytical Two-Bone IK )" [level=3]:
+    - text: 2) تصميم أصغر إصلاح وقت تشغيل (
+    - code: Post-Mixer Analytical Two-Bone IK
+    - text: )
+  - paragraph:
+    - text: إذا أثبتت القياسات الأربع أعلاه نافذة ارتكاز حقيقية
+    - math:
+      - generic: "["
+      - generic: p
+      - generic: in
+      - generic: ","
+      - generic: p
+      - generic: out
+      - generic: "]"
+      - generic: ⊂
+      - generic: "["
+      - generic: "0.32"
+      - generic: ","
+      - generic: "0.41"
+      - generic: "]"
+    - text: "["
+    - text: p
+    - generic: in
+    - text: ","
+    - text: p
+    - generic: out
+    - text: "] ⊂"
+    - generic: "[0.32, 0.41]"
+    - text: مع
+    - math:
+      - generic: ρ
+      - generic: ≤
+      - generic: "0.985"
+    - generic: ρ ≤
+    - generic: "0.985"
+    - text: (أو
+    - math:
+      - generic: ≤
+      - generic: "1.03"
+    - generic: ≤
+    - generic: "1.03"
+    - text: مع الترقوة)، فإن أصغر إصلاح معزول لا يمس
+    - code: Golden
+    - text: أو الـ
+    - code: 23,400
+    - text: مفتاح هو
+    - text: حلّال تحليلي ثنائي العظم (
+    - code: Law of Cosines Two-Bone Solver
+    - text: ) داخل
+    - code: SkeletonModifier3D
+    - text: عديم الحالة (Stateless)
+    - text: ":"
+  - list:
+    - paragraph: لماذا حلّال تحليلي مباشر بدلاً من عقد IK عامة أو تكرارية؟
+    - list:
+      - paragraph:
+        - text: الحلّال التحليلي يقرأ الطور
+        - math:
+          - generic: p
+          - generic: ∈
+          - generic: "["
+          - generic: "0"
+          - generic: ","
+          - generic: "1"
+          - generic: "]"
+        - generic: p ∈
+        - generic: "[0, 1]"
+        - text: مباشرة دون أي حالة زمنية متراكمة (
+        - code: no delta accumulation
+        - text: )، مما يضمن
+        - text: تطابقاً رياضياً تاماً (
+        - code: "0.0"
+        - text: فرق)
+        - text: عند التقييم في
+        - code: 24Hz
+        - text: أو
+        - code: 30Hz
+        - text: أو
+        - code: 60Hz
+        - text: أو بعد
+        - code: pause
+        - text: .
+    - paragraph:
+      - text: تحديد نقطة الكف من الجلد الفعلي (
+      - code: Measured Skin Contact Offset
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: لا تضع مركز عظمة
+        - code: Hand
+        - text: (الرسغ) على الأرض لئلا تغوص الكف والأصابع تحت البلاط.
+      - paragraph:
+        - text: في التهيئة (أو من بيانات الـ 481 عينة)، يُقاس متجه الإزاحة المحلي
+        - math:
+          - generic: r
+          - generic: contact
+        - text: r
+        - generic: contact
+        - text: في فضاء عظمة
+        - code: Hand
+        - text: من مركز العظمة إلى أخفض رأس جلد (
+        - code: vertex
+        - text: ) موزون بـ
+        - code: Hand/Fingers
+        - text: خلال نافذة الارتكاز.
+      - paragraph:
+        - text: الهدف العالمي لمركز عظمة
+        - code: Hand
+        - text: "عند الارتكاز الكامل هو:"
+      - math:
+        - generic: P
+        - generic: wrist_target
+        - generic: =
+        - generic: (
+        - generic: P
+        - generic: wrist
+        - generic: ","
+        - generic: anchor
+        - generic: x
+        - generic: "y"
+        - generic: floor
+        - generic: +
+        - generic: max
+        - generic: ⁡
+        - generic: (
+        - generic: "0"
+        - generic: ","
+        - generic: (
+        - generic: P
+        - generic: wrist
+        - generic: −
+        - generic: P
+        - generic: skin_min
+        - generic: )
+        - generic: "y"
+        - generic: )
+        - generic: +
+        - generic: ε
+        - generic: P
+        - generic: wrist
+        - generic: ","
+        - generic: anchor
+        - generic: z
+        - generic: )
+      - text: P
+      - generic: wrist_target
+      - text: =
+      - text: P
+      - generic: wrist
+      - text: ","
+      - generic: anchor
+      - text: x
+      - text: "y"
+      - generic: floor
+      - text: + max(0, (
+      - text: P
+      - generic: wrist
+      - text: −
+      - text: P
+      - generic: skin_min
+      - text: )
+      - generic: "y"
+      - text: ) + ε
+      - text: P
+      - generic: wrist
+      - text: ","
+      - generic: anchor
+      - text: z
+      - paragraph:
+        - text: حيث
+        - math:
+          - generic: ε
+          - generic: =
+          - generic: "0.5"
+          - generic: mm
+        - generic: ε =
+        - text: "0.5"
+        - generic: mm
+        - text: هامش أمان لمنع اختراق الأرض، وتُثبّت إحداثيات
+        - math:
+          - generic: (
+          - generic: x
+          - generic: ","
+          - generic: z
+          - generic: )
+        - generic: (x, z)
+        - text: عند نقطة دخول القفل
+        - math:
+          - generic: p
+          - generic: lock
+        - text: p
+        - generic: lock
+        - text: لمنع انزلاق الكف أفقياً أثناء الدفع.
+    - paragraph:
+      - text: غلاف الوزن السلس واستعادة الـ Pose (
+      - code: Envelope & Full Restoration
+      - text: "):"
+    - list:
+      - paragraph:
+        - text: يُحسب الوزن كدالة ملساء في الطور
+        - math:
+          - generic: p
+        - generic: p
+        - text: "فقط:"
+      - math:
+        - generic: w
+        - generic: (
+        - generic: p
+        - generic: )
+        - generic: =
+        - generic: smoothstep
+        - generic: (
+        - generic: p
+        - generic: in
+        - generic: ","
+        - generic: p
+        - generic: lock
+        - generic: ","
+        - generic: p
+        - generic: )
+        - generic: ×
+        - generic: (
+        - generic: "1.0"
+        - generic: −
+        - generic: smoothstep
+        - generic: (
+        - generic: p
+        - generic: release
+        - generic: ","
+        - generic: p
+        - generic: out
+        - generic: ","
+        - generic: p
+        - generic: )
+        - generic: )
+      - generic: w(p) =
+      - generic: smoothstep
+      - text: (
+      - text: p
+      - generic: in
+      - text: ","
+      - text: p
+      - generic: lock
+      - text: ", p) ×"
+      - text: (1.0 −
+      - generic: smoothstep
+      - text: (
+      - text: p
+      - generic: release
+      - text: ","
+      - text: p
+      - generic: out
+      - text: ", p))"
+      - paragraph:
+        - text: يُحفظ متجه قطب المرفق (
+        - code: Pole Vector
+        - text: ) من وضعية الأنيميشن الأصلية في نفس الإطار
+        - math:
+          - generic: "n"
+          - generic: ^
+          - generic: pole
+          - generic: =
+          - generic: normalize
+          - generic: (
+          - generic: (
+          - generic: P
+          - generic: elbow
+          - generic: −
+          - generic: P
+          - generic: shoulder
+          - generic: )
+          - generic: ×
+          - generic: (
+          - generic: P
+          - generic: wrist
+          - generic: −
+          - generic: P
+          - generic: shoulder
+          - generic: )
+          - generic: )
+        - generic: "n"
+        - text: ^
+        - generic: pole
+        - text: =
+        - generic: normalize
+        - text: ((
+        - text: P
+        - generic: elbow
+        - text: −
+        - text: P
+        - generic: shoulder
+        - text: ) ×
+        - text: (
+        - text: P
+        - generic: wrist
+        - text: −
+        - text: P
+        - generic: shoulder
+        - text: ))
+        - text: لئلا ينقلب المرفق أبداً.
+      - paragraph:
+        - text: خارج النافذة (
+        - math:
+          - generic: p
+          - generic: ≤
+          - generic: p
+          - generic: in
+        - generic: p ≤
+        - text: p
+        - generic: in
+        - text: أو
+        - math:
+          - generic: p
+          - generic: ≥
+          - generic: p
+          - generic: out
+        - generic: p ≥
+        - text: p
+        - generic: out
+        - text: ) أو فور انتهاء/تخطي
+        - code: Wake
+        - text: ، يكون
+        - math:
+          - generic: w
+          - generic: (
+          - generic: p
+          - generic: )
+          - generic: =
+          - generic: "0.0"
+        - generic: w(p) =
+        - generic: "0.0"
+        - text: ولا يكتب المعدّل أي دوران على الإطلاق، فتستعيد العظام الـ 65 تطابق الـ
+        - code: 4.82 ميكرومتر
+        - text: بنسبة 100%.
+  - heading "3) ترتيب التنفيذ الحرج ( Mixer -> Body Grounding -> Arm Contact Modifier )" [level=3]:
+    - text: 3) ترتيب التنفيذ الحرج (
+    - code: Mixer -> Body Grounding -> Arm Contact Modifier
+    - text: )
+  - paragraph:
+    - text: أي خطأ في ترتيب التقييم سيفسد دقة الـ
+    - code: 0.102 مم
+    - text: "الحالية للجسم:"
+  - list:
+    - paragraph:
+      - text: الخطوة 1 (
+      - code: AnimationMixer
+      - text: "):"
+      - text: يقيّم المسارات الـ 195 غير القابلة للتعديل عند الطور
+      - math:
+        - generic: p
+      - generic: p
+      - text: (تطابق المصدر
+      - math:
+        - generic: "4.82"
+        - generic: μ
+        - generic: m
+      - text: "4.82"
+      - text: μ
+      - generic: m
+      - text: ).
+    - paragraph:
+      - text: الخطوة 2 (
+      - code: Vertical Skin-Minimum Grounding + Fixed XZ Anchor
+      - text: "):"
+      - text: تُطبّق الإزاحة الرأسية المحسوبة مسبقاً من الـ 481 عينة على جذر الشخصية/الهيكل قبل تشغيل معدّل الذراعين، ويُمنع منعاً باتاً أن يعيد معدّل الذراعين حساب إزاحة الجسم الرأسية؛ لأن الجسم محمول في هذا الطور على الحوض/القدمين، وتغيير إزاحة الجسم سيرفع المقعدة والقدمين عن الأرض!
+    - paragraph:
+      - text: الخطوة 3 (
+      - code: WakeArmContactModifier
+      - text: —
+      - code: SkeletonModifier3D
+      - text: "):"
+      - text: يعمل بعد استقرار موضع الهيكل العالمي على الأرض، فيعدل دورانات سلسلة الذراع المرتكزة فقط (
+      - code: UpperArm
+      - text: ","
+      - code: LowerArm
+      - text: ","
+      - code: Hand
+      - text: ، وعند الحاجة
+      - code: Shoulder
+      - text: بحد
+      - math:
+        - generic: ≤
+        - generic: "10"
+        - generic: ∘
+      - generic: ≤
+      - text: "1"
+      - text: "0"
+      - generic: ∘
+      - text: ) لإنزال جلد الكف إلى
+      - math:
+        - generic: "y"
+        - generic: floor
+      - text: "y"
+      - generic: floor
+      - text: دون لمس الـ 59 عظمة الأخرى.
+  - heading "4) حدود الفشل ومصفوفة الاختبارات الإلزامية ( 30/60Hz / Pause / RM / Skip )" [level=3]:
+    - text: 4) حدود الفشل ومصفوفة الاختبارات الإلزامية (
+    - code: 30/60Hz / Pause / RM / Skip
+    - text: )
+  - table:
+    - rowgroup:
+      - row "البوابة الرقابية شرط النجاح الرقمي والحد القاطع ( PASS / FAIL Gate )":
+        - columnheader "البوابة الرقابية"
+        - columnheader "شرط النجاح الرقمي والحد القاطع ( PASS / FAIL Gate )":
+          - text: شرط النجاح الرقمي والحد القاطع (
+          - code: PASS / FAIL Gate
+          - text: )
+    - rowgroup:
+      - row "1. عدم المساس ببقية الهيكل ( Non-Arm Identity ) عبر جميع العينات (120 عينة مصدر و137 طور اختبار)، فرق التحويل على جميع العظام غير المشمولة بسلسلة الذراع المرتكزة يساوي 0.0 بالضبط، وخارج نافذة تعود عظام الذراع لتطابق المصدر الأصلي ( / ).":
+        - cell "1. عدم المساس ببقية الهيكل ( Non-Arm Identity )":
+          - text: 1. عدم المساس ببقية الهيكل (
+          - code: Non-Arm Identity
+          - text: )
+        - cell "عبر جميع العينات (120 عينة مصدر و137 طور اختبار)، فرق التحويل على جميع العظام غير المشمولة بسلسلة الذراع المرتكزة يساوي 0.0 بالضبط، وخارج نافذة تعود عظام الذراع لتطابق المصدر الأصلي ( / ).":
+          - text: عبر جميع العينات (120 عينة مصدر و137 طور اختبار)، فرق التحويل على جميع العظام غير المشمولة بسلسلة الذراع المرتكزة يساوي
+          - code: "0.0"
+          - text: بالضبط
+          - text: ، وخارج نافذة
+          - text: "["
+          - text: p
+          - generic: in
+          - text: ","
+          - text: p
+          - generic: out
+          - text: "]"
+          - text: تعود عظام الذراع لتطابق المصدر الأصلي (
+          - generic: ≤
+          - text: "4.82"
+          - text: μ
+          - generic: m
+          - text: /
+          - text: "0.00026"
+          - text: "7"
+          - generic: ∘
+          - text: ).
+      - 'row "2. إغلاق فجوة الكف ومنع الاختراق ( Palm Floor Gate ) داخل نافذة القفل في الطور 0.32..0.41 : تهبط المسافة الرأسية لأخفض رأس جلد في Hand/Fingers من 9.75 سم إلى فوق الأرض، مع عدم غوص أي رأس جلد للجسد أو اليد تحت الأرض بأكثر من ، وبقاء خطأ أرضية الجسم الكلي ."':
+        - cell "2. إغلاق فجوة الكف ومنع الاختراق ( Palm Floor Gate )":
+          - text: 2. إغلاق فجوة الكف ومنع الاختراق (
+          - code: Palm Floor Gate
+          - text: )
+        - 'cell "داخل نافذة القفل في الطور 0.32..0.41 : تهبط المسافة الرأسية لأخفض رأس جلد في Hand/Fingers من 9.75 سم إلى فوق الأرض، مع عدم غوص أي رأس جلد للجسد أو اليد تحت الأرض بأكثر من ، وبقاء خطأ أرضية الجسم الكلي ."':
+          - text: داخل نافذة القفل
+          - text: "["
+          - text: p
+          - generic: lock
+          - text: ","
+          - text: p
+          - generic: release
+          - text: "]"
+          - text: في الطور
+          - code: 0.32..0.41
+          - text: ": تهبط المسافة الرأسية لأخفض رأس جلد في"
+          - code: Hand/Fingers
+          - text: من
+          - code: 9.75 سم
+          - text: إلى
+          - generic: ≤
+          - text: "2.0"
+          - generic: mm
+          - text: فوق الأرض، مع عدم غوص أي رأس جلد للجسد أو اليد تحت الأرض بأكثر من
+          - text: −0.2
+          - generic: mm
+          - text: ، وبقاء خطأ أرضية الجسم الكلي
+          - generic: ≤
+          - text: "0.102"
+          - generic: mm
+          - text: .
+      - row "3. حد التمدد والسرعة الزاوية ( Reach & Pop Guard ) يُحظر تجاوز طول الذراع لمنع طقّة المرفق ( Elbow Snap )، ويجب ألا يتجاوز أقصى تغير زاوي بين إطارين متتاليين عند 30Hz و 60Hz سقفاً ناعماً يمنع أي قفزة مرئية عند و .":
+        - cell "3. حد التمدد والسرعة الزاوية ( Reach & Pop Guard )":
+          - text: 3. حد التمدد والسرعة الزاوية (
+          - code: Reach & Pop Guard
+          - text: )
+        - cell "يُحظر تجاوز طول الذراع لمنع طقّة المرفق ( Elbow Snap )، ويجب ألا يتجاوز أقصى تغير زاوي بين إطارين متتاليين عند 30Hz و 60Hz سقفاً ناعماً يمنع أي قفزة مرئية عند و .":
+          - text: يُحظر تجاوز طول الذراع
+          - generic: 0.985 ⋅
+          - text: (
+          - text: L
+          - generic: "1"
+          - text: +
+          - text: L
+          - generic: "2"
+          - text: )
+          - text: لمنع طقّة المرفق (
+          - code: Elbow Snap
+          - text: )، ويجب ألا يتجاوز أقصى تغير زاوي بين إطارين متتاليين عند
+          - code: 30Hz
+          - text: و
+          - code: 60Hz
+          - text: سقفاً ناعماً يمنع أي قفزة مرئية عند
+          - text: p
+          - generic: in
+          - text: و
+          - text: p
+          - generic: out
+          - text: .
+      - 'row "4. حتمية 30Hz / 60Hz و Pause و Reduced Motion • تقييم نفس الطور عند 30Hz و 60Hz يعطي نفس مصفوفات العظام تماماً (لأن الحل دالة صريحة في بلا زنبرك). • في Reduced Motion : يبقى تصحيح التماس الهندسي مفعّلاً (لأنه تصحيح ارتكاز فيزيائي وليس مؤثراً تجميلياً متحركاً). • في Pause : تتجمد الوضعية المصححة دون أي زحف."':
+        - cell "4. حتمية 30Hz / 60Hz و Pause و Reduced Motion":
+          - text: 4. حتمية
+          - code: 30Hz / 60Hz
+          - text: و
+          - code: Pause
+          - text: و
+          - code: Reduced Motion
+        - 'cell "• تقييم نفس الطور عند 30Hz و 60Hz يعطي نفس مصفوفات العظام تماماً (لأن الحل دالة صريحة في بلا زنبرك). • في Reduced Motion : يبقى تصحيح التماس الهندسي مفعّلاً (لأنه تصحيح ارتكاز فيزيائي وليس مؤثراً تجميلياً متحركاً). • في Pause : تتجمد الوضعية المصححة دون أي زحف."':
+          - paragraph:
+            - text: • تقييم نفس الطور
+            - generic: p
+            - text: عند
+            - code: 30Hz
+            - text: و
+            - code: 60Hz
+            - text: يعطي نفس مصفوفات العظام تماماً (لأن الحل دالة صريحة في
+            - generic: p
+            - text: بلا زنبرك).
+          - paragraph:
+            - text: •
+            - text: في
+            - code: Reduced Motion
+            - text: ":"
+            - text: يبقى تصحيح التماس الهندسي مفعّلاً (لأنه تصحيح ارتكاز فيزيائي وليس مؤثراً تجميلياً متحركاً).
+          - paragraph:
+            - text: •
+            - text: في
+            - code: Pause
+            - text: ":"
+            - text: تتجمد الوضعية المصححة دون أي زحف.
+      - row "5. نظافة التخطي والتحرير ( Skip / Deferred / Unload ) التخطي في منتصف نافذة الارتكاز (مثلاً عند )، أو التخطي المتكرر، أو التخطي قبل الـ deferred ، أو انتهاء النهوض الطبيعي يصفّر تأثير المعدّل فوراً ويترك School65 في وضعية Idle سليمة 100% مع بقاء الـ 81 شرطاً للرحلة PASS .":
+        - cell "5. نظافة التخطي والتحرير ( Skip / Deferred / Unload )":
+          - text: 5. نظافة التخطي والتحرير (
+          - code: Skip / Deferred / Unload
+          - text: )
+        - cell "التخطي في منتصف نافذة الارتكاز (مثلاً عند )، أو التخطي المتكرر، أو التخطي قبل الـ deferred ، أو انتهاء النهوض الطبيعي يصفّر تأثير المعدّل فوراً ويترك School65 في وضعية Idle سليمة 100% مع بقاء الـ 81 شرطاً للرحلة PASS .":
+          - text: التخطي في منتصف نافذة الارتكاز (مثلاً عند
+          - generic: p =
+          - generic: "0.36"
+          - text: )، أو التخطي المتكرر، أو التخطي قبل الـ
+          - code: deferred
+          - text: ، أو انتهاء النهوض الطبيعي يصفّر تأثير المعدّل فوراً ويترك
+          - code: School65
+          - text: في وضعية
+          - code: Idle
+          - text: سليمة 100% مع بقاء الـ 81 شرطاً للرحلة
+          - code: PASS
+          - text: .
+  - button "مزيد من الخيارات":
+    - img: more_horiz
+  - list:
+    - paragraph:
+      - text: "الخطوة الأولى المطلوبة منك قبل أي كتابة كود: استخرج جدول القياسات الأربعة على العينات الواقعة في"
+      - code: phase 0.25..0.50
+      - text: (
+      - code: y_min_hand_L/R
+      - text: ","
+      - code: v_xz_hand_L/R
+      - text: ","
+      - code: palm_normal_y
+      - text: ", ونسبة الوصول"
+      - math:
+        - generic: ρ
+        - generic: L
+        - generic: /
+        - generic: R
+        - generic: =
+        - generic: D
+        - generic: floor
+        - generic: /
+        - generic: L
+        - generic: arm
+      - text: ρ
+      - generic: L/R
+      - text: =
+      - text: D
+      - generic: floor
+      - text: /
+      - text: L
+      - generic: arm
+      - text: ) لنحسم أي يد هي المرتكزة وحدود نافذتها بدقة قبل تطبيق المعدّل. (لا يوجد أي قبول بصري للحركة قبل معاينة لقطات الكاميرا الفعلية بعد القياس).
+  - button "ردّ جيد":
+    - img: thumb_up
+  - button "ردّ سيئ":
+    - img: thumb_down
+  - button "إعادة":
+    - img: refresh
+  - button "المشاركة والتصدير":
+    - img: share_1
+  - button "نسخ":
+    - img: copy
+  - button "عرض خيارات أكثر":
+    - img: more_horiz
+  - status
+  - button:
+    - img: arrow_downward
+  - button "التحميل والأدوات":
+    - img: plus
+  - textbox "يُرجى إدخال طلب في Gemini" [active]:
+    - text: اسأل Gemini
+    - paragraph
+  - button "إملاء (^⇧D)":
+    - img: mic
+  - paragraph: ‫Gemini هو نموذج ذكاء اصطناعي وقد يعرض معلومات خاطئة.
+  - generic: play_arrow
+  - button "محادثة جديدة":
+    - img: gemini_chat
+  - button "فتح قائمة الإجراءات الخاصة بالمحادثة":
+    - img: more_vert
+- generic: Evaluating animation contact conditions
+- region "Notifications"
+- generic: إملاء (^⇧D)
