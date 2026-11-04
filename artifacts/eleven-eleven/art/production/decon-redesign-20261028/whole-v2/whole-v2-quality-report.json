@@ -1,0 +1,133 @@
+{
+  "checkpoint": "ROOM07_WHOLE_V2_UV_REPAIRED_RETEXTURE_PENDING_NO_NATIVE_INTEGRATION",
+  "updated_utc": "2026-10-28T19:08:52.723995+00:00",
+  "status": "SOURCE_AND_PBR_COMPLETE_AUTHORED_UV_FIXED_TARGETED_RETEXTURE_PENDING",
+  "native_integrated": false,
+  "promoted": false,
+  "whole_generation": {
+    "task_id": "32622978-6eb8-42a7-b706-6317302e0de5",
+    "input_images": 4,
+    "model": "H3.1",
+    "parts_mode": "Detailed",
+    "raw_parts": 90,
+    "raw_triangles": 1837185,
+    "charge": 60,
+    "review": "Actual gray geometry reviewed. Invented four arches and two stairs were corrected;source kept."
+  },
+  "corrected_source": {
+    "task_id": "9d3d5353-b17b-4567-b454-e579de1486e2",
+    "triangles": 1222654,
+    "objects": 85,
+    "texture_charge": 20,
+    "pbr_charge": 5,
+    "materials": 85,
+    "images": 255,
+    "normal_maps": 85,
+    "metallic_roughness_maps": 85,
+    "ui_resolution": "4K;adaptive source maps,not all4K",
+    "remove_lighting": true,
+    "best_angle_xyz": [
+      0,
+      0,
+      -45
+    ],
+    "max_full_vertex_registration_error_m": 0.0009982563788071275,
+    "all_candidate_vertices_verified": true
+  },
+  "budget": {
+    "balance_before": 2345,
+    "total_paid_this_rebuild": 85,
+    "balance_after": 2260,
+    "paid_jobs_running": false,
+    "new_purchase": false
+  },
+  "uv_repair": {
+    "status": "AUTHORED_UV_REPAIRED_RETEXTURE_PENDING",
+    "source": "corrected-metric-source.blend",
+    "new_source": "uv-repaired-metric-source.glb",
+    "new_sha256": "3cea8d16e19e7fb4984effe4690b6c9c1a44312dcbd4dd44fab414ad414ee21e",
+    "repairs": [
+      {
+        "name": "MeasuredCatwalkAndRails",
+        "unique_uv_before": 636,
+        "unique_uv_after": 5402,
+        "positions_unchanged": true
+      },
+      {
+        "name": "MeasuredFloor",
+        "unique_uv_before": 117,
+        "unique_uv_after": 29184,
+        "positions_unchanged": true
+      },
+      {
+        "name": "MeasuredHullBacking",
+        "unique_uv_before": 503,
+        "unique_uv_after": 1272,
+        "positions_unchanged": true
+      },
+      {
+        "name": "MeasuredOpenCeilingRibs",
+        "unique_uv_before": 456,
+        "unique_uv_after": 4224,
+        "positions_unchanged": true
+      },
+      {
+        "name": "MeasuredWestStaircase",
+        "unique_uv_before": 571,
+        "unique_uv_after": 4272,
+        "positions_unchanged": true
+      },
+      {
+        "name": "NativeMovingGateVisual",
+        "unique_uv_before": 115,
+        "unique_uv_after": 152,
+        "positions_unchanged": true
+      },
+      {
+        "name": "NativeTerminalVisual",
+        "unique_uv_before": 446,
+        "unique_uv_after": 912,
+        "positions_unchanged": true
+      }
+    ],
+    "warning": "Old PBR remains valid only for generated perimeter/pod/arch groups;seven authored groups require fresh texturing or an explicitly qualified material transfer. Do not reuse their overlapping-UV maps or claim room acceptance."
+  },
+  "quality": {
+    "postflight": "ALL CHECKS PASSED",
+    "current_game_runtime_changed": false,
+    "old13functional_and7isolated_player_checks": "Prior candidate only;do not attribute them to this whole-v2 model",
+    "room_art": "OPEN",
+    "connected_render": "OPEN",
+    "performance": "OPEN",
+    "new_Godot_VFX_or_Tripo_animation": "Not added this turn;planned only where useful and under native clock/accessibility ownership"
+  },
+  "quota_snapshot": {
+    "used_percent": 98,
+    "window_minutes": 300,
+    "resets_at_unix": 1793223164
+  },
+  "cache": {
+    "memories_enabled": true,
+    "background_memory_generation_enabled": true,
+    "local_checkpoint_updated": true,
+    "extra_supported_cache_toggle_found": false,
+    "prompt_cache": "Automatic platform behavior;no guaranteed account-quota saving claimed",
+    "official_source": "https://developers.openai.com/api/docs/guides/deployment-checklist#optimize-prompt-caching"
+  },
+  "source_hashes": {
+    "art/production/decon-redesign-20261028/whole-v2/source.glb": "28374cb77ddfac9f838048b964d738e86fe8a9fe5eed3b06fdb0f4358fb6e564",
+    "art/production/decon-redesign-20261028/whole-v2/source.blend": "4d9c35b3e50dad840ffdf3b2395c60d092e143ba87c9f119e42ae6c4acb98db9",
+    "art/production/decon-redesign-20261028/whole-v2/corrected-metric-source.glb": "325b8d6384b5a38e24d02f3d1a3918faacdc7c59acaa6ef3569bb034c9c702e5",
+    "art/production/decon-redesign-20261028/whole-v2/corrected-tripo-pbr-source.glb": "370d0249fdad2f958b740c6dcf99843e211ee76c365664717d50dee90090b59c",
+    "art/production/decon-redesign-20261028/whole-v2/textured-metric-source.glb": "4aae2fee98a1bc93d5b39828791524cb2f14dc0c6e9540848921aaf419e66fc4",
+    "art/production/decon-redesign-20261028/whole-v2/uv-repaired-metric-source.glb": "3cea8d16e19e7fb4984effe4690b6c9c1a44312dcbd4dd44fab414ad414ee21e",
+    "art/production/decon-redesign-20261028/whole-v2/uv-repaired-metric-source.blend": "ccbebe00e763fed21ed30b3c54e13c5b062dd0b41990671e57782423d4b5f4e4",
+    "art/production/decon-redesign-20261028/whole-v2/authored-uv-kit-repaired.glb": "7f1d73d4ebfeab8f969501473ebf8eb7624704d362df77bf2c2a79635df89de2"
+  },
+  "evidence": {
+    "four_view_submission": "C:\\Users\\yasmo\\Documents\\Codex\\2026-10-28\\thread-01a16c4f-25a4-7922-8f09-1cc972076b05\\outputs\\decon-whole-v2-four-view-submission.png",
+    "actual_PBR_source": "C:\\Users\\yasmo\\Documents\\Codex\\2026-10-28\\thread-01a16c4f-25a4-7922-8f09-1cc972076b05\\outputs\\decon-whole-v2-pbr-source-proof.png",
+    "UV_integrity": "uv-repair-result.json"
+  },
+  "next": "Use authored-uv-kit-repaired.glb (7objects/56588tri,UV already repaired) for fresh targeted Texture/PBR or qualified transfer;preserve the78 generated groups from textured-metric-source.glb. Merge into textured-metric-combined.glb,then run prepared atlas/runtime scripts. Do NOT use old seven overlapping-UV maps,do NOT repeat60credit geometry. Native integration,new VFX,actual player/render/state/performance acceptance remain pending."
+}

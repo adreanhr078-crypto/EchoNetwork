@@ -1,0 +1,114 @@
+{
+  "status": "APPROVED_SOURCE_PACT72_WING_DERIVATIVE_ISOLATED_PASS_RUNTIME_OPEN",
+  "owner": "2026-11-01: same Echo at Zero pact;singlewing,mildtornschooluniform,athleticmusclesandveins,messyblack/purple/whitehair,subtleglow,electricityanddarknessVFX",
+  "identity_base": "art/production/echo-school-rebuild-20261029/source/echo-school-rig-metric.glb",
+  "canon_pages": [
+    "public/manhwa/echo-network-final-2026-09-v1/page-051.webp",
+    "public/manhwa/echo-network-final-2026-09-v1/page-056.webp"
+  ],
+  "native_reference": "references/contract-two-view-native.png",
+  "references": {
+    "contract-two-view-native.png": "123c04d1cd2c6f4d8add87be8b72ad9d379f680c2e9b0ea9efec03f8ed1f9f81",
+    "front.png": "e997b55b819790ddd8259a8b1919e85ef768d8894a9e4de97b1bfe7e45954861",
+    "back.png": "28333cea69ab136b63d9a21a201177257039e713c889c811b22fc71646bb7409"
+  },
+  "review": "Native2-view inspected;Echo likeness retained;one anatomicalleft wing;matchinguniformtears;slightveins/muscles;blackhairdominantwithwhite/violetstrands. Textinreferenceisnotauthoritative:EX011mustbestampednative. Noaura/lightninggeometry.",
+  "canvas": "https://studio.tripo3d.ai/canvas/projects/01a19857-25d0-7748-bcee-314f049a3eed",
+  "live_balance_before": 1535,
+  "planned_geometry": {
+    "model": "Smart Mesh P2",
+    "quad_budget": 25000,
+    "texture": false,
+    "quote": 100,
+    "inputs": "front+back"
+  },
+  "runtime_replaced": false,
+  "post_contract_only": true,
+  "vfx_contract": "Reuse existing pact state/authority,camera/VFX;electricity/darkness effects earned aftercontract;pause/mute/RM;no new authority/unlock",
+  "body_rig_policy": "Keep normal school65 baseline;newgeometryhas no automaticrig/motionacceptance. Wing needs independenteligiblechains. No Golden/sourcekeychanges.",
+  "smart_mesh_node": "4e2ba90a-b8be-4782-a075-73c545e96ad2",
+  "front_upload_node": "3d43a3b3-45c0-43fb-96cb-489b621ec497",
+  "back_upload_node": "c818490b-71ee-47f0-955f-b06f53bb3da9",
+  "submitted_quote": 100,
+  "submission": "UI Generating observed;do not duplicate generation",
+  "actual_geometry_spend": 100,
+  "live_balance_after_geometry": 1435,
+  "geometry_output_visible": "output_mesh_1007001f-a8c2-4516-905a-784768998959.fbx",
+  "geometry_download": "source/contract-p2-raw.fbx",
+  "geometry_sha256": "ee30956b0681825acc5f954667d10321708265c0f1323313119780d42c4eb5f2",
+  "geometry_review": {
+    "status": "SCOPED_GEOMETRY_CANDIDATE_REVIEWED",
+    "stats": "28806vertices;32324polygons;53565triangles;21241quads;0UV;0bones",
+    "review": "Front/back Blender source captures inspected. One leftwing,schooluniform,mildtears andbody silhouette coherent;no gross armwingfusion seen. Close hand/face,deformation andruntime gates remain open.",
+    "report": "work/geometry-intake/intake.json"
+  },
+  "texture": {
+    "node": "ae3cb944-2a27-4384-919b-2735b14b7d8e",
+    "status": "COMPLETE_UI",
+    "resolution": "4K",
+    "remove_lighting": true,
+    "reference_inputs": "front+back,explicitlyconnected",
+    "quote": 20,
+    "output_visible": "tripo_texture_6d327fda-a04f-4e3f-9093-54cf87df52c4.fbx",
+    "actual_spend": 20
+  },
+  "eyes": "Owner reiterated colored eyes:violet iris with pupil and ring detail afterpact;normalbluegray beforepact",
+  "live_balance_after_texture": 1415,
+  "owner_visual_response": "Owner explicitly praised current shape/color in Studio;preserve this direction,not a rig/motion/game acceptance",
+  "pbr": {
+    "node": "20213661-960b-42df-85e0-ea2cdeb5176d",
+    "status": "COMPLETE_UI_TWO_HISTORY_RESULTS",
+    "quote_per_run": 5,
+    "observed_balance_before": 1415,
+    "observed_balance_after": 1405,
+    "observed_delta": 10,
+    "agent_generate_clicks": 1,
+    "history_count": 2,
+    "additional_history_origin": "UNVERIFIED;no inference of duplicate agent submission",
+    "selected": "History2 retained;do notregenerate",
+    "download": "source/contract-pbr4k.glb",
+    "audit": "work/pbr-audit.json",
+    "basecolor_pixel_preserved": true,
+    "actual_maps": "4096x4096 basecolor+normal+RM"
+  },
+  "actual_observed_total_spend": 150,
+  "remaining": [
+    "Body motion deformation qualification on Pact72",
+    "Wing skinned contact and runtime integration",
+    "Clean incorrect baked neck lettering and author native EX011",
+    "Facial controls",
+    "Earned pact integration/VFX/performance"
+  ],
+  "live_balance_after_rig": 1385,
+  "rig": {
+    "node": "6106840f-84e5-40d6-8e07-f5cb67c50914",
+    "preset": "Humanoid Mixamo",
+    "history_count": 1,
+    "actual_spend": 20,
+    "download": "source/contract-rig4k.glb",
+    "sha256": "edf2e892ccfa0c66bb829745d1b434bb462a0edda0e50fd341d5d7ab96cbd533",
+    "joint_count": 65,
+    "pbr_pixels_preserved": true,
+    "audit": "work/rig-intake/native-glb-audit.json",
+    "runtime_accepted": false,
+    "remaining": "body deformation and independent wing chains; no source animation yet"
+  },
+  "wing_derivative": {
+    "case": "work/wing-rig-v2",
+    "bones": 72,
+    "authored_wing_bones": 7,
+    "wing_vertices": 32860,
+    "source_unchanged": true,
+    "body_weights_preserved": true,
+    "maps": "Three4K pixel-identical",
+    "native_spring": "Isolated30/60Hz180ticks PASS;body65 unchanged;pause/RM pass;no mesh-contact/gameplay acceptance",
+    "runtime_integrated": false
+  },
+  "api_live_check_20261102": {
+    "available": 0,
+    "pool": "API;not Studio",
+    "installed_cli": "0.7.2 isolated local",
+    "studio_live_balance": "UNVERIFIED;CUA blocked URL confidence",
+    "paid_tasks_submitted": 0
+  }
+}

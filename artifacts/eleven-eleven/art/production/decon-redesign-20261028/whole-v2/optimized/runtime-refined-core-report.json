@@ -1,0 +1,77 @@
+{
+  "scope": "High runtime derivative;actual whole-room Tripo geometry plus measured corrections;originals preserved;no native acceptance",
+  "atlas_size": 4096,
+  "external_shared_maps": 3,
+  "mesh_materials": 1,
+  "asset_groups": [
+    {
+      "asset": "decon_whole_v2_authored_core.glb",
+      "sha256": "417de4eb37bb8445fd797ba4d846d39dedd5d9e64d6e0914d36da575da5891b2",
+      "triangles": 55272,
+      "anchor_blender_xyz": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "decon_whole_v2_refined_gate.glb",
+      "sha256": "a6e9ad16a0e68b5e5a0d87ccec223525ae4200615cc3e863227f3cb7031a9467",
+      "triangles": 188,
+      "anchor_blender_xyz": [
+        0,
+        32,
+        1.4
+      ]
+    },
+    {
+      "asset": "decon_whole_v2_refined_terminal.glb",
+      "sha256": "643359ca415551f2f5f1d8826d51f16e3aec0cb2ec60074a082498131e66c2f6",
+      "triangles": 1128,
+      "anchor_blender_xyz": [
+        0,
+        16,
+        3.2
+      ]
+    }
+  ],
+  "source_roles": [
+    {
+      "name": "MeasuredCatwalkAndRails",
+      "triangles_before": 6956,
+      "triangles_after": 6956
+    },
+    {
+      "name": "MeasuredFloor",
+      "triangles_before": 36096,
+      "triangles_after": 36096
+    },
+    {
+      "name": "MeasuredHullBacking",
+      "triangles_before": 1504,
+      "triangles_after": 1504
+    },
+    {
+      "name": "MeasuredOpenCeilingRibs",
+      "triangles_before": 5452,
+      "triangles_after": 5452
+    },
+    {
+      "name": "MeasuredWestStaircase",
+      "triangles_before": 5264,
+      "triangles_after": 5264
+    },
+    {
+      "name": "NativeMovingGateVisual",
+      "triangles_before": 188,
+      "triangles_after": 188
+    },
+    {
+      "name": "NativeTerminalVisual",
+      "triangles_before": 1128,
+      "triangles_after": 1128
+    }
+  ],
+  "source_triangles": 56588,
+  "runtime_triangles": 56588
+}

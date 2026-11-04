@@ -1,0 +1,96 @@
+{
+  "status": "REGISTRATION_PASS_NOT_NATIVE_ACCEPTANCE",
+  "scale": 32.28003863066942,
+  "matrix": [
+    [
+      -5.71961092605426e-06,
+      -22.825439140879208,
+      -22.82542928453914,
+      7.8427633441250215
+    ],
+    [
+      32.28003863066885,
+      -2.485896720452233e-06,
+      -5.602855283937675e-06,
+      16.000028582338143
+    ],
+    [
+      2.2040237623915744e-06,
+      -22.825429284539716,
+      22.825439140879237,
+      -4.242775763036456
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "source_vertices": 45418,
+  "candidate_vertices": 45418,
+  "all_candidate_vertices_verified": true,
+  "max_registration_error_m": 0.0007584560662508011,
+  "rms_registration_error_m": 0.0002776105142511669,
+  "source_sha256": "7f1d73d4ebfeab8f969501473ebf8eb7624704d362df77bf2c2a79635df89de2",
+  "pbr_sha256": "2257d8b4fa9690ccea7420fad9921228d081eab02b24f6c34e8e60f8e981ebc4",
+  "roles": [
+    {
+      "node": "MeasuredCatwalkAndRails",
+      "source_node": "MeasuredCatwalkAndRails",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredCatwalkAndRails_material"
+      ]
+    },
+    {
+      "node": "MeasuredFloor",
+      "source_node": "MeasuredFloor",
+      "owner_match": 1.0,
+      "materials": [
+        "Satin ceramic walk surface"
+      ]
+    },
+    {
+      "node": "MeasuredHullBacking",
+      "source_node": "MeasuredHullBacking",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredHullBacking_material"
+      ]
+    },
+    {
+      "node": "MeasuredOpenCeilingRibs",
+      "source_node": "MeasuredOpenCeilingRibs",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredOpenCeilingRibs_material"
+      ]
+    },
+    {
+      "node": "MeasuredWestStaircase",
+      "source_node": "MeasuredWestStaircase",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredWestStaircase_material"
+      ]
+    },
+    {
+      "node": "NativeMovingGateVisual",
+      "source_node": "NativeMovingGateVisual",
+      "owner_match": 1.0,
+      "materials": [
+        "Obsidian clinical structure"
+      ]
+    },
+    {
+      "node": "NativeTerminalVisual",
+      "source_node": "NativeTerminalVisual",
+      "owner_match": 1.0,
+      "materials": [
+        "Satin graphite bridge alloy"
+      ]
+    }
+  ],
+  "scope": "Rigid similarity registration after UI best angle0,0,-45;UV/PBR retained;no new geometry generation or authority changes"
+}

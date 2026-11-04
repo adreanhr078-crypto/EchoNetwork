@@ -1,0 +1,93 @@
+{
+  "status": "TARGETED_RETEXTURE_COMPLETE_NATIVE_CANDIDATE_ART_OPEN",
+  "identity": "11.11 obsidian structural rhythm,ivory information surfaces,crimson status,violet sterilization,warm clinical service lights;cyan only small displays",
+  "room_contract": "../room-contract.json",
+  "views": [
+    {
+      "file": "front-master.png",
+      "sha256": "23e417d1e9eff56189f5444d0743d018f815595c65894ab183ecfbdb02660829",
+      "pixels": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "left.png",
+      "sha256": "27b0107a3bcf9fd834ff978384056de1ce500d0bba7d5c6ccf632e117f098f39",
+      "pixels": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "right.png",
+      "sha256": "c30ea77207bfd1761626e691ff06ee17b1d16309faf38d43d3b16887fa619c3d",
+      "pixels": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "back.png",
+      "sha256": "c84c09386d3c1e0926cfd20da2701227bf40ecdc6c9b93248bd7b680fd85bff0",
+      "pixels": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "review": "Root inspected all four;6vessels/2UVarches/single transverse catwalk/single west staircase/one console retained;left exit door and back-view open south entry specifically corrected. AI multiview concept,not metrically surveyed geometry. Tripo result must pass actual geometry and native route checks.",
+  "pending": "Continue from cleaned existing whole-room source and current candidate;selective evidenced hard-surface cleanup,not a new room generation. Close07 art gate,then08/10,then new short-jacket Echo rig/animation/acting/combat. Keep native stair/collision/terminal/gate/save ownership.",
+  "balance_before_live": 2345,
+  "rejected": "Left v1 missed north exit;back v1 closed the open south entry. Preserved,not for upload.",
+  "task_id": "32622978-6eb8-42a7-b706-6317302e0de5",
+  "model": "H3.1 Best Quality",
+  "input_count": 4,
+  "parts_mode": "Detailed15+",
+  "geometry_charge": 60,
+  "balance_after_live": 2285,
+  "submission_proof": "C:\\Users\\yasmo\\Documents\\Codex\\2026-10-28\\thread-01a16c4f-25a4-7922-8f09-1cc972076b05\\outputs\\decon-whole-v2-four-view-submission.png",
+  "corrected_source": {
+    "task_id": "9d3d5353-b17b-4567-b454-e579de1486e2",
+    "triangles": 1222654,
+    "objects": 85,
+    "texture_charge": 20,
+    "pbr_charge": 5,
+    "materials": 85,
+    "images": 255,
+    "normal_maps": 85,
+    "metallic_roughness_maps": 85,
+    "ui_resolution": "4K;adaptive source maps,not all4K",
+    "remove_lighting": true,
+    "best_angle_xyz": [
+      0,
+      0,
+      -45
+    ],
+    "max_full_vertex_registration_error_m": 0.0009982563788071275,
+    "all_candidate_vertices_verified": true
+  },
+  "budget": {
+    "balance_before": 2345,
+    "total_paid_this_rebuild": 85,
+    "balance_after": 2260,
+    "paid_jobs_running": false,
+    "new_purchase": false
+  },
+  "uv_repair_result": "uv-repair-result.json",
+  "source_hashes": {
+    "art/production/decon-redesign-20261028/whole-v2/source.glb": "28374cb77ddfac9f838048b964d738e86fe8a9fe5eed3b06fdb0f4358fb6e564",
+    "art/production/decon-redesign-20261028/whole-v2/source.blend": "4d9c35b3e50dad840ffdf3b2395c60d092e143ba87c9f119e42ae6c4acb98db9",
+    "art/production/decon-redesign-20261028/whole-v2/corrected-metric-source.glb": "325b8d6384b5a38e24d02f3d1a3918faacdc7c59acaa6ef3569bb034c9c702e5",
+    "art/production/decon-redesign-20261028/whole-v2/corrected-tripo-pbr-source.glb": "370d0249fdad2f958b740c6dcf99843e211ee76c365664717d50dee90090b59c",
+    "art/production/decon-redesign-20261028/whole-v2/textured-metric-source.glb": "4aae2fee98a1bc93d5b39828791524cb2f14dc0c6e9540848921aaf419e66fc4",
+    "art/production/decon-redesign-20261028/whole-v2/uv-repaired-metric-source.glb": "3cea8d16e19e7fb4984effe4690b6c9c1a44312dcbd4dd44fab414ad414ee21e",
+    "art/production/decon-redesign-20261028/whole-v2/uv-repaired-metric-source.blend": "ccbebe00e763fed21ed30b3c54e13c5b062dd0b41990671e57782423d4b5f4e4",
+    "art/production/decon-redesign-20261028/whole-v2/authored-uv-kit-repaired.glb": "7f1d73d4ebfeab8f969501473ebf8eb7624704d362df77bf2c2a79635df89de2",
+    "art/production/decon-redesign-20261028/whole-v2/authored-repaired-tripo-pbr-source.glb": "2257d8b4fa9690ccea7420fad9921228d081eab02b24f6c34e8e60f8e981ebc4",
+    "art/production/decon-redesign-20261028/whole-v2/authored-repaired-metric-pbr.glb": "d37b064e7ed3d30b8ac8fc5fe9c54cabd4b84d21ecd017ef5c8908509984c36f",
+    "art/production/decon-redesign-20261028/whole-v2/textured-metric-combined.glb": "532e97591079a477d3c2090088192b36940c9a06f978527f3e9087ea1e30be90"
+  },
+  "targeted_retexture_20261029": "retexture-20261029/generation-ledger.json",
+  "tripo_component_cleanup_20261029": "retexture-20261029/tripo-component-cleanup-report.json"
+}

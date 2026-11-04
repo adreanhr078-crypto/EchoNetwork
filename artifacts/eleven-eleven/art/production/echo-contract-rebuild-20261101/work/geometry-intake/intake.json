@@ -1,0 +1,54 @@
+{
+  "status": "CAPTURED_PENDING_VISUAL_REVIEW",
+  "source_sha256": "ee30956b0681825acc5f954667d10321708265c0f1323313119780d42c4eb5f2",
+  "source_unchanged": true,
+  "meshes": [
+    {
+      "name": "tripo_1007001f_a8c2_4516_905a_784768998959",
+      "vertices": 28806,
+      "polygons": 32324,
+      "triangles": 53565,
+      "quads": 21241,
+      "uv_layers": [],
+      "shape_keys": []
+    }
+  ],
+  "bounds_min": [
+    -0.392333984375,
+    -0.3796387314796448,
+    -2.8661927942152943e-08
+  ],
+  "bounds_max": [
+    0.392333984375,
+    0.37963882088661194,
+    0.99951171875
+  ],
+  "normalization_applied": false,
+  "bone_or_vertex_edits": false,
+  "rigs": [],
+  "blend_sha256": "b7a472fe61c2c5da0b37a40d190780d3a12630b253cc1871c37552efc0caa180",
+  "captures": [
+    {
+      "view": "front",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\geometry-intake\\front.png",
+      "sha256": "4c2cf699c54d3854204ca2f27e9f0776b43e8a6feb169fdb3542725a689f6f0d"
+    },
+    {
+      "view": "back",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\geometry-intake\\back.png",
+      "sha256": "cd4aa83dc6241fadfb468b6b09e6c6527703aa71a27d5a83997231a5752b69c9"
+    },
+    {
+      "view": "side",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\geometry-intake\\side.png",
+      "sha256": "ec390ab3e057565b014e7649c398d0801f42e69bb100172267676c709e276a0b"
+    },
+    {
+      "view": "three-quarter",
+      "file": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\echo-contract-rebuild-20261101\\work\\geometry-intake\\three-quarter.png",
+      "sha256": "bd4ae8b3b077c4b15eba5cfa15797c4cc9ea79f0208011b14d650704dd250110"
+    }
+  ],
+  "runtime_accepted": false,
+  "scope": "Original source geometry intake; no rig/motion/face acceptance"
+}

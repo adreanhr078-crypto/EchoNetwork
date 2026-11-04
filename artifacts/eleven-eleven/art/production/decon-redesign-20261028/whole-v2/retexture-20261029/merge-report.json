@@ -1,0 +1,488 @@
+{
+  "status": "MERGED_SOURCE_NOT_NATIVE_ACCEPTANCE",
+  "generated_groups_preserved": 78,
+  "authored_groups_replaced": 7,
+  "retained_fingerprints": {
+    "Perimeter_00": {
+      "sha256": "8099b3a4544aca8ef59ecb1d9ab0636d70ef389de20d334f56624dd46f3da1bc",
+      "materials": [
+        "Perimeter_00_material"
+      ]
+    },
+    "Perimeter_01": {
+      "sha256": "c5277ddfbf4669bb5ee96afd81374b4e53dc13c9b02c8c5430bd2052c388d958",
+      "materials": [
+        "Perimeter_01_material"
+      ]
+    },
+    "Perimeter_02": {
+      "sha256": "46c89688ce6ef167fbfdf1c811f97bf6dc07de87523bfdcab3f13066d546d27b",
+      "materials": [
+        "Perimeter_02_material"
+      ]
+    },
+    "Perimeter_09": {
+      "sha256": "fbf28192e0477e74a3033fa6d4891dc963f34c130f36c2c3b8657345207f7871",
+      "materials": [
+        "Perimeter_09_material"
+      ]
+    },
+    "Perimeter_11": {
+      "sha256": "a6a4ca8d9d9431f28f333871dbe9e35b73d2fbb27c1b268862e183e393fea05e",
+      "materials": [
+        "Perimeter_11_material"
+      ]
+    },
+    "Perimeter_13": {
+      "sha256": "09f2462f5169a32bb57915e789889cfc395530add182e616374e3c355d6679ce",
+      "materials": [
+        "Perimeter_13_material"
+      ]
+    },
+    "Perimeter_14": {
+      "sha256": "120a5fd59a7af66f55cc32be54d2a46d6bd82b5d43feac94975938df13b2ff69",
+      "materials": [
+        "Perimeter_14_material"
+      ]
+    },
+    "Perimeter_15": {
+      "sha256": "fa368f7767c901140a7e667959022a942ac0d598f760e2867cd0189d219d7e7c",
+      "materials": [
+        "Perimeter_15_material"
+      ]
+    },
+    "Perimeter_18": {
+      "sha256": "de9e8d80e550c7af927395129003405f1057f42813e87015746415076a428c06",
+      "materials": [
+        "Perimeter_18_material"
+      ]
+    },
+    "Perimeter_19": {
+      "sha256": "dab68f767f16424298e59750eafdd0ad44bab73a22abfcdd81e6a7c0b8abc7c8",
+      "materials": [
+        "Perimeter_19_material"
+      ]
+    },
+    "Perimeter_20": {
+      "sha256": "14750cef617298e332665957b8b8e751e6a0e3654ba5ae8bbde8aba484db52a7",
+      "materials": [
+        "Perimeter_20_material"
+      ]
+    },
+    "Perimeter_21": {
+      "sha256": "fe64ca22fdfbfb23a1a47e7352f7422d6f3397036fad4a81a8de62db3dad6b9d",
+      "materials": [
+        "Perimeter_21_material"
+      ]
+    },
+    "Perimeter_22": {
+      "sha256": "f2a38de18a091e872338e916fddb5a7c2f8cffb78f68bc187d3c193fdfe996a5",
+      "materials": [
+        "Perimeter_22_material"
+      ]
+    },
+    "Perimeter_23": {
+      "sha256": "d48973ba2b7016c92d34447ef475eed4453d634e7f5c03191577167ec0accde5",
+      "materials": [
+        "Perimeter_23_material"
+      ]
+    },
+    "Perimeter_24": {
+      "sha256": "d0562a715e08a3aaec6e3889e91f5f2c2d208c994c4efb68d29181fd9deb725c",
+      "materials": [
+        "Perimeter_24_material"
+      ]
+    },
+    "Perimeter_25": {
+      "sha256": "c00b41a1aa665e1101ebe9147e9de1eb2f67be5affdbe9a628e1d31442af51e5",
+      "materials": [
+        "Perimeter_25_material"
+      ]
+    },
+    "Perimeter_26": {
+      "sha256": "f2ae6a4318c17aad24b17e2cc0488129b4d2be5adbd3b545651501ed26d48559",
+      "materials": [
+        "Perimeter_26_material"
+      ]
+    },
+    "Perimeter_27": {
+      "sha256": "f6e54a286c92d86f19804d43ec95f0e09e9c526282099ef0a82218d332b7d142",
+      "materials": [
+        "Perimeter_27_material"
+      ]
+    },
+    "Perimeter_28": {
+      "sha256": "c1d978c2c933eb58bf95ed2b6f41760e9f3fbf2606dbdf9bdf40fc67d14480cb",
+      "materials": [
+        "Perimeter_28_material"
+      ]
+    },
+    "Perimeter_29": {
+      "sha256": "a3cb98005b2391f5d69ee936586e8dcb813c8a4dd1942d692a5202946dbd7c60",
+      "materials": [
+        "Perimeter_29_material"
+      ]
+    },
+    "Perimeter_31": {
+      "sha256": "f3e7044b9ea091977980ebf4db47702151fe8a145aa8b1d1ee6bae29feec9dd9",
+      "materials": [
+        "Perimeter_31_material"
+      ]
+    },
+    "Perimeter_33": {
+      "sha256": "1a018caa42774585f4e8423c959751ab539a24e9f32a731db53024b8d4fc2183",
+      "materials": [
+        "Perimeter_33_material"
+      ]
+    },
+    "Perimeter_34": {
+      "sha256": "9c38fda14522ead85215a2263a3edefe5bdc7bf57ed9d01403f5a3b231f137b6",
+      "materials": [
+        "Perimeter_34_material"
+      ]
+    },
+    "Perimeter_38": {
+      "sha256": "79c6b7e43259aa2912afc4af0ba0b795e22cdfbf1e2d50a35ba55ba8e2ca95e1",
+      "materials": [
+        "Perimeter_38_material"
+      ]
+    },
+    "Perimeter_39": {
+      "sha256": "a03582e84a175102b68b78529c07636912270f72c30a10bf7f27865e585dc0cb",
+      "materials": [
+        "Perimeter_39_material"
+      ]
+    },
+    "Perimeter_40": {
+      "sha256": "8aae0cd6e1d8263216e005bd340de9efe0de73dbb2fdc162815c1164f4a36995",
+      "materials": [
+        "Perimeter_40_material"
+      ]
+    },
+    "Perimeter_41": {
+      "sha256": "f66bebeec58eaa8c3d7776988f45947db97cad0071e33d8d6fbe16fcadcb154c",
+      "materials": [
+        "Perimeter_41_material"
+      ]
+    },
+    "Perimeter_42": {
+      "sha256": "b151e894677102ad7f757f23efa225115fc1dd1429a9025c994070936e24d604",
+      "materials": [
+        "Perimeter_42_material"
+      ]
+    },
+    "Perimeter_43": {
+      "sha256": "61b6e7af9423e9b2a30cba61b710842bb4633c67c8c8f71e561d3c95bcadd342",
+      "materials": [
+        "Perimeter_43_material"
+      ]
+    },
+    "Perimeter_45": {
+      "sha256": "877929a32bf94b3f411db1770fa95e560b99f4620643783a51462e9e751f178b",
+      "materials": [
+        "Perimeter_45_material"
+      ]
+    },
+    "Perimeter_46": {
+      "sha256": "f254aa6cb55d4d2d24caf881b342f8743e8b39cc6c487bc8a3acb1a3d6961e28",
+      "materials": [
+        "Perimeter_46_material"
+      ]
+    },
+    "Perimeter_47": {
+      "sha256": "9b29f093d743c9e8d6c4fc7298fc0a90d30726db75125c0efa8489c58affa5ac",
+      "materials": [
+        "Perimeter_47_material"
+      ]
+    },
+    "Perimeter_48": {
+      "sha256": "1c625191f9afe5dbdc9158652820b65b7ac330d855acb3c5a90c023eabd4dc72",
+      "materials": [
+        "Perimeter_48_material"
+      ]
+    },
+    "Perimeter_50": {
+      "sha256": "ea5ac3cbf54eaca7a8ca541e417f9d2e35e9b9219bf5926c0e468f28e1cd7dce",
+      "materials": [
+        "Perimeter_50_material"
+      ]
+    },
+    "Perimeter_51": {
+      "sha256": "6707c44a01075f2dd2672cca9e3de6a1a20469700b53fbda1f42147d3851f5ee",
+      "materials": [
+        "Perimeter_51_material"
+      ]
+    },
+    "Perimeter_52": {
+      "sha256": "4af417580fa5cda802555509159c9008c6f0bac572aacd967525241844302f77",
+      "materials": [
+        "Perimeter_52_material"
+      ]
+    },
+    "Perimeter_53": {
+      "sha256": "1d972d2067edc49f1077b2ceb80dfe954db25644dfe2685645a83f315006b798",
+      "materials": [
+        "Perimeter_53_material"
+      ]
+    },
+    "Perimeter_54": {
+      "sha256": "5415f3b6b8e446fc10d5a4696102822c124a0ace512e9cd1cc21017ce001248c",
+      "materials": [
+        "Perimeter_54_material"
+      ]
+    },
+    "Perimeter_56": {
+      "sha256": "09f72d9ba0c450d0579241d69e9e8110dc5f20b070c13ecf890afd267c5eeb10",
+      "materials": [
+        "Perimeter_56_material"
+      ]
+    },
+    "Perimeter_57": {
+      "sha256": "0741999157a8b36e44770344643138dd5b49e3b4a169c15616d6fdac7273ef86",
+      "materials": [
+        "Perimeter_57_material"
+      ]
+    },
+    "Perimeter_58": {
+      "sha256": "426e90e6b0e980cf446490a2a0c8027656dd4191f43c4381bf79f3f03d51888f",
+      "materials": [
+        "Perimeter_58_material"
+      ]
+    },
+    "Perimeter_60": {
+      "sha256": "a2cf9f78c959f70af731b51ef667b8ee812ebf298160dd9b1b4ac45e6acf7893",
+      "materials": [
+        "Perimeter_60_material"
+      ]
+    },
+    "Perimeter_61": {
+      "sha256": "63db3205ddc7405a53eea560052ec48640d484cb1d45e9d5376aada2f01b6c20",
+      "materials": [
+        "Perimeter_61_material"
+      ]
+    },
+    "Perimeter_62": {
+      "sha256": "1be54b97642e82b11741658177bb8656bb7268a10fe5be362b73540f81de41f7",
+      "materials": [
+        "Perimeter_62_material"
+      ]
+    },
+    "Perimeter_63": {
+      "sha256": "acbfcb318d96a83d29603b2f979d7b87c93bfb8a66cffb5f822c274326b485ec",
+      "materials": [
+        "Perimeter_63_material"
+      ]
+    },
+    "Perimeter_64": {
+      "sha256": "f65c82178067b9e33c83a3a8dbbeb8e2b569dcf6243149007efaf5825e93302f",
+      "materials": [
+        "Perimeter_64_material"
+      ]
+    },
+    "Perimeter_65": {
+      "sha256": "7e407a1498a9f3855dc98e1cd3edc0b1b1d8b972beed86aef4aa2ce09e8b0d3b",
+      "materials": [
+        "Perimeter_65_material"
+      ]
+    },
+    "Perimeter_66": {
+      "sha256": "0c86f0462670c2d8f6d7a2b1ef1c0ee6c0f046d35a2bb58ca07e31b14b976485",
+      "materials": [
+        "Perimeter_66_material"
+      ]
+    },
+    "Perimeter_67": {
+      "sha256": "b5c500ca1fc331d8c8e8bce36bcb5623fe38cfe4687689453794e28f5828f92a",
+      "materials": [
+        "Perimeter_67_material"
+      ]
+    },
+    "Perimeter_68": {
+      "sha256": "512bb8aa56dfc992f9b6af3a43fb16028c773dddf095274e8817236afe58c735",
+      "materials": [
+        "Perimeter_68_material"
+      ]
+    },
+    "Perimeter_69": {
+      "sha256": "6ce6e97763182b53df7b99b1037329d3bdd9ad1db72de25f866b17128381d1c2",
+      "materials": [
+        "Perimeter_69_material"
+      ]
+    },
+    "Perimeter_70": {
+      "sha256": "f8125f3d7e695f3bba73fafd795a5fc417f95887042e1e8b442a4931b100950b",
+      "materials": [
+        "Perimeter_70_material"
+      ]
+    },
+    "Perimeter_71": {
+      "sha256": "cc7359b6b6961694628428be6c7e3e6d2734fe9039ad6efcb68dfe65ea275729",
+      "materials": [
+        "Perimeter_71_material"
+      ]
+    },
+    "Perimeter_72": {
+      "sha256": "1ec5c1cfc33410e79f13d2722596940f38cfbafaaf41a5be72c63032461ca34a",
+      "materials": [
+        "Perimeter_72_material"
+      ]
+    },
+    "Perimeter_73": {
+      "sha256": "e872e8e35590bee140039870fdd8882aa339d72fda5730a4b69496a2f6daa751",
+      "materials": [
+        "Perimeter_73_material"
+      ]
+    },
+    "Perimeter_74": {
+      "sha256": "5108824aa78bf0f6a147a6e1d62fc3ec0cf1ac041305d56f4210a5fae8ddd7a4",
+      "materials": [
+        "Perimeter_74_material"
+      ]
+    },
+    "Perimeter_75": {
+      "sha256": "4652c6003c237c403579c5632197ffc14e7f0141831b77682539a96b40499a3e",
+      "materials": [
+        "Perimeter_75_material"
+      ]
+    },
+    "Perimeter_76": {
+      "sha256": "ddd0ac88913ccaddd7277fb25d34b137a3c6ed97bdefaa834ea7502ba8156226",
+      "materials": [
+        "Perimeter_76_material"
+      ]
+    },
+    "Perimeter_78": {
+      "sha256": "22780fe6c1cc4417ae0b2a2a6865ef25fa3e9ea9663ec813f865f4cf34ab3775",
+      "materials": [
+        "Perimeter_78_material"
+      ]
+    },
+    "Perimeter_79": {
+      "sha256": "10b3b7a00826366d39bd50249483cfcfd3989d504777abc7797c6d22bb15af5d",
+      "materials": [
+        "Perimeter_79_material"
+      ]
+    },
+    "Perimeter_80": {
+      "sha256": "0e2450d36a1f7567d71b6c3dde2c7fbb6b84327f84d4136d002c45bcea956aca",
+      "materials": [
+        "Perimeter_80_material"
+      ]
+    },
+    "Perimeter_81": {
+      "sha256": "cf3705c4241e2fb69fe44563688c49af9cc2bbcbe4ae526b0e9711195e54779d",
+      "materials": [
+        "Perimeter_81_material"
+      ]
+    },
+    "Perimeter_82": {
+      "sha256": "ec7c7e272e038ff03a2e7c753bf9fc89ef124bf87142621c7d3d68cf1ffa8250",
+      "materials": [
+        "Perimeter_82_material"
+      ]
+    },
+    "Perimeter_83": {
+      "sha256": "6594a857ed862e8286bc80d52fd9983e4e64bff1c99b99c725832f5dba7a7ccc",
+      "materials": [
+        "Perimeter_83_material"
+      ]
+    },
+    "Perimeter_84": {
+      "sha256": "ae891886e908602e4c8e7ac679a82ad7138d08183cb66d6f0bf1242b82c0cdd6",
+      "materials": [
+        "Perimeter_84_material"
+      ]
+    },
+    "Perimeter_85": {
+      "sha256": "3f07892a39029c8f405f8631e51b57bb741edcc45d82ffe222e9ee81ff968873",
+      "materials": [
+        "Perimeter_85_material"
+      ]
+    },
+    "Perimeter_86": {
+      "sha256": "b2b10f5e03b7ace41276f2ff3f571d064e0e3ed425b21c42146bbf2c52d53435",
+      "materials": [
+        "Obsidian clinical structure"
+      ]
+    },
+    "Perimeter_87": {
+      "sha256": "db22437d862aaeb172e791444943a3591a87cdc95be4fefd96c460d0c481f65c",
+      "materials": [
+        "Perimeter_87_material"
+      ]
+    },
+    "Perimeter_88": {
+      "sha256": "39435f8fab1e89a6282b0816555e6eef521778fcb2c3a39cfe8eb7b65aaf68bb",
+      "materials": [
+        "Perimeter_88_material"
+      ]
+    },
+    "Perimeter_89": {
+      "sha256": "f8acb2c431dfafa8bb0d9f9cebf0fa7e0dd11bd5f4850d1ca39fd909ca1d1ede",
+      "materials": [
+        "Perimeter_89_material"
+      ]
+    },
+    "PressureVessel_3": {
+      "sha256": "3cfdfce36e206d5b2284ef96473033b32e00692414d53a8fef20e2a7a66ef897",
+      "materials": [
+        "PressureVessel_3_material"
+      ]
+    },
+    "PressureVessel_4": {
+      "sha256": "ebe3958216176c0d6734008210c6a473035729ad59fd7c9bebe193b93a783813",
+      "materials": [
+        "PressureVessel_4_material"
+      ]
+    },
+    "PressureVessel_5": {
+      "sha256": "8d6821cf62d1e100a25c7cd4412adabedf4a9a09e9c254e5d1b80d430a687594",
+      "materials": [
+        "PressureVessel_5_material"
+      ]
+    },
+    "PressureVessel_6": {
+      "sha256": "dc389127638f554ed3f01047cff7f9af345589ef5f944a6333485d565ae284d7",
+      "materials": [
+        "Ivory pressure vessel castings"
+      ]
+    },
+    "PressureVessel_7": {
+      "sha256": "da0ac13304d588a36d7e18d8c3232b14cba7baea0d11059019bf76b69769b251",
+      "materials": [
+        "PressureVessel_7_material"
+      ]
+    },
+    "PressureVessel_8": {
+      "sha256": "1aff51211a64a073643065b38aa4175efe2f81831b68f7f0e3ebcf7219234c22",
+      "materials": [
+        "PressureVessel_8_material"
+      ]
+    },
+    "SterilizationArch_12": {
+      "sha256": "e27ddaa6e307c4e1c9a151953fd669bf7c56c04dd8903848b757099559094c28",
+      "materials": [
+        "SterilizationArch_12_material"
+      ]
+    },
+    "SterilizationArch_35": {
+      "sha256": "0379a8fc734e712d69cf178b19345458a483c954581e574e95d05af9adebd4db",
+      "materials": [
+        "Satin graphite bridge alloy"
+      ]
+    }
+  },
+  "authored_roles": [
+    "MeasuredCatwalkAndRails",
+    "MeasuredFloor",
+    "MeasuredHullBacking",
+    "MeasuredOpenCeilingRibs",
+    "MeasuredWestStaircase",
+    "NativeMovingGateVisual",
+    "NativeTerminalVisual"
+  ],
+  "combined_sha256": "532e97591079a477d3c2090088192b36940c9a06f978527f3e9087ea1e30be90",
+  "triangles": 1222654,
+  "objects": 85,
+  "source_geometry_generation_repeated": false
+}

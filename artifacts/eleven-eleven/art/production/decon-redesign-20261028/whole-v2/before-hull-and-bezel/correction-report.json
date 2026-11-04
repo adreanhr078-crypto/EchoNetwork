@@ -1,0 +1,520 @@
+{
+  "scope": "One complete multiview Tripo room corrected as an editable kit;native metred floor/stair/deck/ceiling geometry replaces duplicated generated interior. All original source preserved.",
+  "roles": [
+    {
+      "source": 0,
+      "role": "generated perimeter retained",
+      "faces_before": 267608,
+      "faces_after": 4919
+    },
+    {
+      "source": 1,
+      "role": "generated perimeter retained",
+      "faces_before": 75743,
+      "faces_after": 72474
+    },
+    {
+      "source": 11,
+      "role": "generated perimeter retained",
+      "faces_before": 64351,
+      "faces_after": 62566
+    },
+    {
+      "source": 12,
+      "role": "one of two retained arches",
+      "target_native": [
+        0,
+        0,
+        -6.5
+      ]
+    },
+    {
+      "source": 13,
+      "role": "generated perimeter retained",
+      "faces_before": 43691,
+      "faces_after": 42168
+    },
+    {
+      "source": 14,
+      "role": "generated perimeter retained",
+      "faces_before": 49101,
+      "faces_after": 32697
+    },
+    {
+      "source": 15,
+      "role": "generated perimeter retained",
+      "faces_before": 70185,
+      "faces_after": 38394
+    },
+    {
+      "source": 18,
+      "role": "generated perimeter retained",
+      "faces_before": 16502,
+      "faces_after": 12716
+    },
+    {
+      "source": 19,
+      "role": "generated perimeter retained",
+      "faces_before": 41106,
+      "faces_after": 39770
+    },
+    {
+      "source": 2,
+      "role": "generated perimeter retained",
+      "faces_before": 54621,
+      "faces_after": 44089
+    },
+    {
+      "source": 20,
+      "role": "generated perimeter retained",
+      "faces_before": 25835,
+      "faces_after": 24784
+    },
+    {
+      "source": 21,
+      "role": "generated perimeter retained",
+      "faces_before": 56718,
+      "faces_after": 40528
+    },
+    {
+      "source": 22,
+      "role": "generated perimeter retained",
+      "faces_before": 17940,
+      "faces_after": 17830
+    },
+    {
+      "source": 23,
+      "role": "generated perimeter retained",
+      "faces_before": 22741,
+      "faces_after": 22191
+    },
+    {
+      "source": 24,
+      "role": "generated perimeter retained",
+      "faces_before": 16979,
+      "faces_after": 16027
+    },
+    {
+      "source": 25,
+      "role": "generated perimeter retained",
+      "faces_before": 17293,
+      "faces_after": 17146
+    },
+    {
+      "source": 26,
+      "role": "generated perimeter retained",
+      "faces_before": 13651,
+      "faces_after": 13266
+    },
+    {
+      "source": 27,
+      "role": "generated perimeter retained",
+      "faces_before": 13815,
+      "faces_after": 12958
+    },
+    {
+      "source": 28,
+      "role": "generated perimeter retained",
+      "faces_before": 11692,
+      "faces_after": 11151
+    },
+    {
+      "source": 29,
+      "role": "generated perimeter retained",
+      "faces_before": 50766,
+      "faces_after": 21882
+    },
+    {
+      "source": 3,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        6.5,
+        0,
+        -16
+      ]
+    },
+    {
+      "source": 31,
+      "role": "generated perimeter retained",
+      "faces_before": 23458,
+      "faces_after": 22309
+    },
+    {
+      "source": 33,
+      "role": "generated perimeter retained",
+      "faces_before": 14310,
+      "faces_after": 13686
+    },
+    {
+      "source": 34,
+      "role": "generated perimeter retained",
+      "faces_before": 14387,
+      "faces_after": 10323
+    },
+    {
+      "source": 35,
+      "role": "one of two retained arches",
+      "target_native": [
+        0,
+        0,
+        -3.5
+      ]
+    },
+    {
+      "source": 36,
+      "role": "duplicate arch removed"
+    },
+    {
+      "source": 37,
+      "role": "duplicate arch removed"
+    },
+    {
+      "source": 38,
+      "role": "generated perimeter retained",
+      "faces_before": 11181,
+      "faces_after": 11154
+    },
+    {
+      "source": 39,
+      "role": "generated perimeter retained",
+      "faces_before": 10871,
+      "faces_after": 10871
+    },
+    {
+      "source": 4,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        -6.5,
+        0,
+        -11
+      ]
+    },
+    {
+      "source": 40,
+      "role": "generated perimeter retained",
+      "faces_before": 10309,
+      "faces_after": 780
+    },
+    {
+      "source": 41,
+      "role": "generated perimeter retained",
+      "faces_before": 9548,
+      "faces_after": 9149
+    },
+    {
+      "source": 42,
+      "role": "generated perimeter retained",
+      "faces_before": 9297,
+      "faces_after": 8675
+    },
+    {
+      "source": 43,
+      "role": "generated perimeter retained",
+      "faces_before": 8987,
+      "faces_after": 8987
+    },
+    {
+      "source": 45,
+      "role": "generated perimeter retained",
+      "faces_before": 8409,
+      "faces_after": 8397
+    },
+    {
+      "source": 46,
+      "role": "generated perimeter retained",
+      "faces_before": 8287,
+      "faces_after": 1342
+    },
+    {
+      "source": 47,
+      "role": "generated perimeter retained",
+      "faces_before": 7652,
+      "faces_after": 1164
+    },
+    {
+      "source": 48,
+      "role": "generated perimeter retained",
+      "faces_before": 7543,
+      "faces_after": 7498
+    },
+    {
+      "source": 5,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        6.5,
+        0,
+        -11
+      ]
+    },
+    {
+      "source": 50,
+      "role": "generated perimeter retained",
+      "faces_before": 7269,
+      "faces_after": 6540
+    },
+    {
+      "source": 51,
+      "role": "generated perimeter retained",
+      "faces_before": 7171,
+      "faces_after": 6989
+    },
+    {
+      "source": 52,
+      "role": "generated perimeter retained",
+      "faces_before": 7177,
+      "faces_after": 1439
+    },
+    {
+      "source": 53,
+      "role": "generated perimeter retained",
+      "faces_before": 7197,
+      "faces_after": 6545
+    },
+    {
+      "source": 54,
+      "role": "generated perimeter retained",
+      "faces_before": 7053,
+      "faces_after": 6972
+    },
+    {
+      "source": 56,
+      "role": "generated perimeter retained",
+      "faces_before": 5915,
+      "faces_after": 5052
+    },
+    {
+      "source": 57,
+      "role": "generated perimeter retained",
+      "faces_before": 5825,
+      "faces_after": 5825
+    },
+    {
+      "source": 58,
+      "role": "generated perimeter retained",
+      "faces_before": 5798,
+      "faces_after": 5535
+    },
+    {
+      "source": 6,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        6.5,
+        0,
+        -21
+      ]
+    },
+    {
+      "source": 60,
+      "role": "generated perimeter retained",
+      "faces_before": 5783,
+      "faces_after": 5654
+    },
+    {
+      "source": 61,
+      "role": "generated perimeter retained",
+      "faces_before": 5759,
+      "faces_after": 5706
+    },
+    {
+      "source": 62,
+      "role": "generated perimeter retained",
+      "faces_before": 5517,
+      "faces_after": 5111
+    },
+    {
+      "source": 63,
+      "role": "generated perimeter retained",
+      "faces_before": 5460,
+      "faces_after": 5460
+    },
+    {
+      "source": 64,
+      "role": "generated perimeter retained",
+      "faces_before": 5390,
+      "faces_after": 5141
+    },
+    {
+      "source": 65,
+      "role": "generated perimeter retained",
+      "faces_before": 5091,
+      "faces_after": 4170
+    },
+    {
+      "source": 66,
+      "role": "generated perimeter retained",
+      "faces_before": 4933,
+      "faces_after": 4744
+    },
+    {
+      "source": 67,
+      "role": "generated perimeter retained",
+      "faces_before": 4546,
+      "faces_after": 3501
+    },
+    {
+      "source": 68,
+      "role": "generated perimeter retained",
+      "faces_before": 4258,
+      "faces_after": 3571
+    },
+    {
+      "source": 69,
+      "role": "generated perimeter retained",
+      "faces_before": 4101,
+      "faces_after": 862
+    },
+    {
+      "source": 7,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        -6.5,
+        0,
+        -16
+      ]
+    },
+    {
+      "source": 70,
+      "role": "generated perimeter retained",
+      "faces_before": 3990,
+      "faces_after": 3990
+    },
+    {
+      "source": 71,
+      "role": "generated perimeter retained",
+      "faces_before": 3935,
+      "faces_after": 296
+    },
+    {
+      "source": 72,
+      "role": "generated perimeter retained",
+      "faces_before": 3902,
+      "faces_after": 31
+    },
+    {
+      "source": 73,
+      "role": "generated perimeter retained",
+      "faces_before": 3728,
+      "faces_after": 3728
+    },
+    {
+      "source": 74,
+      "role": "generated perimeter retained",
+      "faces_before": 3685,
+      "faces_after": 3685
+    },
+    {
+      "source": 75,
+      "role": "generated perimeter retained",
+      "faces_before": 3681,
+      "faces_after": 3681
+    },
+    {
+      "source": 76,
+      "role": "generated perimeter retained",
+      "faces_before": 3651,
+      "faces_after": 3651
+    },
+    {
+      "source": 78,
+      "role": "generated perimeter retained",
+      "faces_before": 3447,
+      "faces_after": 3364
+    },
+    {
+      "source": 79,
+      "role": "generated perimeter retained",
+      "faces_before": 3234,
+      "faces_after": 1489
+    },
+    {
+      "source": 8,
+      "role": "one of six pressure vessels",
+      "target_native": [
+        -6.5,
+        0,
+        -21
+      ]
+    },
+    {
+      "source": 80,
+      "role": "generated perimeter retained",
+      "faces_before": 3165,
+      "faces_after": 3165
+    },
+    {
+      "source": 81,
+      "role": "generated perimeter retained",
+      "faces_before": 3092,
+      "faces_after": 3092
+    },
+    {
+      "source": 82,
+      "role": "generated perimeter retained",
+      "faces_before": 3011,
+      "faces_after": 3011
+    },
+    {
+      "source": 83,
+      "role": "generated perimeter retained",
+      "faces_before": 2973,
+      "faces_after": 144
+    },
+    {
+      "source": 84,
+      "role": "generated perimeter retained",
+      "faces_before": 2621,
+      "faces_after": 2621
+    },
+    {
+      "source": 85,
+      "role": "generated perimeter retained",
+      "faces_before": 2617,
+      "faces_after": 2210
+    },
+    {
+      "source": 86,
+      "role": "generated perimeter retained",
+      "faces_before": 2567,
+      "faces_after": 2567
+    },
+    {
+      "source": 87,
+      "role": "generated perimeter retained",
+      "faces_before": 2403,
+      "faces_after": 2403
+    },
+    {
+      "source": 88,
+      "role": "generated perimeter retained",
+      "faces_before": 2340,
+      "faces_after": 2340
+    },
+    {
+      "source": 89,
+      "role": "generated perimeter retained",
+      "faces_before": 2120,
+      "faces_after": 2120
+    },
+    {
+      "source": 9,
+      "role": "generated perimeter retained",
+      "faces_before": 58394,
+      "faces_after": 57499
+    }
+  ],
+  "floor_source_datums": {
+    "front": -0.42947,
+    "back": 0.40943,
+    "floor": 0.012
+  },
+  "perimeter_fit_xyz": [
+    35.41912632821724,
+    38.145190129932054,
+    52.12758653962185
+  ],
+  "objects": 84,
+  "triangles": 1216638,
+  "native_landmarks": "6pods,2arches,one west staircase,one catwalk,one console,one dynamic exit leaf",
+  "portals": "Both door leaf regions removed;native aperture rendering guard remains required before integration",
+  "runtime_accepted": false
+}

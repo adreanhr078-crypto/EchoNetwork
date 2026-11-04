@@ -1,0 +1,87 @@
+{
+  "schema_version": 3,
+  "cache_updated_utc": "2026-10-28T12:04:31.299842+00:00",
+  "checkpoint": "CP45_ROOM02_WHOLE_TRIPO_STORMWORKS_NATIVE_4K",
+  "status": "ROOM07_REFERENCES_READY_TRIPO_BROWSER_DISCONNECTED",
+  "read_policy": "Read CURRENT_WORK and this compact cache,then only affected source/current log. Do not replay chat or historical logs.",
+  "agent_policy": {
+    "execution": "ROOT_ONLY",
+    "agents": "Stopped;never restart without direct owner request",
+    "adviser": "Argon High",
+    "adviser_session": "https://gemini.google.com/u/2/app/9dc84839d070dae7"
+  },
+  "cache_policy": "Refresh at milestones or about45active work minutes. Model prompt caching is automatic and not directly controlled;do not promise quota duration or100percent cache. Do not clear browser sign-ins or delete unique sources.",
+  "master_plan": "docs/internal/production/CHAPTER_QUALITY_MASTER_2026-10-24.ar.md",
+  "execution_queue": "docs/internal/production/QUALITY_EXECUTION_QUEUE.json",
+  "room_inventory": "docs/internal/production/ROOM_QUALITY_INVENTORY.json",
+  "invariants": [
+    "Canon/PART_3/EX-011/sourcefilm/Golden192/V31/sourcekeys protected",
+    "SFX_ONLY;no music;no powers before earned Zero contract",
+    "Rooms first,then Echo model/rig/custom animation and combat",
+    "Root may use available Tripo/Flow credits and normal legitimate commit/push;no purchase/upgrade/force/history rewrite/repo deletion",
+    "Opening sequence remains looping title -> real Manhwa cover puzzle -> fracture -> cinematic -> Echo awakening",
+    "Preserve dirty/staged/untracked work;generated video never proves gameplay"
+  ],
+  "active": {
+    "folder": "art/production/maintenance-parkour-rebuild-20261027",
+    "room_scene": "godot/scenes/environment/maintenance_stormworks.tscn",
+    "native_candidate": "godot/tests/scenes/stormworks_native_candidate.tscn",
+    "controller": "godot/scripts/systems/stormworks_journey_preview.gd",
+    "route": "godot/scripts/systems/stormworks_route.gd",
+    "checkpoint": "godot/scripts/systems/stormworks_checkpoint.gd",
+    "layout_revision": "stormworks-20261027-v3",
+    "visual": "godot/assets/environments/maintenance_stormworks/stormworks_original_pbr_metric_v8.glb",
+    "collision": "godot/assets/environments/maintenance_stormworks/stormworks_collision_portal_v7.glb",
+    "source_hashes": "art/production/maintenance-parkour-rebuild-20261027/native-current-source-hashes.json",
+    "production_main_status": "NewStormworkscontroller promoted and freshwholechapter353passed. Active currentevidence report:audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/quality-report.json",
+    "art_changes": "v8 identity visual root;v7 collision unchanged. Shared Tripo wall cassettes,9ceiling luminaires,metre-authored beveled gate/six-spoke wheel/bulkhead under preserved motion roots. Current import/review pending."
+  },
+  "tripo": {
+    "original_root": "5902b46f-a4ad-4b06-a5d2-3cf4a772bd5a",
+    "original_charge": 85,
+    "atlas_root": "36493eb5-a68d-4613-8ba7-db832165235a",
+    "atlas_charge": 25,
+    "last_verified_balance": 2540,
+    "total_new_room_charge": 110,
+    "paid_jobs_running": false,
+    "actual_atlas": "3maps4096x4096;27mesh roles;1material. All original geometry hashes retained through atlas transfer. Onlypart0 rear portal/recess later cut precisely.",
+    "atlas_registration": "960568vertices;uniformscale+yaw90;max2.82e-5normalized;1714250exactface matches+94adjacentface matches;allUVcorner errorsunder2.9e-5",
+    "ledger": "art/production/maintenance-parkour-rebuild-20261027/atlas-generation-ledger.json",
+    "rejected": "Earlier cross-scene exports must not be uploaded/used. Sources/superseded exports preserved."
+  },
+  "proofs": {
+    "isolated": "10actual-input checksPASS:firstcatch/mantle,3gaps,vault,finalcatch/mantle;one initial anchor,no later teleports.",
+    "native": "NativeHighv8:27checksPASS,11actual Forward+High player captures reviewed. One initial anchor+openingfixture. No powers. Actual save/control/IK/door/security/6rooms+6conduits confirmed. Final rigid wheelspoke alignment/leaf-fit refined after this run;route/collision/contactauthority unchanged.",
+    "portal": "V7closed capsule blockedbyServiceGateCollision;open sweep clear;wheel standing clear. Sourcepart0 had blocked both before correction.",
+    "checkpoint": "15validation/migration/atomic/recovery checksPASS. Legacy intermediate anchors reset;legacy completed routes retained.",
+    "current_high": "Highv2 completed:26functional checksPASS,11actual Forward+High player captures inspected;art REJECTED because atlas mosaic/black perimeter/placeholder service props. Not chapter/performance acceptance.",
+    "golden": "192protectedfilesPASS after runtime/motioncontact edits",
+    "postflight": "ALLCHECKSPASSED after production main promotion and fresh connected353 review. Content,TypeScript,foundation tests,build/registry/boot/save checks passed.",
+    "art_diagnosis": "Controlled LOD1/18.33/128 did not remove mosaic. Original per-part UV/PBR clearly outperformed atlas under same camera/light. v8 preserves27roles,81adaptive32..2048maps,allUVs,native positions zero error;no claim all4K.",
+    "lifecycle": "51checksPASS from byte-identical actual earned-stage5:normal/pause/skip/RM/mute,handcontact,stage6freshscene silentrestore,actual failed-save attempt blockswheel/receipt,actualretryrecovers. Source earnedfile unchanged.",
+    "fresh_chapter": "353checksPASS from actual fresh awakening,allnewparkour/service/security,all6campaignrooms,explicitpact/controlledmelee/solewish,physicalbreach,hospital/skinmark. 0recoveryrelocations;7finalcompleted. Headlessfunctional proof,notacting/audio/performance/humanfun acceptance.",
+    "current_art": "Four final fitted Forward+High fixed-camera views inspected;current sourcehashguardunchanged. 11nativeHighv8player/cinematic captures inspected. Singleatlasrejected;v8originalUV/PBRaccepted within environmentalartscope. Bright edge highlights/floor finish and avatarcraft limits remain documented."
+  },
+  "pending": [
+    "Inspect actual current Forward+captures with matching source hashes",
+    "Actual earned save/reload;Pause/RM/mute/skip and failed-save denial",
+    "Promote candidate into existing native_journey only after gates",
+    "Run connected chapter regression and normal commit/push verify remoteSHA",
+    "Other room art/interaction gates and later Echo rebuild remain open"
+  ],
+  "publication": {
+    "status": "VERIFIED_REMOTE_MAIN",
+    "commit": "d82ddccbb8d1f5bf267e4b4079838ca656a30e3e",
+    "scope": "549 selected current runtime/evidence files;82 historical LFS files remain local",
+    "large_file_warning": "GitHub accepted push with >50MB warnings;no storage was freed"
+  },
+  "next": "Restore browser connection;inspect current upload state before action;upload missing right/back arch views and verify geometry settings/60 credit cost before generating. Inspect resulting model opening and textures in Blender/Godot;then develop complete Room07 architecture.",
+  "active_room07": {
+    "state": "Four isolated arch concept views saved and visually inspected;front and left uploaded to Tripo before interruption;back and right not yet uploaded. No new 3D model submitted or accepted.",
+    "reference_folder": "art/production/decon-redesign-20261028",
+    "browser": "Tab listed but browser control returns browser.user is unavailable after interruption;prior Generate Multi-Views request failed to fetch;no verified model/charge",
+    "live_balance_last_verified": 2540,
+    "local_changes": "UV mist transparency,floor material and restrained emitter;actual Forward+ v4 7 checks pass;decon_presentation test pass;floor and full room architecture still dark and require redesign",
+    "publication": "Room02 commit d82ddccbb8d1f5bf267e4b4079838ca656a30e3e verified on remote;Room07 changes remain local"
+  }
+}

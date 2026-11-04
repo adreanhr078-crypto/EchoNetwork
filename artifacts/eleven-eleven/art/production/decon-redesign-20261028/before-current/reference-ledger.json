@@ -1,0 +1,46 @@
+{
+  "status": "IN_PROGRESS",
+  "entry": {
+    "path": "entry-wide-concept.png",
+    "status": "VISUAL_REFERENCE_ONLY"
+  },
+  "reverse_attempt01": {
+    "path": "reverse-attempt01-rejected.png",
+    "status": "REJECTED",
+    "reason": "Reproduces almost the same front camera and adds a second staircase;not a coherent reversed spatial view. Do not submit as a multiview image."
+  },
+  "baseline": "C:/Users/yasmo/Documents/Codex/2026-10-24/new-chat/outputs/quality-progress-20261025/decon-uv-earned-player-v2/review.json",
+  "current_uv": "C:/Users/yasmo/Documents/Codex/2026-10-24/new-chat/outputs/quality-progress-20261025/decon-uv-earned-player-v3/review.json",
+  "next": "Prepare an isolated arch asset;measure room geometry and generate genuinely different spatial views,not repeated aesthetic variations.",
+  "arch_front": {
+    "path": "arch-front-reference.png",
+    "sha256": "2d30c1c748c623421c4832422c5d43f49ed676b85abd620e5be638eb08580ab8",
+    "status": "FOUR_REFERENCES_PREPARED_FRONT_AND_LEFT_UPLOADED_BROWSER_DISCONNECTED",
+    "model": "H3.1 Best Quality",
+    "room_space": "4m wide,4.2m high,0.4m deep;opening3.2x3.8m",
+    "privacy": "Private",
+    "credit_balance_before": 2540,
+    "geometry_cost_shown": 60,
+    "geometry_submitted": false
+  },
+  "current_uv_review": "36 actual current frames visually inspected;visibility improved,architecture still requires rebuild;7 functional checks PASS and decon presentation test PASS",
+  "arch_views": {
+    "front": {
+      "path": "arch-front-reference.png",
+      "sha256": "2d30c1c748c623421c4832422c5d43f49ed676b85abd620e5be638eb08580ab8"
+    },
+    "left": {
+      "path": "arch-left-reference.png",
+      "sha256": "fe322549d1ff903aabc704c7817146bb4511b307ef618095ab094a8e2fbfba91"
+    },
+    "right": {
+      "path": "arch-right-reference.png",
+      "sha256": "d7f74053523ccc8bab3227d3f5d4d927dddcb0f50a53aed1e5e4978751ad9d53"
+    },
+    "back": {
+      "path": "arch-back-reference.png",
+      "sha256": "a6a18ccb9497d532de5409682aff30e705264728be75e6868bac9f06a2c64669"
+    }
+  },
+  "tripo": "Front and left uploaded before interruption;right/back not uploaded;no model generation submitted;browser control disconnected. User-visible balance was 2540."
+}

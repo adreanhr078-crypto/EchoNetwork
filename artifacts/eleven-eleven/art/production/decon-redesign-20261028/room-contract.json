@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "room": "07 decontamination and quarantine",
+  "status": "REBUILD_REFERENCES_IN_PROGRESS",
+  "size_m": [
+    24,
+    7.2,
+    32
+  ],
+  "entry": "south centered;native door opening 2.6m",
+  "exit": "north centered;native opening 2.05m,physical gate",
+  "landmarks": [
+    "two UV arches at z=-3.5 and -6.5",
+    "six quarantine pods at sides z=-11,-16,-21",
+    "left stair to catwalk y=3.2",
+    "override terminal and exit gate"
+  ],
+  "invariants": [
+    "keep real route and collision initially",
+    "save and restore, override/gate authority, audio mute, pause and reduced motion",
+    "no invented damaging UV hazard",
+    "no early magic or pact",
+    "retain source memory film"
+  ],
+  "visual_objective": "Replace dark simplistic layout with coherent clinical facility, articulated mechanical arches and pods, restrained cyan/violet lighting, clear central navigation and transparent sterilization mist.",
+  "concept": "entry-wide-concept.png",
+  "concept_scope": "Single conceptual still,not actual game scene;reverse generated attempt rejected as spatially inconsistent.",
+  "active_asset": "arch-front-reference.png;Tripo Generate Multi-Views in progress",
+  "gates": [
+    "four spatially coherent visual references",
+    "Flow media complete review including audio if generated",
+    "inspect Tripo actual geometry and materials",
+    "retain or adapt native physical route",
+    "actual player-camera review,save accessibility and connected journey",
+    "real-time performance and human fun remain separate"
+  ]
+}

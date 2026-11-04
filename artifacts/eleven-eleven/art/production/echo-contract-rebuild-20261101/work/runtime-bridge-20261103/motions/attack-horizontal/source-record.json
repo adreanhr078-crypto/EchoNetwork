@@ -1,0 +1,34 @@
+{
+  "candidate": {
+    "take_id": "088cddda8d40025753006381:0:b0913491",
+    "source_take": "Armature|mixamo.com|Layer0",
+    "slot": "Slot",
+    "rig": "Armature",
+    "rig_hash": "b09134910fb5b329b8d733ab7caa6f1e40e694662de6a41de1a3055d7cbe8a4e",
+    "source_frame_range": [
+      1.0,
+      73.0
+    ],
+    "sample_frames": 73,
+    "fps": 30.0,
+    "fps_evidence": "Blender source importer scene rate; source metadata verification pending",
+    "duration_seconds": 2.4,
+    "pose_cache": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\audits\\evidence\\chapter-cp45-20261020\\stage11\\native-attack-20261023\\horizontal\\poses\\088cddda8d40025753006381_0_b0913491.npz",
+    "metrics": {
+      "finite": true,
+      "bone_count": 65,
+      "source_scale_min": 0.009999990463256836,
+      "source_scale_max": 0.010000007227063179,
+      "missing_roles": [],
+      "hips_net_horizontal_displacement_source_units": 6.5279003536034e-08,
+      "pose_fingerprint": "f1325b3f971447deedffb908e0c0b015dbddd2aa108b252dddcc3d23318c2632"
+    },
+    "approval_status": "unreviewed",
+    "file_sha256": "088cddda8d40025753006381f1bfcbe77e101d5dca5875e83a5a5ffdab2dabad",
+    "original_filename": "Standing Melee Attack Horizontal.fbx"
+  },
+  "entry": {
+    "sha256": "088cddda8d40025753006381f1bfcbe77e101d5dca5875e83a5a5ffdab2dabad",
+    "working_copy": "art/production/echo-attack-cp45-20261023/Standing Melee Attack Horizontal.fbx"
+  }
+}

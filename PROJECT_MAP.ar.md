@@ -1,38 +1,20 @@
-<!-- ARCHIVE_LATEST_20261025 -->
-CP45: قبول الأرشيف05 الثابت High نطاقياً مع48 شرط عبور/0إعادة وحفظ مكتسب مستأنف؛ التالي المفاعل06. ابدأ CURRENT_WORK/cache. الدليل audits/evidence/chapter-cp45-20261020/stage13/archive-20261025/quality-report.json.
-<!-- /ARCHIVE_LATEST_20261025 -->
+تحديث4نوفمبر: الخطة الحالية `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md`؛تنظيم المستودع في `docs/REPOSITORY_STRUCTURE.ar.md` وفحصه `npm run repo:check`. حزم المراجعة/الكاش المستبعدة محفوظة محليًا وسجلها `REPOSITORY_CLEANUP_2026-11-04.json`؛البطاقة والكاش يحددان حالة الرفع الفعلية. لا انتقال محرك أو تغييرCanon/Golden.
 
-<!-- SPECIMEN_SCOPE_20261025 -->
-CP45:العينات04اجتازت الفن الثابتHigh و33شرطًا وعبورًا عامًا0إعادة؛الخطة الكاملةOPEN.ابدأCURRENT_WORK/cache؛التالي جرد02/03/10ثم الصقل المثبت. دليلspecimen-20261025/quality-report.json.
-<!-- /SPECIMEN_SCOPE_20261025 -->
+تحديث3نوفمبر: `artifacts/eleven-eleven/docs/internal/production/EXPERIENCE_REBUILD_2026-11-03.ar.md` للخطة الحالية؛تحميل `godot/scripts/ui/chapter_loading_screen.gd` وتحكم `control_bindings.gd` عبر الأنظمة الموجودة. CURRENT_WORKوالكاش يحددان الأدلة والمرحلة التالية.
 
-> متابعة24 أكتوبر: CP45_STAGE13_LAB_STATIC_HIGH_ART_HD105_PASS_P03_PARTIAL — مختبر105/60/9 وGolden192 وقبول فن ثابت نطاقي؛P03 جزئي وبقية الخطة مفتوحة. اقرأ CURRENT_WORK والكاش.
+# خريطة 11.11 الحالية — 2 نوفمبر 2026
 
-# خريطة 11.11 / EchoNetwork — 24 أكتوبر 2026
+المستودع `C:/Users/yasmo/EchoNetwork`؛ التطبيق `artifacts/eleven-eleven/`؛ اللعب Godot4.8-dev7. لا مشروع أو لاعب موازٍ.
 
-الحالة: **CP45_STAGE13_PACKED_PBR_NATIVE_GATE_PASS_ART_OPEN**. العمل في المختبر: P01 الأداء وP02 الحرفة. لا قبول نهائي للغرفة أو الفصل.
+1. `docs/internal/production/CURRENT_WORK.ar.md` ثم `CURRENT_CONTEXT_CACHE.json` داخل التطبيق؛ اقرأ البوابة الحالية فقط.
+2. البصمات: `CURRENT_CONTEXT_SOURCE_HASHES.json`؛ فهرس المصادر العام `SOURCE_INDEX.json` والشجرة `WORK_TREE.ar.md`.
+3. خطة الشخصية/النواقص: `CHARACTER_FOUNDATION_PLAN.ar.md`؛ خطة الفصل `CHAPTER_QUALITY_MASTER_2026-10-24.ar.md` وحزم `QUALITY_EXECUTION_QUEUE.json`.
+4. اللاعب والتحكم: `godot/scripts/player/echo_player.gd`؛ المرشح `echo_school_motion_adapter.gd` و`scenes/characters/echo_school_candidate.tscn`؛ التشغيل الاختياري `--echo-school-candidate`، والافتراضي V31 محفوظ.
+5. الكاميرا/المواد/VFX: `godot/engine_visuals/` و`godot/scripts/combat/shader_applicator.gd`؛ الغرف `godot/scripts/environment/`، الرحلة `scripts/systems/native_journey_controller.gd` و`native_campaign_controller.gd`.
+6. School65: `art/production/echo-school-rebuild-20261029/`؛ 8 حركات أصلية/350 عينة + Wake A120/24Hz اختياري. الرحلة الحالية 30Hz81 headless/60Hz81 مرسومة PASS؛ تماس اليد والفن النهائي مفتوحان.
+7. هيئة العقد: `art/production/echo-contract-rebuild-20261101/production-packet.json`؛`work/wing-rig-v2/` مشتق72عظمة وSpringBone معزول30/60Hz؛3خرائط4K محفوظة؛ليس داخل اللعب،لا قوى قبل العقد.
+8. المختبر: `tools/character-lab/blender_lab.py` و`qualify_godot_motion.py`؛ الكاش `.tmp/echo-character-lab/`. Boxing96 نقل مختبري PASS، غير مدمج. الوجه `face/blink-retopology-20261102/`: تشخيص Godot7/9 PASS، تقاطعات/فن FAIL؛ لا دمج. Tripo عبر CodexIAB؛ 40 كريديت لهذه المحاولات، 1345 متحقق في ختام العمل؛ لا طلب إضافي.
+9. النهوض/الرحلة: `godot/tests/school_wake_review.gd` و`school_character_journey_review.gd`؛ التقرير الحالي `audits/evidence/character-school-20261102/wake-execution/quality-report.json`. تسلق11/إلغاء32 القديمان لمشهد صيانة قديم.
+10. Canon/المرحلة: `docs/internal/narrative/current/ar/manifest.json` و`docs/project-memory.json` و`docs/PROJECT_VISION.md`؛الخادم/الإيصالات فيfunctions/api وworkers،لا سلطة منالعرض.
 
-## مسار المتابعة الاقتصادي
-
-`AGENTS.md` → `artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md` → `CURRENT_CONTEXT_CACHE.json` → البوابة النشطة في `QUALITY_EXECUTION_QUEUE.json` → المصدر المتغير فقط. لا إعادة لسجل المحادثات.
-
-## ملفات التحكم
-
-| الملف داخل docs/internal/production | وظيفته |
-|---|---|
-| CURRENT_WORK.ar.md | بطاقة النتيجة والعيوب والفعل التالي |
-| CURRENT_CONTEXT_CACHE.json | حقائق موجزة مربوطة بالبصمات وحدود الأدلة |
-| QUALITY_EXECUTION_QUEUE.json | حالة حزم التنفيذ14 دون ادعاء قبولها |
-| CHAPTER_QUALITY_MASTER_2026-10-24.ar.md | الخطة الشاملة حتى المستشفى |
-| WORK_TREE.ar.md | اختيار المصدر لكل غرفة ونظام |
-| SOURCE_INDEX.json | البصمات الحالية، لا بديل للمراجعة الفعلية |
-
-## المصدر الفعلي
-
-التطبيق `artifacts/eleven-eleven/`. اللعب في `godot/scenes` و`scripts`، العرض المشترك في `godot/engine_visuals`، الأصول في `godot/assets`، مصادرBlender/Tripo وGolden في `art/production`، وأدلة العمل الحالي في `audits/evidence/chapter-cp45-20261020/stage13/resume-20261024c`.
-
-المختبر: `clinical_lab_architecture.gd` و`clinical_architecture_surface.gdshader` و`clinical_perimeter_packed.glb`؛ القياس `lab_performance_review.gd`؛ الإيقاف/الحفظ/الجودة `lab_presentation_lifecycle_review.gd` ثم مسار الفصل الموجود. مصادر الشخصية والحركة وGolden محفوظة. الويب والخادم يملكان الحساب والإيصالات؛ Godot يملك اللعب. Canon/PART_3/EX-011/SFX_ONLY ثابتة.
-
-الخريطة والبطاقة والكاش والشجرة قبل هذه المتابعة محفوظة في `audits/evidence/chapter-cp45-20261020/stage13/execution-20261024/before`. لا حذف أصول أو تاريخ فريد لتوفير القراءة. لا شراء أو نشر أو commit ضمن هذا العمل.
-
-آخر متابعة: شاشة11:11 الأصلية وشادر انتظار محلي، أدلة63/60/9؛ الفن وHigh على Intel UHD فشلا القبول. جرد10 غرف في ROOM_QUALITY_INVENTORY.json؛ لا إعادة01، ولا قبولHigh من صورLow. اقرأ البوابة الحالية في الكاش فقط.
+كل الغرف لها نطاقات دليل،لا قبول فصل/متعة/صوت/أجهزة شامل. Forward+العالم الكامل علىIntelUHDله فشل محفوظ. لا إعادة توليد غرف سليمة. الخرائط/الكاش القديمة الفريدة محفوظة في `docs/internal/production/archive/character-execution-20261101-before-cache/` داخل التطبيق.

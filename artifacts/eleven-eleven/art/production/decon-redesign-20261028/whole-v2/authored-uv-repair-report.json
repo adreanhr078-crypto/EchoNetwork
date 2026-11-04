@@ -1,0 +1,16 @@
+{
+  "source": "corrected-metric-source.blend",
+  "scope": "UV repair only for authored additions;existing whole-room generated geometry/materials preserved",
+  "objects": [
+    "MeasuredCatwalkAndRails",
+    "MeasuredFloor",
+    "MeasuredHullBacking",
+    "MeasuredOpenCeilingRibs",
+    "MeasuredWestStaircase",
+    "NativeMovingGateVisual",
+    "NativeTerminalVisual"
+  ],
+  "triangles": 56588,
+  "uv_status": "Known overlapping primitive UVs;explicit SmartUV repair required before texture",
+  "original_pbr": "corrected-tripo-pbr-source.glb preserved;exclude these seven material groups from final composite"
+}

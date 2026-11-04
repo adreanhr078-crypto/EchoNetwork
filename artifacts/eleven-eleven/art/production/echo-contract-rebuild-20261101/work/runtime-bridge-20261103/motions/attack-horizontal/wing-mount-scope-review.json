@@ -1,0 +1,10 @@
+{
+  "status": "SCOPED_REVIEWED_MOUNT_CANDIDATE",
+  "observations_sha256": "05b4cf99487773e88e46d349686c385861e0dee2cd7b2f2b464878f2d1d0b73a",
+  "captures_sha256": "284e7020f0ec3b079960303f8877dfb6fb4abed9a12d693445a4d7bcc6930c79",
+  "measured_maximum_contact_radius_m": 0.1267246403650608,
+  "reviewed_mount_envelope_m": 0.13,
+  "body_skin_change_m": 0.0,
+  "runtime_accepted": false,
+  "scope": "14 actual shoulder/wholebody views reviewed. All289 measured120Hz intersections are within12.6725cm of the anatomical mounting junction. Contacts at this junction are explicitly present,not declared collision-free. The earlier10cm/12.5cm diagnostic FAILs remain. Distal feathers,Godot/runtime/camera and final art acceptance separate."
+}

@@ -300,7 +300,6 @@ ziTxo9LS filter=lfs diff=lfs merge=lfs -text
 /artifacts/eleven-eleven/art/unity/migration/source-backups/godot-g0-vertical-slice-2026-09-12/assets/echo-g0-candidate.glb filter=lfs diff=lfs merge=lfs -text
 /artifacts/eleven-eleven/art/unity/migration/source-backups/godot-g0-vertical-slice-2026-09-12/assets/echo-g0-motion-study.glb filter=lfs diff=lfs merge=lfs -text
 artifacts/eleven-eleven/audits/evidence/** filter=lfs diff=lfs merge=lfs -text
-
 # Byte-frozen animation tools must survive checkout without CRLF conversion.
 /artifacts/eleven-eleven/art/production/master-animation-library/golden/walk-v1/** -text
 /artifacts/eleven-eleven/tools/animation-library/single_walk.py -text
@@ -374,7 +373,6 @@ artifacts/eleven-eleven/audits/evidence/** filter=lfs diff=lfs merge=lfs -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/precision-shadow-v1/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/presentation-v1/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/maintenance-20261025/traversal-v1/*.json !filter diff merge -text
-
 # Ordinary-Git exceptions for the selected 2026-10-26 publication paths; verified absent from HEAD and KEEP_LOCAL.
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage02/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage03/*.json !filter diff merge -text
@@ -1262,15 +1260,18 @@ artifacts/eleven-eleven/audits/evidence/** filter=lfs diff=lfs merge=lfs -text
 /artifacts/eleven-eleven/audits/evidence/quality-cp38-20261019/zero-vram-trial/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/system-cp39-20261019/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/system-cp39-20261019/*.txt !filter diff merge -text
-
 # Bounded new Room02 evidence packet:small review files remain ordinary Git.
 # Existing LFS files/history are unchanged;no quota or billing changes.
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/** !filter -diff -merge -text
 /artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/route/stormworks-connected-fresh-v1/** !filter -diff -merge -text
-
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/**/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/**/*.cfg !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/chapter-cp45-20261020/stage13/stormworks-20261027/**/*.txt !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/route/stormworks-connected-fresh-v1/**/*.json !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/route/stormworks-connected-fresh-v1/**/*.cfg !filter diff merge -text
 /artifacts/eleven-eleven/audits/evidence/pre-tripo-20261018/cp37/route/stormworks-connected-fresh-v1/**/*.txt !filter diff merge -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text

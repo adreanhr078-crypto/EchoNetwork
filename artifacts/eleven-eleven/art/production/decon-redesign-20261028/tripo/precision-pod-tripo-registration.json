@@ -1,0 +1,20 @@
+{
+  "scope": "Same authored geometry,Tripo texture/PBR only;floor origin corrected;no decimation",
+  "source_sha256": "35da5f57c9e9eebbbbfe5ac7709089f866ba19e010d0e69ee6d6a550fb1d8d7b",
+  "runtime_sha256": "49dd3e5f4b0f9de77a59390e1b126da3f8708ed3c48d0b6523bf9f1892eacf3b",
+  "source_triangles": 35672,
+  "candidate_triangles": 35096,
+  "uniform_scale": 2.754999876022339,
+  "quarter_turns_z": 1,
+  "max_registration_error_m": 6.740217941114679e-05,
+  "runtime_dimensions_m": [
+    2.696000099182129,
+    2.696000099182129,
+    2.754999876022339
+  ],
+  "materials": 49,
+  "images": 147,
+  "normal_mapped": 49,
+  "metallic_roughness_mapped": 49,
+  "runtime": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\environments\\decon_clinical\\decon_pod_precision_pbr.glb"
+}

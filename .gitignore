@@ -105,3 +105,14 @@ Tools/FlaxEngine/Binaries/
 Tools/FlaxEngine/Cache/
 tools/FlaxEngine/
 tools/FlaxEngine-1.12.6912/
+
+# Regenerable review packages stay local or belong in release storage.
+# Sources, manifests, logs and visual evidence remain versioned.
+/artifacts/eleven-eleven/audits/evidence/**/*.exe
+/artifacts/eleven-eleven/audits/evidence/**/*.pck
+/artifacts/eleven-eleven/audits/evidence/**/*.apk
+/artifacts/eleven-eleven/audits/evidence/**/*.aab
+/artifacts/eleven-eleven/audits/evidence/**/*.msix
+/artifacts/eleven-eleven/audits/evidence/**/*.msixbundle
+/artifacts/eleven-eleven/godot/Godot/app_userdata/
+/.tmp-tripo-godot-bridge-inspect/

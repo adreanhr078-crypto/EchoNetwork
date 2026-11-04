@@ -1,0 +1,16 @@
+{
+  "scope": "Actual Tripo UI component deletion and downloaded GLB scene-node verification;original local90-part source preserved",
+  "source_task": "32622978-6eb8-42a7-b706-6317302e0de5",
+  "removed_nodes": [
+    "tripo_part_10",
+    "tripo_part_32",
+    "tripo_part_36",
+    "tripo_part_37"
+  ],
+  "retained_mesh_nodes": 86,
+  "unreferenced_mesh_definitions": 4,
+  "unintended_scene_nodes_removed": 0,
+  "charge": 0,
+  "source_sha256": "094cabd98173396825f99941dad40d0e3e34e431888e84e7d05ac8e0fb75cd9c",
+  "note": "Eye visibility was insufficient:initial export retained90nodes;actual Delete removed4scene nodes. Raw container retains unusedmeshdefinitions,not drawn. This is source cleanup,not native/art acceptance."
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-29",
+  "task_root": "02fd2696-fb39-4bc3-8953-04ba886dc40f",
+  "input": "../authored-uv-kit-repaired.glb",
+  "input_sha256": "7f1d73d4ebfeab8f969501473ebf8eb7624704d362df77bf2c2a79635df89de2",
+  "scope": "Targeted materials for seven UV-repaired authored meshes; no geometry regeneration",
+  "upload": {"use_original_uv": true,"angle_xyz_degrees": [0,0,-45],"faces": 56588},
+  "operations": [
+    {"operation":"Texture","ui_resolution":"4K","remove_lighting":true,"charge":20,"status":"COMPLETED_UI_AND_DOWNLOADED"},
+    {"operation":"PBR","charge":5,"status":"COMPLETED_UI_AND_DOWNLOADED"}
+  ],
+  "balance_before_live": 2260,
+  "balance_after_live": 2235,
+  "total_charge": 25,
+  "download": "../authored-repaired-tripo-pbr-source.glb",
+  "registration": "../authored-repaired-registration-report.json",
+  "max_registration_error_m": 0.0007584560662508011,
+  "merge": "merge-report.json",
+  "generated_groups_retained": 78,
+  "combined_source": "../textured-metric-combined.glb",
+  "atlas": "../optimized/atlas-layout.json",
+  "atlas_size": 4096,
+  "atlas_linear_scale": 0.875,
+  "paid_jobs_running": false,
+  "native_art_acceptance": "PENDING",
+  "purchase_or_upgrade": false
+}

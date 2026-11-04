@@ -1,0 +1,117 @@
+{
+  "status": "IN_PROGRESS",
+  "entry": {
+    "path": "entry-wide-concept.png",
+    "status": "VISUAL_REFERENCE_ONLY"
+  },
+  "reverse_attempt01": {
+    "path": "reverse-attempt01-rejected.png",
+    "status": "REJECTED",
+    "reason": "Reproduces almost the same front camera and adds a second staircase;not a coherent reversed spatial view. Do not submit as a multiview image."
+  },
+  "baseline": "C:/Users/yasmo/Documents/Codex/2026-10-24/new-chat/outputs/quality-progress-20261025/decon-uv-earned-player-v2/review.json",
+  "current_uv": "C:/Users/yasmo/Documents/Codex/2026-10-24/new-chat/outputs/quality-progress-20261025/decon-uv-earned-player-v3/review.json",
+  "next": "Prepare an isolated arch asset;measure room geometry and generate genuinely different spatial views,not repeated aesthetic variations.",
+  "arch_front": {
+    "path": "arch-front-reference.png",
+    "sha256": "2d30c1c748c623421c4832422c5d43f49ed676b85abd620e5be638eb08580ab8",
+    "status": "FOUR_REFERENCES_PREPARED_FRONT_AND_LEFT_UPLOADED_BROWSER_DISCONNECTED",
+    "model": "H3.1 Best Quality",
+    "room_space": "4m wide,4.2m high,0.4m deep;opening3.2x3.8m",
+    "privacy": "Private",
+    "credit_balance_before": 2540,
+    "geometry_cost_shown": 60,
+    "geometry_submitted": false
+  },
+  "current_uv_review": "36 actual current frames visually inspected;visibility improved,architecture still requires rebuild;7 functional checks PASS and decon presentation test PASS",
+  "arch_views": {
+    "front": {
+      "path": "arch-front-reference.png",
+      "sha256": "2d30c1c748c623421c4832422c5d43f49ed676b85abd620e5be638eb08580ab8"
+    },
+    "left": {
+      "path": "arch-left-reference.png",
+      "sha256": "fe322549d1ff903aabc704c7817146bb4511b307ef618095ab094a8e2fbfba91"
+    },
+    "right": {
+      "path": "arch-right-reference.png",
+      "sha256": "d7f74053523ccc8bab3227d3f5d4d927dddcb0f50a53aed1e5e4978751ad9d53"
+    },
+    "back": {
+      "path": "arch-back-reference.png",
+      "sha256": "a6a18ccb9497d532de5409682aff30e705264728be75e6868bac9f06a2c64669"
+    }
+  },
+  "tripo": {
+    "task_id": "d0c76f99-a5c4-4dcb-81be-9164b93f7852",
+    "model": "H3.1",
+    "multiview": "front,left,right,back",
+    "charge": 60,
+    "balance_after": 2460,
+    "source": "tripo/arch-h31-source.glb",
+    "sha256": "233f4bfaf0fa33ed0c99cf8dc3af898e134fedab0a7577470f86528ec97b78f7",
+    "status": "EXPORTED_INSPECTION_PENDING",
+    "faces_ui": 1904696,
+    "texture_charge": 20,
+    "total_charge": 80,
+    "textured_source": "tripo/arch-h31-pbr4k-source.glb",
+    "runtime_candidate": "godot/assets/environments/decon_clinical/sterilization_arch_pbr4k.glb",
+    "actual_textures": "43 adaptive basecolor images 128..2048;UI4K is not 43 genuine4K maps;dedicated PBR validation remains OPEN"
+  },
+  "whole_room": {
+    "reference": "whole-room-cutaway-reference-v1.png",
+    "reference_sha256": "d959a48069da82e235cbae399f2ed992ecb7d58dc1d02ad3f6c9688d440d2c48",
+    "status": "TEXTURED_PBR_SOURCE_EXPORTED_NATIVE_FIT_OPEN",
+    "multiview_rejections": {
+      "whole-left-attempt01-rejected.png": "Adds seventh pod;not identical geometry",
+      "whole-right-attempt01-rejected.png": "Adds seventh pod;camera is similar to left rather than opposite",
+      "whole-reverse-attempt01-rejected.png": "Changes entrance-wall opening;not safe geometric evidence"
+    },
+    "native_route": "Measured adaptation remains required;reference is conceptual not a floor-plan survey",
+    "task_id": "ae2910bf-caa1-4885-90e5-a2183327e045",
+    "charge": 60,
+    "balance_after": 2375,
+    "model": "H3.1",
+    "input_count": 1,
+    "source": "tripo/whole-room-h31-segmented-source.glb",
+    "parts": 75,
+    "triangles": 1905888,
+    "texture_charge": 20,
+    "pbr_quoted_charge": 5,
+    "balance_last_verified": 2345,
+    "geometry_review": "Wall/arch soft generated features still not accepted;whole-room pod replaced with authored exact geometry and Tripo PBR",
+    "texture_resolution": "4K UI;actual map sizes need inspection",
+    "eight_k": "Requires plan upgrade;not purchased",
+    "pbr_charge": 5,
+    "total_charge": 85,
+    "textured_pbr_source": "tripo/whole-room-h31-textured-pbr-source.glb",
+    "container_report": {
+      "sha256": "9f0483b0839321d3f6cda0d2ba9009af2d48c6e624f32acdcf7df71698791306",
+      "bytes": 67833132,
+      "meshes": 75,
+      "images": 225,
+      "materials": 75,
+      "normal_mapped": 75,
+      "metallic_roughness_mapped": 75
+    }
+  },
+  "precision_pod": {
+    "geometry": "Authored precise castings/ribs;Tripo texture and PBR only;all six instances replaced",
+    "triangles_per_pod": 35096,
+    "dimensions_m": [
+      2.696000099182129,
+      2.696000099182129,
+      2.754999876022339
+    ],
+    "max_source_registration_error_m": 6.740217941114679e-05,
+    "material_count": 1,
+    "maps": "3x2048 runtime packed PBR;original adaptive part maps preserved",
+    "paid_charge_this_repair": 25,
+    "tripo_task": "10a9b3ba-37a9-406b-8653-86ad6e84e71f",
+    "verified_balance_before": 2370,
+    "verified_balance_after": 2345,
+    "source": "tripo/precision-pod-authored-source.blend",
+    "texture_pbr_source": "tripo/precision-pod-tripo-pbr-source.glb"
+  },
+  "balance_note": "Current repair verified2370->2345 for25credits;earlier reported2375 differed by5 before this repair;prior balance gap not reconciled"
+}

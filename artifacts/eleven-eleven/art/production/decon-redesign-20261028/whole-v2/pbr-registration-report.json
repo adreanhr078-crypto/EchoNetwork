@@ -1,0 +1,720 @@
+{
+  "status": "REGISTRATION_PASS_NOT_NATIVE_ACCEPTANCE",
+  "scale": 37.66665753286385,
+  "matrix": [
+    [
+      3.0257283691161355e-07,
+      -26.634346419295188,
+      -26.63435151294334,
+      8.770420354044825
+    ],
+    [
+      37.66665753286332,
+      -4.280706127462718e-06,
+      4.708607874124457e-06,
+      16.398611799168847
+    ],
+    [
+      -6.356404863554324e-06,
+      -26.634351512943,
+      26.63434641929477,
+      -5.672935597905246
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "source_vertices": 878764,
+  "candidate_vertices": 878528,
+  "all_candidate_vertices_verified": true,
+  "max_registration_error_m": 0.0009982563788071275,
+  "rms_registration_error_m": 0.00035886218212404885,
+  "source_sha256": "325b8d6384b5a38e24d02f3d1a3918faacdc7c59acaa6ef3569bb034c9c702e5",
+  "pbr_sha256": "370d0249fdad2f958b740c6dcf99843e211ee76c365664717d50dee90090b59c",
+  "roles": [
+    {
+      "node": "MeasuredCatwalkAndRails",
+      "source_node": "MeasuredCatwalkAndRails",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredCatwalkAndRails_material"
+      ]
+    },
+    {
+      "node": "MeasuredFloor",
+      "source_node": "MeasuredFloor",
+      "owner_match": 1.0,
+      "materials": [
+        "Satin ceramic walk surface"
+      ]
+    },
+    {
+      "node": "MeasuredHullBacking",
+      "source_node": "MeasuredHullBacking",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredHullBacking_material"
+      ]
+    },
+    {
+      "node": "MeasuredOpenCeilingRibs",
+      "source_node": "MeasuredOpenCeilingRibs",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredOpenCeilingRibs_material"
+      ]
+    },
+    {
+      "node": "MeasuredWestStaircase",
+      "source_node": "MeasuredWestStaircase",
+      "owner_match": 1.0,
+      "materials": [
+        "MeasuredWestStaircase_material"
+      ]
+    },
+    {
+      "node": "NativeMovingGateVisual",
+      "source_node": "NativeMovingGateVisual",
+      "owner_match": 1.0,
+      "materials": [
+        "NativeMovingGateVisual_material"
+      ]
+    },
+    {
+      "node": "NativeTerminalVisual",
+      "source_node": "NativeTerminalVisual",
+      "owner_match": 1.0,
+      "materials": [
+        "NativeTerminalVisual_material"
+      ]
+    },
+    {
+      "node": "Perimeter_00",
+      "source_node": "Perimeter_00",
+      "owner_match": 0.9666666666666667,
+      "materials": [
+        "Perimeter_00_material"
+      ]
+    },
+    {
+      "node": "Perimeter_01",
+      "source_node": "Perimeter_01",
+      "owner_match": 0.9966666666666667,
+      "materials": [
+        "Perimeter_01_material"
+      ]
+    },
+    {
+      "node": "Perimeter_02",
+      "source_node": "Perimeter_02",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_02_material"
+      ]
+    },
+    {
+      "node": "Perimeter_09",
+      "source_node": "Perimeter_09",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_09_material"
+      ]
+    },
+    {
+      "node": "Perimeter_11",
+      "source_node": "Perimeter_11",
+      "owner_match": 0.9933333333333333,
+      "materials": [
+        "Perimeter_11_material"
+      ]
+    },
+    {
+      "node": "Perimeter_13",
+      "source_node": "Perimeter_13",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_13_material"
+      ]
+    },
+    {
+      "node": "Perimeter_14",
+      "source_node": "Perimeter_14",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_14_material"
+      ]
+    },
+    {
+      "node": "Perimeter_15",
+      "source_node": "Perimeter_15",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_15_material"
+      ]
+    },
+    {
+      "node": "Perimeter_18",
+      "source_node": "Perimeter_18",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_18_material"
+      ]
+    },
+    {
+      "node": "Perimeter_19",
+      "source_node": "Perimeter_19",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_19_material"
+      ]
+    },
+    {
+      "node": "Perimeter_20",
+      "source_node": "Perimeter_20",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_20_material"
+      ]
+    },
+    {
+      "node": "Perimeter_21",
+      "source_node": "Perimeter_21",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_21_material"
+      ]
+    },
+    {
+      "node": "Perimeter_22",
+      "source_node": "Perimeter_22",
+      "owner_match": 0.9833333333333333,
+      "materials": [
+        "Perimeter_22_material"
+      ]
+    },
+    {
+      "node": "Perimeter_23",
+      "source_node": "Perimeter_23",
+      "owner_match": 0.9833333333333333,
+      "materials": [
+        "Perimeter_23_material"
+      ]
+    },
+    {
+      "node": "Perimeter_24",
+      "source_node": "Perimeter_24",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_24_material"
+      ]
+    },
+    {
+      "node": "Perimeter_25",
+      "source_node": "Perimeter_25",
+      "owner_match": 0.9766666666666667,
+      "materials": [
+        "Perimeter_25_material"
+      ]
+    },
+    {
+      "node": "Perimeter_26",
+      "source_node": "Perimeter_26",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_26_material"
+      ]
+    },
+    {
+      "node": "Perimeter_27",
+      "source_node": "Perimeter_27",
+      "owner_match": 0.9933333333333333,
+      "materials": [
+        "Perimeter_27_material"
+      ]
+    },
+    {
+      "node": "Perimeter_28",
+      "source_node": "Perimeter_28",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_28_material"
+      ]
+    },
+    {
+      "node": "Perimeter_29",
+      "source_node": "Perimeter_29",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_29_material"
+      ]
+    },
+    {
+      "node": "Perimeter_31",
+      "source_node": "Perimeter_31",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_31_material"
+      ]
+    },
+    {
+      "node": "Perimeter_33",
+      "source_node": "Perimeter_33",
+      "owner_match": 0.9833333333333333,
+      "materials": [
+        "Perimeter_33_material"
+      ]
+    },
+    {
+      "node": "Perimeter_34",
+      "source_node": "Perimeter_34",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_34_material"
+      ]
+    },
+    {
+      "node": "Perimeter_38",
+      "source_node": "Perimeter_38",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_38_material"
+      ]
+    },
+    {
+      "node": "Perimeter_39",
+      "source_node": "Perimeter_39",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_39_material"
+      ]
+    },
+    {
+      "node": "Perimeter_40",
+      "source_node": "Perimeter_40",
+      "owner_match": 0.94,
+      "materials": [
+        "Perimeter_40_material"
+      ]
+    },
+    {
+      "node": "Perimeter_41",
+      "source_node": "Perimeter_41",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_41_material"
+      ]
+    },
+    {
+      "node": "Perimeter_42",
+      "source_node": "Perimeter_42",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_42_material"
+      ]
+    },
+    {
+      "node": "Perimeter_43",
+      "source_node": "Perimeter_43",
+      "owner_match": 0.97,
+      "materials": [
+        "Perimeter_43_material"
+      ]
+    },
+    {
+      "node": "Perimeter_45",
+      "source_node": "Perimeter_45",
+      "owner_match": 0.99,
+      "materials": [
+        "Perimeter_45_material"
+      ]
+    },
+    {
+      "node": "Perimeter_46",
+      "source_node": "Perimeter_46",
+      "owner_match": 0.96,
+      "materials": [
+        "Perimeter_46_material"
+      ]
+    },
+    {
+      "node": "Perimeter_47",
+      "source_node": "Perimeter_47",
+      "owner_match": 0.9533333333333334,
+      "materials": [
+        "Perimeter_47_material"
+      ]
+    },
+    {
+      "node": "Perimeter_48",
+      "source_node": "Perimeter_48",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_48_material"
+      ]
+    },
+    {
+      "node": "Perimeter_50",
+      "source_node": "Perimeter_50",
+      "owner_match": 0.9633333333333334,
+      "materials": [
+        "Perimeter_50_material"
+      ]
+    },
+    {
+      "node": "Perimeter_51",
+      "source_node": "Perimeter_51",
+      "owner_match": 0.9633333333333334,
+      "materials": [
+        "Perimeter_51_material"
+      ]
+    },
+    {
+      "node": "Perimeter_52",
+      "source_node": "Perimeter_52",
+      "owner_match": 0.9733333333333334,
+      "materials": [
+        "Perimeter_52_material"
+      ]
+    },
+    {
+      "node": "Perimeter_53",
+      "source_node": "Perimeter_53",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_53_material"
+      ]
+    },
+    {
+      "node": "Perimeter_54",
+      "source_node": "Perimeter_54",
+      "owner_match": 0.97,
+      "materials": [
+        "Perimeter_54_material"
+      ]
+    },
+    {
+      "node": "Perimeter_56",
+      "source_node": "Perimeter_56",
+      "owner_match": 0.9633333333333334,
+      "materials": [
+        "Perimeter_56_material"
+      ]
+    },
+    {
+      "node": "Perimeter_57",
+      "source_node": "Perimeter_57",
+      "owner_match": 0.9766666666666667,
+      "materials": [
+        "Perimeter_57_material"
+      ]
+    },
+    {
+      "node": "Perimeter_58",
+      "source_node": "Perimeter_58",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_58_material"
+      ]
+    },
+    {
+      "node": "Perimeter_60",
+      "source_node": "Perimeter_60",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_60_material"
+      ]
+    },
+    {
+      "node": "Perimeter_61",
+      "source_node": "Perimeter_61",
+      "owner_match": 0.9666666666666667,
+      "materials": [
+        "Perimeter_61_material"
+      ]
+    },
+    {
+      "node": "Perimeter_62",
+      "source_node": "Perimeter_62",
+      "owner_match": 0.9733333333333334,
+      "materials": [
+        "Perimeter_62_material"
+      ]
+    },
+    {
+      "node": "Perimeter_63",
+      "source_node": "Perimeter_63",
+      "owner_match": 0.97,
+      "materials": [
+        "Perimeter_63_material"
+      ]
+    },
+    {
+      "node": "Perimeter_64",
+      "source_node": "Perimeter_64",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_64_material"
+      ]
+    },
+    {
+      "node": "Perimeter_65",
+      "source_node": "Perimeter_65",
+      "owner_match": 0.9933333333333333,
+      "materials": [
+        "Perimeter_65_material"
+      ]
+    },
+    {
+      "node": "Perimeter_66",
+      "source_node": "Perimeter_66",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_66_material"
+      ]
+    },
+    {
+      "node": "Perimeter_67",
+      "source_node": "Perimeter_67",
+      "owner_match": 0.9633333333333334,
+      "materials": [
+        "Perimeter_67_material"
+      ]
+    },
+    {
+      "node": "Perimeter_68",
+      "source_node": "Perimeter_68",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_68_material"
+      ]
+    },
+    {
+      "node": "Perimeter_69",
+      "source_node": "Perimeter_69",
+      "owner_match": 0.9566666666666667,
+      "materials": [
+        "Perimeter_69_material"
+      ]
+    },
+    {
+      "node": "Perimeter_70",
+      "source_node": "Perimeter_70",
+      "owner_match": 0.9733333333333334,
+      "materials": [
+        "Perimeter_70_material"
+      ]
+    },
+    {
+      "node": "Perimeter_71",
+      "source_node": "Perimeter_71",
+      "owner_match": 0.8620689655172413,
+      "materials": [
+        "Perimeter_71_material"
+      ]
+    },
+    {
+      "node": "Perimeter_72",
+      "source_node": "Perimeter_72",
+      "owner_match": 0.8823529411764706,
+      "materials": [
+        "Perimeter_72_material"
+      ]
+    },
+    {
+      "node": "Perimeter_73",
+      "source_node": "Perimeter_73",
+      "owner_match": 0.97,
+      "materials": [
+        "Perimeter_73_material"
+      ]
+    },
+    {
+      "node": "Perimeter_74",
+      "source_node": "Perimeter_74",
+      "owner_match": 0.98,
+      "materials": [
+        "Perimeter_74_material"
+      ]
+    },
+    {
+      "node": "Perimeter_75",
+      "source_node": "Perimeter_75",
+      "owner_match": 0.9866666666666667,
+      "materials": [
+        "Perimeter_75_material"
+      ]
+    },
+    {
+      "node": "Perimeter_76",
+      "source_node": "Perimeter_76",
+      "owner_match": 0.9633333333333334,
+      "materials": [
+        "Perimeter_76_material"
+      ]
+    },
+    {
+      "node": "Perimeter_78",
+      "source_node": "Perimeter_78",
+      "owner_match": 0.9433333333333334,
+      "materials": [
+        "Perimeter_78_material"
+      ]
+    },
+    {
+      "node": "Perimeter_79",
+      "source_node": "Perimeter_79",
+      "owner_match": 0.9433333333333334,
+      "materials": [
+        "Perimeter_79_material"
+      ]
+    },
+    {
+      "node": "Perimeter_80",
+      "source_node": "Perimeter_80",
+      "owner_match": 0.9566666666666667,
+      "materials": [
+        "Perimeter_80_material"
+      ]
+    },
+    {
+      "node": "Perimeter_81",
+      "source_node": "Perimeter_81",
+      "owner_match": 0.94,
+      "materials": [
+        "Perimeter_81_material"
+      ]
+    },
+    {
+      "node": "Perimeter_82",
+      "source_node": "Perimeter_82",
+      "owner_match": 0.9433333333333334,
+      "materials": [
+        "Perimeter_82_material"
+      ]
+    },
+    {
+      "node": "Perimeter_83",
+      "source_node": "Perimeter_83",
+      "owner_match": 0.912568306010929,
+      "materials": [
+        "Perimeter_83_material"
+      ]
+    },
+    {
+      "node": "Perimeter_84",
+      "source_node": "Perimeter_84",
+      "owner_match": 0.9466666666666667,
+      "materials": [
+        "Perimeter_84_material"
+      ]
+    },
+    {
+      "node": "Perimeter_85",
+      "source_node": "Perimeter_85",
+      "owner_match": 0.97,
+      "materials": [
+        "Perimeter_85_material"
+      ]
+    },
+    {
+      "node": "Perimeter_86",
+      "source_node": "Perimeter_86",
+      "owner_match": 0.9766666666666667,
+      "materials": [
+        "Obsidian clinical structure"
+      ]
+    },
+    {
+      "node": "Perimeter_87",
+      "source_node": "Perimeter_87",
+      "owner_match": 0.95,
+      "materials": [
+        "Perimeter_87_material"
+      ]
+    },
+    {
+      "node": "Perimeter_88",
+      "source_node": "Perimeter_88",
+      "owner_match": 0.96,
+      "materials": [
+        "Perimeter_88_material"
+      ]
+    },
+    {
+      "node": "Perimeter_89",
+      "source_node": "Perimeter_89",
+      "owner_match": 0.9666666666666667,
+      "materials": [
+        "Perimeter_89_material"
+      ]
+    },
+    {
+      "node": "PressureVessel_3",
+      "source_node": "PressureVessel_3",
+      "owner_match": 1.0,
+      "materials": [
+        "PressureVessel_3_material"
+      ]
+    },
+    {
+      "node": "PressureVessel_4",
+      "source_node": "PressureVessel_4",
+      "owner_match": 1.0,
+      "materials": [
+        "PressureVessel_4_material"
+      ]
+    },
+    {
+      "node": "PressureVessel_5",
+      "source_node": "PressureVessel_5",
+      "owner_match": 1.0,
+      "materials": [
+        "PressureVessel_5_material"
+      ]
+    },
+    {
+      "node": "PressureVessel_6",
+      "source_node": "PressureVessel_6",
+      "owner_match": 1.0,
+      "materials": [
+        "Ivory pressure vessel castings"
+      ]
+    },
+    {
+      "node": "PressureVessel_7",
+      "source_node": "PressureVessel_7",
+      "owner_match": 1.0,
+      "materials": [
+        "PressureVessel_7_material"
+      ]
+    },
+    {
+      "node": "PressureVessel_8",
+      "source_node": "PressureVessel_8",
+      "owner_match": 1.0,
+      "materials": [
+        "PressureVessel_8_material"
+      ]
+    },
+    {
+      "node": "SterilizationArch_12",
+      "source_node": "SterilizationArch_12",
+      "owner_match": 1.0,
+      "materials": [
+        "SterilizationArch_12_material"
+      ]
+    },
+    {
+      "node": "SterilizationArch_35",
+      "source_node": "SterilizationArch_35",
+      "owner_match": 1.0,
+      "materials": [
+        "Satin graphite bridge alloy"
+      ]
+    }
+  ],
+  "scope": "Rigid similarity registration after UI best angle0,0,-45;UV/PBR retained;no new geometry generation or authority changes"
+}

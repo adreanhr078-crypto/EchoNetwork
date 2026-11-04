@@ -1,0 +1,467 @@
+{
+  "scope": "High runtime derivative;actual whole-room Tripo geometry plus measured corrections;originals preserved;no native acceptance",
+  "atlas_size": 4096,
+  "external_shared_maps": 3,
+  "mesh_materials": 1,
+  "asset_groups": [
+    {
+      "asset": "decon_whole_v2_static.glb",
+      "sha256": "f76af2673bdef429acf8bf413bb12045540130111566223402c7cbce4bc1e358",
+      "triangles": 492658,
+      "anchor_blender_xyz": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "decon_whole_v2_gate.glb",
+      "sha256": "861adf855dc418fdea01a60cd507566fa2d5c145ae6b82bbe1e9e98abeef53f0",
+      "triangles": 188,
+      "anchor_blender_xyz": [
+        0,
+        32,
+        1.4
+      ]
+    },
+    {
+      "asset": "decon_whole_v2_terminal.glb",
+      "sha256": "e110e517fa97aef41deac43a9806bb1e7729f5765506929f63922ed2d5c3ebf8",
+      "triangles": 1128,
+      "anchor_blender_xyz": [
+        0,
+        16,
+        3.2
+      ]
+    }
+  ],
+  "source_roles": [
+    {
+      "name": "MeasuredCatwalkAndRails",
+      "triangles_before": 6956,
+      "triangles_after": 6956
+    },
+    {
+      "name": "MeasuredFloor",
+      "triangles_before": 36096,
+      "triangles_after": 36096
+    },
+    {
+      "name": "MeasuredHullBacking",
+      "triangles_before": 1504,
+      "triangles_after": 1504
+    },
+    {
+      "name": "MeasuredOpenCeilingRibs",
+      "triangles_before": 5452,
+      "triangles_after": 5452
+    },
+    {
+      "name": "MeasuredWestStaircase",
+      "triangles_before": 5264,
+      "triangles_after": 5264
+    },
+    {
+      "name": "NativeMovingGateVisual",
+      "triangles_before": 188,
+      "triangles_after": 188
+    },
+    {
+      "name": "NativeTerminalVisual",
+      "triangles_before": 1128,
+      "triangles_after": 1128
+    },
+    {
+      "name": "Perimeter_00",
+      "triangles_before": 4919,
+      "triangles_after": 1770
+    },
+    {
+      "name": "Perimeter_01",
+      "triangles_before": 72474,
+      "triangles_after": 26090
+    },
+    {
+      "name": "Perimeter_02",
+      "triangles_before": 44089,
+      "triangles_after": 15872
+    },
+    {
+      "name": "Perimeter_09",
+      "triangles_before": 57499,
+      "triangles_after": 20698
+    },
+    {
+      "name": "Perimeter_11",
+      "triangles_before": 62566,
+      "triangles_after": 22523
+    },
+    {
+      "name": "Perimeter_13",
+      "triangles_before": 42168,
+      "triangles_after": 15180
+    },
+    {
+      "name": "Perimeter_14",
+      "triangles_before": 32697,
+      "triangles_after": 11770
+    },
+    {
+      "name": "Perimeter_15",
+      "triangles_before": 38394,
+      "triangles_after": 13821
+    },
+    {
+      "name": "Perimeter_18",
+      "triangles_before": 12716,
+      "triangles_after": 4576
+    },
+    {
+      "name": "Perimeter_19",
+      "triangles_before": 39770,
+      "triangles_after": 14317
+    },
+    {
+      "name": "Perimeter_20",
+      "triangles_before": 24784,
+      "triangles_after": 8922
+    },
+    {
+      "name": "Perimeter_21",
+      "triangles_before": 40528,
+      "triangles_after": 14590
+    },
+    {
+      "name": "Perimeter_22",
+      "triangles_before": 17830,
+      "triangles_after": 6418
+    },
+    {
+      "name": "Perimeter_23",
+      "triangles_before": 22191,
+      "triangles_after": 7987
+    },
+    {
+      "name": "Perimeter_24",
+      "triangles_before": 16027,
+      "triangles_after": 5769
+    },
+    {
+      "name": "Perimeter_25",
+      "triangles_before": 17146,
+      "triangles_after": 6172
+    },
+    {
+      "name": "Perimeter_26",
+      "triangles_before": 13266,
+      "triangles_after": 4774
+    },
+    {
+      "name": "Perimeter_27",
+      "triangles_before": 12958,
+      "triangles_after": 4664
+    },
+    {
+      "name": "Perimeter_28",
+      "triangles_before": 11151,
+      "triangles_after": 4014
+    },
+    {
+      "name": "Perimeter_29",
+      "triangles_before": 21882,
+      "triangles_after": 7877
+    },
+    {
+      "name": "Perimeter_31",
+      "triangles_before": 22309,
+      "triangles_after": 8030
+    },
+    {
+      "name": "Perimeter_33",
+      "triangles_before": 13686,
+      "triangles_after": 4926
+    },
+    {
+      "name": "Perimeter_34",
+      "triangles_before": 10323,
+      "triangles_after": 3716
+    },
+    {
+      "name": "Perimeter_38",
+      "triangles_before": 11154,
+      "triangles_after": 4015
+    },
+    {
+      "name": "Perimeter_39",
+      "triangles_before": 10871,
+      "triangles_after": 3913
+    },
+    {
+      "name": "Perimeter_40",
+      "triangles_before": 780,
+      "triangles_after": 600
+    },
+    {
+      "name": "Perimeter_41",
+      "triangles_before": 9149,
+      "triangles_after": 3293
+    },
+    {
+      "name": "Perimeter_42",
+      "triangles_before": 8675,
+      "triangles_after": 3123
+    },
+    {
+      "name": "Perimeter_43",
+      "triangles_before": 8987,
+      "triangles_after": 3234
+    },
+    {
+      "name": "Perimeter_45",
+      "triangles_before": 8397,
+      "triangles_after": 3022
+    },
+    {
+      "name": "Perimeter_46",
+      "triangles_before": 1342,
+      "triangles_after": 600
+    },
+    {
+      "name": "Perimeter_47",
+      "triangles_before": 1164,
+      "triangles_after": 598
+    },
+    {
+      "name": "Perimeter_48",
+      "triangles_before": 7498,
+      "triangles_after": 2699
+    },
+    {
+      "name": "Perimeter_50",
+      "triangles_before": 6540,
+      "triangles_after": 2353
+    },
+    {
+      "name": "Perimeter_51",
+      "triangles_before": 6989,
+      "triangles_after": 2516
+    },
+    {
+      "name": "Perimeter_52",
+      "triangles_before": 1439,
+      "triangles_after": 600
+    },
+    {
+      "name": "Perimeter_53",
+      "triangles_before": 6545,
+      "triangles_after": 2355
+    },
+    {
+      "name": "Perimeter_54",
+      "triangles_before": 6972,
+      "triangles_after": 2508
+    },
+    {
+      "name": "Perimeter_56",
+      "triangles_before": 5052,
+      "triangles_after": 1817
+    },
+    {
+      "name": "Perimeter_57",
+      "triangles_before": 5825,
+      "triangles_after": 2096
+    },
+    {
+      "name": "Perimeter_58",
+      "triangles_before": 5535,
+      "triangles_after": 1992
+    },
+    {
+      "name": "Perimeter_60",
+      "triangles_before": 5654,
+      "triangles_after": 2035
+    },
+    {
+      "name": "Perimeter_61",
+      "triangles_before": 5706,
+      "triangles_after": 2054
+    },
+    {
+      "name": "Perimeter_62",
+      "triangles_before": 5111,
+      "triangles_after": 1839
+    },
+    {
+      "name": "Perimeter_63",
+      "triangles_before": 5460,
+      "triangles_after": 1965
+    },
+    {
+      "name": "Perimeter_64",
+      "triangles_before": 5141,
+      "triangles_after": 1850
+    },
+    {
+      "name": "Perimeter_65",
+      "triangles_before": 4170,
+      "triangles_after": 1500
+    },
+    {
+      "name": "Perimeter_66",
+      "triangles_before": 4744,
+      "triangles_after": 1707
+    },
+    {
+      "name": "Perimeter_67",
+      "triangles_before": 3501,
+      "triangles_after": 1260
+    },
+    {
+      "name": "Perimeter_68",
+      "triangles_before": 3571,
+      "triangles_after": 1284
+    },
+    {
+      "name": "Perimeter_69",
+      "triangles_before": 862,
+      "triangles_after": 599
+    },
+    {
+      "name": "Perimeter_70",
+      "triangles_before": 3990,
+      "triangles_after": 1436
+    },
+    {
+      "name": "Perimeter_71",
+      "triangles_before": 296,
+      "triangles_after": 296
+    },
+    {
+      "name": "Perimeter_72",
+      "triangles_before": 31,
+      "triangles_after": 31
+    },
+    {
+      "name": "Perimeter_73",
+      "triangles_before": 3728,
+      "triangles_after": 1342
+    },
+    {
+      "name": "Perimeter_74",
+      "triangles_before": 3685,
+      "triangles_after": 1325
+    },
+    {
+      "name": "Perimeter_75",
+      "triangles_before": 3681,
+      "triangles_after": 1325
+    },
+    {
+      "name": "Perimeter_76",
+      "triangles_before": 3651,
+      "triangles_after": 1313
+    },
+    {
+      "name": "Perimeter_78",
+      "triangles_before": 3364,
+      "triangles_after": 1211
+    },
+    {
+      "name": "Perimeter_79",
+      "triangles_before": 1489,
+      "triangles_after": 600
+    },
+    {
+      "name": "Perimeter_80",
+      "triangles_before": 3165,
+      "triangles_after": 1139
+    },
+    {
+      "name": "Perimeter_81",
+      "triangles_before": 3092,
+      "triangles_after": 1113
+    },
+    {
+      "name": "Perimeter_82",
+      "triangles_before": 3011,
+      "triangles_after": 1083
+    },
+    {
+      "name": "Perimeter_83",
+      "triangles_before": 144,
+      "triangles_after": 144
+    },
+    {
+      "name": "Perimeter_84",
+      "triangles_before": 2621,
+      "triangles_after": 942
+    },
+    {
+      "name": "Perimeter_85",
+      "triangles_before": 2210,
+      "triangles_after": 795
+    },
+    {
+      "name": "Perimeter_86",
+      "triangles_before": 2567,
+      "triangles_after": 924
+    },
+    {
+      "name": "Perimeter_87",
+      "triangles_before": 2403,
+      "triangles_after": 864
+    },
+    {
+      "name": "Perimeter_88",
+      "triangles_before": 2340,
+      "triangles_after": 841
+    },
+    {
+      "name": "Perimeter_89",
+      "triangles_before": 2120,
+      "triangles_after": 762
+    },
+    {
+      "name": "PressureVessel_3",
+      "triangles_before": 48051,
+      "triangles_after": 18000
+    },
+    {
+      "name": "PressureVessel_4",
+      "triangles_before": 47245,
+      "triangles_after": 18000
+    },
+    {
+      "name": "PressureVessel_5",
+      "triangles_before": 47423,
+      "triangles_after": 17999
+    },
+    {
+      "name": "PressureVessel_6",
+      "triangles_before": 47111,
+      "triangles_after": 18000
+    },
+    {
+      "name": "PressureVessel_7",
+      "triangles_before": 47347,
+      "triangles_after": 18000
+    },
+    {
+      "name": "PressureVessel_8",
+      "triangles_before": 46503,
+      "triangles_after": 18000
+    },
+    {
+      "name": "SterilizationArch_12",
+      "triangles_before": 13419,
+      "triangles_after": 9999
+    },
+    {
+      "name": "SterilizationArch_35",
+      "triangles_before": 13172,
+      "triangles_after": 9999
+    }
+  ],
+  "source_triangles": 1222654,
+  "runtime_triangles": 493974
+}

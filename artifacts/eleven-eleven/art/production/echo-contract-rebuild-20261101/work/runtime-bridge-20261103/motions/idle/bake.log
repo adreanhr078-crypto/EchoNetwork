@@ -1,0 +1,9 @@
+FBX version: 7700
+07:49:05 | INFO: Data are loaded, start creating Blender stuff
+07:49:05 | INFO: Blender create Mesh node tripo_1007001f_a8c2_4516_905a_784768998959
+07:49:06 | INFO: glTF import finished in 0.83s
+Info: Saved as "single-motion.blend"
+SINGLE_MOTION_BLENDER {"action": "Idle_Source_Retarget", "take_id": "99f1e32d458dafbe5f106de8:0:13373cc7", "source_rig": "Armature", "target_rig": "Armature.001", "duration": 1.9, "fps": 30, "unmapped_target_rest_bones": {"wingfanmidleft": "WingFanMidLeft", "wingrootleft": "WingRootLeft", "wingtipleft": "WingTipLeft", "wingfanouterleft": "WingFanOuterLeft", "wingouterleft": "WingOuterLeft", "wingfaninnerleft": "WingFanInnerLeft", "winginnerleft": "WingInnerLeft"}, "max_blender_rotation_error_degrees": 0.0, "max_blender_length_error_m": 1.5969143385419216e-06, "max_blender_baked_replay_position_error_m": 1.6603932711105489e-06, "max_blender_baked_replay_rotation_error_degrees": 0.0, "status": "PASS", "limits": "Numerical fidelity; visual/source skin review required. No artistic perfection or contact compensation claimed."}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

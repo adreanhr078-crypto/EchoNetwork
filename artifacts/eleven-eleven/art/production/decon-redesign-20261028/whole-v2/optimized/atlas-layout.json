@@ -1,0 +1,1883 @@
+{
+  "atlas_size": 4096,
+  "scale": 0.875,
+  "materials_before": 85,
+  "materials_after": 1,
+  "images_before": 255,
+  "images_after": 3,
+  "tiles": {
+    "MeasuredCatwalkAndRails_material.001": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.564453125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.7802734375
+      ],
+      "atlas_scale": [
+        0.12353515625,
+        0.21875
+      ],
+      "source_crop_pixels": [
+        578,
+        1024
+      ]
+    },
+    "Satin ceramic walk surface.001": {
+      "uv_min": [
+        0.00390625,
+        0.00390625
+      ],
+      "uv_span": [
+        0.9873046875,
+        0.9921875
+      ],
+      "atlas_offset": [
+        0.0009765625,
+        0.12548828125
+      ],
+      "atlas_scale": [
+        0.43212890625,
+        0.43408203125
+      ],
+      "source_crop_pixels": [
+        2022,
+        2032
+      ]
+    },
+    "MeasuredHullBacking_material.001": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.90869140625,
+        1.0
+      ],
+      "atlas_offset": [
+        0.0009765625,
+        0.5615234375
+      ],
+      "atlas_scale": [
+        0.397705078125,
+        0.4375
+      ],
+      "source_crop_pixels": [
+        1861,
+        2048
+      ]
+    },
+    "MeasuredOpenCeilingRibs_material.001": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.526123046875,
+        0.7802734375
+      ],
+      "atlas_scale": [
+        0.205078125,
+        0.21875
+      ],
+      "source_crop_pixels": [
+        960,
+        1024
+      ]
+    },
+    "MeasuredWestStaircase_material.001": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.0009765625,
+        0.01416015625
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        512,
+        512
+      ]
+    },
+    "Obsidian clinical structure.001": {
+      "uv_min": [
+        0.0,
+        0.1015625
+      ],
+      "uv_span": [
+        1.0,
+        0.8984375
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.61572265625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.04931640625
+      ],
+      "source_crop_pixels": [
+        256,
+        230
+      ]
+    },
+    "Satin graphite bridge alloy.001": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9453125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.9716796875
+      ],
+      "atlas_scale": [
+        0.02587890625,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        121,
+        128
+      ]
+    },
+    "Perimeter_00_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.9423828125
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_01_material": {
+      "uv_min": [
+        0.0,
+        0.005859375
+      ],
+      "uv_span": [
+        1.0,
+        0.994140625
+      ],
+      "atlas_offset": [
+        0.1123046875,
+        0.0146484375
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.10888671875
+      ],
+      "source_crop_pixels": [
+        512,
+        509
+      ]
+    },
+    "Perimeter_02_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.2236328125,
+        0.01416015625
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_09_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.3349609375,
+        0.01416015625
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        512,
+        512
+      ]
+    },
+    "Perimeter_11_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.6689453125
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        512,
+        512
+      ]
+    },
+    "Perimeter_13_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.733154296875,
+        0.8896484375
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_14_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.844482421875,
+        0.8896484375
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_15_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.733154296875,
+        0.7783203125
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_18_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.457275390625,
+        0.6123046875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_19_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.844482421875,
+        0.7783203125
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_20_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.998046875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.511962890625,
+        0.6689453125
+      ],
+      "atlas_scale": [
+        0.109375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        511,
+        512
+      ]
+    },
+    "Perimeter_21_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.99609375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.623291015625,
+        0.6669921875
+      ],
+      "atlas_scale": [
+        0.109130859375,
+        0.109375
+      ],
+      "source_crop_pixels": [
+        510,
+        512
+      ]
+    },
+    "Perimeter_22_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.513916015625,
+        0.6123046875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_23_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.734375,
+        0.7216796875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_24_material": {
+      "uv_min": [
+        0.0,
+        0.0078125
+      ],
+      "uv_span": [
+        1.0,
+        0.9921875
+      ],
+      "atlas_offset": [
+        0.791015625,
+        0.721923828125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.054443359375
+      ],
+      "source_crop_pixels": [
+        256,
+        254
+      ]
+    },
+    "Perimeter_25_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.84765625,
+        0.7216796875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_26_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.791015625,
+        0.665283203125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_27_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.734375,
+        0.6650390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_28_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.904296875,
+        0.7216796875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_29_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.84765625,
+        0.6650390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_31_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.791015625,
+        0.608642578125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_33_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.904296875,
+        0.6650390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_34_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.84765625,
+        0.6083984375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_38_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.904296875,
+        0.6083984375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_39_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.570556640625,
+        0.6103515625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_40_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.57080078125
+      ],
+      "atlas_scale": [
+        0.013671875,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        64,
+        64
+      ]
+    },
+    "Perimeter_41_material": {
+      "uv_min": [
+        0.0,
+        0.01953125
+      ],
+      "uv_span": [
+        1.0,
+        0.98046875
+      ],
+      "atlas_offset": [
+        0.627197265625,
+        0.611328125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0537109375
+      ],
+      "source_crop_pixels": [
+        256,
+        251
+      ]
+    },
+    "Perimeter_42_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9921875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.683837890625,
+        0.6083984375
+      ],
+      "atlas_scale": [
+        0.054443359375,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        254,
+        256
+      ]
+    },
+    "Perimeter_43_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9765625,
+        1.0
+      ],
+      "atlas_offset": [
+        0.627197265625,
+        0.5546875
+      ],
+      "atlas_scale": [
+        0.053466796875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        250,
+        256
+      ]
+    },
+    "Perimeter_45_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.740234375,
+        0.552001953125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_46_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.416259765625,
+        0.57080078125
+      ],
+      "atlas_scale": [
+        0.013671875,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        64,
+        64
+      ]
+    },
+    "Perimeter_47_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.953125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.98583984375,
+        0.521240234375
+      ],
+      "atlas_scale": [
+        0.01318359375,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        61,
+        64
+      ]
+    },
+    "Perimeter_48_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.6826171875,
+        0.5517578125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_50_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.86328125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.796875,
+        0.552001953125
+      ],
+      "atlas_scale": [
+        0.04736328125,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        221,
+        256
+      ]
+    },
+    "Perimeter_51_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.984375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.4462890625,
+        0.5556640625
+      ],
+      "atlas_scale": [
+        0.053955078125,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        252,
+        256
+      ]
+    },
+    "Perimeter_52_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.419677734375,
+        0.60009765625
+      ],
+      "atlas_scale": [
+        0.013671875,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        64,
+        64
+      ]
+    },
+    "Perimeter_53_material": {
+      "uv_min": [
+        0.0,
+        0.01171875
+      ],
+      "uv_span": [
+        1.0,
+        0.98828125
+      ],
+      "atlas_offset": [
+        0.502197265625,
+        0.55615234375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.05419921875
+      ],
+      "source_crop_pixels": [
+        256,
+        253
+      ]
+    },
+    "Perimeter_54_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.9130859375
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_56_material": {
+      "uv_min": [
+        0.0,
+        0.015625
+      ],
+      "uv_span": [
+        1.0,
+        0.984375
+      ],
+      "atlas_offset": [
+        0.558837890625,
+        0.554443359375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.053955078125
+      ],
+      "source_crop_pixels": [
+        256,
+        252
+      ]
+    },
+    "Perimeter_57_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.8837890625
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_58_material": {
+      "uv_min": [
+        0.0,
+        0.00390625
+      ],
+      "uv_span": [
+        1.0,
+        0.99609375
+      ],
+      "atlas_offset": [
+        0.502197265625,
+        0.49951171875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        255
+      ]
+    },
+    "Perimeter_60_material": {
+      "uv_min": [
+        0.0,
+        0.18359375
+      ],
+      "uv_span": [
+        1.0,
+        0.81640625
+      ],
+      "atlas_offset": [
+        0.43505859375,
+        0.509033203125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.044677734375
+      ],
+      "source_crop_pixels": [
+        256,
+        209
+      ]
+    },
+    "Perimeter_61_material": {
+      "uv_min": [
+        0.0,
+        0.015625
+      ],
+      "uv_span": [
+        1.0,
+        0.984375
+      ],
+      "atlas_offset": [
+        0.43505859375,
+        0.453125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.053955078125
+      ],
+      "source_crop_pixels": [
+        256,
+        252
+      ]
+    },
+    "Perimeter_62_material": {
+      "uv_min": [
+        0.0,
+        0.0078125
+      ],
+      "uv_span": [
+        1.0,
+        0.9921875
+      ],
+      "atlas_offset": [
+        0.615478515625,
+        0.498291015625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.054443359375
+      ],
+      "source_crop_pixels": [
+        256,
+        254
+      ]
+    },
+    "Perimeter_63_material": {
+      "uv_min": [
+        0.0,
+        0.1171875
+      ],
+      "uv_span": [
+        1.0,
+        0.8828125
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.857666015625
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.024169921875
+      ],
+      "source_crop_pixels": [
+        128,
+        113
+      ]
+    },
+    "Perimeter_64_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.828369140625
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_65_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.799072265625
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_66_material": {
+      "uv_min": [
+        0.0,
+        0.01171875
+      ],
+      "uv_span": [
+        1.0,
+        0.98828125
+      ],
+      "atlas_offset": [
+        0.558837890625,
+        0.498291015625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.05419921875
+      ],
+      "source_crop_pixels": [
+        256,
+        253
+      ]
+    },
+    "Perimeter_67_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.769775390625
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_68_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.984375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.740478515625
+      ],
+      "atlas_scale": [
+        0.027099609375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        126,
+        128
+      ]
+    },
+    "Perimeter_69_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.95654296875,
+        0.500732421875
+      ],
+      "atlas_scale": [
+        0.013671875,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        64,
+        64
+      ]
+    },
+    "Perimeter_70_material": {
+      "uv_min": [
+        0.0,
+        0.08203125
+      ],
+      "uv_span": [
+        1.0,
+        0.91796875
+      ],
+      "atlas_offset": [
+        0.49169921875,
+        0.447265625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.05029296875
+      ],
+      "source_crop_pixels": [
+        256,
+        235
+      ]
+    },
+    "Perimeter_71_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.97216796875,
+        0.500732421875
+      ],
+      "atlas_scale": [
+        0.013671875,
+        0.013671875
+      ],
+      "source_crop_pixels": [
+        64,
+        64
+      ]
+    },
+    "Perimeter_72_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.56201171875
+      ],
+      "atlas_scale": [
+        0.0068359375,
+        0.0068359375
+      ],
+      "source_crop_pixels": [
+        32,
+        32
+      ]
+    },
+    "Perimeter_73_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.99609375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.43505859375,
+        0.396484375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        255,
+        256
+      ]
+    },
+    "Perimeter_74_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.99609375,
+        1.0
+      ],
+      "atlas_offset": [
+        0.84619140625,
+        0.5517578125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        255,
+        256
+      ]
+    },
+    "Perimeter_75_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.90283203125,
+        0.5517578125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_76_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.7392578125,
+        0.495361328125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_78_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.672119140625,
+        0.4951171875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Perimeter_79_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9453125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.711181640625
+      ],
+      "atlas_scale": [
+        0.02587890625,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        121,
+        128
+      ]
+    },
+    "Perimeter_80_material": {
+      "uv_min": [
+        0.0,
+        0.0390625
+      ],
+      "uv_span": [
+        1.0,
+        0.9609375
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.682861328125
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.0263671875
+      ],
+      "source_crop_pixels": [
+        128,
+        123
+      ]
+    },
+    "Perimeter_81_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.653564453125
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Perimeter_82_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9921875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.624267578125
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        127,
+        128
+      ]
+    },
+    "Perimeter_83_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.96875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.409423828125,
+        0.56201171875
+      ],
+      "atlas_scale": [
+        0.0068359375,
+        0.0068359375
+      ],
+      "source_crop_pixels": [
+        31,
+        32
+      ]
+    },
+    "Perimeter_84_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.828125,
+        1.0
+      ],
+      "atlas_offset": [
+        0.7958984375,
+        0.495361328125
+      ],
+      "atlas_scale": [
+        0.04541015625,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        212,
+        256
+      ]
+    },
+    "Perimeter_85_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.9609375,
+        0.594970703125
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        128,
+        128
+      ]
+    },
+    "Obsidian clinical structure": {
+      "uv_min": [
+        0.0,
+        0.0234375
+      ],
+      "uv_span": [
+        1.0,
+        0.9765625
+      ],
+      "atlas_offset": [
+        0.95947265625,
+        0.566162109375
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02685546875
+      ],
+      "source_crop_pixels": [
+        128,
+        125
+      ]
+    },
+    "Perimeter_87_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.9921875,
+        1.0
+      ],
+      "atlas_offset": [
+        0.95947265625,
+        0.536865234375
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        127,
+        128
+      ]
+    },
+    "Perimeter_88_material": {
+      "uv_min": [
+        0.0,
+        0.328125
+      ],
+      "uv_span": [
+        1.0,
+        0.671875
+      ],
+      "atlas_offset": [
+        0.95654296875,
+        0.516357421875
+      ],
+      "atlas_scale": [
+        0.02734375,
+        0.0185546875
+      ],
+      "source_crop_pixels": [
+        128,
+        86
+      ]
+    },
+    "Perimeter_89_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        0.625,
+        1.0
+      ],
+      "atlas_offset": [
+        0.400634765625,
+        0.58642578125
+      ],
+      "atlas_scale": [
+        0.01708984375,
+        0.02734375
+      ],
+      "source_crop_pixels": [
+        80,
+        128
+      ]
+    },
+    "PressureVessel_3_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.54833984375,
+        0.441650390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "PressureVessel_4_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.49169921875,
+        0.390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "PressureVessel_5_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.43505859375,
+        0.33984375
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Ivory pressure vessel castings": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.60498046875,
+        0.441650390625
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "PressureVessel_7_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.84326171875,
+        0.4951171875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "PressureVessel_8_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.89990234375,
+        0.4951171875
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "SterilizationArch_12_material": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.728759765625,
+        0.438720703125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    },
+    "Satin graphite bridge alloy": {
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_span": [
+        1.0,
+        1.0
+      ],
+      "atlas_offset": [
+        0.785400390625,
+        0.438720703125
+      ],
+      "atlas_scale": [
+        0.0546875,
+        0.0546875
+      ],
+      "source_crop_pixels": [
+        256,
+        256
+      ]
+    }
+  },
+  "source": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\art\\production\\decon-redesign-20261028\\whole-v2\\textured-metric-combined.glb",
+  "runtime": "C:\\Users\\yasmo\\EchoNetwork\\artifacts\\eleven-eleven\\godot\\assets\\environments\\decon_clinical\\decon_whole_v2_static.glb",
+  "scope": "Exact geometry;UV crop/pack only;original Tripo maps preserved in source"
+}
