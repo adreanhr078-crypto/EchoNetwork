@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "checkpoint": "EREN_BOTH_LAUGHS_128_REQUIREMENTS_STUDY_ONLY_20261104",
+  "owner_request": "Review both Eren laughs;then play the post-Hannes clip fully",
+  "reel": {
+    "url": "https://www.instagram.com/reel/DfSnW5lAIJm/",
+    "observed": "Eren/Mikasa heat-reveal mug merchandise;not established as laugh reference"
+  },
+  "references": [
+    {
+      "id": "eren_hannes",
+      "url": "https://www.youtube.com/watch?v=hqNkqv8TDb8",
+      "title": "Eren laughing and crying | Attack On Titan Season 2 Episode 12",
+      "uploader": "イジャ",
+      "source_type": "fan_reupload_not_official",
+      "duration_seconds": 54.381,
+      "playback_observed": {
+        "fresh_start_time": 0,
+        "seeking_after_fresh_start": false,
+        "time_samples": [
+          0.015175,
+          12.163853,
+          32.585006,
+          46.089841,
+          54.381
+        ],
+        "final": {
+          "time": 54.381,
+          "paused": true,
+          "ended": true
+        }
+      },
+      "visual_scope": "Sampled screenshots across complete playback;not every frame or full episode/extended scene",
+      "additional_visual_samples_seconds": [
+        0,
+        10,
+        17,
+        22
+      ],
+      "transcript_export": "UNAVAILABLE_TOOL_REPORTED_NO_TRANSCRIPT"
+    },
+    {
+      "id": "eren_sasha",
+      "url": "https://www.youtube.com/watch?v=lEGMyr9Jwhk",
+      "title": "Eren laughing at Sasha’s death",
+      "uploader": "Briken Bekshiu",
+      "source_type": "fan_reupload_not_official",
+      "duration_seconds_approx": 47,
+      "sampled_times_seconds_approx": [
+        2,
+        10,
+        15,
+        20,
+        25,
+        35,
+        40
+      ],
+      "visual_scope": "PARTIAL_SAMPLED_NOT_COMPLETE_CONTINUOUS_VIEWING"
+    }
+  ],
+  "auditory_review": "UNVERIFIED_NO_AUDIO_PERCEPTION",
+  "subtitles": "Limited on-screen lines only;not verified complete Japanese transcript",
+  "application": {
+    "requirement": "R128",
+    "primary_phase": "P02",
+    "secondary_phases": [
+      "P09",
+      "P32",
+      "P36",
+      "P37",
+      "P38"
+    ],
+    "existing_story_event": "T02",
+    "canon_changed": false,
+    "runtime_changed": false,
+    "new_paid_jobs": false,
+    "copied_media_in_repo": false
+  },
+  "study_file": "EREN_LAUGHTER_STUDY_2026-11-04.ar.md"
+}

@@ -1,4 +1,4 @@
-مراجعة4نوفمبر: الخطة الرئيسية40حزمة و127بندًا؛سجل التغطية `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json`،وسجل القصة53حدثًا محفوظ. البطاقة والكاش للمتابعة دون إعادة التاريخ.
+مراجعة4نوفمبر: الخطة الرئيسية40حزمة و128بندًا؛سجل التغطية `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json`،وسجل القصة53حدثًا محفوظ. البطاقة والكاش للمتابعة دون إعادة التاريخ.
 
 تحديث4نوفمبر: الخطة الحالية `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md`؛تنظيم المستودع في `docs/REPOSITORY_STRUCTURE.ar.md` وفحصه `npm run repo:check`. حزم المراجعة/الكاش المستبعدة محفوظة محليًا وسجلها `REPOSITORY_CLEANUP_2026-11-04.json`؛البطاقة والكاش يحددان حالة الرفع الفعلية. لا انتقال محرك أو تغييرCanon/Golden.
 
