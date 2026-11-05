@@ -12,6 +12,8 @@ func _review_melee_camera() -> bool:
 			_profile_tier = argument.trim_prefix("--quality=")
 	if not _check(_profile_tier in ["low", "medium", "high", "ultra"], "Unsupported diagnostic tier"):
 		return false
+	if not art_views_only and not _check(not player.control_locked, "Use the earned profile after the final power handoff for movement profiling"):
+		return false
 	main.set_visual_quality(_profile_tier)
 	main.set_reduced_motion(false)
 	if art_views_only:main.hud.hide()
@@ -61,8 +63,11 @@ func _review_melee_camera() -> bool:
 	# Reuse actual public-input walking and collision, with no fixture teleport.
 	var started := Time.get_ticks_usec()
 	if not art_views_only:
-		if not await _walk_local(Vector3(0, 0, -28.8)):
-			return false
+		# Use the same clearance route as the earned lab's melee camera review.
+		# A direct line from the restored altar intersects its raised pedestal.
+		for point in [Vector3(3, 0, -35), Vector3(3, 0, -28.8), Vector3(0, 0, -28.8)]:
+			if not await _walk_local(point):
+				return false
 		_profile_samples.append({"name": "native-walk-to-theater", "duration_ms": (Time.get_ticks_usec() - started) / 1000.0,
 			"scope": "Public movement/collision elapsed time; not a frame percentile"})
 		await _measure_interval("gameplay-camera")
@@ -98,7 +103,8 @@ func _review_melee_camera() -> bool:
 	}
 	if art_views_only:
 		report.scope="Four fixed rendered lab views, existing earned profile and no progression mutation. No frame timing, public route or final art acceptance."
-	for path in ["res://tests/lab_performance_review.gd", "res://scripts/environment/clinical_lab_architecture.gd",
+	for path in ["res://tests/lab_performance_review.gd", "res://scripts/player/echo_player.gd",
+		"res://scripts/systems/native_campaign_controller.gd", "res://scripts/environment/clinical_lab_architecture.gd",
 		"res://scripts/environment/memory_reflection_space.gd", "res://scripts/environment/lab_memory_cinema.gd",
 		"res://engine_visuals/HyperAnimeWorldManager.gd", "res://assets/environments/lab_clinical_cp45/clinical_wall_p2_4k.glb","res://assets/environments/lab_clinical_cp45/clinical_service_frame_clean.glb","res://scripts/environment/clinical_modular_perimeter.gd","res://assets/environments/lab_clinical_cp45/clinical_scanner_p2_4k.glb",
 		"res://shaders/clinical_architecture_surface.gdshader","res://shaders/clinical_porcelain_floor.gdshader","res://scripts/player/echo_skin_identifier.gd"]:

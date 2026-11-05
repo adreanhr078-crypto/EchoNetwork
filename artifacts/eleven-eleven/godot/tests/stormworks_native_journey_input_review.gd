@@ -7,6 +7,11 @@ var director: Node
 var native_owner: Node
 var evidence: String
 var paths := {}
+var _playtest_manual := false
+var _pacing_tick := 0
+var _pacing_elapsed := 0.0
+var _pacing_marks: Array[Dictionary] = []
+var _pacing_saved := false
 
 func _source_hashes() -> Dictionary:
 	var hashes := {}
@@ -25,6 +30,7 @@ func _record(label: String, passed: bool, detail: Variant = null) -> void:
 func _run() -> void:
 	var args := OS.get_cmdline_user_args()
 	if args.is_empty():quit(2);return
+	_playtest_manual = args.has("--manual")
 	evidence = args[0]
 	capture_directory = evidence.path_join("captures")
 	DirAccess.make_dir_recursive_absolute(capture_directory)
@@ -63,7 +69,15 @@ func _run() -> void:
 	print("STORMWORKS_NATIVE room_ready ",room.name)
 	world.set_audio_muted(true)
 	world.set_reduced_motion(false)
-	world.set_visual_quality("high")
+	var tier := "low" if _playtest_manual else "high"
+	for argument in args:
+		if argument.begins_with("--quality="):
+			tier = argument.trim_prefix("--quality=")
+	if tier not in ["low", "medium", "high", "ultra"]:
+		push_error("Unsupported Stormworks review quality")
+		quit(2)
+		return
+	world.set_visual_quality(tier)
 	var dialogue = world.hud.find_child("DialogueOverlay",true,false)
 	for i in 8:
 		if dialogue.is_active:dialogue.continue_button.pressed.emit()
@@ -71,6 +85,13 @@ func _run() -> void:
 	# Sole declared actor anchor. Every subsequent transfer uses public inputs.
 	player.global_position = room.to_global(Vector3(-1.15,.1,-3.4))
 	player.velocity = Vector3.ZERO
+	_pacing_tick = Time.get_ticks_usec()
+	process_frame.connect(_record_pacing)
+	if _playtest_manual:
+		root.unfocusable = false
+		root.grab_focus()
+		player.set_process_unhandled_input(true)
+		return
 	await _exercise_course()
 	await _frames(12)
 	_record("controller_earned_stage5",director.stage == 5 and director.course_step == 3,{"stage":director.stage,"course_step":director.course_step})
@@ -80,6 +101,7 @@ func _run() -> void:
 		_record("earned_stage5_profile_preserved",copied == OK and RoomSave.read(evidence.path_join("earned-stage5.json")).get("stage") == 5)
 	if report.checks.all(func(row: Dictionary):return row.get("pass",false)):
 		await _service_and_handoff()
+	_record("course_pacing_written_at_real_handoff", _pacing_saved)
 	report.renderer = RenderingServer.get_current_rendering_method()
 	report.device = RenderingServer.get_video_adapter_name()
 	report.display_server = DisplayServer.get_name()
@@ -93,6 +115,37 @@ func _run() -> void:
 	world.queue_free()
 	for i in 6:await process_frame
 	quit(0 if report.status == "PASS_SCOPED_NATIVE" else 1)
+
+func _record_pacing() -> void:
+	if not is_instance_valid(world) or not is_instance_valid(director):
+		return
+	var now := Time.get_ticks_usec()
+	if not paused:
+		_pacing_elapsed += float(now - _pacing_tick) / 1000000.0
+	_pacing_tick = now
+	var last: Dictionary = _pacing_marks.back() if not _pacing_marks.is_empty() else {}
+	if last.get("stage", -1) != director.stage or last.get("step", -1) != director.course_step:
+		_pacing_marks.append({"stage": director.stage, "step": director.course_step,
+			"unpaused_seconds": snappedf(_pacing_elapsed, .001)})
+	if director.stage != 7 or not native_owner.security_entered:
+		return
+	process_frame.disconnect(_record_pacing)
+	var file := FileAccess.open(evidence.path_join("course-pacing.json"), FileAccess.WRITE)
+	if not file:
+		push_error("Could not record the Stormworks pacing review")
+		return
+	_pacing_saved = file.store_string(JSON.stringify({
+		"mode": "manual" if _playtest_manual else "automated_fixture",
+		"unpaused_seconds": snappedf(_pacing_elapsed, .001),
+		"marks": _pacing_marks,
+		"checkpoint_confirmed": director.has_confirmed_room_checkpoint(),
+		"actual_security_handoff": native_owner.security_entered,
+		"physics_hz": Engine.physics_ticks_per_second,
+		"human_fun": "UNVERIFIED"
+	}, "\t") + "\n")
+	file.close()
+	if _pacing_saved:
+		print("STORMWORKS_PACING ", evidence.path_join("course-pacing.json"))
 
 func _service_and_handoff() -> void:
 	_record("remote_wheel_rejected",not room.request_service_release(player).get("released",false))

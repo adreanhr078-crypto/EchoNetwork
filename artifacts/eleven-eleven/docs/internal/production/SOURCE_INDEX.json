@@ -1907,9 +1907,9 @@
     {
       "group": "cp45_lab_measured_quality",
       "path": "godot/tests/lab_performance_review.gd",
-      "sha256": "c784572e07a59267941d8e7ea42f8a0c5b4bf8be198c52a4acb917d4efd3c5ac",
-      "bytes": 9477,
-      "review_checkpoint": "CP45_STAGE13_MODULAR_KIT_NATIVE70_PASS_SCANNER_AND_PERFORMANCE_IN_PROGRESS",
+      "sha256": "a3be831f19ea80030a286364ebbf9c14914cb3dcdf7c9a7ee4b1dcd142efeb47",
+      "bytes": 9955,
+      "review_checkpoint": "P03_INTEL_UHD_LAB_LOW_MEDIUM_P25_PACING27_20261105",
       "observed_hash_checkpoint": "CP45_STAGE13_HD105_NATIVE60_RELOAD9_QUALITY_FIRST_ART_OPEN"
     },
     {
@@ -6057,5 +6057,12 @@
     "video": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/foley/L02-restraint-foley-review.mp4",
     "tool": "tools/cinematics/build_l02_foley.gd",
     "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25."
+  },
+  "local_lab_budget_and_stormworks_pacing_20261105": {
+    "checkpoint": "P03_INTEL_UHD_LAB_LOW_MEDIUM_P25_PACING27_20261105",
+    "report": "docs/internal/production/P03_DEVICE_BUDGET_REVIEW_2026-11-05.json",
+    "pacing": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/course-pacing.json",
+    "review_guide": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/README.ar.md",
+    "next": "P26 test one optional timed crosswind in the first Stormworks diagonal gap, with a distinct force and readable wait/steer decision. P24 and P25 require human playtest sessions. P30 and P37 remain gated on authored contact and listening."
   }
 }

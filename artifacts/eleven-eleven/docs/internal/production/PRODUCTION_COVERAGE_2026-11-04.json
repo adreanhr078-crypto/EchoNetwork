@@ -1214,7 +1214,8 @@
       "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
       "primary_requirement_ids": [
         "R109"
-      ]
+      ],
+      "local_device_budget_evidence": "docs/internal/production/P03_DEVICE_BUDGET_REVIEW_2026-11-05.json"
     },
     {
       "id": "P04",
@@ -2096,7 +2097,8 @@
         "R023",
         "R024"
       ],
-      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
+      "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
+      "pacing_playtest_recorder": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/README.ar.md"
     },
     {
       "id": "P26",

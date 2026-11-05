@@ -1,0 +1,81 @@
+{
+  "checkpoint": "P03_INTEL_UHD_LAB_LOW_MEDIUM_P25_PACING27_20261105",
+  "status": "MEASURED_LOCAL_BUDGET_NOT_DEVICE_ACCEPTANCE",
+  "device": {
+    "cpu": "Intel Core i3-1215U (6 cores/8 logical)",
+    "gpu": "Intel UHD Graphics",
+    "driver": "31.0.101.4032",
+    "os": "Windows 11 Pro 26300",
+    "ram_bytes": 8279613440
+  },
+  "fixture": "Actually earned step-8 pact profile, copy per PID; same native room and public walk between three clearance points.",
+  "fixture_source": "audits/evidence/character-school-20261103/native-pact-cinematic-cel-rendered/earned/native-power-complete",
+  "framebuffer": [
+    1280,
+    720
+  ],
+  "tiers": {
+    "low": {
+      "report": "audits/evidence/chapter-cp45-20261020/stage13/p03-20261105-low/performance.json",
+      "render_scale": 0.649999976158142,
+      "sites": {
+        "entry": {
+          "frames": 180,
+          "p50_ms": 28.486,
+          "p95_ms": 42.852,
+          "p99_ms": 48.036,
+          "draw_calls": 2038
+        },
+        "theater": {
+          "frames": 180,
+          "p50_ms": 27.009,
+          "p95_ms": 46.54,
+          "p99_ms": 52.263,
+          "draw_calls": 2235
+        },
+        "gameplay-camera": {
+          "frames": 180,
+          "p50_ms": 25.844,
+          "p95_ms": 31.688,
+          "p99_ms": 39.377,
+          "draw_calls": 263
+        }
+      }
+    },
+    "medium": {
+      "report": "audits/evidence/chapter-cp45-20261020/stage13/p03-20261105-medium/performance.json",
+      "render_scale": 0.850000023841858,
+      "sites": {
+        "entry": {
+          "frames": 180,
+          "p50_ms": 47.285,
+          "p95_ms": 70.976,
+          "p99_ms": 95.81,
+          "draw_calls": 2041
+        },
+        "theater": {
+          "frames": 180,
+          "p50_ms": 33.304,
+          "p95_ms": 70.983,
+          "p99_ms": 83.811,
+          "draw_calls": 1159
+        },
+        "gameplay-camera": {
+          "frames": 180,
+          "p50_ms": 24.533,
+          "p95_ms": 33.026,
+          "p99_ms": 40.302,
+          "draw_calls": 266
+        }
+      }
+    }
+  },
+  "measurement": "180 presented process-frame intervals per sampled view, including scheduling. Separate runs; background workload and thermal state not isolated for causal A/B.",
+  "limits": "Low and Medium both met 33.33 ms p95 in the sampled gameplay view. Both exceeded 33.33 ms p95 in the fixed entry and theater views. 60 fps, launch tiers, hardware recommendations and other devices remain open.",
+  "p25": {
+    "technical_checks": 27,
+    "pacing": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/course-pacing.json",
+    "human_test": "OPEN"
+  },
+  "next": "P26 test one optional timed crosswind in the first Stormworks diagonal gap, with a distinct force and readable wait/steer decision. P24 and P25 require human playtest sessions. P30 and P37 remain gated on authored contact and listening."
+}

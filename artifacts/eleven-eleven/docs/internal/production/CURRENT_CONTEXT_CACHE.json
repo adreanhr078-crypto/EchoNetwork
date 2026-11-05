@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-05T17:39:31.747971+00:00",
-  "checkpoint": "P37_L02_CUFF_PCM_36_40_20261105",
+  "updated": "2026-11-05T17:43:40.843833+00:00",
+  "checkpoint": "P03_INTEL_UHD_LAB_LOW_MEDIUM_P25_PACING27_20261105",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -45,7 +45,7 @@
     "performance": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json"
   },
   "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
-  "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25.",
+  "next": "P26 test one optional timed crosswind in the first Stormworks diagonal gap, with a distinct force and readable wait/steer decision. P24 and P25 require human playtest sessions. P30 and P37 remain gated on authored contact and listening.",
   "hash_manifest": "docs/internal/production/CURRENT_CONTEXT_SOURCE_HASHES.json",
   "wake": {
     "report": "audits/evidence/character-school-20261102/wake-execution/quality-report.json",
@@ -514,5 +514,12 @@
     "video": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/foley/L02-restraint-foley-review.mp4",
     "tool": "tools/cinematics/build_l02_foley.gd",
     "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25."
+  },
+  "local_lab_budget_and_stormworks_pacing_20261105": {
+    "checkpoint": "P03_INTEL_UHD_LAB_LOW_MEDIUM_P25_PACING27_20261105",
+    "report": "docs/internal/production/P03_DEVICE_BUDGET_REVIEW_2026-11-05.json",
+    "pacing": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/course-pacing.json",
+    "review_guide": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/README.ar.md",
+    "next": "P26 test one optional timed crosswind in the first Stormworks diagonal gap, with a distinct force and readable wait/steer decision. P24 and P25 require human playtest sessions. P30 and P37 remain gated on authored contact and listening."
   }
 }
