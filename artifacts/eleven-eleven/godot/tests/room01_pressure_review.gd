@@ -10,6 +10,7 @@ func _capture(id: String) -> void:
 func _before_room_exit() -> bool:
 	var pressure := _mount_pressure()
 	if OS.get_cmdline_user_args().has("--manual"):
+		pressure.crossing_finished.connect(_write_playtest_result, CONNECT_ONE_SHOT)
 		root.unfocusable = false
 		root.grab_focus()
 		player.set_process_unhandled_input(true)
@@ -18,6 +19,8 @@ func _before_room_exit() -> bool:
 		main.hud.show_tutorial_toast("P24", "11.11", title, hint, 5.0)
 		return false
 
+	var timing := {}
+	pressure.crossing_finished.connect(func(result: Dictionary): timing.assign(result), CONNECT_ONE_SHOT)
 	var was_muted: bool = main.audio_muted
 	main.set_audio_muted(true)
 	await _capture("pressure-high")
@@ -43,10 +46,12 @@ func _before_room_exit() -> bool:
 	await _capture("pressure-low")
 	if not await _walk(Vector3(0, 0, -14.15)): return false
 	if not _check(pressure.successful_route == "timing" and pressure.attempts == 2, "Timed path did not succeed after one retry"): return false
-	var timing := {"route": pressure.successful_route, "attempts": pressure.attempts, "failures": pressure.failures}
+	if not _check(timing.get("first_choice") == "cross" and timing.valve_uses == 0 and timing.completed_seconds > timing.first_choice_seconds, "Timing session result lost the attempt chronology"): return false
 	pressure.queue_free()
 	if not await _walk(Vector3(PRESSURE.VALVE_POS.x, 0, -11.75)): return false
 	pressure = _mount_pressure()
+	var valve_result := {}
+	pressure.crossing_finished.connect(func(result: Dictionary): valve_result.assign(result), CONNECT_ONE_SHOT)
 	await _frames(3)
 	if not _check(not pressure.can_cross() and player.get_nearest_interactable() == pressure.valve, "Side valve not reachable before the band"): return false
 	var result := player.interact_with_nearest()
@@ -55,6 +60,11 @@ func _before_room_exit() -> bool:
 	await _capture("pressure-valve")
 	if not await _walk(Vector3(0, 0, -14.15)): return false
 	if not _check(pressure.successful_route == "valve" and pressure.failures == 0 and camera.current and not player.control_locked, "Valve crossing failed or lost camera/control"): return false
+	if not _check(valve_result.get("first_choice") == "valve" and valve_result.valve_uses == 1 and valve_result.completed_seconds > valve_result.first_choice_seconds, "Valve session result lost the attempt chronology"): return false
+	var sample_path := folder.path_join("automated-recorder-sample.json")
+	if not _check(_store_playtest_result(valve_result, sample_path), "Could not save a fixture playtest result"): return false
+	var saved = JSON.parse_string(FileAccess.get_file_as_string(sample_path))
+	if not _check(saved is Dictionary and saved.get("first_choice") == "valve" and saved.get("muted") == true, "Saved playtest result lost route or accessibility state"): return false
 	var report := FileAccess.open(folder + "pressure.json", FileAccess.WRITE)
 	report.store_string(JSON.stringify({
 		"engine": Engine.get_version_info().string,
@@ -66,7 +76,7 @@ func _before_room_exit() -> bool:
 		"muted": AudioServer.is_bus_mute(AudioServer.get_bus_index("Master")),
 		"reduced_motion": main.reduced_motion,
 		"timing": timing,
-		"valve": {"route": pressure.successful_route, "attempts": pressure.attempts, "failures": pressure.failures},
+		"valve": valve_result,
 		"status": "PASS_REVIEW_FIXTURE",
 		"human_playtest": "UNVERIFIED"
 	}, "\t"))
@@ -74,6 +84,32 @@ func _before_room_exit() -> bool:
 	pressure.queue_free()
 	main.set_audio_muted(was_muted)
 	return true
+
+func _write_playtest_result(result: Dictionary) -> void:
+	var directory := ProjectSettings.globalize_path("user://p24-playtests")
+	var error := DirAccess.make_dir_recursive_absolute(directory)
+	if error != OK:
+		push_error("Could not create the local P24 playtest directory")
+		return
+	var path := directory.path_join("%d-%d.json" % [int(Time.get_unix_time_from_system()), OS.get_process_id()])
+	if not _store_playtest_result(result, path):
+		push_error("Could not write the local P24 playtest result")
+		return
+	print("P24_PLAYTEST_RESULT ", path)
+
+func _store_playtest_result(result: Dictionary, path: String) -> bool:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if not file:
+		return false
+	var record := result.merged({
+		"language": main.presentation_language,
+		"reduced_motion": main.reduced_motion,
+		"muted": main.audio_muted,
+		"physics_hz": Engine.physics_ticks_per_second,
+	})
+	var stored := file.store_string(JSON.stringify(record, "\t") + "\n")
+	file.close()
+	return stored
 
 func _mount_pressure() -> PRESSURE:
 	var pressure := PRESSURE.new()

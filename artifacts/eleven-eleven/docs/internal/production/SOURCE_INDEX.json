@@ -90,9 +90,9 @@
     {
       "group": "echo_current",
       "path": "godot/scripts/player/echo_player.gd",
-      "sha256": "5a4fe9887e151de7980e5b0895a2b246c09bb90f7d58a7029eac98dca3e47c37",
-      "bytes": 105680,
-      "review_checkpoint": "EXPERIENCE_UI24_CLIMB16_ROUTE88_SCHOOL_OUTLINE_SCOPED"
+      "sha256": "35e4206ecfc7b34a3f572dbdb4ffffb9bb140ac89813b089a25be3cf0192f3ba",
+      "bytes": 105845,
+      "review_checkpoint": "P11_FOCUS64_P24_RECORDER67_68_P30_L02_NATIVE61_20261105"
     },
     {
       "group": "echo_current",
@@ -6041,5 +6041,14 @@
     "report": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json",
     "authoring_tool": "tools/character-lab/author_chair_entry.py",
     "next": "P30 inspect the exact seated hold and cuff closure in the native laboratory review. For entry, establish a planted support before weight transfer and clear both armrests; two authoring attempts completed. P24 prepare and run five human playtests."
+  },
+  "native_stage_focus_and_recorder_20261105": {
+    "checkpoint": "P11_FOCUS64_P24_RECORDER67_68_P30_L02_NATIVE61_20261105",
+    "report": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/quality-report.json",
+    "clip": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/L02-restraint-contact-review.mp4",
+    "interaction": "audits/evidence/room01-20261012/p11-interaction-focus-20261105/interaction-focus.json",
+    "pressure_recorder_headless": "audits/evidence/room01-20261012/p24-playtest-recorder-20261105/pressure.json",
+    "pressure_recorder_rendered": "audits/evidence/room01-20261012/p24-playtest-recorder-rendered-20261105/pressure.json",
+    "next": "P37 qualify a local physical cuff-latch sound against the measured L02 latch frames. P24 run five uncoached human sessions using the recorder. P30 still requires planted entry support, forearm clearance, seated acting, and an earned restraint break before integration."
   }
 }

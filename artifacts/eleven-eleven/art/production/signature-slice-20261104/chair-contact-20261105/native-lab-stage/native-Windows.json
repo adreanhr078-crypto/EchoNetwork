@@ -1,0 +1,51 @@
+{
+  "capture_files": [
+    "godot-side.png",
+    "godot-three-quarter.png",
+    "godot-cuffs-open.png",
+    "godot-cuffs-closing.png",
+    "godot-cuffs-latched.png"
+  ],
+  "cuffs": {
+    "asset_sha256": "68f5a4b7043b04127f46abb4c0d5980d1bb2544c762ed032fbf79de5ff85a8f0",
+    "latch_tip_samples": 122,
+    "max_tip_error_m": 0.00000012287812012346,
+    "reference_sha256": "744cb44be1732ae9ebbae9546060bbabe598158f8a581357c9715e3ce5207a62",
+    "status": "PASS_NATIVE_CUFF_REPLAY"
+  },
+  "display": "Windows",
+  "duration_s": 2.0,
+  "frames": 61,
+  "imported_clip": "Animation",
+  "joint_samples": 427,
+  "max_joint_error_m": 0.00000096867267984635,
+  "native_lab": {
+    "architecture_sha256": "d50104006595cf18dfbcc0bc680d5055dd19ce6966f123b5d1e2d82a94147b59",
+    "chair_origin": [
+      0.0,
+      1.20000004768372,
+      -20.0
+    ],
+    "chair_source_sha256": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12",
+    "review_sha256": "a74392630a3353a8c9022b24fec42520a7d872af03f3763c0f4a5ca873b4d41c",
+    "room_sha256": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+    "sampled_anchor_frames": [
+      0,
+      30,
+      60
+    ],
+    "scope": "Seated body and cuff replay in original lab geometry under review lighting",
+    "sequence_fps": 30,
+    "sequence_frames": 60,
+    "source_material_sha256": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+    "story_flags_clear": true,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "reference_sha256": "36c3ed20ccf2b40ed4a46fabfff14aaf3dd1893a925cd0836b8160a399691b78",
+  "renderer": "gl_compatibility",
+  "source_sha256": "3602c345a8a148e3a940d3b909b06018f1a711144848408f133fafa02e8c1c88",
+  "status": "PASS_NATIVE_JOINT_REPLAY"
+}

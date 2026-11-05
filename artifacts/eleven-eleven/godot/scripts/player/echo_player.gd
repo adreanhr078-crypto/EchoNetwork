@@ -173,6 +173,7 @@ var spatial_voice_manager: SpatialVoiceManagerScript = null
 var visceral_combat: VisceralCombatControllerScript = null
 var team_swap: TeamSwapControllerScript = null
 var nearby_interactables: Array = []
+var _interaction_focus_id := 0
 
 var idle_motionless_timer: float = 0.0
 const IDLE_BARK_INTERVAL: float = 12.0
@@ -352,6 +353,7 @@ func set_gameplay_orbit(rotation: Vector3) -> void:
 	_camera_look_cooldown = 0.35
 
 func _process(delta: float) -> void:
+	_refresh_interaction_focus()
 	_update_procedural_head_look(delta)
 	if not camera_boom or not player_camera or _camera_suspended: return
 	# Preserve intentional scene/debug placement through the existing public boom.
@@ -2073,14 +2075,19 @@ func get_inventory() -> PlayerInventory:
 func register_nearby_interactable(interactable: Node) -> void:
 	if not nearby_interactables.has(interactable):
 		nearby_interactables.append(interactable)
-		if get_nearest_interactable() == interactable:
-			emit_signal("nearby_interactable_changed", interactable)
+		_refresh_interaction_focus()
 
 func unregister_nearby_interactable(interactable: Node) -> void:
 	nearby_interactables.erase(interactable)
-	# Disabling a component changes eligibility before its unregister callback.
-	# Always refresh the current prompt, including that completed-device case.
-	emit_signal("nearby_interactable_changed", get_nearest_interactable())
+	_refresh_interaction_focus()
+
+func _refresh_interaction_focus() -> Node:
+	var target := get_nearest_interactable() if not opening_recovery_active and not control_locked else null
+	var target_id: int = target.get_instance_id() if is_instance_valid(target) else 0
+	if target_id != _interaction_focus_id:
+		_interaction_focus_id = target_id
+		nearby_interactable_changed.emit(target)
+	return target
 
 func get_nearest_interactable() -> Node:
 	if nearby_interactables.is_empty():
@@ -2108,7 +2115,7 @@ func get_interaction_focus(target: Node) -> Vector3:
 func interact_with_nearest() -> Dictionary:
 	if opening_recovery_active or control_locked:
 		return {"success": false, "reason": "opening_recovery"}
-	var target = get_nearest_interactable()
+	var target := _refresh_interaction_focus()
 	if not target:
 		return {"success": false, "reason": "none_nearby"}
 	if target.has_method("trigger_interaction"):

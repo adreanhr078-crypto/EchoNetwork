@@ -1,0 +1,31 @@
+{
+  "checkpoint": "P11_FOCUS64_P24_RECORDER67_68_P30_L02_NATIVE61_20261105",
+  "scope": "P06/P30 L02 isolated native laboratory shot, seated hold and closing restraints",
+  "status": "PASS_SCOPED_NATIVE_REPLAY",
+  "event": "L02",
+  "dialogue": "OPEN",
+  "runtime_story_integration": false,
+  "native_headless": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/native-headless.json",
+  "native_rendered": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/native-Windows.json",
+  "clip": {
+    "path": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/L02-restraint-contact-review.mp4",
+    "sha256": "008d42c67342c31df1700b964097e07b9bf918d0b52787019a8a4810df14a165",
+    "frames": 60,
+    "fps": 30,
+    "seconds": 2,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "audio_streams": 0,
+    "decoded_frames": 60
+  },
+  "entry_gate": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json",
+  "visual_scope": "Existing lab, chair and source materials with review lighting, sampled open-to-latched positions.",
+  "open": [
+    "body entry and exact planted transfer",
+    "acting, lip-sync and sound",
+    "earned restraint release",
+    "native chapter acceptance"
+  ]
+}

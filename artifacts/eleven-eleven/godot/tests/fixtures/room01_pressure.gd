@@ -1,6 +1,8 @@
 extends Node3D
 ## Review-only pressure band on the floor of the existing Room 01.
 
+signal crossing_finished(result: Dictionary)
+
 const ENTRY_Z := -12.5
 const EXIT_Z := -13.9
 const RETRY_Z := -11.8
@@ -17,6 +19,9 @@ var vent_remaining := 0.0
 var attempts := 0
 var failures := 0
 var successful_route := ""
+var _first_choice := ""
+var _first_choice_seconds := 0.0
+var _valve_uses := 0
 var valve: InteractableComponent
 var _in_band := false
 var _used_valve := false
@@ -80,8 +85,15 @@ func _open_valve(interactor: Node3D) -> void:
 	if interactor != player or valve.current_interactor != player or vent_remaining > 0.0:
 		return
 	vent_remaining = VENT_SECONDS
+	_valve_uses += 1
+	_record_first_choice("valve")
 	valve.is_enabled = false
 	_update_readout(false)
+
+func _record_first_choice(choice: String) -> void:
+	if _first_choice.is_empty():
+		_first_choice = choice
+		_first_choice_seconds = elapsed
 
 func _physics_process(delta: float) -> void:
 	elapsed += delta
@@ -96,6 +108,7 @@ func _physics_process(delta: float) -> void:
 		_in_band = true
 		_used_valve = vent_remaining > 0.0
 		attempts += 1
+		_record_first_choice("cross")
 	if not can_cross():
 		failures += 1
 		_in_band = false
@@ -108,6 +121,15 @@ func _physics_process(delta: float) -> void:
 		valve.is_enabled = false
 		_update_readout(false)
 		set_physics_process(false)
+		crossing_finished.emit({
+			"route": successful_route,
+			"attempts": attempts,
+			"failures": failures,
+			"valve_uses": _valve_uses,
+			"first_choice": _first_choice,
+			"first_choice_seconds": snappedf(_first_choice_seconds, 0.001),
+			"completed_seconds": snappedf(elapsed, 0.001)
+		})
 	else:
 		_update_readout(false)
 
