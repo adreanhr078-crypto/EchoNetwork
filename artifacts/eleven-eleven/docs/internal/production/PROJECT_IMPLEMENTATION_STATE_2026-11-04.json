@@ -598,5 +598,11 @@
     "driver": "godot/tests/room01_pressure_review.gd",
     "chair_floor": "art/production/signature-slice-20261104/chair-contact-20261105/entry-floor-clearance.json",
     "next": "P04/P07 author the forward-offset stand-to-seat pivot in the cleared review fixture; qualify full-body, foot and chair clearance, then the earned restraint break. P24 run five uncoached player sessions using --manual before integration. P06 human Japanese audition and rights remain open."
+  },
+  "chair_entry_motion_20261105": {
+    "checkpoint": "P04_P07_CHAIR_ENTRY_SCREEN97_REJECTED_20261105",
+    "report": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json",
+    "authoring_tool": "tools/character-lab/author_chair_entry.py",
+    "next": "P30 inspect the exact seated hold and cuff closure in the native laboratory review. For entry, establish a planted support before weight transfer and clear both armrests; two authoring attempts completed. P24 prepare and run five human playtests."
   }
 }

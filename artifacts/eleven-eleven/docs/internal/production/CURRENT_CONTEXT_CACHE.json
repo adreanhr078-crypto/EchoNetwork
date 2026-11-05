@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-05T17:03:05.155016+00:00",
-  "checkpoint": "P24_PRESSURE_NATIVE63_64_CHAIR_FLOOR32_20261105",
+  "updated": "2026-11-05T17:17:11.235337+00:00",
+  "checkpoint": "P04_P07_CHAIR_ENTRY_SCREEN97_REJECTED_20261105",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -45,7 +45,7 @@
     "performance": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json"
   },
   "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
-  "next": "P04/P07 author the forward-offset stand-to-seat pivot in the cleared review fixture; qualify full-body, foot and chair clearance, then the earned restraint break. P24 run five uncoached player sessions using --manual before integration. P06 human Japanese audition and rights remain open.",
+  "next": "P30 inspect the exact seated hold and cuff closure in the native laboratory review. For entry, establish a planted support before weight transfer and clear both armrests; two authoring attempts completed. P24 prepare and run five human playtests.",
   "hash_manifest": "docs/internal/production/CURRENT_CONTEXT_SOURCE_HASHES.json",
   "wake": {
     "report": "audits/evidence/character-school-20261102/wake-execution/quality-report.json",
@@ -491,6 +491,12 @@
     "publish": "origin/main for eligible project changes; private archive for Free audio and exact Blender source.",
     "private_archive": "11.11-private-resume-20261105.zip",
     "private_archive_sha256": "13c549d41a167978269b4998aecea5cab78179434023767d1c82263cb75cd82b",
-    "quota": "Check live Codex usage at bounded checkpoints; stop new work when any active window reaches <=2% remaining."
+    "quota": "User specified the Codex 300-minute window. Check live; at <=2% stop new work and push the checkpoint. The weekly window is a separate hard cap."
+  },
+  "chair_entry_motion_20261105": {
+    "checkpoint": "P04_P07_CHAIR_ENTRY_SCREEN97_REJECTED_20261105",
+    "report": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json",
+    "authoring_tool": "tools/character-lab/author_chair_entry.py",
+    "next": "P30 inspect the exact seated hold and cuff closure in the native laboratory review. For entry, establish a planted support before weight transfer and clear both armrests; two authoring attempts completed. P24 prepare and run five human playtests."
   }
 }

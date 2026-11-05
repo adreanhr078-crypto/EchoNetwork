@@ -1,0 +1,42 @@
+{
+  "checkpoint": "P04_P07_CHAIR_ENTRY_SCREEN97_REJECTED_20261105",
+  "status": "FAIL_CLEARANCE_AND_TRANSFER_SUPPORT",
+  "reference": "Exact reviewed restrained-breath Blender source; 65 joints; 30 Hz",
+  "attempt_01": {
+    "samples": 33,
+    "frames_with_overlap": 24,
+    "max_overlap_pairs": 661,
+    "max_requested_ik_error_m": 0.09221137365493907,
+    "exact_seated_pose_delta_m": 2.497889789080651e-07,
+    "tool_commit": "71f2f9b5",
+    "evidence": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/attempt-01/entry-screen.json"
+  },
+  "attempt_02": {
+    "samples": 97,
+    "frames_with_overlap": 12,
+    "max_overlap_pairs": 154,
+    "max_requested_ik_error_m": 0.14631276404805485,
+    "exact_seated_pose_delta_m": 2.497889789080651e-07,
+    "max_overlap_on_shared_sample_grid": 134,
+    "evidence": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/attempt-02/entry-screen.json"
+  },
+  "diagnosis": [
+    "Early left arm crosses the clamp at frames 25–27.",
+    "Opposite forearm crosses the other rail at frames 70–76.",
+    "Right ankle misses its floor anchor by 130.95 mm at frame 41.",
+    "Exact seated endpoint repeats six small lower-leg triangle pairs with the original chair."
+  ],
+  "reviewed_captures": [
+    "attempt-01/entry-044.png",
+    "attempt-01/entry-063.png",
+    "attempt-01/entry-096.png",
+    "attempt-02/entry-027.png",
+    "attempt-02/entry-044.png",
+    "attempt-02/entry-074.png"
+  ],
+  "blender": "5.2.2 LTS",
+  "golden_protected_files": 192,
+  "godot_motion_exported": false,
+  "runtime_integrated": false,
+  "next": "P30 inspect the exact seated hold and cuff closure in the native laboratory review. For entry, establish a planted support before weight transfer and clear both armrests; two authoring attempts completed. P24 prepare and run five human playtests."
+}

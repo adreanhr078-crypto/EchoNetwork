@@ -20,14 +20,14 @@ SIDES = (("Left", 1), ("Right", -1))
 FPS = 30
 # Frame, pelvis, yaw, recline, left ankle, right ankle. Z-up, chair front -Y.
 KEYS = (
-    (0,  (.85, -.47, 1.012), 90, 0, (.83, -.31, .139), (.90, -.62, .139)),
-    (12, (.77, -.47, 1.004), 90, 0, (.70, -.31, .139), (.90, -.62, .139)),
-    (27, (.56, -.47, .997),  90, 2, (.65, -.31, .139), (.72, -.62, .139)),
-    (44, (.25, -.44, .976),  88, 4, (.65, -.31, .139), (.67, -.62, .139)),
-    (54, (.23, -.44, .986),  83, 9, (.62, -.39, .65),  (.67, -.62, .139)),
-    (63, (.17, -.38, 1.00),  70, 12, (.48, -.63, 1.01), (.67, -.64, .50)),
-    (74, (.10, -.28, 1.00),  43, 21, (.25, -.78, .98), (.57, -.74, 1.02)),
-    (83, (.03, -.13, .994),  16, 34, (.16, -.83, .91), (.04, -.87, .98)),
+    (0,  (.86, -.52, .957),  90, 0, (.84, -.36, .085), (.91, -.68, .085)),
+    (12, (.79, -.52, .953),  90, 0, (.74, -.36, .085), (.91, -.68, .085)),
+    (27, (.62, -.52, .945),  90, 2, (.74, -.36, .085), (.70, -.68, .085)),
+    (44, (.34, -.51, 1.03),  83, 4, (.47, -.38, .270), (.70, -.68, .085)),
+    (54, (.26, -.46, 1.025), 77, 9, (.49, -.46, .740), (.66, -.68, .360)),
+    (63, (.20, -.41, 1.03),  65, 12, (.39, -.70, 1.05), (.66, -.69, .850)),
+    (74, (.11, -.30, 1.026), 39, 21, (.24, -.84, 1.06), (.44, -.82, 1.10)),
+    (83, (.03, -.13, 1.012), 13, 34, (.16, -.86, .99), (.03, -.88, 1.08)),
     (96, (0, -.01, .9634),   0, 42, (.145, -.855, .874), (-.145, -.855, .869)),
 )
 
@@ -61,7 +61,7 @@ def camera_stills(out):
     camera.location = (3.7, -3.25, 2.75)
     camera.rotation_euler = (Vector((.20, -.25, .88)) - camera.location).to_track_quat("-Z", "Y").to_euler()
     camera.data.type = "ORTHO"
-    camera.data.ortho_scale = 3.65
+    camera.data.ortho_scale = 4.2
     for frame in (0, 27, 44, 63, 74, 96):
         scene.frame_set(frame)
         scene.render.filepath = str(out / f"entry-{frame:03d}.png")
@@ -139,6 +139,7 @@ def run(blend, out, render):
         bend = Matrix.Rotation(math.radians(-recline), 4, "X")
         forward = turn.to_3x3() @ Vector((0, -1, 0))
         body_settle = smooth(max(0.0, min(1.0, (frame - 44) / 52)))
+        knee_lift = smooth(max(0.0, min(1.0, (frame - 32) / 38)))
         exact_end = smooth(max(0.0, (frame - 88) / 8))
         for name, bone in bones.items():
             body_lean = name in ("Spine", "Spine1", "Spine2", "Neck", "Head")
@@ -151,7 +152,9 @@ def run(blend, out, render):
             # A foot in transfer clears the base before returning to the dais.
             if end[0] <= 27 and (Vector(start[4 + index]) - Vector(end[4 + index])).length > .015:
                 foot.z += .075 * math.sin(math.pi * amount)
-            pole = forward + Vector((0, 0, 1.25 * body_settle))
+            if side == "Left" and end[0] == 44:
+                foot.z += .15 * math.sin(math.pi * amount)
+            pole = forward + Vector((0, 0, 1.9 * knee_lift))
             errors[side + "Foot"] = reach(side+"UpLeg", side+"Leg", side+"Foot", foot, pole)
             foot_rotation = (turn @ rest[side+"Foot"]).to_quaternion().slerp(
                 finish_world[side+"Foot"].to_quaternion(), body_settle)
@@ -159,11 +162,15 @@ def run(blend, out, render):
             shoulder = joint(side+"Arm")
             standing = shoulder + turn.to_3x3() @ Vector((.10*sign, -.07, -.39))
             elbow = turn.to_3x3() @ Vector((.70*sign, .25, -.25))
-            support = Vector((.46, -.19, 1.15)) if side == "Left" else standing
-            brace = smooth(max(0.0, min(1.0, (frame - 18) / 22)))
-            hand = standing.lerp(support, brace).lerp(finish_world[side+"Hand"].translation, body_settle)
+            support = Vector((.49, -.21, 1.25)) if side == "Left" else standing
+            brace = smooth(max(0.0, min(1.0, (frame - 14) / 21)))
+            land = smooth(max(0.0, min(1.0, (frame - 78) / 18)))
+            wrist = finish_world[side+"Hand"].translation
+            elevated = wrist + Vector((0, -.05, .16)) * (1.0 - land)
+            hand = standing.lerp(support, brace).lerp(elevated, body_settle)
             errors[side+"Hand"] = reach(side+"Arm", side+"ForeArm", side+"Hand", hand, elbow)
-            place(side+"Hand", (turn @ rest[side+"Hand"]).lerp(finish_world[side+"Hand"], body_settle), joint(side+"Hand"))
+            grip = max(body_settle, brace) if side == "Left" else body_settle
+            place(side+"Hand", (turn @ rest[side+"Hand"]).lerp(finish_world[side+"Hand"], grip), joint(side+"Hand"))
         if exact_end > 0.0:
             for name in names:
                 bones[name].matrix_basis = bones[name].matrix_basis.lerp(finish[name], exact_end)
@@ -185,6 +192,7 @@ def run(blend, out, render):
                 "overlap_bounds": [[min(p[i] for p in points), max(p[i] for p in points)] for i in range(3)] if points else None,
                 "floor_min_m": minimum,
                 "max_ik_error_m": max(errors.values()),
+                "ik_errors_m": errors,
                 "joints": {name: list(joint(name)) for name in
                            ("Hips", "Spine2", "Head", "LeftHand", "RightHand", "LeftFoot", "RightFoot")},
             }
@@ -195,8 +203,7 @@ def run(blend, out, render):
     for frame in range(scene.frame_end + 1):
         scene.frame_set(frame)
         errors = pose(frame)
-        if frame % 3 == 0:
-            records.append(measure(frame, errors))
+        records.append(measure(frame, errors))
         for name in names:
             bones[name].keyframe_insert(data_path="rotation_quaternion", frame=frame, group=name)
         bones["Hips"].keyframe_insert(data_path="location", frame=frame, group="Hips")
@@ -208,7 +215,7 @@ def run(blend, out, render):
     result = {
         "status": "PASS_SAMPLED_GEOMETRY" if all(r["overlap_pairs"] == 0 and r["floor_min_m"] >= -.005 for r in records)
                   else "FAIL_SAMPLED_GEOMETRY",
-        "scope": "Every third frame, evaluated skin against original chair triangles; no swept-volume or animation acceptance.",
+        "scope": "Every 30 Hz frame, evaluated skin against original chair triangles; swept-volume and animation acceptance remain open.",
         "seated_source_sha256": original,
         "sources": seated["sources"],
         "tool_sha256": digest(Path(__file__)),
