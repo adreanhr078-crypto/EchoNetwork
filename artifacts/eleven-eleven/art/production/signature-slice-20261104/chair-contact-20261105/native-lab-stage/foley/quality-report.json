@@ -1,0 +1,16 @@
+{
+  "checkpoint": "P37_L02_CUFF_PCM_36_40_20261105",
+  "status": "PASS_SCOPED_PCM_AND_VIDEO_TIMING",
+  "event": "L02",
+  "timing": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/foley/foley.json",
+  "reference_video_sha256": "008d42c67342c31df1700b964097e07b9bf918d0b52787019a8a4810df14a165",
+  "review_video_sha256": "4677abd9ad9a625a089f3dcc904ce9edf27cba2aa3091166111cd79723f3a3ad",
+  "identical_copied_video_stream_sha256": "97f0fd8535a14c40b73df60da21a18c29e49ab31be0249ecdcb5af8f8ce09b78",
+  "decoded_video_frames": 60,
+  "seconds": 2.0,
+  "audio_tracks": 1,
+  "negative_check": "Mismatched cuff GLB exited 1; no WAV written.",
+  "listening_and_mix": "UNVERIFIED_HUMAN_REVIEW_REQUIRED",
+  "runtime_story_integration": false,
+  "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25."
+}

@@ -1,0 +1,26 @@
+{
+	"audio_policy": "SFX_ONLY",
+	"cuff_report_sha256": "744cb44be1732ae9ebbae9546060bbabe598158f8a581357c9715e3ce5207a62",
+	"cuffs_sha256": "68f5a4b7043b04127f46abb4c0d5980d1bb2544c762ed032fbf79de5ff85a8f0",
+	"event": "L02",
+	"first_nonzero_seconds": 1.20004535147392,
+	"latch_frames_30hz": {
+		"LeftCuff": 36,
+		"RightCuff": 40
+	},
+	"mix_rate": 22050,
+	"onsets_seconds": [
+		1.2,
+		1.33333333333333
+	],
+	"peak": 0.31182861328125,
+	"scope": "Procedural physical latch study for editorial review. Listening and mix acceptance remain open.",
+	"status": "PASS_SCOPED_PCM_TIMING",
+	"synth_sha256": "c0244fe893ff7cfbdef6505fa29c9798dedd867ec5fe7b53ccf6cce20cf45c9e",
+	"tool_sha256": "f0108967148b845b265b9189ee1f9ac9cd2c409b3b9dd5283268bc520d08d930",
+	"wav_sha256": "6459ea3ca3f53b878133e360a7dff035a7a151f131e64e356219020a9abd5cda",
+	"window_peaks": [
+		0.251312255859375,
+		0.31182861328125
+	]
+}

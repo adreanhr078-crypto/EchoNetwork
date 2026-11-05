@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-05T17:31:19.548863+00:00",
-  "checkpoint": "P11_FOCUS64_P24_RECORDER67_68_P30_L02_NATIVE61_20261105",
+  "updated": "2026-11-05T17:39:31.747971+00:00",
+  "checkpoint": "P37_L02_CUFF_PCM_36_40_20261105",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -45,7 +45,7 @@
     "performance": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json"
   },
   "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
-  "next": "P37 qualify a local physical cuff-latch sound against the measured L02 latch frames. P24 run five uncoached human sessions using the recorder. P30 still requires planted entry support, forearm clearance, seated acting, and an earned restraint break before integration.",
+  "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25.",
   "hash_manifest": "docs/internal/production/CURRENT_CONTEXT_SOURCE_HASHES.json",
   "wake": {
     "report": "audits/evidence/character-school-20261102/wake-execution/quality-report.json",
@@ -507,5 +507,12 @@
     "pressure_recorder_headless": "audits/evidence/room01-20261012/p24-playtest-recorder-20261105/pressure.json",
     "pressure_recorder_rendered": "audits/evidence/room01-20261012/p24-playtest-recorder-rendered-20261105/pressure.json",
     "next": "P37 qualify a local physical cuff-latch sound against the measured L02 latch frames. P24 run five uncoached human sessions using the recorder. P30 still requires planted entry support, forearm clearance, seated acting, and an earned restraint break before integration."
+  },
+  "l02_cuff_foley_20261105": {
+    "checkpoint": "P37_L02_CUFF_PCM_36_40_20261105",
+    "report": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/foley/quality-report.json",
+    "video": "art/production/signature-slice-20261104/chair-contact-20261105/native-lab-stage/foley/L02-restraint-foley-review.mp4",
+    "tool": "tools/cinematics/build_l02_foley.gd",
+    "next": "P03 complete the low/medium Intel UHD measured lab-route comparison. P25 verify the real Stormworks handoff pacing recorder, then schedule first-player sessions for P24/P25."
   }
 }
