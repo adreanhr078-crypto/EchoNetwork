@@ -1,0 +1,82 @@
+{
+  "status": "P06_INTERNAL_JAPANESE_TIMING_PREVIEW",
+  "scope": "Cached pictures and scratch voices, linear review only. Full performance, rights and playing acceptance open.",
+  "frame_rate": 24,
+  "frames": 2115,
+  "duration_s": 88.125,
+  "hold_frames_added_to_sh03": 137,
+  "audio": [
+    {
+      "cue": "echo",
+      "start_s": 8.5,
+      "end_s": 17.172666666666668
+    },
+    {
+      "cue": "zero_offer",
+      "start_s": 39.958,
+      "end_s": 41.958
+    },
+    {
+      "cue": "zero_cost",
+      "start_s": 49.458,
+      "end_s": 53.2571875
+    },
+    {
+      "cue": "echo_laugh_first",
+      "start_s": 62.708333333333336,
+      "end_s": 66.55833333333334
+    },
+    {
+      "cue": "kinja_reaction",
+      "start_s": 66.72833333333334,
+      "end_s": 68.68752083333334
+    },
+    {
+      "cue": "echo_laugh_second",
+      "start_s": 68.70833333333333,
+      "end_s": 72.70833333333333
+    },
+    {
+      "cue": "echo_return_of_control",
+      "start_s": 72.70833333333333,
+      "end_s": 76.091
+    }
+  ],
+  "decision_slate": {
+    "start_s": 53.708333333333336,
+    "duration_s": 4,
+    "grants_progression": false
+  },
+  "handoff_slate": {
+    "start_s": 84.125,
+    "duration_s": 4
+  },
+  "source_hashes": {
+    "art/production/signature-slice-20261104/signature-editorial-v1.mp4": "1d2b847e8d8307d23617aed2bf2012e197f5c26bbd09edc9c508c4b97e62f21d",
+    "art/production/signature-slice-20261104/performance-20261105/echo-ja-directed.mp3": "41ba14bd949dd403bd44dd2c2111f018ebb55747198fc97fc640fa93c2bcf023",
+    "art/production/signature-slice-20261104/performance-20261105/zero-ja-directed.mp3": "9b39cd1b84742c53de895d96f1ea7cfb06bddbfed8f0e10d149457ca0a1367af",
+    "art/production/signature-slice-20261104/performance-20261105/echo-ja-laugh.mp3": "26c8db78bf9d8d38beaac007c7240d4f7193241fa20c0f5ddf050c4a8e77b3ff",
+    "art/production/signature-slice-20261104/performance-20261105/kinja-ja-reaction.mp3": "93ad7f38927584134d5967bd872cf6f42438115cb57000a013017f0e858ba77d"
+  },
+  "preview_sha256": "6a99523fab0b460d0f8b77395248133ce2445ab43509591e60ef6bc748c364b0",
+  "hold_frames_added_to_sh19": 34,
+  "sh19_source_override": {
+    "pdf_page": 52,
+    "path": "public/manhwa/echo-network-final-2026-09-v1/page-052.webp",
+    "sha256": "c2d03f94762210acf6c812eb53445ab0d1c0b9505ea342ad5434d3a8d3dc5cb5",
+    "crop_normalized": [
+      0.47,
+      0.065,
+      0.8,
+      0.225
+    ]
+  },
+  "reaction_shot_starts_s": {
+    "SH15": 60.708333333333336,
+    "SH16": 64.20833333333333,
+    "SH17": 66.70833333333333,
+    "SH18": 68.70833333333333,
+    "SH19": 72.70833333333333,
+    "SH20": 76.125
+  }
+}

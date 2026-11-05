@@ -854,11 +854,12 @@
     },
     {
       "id": "R104",
-      "requirement_ar": "تثبيت Cascadeur وتفعيل تجربة Pro14 يومًا",
+      "requirement_ar": "استخدام Cascadeur المثبت ضمن المجاني؛Blender للتصدير المؤهل",
       "primary_phase": "P04",
-      "acceptance_ar": "تفعيلوتشغيلوتصديرفعليقبلتوصيةمدفوعة",
-      "status": "PLANNED_NOT_ACCEPTED",
-      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources"
+      "acceptance_ar": "العمل داخل حدودFree دون تفعيل تجربة أو تجاوزقيد؛عينة التماس والتصدير للعبة منBlender تحتاجGodot",
+      "status": "FREE_PLAN_OBSERVED;GAME_CONTACT_EXPORT_SAMPLE_OPEN",
+      "source": "Owner requests and explicit agreements in this conversation;Canon/preservation rules from current project sources",
+      "previous_wording_superseded_by_latest_owner": "تثبيت Cascadeur وتفعيل تجربة Pro14 يومًا"
     },
     {
       "id": "R105",
@@ -1130,7 +1131,7 @@
         "لا قوى أو سيف قبل القبول الصريح للعقد",
         "سلطة الحفظ والتقدم والمرحلة محفوظة"
       ],
-      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "status": "STRUCTURAL_SOURCE53_MAPPING_DRAFT_NOT_FINAL_REVEAL_OR_DIALOGUE_ACCEPTANCE",
       "depends_on_phase_ids": [
         "P00"
       ],
@@ -1144,7 +1145,8 @@
         "R110",
         "R125",
         "R126"
-      ]
+      ],
+      "execution_evidence": "art/production/signature-slice-20261104/execution-ledger.json"
     },
     {
       "id": "P02",
@@ -1221,16 +1223,16 @@
       "tools": "Blender / Cascadeur / ElevenLabs / REAPER / Flow / Tripo",
       "actions_ar": [
         "التحقق من التفعيل والرصيد والتكلفة والحقوق قبل التوليد",
-        "تصدير عينة واحدة من Blender/Cascadeur وتأهيلها في Godot",
+        "تصدير عينة واحدة من Blender وتأهيلها في Godot؛تقييم CascadeurFree داخلي فقط ضمن قيوده",
         "اختبار صوتين أصليين للخوف وزيرو والضحكة",
         "استخدام REAPER للتقييم وتأجيل أي شراء أو أداة إضافية إلى فجوة مثبتة"
       ],
       "acceptance_ar": [
-        "Pro تجربة14 يومًا الآن،والشراء من نتيجة العينة",
+        "توجيه المالك الأحدث: CascadeurFree للدراسة الداخلية فقط؛لا تصدير أو استعمال تجاري منه،وحركة اللعبة عبرBlenderحتى تأهيل ترخيص ومصدر مناسبين.",
         "أهلية Indie وREAPER من الإيراد الإجمالي لا الربح",
         "توافق الأداة والتصدير والحقوق وجودة الناتج بوابات مستقلة"
       ],
-      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "status": "LIVE_TOOLS_CHECKED_FLOW12_CAMERA_SAMPLE;VOICE_CONTACT_EXPORT_OPEN",
       "depends_on_phase_ids": [
         "P01",
         "P03"
@@ -1255,7 +1257,8 @@
         "R106",
         "R107",
         "R108"
-      ]
+      ],
+      "execution_evidence": "art/production/signature-slice-20261104/execution-ledger.json"
     },
     {
       "id": "P05",
@@ -1273,7 +1276,7 @@
         "الحوار لا يستبدل الفعل والتمثيل ورد الفعل",
         "النص واللغة والترجمة معتمدة قبل التسجيل النهائي"
       ],
-      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "status": "SIGNATURE_BEAT_ACTING_DIRECTION_DRAFT;FINAL_CHAPTER_DIALOGUE_OPEN",
       "depends_on_phase_ids": [
         "P01",
         "P02"
@@ -1291,7 +1294,8 @@
       "primary_requirement_ids": [
         "R051",
         "R122"
-      ]
+      ],
+      "execution_evidence": "art/production/signature-slice-20261104/execution-ledger.json"
     },
     {
       "id": "P06",
@@ -1311,7 +1315,7 @@
         "الإيقاع والوضوح يسبقان تلميع صورة منفردة",
         "قرارالفعلوالنتيجةوالإعادةوالإيقاعمثبتباللعب؛عتباتالتجربةالأولىاقتراحاتلاتثبتالتفوق"
       ],
-      "status": "PLANNED_OR_PARTIAL_NOT_ACCEPTED",
+      "status": "EDITORIAL23_NATIVE24_LINEAR81_DRAFT;ACTING_AUDIO_CONTACT_GAMEPLAY_OPEN",
       "depends_on_phase_ids": [
         "P04",
         "P05"
@@ -1326,7 +1330,8 @@
         "P37:temporary or final audio/voice/SFX as this slice requires",
         "P38:scoped source/runtime/device verification for this slice"
       ],
-      "primary_requirement_ids": []
+      "primary_requirement_ids": [],
+      "execution_evidence": "art/production/signature-slice-20261104/execution-ledger.json"
     },
     {
       "id": "P07",
@@ -2795,5 +2800,10 @@
     "runtime": "UNCHANGED"
   },
   "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
-  "baseline_review": "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md"
+  "baseline_review": "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
+  "execution_start": {
+    "checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+    "packet": "art/production/signature-slice-20261104",
+    "runtime_main_changed": false
+  }
 }

@@ -1,0 +1,32 @@
+{
+  "checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+  "previous_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+  "status": "PASS_ISOLATED_WRIST_CUFF_CLOSURE",
+  "blender_frames": 61,
+  "native_tip_samples": 122,
+  "native_max_tip_error_m": 1.2287812012346e-07,
+  "closed_skin_clearance_m": {
+    "LeftCuff": 0.009020845405757427,
+    "RightCuff": 0.013973896391689777
+  },
+  "visual_review": "Inspected Godot Compatibility three-frame capture and Blender closure",
+  "open": [
+    "Full stand-to-seat motion and production clearance",
+    "Pact-locked restraint break and scene integration",
+    "Native Japanese review",
+    "Early room01 user playtest"
+  ],
+  "evidence": {
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/cuffs.glb": "68f5a4b7043b04127f46abb4c0d5980d1bb2544c762ed032fbf79de5ff85a8f0",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/blender-cuff-review.json": "744cb44be1732ae9ebbae9546060bbabe598158f8a581357c9715e3ce5207a62",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/native-headless.json": "86eda12c05d6a73ff6458c1432599f7367afe28c759516f3a96ff69d6ca2b7b0",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/native-Windows.json": "eac8dfd77bf1f2c847b98339f0cd83aec58214263fe386c210bc46306ac1ca25",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuff-sequence.jpg": "a836dd98ebec36b6dea3c93205b2a442ea4b175c0613af1c00fd809273ec35aa",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-open.png": "dd3c19e4c80e36d83bc215e9748b702a34a6d02a71c0281b180d5089dd0b63a4",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-closing.png": "c46f5357f5f4024a090ff94e7b646babbcc5ccdd572f4dabb081e4335f5e3b05",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-latched.png": "cc646b89fb77b67ef3deaab819c7dd24750d624536ee504ecd5ff14f71d176f0",
+    "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/initial-fit-fail.json": "dff21a2ee15858de0c0cdb0a06d8cdeb9ce522ed9ba28aee9a4c705b5d877251",
+    "tools/character-lab/author_chair_cuffs.py": "128e527db009a4b193800ce3fd034ecab69e687433e1d34fa1efcee6520a6c9b",
+    "tools/character-lab/chair_contact_review.gd": "b06859e070b8eb7f96d53c00d80c1c6884efcaf6f98904494be74cdc4d7580cf"
+  }
+}

@@ -1,0 +1,728 @@
+{
+  "status": "P05_COMPLETE_CHAPTER_SCRIPT_DRAFT",
+  "language": "ja-JP",
+  "subtitle": "ar",
+  "scope": "First complete performance draft. Canon, native Japanese, timing, rights, save rules and owner approval remain review gates.",
+  "source_matrix": "event-source-matrix.json",
+  "events": [
+    {
+      "id": "E01",
+      "event_ar": "عودة إيكو من المدرسة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        3
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "ينهي إيكو مسيره من المدرسة بخطوة عادية. تهدأ الحركة عند الباب ويستدير نحو الداخل؛ هذه عادته قبل أن تتحول علاقته بالمكان.",
+      "control_review": null
+    },
+    {
+      "id": "E02",
+      "event_ar": "الوصول للمختبر",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        5
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "父さん、いる？",
+      "subtitle_ar": "أبي، أنت هنا؟",
+      "staging_ar": "ينادي من المدخل مرة واحدة ويصغي. تتغير حرارة المكان أثناء عبوره، ويأتي الرد من جهة العمل.",
+      "control_review": null
+    },
+    {
+      "id": "E03",
+      "event_ar": "لقاء الأب والأسئلة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        4,
+        6
+      ],
+      "speaker_ar": "إيكو / كينجا",
+      "scratch_ja": "また実験？／座れば、説明する。",
+      "subtitle_ar": "تجربة أخرى؟ / اجلس وسأشرح.",
+      "staging_ar": "ينظر إيكو في وجه أبيه قبل الكرسي. كينجا يشير إلى مكان الجلوس ويترك المسافة مفتوحة حتى يصله.",
+      "control_review": null
+    },
+    {
+      "id": "E04",
+      "event_ar": "الاستعداد والجلوس الأول",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        6
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يصل إيكو إلى الكرسي ويلتقط السند قبل نقل وزنه. ينتظر كينجا حتى تستقر القدم والكف. الحركة المتصلة وتأهيلها الفني بوابة هذه اللقطة.",
+      "control_review": "authored_handoff"
+    },
+    {
+      "id": "E05",
+      "event_ar": "تعثر المعايرة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        6,
+        7
+      ],
+      "speaker_ar": "كينجا",
+      "scratch_ja": "ずれた。もう一度だ。",
+      "subtitle_ar": "خرجت المعايرة عن مسارها. مرة أخرى.",
+      "staging_ar": "يتغير المؤشر عند التعثر وتظهر فرصة التصحيح فورًا. ينظر إيكو إلى إشارة الجهاز ويظل التصحيح فعل اللاعب.",
+      "control_review": "player_retry"
+    },
+    {
+      "id": "E06",
+      "event_ar": "نجاح التجربة و11:11",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        7
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "بعد تحقق المعايرة تظهر 11:11. يرى إيكو تغيّر الضوء ويحاول أن يلتفت إلى أبيه. ينتقل الإدراك إلى الداخل مع تغير الصوت.",
+      "control_review": null
+    },
+    {
+      "id": "E07",
+      "event_ar": "الاستيقاظ الأول داخل النظام",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        8
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……ここは？",
+      "subtitle_ar": "… أين أنا؟",
+      "staging_ar": "يفتح إيكو عينيه ويفحص يديه العاديتين. ينتهي الاستيقاظ عند لحظة يمكن للاعب فيها الاستكشاف.",
+      "control_review": "authored_to_player"
+    },
+    {
+      "id": "R01",
+      "event_ar": "أول دليل داخل الغرفة الأولى",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        10,
+        11,
+        12
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "ここだけ、違う。",
+      "subtitle_ar": "هذا الجزء مختلف.",
+      "staging_ar": "يأتي التعليق عند اكتشاف دليل قابل للمقارنة. يرى اللاعب استجابة المكان لتجربته وهو يملك الحركة.",
+      "control_review": null
+    },
+    {
+      "id": "R02",
+      "event_ar": "ذاكرة شيزوكا الأولى",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        11,
+        38,
+        39
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "تظهر ذكرى شيزوكا بتكوين خاص بها. يتوقف إيكو لحظة قبل إكمال المسار. يُبنى المعنى من المادة المعتمدة وسياق اللقاء.",
+      "control_review": null
+    },
+    {
+      "id": "R03",
+      "event_ar": "تعليق إيكو أثناء السير بعد الذاكرة",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……あの時のこと、覚えてる。",
+      "subtitle_ar": "… أتذكّر ما حدث وقتها.",
+      "staging_ar": "تعليق واحد أثناء المشي بعد الذكرى، بنبرة قريبة وصوت خطوات متصل.",
+      "control_review": null
+    },
+    {
+      "id": "R04",
+      "event_ar": "أثر يوكي",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        27,
+        28
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……ユキ？",
+      "subtitle_ar": "… يوكي؟",
+      "staging_ar": "ينتبه إلى أثر يوكي قبل أن ينطق باسمها. تختلف المسافة والإضاءة وردّه عن ذكرى شيزوكا. يبقى سبب الأثر سؤالًا.",
+      "control_review": null
+    },
+    {
+      "id": "R05",
+      "event_ar": "تذكّر مستقل بعد أثر يوكي",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "توقظه علامة يوكي إلى تذكّر مستقل. يطيل وقفة الإصغاء ثم يعود إلى هدفه بحركة واحدة.",
+      "control_review": null
+    },
+    {
+      "id": "R06",
+      "event_ar": "دليلSubjects/EX-011",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        12,
+        16,
+        24,
+        26
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "EX-011……俺のことか？",
+      "subtitle_ar": "EX-011… هل يقصدونني؟",
+      "staging_ar": "يربط تسمية السجل بتجربته من الدليل الموجود. ينتقل هدف اللاعب عند اكتمال القراءة المطلوبة.",
+      "control_review": null
+    },
+    {
+      "id": "P01",
+      "event_ar": "عبور النار",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يقرأ اللاعب دورة النار من النفث والوميض. في الفجوة المتاحة يحسب توقيته. تظهر نقطة الوقوف الآمن من اتجاه الكاميرا.",
+      "control_review": null
+    },
+    {
+      "id": "P02",
+      "event_ar": "عبور الكهرباء",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "توضح الشرارة حدود المسار الكهربائي. يتخذ اللاعب قرار التوقيت أو المسار وفق المساحات المؤهلة.",
+      "control_review": null
+    },
+    {
+      "id": "P03",
+      "event_ar": "عبور الرياح",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يقيس اللاعب دفع الريح من أثره على الحركة. تكشف الكاميرا الهبوط قبل الالتزام بالقفزة.",
+      "control_review": null
+    },
+    {
+      "id": "P04",
+      "event_ar": "اختبار المهارة المركب",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يجمع اللاعب التوقيت والاتزان في عبور مركب. يبقى المسار الأصعب اختياريًا والاسترجاع عند نقطة مكتسبة.",
+      "control_review": null
+    },
+    {
+      "id": "M01",
+      "event_ar": "مرآة الحاضر",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        9
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يقترب إيكو من المرآة ويتحرك الانعكاس معه في البداية. تظل زاوية النظر تحت تحكم اللاعب.",
+      "control_review": null
+    },
+    {
+      "id": "M02",
+      "event_ar": "ظهور إيكو المستقبلي",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        9,
+        28
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……俺なのか？",
+      "subtitle_ar": "… أهذا أنا؟",
+      "staging_ar": "يرى هيئة أكبر عمرًا وأقسى. يتأخر الصوت لحظة حتى يفهم اللاعب موضع الهيئة في الانعكاس.",
+      "control_review": null
+    },
+    {
+      "id": "M03",
+      "event_ar": "انكسار التطابق والعودة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        9,
+        15
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يختلف رد الانعكاس عن إيكو في لحظة مقصودة. يستعيد الحاضر وضوحه، وإيكو يحمل الشك بدل إجابة كاملة.",
+      "control_review": null
+    },
+    {
+      "id": "L01",
+      "event_ar": "دخول المختبر الأخير",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        34,
+        36,
+        37
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يكشف الدخول المسرح والكرسي والأب في محور واحد. ينظر إيكو إلى الأب قبل تتبع الكرسي.",
+      "control_review": null
+    },
+    {
+      "id": "L02",
+      "event_ar": "المواجهة والجلوس/التقييد",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        37,
+        52
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "知ってたのか……父さん。",
+      "subtitle_ar": "كنتَ تعرف… يا أبي؟",
+      "staging_ar": "يبدأ تكوين P06 وإيكو جالس. يشد إيكو كفه ويبحث عن رد أبيه. الحركة الكاملة لإغلاق القيد تنتظر اختبار التماس.",
+      "control_review": null
+    },
+    {
+      "id": "L03",
+      "event_ar": "بداية الاختبار المؤلم",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        38,
+        39
+      ],
+      "speaker_ar": "كينجا",
+      "scratch_ja": "ずっと見ていた。",
+      "subtitle_ar": "كنتُ أراقب طوال الوقت.",
+      "staging_ar": "يجيب كينجا بنبرة عادية ويتجه إلى الجهاز. يتبع إيكو يده ويحاول ضبط النفس عند تغيّر الصوت.",
+      "control_review": null
+    },
+    {
+      "id": "L04",
+      "event_ar": "مقاومة إيكو الأولى",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        39,
+        42
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "父さん……やめてくれ。もう、息ができない。",
+      "subtitle_ar": "أبي… توقّف. لم أعد أستطيع التنفس.",
+      "staging_ar": "البكاء في النفس أولًا. يلتقط إيكو نظر الأب للحظة ثم تخفت الكلمات. يترك كينجا الطلب معلقًا.",
+      "control_review": null
+    },
+    {
+      "id": "L05",
+      "event_ar": "ذاكرة شيزوكا القسرية",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        38,
+        39,
+        41,
+        42
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "تُستدعى ذكرى شيزوكا قسرًا من الزاوية الخاصة بهذا الحدث. يقاوم إيكو الاستدعاء ويبحث عن نقطة يرجع إليها في المختبر.",
+      "control_review": null
+    },
+    {
+      "id": "L06",
+      "event_ar": "ذاكرة يوكي القسرية",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        41,
+        42,
+        43
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يفرض حضور يوكي ضغطًا مختلفًا. يحاول إيكو تمييز الذكرى من التهديد ويتغير رد كينجا مع اتجاه نظره.",
+      "control_review": null
+    },
+    {
+      "id": "L07",
+      "event_ar": "الاختيار المستحيل والرفض",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        41,
+        42
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "嫌だ。どちらも選ばない。",
+      "subtitle_ar": "أرفض. لن أختار أيًّا منهما.",
+      "staging_ar": "يقولها بعد وقفة ونظر مباشر. تسبق المقاومة انقطاع الإدراك. توقيت الصمت يحمل وقع الرفض.",
+      "control_review": null
+    },
+    {
+      "id": "L08",
+      "event_ar": "انهيار الإدراك",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        43
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "تبتعد أصوات المختبر ويضيع اتجاهها. يختل تثبيت النظر ثم يتفكك الإحساس بالسند.",
+      "control_review": null
+    },
+    {
+      "id": "O01",
+      "event_ar": "الغرق",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        43,
+        44
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يتجه الجسد إلى العمق وتمتد اليد نحو ضوء بعيد. يبقى ثقل السقوط مقروءًا في حركة اليد والتنفس.",
+      "control_review": null
+    },
+    {
+      "id": "O02",
+      "event_ar": "الوصول لقاع المحيط",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        44
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يصل إلى القاع ويختبر السكون. تُرى المسافة في إطار يسمح للاعب بفهم حجم عالم الوعي.",
+      "control_review": null
+    },
+    {
+      "id": "O03",
+      "event_ar": "إدراك حضورZero",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        45,
+        46,
+        48
+      ],
+      "speaker_ar": "زيرو",
+      "scratch_ja": "人間のままでいようとしたんだな。",
+      "subtitle_ar": "كنت تحاول أن تبقى إنسانًا.",
+      "staging_ar": "يُلمح أثر الحضور قبل الجملة. يغيّر إيكو اتجاهه نحو زيرو ولا يختصر المسافة.",
+      "control_review": null
+    },
+    {
+      "id": "O04",
+      "event_ar": "المحادثة العميقة",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "speaker_ar": "إيكو / زيرو",
+      "scratch_ja": "なぜ助ける？／扉を開けてほしい。体は奪わない。お前が私に明け渡さない限り。代償は、最後まで共にいることだ。",
+      "subtitle_ar": "لماذا تساعدني؟ / أريدك أن تفتح الباب. يبقى جسدك لك ما دمت لا تسلّمه لي. الثمن أن أبقى معك إلى النهاية.",
+      "staging_ar": "يسأل إيكو عن الدافع. تظهر هيئة زيرو عند الكشف المقرر. تسبق معرفة الثمن القرار، وتبقى لحظة استيعاب بين كل فقرة وما يليها.",
+      "control_review": null
+    },
+    {
+      "id": "O05",
+      "event_ar": "لحظة القرار",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        50
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يتوقف زيرو وينتظر. القبول فعل صريح واحد. يترك الرفض والتأجيل المسار مغلقًا ويتيحان العودة للقرار وفق الحالة الحالية.",
+      "control_review": "explicit_accept_decline_defer"
+    },
+    {
+      "id": "O06",
+      "event_ar": "انعقاد العقد",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        51
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يحدث التماس بعد القبول الصريح. يختفي الشكل الخارجي ويبدأ أثر العقد. يظهر رد إيكو أولًا قبل الانتقال.",
+      "control_review": "requires_accepted_pact"
+    },
+    {
+      "id": "T01",
+      "event_ar": "العودة لجسم المختبر",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        52
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يعود وزن إيكو إلى الكرسي والقيود. تظل الكف والكعب على نقاط السند. يلاحظ كينجا تنفسه المتقطع.",
+      "control_review": null
+    },
+    {
+      "id": "T02",
+      "event_ar": "بداية الضحكة الهستيرية",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        52,
+        53
+      ],
+      "speaker_ar": "كينجا / إيكو",
+      "scratch_ja": "何がおかしい？／……やっと、聞こえたか。",
+      "subtitle_ar": "ما الذي يضحكك؟ / أخيرًا… سمعتني.",
+      "staging_ar": "نبضة ضحك مكبوتة، ثم سؤال كينجا. يتبعها ضحك ينكسر إلى شهيق. يستعيد إيكو النظر قبل جملته الباردة.",
+      "control_review": null
+    },
+    {
+      "id": "T03",
+      "event_ar": "تحول الشعر والعين والعلامة",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "بعد العقد والضحكة يظهر تغير العين والعلامة والشعر بالترتيب المعتمد. يلتقط كينجا تغيّر السلوك قبل اكتمال التحول.",
+      "control_review": null
+    },
+    {
+      "id": "T04",
+      "event_ar": "فك القيود وكسر الكرسي",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        56,
+        57
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "ينقل إيكو وزنه، يشد القيد ثم يفصله. ترتبط الصدمة بالصوت عند حدوثها، ويتحرك كينجا استجابة لها.",
+      "control_review": null
+    },
+    {
+      "id": "T05",
+      "event_ar": "أول هجوم بإخراج مؤلف",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        56,
+        57,
+        58
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "أول التحام مؤلف باتجاه واضح. يقابل كينجا الاندفاع بحركة يمكن قراءتها قبل التسليم.",
+      "control_review": null
+    },
+    {
+      "id": "C01",
+      "event_ar": "تسليم القتال للمستخدم",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        57,
+        58
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يستعيد اللاعب الكاميرا والمدخلات في وقفة ومدى صالحين للعب بعد لقطة الالتحام.",
+      "control_review": "authored_to_player"
+    },
+    {
+      "id": "C02",
+      "event_ar": "سلسلة ضربات بيدين",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        58,
+        59
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يرى اللاعب أثر الضربات المختلفة وردود كينجا، ويختار توقيت المتابعة عبر المدخلات المؤهلة.",
+      "control_review": null
+    },
+    {
+      "id": "C03",
+      "event_ar": "مقاومة كينجا",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        58,
+        59
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يرد كينجا بدفاع أو تراجع مناسب للحالة. يستطيع اللاعب قراءة المسافة ووقت استعادة السيطرة.",
+      "control_review": null
+    },
+    {
+      "id": "C04",
+      "event_ar": "الخنق التمثيلي بالحبل ثم تقييد كينجا",
+      "source_relation": "owner",
+      "approved_pdf_pages": [],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "اقتراب والتحام مؤلفان يوضحان من يبدأ الحركة وكيف يقاوم الطرف الثاني. يتصل موضع الحبل والقيد عبر القطع.",
+      "control_review": null
+    },
+    {
+      "id": "C05",
+      "event_ar": "الحقن والانتقام بأدوات المختبر",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        59
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يشهد اللاعب أثر الانتقام من التمثيل ورد الفعل وأصوات المكان الخاصة بهذا الحدث. تبقى حركة الأدوات مجملة.",
+      "control_review": null
+    },
+    {
+      "id": "C06",
+      "event_ar": "جلوس إيكو فوق كينجا والضربات الأخيرة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        60,
+        61
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يرتكز إيكو قبل الضربات الأخيرة. تكشف اللقطات مقاومة كينجا وما تغيّر في إيكو بدل إعادة الحركة نفسها.",
+      "control_review": null
+    },
+    {
+      "id": "S01",
+      "event_ar": "توقف النظام فجأة",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        61
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يتوقف العالم والصوت والقتال في اللحظة نفسها. يحاول إيكو الاستمرار وتمنعه الحالة المقررة.",
+      "control_review": null
+    },
+    {
+      "id": "S02",
+      "event_ar": "إدراك إيكو العجز",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        61
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……体が、動かない。",
+      "subtitle_ar": "… جسدي لا يتحرك.",
+      "staging_ar": "يحاول الحركة أولًا؛ تفسر الجملة التجربة بعد أن رآها اللاعب.",
+      "control_review": null
+    },
+    {
+      "id": "S03",
+      "event_ar": "ظهور النظام والأمنية",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        61
+      ],
+      "speaker_ar": "النظام",
+      "scratch_ja": "願いを、一つ。",
+      "subtitle_ar": "أمنية واحدة.",
+      "staging_ar": "يظهر النظام ويستمع. القرار الصريح وحده يجيز مسار الخروج ضمن صلاحية الحدث.",
+      "control_review": "explicit_wish"
+    },
+    {
+      "id": "S04",
+      "event_ar": "الصداع والانهيار",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        62
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يضع إيكو يده على رأسه. يختل اتزانه وتتناثر أنفاسه قبل غياب الوعي.",
+      "control_review": null
+    },
+    {
+      "id": "H01",
+      "event_ar": "السواد المقصود",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        62,
+        63
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "السواد له مدة ووظيفة. يهيئ مسار السمع لتغير المكان مع بقاء الاستئناف عند الحالة المعتمدة.",
+      "control_review": null
+    },
+    {
+      "id": "H02",
+      "event_ar": "فتح العينين في المستشفى",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        63
+      ],
+      "speaker_ar": "إيكو",
+      "scratch_ja": "……病院？",
+      "subtitle_ar": "… مستشفى؟",
+      "staging_ar": "تفتح العينان على السقف، ويثبت نبض الجهاز المكان قبل السؤال الخافت.",
+      "control_review": null
+    },
+    {
+      "id": "H03",
+      "event_ar": "استعادة الجسد والسيطرة",
+      "source_relation": "direct",
+      "approved_pdf_pages": [
+        63,
+        64
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يختبر إيكو حركة اليد والوزن ثم يستعيد التحكم عند اتزان الجسد. تبقى حقيقة الأثر معلقة.",
+      "control_review": "authored_to_player"
+    },
+    {
+      "id": "H04",
+      "event_ar": "فحص الأثر والمرآة",
+      "source_relation": "support",
+      "approved_pdf_pages": [
+        63,
+        64
+      ],
+      "speaker_ar": null,
+      "scratch_ja": null,
+      "subtitle_ar": null,
+      "staging_ar": "يفحص اللاعب الأثر والمرآة في العالم. يظهر الفرق المنظور ويستقر ختام الفصل عند نقطة التسليم المعتمدة.",
+      "control_review": null
+    }
+  ]
+}

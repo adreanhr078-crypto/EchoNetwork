@@ -1,0 +1,1906 @@
+{
+  "status": "FAIL_CUFF_CONTACT",
+  "parent_blend_sha256": "77b5a044732c59907842803025bd7eea48abc4a2680004917e6d256a1937fd54",
+  "chair_sha256": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12",
+  "scope": "Two cuff props, fixed actor and chair sources. 61 sampled triangle overlap checks; mounts may contact the chair.",
+  "fps": 30,
+  "max_skin_triangle_pairs": 0,
+  "max_moving_chair_triangle_pairs": 7,
+  "latched_min_skin_clearance_m": {
+    "LeftCuff": 0.008827936835587025,
+    "RightCuff": 0.013650376349687576
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025799944996834
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0487544871866703
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 1,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.050258051604032516
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.048754144459962845
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 2,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025779828429222
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.048753153532743454
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 3,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0502576045691967
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04875187575817108
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 4,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025754123926163
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.048750005662441254
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 5,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025721341371536
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04874737188220024
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 6,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.050256844609975815
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04874454811215401
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 7,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.050256650894880295
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04874124005436897
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 8,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": 94.00000033905859,
+        "latch_tip": [
+          0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025654286146164
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04873759672045708
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 9,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 93.6488671440174,
+        "latch_tip": [
+          0.5294189453125,
+          0.0989999994635582,
+          1.2256999015808105
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025574192404747
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04873308166861534
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 10,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 92.6297346179598,
+        "latch_tip": [
+          0.52679044008255,
+          0.0989999994635582,
+          1.2258440256118774
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025572329759598
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.048728905618190765
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 11,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 90.99398627401179,
+        "latch_tip": [
+          0.5225673913955688,
+          0.0989999994635582,
+          1.2259776592254639
+        ],
+        "nearest_skin_vertex_clearance_m": 0.050255291163921356
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04872426018118858
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 12,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 88.79300562529936,
+        "latch_tip": [
+          0.5168824195861816,
+          0.0989999994635582,
+          1.2259670495986938
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025456100702286
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 7,
+        "z_rotation_deg_about_hinge_axis": -94.00000033905859,
+        "latch_tip": [
+          -0.5303239226341248,
+          0.0989999994635582,
+          1.2256393432617188
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04871897026896477
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 13,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 86.07816935475938,
+        "latch_tip": [
+          0.5098774433135986,
+          0.0989999994635582,
+          1.2256534099578857
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025436729192734
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -93.6488671440174,
+        "latch_tip": [
+          -0.5294189453125,
+          0.0989999994635582,
+          1.2256999015808105
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04871414601802826
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 14,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": 82.90087463589616,
+        "latch_tip": [
+          0.5017092227935791,
+          0.0989999994635582,
+          1.2248653173446655
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025345832109451
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -92.6297346179598,
+        "latch_tip": [
+          -0.52679044008255,
+          0.0989999994635582,
+          1.2258440256118774
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04870867729187012
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 15,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 79.31249815164657,
+        "latch_tip": [
+          0.49255305528640747,
+          0.0989999994635582,
+          1.2234325408935547
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025318264961243
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -90.99398627401179,
+        "latch_tip": [
+          -0.5225673913955688,
+          0.0989999994635582,
+          1.2259776592254639
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04870346188545227
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 16,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 75.36443024532575,
+        "latch_tip": [
+          0.4826048016548157,
+          0.0989999994635582,
+          1.2211977243423462
+        ],
+        "nearest_skin_vertex_clearance_m": 0.050252657383680344
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -88.79300562529936,
+        "latch_tip": [
+          -0.5168824195861816,
+          0.0989999994635582,
+          1.2259670495986938
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04869813472032547
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 17,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 71.10805443005974,
+        "latch_tip": [
+          0.47207990288734436,
+          0.0989999994635582,
+          1.2180273532867432
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025232210755348
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -86.07816935475938,
+        "latch_tip": [
+          -0.5098774433135986,
+          0.0989999994635582,
+          1.2256534099578857
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04869311675429344
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 18,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 66.59475421897453,
+        "latch_tip": [
+          0.46120965480804443,
+          0.0989999994635582,
+          1.2138222455978394
+        ],
+        "nearest_skin_vertex_clearance_m": 0.05025200545787811
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 5,
+        "z_rotation_deg_about_hinge_axis": -82.90087463589616,
+        "latch_tip": [
+          -0.5017092227935791,
+          0.0989999994635582,
+          1.2248653173446655
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04868803918361664
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 19,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 61.875913125196114,
+        "latch_tip": [
+          0.45023536682128906,
+          0.0989999994635582,
+          1.2085254192352295
+        ],
+        "nearest_skin_vertex_clearance_m": 0.044418323785066605
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -79.31249815164657,
+        "latch_tip": [
+          -0.49255305528640747,
+          0.0989999994635582,
+          1.2234325408935547
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04868302121758461
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 20,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 57.00291466185052,
+        "latch_tip": [
+          0.43939971923828125,
+          0.0989999994635582,
+          1.20212721824646
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0369558222591877
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -75.36443024532575,
+        "latch_tip": [
+          -0.4826048016548157,
+          0.0989999994635582,
+          1.2211977243423462
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04867839813232422
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 21,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 52.027149172252905,
+        "latch_tip": [
+          0.4289373755455017,
+          0.0989999994635582,
+          1.1946686506271362
+        ],
+        "nearest_skin_vertex_clearance_m": 0.02883278764784336
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -71.10805443005974,
+        "latch_tip": [
+          -0.47207990288734436,
+          0.0989999994635582,
+          1.2180273532867432
+        ],
+        "nearest_skin_vertex_clearance_m": 0.04867396503686905
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 22,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 47.000000169529294,
+        "latch_tip": [
+          0.4190642237663269,
+          0.0989999994635582,
+          1.186240315437317
+        ],
+        "nearest_skin_vertex_clearance_m": 0.020360054448246956
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -66.59475421897453,
+        "latch_tip": [
+          -0.46120965480804443,
+          0.0989999994635582,
+          1.2138222455978394
+        ],
+        "nearest_skin_vertex_clearance_m": 0.044377703219652176
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 23,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 41.972851166805675,
+        "latch_tip": [
+          0.40996766090393066,
+          0.0989999994635582,
+          1.1769791841506958
+        ],
+        "nearest_skin_vertex_clearance_m": 0.012961646541953087
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -61.875913125196114,
+        "latch_tip": [
+          -0.45023536682128906,
+          0.0989999994635582,
+          1.2085254192352295
+        ],
+        "nearest_skin_vertex_clearance_m": 0.036543719470500946
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 24,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 36.99708567720807,
+        "latch_tip": [
+          0.40179741382598877,
+          0.0989999994635582,
+          1.167062520980835
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0073730843141674995
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -57.00291466185052,
+        "latch_tip": [
+          -0.43939971923828125,
+          0.0989999994635582,
+          1.20212721824646
+        ],
+        "nearest_skin_vertex_clearance_m": 0.030118616297841072
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 25,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": 32.124087213862474,
+        "latch_tip": [
+          0.39465904235839844,
+          0.0989999994635582,
+          1.1566996574401855
+        ],
+        "nearest_skin_vertex_clearance_m": 0.004195442423224449
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -52.027149172252905,
+        "latch_tip": [
+          -0.4289373755455017,
+          0.0989999994635582,
+          1.1946686506271362
+        ],
+        "nearest_skin_vertex_clearance_m": 0.023858945816755295
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 26,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 27.405247827631353,
+        "latch_tip": [
+          0.3886095881462097,
+          0.0989999994635582,
+          1.1461215019226074
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0018936783308163285
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -47.000000169529294,
+        "latch_tip": [
+          -0.4190642237663269,
+          0.0989999994635582,
+          1.186240315437317
+        ],
+        "nearest_skin_vertex_clearance_m": 0.01629505679011345
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 27,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 22.891945908998846,
+        "latch_tip": [
+          0.38365647196769714,
+          0.0989999994635582,
+          1.1355711221694946
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0022700720001012087
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -41.972851166805675,
+        "latch_tip": [
+          -0.40996766090393066,
+          0.0989999994635582,
+          1.1769791841506958
+        ],
+        "nearest_skin_vertex_clearance_m": 0.011379076167941093
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 28,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 18.635568386185536,
+        "latch_tip": [
+          0.37975960969924927,
+          0.0989999994635582,
+          1.1252930164337158
+        ],
+        "nearest_skin_vertex_clearance_m": 0.003913985099643469
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -36.99708567720807,
+        "latch_tip": [
+          -0.40179741382598877,
+          0.0989999994635582,
+          1.167062520980835
+        ],
+        "nearest_skin_vertex_clearance_m": 0.007957469671964645
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 29,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 14.687500479864728,
+        "latch_tip": [
+          0.3768361806869507,
+          0.0989999994635582,
+          1.1155248880386353
+        ],
+        "nearest_skin_vertex_clearance_m": 0.004481760319322348
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 3,
+        "z_rotation_deg_about_hinge_axis": -32.124087213862474,
+        "latch_tip": [
+          -0.39465904235839844,
+          0.0989999994635582,
+          1.1566996574401855
+        ],
+        "nearest_skin_vertex_clearance_m": 0.006152573507279158
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 30,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 11.09912570316242,
+        "latch_tip": [
+          0.3747682571411133,
+          0.0989999994635582,
+          1.106490969657898
+        ],
+        "nearest_skin_vertex_clearance_m": 0.004812529310584068
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -27.405247827631353,
+        "latch_tip": [
+          -0.3886095881462097,
+          0.0989999994635582,
+          1.1461215019226074
+        ],
+        "nearest_skin_vertex_clearance_m": 0.005572207737714052
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 31,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 7.921829276751916,
+        "latch_tip": [
+          0.3734123706817627,
+          0.0989999994635582,
+          1.0983976125717163
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0053902845829725266
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -22.891945908998846,
+        "latch_tip": [
+          -0.38365647196769714,
+          0.0989999994635582,
+          1.1355711221694946
+        ],
+        "nearest_skin_vertex_clearance_m": 0.006502774078398943
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 32,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 5.20699727508016,
+        "latch_tip": [
+          0.37261074781417847,
+          0.0989999994635582,
+          1.0914316177368164
+        ],
+        "nearest_skin_vertex_clearance_m": 0.006843556184321642
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -18.635568386185536,
+        "latch_tip": [
+          -0.37975960969924927,
+          0.0989999994635582,
+          1.1252930164337158
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008472544141113758
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 33,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 3.0060132112731557,
+        "latch_tip": [
+          0.37220364809036255,
+          0.0989999994635582,
+          1.0857611894607544
+        ],
+        "nearest_skin_vertex_clearance_m": 0.007398219313472509
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -14.687500479864728,
+        "latch_tip": [
+          -0.3768361806869507,
+          0.0989999994635582,
+          1.1155248880386353
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008397982455790043
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 34,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 1.3702624127259089,
+        "latch_tip": [
+          0.37204232811927795,
+          0.0989999994635582,
+          1.0815391540527344
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008224951103329659
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -11.09912570316242,
+        "latch_tip": [
+          -0.3747682571411133,
+          0.0989999994635582,
+          1.106490969657898
+        ],
+        "nearest_skin_vertex_clearance_m": 0.009141740389168262
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 35,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.3511297265857476,
+        "latch_tip": [
+          0.3720027804374695,
+          0.0989999994635582,
+          1.0789068937301636
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008770117536187172
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -7.921829276751916,
+        "latch_tip": [
+          -0.3734123706817627,
+          0.0989999994635582,
+          1.0983976125717163
+        ],
+        "nearest_skin_vertex_clearance_m": 0.010376832447946072
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 36,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008946970105171204
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -5.20699727508016,
+        "latch_tip": [
+          -0.37261074781417847,
+          0.0989999994635582,
+          1.0914316177368164
+        ],
+        "nearest_skin_vertex_clearance_m": 0.011482787318527699
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 37,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008942758664488792
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -3.0060132112731557,
+        "latch_tip": [
+          -0.37220364809036255,
+          0.0989999994635582,
+          1.0857611894607544
+        ],
+        "nearest_skin_vertex_clearance_m": 0.012520823627710342
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 38,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008938123472034931
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -1.3702624127259089,
+        "latch_tip": [
+          -0.37204232811927795,
+          0.0989999994635582,
+          1.0815391540527344
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013288188725709915
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 39,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.00893297791481018
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.3511297265857476,
+        "latch_tip": [
+          -0.3720027804374695,
+          0.0989999994635582,
+          1.0789068937301636
+        ],
+        "nearest_skin_vertex_clearance_m": 0.01369994692504406
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 40,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.00892743282020092
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013650376349687576
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 41,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008921466767787933
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013651743531227112
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 42,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008915270678699017
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013653132133185863
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 43,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008908502757549286
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013654273934662342
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 44,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.0089022321626544
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013656283728778362
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 45,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008895273320376873
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013657470233738422
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 46,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008888260461390018
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013659241609275341
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 47,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.00888145249336958
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.01366081926971674
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 48,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008874865248799324
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013662498444318771
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 49,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008868175558745861
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013663767836987972
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 50,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.00886203907430172
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.01366513129323721
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 51,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008856191299855709
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013666755519807339
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 52,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008850473910570145
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.01366792805492878
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 53,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008845553733408451
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013669331558048725
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 54,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008840961381793022
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013670384883880615
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 55,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008837166242301464
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013671327382326126
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 56,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.00883400160819292
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013671929016709328
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 57,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008831356652081013
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013672642409801483
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 58,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008829426020383835
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013673133216798306
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 59,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008828198537230492
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013673230074346066
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    },
+    {
+      "frame": 60,
+      "LeftCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": 0.0,
+        "latch_tip": [
+          0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.008827936835587025
+      },
+      "RightCuff": {
+        "skin_triangle_pairs": 0,
+        "chair_triangle_pairs": 0,
+        "z_rotation_deg_about_hinge_axis": -0.0,
+        "latch_tip": [
+          -0.3720000088214874,
+          0.0989999994635582,
+          1.0779999494552612
+        ],
+        "nearest_skin_vertex_clearance_m": 0.013673249632120132
+      },
+      "LeftMount": {
+        "skin_triangle_pairs": 0
+      },
+      "RightMount": {
+        "skin_triangle_pairs": 0
+      }
+    }
+  ]
+}

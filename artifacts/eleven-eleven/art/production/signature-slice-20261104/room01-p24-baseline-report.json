@@ -1,0 +1,13 @@
+{
+  "checkpoint": "SIGNATURE_P05_P06_CUFFS_P24_BASELINE51_20261105",
+  "checks": 51,
+  "status": "PASS_NATIVE_ROOM01_BASELINE",
+  "mode": "headless Godot 4.8-dev7 60Hz low preset, existing review fixture",
+  "evidence": "audits/evidence/room01-20261012/p24-pressure-baseline-20261105/journey.json",
+  "evidence_sha256": "5e4ea5cc560d4bdd5560e8ba048a32cd59e8828088c5235a1039a06e702fdbe2",
+  "card": "art/production/signature-slice-20261104/room01-p24-pressure-card.ar.md",
+  "prototype": "DESIGN_DRAFT",
+  "player_fun": "UNVERIFIED_NOT_PLAYTESTED",
+  "postflight": "ALL CHECKS PASSED",
+  "golden_protected_files": 192
+}

@@ -1,0 +1,51 @@
+{
+  "checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+  "previous_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+  "status": "PASS_ISOLATED_SEATED_HOLD",
+  "duration_s": 2,
+  "fps": 30,
+  "frames": 61,
+  "ankle_delta_deg": 11.861142588104062,
+  "native_max_joint_error_m": 9.6867267984635e-07,
+  "native_joint_samples": 427,
+  "source_hashes": {
+    "art/production/echo-school-rebuild-20261029/source/echo-school-rig-metric.glb": "f42d8390358390922af68b7617de85267eaabf286c5c88a09c8de70b08a4cc43",
+    "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k.glb": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12"
+  },
+  "evidence_hashes": {
+    "blender-contact.json": "36c3ed20ccf2b40ed4a46fabfff14aaf3dd1893a925cd0836b8160a399691b78",
+    "visual-review.json": "47805979c17651aee962598677f79d80ac451ca7e30909e8c723ca7eb2248d7b",
+    "restrained-breath.export.json": "f3b593b6ea8da02daa9f39e228f56a7cacc61e42a90244eb4a7f188731ee58e6",
+    "native-headless.json": "feff9faa51a4c08af6daac307fe24811152410fa36c8a866e66896732b3ea44c",
+    "native-Windows.json": "51122a0b3d9f5fdea3a659b33a1f25ed6d7174b5e265e0dc91e4b34587493c89",
+    "godot-side.png": "0cd406ba8e2dd7d515e8927ff96f38534c026f041d684f9b35dc376adb395bb4",
+    "godot-three-quarter.png": "422ba2fabfe017c9c711a224640fa92b91217b128e46b92c2105777b752c5c69",
+    "restrained-breath-preview.mp4": "d0d4e9393716b123fd8419d6cfd3b7ec998b429b23c5097b0cb3a32261666b7d",
+    "tripo-source/generation.json": "2f09b33c8ba60137ea692d49269a15d22c3d4057507f694e8c1ab26ee11998ba",
+    "lateral-screen.json": "536ed258adf79b5609031f24a05f4b8df93e4a033280d2499e480478376718ee",
+    "lateral-screen.py": "16420cc233dbb1d64b25a07405d595f6d44e2ef8f350b9a89ac2755c2fd6bca3"
+  },
+  "reviewed_blend_sha256": "77b5a044732c59907842803025bd7eea48abc4a2680004917e6d256a1937fd54",
+  "reviewed_blend_local": "C:/Users/yasmo/Documents/Codex/2026-11-04/new-chat-2/work/chair-contact-final/authored-contact.blend",
+  "tripo_intake": "REJECTED_FLOOR_SIT_FOR_CHAIR",
+  "checks": {
+    "headless": "PASS_NATIVE_JOINT_REPLAY",
+    "windows": "PASS_NATIVE_JOINT_REPLAY",
+    "golden_protected_files": 192,
+    "postflight": "ALL CHECKS PASSED"
+  },
+  "open": [
+    "standing_to_seat",
+    "lateral_entry_trajectory_with_full_body_and_room_clearance",
+    "restraint_closure",
+    "production_integration",
+    "original_voice",
+    "final_edit"
+  ],
+  "lateral_access": {
+    "status": "CENTERED_LATERAL_SCREEN_OBSTRUCTED",
+    "center_blocked_rays_per_side": 378,
+    "forward_0_4m_blocked_rays_per_side": 6,
+    "rays_per_window": 651
+  }
+}

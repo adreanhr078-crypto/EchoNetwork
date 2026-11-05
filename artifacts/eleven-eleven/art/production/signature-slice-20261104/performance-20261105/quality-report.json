@@ -1,0 +1,75 @@
+{
+  "checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+  "previous_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+  "p04": {
+    "native_floor": "PASS 32 rays. Hidden original table +0.5m inside x ±0.7m on both sides.",
+    "seated_contact": "art/production/signature-slice-20261104/chair-contact-20261105/quality-report.json",
+    "open": [
+      "Standing entry and restraint closure",
+      "Native Japanese performance and rights"
+    ]
+  },
+  "p05": {
+    "status": "P05_SIGNATURE_DIALOGUE_AND_ACTING_DRAFT",
+    "cues": 23,
+    "seconds": 73,
+    "untimed_authority_gates": [
+      "SH13",
+      "SH23"
+    ],
+    "open": [
+      "Full chapter dialogue",
+      "Japanese-language and timing review"
+    ]
+  },
+  "p06": {
+    "status": "P06_INTERNAL_JAPANESE_TIMING_PREVIEW",
+    "seconds": 86.70833333333333,
+    "frames_decoded": 2081,
+    "inspected_timecodes_s": [
+      11,
+      40,
+      54,
+      84
+    ],
+    "max_peak_dbfs": -2.3,
+    "last_sound_above_minus50_dbfs_s": 53.074854,
+    "open": [
+      "Laughter placement, reading and reaction",
+      "Owner timing and final art review",
+      "Native gameplay handoff"
+    ]
+  },
+  "verified_source_hashes": {
+    "art/production/signature-slice-20261104/chair-contact-20261105/quality-report.json": "043fabca43e74d8983a512a2dda39230f87590b4ced66e1ea16c54a0673cfda3",
+    "art/production/signature-slice-20261104/editorial-timeline.json": "901beb4abec47e7d7e55316f8071494fb8cc71f42bc083ebfc7cf3b5c18a271b",
+    "art/production/signature-slice-20261104/event-source-matrix.json": "63c82a49b7f36e139899dbf5a8cf96f56c8c499d430d9a2c659e4cc734f07cd0",
+    "art/production/signature-slice-20261104/source-lock.json": "e0dfb3a7244685458340a1949fdf0808ba550ed1b12bbc9902d809c98a1bdf66",
+    "godot/assets/environments/lab_clinical_cp45/neural_chair_tripo_20k.glb": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12",
+    "godot/scripts/environment/clinical_lab_architecture.gd": "d50104006595cf18dfbcc0bc680d5055dd19ce6966f123b5d1e2d82a94147b59",
+    "godot/scripts/environment/dr_kinja_lab_room.gd": "fd0962ccac491dde1b0721f74cfbcc66f33ec6e68dd2a62e28c85afdc9e3c16a",
+    "public/manhwa/echo-network-final-2026-09-v1/page-037.webp": "b420d0db304869f8bc668c0786695bbca0b3b3230240ea1252e67bca2c160a23",
+    "public/manhwa/echo-network-final-2026-09-v1/page-046.webp": "48b6f29cf36ffe0d744a243b9c50f1c7aeb0a7f1f4dabc537f14a0ee314ffdfe",
+    "public/manhwa/echo-network-final-2026-09-v1/page-047.webp": "bf76a3fe76b6d9443180974f41ab9dc3056b20a5b2468a3bfc9f813f9a8b915b",
+    "public/manhwa/echo-network-final-2026-09-v1/page-048.webp": "9080f1169ec14a29a2efb858b5dfd8a54f082831fce6bd6be60286fb19775e53",
+    "public/manhwa/echo-network-final-2026-09-v1/page-049.webp": "fb729cf4d16e14be3025358da163c397d52d57a3f78ba59bf7ef83e8ae83e7ca",
+    "public/manhwa/echo-network-final-2026-09-v1/page-050.webp": "32256061a057ed55b00e07442fc0e774c5bb6153cf955bdef3da39c6aa79ea2a",
+    "public/manhwa/echo-network-final-2026-09-v1/page-051.webp": "faf4c84bd8a48bdeafe2c4acb4c17332e33eae968a03e99c1ca7327f1ab3f9a1",
+    "public/manhwa/echo-network-final-2026-09-v1/page-052.webp": "c2d03f94762210acf6c812eb53445ab0d1c0b9505ea342ad5434d3a8d3dc5cb5"
+  },
+  "evidence": {
+    "art/production/signature-slice-20261104/performance-20261105/native-floor-review.json": "9a69dcedf1686072d8b05c40ab79cfabca1a1a622b5738536c1f9b9fe22d665e",
+    "art/production/signature-slice-20261104/performance-20261105/voice-ledger.json": "41f3e435ac66ddea7c71ba7152b4acbc265317c86588306232cceb45ed0937cc",
+    "art/production/signature-slice-20261104/performance-20261105/timing-review.json": "d02b2aebae239279348f1bd75f3e597bf9a10bccf50daa972bb601538e255144",
+    "art/production/signature-slice-20261104/signature-performance-draft.json": "c1d869be81abaed54d9737bda68445070be345d5c34808ce832139100eea23f6",
+    "art/production/signature-slice-20261104/performance-20261105/timing-contact-sheet.jpg": "f069832b02920fb74e3fbc3d941691e99514871f2cfbab0c06344b15f556a197",
+    "art/production/signature-slice-20261104/performance-20261105/japanese-timing-preview.mp4": "2a3300afd1f15b2fc219920ca0dcc4fd943d6b36273f9fe3484f423080eb8ab3"
+  },
+  "checks": {
+    "preflight": "PASS",
+    "postflight": "ALL CHECKS PASSED",
+    "golden_protected_files": 192
+  },
+  "reuse": "Original silent cache reproduced byte-for-byte; only SH03 held for the full scratch take.",
+  "authority": "Linear internal media, no game scene/state changes."
+}

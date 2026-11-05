@@ -1,3 +1,7 @@
+الأحدث ٥ نوفمبر. نموذج ضغط الغرفة الأولى `artifacts/eleven-eleven/godot/tests/room01_pressure_review.gd`. تشغيل المعاينة والدليل في بطاقة P24؛ نقطة الاستئناف والكاش يحددان اختبار اللاعبين وتأليف حركة الكرسي.
+
+بدء التنفيذ4نوفمبر: `artifacts/eleven-eleven/art/production/signature-slice-20261104/README.ar.md`؛مصادر53حدثًا ومونتاج23لقطة/81ثانية. المعاينة الاختيارية `godot/scenes/review/signature_animatic.tscn` وأدواتها `tools/cinematics/README.md`؛ليست ضمنBoot ولا تمنح تقدمًا أو قبولًا للفصل. CURRENT_WORK والكاش للبوابة المفتوحة.
+
 مراجعةالأساس4نوفمبر: `artifacts/eleven-eleven/docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md` و`MISSION_FUN_CONTRACT_2026-11-04.json` لبطاقاتالمهامواختبارالمتعةقبلالتوسع،دونزيادةحزمأوأحداث.
 
 مراجعة4نوفمبر: الخطة الرئيسية40حزمة و128بندًا؛سجل التغطية `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_COVERAGE_2026-11-04.json`،وسجل القصة53حدثًا محفوظ. البطاقة والكاش للمتابعة دون إعادة التاريخ.

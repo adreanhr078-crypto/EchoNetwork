@@ -1,0 +1,43 @@
+{
+  "status": "INTERNAL_JAPANESE_LAUGH_AND_REACTION",
+  "takes": {
+    "echo-ja-laugh.mp3": {
+      "sha256": "26c8db78bf9d8d38beaac007c7240d4f7193241fa20c0f5ddf050c4a8e77b3ff",
+      "voice": "Syumi - Japanese Mid-Low Actor",
+      "prompt": "[exhausted, barely audible] ……っ。 [stifled laugh] ふっ……はっ。 [shaky inhale] [broken laugh through tears] は、ははっ……。 [breathing hard] ……やっと、聞こえたか。",
+      "duration_s": 11.232625,
+      "balance_before": 9625,
+      "balance_after": 9486,
+      "credits": 139
+    },
+    "kinja-ja-reaction.mp3": {
+      "sha256": "93ad7f38927584134d5967bd872cf6f42438115cb57000a013017f0e858ba77d",
+      "voice": "Sawaro - Japanese Actor Voice",
+      "prompt": "[low, dry, quietly unsettled] ……何がおかしい？",
+      "duration_s": 1.959125,
+      "balance_before": 9486,
+      "balance_after": 9447,
+      "credits": 39
+    }
+  },
+  "credits_charged": 178,
+  "verified_usage": 553,
+  "balance_after": 9447,
+  "provider": "ElevenLabs Free, Eleven v4",
+  "language": "ja-JP",
+  "scope": "Scratch audition only. No final acting, pronunciation, licensing or runtime acceptance.",
+  "rights_source": "https://elevenlabs.io/docs/overview/administration/billing",
+  "asr": {
+    "model": "whisper.cpp multilingual base-q5_1",
+    "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898",
+    "model_source": "https://huggingface.co/ggerganov/whisper.cpp/blob/main/ggml-base-q5_1.bin",
+    "transcripts": {
+      "echo-ja-initial": "0\n00:00:00,000 --> 00:00:12,000\nやめてくれ、頼む…息が…できない………今度は俺の声が聞こえるか…\n\n",
+      "echo-ja-directed": "0\n00:00:00,000 --> 00:00:03,000\n父さん、やめてくれ\n\n1\n00:00:03,000 --> 00:00:07,000\nもう、息ができない\n\n2\n00:00:07,000 --> 00:00:09,000\n聞こえてるんだろう\n\n",
+      "zero-ja-directed": "0\n00:00:00,000 --> 00:00:02,000\n飛びらを分けてほしい\n\n1\n00:00:02,000 --> 00:00:06,000\n大将は私が最後までお前と共にいることだ\n\n",
+      "echo-ja-laugh": "0\n00:00:00,000 --> 00:00:02,000\n(笑)\n\n1\n00:00:02,000 --> 00:00:04,000\n(笑)\n\n2\n00:00:04,000 --> 00:00:06,000\n(笑)\n\n3\n00:00:06,000 --> 00:00:08,000\n(笑)\n\n4\n00:00:08,000 --> 00:00:12,000\nやっと聞こえたか?\n\n",
+      "kinja-ja-reaction": "0\n00:00:00,000 --> 00:00:02,000\n何がおかしい\n\n"
+    },
+    "limits": "Forced ja local machine transcript. Echo and Kinja key lines recognized; Zero's first clause and homophone need human audition. Laughter timings based on amplitude and machine tags, not an independent acting review."
+  }
+}

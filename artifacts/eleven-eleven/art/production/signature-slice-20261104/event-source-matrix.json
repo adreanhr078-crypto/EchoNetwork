@@ -1,0 +1,739 @@
+{
+  "schema": 1,
+  "phase": "P01",
+  "status": "STRUCTURAL_SOURCE_MAPPING_REVIEW_DRAFT",
+  "publication_id": "echo-network-final-2026-09-v1",
+  "page_numbering": "GLOBAL_PDF_INCLUDING_COVER",
+  "printed_folio_warning": "Printed folio often differs by one;use global page IDs only.",
+  "source_precedence": "Latest owner identity/scene direction;approved Manhwa;Bible;Narrative Master",
+  "counts": {
+    "events": 53,
+    "publication_pages": 70
+  },
+  "relation_definitions": {
+    "direct": "Observed event motif;not an approved shot/dialogue/asset.",
+    "support": "Contextual page;literal action/placement additionally relies on Owner/Bible.",
+    "owner": "No direct page asserted;existing Owner-directed event;content detail remains open."
+  },
+  "events": [
+    {
+      "event_id": "E01",
+      "event_ar": "عودة إيكو من المدرسة",
+      "global_pdf_pages": [
+        3
+      ],
+      "relation": "support",
+      "source_note_ar": "الحياة المدرسية مرسومة؛العودة المحددة من المدرسة توسعة المالك.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E02",
+      "event_ar": "الوصول للمختبر",
+      "global_pdf_pages": [
+        5
+      ],
+      "relation": "direct",
+      "source_note_ar": "دخول بوابة المختبر مع الحقيبة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E03",
+      "event_ar": "لقاء الأب والأسئلة",
+      "global_pdf_pages": [
+        4,
+        6
+      ],
+      "relation": "support",
+      "source_note_ar": "العالم والتجربة موجودان؛توقيت أسئلة الابن ورد الأب من توجيه المالك والـBible.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E04",
+      "event_ar": "الاستعداد والجلوس الأول",
+      "global_pdf_pages": [
+        6
+      ],
+      "relation": "direct",
+      "source_note_ar": "جلوس إيكو في جهاز التجربة؛حركة الاقتراب والجلوس تحتاج تأليف تماس.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E05",
+      "event_ar": "تعثر المعايرة",
+      "global_pdf_pages": [
+        6,
+        7
+      ],
+      "relation": "support",
+      "source_note_ar": "التجربة والعد التنازلي؛فشل المعايرة القابل للإعادة توجيه لعب،لا نهاية بديلة مرسومة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E06",
+      "event_ar": "نجاح التجربة و11:11",
+      "global_pdf_pages": [
+        7
+      ],
+      "relation": "direct",
+      "source_note_ar": "تفعيل التجربة والساعة11:11.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "E07",
+      "event_ar": "الاستيقاظ الأول داخل النظام",
+      "global_pdf_pages": [
+        8
+      ],
+      "relation": "direct",
+      "source_note_ar": "فتح العينين داخل النظام وسؤال المكان.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R01",
+      "event_ar": "أول دليل داخل الغرفة الأولى",
+      "global_pdf_pages": [
+        10,
+        11,
+        12
+      ],
+      "relation": "support",
+      "source_note_ar": "التعرف والأرشيف والسجلات؛مهمة الغرفة الأولى وتوصيلها توسعة لعب.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R02",
+      "event_ar": "ذاكرة شيزوكا الأولى",
+      "global_pdf_pages": [
+        11,
+        38,
+        39
+      ],
+      "relation": "support",
+      "source_note_ar": "صور الذكريات والعلاقة؛هوية شيزوكا منBible،ولا ينسخ اختبار المختبر مبكرًا.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R03",
+      "event_ar": "تعليق إيكو أثناء السير بعد الذاكرة",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "تعليق أثناء المشي من السجل المعتمد؛لا لوحة مباشرة أو حوار نهائي بعد.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R04",
+      "event_ar": "أثر يوكي",
+      "global_pdf_pages": [
+        27,
+        28
+      ],
+      "relation": "support",
+      "source_note_ar": "يوكي والذاكرة المستقبلية؛مرجع هوية فقط،لا تصريح بكشف مضمون المستقبل مبكرًا.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R05",
+      "event_ar": "تذكّر مستقل بعد أثر يوكي",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "تذكر مستقل ليوكي من توجيه المالك،لا إعادة لفيلم شيزوكا.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "R06",
+      "event_ar": "دليلSubjects/EX-011",
+      "global_pdf_pages": [
+        12,
+        16,
+        24,
+        26
+      ],
+      "relation": "support",
+      "source_note_ar": "سجلاتSubjects والمشارك السابق؛EX-011على الجلد يتبع توجيه الهوية الأحدث.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "P01",
+      "event_ar": "عبور النار",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "عبور نار بشري من توجيه الباركور؛ليس حدث قوة أو لوحة بعينها.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "P02",
+      "event_ar": "عبور الكهرباء",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "عبور كهرباء بقراءة الدورة؛الخطر بيئي ولا يمنح قوة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "P03",
+      "event_ar": "عبور الرياح",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "عبور رياح بقرار حركة وكاميرا تكشف الهبوط.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "P04",
+      "event_ar": "اختبار المهارة المركب",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "تركيب مهارات وعودة قريبة؛لا مكافأة أو كشف جديد مخترع.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "M01",
+      "event_ar": "مرآة الحاضر",
+      "global_pdf_pages": [
+        9
+      ],
+      "relation": "direct",
+      "source_note_ar": "انعكاس إيكو ومحاولة لمس السطح.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "M02",
+      "event_ar": "ظهور إيكو المستقبلي",
+      "global_pdf_pages": [
+        9,
+        28
+      ],
+      "relation": "support",
+      "source_note_ar": "الانعكاس/المستقبل وBibleقسم المرآة؛النسخة المستقبلية الحية ليست شرحًا لكل الأسرار.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "M03",
+      "event_ar": "انكسار التطابق والعودة",
+      "global_pdf_pages": [
+        9,
+        15
+      ],
+      "relation": "support",
+      "source_note_ar": "انكسار/بيانات غير مؤكدة؛عودة السيطرة تأليف إخراجي.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L01",
+      "event_ar": "دخول المختبر الأخير",
+      "global_pdf_pages": [
+        34,
+        36,
+        37
+      ],
+      "relation": "direct",
+      "source_note_ar": "المختبر ومواجهة الأب بعد فشل العودة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L02",
+      "event_ar": "المواجهة والجلوس/التقييد",
+      "global_pdf_pages": [
+        37,
+        52
+      ],
+      "relation": "support",
+      "source_note_ar": "مواجهة كينجا ثم كرسي العودة بعد العقد؛التقييد قبل الانهيار من توجيه المالك،لا إعادة ترتيب للصفحتين.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L03",
+      "event_ar": "بداية الاختبار المؤلم",
+      "global_pdf_pages": [
+        38,
+        39
+      ],
+      "relation": "direct",
+      "source_note_ar": "اختبار الذاكرة القسري وألم إيكو.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L04",
+      "event_ar": "مقاومة إيكو الأولى",
+      "global_pdf_pages": [
+        39,
+        42
+      ],
+      "relation": "direct",
+      "source_note_ar": "طلب التوقف ورفض الاختيار.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L05",
+      "event_ar": "ذاكرة شيزوكا القسرية",
+      "global_pdf_pages": [
+        38,
+        39,
+        41,
+        42
+      ],
+      "relation": "support",
+      "source_note_ar": "تفتت الذكريات/العلاقات؛تخصيص ذاكرة شيزوكا منBibleوالسجل،بلا اختراع موت جديد.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L06",
+      "event_ar": "ذاكرة يوكي القسرية",
+      "global_pdf_pages": [
+        41,
+        42,
+        43
+      ],
+      "relation": "support",
+      "source_note_ar": "يوكي والمواجهة والتفتت؛لقطته القسرية مستقلة ضمن الاختبار الحالي.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L07",
+      "event_ar": "الاختيار المستحيل والرفض",
+      "global_pdf_pages": [
+        41,
+        42
+      ],
+      "relation": "direct",
+      "source_note_ar": "طلب الاختيار ورفض إيكو الصريح.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "L08",
+      "event_ar": "انهيار الإدراك",
+      "global_pdf_pages": [
+        43
+      ],
+      "relation": "direct",
+      "source_note_ar": "تلاشي المشهد وسقوط إيكو داخل الماء.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O01",
+      "event_ar": "الغرق",
+      "global_pdf_pages": [
+        43,
+        44
+      ],
+      "relation": "direct",
+      "source_note_ar": "غرق ووصول الضوء البعيد فوقه.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O02",
+      "event_ar": "الوصول لقاع المحيط",
+      "global_pdf_pages": [
+        44
+      ],
+      "relation": "support",
+      "source_note_ar": "الماء الداكن والهبوط؛قاع المحيط المكاني من توجيه المالك،لا تضاريس مؤلفة في الصفحة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O03",
+      "event_ar": "إدراك حضورZero",
+      "global_pdf_pages": [
+        45,
+        46,
+        48
+      ],
+      "relation": "direct",
+      "source_note_ar": "حضور الكيان ثم كشف هيئته الحقيقية.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O04",
+      "event_ar": "المحادثة العميقة",
+      "global_pdf_pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "relation": "direct",
+      "source_note_ar": "حوار العرض والاعتراض والثمن؛لا نسخ ثمن أستا أو مؤقته.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O05",
+      "event_ar": "لحظة القرار",
+      "global_pdf_pages": [
+        50
+      ],
+      "relation": "direct",
+      "source_note_ar": "طلب القوة بعد عرض الثمن؛في اللعب قرار صريح لا يقبله المؤقت أو التخطي.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "O06",
+      "event_ar": "انعقاد العقد",
+      "global_pdf_pages": [
+        51
+      ],
+      "relation": "direct",
+      "source_note_ar": "تم العقد؛هذه النتيجة تأتي بعد قرارO05المملوك للاعب فقط.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "T01",
+      "event_ar": "العودة لجسم المختبر",
+      "global_pdf_pages": [
+        52
+      ],
+      "relation": "direct",
+      "source_note_ar": "عودة إلى المختبر وكرسي كينجا بعد العقد.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "T02",
+      "event_ar": "بداية الضحكة الهستيرية",
+      "global_pdf_pages": [
+        52,
+        53
+      ],
+      "relation": "direct",
+      "source_note_ar": "ضحكة متصاعدة ورد كينجا؛التنفس والتناقض من دراسةR128كتوجيه أداء أصلي.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "T03",
+      "event_ar": "تحول الشعر والعين والعلامة",
+      "global_pdf_pages": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "relation": "direct",
+      "source_note_ar": "تغير العين والشعر والجسد/الجناح؛هويةSchool/Pactالأحدث تتقدم على اللباس المرسوم.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "T04",
+      "event_ar": "فك القيود وكسر الكرسي",
+      "global_pdf_pages": [
+        56,
+        57
+      ],
+      "relation": "support",
+      "source_note_ar": "الجسد متحرر ويتحرك؛كسر الكرسي والقيود يحتاج مصدر تماس مؤلفًا من توجيه المالك.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "T05",
+      "event_ar": "أول هجوم بإخراج مؤلف",
+      "global_pdf_pages": [
+        56,
+        57,
+        58
+      ],
+      "relation": "direct",
+      "source_note_ar": "تقدم إيكو واتصال الهجوم الأول بكينجا.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C01",
+      "event_ar": "تسليم القتال للمستخدم",
+      "global_pdf_pages": [
+        57,
+        58
+      ],
+      "relation": "support",
+      "source_note_ar": "مرجع أول اتصال؛تسليم الإدخال للقتال فعل لعبة وليس لوحة مطابقة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C02",
+      "event_ar": "سلسلة ضربات بيدين",
+      "global_pdf_pages": [
+        58,
+        59
+      ],
+      "relation": "support",
+      "source_note_ar": "ضربات وانتقام مرسوم؛سلسلة اليدين ووظائفها تأليف لعب وتماس.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C03",
+      "event_ar": "مقاومة كينجا",
+      "global_pdf_pages": [
+        58,
+        59
+      ],
+      "relation": "support",
+      "source_note_ar": "ردود الأب ومخاطبته؛مقاومة اللعب وقراءتها لا تثبت من صورة وحدها.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C04",
+      "event_ar": "الخنق التمثيلي بالحبل ثم تقييد كينجا",
+      "global_pdf_pages": [],
+      "relation": "owner",
+      "source_note_ar": "الحبل وتقييدكينجا من توجيه المالك؛لا صفحة مباشرة مؤكدة،ولا اختراع عقدة/أداة قبل تأهيلها.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C05",
+      "event_ar": "الحقن والانتقام بأدوات المختبر",
+      "global_pdf_pages": [
+        59
+      ],
+      "relation": "direct",
+      "source_note_ar": "أدوات المختبر والحقن أثناء الانتقام؛لا تطبيق خارج القتال المكتسب.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "C06",
+      "event_ar": "جلوس إيكو فوق كينجا والضربات الأخيرة",
+      "global_pdf_pages": [
+        60,
+        61
+      ],
+      "relation": "support",
+      "source_note_ar": "إيكو فوقكينجا ثم التجميد؛تماس الجلوس والضربات الأخيرة من الإخراج المعتمد.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "S01",
+      "event_ar": "توقف النظام فجأة",
+      "global_pdf_pages": [
+        61
+      ],
+      "relation": "direct",
+      "source_note_ar": "تجميد/قفل النظام المفاجئ.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "S02",
+      "event_ar": "إدراك إيكو العجز",
+      "global_pdf_pages": [
+        61
+      ],
+      "relation": "direct",
+      "source_note_ar": "إدراك إيكو العجز أمام النظام.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "S03",
+      "event_ar": "ظهور النظام والأمنية",
+      "global_pdf_pages": [
+        61
+      ],
+      "relation": "direct",
+      "source_note_ar": "سؤال الأمنية وطلب الخروج.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "S04",
+      "event_ar": "الصداع والانهيار",
+      "global_pdf_pages": [
+        62
+      ],
+      "relation": "direct",
+      "source_note_ar": "ألم الرأس والانهيار بعد معالجةالأمنية.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "H01",
+      "event_ar": "السواد المقصود",
+      "global_pdf_pages": [
+        62,
+        63
+      ],
+      "relation": "support",
+      "source_note_ar": "القطع إلى المستشفى؛السواد المقصود جسر إخراجي،لا فشل تحميل.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "H02",
+      "event_ar": "فتح العينين في المستشفى",
+      "global_pdf_pages": [
+        63
+      ],
+      "relation": "direct",
+      "source_note_ar": "العينان والسرير والمراقبة الطبية.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "H03",
+      "event_ar": "استعادة الجسد والسيطرة",
+      "global_pdf_pages": [
+        63,
+        64
+      ],
+      "relation": "direct",
+      "source_note_ar": "إدراك الجسد والآثار واستعادة الحركة؛لا خروج من نطاق المستشفى الحالي.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    },
+    {
+      "event_id": "H04",
+      "event_ar": "فحص الأثر والمرآة",
+      "global_pdf_pages": [
+        63,
+        64
+      ],
+      "relation": "support",
+      "source_note_ar": "أثر العين والجسد؛مرآة المستشفى الحية من توجيه المالك ولا تُدّعى لوحة مباشرة.",
+      "source_event_ledger": "docs/internal/production/CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json",
+      "visual_review": "CONTACT_SHEET_STRUCTURAL_MAPPING_NOT_LINE_TRANSCRIPTION",
+      "runtime_exposure_authorized_by_this_file": false,
+      "final_dialogue_and_native_implementation": "OPEN"
+    }
+  ]
+}

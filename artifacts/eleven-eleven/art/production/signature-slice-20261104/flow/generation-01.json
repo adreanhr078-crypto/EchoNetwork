@@ -1,0 +1,30 @@
+{
+  "observed_date": "2026-11-04",
+  "provider": "Google Flow",
+  "model": "Omni 1.1 Flash",
+  "project_url": "https://flow.google.com/u/2/project/3b40657b-2008-4d88-80e3-245a6c3ddb27",
+  "scene_editor_url": "https://flow.google.com/u/2/project/3b40657b-2008-4d88-80e3-245a6c3ddb27/edit/2dfa4ba3-8fce-450f-b25a-9b54d3ab8e64",
+  "backend_job_id": "NOT_EXPOSED;do not invent",
+  "jobs_submitted": 1,
+  "quote": 12,
+  "balance_before": 1050,
+  "balance_after": 1038,
+  "observed_spend": 12,
+  "new_purchase": false,
+  "input_role": "TEXT_ONLY_GENERIC_CAMERA_STUDY;no referenced image shown in submitted video request",
+  "request": "request-01.txt",
+  "download_observed": "Man_sinking_underwater_6370ecd1.mp4",
+  "raw": "ocean-omni-camera-study-01.mp4",
+  "raw_sha256": "b340e3590eafa0908dafd6960426beb3fc1ca792129602a534735224a2dd349d",
+  "probe": {
+    "width": 1280,
+    "height": 720,
+    "frame_rate": "24/1",
+    "duration": 8.042667,
+    "audio": "AAC stereo 48000Hz"
+  },
+  "playback": "Flow playback reached final8sec;8distributed local frames inspected",
+  "visual_findings": "Single continuous sinking study;hand relaxes,bubbles/tie/jacket visible;silhouette recedes. Face/hair differs from approved Echo,so identity NOT accepted.",
+  "auditory_review": "UNVERIFIED;raw audio excluded from editorial",
+  "status": "REFERENCE_ONLY_NOT_RUNTIME_CHARACTER_OR_PHYSICS_ACCEPTANCE"
+}

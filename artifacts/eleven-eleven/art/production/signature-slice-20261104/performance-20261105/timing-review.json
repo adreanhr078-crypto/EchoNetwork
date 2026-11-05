@@ -1,0 +1,40 @@
+{
+  "status": "P06_INTERNAL_JAPANESE_TIMING_PREVIEW",
+  "scope": "Cached pictures and two scratch voices, linear review only. Full performance, rights and playing acceptance open.",
+  "frame_rate": 24,
+  "frames": 2081,
+  "duration_s": 86.70833333333333,
+  "hold_frames_added_to_sh03": 137,
+  "audio": [
+    {
+      "cue": "echo",
+      "start_s": 8.5,
+      "end_s": 17.172666666666668
+    },
+    {
+      "cue": "zero_offer",
+      "start_s": 39.958,
+      "end_s": 41.958
+    },
+    {
+      "cue": "zero_cost",
+      "start_s": 49.458,
+      "end_s": 53.2571875
+    }
+  ],
+  "decision_slate": {
+    "start_s": 53.708333333333336,
+    "duration_s": 4,
+    "grants_progression": false
+  },
+  "handoff_slate": {
+    "start_s": 82.70833333333333,
+    "duration_s": 4
+  },
+  "source_hashes": {
+    "art/production/signature-slice-20261104/signature-editorial-v1.mp4": "1d2b847e8d8307d23617aed2bf2012e197f5c26bbd09edc9c508c4b97e62f21d",
+    "art/production/signature-slice-20261104/performance-20261105/echo-ja-directed.mp3": "41ba14bd949dd403bd44dd2c2111f018ebb55747198fc97fc640fa93c2bcf023",
+    "art/production/signature-slice-20261104/performance-20261105/zero-ja-directed.mp3": "9b39cd1b84742c53de895d96f1ea7cfb06bddbfed8f0e10d149457ca0a1367af"
+  },
+  "preview_sha256": "2a3300afd1f15b2fc219920ca0dcc4fd943d6b36273f9fe3484f423080eb8ab3"
+}

@@ -1,0 +1,69 @@
+{
+  "checkpoint": "P24_PRESSURE_NATIVE63_64_CHAIR_FLOOR32_20261105",
+  "scope": "Godot review driver on the existing native Room 01 and separate chair entry floor probe",
+  "driver": "godot/tests/room01_pressure_review.gd",
+  "native_cases": {
+    "headless": {
+      "adapter": "",
+      "display": "headless",
+      "engine": "4.8-dev7 (official)",
+      "human_playtest": "UNVERIFIED",
+      "muted": true,
+      "physics_hz": 60,
+      "reduced_motion": true,
+      "renderer": "forward_plus",
+      "status": "PASS_REVIEW_FIXTURE",
+      "timing": {
+        "attempts": 2,
+        "failures": 1,
+        "route": "timing"
+      },
+      "valve": {
+        "attempts": 1,
+        "failures": 0,
+        "route": "valve"
+      },
+      "viewport": "(1280, 720)",
+      "checks": 64,
+      "circuit_order": "power_first",
+      "language": "en",
+      "evidence": "audits/evidence/room01-20261012/p24-pressure-headless-20261105/"
+    },
+    "rendered": {
+      "adapter": "Intel(R) UHD Graphics",
+      "display": "Windows",
+      "engine": "4.8-dev7 (official)",
+      "human_playtest": "UNVERIFIED",
+      "muted": true,
+      "physics_hz": 60,
+      "reduced_motion": true,
+      "renderer": "gl_compatibility",
+      "status": "PASS_REVIEW_FIXTURE",
+      "timing": {
+        "attempts": 2,
+        "failures": 1,
+        "route": "timing"
+      },
+      "valve": {
+        "attempts": 1,
+        "failures": 0,
+        "route": "valve"
+      },
+      "viewport": "(1280, 720)",
+      "checks": 63,
+      "circuit_order": "signal_first",
+      "language": "ar",
+      "evidence": "audits/evidence/room01-20261012/p24-pressure-rendered-20261105/"
+    }
+  },
+  "chair_floor": "art/production/signature-slice-20261104/chair-contact-20261105/entry-floor-clearance.json",
+  "visual_observation": "1280x720 Compatibility captures. Raised the high/low status to clear Echo's silhouette; verified the two band edges and reused the visible Stormworks wheel. Art, performance and device acceptance remain open.",
+  "project_checks": {
+    "preflight": "ALL CHECKS PASSED",
+    "postflight": "ALL CHECKS PASSED",
+    "golden_protected_files": 192
+  },
+  "native_playtest": "UNVERIFIED_FIVE_PLAYERS_REQUIRED",
+  "publish_boundary": "Seven ElevenLabs Free audio/mix files remain in the separate private resume archive.",
+  "next": "P04/P07 author the forward-offset stand-to-seat pivot in the cleared review fixture; qualify full-body, foot and chair clearance, then the earned restraint break. P24 run five uncoached player sessions using --manual before integration. P06 human Japanese audition and rights remain open."
+}

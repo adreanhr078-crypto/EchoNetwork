@@ -1,0 +1,83 @@
+{
+  "status": "CENTERED_LATERAL_SCREEN_OBSTRUCTED",
+  "chair_sha256": "0aa2bb8291263e09a5cb42d4b023a9f12e955c91bcc358af821054b1e3e79f12",
+  "review_space": "Z-up; chair front -Y; scene-equivalent size without gameplay transform",
+  "hip_z_m": 0.9633747081756592,
+  "seat_y_m": -0.01,
+  "sample_spacing_m": 0.01,
+  "x_abs_range_m": [
+    0.3,
+    0.75
+  ],
+  "window_width_y_m": 0.3,
+  "window_height_z_m": 0.2,
+  "samples": [
+    {
+      "side": -1,
+      "center_y_offset_m": -0.4,
+      "rays": 651,
+      "blocked": 6,
+      "nearest_hit": [
+        -0.5267,
+        -0.26,
+        1.0634
+      ]
+    },
+    {
+      "side": -1,
+      "center_y_offset_m": -0.3,
+      "rays": 651,
+      "blocked": 65,
+      "nearest_hit": [
+        -0.5316,
+        -0.16,
+        1.0434
+      ]
+    },
+    {
+      "side": -1,
+      "center_y_offset_m": 0.0,
+      "rays": 651,
+      "blocked": 378,
+      "nearest_hit": [
+        -0.573,
+        0.14,
+        1.0134
+      ]
+    },
+    {
+      "side": 1,
+      "center_y_offset_m": -0.4,
+      "rays": 651,
+      "blocked": 6,
+      "nearest_hit": [
+        0.5267,
+        -0.26,
+        1.0634
+      ]
+    },
+    {
+      "side": 1,
+      "center_y_offset_m": -0.3,
+      "rays": 651,
+      "blocked": 65,
+      "nearest_hit": [
+        0.5316,
+        -0.16,
+        1.0434
+      ]
+    },
+    {
+      "side": 1,
+      "center_y_offset_m": 0.0,
+      "rays": 651,
+      "blocked": 378,
+      "nearest_hit": [
+        0.573,
+        0.14,
+        1.0134
+      ]
+    }
+  ],
+  "scope": "Chair-only sagittal window rays. Forward offsets screen an initial approach only. Full body, pivot, foot placement and room clearance remain untested."
+}

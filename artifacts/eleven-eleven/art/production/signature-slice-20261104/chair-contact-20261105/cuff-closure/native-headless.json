@@ -1,0 +1,20 @@
+{
+  "capture_files": [],
+  "cuffs": {
+    "asset_sha256": "68f5a4b7043b04127f46abb4c0d5980d1bb2544c762ed032fbf79de5ff85a8f0",
+    "latch_tip_samples": 122,
+    "max_tip_error_m": 0.00000012287812012346,
+    "reference_sha256": "744cb44be1732ae9ebbae9546060bbabe598158f8a581357c9715e3ce5207a62",
+    "status": "PASS_NATIVE_CUFF_REPLAY"
+  },
+  "display": "headless",
+  "duration_s": 2.0,
+  "frames": 61,
+  "imported_clip": "Animation",
+  "joint_samples": 427,
+  "max_joint_error_m": 0.00000096867267984635,
+  "reference_sha256": "36c3ed20ccf2b40ed4a46fabfff14aaf3dd1893a925cd0836b8160a399691b78",
+  "renderer": "gl_compatibility",
+  "source_sha256": "3602c345a8a148e3a940d3b909b06018f1a711144848408f133fafa02e8c1c88",
+  "status": "PASS_NATIVE_JOINT_REPLAY"
+}

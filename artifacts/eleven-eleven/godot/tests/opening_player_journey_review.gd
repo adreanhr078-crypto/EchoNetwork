@@ -104,6 +104,39 @@ func _use_evidence(id: String) -> bool:
 			await _capture("discovery-%03d" % frame)
 	return true
 
+func _align_opening_terminal() -> bool:
+	var terminal := main.find_child("SectorTerminal", true, false) as Node3D
+	if not await _walk(terminal.global_position + Vector3(0, 0, -1.0)): return false
+	if not _check(player.get_nearest_interactable() == terminal.get_node("InteractionArea"), "Terminal not physically reachable"): return false
+	player.interact_with_nearest()
+	var puzzle = main.hud.find_child("TerminalHackPuzzle", true, false)
+	if not _check(puzzle.is_open and player.control_locked, "Actual terminal failed to open puzzle"): return false
+	puzzle.freq_slider.value = 96.0
+	puzzle.close_puzzle()
+	if not _check(not player.control_locked, "Cancelled terminal retained input ownership"): return false
+	player.interact_with_nearest()
+	if not _check(is_equal_approx(puzzle.freq_slider.value, 96.0), "Retry discarded tuning progress"): return false
+	puzzle.freq_slider.value = 111.0
+	puzzle.phase_slider.value = 45.0
+	puzzle.harmonic_slider.value = 7.0
+	await _frames(12)
+	await _capture("03-signal-aligned")
+	if not _check(puzzle.is_solved and not main.get_node("PrologueOrchestrator").room_gate_open, "Signal tuning bypassed explicit confirmation"): return false
+	puzzle.proceed_btn.pressed.emit()
+	await _frames(4)
+	return true
+
+func _energize_opening_conduit() -> bool:
+	var conduit := main.find_child("EnergyPowerConduit_A", true, false) as Node3D
+	if not await _walk(Vector3(0, 0, -3.0)): return false
+	if not await _walk(conduit.global_position + Vector3(1.0, 0, 0)): return false
+	if not _check(player.get_nearest_interactable() == conduit.get_node("InteractionArea"), "Power conduit not physically reachable"): return false
+	player.interact_with_nearest()
+	return _check(main.get_node("PrologueOrchestrator").conduit_a_energized, "Public interaction did not energize the power conduit")
+
+func _before_room_exit() -> bool:
+	return true
+
 func _run() -> void:
 	_clear_fixture_saves()
 	root.unfocusable = true
@@ -223,30 +256,14 @@ func _run() -> void:
 	if standard:
 		main.set_reduced_motion(false)
 		main.set_audio_muted(false)
-	var terminal := main.find_child("SectorTerminal", true, false) as Node3D
-	if not await _walk(terminal.global_position + Vector3(0, 0, -1.0)): return
-	if not _check(player.get_nearest_interactable() == terminal.get_node("InteractionArea"), "Terminal not physically reachable"): return
-	player.interact_with_nearest()
-	var puzzle = main.hud.find_child("TerminalHackPuzzle", true, false)
-	if not _check(puzzle.is_open and player.control_locked, "Actual terminal failed to open puzzle"): return
-	puzzle.freq_slider.value = 96.0
-	puzzle.close_puzzle()
-	if not _check(not player.control_locked, "Cancelled terminal retained input ownership"): return
-	player.interact_with_nearest()
-	if not _check(is_equal_approx(puzzle.freq_slider.value, 96.0), "Retry discarded tuning progress"): return
-	puzzle.freq_slider.value = 111.0
-	puzzle.phase_slider.value = 45.0
-	puzzle.harmonic_slider.value = 7.0
-	await _frames(12)
-	await _capture("03-signal-aligned")
-	if not _check(puzzle.is_solved and not main.get_node("PrologueOrchestrator").room_gate_open, "Puzzle bypassed closure or missing power"): return
-	puzzle.proceed_btn.pressed.emit()
-	await _frames(4)
+	var power_first := args.has("--power-first")
+	var prologue := main.get_node("PrologueOrchestrator")
+	if power_first:
+		if not await _energize_opening_conduit(): return
+		if not _check(not prologue.room_gate_open and not prologue.wake_terminal_solved, "Power alone released the exit"): return
+	if not await _align_opening_terminal(): return
+	if not power_first and not await _energize_opening_conduit(): return
 	var conduit := main.find_child("EnergyPowerConduit_A", true, false) as Node3D
-	if not await _walk(Vector3(0, 0, -3.0)): return
-	if not await _walk(conduit.global_position + Vector3(1.0, 0, 0)): return
-	if not _check(player.get_nearest_interactable() == conduit.get_node("InteractionArea"), "Power conduit not physically reachable"): return
-	player.interact_with_nearest()
 	var breach = main.find_child("BlastGateBreachCinematic", true, false)
 	if standard:
 		for frame in 230:
@@ -268,6 +285,7 @@ func _run() -> void:
 			await _frames(1)
 			await _capture("circuit-%03d" % frame)
 	if not await _walk(Vector3(0, 0, -12.0)): return
+	if not await _before_room_exit(): return
 	if not await _walk(Vector3(0, 0, -15.2)): return
 	_drain_dialogue()
 	await _frames(6)
@@ -291,7 +309,7 @@ func _run() -> void:
 		var profile := FileAccess.open(folder+"profile.json",FileAccess.WRITE)
 		profile.store_string(JSON.stringify({"engine":Engine.get_version_info().string,"adapter":RenderingServer.get_video_adapter_name(),"renderer":RenderingServer.get_video_adapter_api_version(),"viewport":str(root.size),"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"method":"240 real process frame wall intervals at each actual connected route stop; screenshots outside samples; engine counters are not GPU duration or resident VRAM","phases":profile_phases},"\t"))
 	var report := FileAccess.open(folder + "journey.json", FileAccess.WRITE)
-	report.store_string(JSON.stringify({"checks":checks,"language":main.presentation_language,"viewport":str(root.size),"display":DisplayServer.get_name(),"engine":Engine.get_version_info().string,"physical_room_route":true,"visual_acceptance":"REQUIRES_INSPECTION","audio_listening":"UNVERIFIED","diagnostics":atmosphere.diagnostics(),"source_hashes":{
+	report.store_string(JSON.stringify({"checks":checks,"circuit_order":"power_first" if power_first else "signal_first","language":main.presentation_language,"viewport":str(root.size),"display":DisplayServer.get_name(),"engine":Engine.get_version_info().string,"physical_room_route":true,"visual_acceptance":"REQUIRES_INSPECTION","audio_listening":"UNVERIFIED","diagnostics":atmosphere.diagnostics(),"source_hashes":{
 		"native_journey.tscn":FileAccess.get_sha256("res://scenes/native_journey.tscn"),
 		"opening_web_room.tscn":FileAccess.get_sha256("res://scenes/opening_web_room.tscn"),
 		"opening_web_facility.tscn":FileAccess.get_sha256("res://scenes/environment/opening_web_facility.tscn"),

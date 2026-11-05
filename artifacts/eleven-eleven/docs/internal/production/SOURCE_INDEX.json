@@ -5100,6 +5100,613 @@
       "sha256": "ac34ae1984acf527faba05b49fc979257f815fa192c58ef12c6ef21a43c77aef",
       "bytes": 5954,
       "review_checkpoint": "BASELINE_REVIEW_EARLY_FUN_GATES_20261104"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/editorial-export.json",
+      "sha256": "1c3ba1bdda06399962056201fd2b9497b8d3199a938a62a50757f49c47a17f86",
+      "bytes": 866,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/editorial-timeline.json",
+      "sha256": "901beb4abec47e7d7e55316f8071494fb8cc71f42bc083ebfc7cf3b5c18a271b",
+      "bytes": 20645,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/event-source-matrix.json",
+      "sha256": "63c82a49b7f36e139899dbf5a8cf96f56c8c499d430d9a2c659e4cc734f07cd0",
+      "bytes": 33923,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/execution-ledger.json",
+      "sha256": "2c6dd8e1ca73a394ce76644a41e566f4916e61ef8497eb21914c00f5f27c6903",
+      "bytes": 2816,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/README.ar.md",
+      "sha256": "2424769d4cfe0716a515dc022412261163422ef81dfb21787d4f1c0385650711",
+      "bytes": 7092,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/signature-editorial-v1.mp4",
+      "sha256": "1d2b847e8d8307d23617aed2bf2012e197f5c26bbd09edc9c508c4b97e62f21d",
+      "bytes": 3739567,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/source-lock.json",
+      "sha256": "e0dfb3a7244685458340a1949fdf0808ba550ed1b12bbc9902d809c98a1bdf66",
+      "bytes": 10390,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/flow/ocean-omni-camera-study-01.mp4",
+      "sha256": "b340e3590eafa0908dafd6960426beb3fc1ca792129602a534735224a2dd349d",
+      "bytes": 3358476,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "godot/scripts/cinematics/signature_animatic_preview.gd",
+      "sha256": "cf94ad3f5ad56d6025cccc854fbb56b044f182153b784a68f04cba83062a55d9",
+      "bytes": 10609,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "godot/scenes/review/signature_animatic.tscn",
+      "sha256": "b5e6ea2ce04b5b4c233e035dad3bcfec8dbe2af5aba1c9a62f265b918dd2848e",
+      "bytes": 327,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "godot/tests/signature_animatic_review.gd",
+      "sha256": "fc58da77878b403091cc5f834b953b84d0d76477ec82f01336137561abeab977",
+      "bytes": 7413,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "tools/cinematics/build_signature_packet.py",
+      "sha256": "8eb27a98bb01ed82337d1070184ff231c08b2588ea5a23306805fd645c0da6f4",
+      "bytes": 19367,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "tools/cinematics/render_signature_animatic.py",
+      "sha256": "36dec1c6c8a89a8889e5d83162d41cec0124179dc9089756cc021f37e976950e",
+      "bytes": 7218,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "tools/cinematics/validate_signature_packet.py",
+      "sha256": "76881f88d449f13bdc16f78cd17f2295c5dd513a300f1478f7ddbc5a9d5ad0df",
+      "bytes": 5792,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "tools/cinematics/README.md",
+      "sha256": "ea7fbb4d21ba4f72b58ec49bbf4b26d15dcde7d76ac98848242fb74ebeb77e59",
+      "bytes": 1474,
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal source/editorial tool;not production avatar,contract,voice,art,contact,fun or chapter acceptance"
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/flow/generation-01.json",
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal editorial draft/source/evidence;not final gameplay,art,audio,contact or chapter acceptance",
+      "sha256": "52b671322e9e442c9a4de71b3cc1b27c103072ab71012ad878390668ac7ab0d8",
+      "bytes": 1416
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "art/production/signature-slice-20261104/flow/request-01.txt",
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal editorial draft/source/evidence;not final gameplay,art,audio,contact or chapter acceptance",
+      "sha256": "cf573efe3fe6213ec20625300543c14a696402a9518e5b32b93d97bea16bf4e0",
+      "bytes": 1270
+    },
+    {
+      "group": "signature_editorial_review",
+      "path": "audits/evidence/signature-slice-20261104/quality-report.json",
+      "review_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+      "scope": "Internal editorial draft/source/evidence;not final gameplay,art,audio,contact or chapter acceptance",
+      "sha256": "2ff2a9460899bd570c6b16c8cdd24ae6dc964984979f9e435bdbe35552979dad",
+      "bytes": 7196
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/blender-contact.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "36c3ed20ccf2b40ed4a46fabfff14aaf3dd1893a925cd0836b8160a399691b78",
+      "bytes": 66387
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/visual-review.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "47805979c17651aee962598677f79d80ac451ca7e30909e8c723ca7eb2248d7b",
+      "bytes": 598
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/restrained-breath.export.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "f3b593b6ea8da02daa9f39e228f56a7cacc61e42a90244eb4a7f188731ee58e6",
+      "bytes": 551
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/native-headless.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "feff9faa51a4c08af6daac307fe24811152410fa36c8a866e66896732b3ea44c",
+      "bytes": 442
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/native-Windows.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "51122a0b3d9f5fdea3a659b33a1f25ed6d7174b5e265e0dc91e4b34587493c89",
+      "bytes": 496
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/godot-side.png",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "0cd406ba8e2dd7d515e8927ff96f38534c026f041d684f9b35dc376adb395bb4",
+      "bytes": 385391
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/godot-three-quarter.png",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "422ba2fabfe017c9c711a224640fa92b91217b128e46b92c2105777b752c5c69",
+      "bytes": 422871
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/restrained-breath-preview.mp4",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "d0d4e9393716b123fd8419d6cfd3b7ec998b429b23c5097b0cb3a32261666b7d",
+      "bytes": 112091
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/tripo-source/generation.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "2f09b33c8ba60137ea692d49269a15d22c3d4057507f694e8c1ab26ee11998ba",
+      "bytes": 957
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/restrained-breath.glb",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "3602c345a8a148e3a940d3b909b06018f1a711144848408f133fafa02e8c1c88",
+      "bytes": 6508216
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/blender-side.png",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "a7a07942068e5ae5a0601f78fa48bb5c8b9aa0dd1fa68005fa0f6b5cf95fbdb7",
+      "bytes": 480864
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/blender-three-quarter.png",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "01b1cd5cb80a57458aa1c6ee037f2cb350b4a6dda59673154cb9c2ffde94f03f",
+      "bytes": 509021
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/tripo-source/source.glb",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "c5b467fa8e09e8370bd5d26ab93ca8662c6d3343484a715425475383a3488424",
+      "bytes": 5769532
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/tripo-source/native-source/native-contact.jpg",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "56a342247c5cc5d5e07b1e19d6d4e9367d4e9ea0258b13dd4e5b94f4e15433ac",
+      "bytes": 66269
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/tripo-source/native-source/exact-native-source.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "1d65b59e1ec50b2d019307a4ce308359719b6685df07fae4f42efc71c091f6c1",
+      "bytes": 1176205
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/quality-report.json",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "043fabca43e74d8983a512a2dda39230f87590b4ced66e1ea16c54a0673cfda3",
+      "bytes": 2711
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/README.ar.md",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "3117fb70c71cd05ee277a84e79c1ebaba4d2059f30c9ceb2f1eb1dcafd8e0f1b",
+      "bytes": 1416
+    },
+    {
+      "path": "tools/character-lab/author_chair_contact.py",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "ee14e7e679db51e754115a26e0df387847b65a263b196385886dfc7ed864adc4",
+      "bytes": 14069
+    },
+    {
+      "path": "tools/character-lab/export_chair_contact.py",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "cd4d7fecf60c039a78a331218cec126b909bbb8b5297683778229489bcf42482",
+      "bytes": 2600
+    },
+    {
+      "path": "tools/character-lab/chair_contact_review.gd",
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Isolated seated contact or intake evidence; entry, closure and runtime integration open",
+      "sha256": "b06859e070b8eb7f96d53c00d80c1c6884efcaf6f98904494be74cdc4d7580cf",
+      "bytes": 8151
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/lateral-screen.json",
+      "sha256": "536ed258adf79b5609031f24a05f4b8df93e4a033280d2499e480478376718ee",
+      "bytes": 1759,
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Chair geometry lateral ray screen only"
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/lateral-screen.py",
+      "sha256": "16420cc233dbb1d64b25a07405d595f6d44e2ef8f350b9a89ac2755c2fd6bca3",
+      "bytes": 2308,
+      "group": "signature_chair_contact_review",
+      "review_checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+      "scope": "Chair geometry lateral ray screen only"
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/native-floor-review.json",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "9a69dcedf1686072d8b05c40ab79cfabca1a1a622b5738536c1f9b9fe22d665e",
+      "bytes": 4315
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/voice-ledger.json",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "41f3e435ac66ddea7c71ba7152b4acbc265317c86588306232cceb45ed0937cc",
+      "bytes": 2541
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/timing-review.json",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "d02b2aebae239279348f1bd75f3e597bf9a10bccf50daa972bb601538e255144",
+      "bytes": 1380
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/signature-performance-draft.json",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "c1d869be81abaed54d9737bda68445070be345d5c34808ce832139100eea23f6",
+      "bytes": 12586
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/SIGNATURE_PERFORMANCE_DRAFT.ar.md",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "34b4a7c59c036fffb8ee829c41d3ff71f53ff004886a4ace63ddd64305967f16",
+      "bytes": 6726
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/japanese-timing-preview.mp4",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "2a3300afd1f15b2fc219920ca0dcc4fd943d6b36273f9fe3484f423080eb8ab3",
+      "bytes": 4033118
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/timing-contact-sheet.jpg",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "f069832b02920fb74e3fbc3d941691e99514871f2cfbab0c06344b15f556a197",
+      "bytes": 114669
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/quality-report.json",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "26b3fa91cb4dcaa0692929285ba2eb608c86e30b735a2187989f97782cc9d235",
+      "bytes": 4610
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/README.ar.md",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "f8e9a395a9467999e1a41cb3f6f9b78b0bb7eb27d73eefa63773547f135a2a00",
+      "bytes": 1426
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "tools/character-lab/chair_native_floor_review.gd",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "f527c6c03ce15243decccd4e5109e3ca6ef940503425014323422c91cd0e355e",
+      "bytes": 2692
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "tools/cinematics/render_signature_japanese_timing.py",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "8a09ebda2ad67822b6cdb60856215637bad55408d1c73b0c8a0ab9497d7c3da5",
+      "bytes": 9688
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/echo-ja-initial.mp3",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "2e8013b58f0334748b6314a394ba49f79c9377c1074c21d9a073cbeebe1333d4",
+      "bytes": 203346
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/echo-ja-directed.mp3",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "41ba14bd949dd403bd44dd2c2111f018ebb55747198fc97fc640fa93c2bcf023",
+      "bytes": 155699
+    },
+    {
+      "group": "signature_japanese_performance",
+      "path": "art/production/signature-slice-20261104/performance-20261105/zero-ja-directed.mp3",
+      "review_checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+      "scope": "Native floor review, Japanese scratch evaluation or signature performance draft",
+      "sha256": "9b39cd1b84742c53de895d96f1ea7cfb06bddbfed8f0e10d149457ca0a1367af",
+      "bytes": 109723
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/laugh-quality-report.json",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "7a2e149bd9cf36b50b6163c336fff28c603bd918d3bf57f8711ba6ff9dc0513f",
+      "bytes": 1950
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/laugh-ledger.json",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "bd9c0342b0a8ab71a295de077961121cb9ed99d95a25aa54fc7ae17b839d14de",
+      "bytes": 2731
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/japanese-timing-preview-with-laugh.mp4",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "6a99523fab0b460d0f8b77395248133ce2445ab43509591e60ef6bc748c364b0",
+      "bytes": 4204978
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/timing-review-with-laugh.json",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "c6b0199f93164f54c560239d2a5d192cda5c19b2df808870bab6f30500809062",
+      "bytes": 2695
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chapter-script-p05-draft.json",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "1a78c4d4e46a95c828ffaea38377002cbe311d26a08ef55fa09642eea0b3c134",
+      "bytes": 28358
+    },
+    {
+      "path": "art/production/signature-slice-20261104/CHAPTER_SCRIPT_P05_DRAFT.ar.md",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "ffa7ddf822982d3d1e5b98af0b1e33fd78b59038bc4984334db5c08226cf49c0",
+      "bytes": 15747
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/laugh-timing-contact-sheet.jpg",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "8483185c0fee339c489ea48d4b588852b750bd211a8e020aec214ef0cb88b99f",
+      "bytes": 83056
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/echo-ja-laugh.mp3",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "26c8db78bf9d8d38beaac007c7240d4f7193241fa20c0f5ddf050c4a8e77b3ff",
+      "bytes": 196659
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/kinja-ja-reaction.mp3",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "93ad7f38927584134d5967bd872cf6f42438115cb57000a013017f0e858ba77d",
+      "bytes": 48283
+    },
+    {
+      "path": "art/production/signature-slice-20261104/performance-20261105/LAUGH_CHECKPOINT.ar.md",
+      "group": "signature_laugh_chapter_20261105",
+      "review_checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+      "sha256": "34e4ce5a2724eeb5eaf7064c9cdc1390767e3241eaa70f44b2d5247469c628d5",
+      "bytes": 1318
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/quality-report.json",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "0fce65f5bb5c7abe21c93351ec1a01e1681bac2a8b296a68e7896109db8121f3",
+      "bytes": 2538
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/cuffs.glb",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "68f5a4b7043b04127f46abb4c0d5980d1bb2544c762ed032fbf79de5ff85a8f0",
+      "bytes": 46936
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/blender-cuff-review.json",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "744cb44be1732ae9ebbae9546060bbabe598158f8a581357c9715e3ce5207a62",
+      "bytes": 69258
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/native-headless.json",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "86eda12c05d6a73ff6458c1432599f7367afe28c759516f3a96ff69d6ca2b7b0",
+      "bytes": 757
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/native-Windows.json",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "eac8dfd77bf1f2c847b98339f0cd83aec58214263fe386c210bc46306ac1ca25",
+      "bytes": 901
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuff-sequence.jpg",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "a836dd98ebec36b6dea3c93205b2a442ea4b175c0613af1c00fd809273ec35aa",
+      "bytes": 118476
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-open.png",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "dd3c19e4c80e36d83bc215e9748b702a34a6d02a71c0281b180d5089dd0b63a4",
+      "bytes": 606066
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-closing.png",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "c46f5357f5f4024a090ff94e7b646babbcc5ccdd572f4dabb081e4335f5e3b05",
+      "bytes": 607017
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/godot-cuffs-latched.png",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "cc646b89fb77b67ef3deaab819c7dd24750d624536ee504ecd5ff14f71d176f0",
+      "bytes": 605582
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/initial-fit-fail.json",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "dff21a2ee15858de0c0cdb0a06d8cdeb9ce522ed9ba28aee9a4c705b5d877251",
+      "bytes": 53948
+    },
+    {
+      "path": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/README.ar.md",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "7bc64390f22a713b0ddb4b1b96c1a7020cf47a9ac6ce74b3032bddbabf26618d",
+      "bytes": 1047
+    },
+    {
+      "path": "tools/character-lab/author_chair_cuffs.py",
+      "group": "signature_cuff_closure_20261105",
+      "review_checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+      "sha256": "128e527db009a4b193800ce3fd034ecab69e687433e1d34fa1efcee6520a6c9b",
+      "bytes": 8409
+    },
+    {
+      "path": "art/production/signature-slice-20261104/room01-p24-baseline-report.json",
+      "group": "signature_room01_baseline_20261105",
+      "review_checkpoint": "SIGNATURE_P05_P06_CUFFS_P24_BASELINE51_20261105",
+      "sha256": "5336b7751aa91127bf57e00b26aba39ebb39b3dc152366d45aac7f3edaeb28a0",
+      "bytes": 632
+    },
+    {
+      "path": "audits/evidence/room01-20261012/p24-pressure-baseline-20261105/journey.json",
+      "group": "signature_room01_baseline_20261105",
+      "review_checkpoint": "SIGNATURE_P05_P06_CUFFS_P24_BASELINE51_20261105",
+      "sha256": "5e4ea5cc560d4bdd5560e8ba048a32cd59e8828088c5235a1039a06e702fdbe2",
+      "bytes": 2986
+    },
+    {
+      "path": "art/production/signature-slice-20261104/room01-p24-pressure-card.ar.md",
+      "group": "signature_room01_baseline_20261105",
+      "review_checkpoint": "SIGNATURE_P05_P06_CUFFS_P24_BASELINE51_20261105",
+      "sha256": "dd064fc98f9025cd4a909fd62a977a0de1569ee3c88f3a5963913f5479219922",
+      "bytes": 2590
     }
   ],
   "current_runtime_review": "audits/evidence/chapter-cp45-20261020/stage09/report.json",
@@ -5114,7 +5721,7 @@
   "active_asset_stage": "CP45 native35-sample braced pull-up +20-sample standing continuation; phase07 scoped PASS, phase08 next",
   "active_asset_evidence": "audits/evidence/chapter-cp45-20261020/stage07/native-mantle-verified/review.json",
   "context_cache": "docs/internal/production/CURRENT_CONTEXT_CACHE.json",
-  "working_checkpoint": "ROOM07_08_DEFAULT_SCOPED_NATIVE_PASS_HOSPITAL10_ACTIVE",
+  "working_checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
   "current_visual_review": "audits/evidence/chapter-cp45-20261020/stage07/argon-high-verified-review.txt",
   "stage07_verification": {
     "status": "PASS_SCOPED",
@@ -5296,7 +5903,7 @@
     "plan": "docs/internal/production/EXPERIENCE_REBUILD_2026-11-03.ar.md",
     "acceptance": "PARTIAL; remaining stages open"
   },
-  "latest_owner_mode": "STUDY_AND_PLAN_ONLY_TODAY",
+  "latest_owner_mode": "EXECUTION_RESUMED_ROOT_ONLY_CASCADEUR_FREE_ONLY",
   "latest_study_plan": "docs/internal/production/CINEMATIC_EXPERIENCE_REBUILD_STUDY_2026-11-03.ar.md",
   "repository_publication": {
     "verified_utc": "2026-11-04T13:24:52.954931+00:00",
@@ -5319,5 +5926,114 @@
     "eren_study": "docs/internal/production/EREN_LAUGHTER_STUDY_2026-11-04.ar.md",
     "baseline_review": "docs/internal/production/BASELINE_REVIEW_AND_MISSION_FUN_2026-11-04.ar.md",
     "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json"
+  },
+  "signature_editorial_execution": {
+    "checkpoint": "SIGNATURE_P01_SOURCE53_P06_NATIVE24_EDITORIAL81_DRAFT_20261104",
+    "observed_utc": "2026-11-04T19:10:50.556284+00:00",
+    "mode": "EXECUTION_RESUMED_BY_LATEST_OWNER;ROOT_ONLY",
+    "plan": "docs/internal/production/PRODUCTION_MASTER_2026-11-04.ar.md",
+    "packet": "art/production/signature-slice-20261104",
+    "source_mapping": {
+      "events": 53,
+      "publication_pages": 70,
+      "relations": {
+        "support": 20,
+        "direct": 26,
+        "owner": 7
+      },
+      "status": "STRUCTURAL_REVIEW_DRAFT;not final dialogue or exposure approval"
+    },
+    "native_review": {
+      "checks_per_run": 24,
+      "headless": "PASS",
+      "Compatibility1280x720_IntelUHD": "PASS",
+      "current_source_hashes": "MATCH",
+      "authority": "No save/network/reward/real-pact owner",
+      "scope": "Internal editorial tool only;main Boot and default V31 unchanged"
+    },
+    "editorial": {
+      "shots": 23,
+      "timed_seconds": 73,
+      "linear_export_seconds": 81,
+      "audio": "SILENT;voice and audition OPEN",
+      "consent": "Indefinite explicit volatile choice in native reviewer;linear slates grant nothing",
+      "acceptance": "DRAFT_NOT_FINAL_ACTING_ART_CONTACT_FUN_OR_CHAPTER"
+    },
+    "tools": {
+      "Flow": {
+        "tier_observed": "PRO",
+        "before": 1050,
+        "after": 1038,
+        "actual_spend": 12,
+        "jobs": 1,
+        "model": "Omni1.1Flash",
+        "clip_seconds": 8.042667,
+        "account_switch": "First account required password;switched to another already-signed-in account",
+        "role": "Generic camera/water/cloth reference;NOT final Echo identity"
+      },
+      "Tripo": {
+        "header_balance_observed": 1345,
+        "jobs": 0,
+        "spend": 0
+      },
+      "Cascadeur": {
+        "version_observed": "2026.2.3",
+        "plan_observed": "Free",
+        "action": "Opened and played bundled Backflip_animation.casc internally;paused",
+        "export_or_game_asset_use": false,
+        "trial_or_purchase": false,
+        "constraint": "Free CASC-only export/no commercial use;Blender remains game export route",
+        "source": "https://cascadeur.com/help/faq"
+      },
+      "installs": 0,
+      "new_dependencies": 0
+    },
+    "protected": "Canon/Golden/source keys/EX011/V31/School-Pact geometry/progression authority preserved",
+    "open": [
+      "P04 original voice and authored contact/export sample",
+      "P05 final dialogue and JP/localization",
+      "P06 acting/identity/continuity and Owner review",
+      "Current Pact SOURCE_INDEX historical hash discrepancy before asset work",
+      "Early real-control/room01/parkour/earned-combat playtests and device/phase acceptance"
+    ],
+    "next": "Qualify one chair/restraint/contact motion in existing Blender/Golden/Godot path and original performance;revise signature edit before wide asset production",
+    "quality_report": "audits/evidence/signature-slice-20261104/quality-report.json"
+  },
+  "chair_contact_execution": {
+    "checkpoint": "SIGNATURE_CHAIR_ANKLE_FIX_NATIVE61_TRIPO_FLOOR_REJECTED_20261105",
+    "packet": "art/production/signature-slice-20261104/chair-contact-20261105",
+    "quality_report": "art/production/signature-slice-20261104/chair-contact-20261105/quality-report.json",
+    "status": "PASS_ISOLATED_SEATED_HOLD",
+    "next": "Test a forward-offset pivot with full-body, foot and room clearance; then qualify entry and restraint closure before runtime integration."
+  },
+  "signature_japanese_performance": {
+    "checkpoint": "SIGNATURE_P04_NATIVE32_JP_P05_CUES23_P06_TIMING2081_DRAFT_20261105",
+    "report": "art/production/signature-slice-20261104/performance-20261105/quality-report.json",
+    "draft": "art/production/signature-slice-20261104/signature-performance-draft.json",
+    "voice": "art/production/signature-slice-20261104/performance-20261105/voice-ledger.json",
+    "preview": "art/production/signature-slice-20261104/performance-20261105/japanese-timing-preview.mp4",
+    "next": "P06 review Japanese performance timing and original laugh/Kinja reaction; P05 chapter and language approval; P04 entry and restraint closure."
+  },
+  "signature_laugh_chapter_20261105": {
+    "checkpoint": "SIGNATURE_P05_CHAPTER53_P06_JP_LAUGH2115_20261105",
+    "report": "art/production/signature-slice-20261104/performance-20261105/laugh-quality-report.json",
+    "next": "P04/P07 qualify restrained chair contact and entry geometry, then resume scene integration and early playable prototypes."
+  },
+  "signature_cuff_closure_20261105": {
+    "checkpoint": "SIGNATURE_CHAIR_CUFFS_BLENDER61_NATIVE122_20261105",
+    "report": "art/production/signature-slice-20261104/chair-contact-20261105/cuff-closure/quality-report.json",
+    "next": "Author and qualify full standing-entry and earned restraint break; resolve legacy table collision in a review fixture. Keep P06 Japanese timing under owner/language review. Advance early Room01 prototype after the scoped contact gates."
+  },
+  "signature_room01_baseline_20261105": {
+    "checkpoint": "SIGNATURE_P05_P06_CUFFS_P24_BASELINE51_20261105",
+    "report": "art/production/signature-slice-20261104/room01-p24-baseline-report.json",
+    "next": "P04/P07 isolated stand-to-seat route and earned restraint break. P24 implement two-route pressure prototype, then five-player playtest. P06 Japanese audition remains open."
+  },
+  "room01_pressure_and_chair_floor_20261105": {
+    "checkpoint": "P24_PRESSURE_NATIVE63_64_CHAIR_FLOOR32_20261105",
+    "report": "art/production/signature-slice-20261104/room01-p24-pressure-report.json",
+    "driver": "godot/tests/room01_pressure_review.gd",
+    "chair_floor": "art/production/signature-slice-20261104/chair-contact-20261105/entry-floor-clearance.json",
+    "next": "P04/P07 author the forward-offset stand-to-seat pivot in the cleared review fixture; qualify full-body, foot and chair clearance, then the earned restraint break. P24 run five uncoached player sessions using --manual before integration. P06 human Japanese audition and rights remain open."
   }
 }

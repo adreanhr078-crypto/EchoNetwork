@@ -1,0 +1,62 @@
+{
+  "status": "DOWNLOADED_DECODED_SCRATCH_VOICE",
+  "provider": "ElevenLabs",
+  "model": "Eleven v4",
+  "plan": "Free",
+  "language": "ja-JP",
+  "rights": "Noncommercial internal evaluation with ElevenLabs attribution. Final commercial rights open.",
+  "rights_source": "https://elevenlabs.io/docs/overview/administration/billing",
+  "balance_start": 10000,
+  "balance_end": 9625,
+  "total_credits": 375,
+  "ja_credits": 252,
+  "excluded_arabic": {
+    "credits": 123,
+    "disposition": "Wrong language; excluded from delivery and timeline."
+  },
+  "takes": [
+    {
+      "file": "echo-ja-initial.mp3",
+      "sha256": "2e8013b58f0334748b6314a394ba49f79c9377c1074c21d9a073cbeebe1333d4",
+      "voice": "Syumi - Japanese Mid-Low Actor",
+      "prompt": "[shaky breath] やめてくれ……頼む。息が……できない。 [pause] [stifled laugh] ……ふっ。 [inhales] 今度は……俺の声が聞こえるか？",
+      "direction": "Early fear and laugh study; archived alternate",
+      "credits": 90,
+      "before": 9877,
+      "after": 9787,
+      "downloaded_variant": 2,
+      "duration_s": 11.650563,
+      "mean_dbfs": -23.0,
+      "peak_dbfs": -1.4
+    },
+    {
+      "file": "echo-ja-directed.mp3",
+      "sha256": "41ba14bd949dd403bd44dd2c2111f018ebb55747198fc97fc640fa93c2bcf023",
+      "voice": "Syumi - Japanese Mid-Low Actor",
+      "prompt": "[quietly sobbing, exhausted] 父さん……やめてくれ。もう……息が、できない。 [shaky inhale] [low, flat, in pain] 聞こえてるんだろ……。",
+      "direction": "Exhausted, cold, quiet crying, despair and pain",
+      "credits": 100,
+      "before": 9787,
+      "after": 9687,
+      "downloaded_variant": 2,
+      "duration_s": 8.672625,
+      "mean_dbfs": -29.9,
+      "peak_dbfs": -6.0
+    },
+    {
+      "file": "zero-ja-directed.mp3",
+      "sha256": "9b39cd1b84742c53de895d96f1ea7cfb06bddbfed8f0e10d149457ca0a1367af",
+      "voice": "Riu - Calm Japanese Male",
+      "prompt": "[low, calm, almost a whisper] 扉を開けてほしい。……代償は、私が最後までお前と共にいることだ。",
+      "direction": "Quiet Zero study for the contract offer and cost",
+      "credits": 62,
+      "before": 9687,
+      "after": 9625,
+      "downloaded_variant": 1,
+      "duration_s": 5.799125,
+      "mean_dbfs": -27.2,
+      "peak_dbfs": -7.7
+    }
+  ],
+  "scope": "Decode, duration and amplitude measured; native Japanese language and performance review open."
+}

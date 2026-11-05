@@ -1,3 +1,7 @@
+الأحدث ٥ نوفمبر. `godot/tests/room01_pressure_review.gd` يختبر مسارَي الضغط في الغرفة الأصلية. `tools/character-lab/chair_native_floor_review.gd --chair-entry-clearance` يفحص أرضية الكرسي في نسخة معاينة. دليل التشغيل في بطاقة P24، والبصمات في الكاش.
+
+الأحدث4نوفمبر: شريحة المراجعة `art/production/signature-slice-20261104/`؛المعاينة `godot/scenes/review/signature_animatic.tscn` وأدوات `tools/cinematics/`. أداة داخلية بلا سلطة؛24فحصًا دون عرض و24مرسومًا. الحوار والصوت والتماس النهائي والمتعة مفتوحة،والافتراضي محفوظ.
+
 الأحدث: خطة تجربة `EXPERIENCE_REBUILD_2026-11-03.ar.md` ودليل `experience-rebuild-20261103/quality-report.json`؛واجهة24/تسلق16/رحلة88نطاقية،باقي المراحل مفتوحة. الكاش والبطاقة يحكمان التاريخ أدناه.
 
 <!-- CHARACTER_LAB_20261101 -->
