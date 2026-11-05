@@ -3,6 +3,7 @@ extends "res://tests/stormworks_parkour_input_review.gd"
 const Saves = preload("res://scripts/systems/save_manager.gd")
 const Route = preload("res://scripts/systems/stormworks_route.gd")
 const RoomSave = preload("res://scripts/systems/stormworks_checkpoint.gd")
+const CROSSWIND = preload("res://tests/fixtures/stormworks_crosswind.gd")
 var director: Node
 var native_owner: Node
 var evidence: String
@@ -88,6 +89,13 @@ func _run() -> void:
 	_pacing_tick = Time.get_ticks_usec()
 	process_frame.connect(_record_pacing)
 	if _playtest_manual:
+		automatic_focus_resume = false
+		if args.has("--crosswind"):
+			var wind := CROSSWIND.new()
+			wind.player = player
+			wind.arabic = world.presentation_language == "ar"
+			wind.eligible = func(): return director.stage == 2 and director.course_step == 0
+			room.add_child(wind)
 		root.unfocusable = false
 		root.grab_focus()
 		player.set_process_unhandled_input(true)
@@ -136,6 +144,7 @@ func _record_pacing() -> void:
 		return
 	_pacing_saved = file.store_string(JSON.stringify({
 		"mode": "manual" if _playtest_manual else "automated_fixture",
+		"crosswind_prototype": _playtest_manual and OS.get_cmdline_user_args().has("--crosswind"),
 		"unpaused_seconds": snappedf(_pacing_elapsed, .001),
 		"marks": _pacing_marks,
 		"checkpoint_confirmed": director.has_confirmed_room_checkpoint(),

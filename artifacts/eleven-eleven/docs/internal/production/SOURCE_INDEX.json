@@ -6064,5 +6064,10 @@
     "pacing": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/course-pacing.json",
     "review_guide": "audits/evidence/room01-20261012/p25-stormworks-pacing-20261105/README.ar.md",
     "next": "P26 test one optional timed crosswind in the first Stormworks diagonal gap, with a distinct force and readable wait/steer decision. P24 and P25 require human playtest sessions. P30 and P37 remain gated on authored contact and listening."
+  },
+  "stormworks_crosswind_20261105": {
+    "checkpoint": "P26_STORMWORKS_CROSSWIND_27CM_SCOPED_20261105",
+    "report": "audits/evidence/room01-20261012/p26-stormworks-crosswind-20261105/quality-report.json",
+    "next": "P38 finish the rendered and default pact regression with restored memory pod materials. P26 test the optional crosswind with real players before extending to fire or electrical hazards."
   }
 }
