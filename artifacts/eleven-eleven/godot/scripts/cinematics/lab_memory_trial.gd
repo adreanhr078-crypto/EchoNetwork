@@ -60,11 +60,22 @@ func configure(owner: Node, laboratory: Node3D) -> void:
 		chassis.name = "MemoryStasisFrame"
 		pod.add_child(chassis)
 		chassis.position = Vector3(0,-1.3,0)
-		var glass: StandardMaterial3D = pod.material_override.duplicate()
+		# A restored room can be adapted before this director is configured.
+		# Retint its retained source and keep the shared shader pipeline.
+		var current: Material = pod.material_override
+		var source := current as StandardMaterial3D
+		if current is ShaderMaterial:
+			source = current.get_meta("hyper_source", null) as StandardMaterial3D
+		if not source:
+			continue
+		var glass := source.duplicate() as StandardMaterial3D
 		glass.albedo_color = Color(.06,.14,.20,.17)
 		glass.emission = Color(.08,.25,.32)
 		glass.emission_energy_multiplier = .3
-		pod.material_override = glass
+		if current is ShaderMaterial:
+			pod.material_override = get_node("/root/HyperAnimeWorldManager").adapter.convert_material(glass)
+		else:
+			pod.material_override = glass
 	main.hud.find_child("DialogueOverlay", true, false).dialogue_completed.connect(_dialogue_finished)
 	room.memory_drowning_completed.connect(func():
 		if phase == "drowning" and room.confrontation_done: _set_phase("complete"))

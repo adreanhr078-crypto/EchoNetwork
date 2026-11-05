@@ -1375,7 +1375,8 @@
         "R013",
         "R111"
       ],
-      "chair_entry_evidence": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json"
+      "chair_entry_evidence": "art/production/signature-slice-20261104/chair-contact-20261105/entry-review/quality-report.json",
+      "identity_and_lab_reload_review": "audits/evidence/chapter-cp45-20261020/stage10/p36-p38-resume-20261105/quality-report.json"
     },
     {
       "id": "P08",
@@ -2575,7 +2576,8 @@
       "mission_fun_contract": "docs/internal/production/MISSION_FUN_CONTRACT_2026-11-04.json",
       "crosscutting_slice_gates": [
         "R009/R116:early player test and mission/sequence card before broad production;do not waitforP39"
-      ]
+      ],
+      "identity_and_lab_reload_review": "audits/evidence/chapter-cp45-20261020/stage10/p36-p38-resume-20261105/quality-report.json"
     },
     {
       "id": "P37",
@@ -2645,7 +2647,8 @@
       "scope_warning": "Source roles are inspection hints,not permission to rewriteCanonical/Golden/assets;derive atomic edit scope from request and current hashes.",
       "primary_requirement_ids": [
         "R117"
-      ]
+      ],
+      "identity_and_lab_reload_review": "audits/evidence/chapter-cp45-20261020/stage10/p36-p38-resume-20261105/quality-report.json"
     },
     {
       "id": "P39",

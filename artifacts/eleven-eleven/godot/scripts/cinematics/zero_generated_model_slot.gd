@@ -16,13 +16,18 @@ var _energy: ShaderMaterial
 var _eye_materials: Array[ShaderMaterial] = []
 var _material_presentation: Dictionary = {}
 
-func load_profile(path: String) -> bool:
-	if not FileAccess.file_exists(path): return false
+static func read_profile(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path): return {}
 	var profile=JSON.parse_string(FileAccess.get_file_as_string(path))
-	if not profile is Dictionary: return false
+	if not profile is Dictionary: return {}
 	var asset: String=str(profile.get("scene_path",""))
-	if not asset.begins_with("res://assets/characters/") or not ResourceLoader.exists(asset): return false
-	var scene:=load(asset) as PackedScene
+	if not asset.begins_with("res://assets/characters/") or not ResourceLoader.exists(asset): return {}
+	return profile
+
+func load_profile(path: String) -> bool:
+	var profile := read_profile(path)
+	if profile.is_empty(): return false
+	var scene:=load(profile.scene_path) as PackedScene
 	if not scene: return false
 	return configure(scene.instantiate(),profile)
 

@@ -7,6 +7,7 @@ signal encounter_completed
 ## Local, editable presentation of the existing laboratory beats. This node
 ## never accepts a pact, ends a confrontation, grants power or records progress.
 const PactAudio = preload("res://scripts/audio/pact_audio_director.gd")
+const ZeroModelSlot = preload("res://scripts/cinematics/zero_generated_model_slot.gd")
 var room: Node3D
 var main: Node
 var actor: Node3D
@@ -15,6 +16,8 @@ var active := false
 var _zero: Node3D
 var _zero_fallback: Node3D
 var generated_zero: Node3D
+var _generated_zero_prepared := false
+var _zero_request_profile := {}
 const ZERO_PROFILE_PATH := "res://assets/characters/zero_manifestation_profile_v1.json"
 var _rings: Array[MeshInstance3D] = []
 var _splinters: Array[MeshInstance3D] = []
@@ -174,10 +177,15 @@ void fragment() {
 	_zero_fallback.name="TemporaryProceduralBody"
 	_zero.add_child(_zero_fallback)
 	preload("res://scripts/cinematics/zero_manifestation_geometry.gd").build(_zero_fallback,_shadow_material,_vein_material)
-	generated_zero=preload("res://scripts/cinematics/zero_generated_model_slot.gd").new()
+	generated_zero=ZeroModelSlot.new()
 	generated_zero.name="GeneratedZeroModelSlot"
 	_zero.add_child(generated_zero)
-	if generated_zero.load_profile(ZERO_PROFILE_PATH): _zero_fallback.hide()
+	# Keep the established loading path while the deferred candidate still
+	# has a measured main-thread attachment spike on the low test device.
+	if not OS.get_cmdline_user_args().has("--zero-prewarm-candidate"):
+		_generated_zero_prepared = true
+		if generated_zero.load_profile(ZERO_PROFILE_PATH):
+			_zero_fallback.hide()
 	# Local soft rims reveal the original thorn/limb weave against the lab.
 	# These inherit the manifestation visibility: none exist before collapse.
 	for data in [[Vector3(-3.0,4.1,-1.2),Color(0.55,0.64,0.73),1.75],[Vector3(2.7,2.7,-0.8),Color(0.65,0.50,0.46),1.35],[Vector3(0.0,4.8,3.5),Color(0.58,0.64,0.70),1.25]]:
@@ -210,6 +218,31 @@ void fragment() {
 		_splinters.append(shard)
 		_splinter_positions.append(shard.position)
 
+func prepare_zero_source(wait_for_reveal := false) -> void:
+	if _generated_zero_prepared:
+		return
+	if _zero_request_profile.is_empty():
+		_zero_request_profile = ZeroModelSlot.read_profile(ZERO_PROFILE_PATH)
+		if _zero_request_profile.is_empty():
+			_generated_zero_prepared = true
+			return
+	var asset: String = _zero_request_profile.scene_path
+	var status := ResourceLoader.load_threaded_get_status(asset)
+	if status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+		if ResourceLoader.load_threaded_request(asset, "PackedScene") != OK:
+			_generated_zero_prepared = true
+			_zero_request_profile.clear()
+			return
+		status = ResourceLoader.load_threaded_get_status(asset)
+	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS and not wait_for_reveal:
+		return
+	var scene := ResourceLoader.load_threaded_get(asset) as PackedScene if status in [
+		ResourceLoader.THREAD_LOAD_LOADED, ResourceLoader.THREAD_LOAD_IN_PROGRESS] else null
+	_generated_zero_prepared = true
+	if scene and generated_zero.configure(scene.instantiate(), _zero_request_profile):
+		_zero_fallback.hide()
+	_zero_request_profile.clear()
+
 func _build_fracture_field() -> void:
 	var mat := _material(Color(0.35,0.48,0.60),0.1)
 	for i in 12:
@@ -224,8 +257,11 @@ func _build_fracture_field() -> void:
 func set_stage(value: String, restoring := false) -> void:
 	stage = value
 	if restoring and value not in ["revenge","stasis"]:_clearance_settle_remaining=0.0
+	var zero_visible := value in ["manifested", "accepted"]
+	if zero_visible:
+		prepare_zero_source(true)
 	if generated_zero: generated_zero.set_stage_hint(restoring)
-	_zero.visible = value in ["manifested","accepted"]
+	_zero.visible = zero_visible
 	if _shadow_material: _shadow_material.set_shader_parameter("pact_energy",1.0 if value=="accepted" else 0.0)
 	if _vein_material: _vein_material.set_shader_parameter("pact_energy",1.0 if value=="accepted" else 0.0)
 	for shard in _shards: shard.visible = value in ["revenge","stasis"]
@@ -257,6 +293,8 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	main=owner
 	actor=subject
 	_kind=kind
+	if kind in ["manifested", "accepted"]:
+		prepare_zero_source(true)
 	# A bounded, socket-validated feather rig belongs in Echo's pact portrait.
 	# Keep the prior suppression only for a legacy wing lacking that guarantee;
 	# neither branch changes manifestation state or contract authority.
@@ -351,6 +389,8 @@ func begin(kind: String, owner: Node, subject: Node3D = null) -> void:
 	_skip.text="عودة للمشهد" if main.presentation_language=="ar" else "Return to scene"
 
 func _process(delta: float) -> void:
+	if not _zero_request_profile.is_empty():
+		prepare_zero_source()
 	if is_instance_valid(room):
 		var reduced:bool=room.reduced_motion
 		if reduced!=_last_reduced_motion:

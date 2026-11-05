@@ -190,6 +190,10 @@ func _set_active_rooms() -> void:
 		conduits[index].visible=index==current or index==current+1
 		conduits[index].process_mode=Node.PROCESS_MODE_INHERIT if active and (index==current or index==current+1) else Node.PROCESS_MODE_DISABLED
 		conduits[index].player=main.player if active and (index==current or index==current+1) else null
+	# Warm the exact Zero source near the lab instead of loading its 8K atlas
+	# while the earlier campaign rooms are instantiated.
+	if active and current in [4, 5] and not rooms[5].wish_done:
+		rooms[5].story_presentation.prepare_zero_source()
 	# The scientist is already physically present when Echo reaches the lab.
 	# The same actor becomes vulnerable only after the player's explicit pact.
 	if active and current == 5 and not rooms[5].revenge_done: _ensure_kinja()

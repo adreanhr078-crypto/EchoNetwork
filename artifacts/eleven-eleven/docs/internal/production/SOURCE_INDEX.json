@@ -42,9 +42,9 @@
     {
       "group": "boot_and_progress",
       "path": "godot/scripts/systems/native_campaign_controller.gd",
-      "sha256": "d65fe4665a09e7593bbd0b77ee3c94e22b7f5e2d796fbe2013e225d2d6cfb272",
-      "bytes": 38116,
-      "review_checkpoint": "PACT423_SOURCE_BODY_ROUTE356_CINEMATIC62_REVIEW720_UI_PASS_PROFILE_PENDING"
+      "sha256": "37f8133754a1a9c35e635668e3c6518cf5d8fa3a3f82dbb5b14d9a8a5400ce54",
+      "bytes": 38358,
+      "review_checkpoint": "P36_P38_PACT71_TRIAL59_IDENTITY_LOCK_20261105"
     },
     {
       "group": "boot_and_progress",
@@ -145,9 +145,9 @@
     {
       "group": "characters_and_weapons",
       "path": "godot/scripts/cinematics/pact_revenge_presentation.gd",
-      "sha256": "6b4bb10458eaa071d07b89de20b0a463aae5234c23f1a5251cc148a5843a3671",
-      "bytes": 49468,
-      "review_checkpoint": "PACT423_SOURCE_BODY_ROUTE356_CINEMATIC62_REVIEW720_UI_PASS_PROFILE_PENDING"
+      "sha256": "ff2c38ba143eb382bc3554986018b67e759d14725d63774cd4aad6a1a7dfd8a8",
+      "bytes": 51184,
+      "review_checkpoint": "P36_P38_PACT71_TRIAL59_IDENTITY_LOCK_20261105"
     },
     {
       "group": "characters_and_weapons",
@@ -855,9 +855,9 @@
     {
       "group": "cp37_pre_tripo",
       "path": "godot/scripts/cinematics/lab_memory_trial.gd",
-      "sha256": "1074078e61886df4279903c3f08be4fc1a443ad408dd7b4414ad7c801e992142",
-      "bytes": 19244,
-      "review_checkpoint": "CP45_STAGE13_LAB_MEASURED_SCANNER_SCOPED_PASS_ART_OPEN"
+      "sha256": "08072a9e26fcb972359acc3221466149dba8adb4e8412e330e34aef46d49c96f",
+      "bytes": 19740,
+      "review_checkpoint": "P36_P38_PACT71_TRIAL59_IDENTITY_LOCK_20261105"
     },
     {
       "group": "cp37_pre_tripo",
@@ -4761,9 +4761,9 @@
     {
       "group": "native_pact_review_20261103",
       "path": "godot/tests/native_pact_cinematic_review.gd",
-      "sha256": "1f74231f4c8a3f5ae635663312b9126f39c4f7ded3ddbb4f841cd1e9909814c1",
-      "bytes": 4270,
-      "review_checkpoint": "PACT423_SOURCE_BODY_ROUTE356_CINEMATIC62_REVIEW720_UI_PASS_PROFILE_PENDING"
+      "sha256": "40be08259346c0ee63d182ebff959f30965108f16e60de4a164be21cf63eb321",
+      "bytes": 5007,
+      "review_checkpoint": "P36_P38_PACT71_TRIAL59_IDENTITY_LOCK_20261105"
     },
     {
       "group": "native_pact_review_20261103",
@@ -6069,5 +6069,11 @@
     "checkpoint": "P26_STORMWORKS_CROSSWIND_27CM_SCOPED_20261105",
     "report": "audits/evidence/room01-20261012/p26-stormworks-crosswind-20261105/quality-report.json",
     "next": "P38 finish the rendered and default pact regression with restored memory pod materials. P26 test the optional crosswind with real players before extending to fire or electrical hazards."
+  },
+  "identity_and_lab_reload_20261105": {
+    "checkpoint": "P36_P38_PACT71_TRIAL59_IDENTITY_LOCK_20261105",
+    "appearance": "Owner confirmed original Echo identity: school uniform before the pact; torn school uniform and one anatomical left wing after explicit consent. School65/Pact72 is the qualified review route; existing V31 default remains until connected promotion gates.",
+    "report": "audits/evidence/chapter-cp45-20261020/stage10/p36-p38-resume-20261105/quality-report.json",
+    "next": "P07 qualify the School65 to earned Pact72 sequence through the connected chapter before default promotion. P30 solve planted chair transfer; P24/P25/P26 require first-player sessions. P38 keep deferred Zero opt-in until the attachment spike is resolved."
   }
 }
