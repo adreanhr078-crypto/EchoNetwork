@@ -1,7 +1,7 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-05T18:04:22.146709+00:00",
-  "checkpoint": "P24_P25_SESSION_OUTCOMES_P30_BAKED_CLEARANCE_20261106",
+  "updated": "2026-11-06T16:28:21.638603+00:00",
+  "checkpoint": "RESET_PLAN_SCHOOL_BOOT_FACE_AUDIT_20261106",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
   "normal": {
@@ -45,7 +45,7 @@
     "performance": "audits/evidence/character-school-20261103/native-pact-frame-profile-visible-water/profile.json"
   },
   "limits": "Art/fun/audio/device/chapter acceptance OPEN;historical IntelUHD fullworld Forward+ failure retained;V31default.9381staged was historical before completed publication,not a current worktree claim.",
-  "next": "P07 qualify the School65 to earned Pact72 sequence through the connected chapter before default promotion. P30 solve planted chair transfer; P24/P25/P26 require first-player sessions. P38 keep deferred Zero opt-in until the attachment spike is resolved.",
+  "next": "R00 then R01 promote School on the normal first-room path and verify old/new saves; capture the R03 boot baseline before load changes. Chair remains deferred. See production_reset.",
   "hash_manifest": "docs/internal/production/CURRENT_CONTEXT_SOURCE_HASHES.json",
   "wake": {
     "report": "audits/evidence/character-school-20261102/wake-execution/quality-report.json",
@@ -554,5 +554,17 @@
     "appearance": "Owner confirmed original Echo identity: school uniform before the pact; torn school uniform and one anatomical left wing after explicit consent. School65/Pact72 is the qualified review route; existing V31 default remains until connected promotion gates.",
     "report": "audits/evidence/chapter-cp45-20261020/stage10/p36-p38-resume-20261105/quality-report.json",
     "next": "P07 qualify the School65 to earned Pact72 sequence through the connected chapter before default promotion. P30 solve planted chair transfer; P24/P25/P26 require first-player sessions. P38 keep deferred Zero opt-in until the attachment spike is resolved."
+  },
+  "previous_delivery_checkpoint": "P24_P25_SESSION_OUTCOMES_P30_BAKED_CLEARANCE_20261106",
+  "production_reset": {
+    "plan": "PRODUCTION_RESET_2026-11-06.ar.md",
+    "evidence": "RESET_EVIDENCE_2026-11-06.json",
+    "runtime_audit_base": "edc3c318e26c237ef75731c4b6d32e48645e7dfd",
+    "owner_gate": "School required in ordinary first-room entry; verified opt-in only today",
+    "baseline_ms": {
+      "default": 23253,
+      "school_opt_in": 19435
+    },
+    "status": "PLAN_PUBLISHED_WITH_SCOPED_AUDIT; no runtime edit"
   }
 }

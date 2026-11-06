@@ -1,3 +1,5 @@
+الأحدث ٦ نوفمبر. خطة إعادة تأهيل الفصل `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_RESET_2026-11-06.ar.md` (٦٠ بطاقة) و`RESET_EVIDENCE_2026-11-06.json`. أول بوابة: School في التشغيل العادي من أول غرفة، ثم تجهيز العالم من أول شاشة تحميل. بطاقة CURRENT_WORK هي مدخل الاستئناف.
+
 الأحدث ٥ نوفمبر. نموذج ضغط الغرفة الأولى `artifacts/eleven-eleven/godot/tests/room01_pressure_review.gd`. تشغيل المعاينة والدليل في بطاقة P24؛ نقطة الاستئناف والكاش يحددان اختبار اللاعبين وتأليف حركة الكرسي.
 
 بدء التنفيذ4نوفمبر: `artifacts/eleven-eleven/art/production/signature-slice-20261104/README.ar.md`؛مصادر53حدثًا ومونتاج23لقطة/81ثانية. المعاينة الاختيارية `godot/scenes/review/signature_animatic.tscn` وأدواتها `tools/cinematics/README.md`؛ليست ضمنBoot ولا تمنح تقدمًا أو قبولًا للفصل. CURRENT_WORK والكاش للبوابة المفتوحة.

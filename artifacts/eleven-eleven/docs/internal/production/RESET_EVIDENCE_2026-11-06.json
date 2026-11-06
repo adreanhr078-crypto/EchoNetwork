@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "checkpoint": "RESET_PLAN_SCHOOL_BOOT_FACE_AUDIT_20261106",
+  "source_commit": "edc3c318e26c237ef75731c4b6d32e48645e7dfd",
+  "source_hashes_sha256_checkout_bytes": {
+    "godot/scripts/boot.gd": "0e01ffd174dd36efc73a136f276e022f9d691a471e7a53323923ffa6d78fa3e4",
+    "godot/scripts/player/echo_player.gd": "35e4206ecfc7b34a3f572dbdb4ffffb9bb140ac89813b089a25be3cf0192f3ba",
+    "godot/scripts/ui/chapter_loading_screen.gd": "338a56fec228608bb753ce47325a312a9c3f0adf44a374ad2e681e453b8df2e5",
+    "godot/tests/opening_player_journey_review.gd": "50602ed5c483df5e911b814c76e220984c4ffef8b6c3b08381e3d24f98c95546",
+    "godot/tests/chapter_entry_room01_review.gd": "7a95adf20e9cdaf48888499fe20620e280873d9615ce57a636a6134151e40c7c",
+    "godot/tests/native_pact_cinematic_review.gd": "40be08259346c0ee63d182ebff959f30965108f16e60de4a164be21cf63eb321",
+    "godot/tests/zero_encounter_player_review.gd": "62317f945c552fcf15562a2d8006f2ceb38c529838bf60d2ff29f66ae2ea365d"
+  },
+  "renderer": "Compatibility / OpenGL 3.3.0 Build 31.0.101.4032",
+  "godot": "4.8.dev7.official.c971f93e7",
+  "platform": "Windows, Intel UHD Graphics, 1280x720",
+  "method": "One real-time run per avatar. Scratch derivative of chapter_entry_room01_review.gd with isolated saves and a Boot subclass timing the real resource retrieval and attachment methods. Observed loading screen lifetime and _process heartbeat. Driver warned that screen-space AA requires Forward+ or Mobile.",
+  "boot_default_v31": {
+    "adapter": "Intel(R) UHD Graphics",
+    "checks": 10,
+    "marks_ms": {
+      "curtain_gone": 54506,
+      "native_attached": 45850,
+      "resource_begin": 31282,
+      "resource_end": 44463,
+      "transfer_requested": 31253,
+      "wake_end_check": 60299
+    },
+    "worst_process_gap_ms": 21213,
+    "transfer_to_curtain_gone_ms": 23253,
+    "resource_section_ms": 13181,
+    "attached_to_curtain_gone_ms": 8656
+  },
+  "boot_school65_opt_in": {
+    "adapter": "Intel(R) UHD Graphics",
+    "checks": 11,
+    "marks_ms": {
+      "curtain_gone": 50460,
+      "native_attached": 46120,
+      "resource_begin": 31064,
+      "resource_end": 43183,
+      "transfer_requested": 31025,
+      "wake_end_check": 56287
+    },
+    "worst_process_gap_ms": 18262,
+    "transfer_to_curtain_gone_ms": 19435,
+    "resource_section_ms": 12119,
+    "attached_to_curtain_gone_ms": 4340
+  },
+  "scope": "Wall-clock marks within a process. Process gap is not additive. Curtain removal is not a physical presentation timestamp or first accepted input. No cold/warm distribution, isolated GPU attribution, export, or device acceptance.",
+  "art_checks": {
+    "first_room_school_rig_id": "echo_school_mixamo_65",
+    "pact72_native_cinematic_pass_count": 71,
+    "v31_isolated_earned_reveal_pass_count": 16,
+    "pact72_portrait": "Two visible pupils in the selected frame. Hair and shade obscure eyelid details. No exhaustive eye-layer diagnosis.",
+    "school65_diagnostic": "Alternate review camera. School uniform visible. Fringe and cold facial exposure obscure the eye detail.",
+    "room_contact_sheet": "Previous source-linked review, used as directional critique only. Recapture each sector before visual acceptance."
+  },
+  "selected_frames": {
+    "01-default-v31-wake": {
+      "path_from_app": "audits/evidence/production-reset-20261106/01-default-v31-wake.jpg",
+      "sha256": "d2d1792937ef9a36cf0e33a166bfbd60e21e0a31efbe8e3ae6bb22e953f18835",
+      "capture_png_sha256": "50b2cc83ae0348b626a7d155d315853a5b513204526ac715dee148e13d40881f"
+    },
+    "02-school65-wake": {
+      "path_from_app": "audits/evidence/production-reset-20261106/02-school65-wake.jpg",
+      "sha256": "0cd345dffb9f88e9661b3b23fbff60d92900538d3e88fa8d225be61680a09c36",
+      "capture_png_sha256": "218b45ec118d1edd77226eb5ba408df49235469db55b35e5565fbb358f2166e7"
+    },
+    "03-school65-face": {
+      "path_from_app": "audits/evidence/production-reset-20261106/03-school65-face.jpg",
+      "sha256": "5a411de6846898793ba507cbeb75a57ebf4b8676814918e94644f9e95a17bccc",
+      "capture_png_sha256": "0c59fd3797f6416e085e4e6aeac510fe87fd3384a9fcd7319840258eaeb2e092"
+    },
+    "04-pact72-face": {
+      "path_from_app": "audits/evidence/production-reset-20261106/04-pact72-face.jpg",
+      "sha256": "70b0c05bcb15fecf7eabff2d8408c400255698d50116e93c9010c8ff0a401aca",
+      "capture_png_sha256": "5f4eef58da154da2f75931cb6c90b4b9de9034b690cbc73d79137ecfbcbc7cf4"
+    }
+  },
+  "plan": "PRODUCTION_RESET_2026-11-06.ar.md",
+  "next": "R00 then R01, with R03 baseline capture on the affected boot path."
+}
