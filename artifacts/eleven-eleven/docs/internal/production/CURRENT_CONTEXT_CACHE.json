@@ -1,6 +1,6 @@
 {
   "schema_version": 8,
-  "updated": "2026-11-06T16:49:37.788985+00:00",
+  "updated": "2026-11-06T16:54:40.513222+00:00",
   "checkpoint": "RESET_PLAN_SCHOOL_BOOT_FACE_AUDIT_20261106",
   "policy": "ROOT_ONLY;minimalArabic;CodexIAB perOwner;hash-local reuse;preserve dirty/index;no quota/provider-cache guarantees",
   "protected": "Canon/Golden192/sourcekeys/EX011skin/server-save authority/SFX_ONLY/no powers before explicit pact",
@@ -566,6 +566,7 @@
       "school_opt_in": 19435
     },
     "status": "PLAN_PUBLISHED_WITH_SCOPED_AUDIT; no runtime edit",
-    "depth_and_exploration": "Section 5.1, D1-D6. R17/R20 slice, R24 map choice, R35 graybox, R53 independent confirmation. Planning only, R00/R01 still next."
+    "depth_and_exploration": "Section 5.1, D1-D6. R17/R20 slice, R24 map choice, R35 graybox, R53 independent confirmation. Planning only, R00/R01 still next.",
+    "mission_direction": "Section 5.2, E01-E10. R18/R20 authoring, R35 graybox, R49 craft gate, R53 independent playtests, R54 matched benchmark. Planning only; R00/R01 still next."
   }
 }
