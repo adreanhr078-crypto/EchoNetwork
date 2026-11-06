@@ -90,6 +90,8 @@ func _run() -> void:
 	process_frame.connect(_record_pacing)
 	if _playtest_manual:
 		automatic_focus_resume = false
+		auto_accept_quit = false
+		root.close_requested.connect(_close_manual_review, CONNECT_ONE_SHOT)
 		if args.has("--crosswind"):
 			var wind := CROSSWIND.new()
 			wind.player = player
@@ -138,12 +140,24 @@ func _record_pacing() -> void:
 	if director.stage != 7 or not native_owner.security_entered:
 		return
 	process_frame.disconnect(_record_pacing)
+	_write_pacing()
+
+func _close_manual_review() -> void:
+	if not _pacing_saved:
+		if process_frame.is_connected(_record_pacing):
+			_record_pacing()
+		if not _pacing_saved:
+			_write_pacing()
+	quit(0 if _pacing_saved else 1)
+
+func _write_pacing() -> void:
 	var file := FileAccess.open(evidence.path_join("course-pacing.json"), FileAccess.WRITE)
 	if not file:
 		push_error("Could not record the Stormworks pacing review")
 		return
 	_pacing_saved = file.store_string(JSON.stringify({
 		"mode": "manual" if _playtest_manual else "automated_fixture",
+		"outcome": "completed" if director.stage == 7 and native_owner.security_entered else "abandoned",
 		"crosswind_prototype": _playtest_manual and OS.get_cmdline_user_args().has("--crosswind"),
 		"unpaused_seconds": snappedf(_pacing_elapsed, .001),
 		"marks": _pacing_marks,

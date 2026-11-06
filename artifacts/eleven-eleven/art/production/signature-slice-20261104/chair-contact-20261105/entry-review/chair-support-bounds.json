@@ -1,0 +1,583 @@
+{
+  "source_sha256": "25e7e1bb15d162b457d463b7fd5f021a3ea1bb0f423acc46c9877224893e047d",
+  "blender": "5.2.2 LTS",
+  "support_interval": [
+    27,
+    44
+  ],
+  "samples": 69,
+  "stance_ankle_z_m": 0.08500000089406967,
+  "bend_margin_m": 0.015,
+  "first_replant_outside_reach": 28.25,
+  "peak_replant_shortfall": {
+    "frame": 44.0,
+    "leg_m": 0.8482606267131212,
+    "vertical_gap_m": 0.9170875921845436,
+    "horizontal_gap_m": 0.38461470828182026,
+    "any_floor_replant_shortfall_m": 0.08382696547142243,
+    "fixed_anchor_minimum_lowering_m": 0.1779023662745327
+  },
+  "peak_fixed_anchor_lowering": {
+    "frame": 44.0,
+    "leg_m": 0.8482606267131212,
+    "vertical_gap_m": 0.9170875921845436,
+    "horizontal_gap_m": 0.38461470828182026,
+    "any_floor_replant_shortfall_m": 0.08382696547142243,
+    "fixed_anchor_minimum_lowering_m": 0.1779023662745327
+  },
+  "rows": [
+    {
+      "frame": 27.0,
+      "leg_m": 0.8482607336460144,
+      "vertical_gap_m": 0.8322770968079567,
+      "horizontal_gap_m": 0.11121423506738067,
+      "any_floor_replant_shortfall_m": 0.0,
+      "fixed_anchor_minimum_lowering_m": 0.006471523955198788
+    },
+    {
+      "frame": 27.25,
+      "leg_m": 0.8482607064580285,
+      "vertical_gap_m": 0.8323314562439919,
+      "horizontal_gap_m": 0.11153875837935985,
+      "any_floor_replant_shortfall_m": 0.0,
+      "fixed_anchor_minimum_lowering_m": 0.00656968048410389
+    },
+    {
+      "frame": 27.5,
+      "leg_m": 0.8482606574645218,
+      "vertical_gap_m": 0.8324927464127541,
+      "horizontal_gap_m": 0.11198514577000473,
+      "any_floor_replant_shortfall_m": 0.0,
+      "fixed_anchor_minimum_lowering_m": 0.006791438187389809
+    },
+    {
+      "frame": 27.75,
+      "leg_m": 0.8482606401257076,
+      "vertical_gap_m": 0.8327576890587807,
+      "horizontal_gap_m": 0.11262446703110979,
+      "any_floor_replant_shortfall_m": 0.0,
+      "fixed_anchor_minimum_lowering_m": 0.007143357903693248
+    },
+    {
+      "frame": 28.0,
+      "leg_m": 0.8482607364874526,
+      "vertical_gap_m": 0.8331228271126747,
+      "horizontal_gap_m": 0.11352956269999136,
+      "any_floor_replant_shortfall_m": 0.0,
+      "fixed_anchor_minimum_lowering_m": 0.007632370859690152
+    },
+    {
+      "frame": 28.25,
+      "leg_m": 0.8482606377520516,
+      "vertical_gap_m": 0.8335851207375526,
+      "horizontal_gap_m": 0.11475807199089083,
+      "any_floor_replant_shortfall_m": 0.00032448298550102894,
+      "fixed_anchor_minimum_lowering_m": 0.00826465247089847
+    },
+    {
+      "frame": 28.5,
+      "leg_m": 0.8482605767719504,
+      "vertical_gap_m": 0.8341411724686623,
+      "horizontal_gap_m": 0.11630165561167771,
+      "any_floor_replant_shortfall_m": 0.0008805956967118389,
+      "fixed_anchor_minimum_lowering_m": 0.009036867726342934
+    },
+    {
+      "frame": 28.75,
+      "leg_m": 0.8482606634201322,
+      "vertical_gap_m": 0.8347878232598305,
+      "horizontal_gap_m": 0.11813565614563538,
+      "any_floor_replant_shortfall_m": 0.001527159839698311,
+      "fixed_anchor_minimum_lowering_m": 0.00994401989436966
+    },
+    {
+      "frame": 29.0,
+      "leg_m": 0.8482607292348097,
+      "vertical_gap_m": 0.8355217948555946,
+      "horizontal_gap_m": 0.1202343861256832,
+      "any_floor_replant_shortfall_m": 0.0022610656207849855,
+      "fixed_anchor_minimum_lowering_m": 0.010981234738685064
+    },
+    {
+      "frame": 29.25,
+      "leg_m": 0.8482606106087126,
+      "vertical_gap_m": 0.8363399878144264,
+      "horizontal_gap_m": 0.1225763844089517,
+      "any_floor_replant_shortfall_m": 0.003079377205713829,
+      "fixed_anchor_minimum_lowering_m": 0.012144455687957412
+    },
+    {
+      "frame": 29.5,
+      "leg_m": 0.8482605836080814,
+      "vertical_gap_m": 0.837239183485508,
+      "horizontal_gap_m": 0.1251582971879389,
+      "any_floor_replant_shortfall_m": 0.003978599877426547,
+      "fixed_anchor_minimum_lowering_m": 0.013431802576659768
+    },
+    {
+      "frame": 29.75,
+      "leg_m": 0.8482606368591628,
+      "vertical_gap_m": 0.8382158651947975,
+      "horizontal_gap_m": 0.12798110481806968,
+      "any_floor_replant_shortfall_m": 0.004955228335634776,
+      "fixed_anchor_minimum_lowering_m": 0.014842240557425668
+    },
+    {
+      "frame": 30.0,
+      "leg_m": 0.8482605144760609,
+      "vertical_gap_m": 0.8392671123147011,
+      "horizontal_gap_m": 0.13104534185110403,
+      "any_floor_replant_shortfall_m": 0.006006597838640215,
+      "fixed_anchor_minimum_lowering_m": 0.01637574441488099
+    },
+    {
+      "frame": 30.25,
+      "leg_m": 0.84826063702756,
+      "vertical_gap_m": 0.8403895869851112,
+      "horizontal_gap_m": 0.13435029741832064,
+      "any_floor_replant_shortfall_m": 0.0071289499575512005,
+      "fixed_anchor_minimum_lowering_m": 0.018031218143896077
+    },
+    {
+      "frame": 30.5,
+      "leg_m": 0.8482606829536884,
+      "vertical_gap_m": 0.8415800109505653,
+      "horizontal_gap_m": 0.1378894255657614,
+      "any_floor_replant_shortfall_m": 0.008319327996876957,
+      "fixed_anchor_minimum_lowering_m": 0.01980761419244137
+    },
+    {
+      "frame": 30.75,
+      "leg_m": 0.8482606572988688,
+      "vertical_gap_m": 0.842835046350956,
+      "horizontal_gap_m": 0.14165402100975652,
+      "any_floor_replant_shortfall_m": 0.009574389052087184,
+      "fixed_anchor_minimum_lowering_m": 0.0217032290804825
+    },
+    {
+      "frame": 31.0,
+      "leg_m": 0.8482606461497135,
+      "vertical_gap_m": 0.8441516533493996,
+      "horizontal_gap_m": 0.14563495769503396,
+      "any_floor_replant_shortfall_m": 0.010891007199686054,
+      "fixed_anchor_minimum_lowering_m": 0.02371654712892357
+    },
+    {
+      "frame": 31.25,
+      "leg_m": 0.8482606528991659,
+      "vertical_gap_m": 0.8455265536904335,
+      "horizontal_gap_m": 0.14982277516475906,
+      "any_floor_replant_shortfall_m": 0.012265900791267659,
+      "fixed_anchor_minimum_lowering_m": 0.02584585261722039
+    },
+    {
+      "frame": 31.5,
+      "leg_m": 0.8482605916392565,
+      "vertical_gap_m": 0.8469564691185951,
+      "horizontal_gap_m": 0.1542089513079721,
+      "any_floor_replant_shortfall_m": 0.013695877479338647,
+      "fixed_anchor_minimum_lowering_m": 0.028089683300841273
+    },
+    {
+      "frame": 31.75,
+      "leg_m": 0.8482605822868738,
+      "vertical_gap_m": 0.8484382405877113,
+      "horizontal_gap_m": 0.15878472120732387,
+      "any_floor_replant_shortfall_m": 0.015177658300837504,
+      "fixed_anchor_minimum_lowering_m": 0.03044642503930839
+    },
+    {
+      "frame": 32.0,
+      "leg_m": 0.8482605276376293,
+      "vertical_gap_m": 0.8499683514237404,
+      "horizontal_gap_m": 0.16354105928536106,
+      "any_floor_replant_shortfall_m": 0.01670782378611113,
+      "fixed_anchor_minimum_lowering_m": 0.03291423519473424
+    },
+    {
+      "frame": 32.25,
+      "leg_m": 0.8482605188290231,
+      "vertical_gap_m": 0.8515439406037331,
+      "horizontal_gap_m": 0.168468327856966,
+      "any_floor_replant_shortfall_m": 0.018283421774709985,
+      "fixed_anchor_minimum_lowering_m": 0.03549154354317019
+    },
+    {
+      "frame": 32.5,
+      "leg_m": 0.8482605754657929,
+      "vertical_gap_m": 0.8531616106629372,
+      "horizontal_gap_m": 0.17355616220198755,
+      "any_floor_replant_shortfall_m": 0.019901035197144257,
+      "fixed_anchor_minimum_lowering_m": 0.038176061596389754
+    },
+    {
+      "frame": 32.75,
+      "leg_m": 0.8482605734843852,
+      "vertical_gap_m": 0.8548181429505348,
+      "horizontal_gap_m": 0.17879393652094125,
+      "any_floor_replant_shortfall_m": 0.021557569466149618,
+      "fixed_anchor_minimum_lowering_m": 0.04096563076735549
+    },
+    {
+      "frame": 33.0,
+      "leg_m": 0.848260619627353,
+      "vertical_gap_m": 0.8565102592110634,
+      "horizontal_gap_m": 0.18417072742761895,
+      "any_floor_replant_shortfall_m": 0.023249639583710402,
+      "fixed_anchor_minimum_lowering_m": 0.043857563786663833
+    },
+    {
+      "frame": 33.25,
+      "leg_m": 0.848260598313749,
+      "vertical_gap_m": 0.858234740793705,
+      "horizontal_gap_m": 0.18967543208921459,
+      "any_floor_replant_shortfall_m": 0.024974142479955996,
+      "fixed_anchor_minimum_lowering_m": 0.046849225046747156
+    },
+    {
+      "frame": 33.5,
+      "leg_m": 0.8482606478054046,
+      "vertical_gap_m": 0.8599882498383522,
+      "horizontal_gap_m": 0.19529673152980423,
+      "any_floor_replant_shortfall_m": 0.02672760203294766,
+      "fixed_anchor_minimum_lowering_m": 0.0499373293186246
+    },
+    {
+      "frame": 33.75,
+      "leg_m": 0.8482605307975197,
+      "vertical_gap_m": 0.8617677465081215,
+      "horizontal_gap_m": 0.20102358739613702,
+      "any_floor_replant_shortfall_m": 0.028507215710601774,
+      "fixed_anchor_minimum_lowering_m": 0.05311910247577534
+    },
+    {
+      "frame": 34.0,
+      "leg_m": 0.8482606480685088,
+      "vertical_gap_m": 0.8635699525475502,
+      "horizontal_gap_m": 0.20684432053193985,
+      "any_floor_replant_shortfall_m": 0.030309304479041455,
+      "fixed_anchor_minimum_lowering_m": 0.0563904590746106
+    },
+    {
+      "frame": 34.25,
+      "leg_m": 0.8482606874214508,
+      "vertical_gap_m": 0.8653915897011757,
+      "horizontal_gap_m": 0.21274780053655507,
+      "any_floor_replant_shortfall_m": 0.03213090227972493,
+      "fixed_anchor_minimum_lowering_m": 0.059747905080656305
+    },
+    {
+      "frame": 34.5,
+      "leg_m": 0.8482605833074389,
+      "vertical_gap_m": 0.8672293201088905,
+      "horizontal_gap_m": 0.21872219131843038,
+      "any_floor_replant_shortfall_m": 0.03396873680145163,
+      "fixed_anchor_minimum_lowering_m": 0.06318715534468033
+    },
+    {
+      "frame": 34.75,
+      "leg_m": 0.848260647243277,
+      "vertical_gap_m": 0.8690802827477455,
+      "horizontal_gap_m": 0.2247561564176345,
+      "any_floor_replant_shortfall_m": 0.03581963550446854,
+      "fixed_anchor_minimum_lowering_m": 0.06670382721290324
+    },
+    {
+      "frame": 35.0,
+      "leg_m": 0.8482606939117802,
+      "vertical_gap_m": 0.8709407225251198,
+      "horizontal_gap_m": 0.23083786648589869,
+      "any_floor_replant_shortfall_m": 0.03768002861333963,
+      "fixed_anchor_minimum_lowering_m": 0.0702926953530173
+    },
+    {
+      "frame": 35.25,
+      "leg_m": 0.8482606748127739,
+      "vertical_gap_m": 0.8728078976273537,
+      "horizontal_gap_m": 0.23695573720981047,
+      "any_floor_replant_shortfall_m": 0.039547222814579785,
+      "fixed_anchor_minimum_lowering_m": 0.07394912988877866
+    },
+    {
+      "frame": 35.5,
+      "leg_m": 0.8482605840103938,
+      "vertical_gap_m": 0.8746781721711159,
+      "horizontal_gap_m": 0.243098145976134,
+      "any_floor_replant_shortfall_m": 0.04141758816072205,
+      "fixed_anchor_minimum_lowering_m": 0.07766719841460046
+    },
+    {
+      "frame": 35.75,
+      "leg_m": 0.8482605981820364,
+      "vertical_gap_m": 0.8765483871102333,
+      "horizontal_gap_m": 0.24925351935331103,
+      "any_floor_replant_shortfall_m": 0.04328778892819696,
+      "fixed_anchor_minimum_lowering_m": 0.08144090533643333
+    },
+    {
+      "frame": 36.0,
+      "leg_m": 0.8482607124677004,
+      "vertical_gap_m": 0.8784154430031776,
+      "horizontal_gap_m": 0.25541022683059733,
+      "any_floor_replant_shortfall_m": 0.04515473053547725,
+      "fixed_anchor_minimum_lowering_m": 0.0852641138278919
+    },
+    {
+      "frame": 36.25,
+      "leg_m": 0.8482607018204174,
+      "vertical_gap_m": 0.8802760615944862,
+      "horizontal_gap_m": 0.2615566523756712,
+      "any_floor_replant_shortfall_m": 0.0470153597740689,
+      "fixed_anchor_minimum_lowering_m": 0.08913036401641894
+    },
+    {
+      "frame": 36.5,
+      "leg_m": 0.8482606465590807,
+      "vertical_gap_m": 0.8821269646286964,
+      "horizontal_gap_m": 0.2676811863413867,
+      "any_floor_replant_shortfall_m": 0.04886631806961572,
+      "fixed_anchor_minimum_lowering_m": 0.09303249146155712
+    },
+    {
+      "frame": 36.75,
+      "leg_m": 0.8482607331022767,
+      "vertical_gap_m": 0.8839649334549904,
+      "horizontal_gap_m": 0.2737721922891003,
+      "any_floor_replant_shortfall_m": 0.050704200352713724,
+      "fixed_anchor_minimum_lowering_m": 0.0969628775114475
+    },
+    {
+      "frame": 37.0,
+      "leg_m": 0.8482606791120848,
+      "vertical_gap_m": 0.8857867494225502,
+      "horizontal_gap_m": 0.2798181126345217,
+      "any_floor_replant_shortfall_m": 0.05252607031046541,
+      "fixed_anchor_minimum_lowering_m": 0.10091403159118939
+    },
+    {
+      "frame": 37.25,
+      "leg_m": 0.8482606614445479,
+      "vertical_gap_m": 0.887589193880558,
+      "horizontal_gap_m": 0.2858075065027431,
+      "any_floor_replant_shortfall_m": 0.0543285324360101,
+      "fixed_anchor_minimum_lowering_m": 0.10487762558883407
+    },
+    {
+      "frame": 37.5,
+      "leg_m": 0.8482606483082258,
+      "vertical_gap_m": 0.8893688693642616,
+      "horizontal_gap_m": 0.2917288534945875,
+      "any_floor_replant_shortfall_m": 0.056108221056035856,
+      "fixed_anchor_minimum_lowering_m": 0.10884495297362451
+    },
+    {
+      "frame": 37.75,
+      "leg_m": 0.8482606216031262,
+      "vertical_gap_m": 0.8911227956414223,
+      "horizontal_gap_m": 0.29757066999466886,
+      "any_floor_replant_shortfall_m": 0.05786217403829608,
+      "fixed_anchor_minimum_lowering_m": 0.1128073326873883
+    },
+    {
+      "frame": 38.0,
+      "leg_m": 0.8482606451031174,
+      "vertical_gap_m": 0.892847515642643,
+      "horizontal_gap_m": 0.3033215075631649,
+      "any_floor_replant_shortfall_m": 0.059586870539525605,
+      "fixed_anchor_minimum_lowering_m": 0.11675514631585193
+    },
+    {
+      "frame": 38.25,
+      "leg_m": 0.8482606713713743,
+      "vertical_gap_m": 0.894540049135685,
+      "horizontal_gap_m": 0.30897002880899055,
+      "any_floor_replant_shortfall_m": 0.061279377764310694,
+      "fixed_anchor_minimum_lowering_m": 0.12067903593496498
+    },
+    {
+      "frame": 38.5,
+      "leg_m": 0.8482606079896469,
+      "vertical_gap_m": 0.896196760237217,
+      "horizontal_gap_m": 0.31450462358877745,
+      "any_floor_replant_shortfall_m": 0.0629361522475701,
+      "fixed_anchor_minimum_lowering_m": 0.12456855794769639
+    },
+    {
+      "frame": 38.75,
+      "leg_m": 0.8482607084783125,
+      "vertical_gap_m": 0.8978147879242897,
+      "horizontal_gap_m": 0.31991371472488495,
+      "any_floor_replant_shortfall_m": 0.06455407944597724,
+      "fixed_anchor_minimum_lowering_m": 0.12841331702323655
+    },
+    {
+      "frame": 39.0,
+      "leg_m": 0.8482606454118748,
+      "vertical_gap_m": 0.8993907943367958,
+      "horizontal_gap_m": 0.32518592960302833,
+      "any_floor_replant_shortfall_m": 0.06613014892492097,
+      "fixed_anchor_minimum_lowering_m": 0.13220280278555385
+    },
+    {
+      "frame": 39.25,
+      "leg_m": 0.8482605965816961,
+      "vertical_gap_m": 0.9009213224053383,
+      "horizontal_gap_m": 0.33030973129107594,
+      "any_floor_replant_shortfall_m": 0.06766072582364224,
+      "fixed_anchor_minimum_lowering_m": 0.13592543795229028
+    },
+    {
+      "frame": 39.5,
+      "leg_m": 0.8482606126769874,
+      "vertical_gap_m": 0.9024033918976784,
+      "horizontal_gap_m": 0.3352743273102481,
+      "any_floor_replant_shortfall_m": 0.06914277922069101,
+      "fixed_anchor_minimum_lowering_m": 0.13957026854402577
+    },
+    {
+      "frame": 39.75,
+      "leg_m": 0.8482606200813658,
+      "vertical_gap_m": 0.9038336649537086,
+      "horizontal_gap_m": 0.3400690038017647,
+      "any_floor_replant_shortfall_m": 0.07057304487234284,
+      "fixed_anchor_minimum_lowering_m": 0.14312588030072004
+    },
+    {
+      "frame": 40.0,
+      "leg_m": 0.8482605923950746,
+      "vertical_gap_m": 0.905208982527256,
+      "horizontal_gap_m": 0.34468299741230435,
+      "any_floor_replant_shortfall_m": 0.07194839013218146,
+      "fixed_anchor_minimum_lowering_m": 0.14658071642226833
+    },
+    {
+      "frame": 40.25,
+      "leg_m": 0.8482607004491934,
+      "vertical_gap_m": 0.9065260663628578,
+      "horizontal_gap_m": 0.34910521475403744,
+      "any_floor_replant_shortfall_m": 0.0732653659136644,
+      "fixed_anchor_minimum_lowering_m": 0.1499225083850897
+    },
+    {
+      "frame": 40.5,
+      "leg_m": 0.8482605993860768,
+      "vertical_gap_m": 0.9077815189957619,
+      "horizontal_gap_m": 0.35332267398549144,
+      "any_floor_replant_shortfall_m": 0.0745209196096851,
+      "fixed_anchor_minimum_lowering_m": 0.153138348658293
+    },
+    {
+      "frame": 40.75,
+      "leg_m": 0.848260589924645,
+      "vertical_gap_m": 0.9089722409844398,
+      "horizontal_gap_m": 0.35732200999529073,
+      "any_floor_replant_shortfall_m": 0.07571165105979483,
+      "fixed_anchor_minimum_lowering_m": 0.15621451641796769
+    },
+    {
+      "frame": 41.0,
+      "leg_m": 0.8482606585905189,
+      "vertical_gap_m": 0.9100950732827187,
+      "horizontal_gap_m": 0.3610897389118928,
+      "any_floor_replant_shortfall_m": 0.07683441469219976,
+      "fixed_anchor_minimum_lowering_m": 0.15913733438708255
+    },
+    {
+      "frame": 41.25,
+      "leg_m": 0.8482605796915814,
+      "vertical_gap_m": 0.9111467376351357,
+      "horizontal_gap_m": 0.3646143135912536,
+      "any_floor_replant_shortfall_m": 0.07788615794355425,
+      "fixed_anchor_minimum_lowering_m": 0.16189404595339785
+    },
+    {
+      "frame": 41.5,
+      "leg_m": 0.8482606517455153,
+      "vertical_gap_m": 0.9121238365769386,
+      "horizontal_gap_m": 0.36789097075551797,
+      "any_floor_replant_shortfall_m": 0.0788631848314233,
+      "fixed_anchor_minimum_lowering_m": 0.1644744886979188
+    },
+    {
+      "frame": 41.75,
+      "leg_m": 0.8482607070459995,
+      "vertical_gap_m": 0.9130232110619545,
+      "horizontal_gap_m": 0.3709166397807588,
+      "any_floor_replant_shortfall_m": 0.07976250401595497,
+      "fixed_anchor_minimum_lowering_m": 0.16687024266971529
+    },
+    {
+      "frame": 42.0,
+      "leg_m": 0.8482606324959722,
+      "vertical_gap_m": 0.9138416424393654,
+      "horizontal_gap_m": 0.37368835943633166,
+      "any_floor_replant_shortfall_m": 0.08058100994339323,
+      "fixed_anchor_minimum_lowering_m": 0.16907302623069975
+    },
+    {
+      "frame": 42.25,
+      "leg_m": 0.8482605879341513,
+      "vertical_gap_m": 0.9145759120583534,
+      "horizontal_gap_m": 0.3761966994128048,
+      "any_floor_replant_shortfall_m": 0.08131532412420217,
+      "fixed_anchor_minimum_lowering_m": 0.1710712041006438
+    },
+    {
+      "frame": 42.5,
+      "leg_m": 0.8482606521750771,
+      "vertical_gap_m": 0.9152226820588112,
+      "horizontal_gap_m": 0.378406750548118,
+      "any_floor_replant_shortfall_m": 0.08196202988373413,
+      "fixed_anchor_minimum_lowering_m": 0.17284027008850522
+    },
+    {
+      "frame": 42.75,
+      "leg_m": 0.848260551799406,
+      "vertical_gap_m": 0.9157789126038551,
+      "horizontal_gap_m": 0.38027693344022034,
+      "any_floor_replant_shortfall_m": 0.08251836080444919,
+      "fixed_anchor_minimum_lowering_m": 0.17435285352692143
+    },
+    {
+      "frame": 43.0,
+      "leg_m": 0.8482606460203734,
+      "vertical_gap_m": 0.9162415638566017,
+      "horizontal_gap_m": 0.3817659175045655,
+      "any_floor_replant_shortfall_m": 0.0829809178362283,
+      "fixed_anchor_minimum_lowering_m": 0.1755809881282946
+    },
+    {
+      "frame": 43.25,
+      "leg_m": 0.8482606567872537,
+      "vertical_gap_m": 0.916607178747654,
+      "horizontal_gap_m": 0.38285633276661635,
+      "any_floor_replant_shortfall_m": 0.08334652196040027,
+      "fixed_anchor_minimum_lowering_m": 0.17650965097849347
+    },
+    {
+      "frame": 43.5,
+      "leg_m": 0.8482605948837372,
+      "vertical_gap_m": 0.9168724194169044,
+      "horizontal_gap_m": 0.3836263417767337,
+      "any_floor_replant_shortfall_m": 0.08361182453316729,
+      "fixed_anchor_minimum_lowering_m": 0.17717379911198572
+    },
+    {
+      "frame": 43.75,
+      "leg_m": 0.8482605997509675,
+      "vertical_gap_m": 0.9170338287949562,
+      "horizontal_gap_m": 0.38417835937091355,
+      "any_floor_replant_shortfall_m": 0.08377322904398876,
+      "fixed_anchor_minimum_lowering_m": 0.1776217547196033
+    },
+    {
+      "frame": 44.0,
+      "leg_m": 0.8482606267131212,
+      "vertical_gap_m": 0.9170875921845436,
+      "horizontal_gap_m": 0.38461470828182026,
+      "any_floor_replant_shortfall_m": 0.08382696547142243,
+      "fixed_anchor_minimum_lowering_m": 0.1779023662745327
+    }
+  ],
+  "scope": "Necessary reach bound only. No new keys, contact claims, or motion export."
+}

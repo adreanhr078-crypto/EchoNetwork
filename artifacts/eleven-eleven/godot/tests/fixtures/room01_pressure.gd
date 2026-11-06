@@ -95,6 +95,21 @@ func _record_first_choice(choice: String) -> void:
 		_first_choice = choice
 		_first_choice_seconds = elapsed
 
+func playtest_result() -> Dictionary:
+	var completed := not successful_route.is_empty()
+	var seconds := snappedf(elapsed, 0.001)
+	return {
+		"outcome": "completed" if completed else "abandoned",
+		"route": successful_route,
+		"attempts": attempts,
+		"failures": failures,
+		"valve_uses": _valve_uses,
+		"first_choice": _first_choice,
+		"first_choice_seconds": snappedf(_first_choice_seconds, 0.001) if not _first_choice.is_empty() else null,
+		"elapsed_seconds": seconds,
+		"completed_seconds": seconds if completed else null
+	}
+
 func _physics_process(delta: float) -> void:
 	elapsed += delta
 	vent_remaining = maxf(0.0, vent_remaining - delta)
@@ -121,15 +136,7 @@ func _physics_process(delta: float) -> void:
 		valve.is_enabled = false
 		_update_readout(false)
 		set_physics_process(false)
-		crossing_finished.emit({
-			"route": successful_route,
-			"attempts": attempts,
-			"failures": failures,
-			"valve_uses": _valve_uses,
-			"first_choice": _first_choice,
-			"first_choice_seconds": snappedf(_first_choice_seconds, 0.001),
-			"completed_seconds": snappedf(elapsed, 0.001)
-		})
+		crossing_finished.emit(playtest_result())
 	else:
 		_update_readout(false)
 

@@ -1,0 +1,43 @@
+{
+  "source_sha256": "25e7e1bb15d162b457d463b7fd5f021a3ea1bb0f423acc46c9877224893e047d",
+  "frames": [
+    28,
+    30,
+    32,
+    34,
+    36,
+    38,
+    40,
+    42,
+    44,
+    46,
+    48,
+    50
+  ],
+  "stats": {
+    "grid": 936,
+    "flat_sites": 124
+  },
+  "hands": {
+    "Left": {
+      "reachable": 1,
+      "screen_pass": 1,
+      "top": [
+        {
+          "wrist_m": [
+            0.4399999976158142,
+            -0.19499999284744263,
+            1.1515703201293945
+          ],
+          "minimum_sampled_centerline_clearance_m": 0.036344174295663834
+        }
+      ]
+    },
+    "Right": {
+      "reachable": 0,
+      "screen_pass": 0,
+      "top": []
+    }
+  },
+  "scope": "Static anchor and arm centerline distances only. No mesh contact, balance or new motion qualification."
+}

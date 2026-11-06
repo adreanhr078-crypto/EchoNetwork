@@ -689,6 +689,7 @@ func apply_player_avatar_style(avatar:Node) -> void:
 	# A newly earned source enters the same bounded lighting pipeline as Echo.
 	# Scope the authored geometry; attached aura/blades retain their own shaders.
 	var source:Node=avatar.get_node_or_null("QualifiedPactSource")
+	var pact_compatibility := source != null and RenderingServer.get_current_rendering_method() == "gl_compatibility"
 	if not source:source=avatar
 	var avatar_outline: Shader = OutlineShader
 	if avatar.has_method("supports_inverted_hull_outline") and not avatar.supports_inverted_hull_outline(): avatar_outline = null
@@ -697,7 +698,9 @@ func apply_player_avatar_style(avatar:Node) -> void:
 		for surface in mesh.mesh.get_surface_count():
 			var material:Material=mesh.get_active_material(surface)
 			if material is ShaderMaterial and material.shader==CelShader:
-				material.set_shader_parameter("skin_light_scale",.26)
+				# The earned skin clips under the lab's direct lights in Compatibility.
+				# Only atlas texels selected by the existing skin mask use this scale.
+				material.set_shader_parameter("skin_light_scale",0.10 if pact_compatibility else 0.26)
 				material.set_shader_parameter("backlight_intensity",.035)
 				material.set_shader_parameter("diffuse_light_ceiling",1.65)
 				material.set_shader_parameter("specular_light_ceiling",.22)

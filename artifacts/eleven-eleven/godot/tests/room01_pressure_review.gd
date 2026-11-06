@@ -2,6 +2,7 @@ extends "res://tests/opening_player_journey_review.gd"
 ## Uses the real Room 01, player, pause state, and public interactable.
 
 const PRESSURE = preload("res://tests/fixtures/room01_pressure.gd")
+var _manual_result_saved := false
 
 func _capture(id: String) -> void:
 	if id.begins_with("pressure-") or id == "04-threshold":
@@ -11,6 +12,8 @@ func _before_room_exit() -> bool:
 	var pressure := _mount_pressure()
 	if OS.get_cmdline_user_args().has("--manual"):
 		pressure.crossing_finished.connect(_write_playtest_result, CONNECT_ONE_SHOT)
+		auto_accept_quit = false
+		root.close_requested.connect(_close_manual_review.bind(pressure), CONNECT_ONE_SHOT)
 		root.unfocusable = false
 		root.grab_focus()
 		player.set_process_unhandled_input(true)
@@ -38,6 +41,8 @@ func _before_room_exit() -> bool:
 		await physics_frame
 	player.set_mobile_input_vector(Vector2.ZERO, false)
 	if not _check(pressure.failures == 1 and pressure.attempts == 1 and player.global_position.z > PRESSURE.ENTRY_Z, "High pressure did not return Echo to the near side"): return false
+	var interrupted := pressure.playtest_result()
+	if not _check(interrupted.outcome == "abandoned" and interrupted.failures == 1 and interrupted.first_choice == "cross" and interrupted.completed_seconds == null, "Unfinished session lost its attempt or claimed completion"): return false
 	if not _check(camera.current and not player.control_locked, "Pressure retry stole gameplay camera or control"): return false
 	for frame in 240:
 		if pressure.can_cross(): break
@@ -46,7 +51,7 @@ func _before_room_exit() -> bool:
 	await _capture("pressure-low")
 	if not await _walk(Vector3(0, 0, -14.15)): return false
 	if not _check(pressure.successful_route == "timing" and pressure.attempts == 2, "Timed path did not succeed after one retry"): return false
-	if not _check(timing.get("first_choice") == "cross" and timing.valve_uses == 0 and timing.completed_seconds > timing.first_choice_seconds, "Timing session result lost the attempt chronology"): return false
+	if not _check(timing.get("outcome") == "completed" and timing.get("first_choice") == "cross" and timing.valve_uses == 0 and timing.completed_seconds > timing.first_choice_seconds, "Timing session result lost the attempt chronology"): return false
 	pressure.queue_free()
 	if not await _walk(Vector3(PRESSURE.VALVE_POS.x, 0, -11.75)): return false
 	pressure = _mount_pressure()
@@ -85,6 +90,11 @@ func _before_room_exit() -> bool:
 	main.set_audio_muted(was_muted)
 	return true
 
+func _close_manual_review(pressure: PRESSURE) -> void:
+	if not _manual_result_saved:
+		_write_playtest_result(pressure.playtest_result())
+	quit(0 if _manual_result_saved else 1)
+
 func _write_playtest_result(result: Dictionary) -> void:
 	var directory := ProjectSettings.globalize_path("user://p24-playtests")
 	var error := DirAccess.make_dir_recursive_absolute(directory)
@@ -95,6 +105,7 @@ func _write_playtest_result(result: Dictionary) -> void:
 	if not _store_playtest_result(result, path):
 		push_error("Could not write the local P24 playtest result")
 		return
+	_manual_result_saved = true
 	print("P24_PLAYTEST_RESULT ", path)
 
 func _store_playtest_result(result: Dictionary, path: String) -> bool:
