@@ -11,22 +11,6 @@
   "next_action": "Mount pressure corridor, valve, and safe reset in isolated Unity Room01 review, then five new players.",
   "release_evidence": "Migration/Evidence/OpeningUI/Validation.json",
   "worker_policy": "ROOT_ONLY; hash and cache first; preserve Canon and Golden; external generation only for a measured gap",
-  "sha256_checkout_bytes": {
-    "Migration/CardLedger.json": "7262d5620d7b5f807e227787ac59f46dad5d63c0c32c4bfafe4a427f4483f120",
-    "Migration/OpeningFlow3D.json": "3a455daa974cd52ee0066414e59bb97e55f81f238669c89b91dc0f70e9a7aab6",
-    "Migration/Card-R12.json": "54343275db178fe334156a5a11f824c3e633c0892dd2d64a6fc9e7400dea5a37",
-    "Migration/Review/R12/Room01PressureTrial.cs": "01aa2415fbfd0f464bbe582ad7679bb7eccbec1014d1caf4dd5ccccec3e41b49",
-    "ProjectSettings/EditorBuildSettings.asset": "9a8c3fb77d032b82b3402a71c6c2d4850f206ac53426098e29cecdb3a3ecd5e4",
-    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "fe4fe5e3e343c57e926f5fc5e9760dcbb35fcf9bf323c2325d5b909f1cafe6ab",
-    "Assets/ElevenEleven/Scenes/ChapterOpening.unity": "d9ec519fe098de878ce75f90f8e088eb94d13e263bfef1de5b894e901c80a9dd",
-    "Assets/ElevenEleven/Scenes/OpeningReview.unity": "5b760c9bc7411252497a19665845531351618d535f00599e690cf57ec56cafa3",
-    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "17c2cc45b541905921203a30f0b40d5c0f1b72379323a4cef9b1ab6e11e46da7",
-    "Assets/ElevenEleven/Opening/ChapterTitle.cs": "ec9fc2886d562685f411fc97f0ffa039d772313d4e72a5aad90f03c30c49a0a4",
-    "Assets/ElevenEleven/Opening/OpeningReviewHost.cs": "db1694ebbe989ca13ff4ffaf27915115a1a92ae9dbb2f778ec48ffb8e2cb20b7",
-    "Assets/ElevenEleven/Opening/OpeningCinematicPresenter.cs": "f47edbf84ac0f5ad5246d371fb8ac7291c30536be18634c762a7889a998ef9c3",
-    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "fcb0f2f14a498666a67c5bbd01eb80ea3e90293a48b6ec77e879cdcacdf9ea3f",
-    "Assets/ElevenEleven/Opening/ChapterWindowsAcceptance.cs": "7582f9f4b3ecc92c6d13ab54bba73859eccd676029d836c5c9232bdbff96beb7"
-  },
   "opening_followup": {
     "state": "OPEN",
     "path": "Migration/OpeningContinuity.ar.md",
@@ -46,5 +30,21 @@
   "asset_delivery": {
     "unity": "regular Git blobs; source is fully present on this branch",
     "godot_historical_lfs": "remote repository LFS quota was exhausted during delivery; use existing verified local assets or restore quota when needed"
+  },
+  "sha256_git_blobs": {
+    "Migration/CardLedger.json": "ca288e117bf748f76171a5b6332dae9d2e3974f8dcca8f8741cb87b0bc9edf30",
+    "Migration/OpeningFlow3D.json": "3f66ee89c9c377d41a6426654f7ee83bc20479206ab2bd3726ed6016cfb9fa01",
+    "Migration/Card-R12.json": "083c65266809e4ff1fcb26175408e6134df1630460cf2a7f81d2740c6a38a107",
+    "Migration/Review/R12/Room01PressureTrial.cs": "01aa2415fbfd0f464bbe582ad7679bb7eccbec1014d1caf4dd5ccccec3e41b49",
+    "ProjectSettings/EditorBuildSettings.asset": "9a8c3fb77d032b82b3402a71c6c2d4850f206ac53426098e29cecdb3a3ecd5e4",
+    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "fe4fe5e3e343c57e926f5fc5e9760dcbb35fcf9bf323c2325d5b909f1cafe6ab",
+    "Assets/ElevenEleven/Scenes/ChapterOpening.unity": "d9ec519fe098de878ce75f90f8e088eb94d13e263bfef1de5b894e901c80a9dd",
+    "Assets/ElevenEleven/Scenes/OpeningReview.unity": "5b760c9bc7411252497a19665845531351618d535f00599e690cf57ec56cafa3",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "17c2cc45b541905921203a30f0b40d5c0f1b72379323a4cef9b1ab6e11e46da7",
+    "Assets/ElevenEleven/Opening/ChapterTitle.cs": "aa6b74b688dced7ece6fcc7a266c8858fdaf75a18011199ed4ec10c745f42516",
+    "Assets/ElevenEleven/Opening/OpeningReviewHost.cs": "e5ebee828f0ff15083c88bd8a8413b4dbbde3d19589aea4c6544e19dcc41b8a3",
+    "Assets/ElevenEleven/Opening/OpeningCinematicPresenter.cs": "f9b14884d99733e5460521f66b3fc88732d14ff21892a8a91dddc50cd23d78df",
+    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "fbdd83d7b22ce659a4d37f83d6cb1c2a0cd31a64b1968cfe22256e247a5182d4",
+    "Assets/ElevenEleven/Opening/ChapterWindowsAcceptance.cs": "9d121455faf599e781c0f777a6de042c4f483812b075f83a6cda4c3fc46c62bf"
   }
 }

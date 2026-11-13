@@ -7,15 +7,14 @@
 استنسخ مستودع GitHub العام مرة واحدة أو أعد استعمال نسخته الموجودة. استعمل Git LFS عند الحاجة إلى أصول Godot التاريخية.
 
 ```powershell
-git clone --branch unity/migration-checkpoint --single-branch --depth 1 --no-checkout https://github.com/adreanhr078-crypto/EchoNetwork.git
-cd EchoNetwork
-git lfs install --local
 $env:GIT_LFS_SKIP_SMUDGE = '1'
-git checkout unity/migration-checkpoint
+git clone --filter=blob:none --sparse --branch unity/migration-checkpoint --single-branch --depth 1 https://github.com/adreanhr078-crypto/EchoNetwork.git
+cd EchoNetwork
+git sparse-checkout set artifacts/eleven-eleven/unity artifacts/eleven-eleven/docs .agents/skills .codex/skills
 Remove-Item Env:GIT_LFS_SKIP_SMUDGE
 ```
 
-افتح `artifacts/eleven-eleven/unity` في Unity Hub. أصول مشروع Unity تأتي مباشرة مع الفرع. أصول Godot التاريخية المخزنة في LFS تحتاج حصة متاحة على المستودع أو نسخة مؤهلة من الكاش الأصلي عند مراجعة الغرف. رفض خادم LFS الرفع أثناء التسليم بسبب نفاد الحصة، لذلك أُدرجت كل ملفات Unity في Git مباشرة. تأتي جلسة Unity والرصيد والصلاحيات من حسابك الحالي. تصدير Windows قابل للإعادة عبر [أداة البناء](Tools/BuildWindows.ps1) و[أداة الفحص](Tools/TestWindows.ps1). سجل البناء الأصلي يحمل بصمات المشاهد ومكوّنات الحزمة واللقطات الفعلية.
+افتح `artifacts/eleven-eleven/unity` في Unity Hub. أصول مشروع Unity تأتي مباشرة مع الفرع. عند الحاجة إلى شجرة Godot نفّذ `git sparse-checkout add artifacts/eleven-eleven/godot` مع `GIT_LFS_SKIP_SMUDGE=1` أولًا. أصول Godot التاريخية المخزنة في LFS تحتاج حصة متاحة على المستودع أو نسخة مؤهلة من الكاش الأصلي عند مراجعة الغرف. رفض خادم LFS الرفع أثناء التسليم بسبب نفاد الحصة، لذلك أُدرجت كل ملفات Unity في Git مباشرة. تأتي جلسة Unity والرصيد والصلاحيات من حسابك الحالي. تصدير Windows قابل للإعادة عبر [أداة البناء](Tools/BuildWindows.ps1) و[أداة الفحص](Tools/TestWindows.ps1). سجل البناء الأصلي يحمل بصمات المشاهد ومكوّنات الحزمة واللقطات الفعلية.
 
 ## وضع البطاقات وما تبقى من النقل
 
