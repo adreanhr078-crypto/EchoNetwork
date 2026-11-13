@@ -1,4 +1,23 @@
 {
+  "unity_migration": {
+    "checkpoint": "UNITY_OPENING_UI_R12_20261113",
+    "project": "artifacts/eleven-eleven/unity",
+    "godot_baseline": "d4d95c1b83446a4802df5236237b928fe669682e",
+    "evidence": "Migration/Card-R12.json",
+    "batch_play_checks": 45,
+    "scope": "Ported the two pressure routes to a tested C# review model",
+    "next": "R12",
+    "motion_review": {
+      "motion": "Run_Source_Retarget",
+      "local_pose_samples": 25,
+      "evidence": "Migration/SchoolRunReview.json",
+      "status": "isolated_local_pose_comparison_pass"
+    },
+    "ledger": "Migration/CardLedger.json",
+    "status": "OPEN",
+    "handoff": "artifacts/eleven-eleven/unity/Migration/CURRENT_WORK.ar.md",
+    "opening_evidence": "artifacts/eleven-eleven/unity/Migration/Evidence/OpeningUI/Validation.json"
+  },
   "schema_version": 8,
   "updated": "2026-11-06T16:54:40.513222+00:00",
   "checkpoint": "RESET_PLAN_SCHOOL_BOOT_FACE_AUDIT_20261106",

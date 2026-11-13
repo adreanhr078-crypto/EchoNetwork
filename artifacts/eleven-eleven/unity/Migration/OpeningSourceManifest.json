@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "godot_head": "d4d95c1b83446a4802df5236237b928fe669682e",
+  "assets": [
+    {
+      "godot": "assets/textures/opening-cover.webp",
+      "source_sha256": "4968d7cac3bcc7d29738c5cb3aec10754772b6981c4273ccbd1ee117ad6c4c64",
+      "unity": "Assets/ElevenEleven/Opening/Media/Cover.png",
+      "unity_sha256": "1fe0e4f228ad8374bc0fb04841087d7d798aff5f071626692a3a809ba899b465",
+      "bytes": 5190745,
+      "decoded_rgba_sha256": "ae8d13ac61733bdb598a29df618394199aa0e20e8e4b29c1678112a8223748f1"
+    },
+    {
+      "godot": "assets/textures/ui/memory-aperture-v1.webp",
+      "source_sha256": "10275950c6bfcb06a64bb2b1f61918e0984240b0f1cff4dd64e31501e29292c8",
+      "unity": "Assets/ElevenEleven/Opening/Media/CoverBackdrop.png",
+      "unity_sha256": "1c6a18fde1063fa7541d6ca09746f299bd792e88b7fa7a0be948cc27bb647261",
+      "bytes": 486621,
+      "decoded_rgba_sha256": "7f24baf9297d55d0ccdf6732e45d41aebdd6a2f93cddf2811511bc65991e8896"
+    },
+    {
+      "godot": "assets/cinematics/title-moon-v1.ogv",
+      "source_sha256": "c1c31f79f2b87c620ec6c48a6236396641573f59ae1ad5d3284557d262b37ea6",
+      "unity": "Assets/ElevenEleven/Opening/Media/Title.ogv",
+      "unity_sha256": "c1c31f79f2b87c620ec6c48a6236396641573f59ae1ad5d3284557d262b37ea6",
+      "bytes": 11739460
+    },
+    {
+      "godot": "assets/cinematics/title-moon-v1.webp",
+      "source_sha256": "3fa1bac36ad294f02a7ffa3785fabcd4e6830203914c6683924ee99cacb9d7ed",
+      "unity": "Assets/ElevenEleven/Opening/Media/TitlePoster.png",
+      "unity_sha256": "65eeb3a0030304c33ceb6f7c3e097999342da71260e2aa9bd7888523028e3c52",
+      "bytes": 974234,
+      "decoded_rgba_sha256": "4db4ff51d79278b48b5f0204811bf9942f7f0b2c2b75de6bd7f02ce37572b7fe"
+    },
+    {
+      "godot": "assets/cinematics/title-water-sfx-v1.ogg",
+      "source_sha256": "7a18c3125fb75e3be585a6afb848dea65139766b53afe254bf37976d6194f115",
+      "unity": "Assets/ElevenEleven/Opening/Media/TitleWater.ogg",
+      "unity_sha256": "7a18c3125fb75e3be585a6afb848dea65139766b53afe254bf37976d6194f115",
+      "bytes": 71883
+    },
+    {
+      "godot": "assets/cinematics/memory-screens/city-high.ogv",
+      "source_sha256": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+      "unity": "Assets/ElevenEleven/Opening/Media/School.ogv",
+      "unity_sha256": "df9967e6c782f3032fa76a8153efbeef2bdaaf45e452a1291cfe339829b0c2ee",
+      "bytes": 4794688
+    },
+    {
+      "godot": "assets/cinematics/memory-screens/city-poster.webp",
+      "source_sha256": "a2b763abda0d9ffa101f0426e01f41e89e7a5579b1d8af41c55e157111d9b5b5",
+      "unity": "Assets/ElevenEleven/Opening/Media/SchoolPoster.png",
+      "unity_sha256": "c728fc4d585c7f328bd89b6f1ddb935a0105afe511edc600af12c7e40b2cf329",
+      "bytes": 292752,
+      "decoded_rgba_sha256": "7ebbd24aa21a37ad95368726ded941e82e6ec43279f4d8f05d444e0d1687c4f0"
+    },
+    {
+      "godot": "assets/cinematics/memory-screens/city.ogg",
+      "source_sha256": "de27855ac634e4bf3327e167ab6b3562628d1cb76d26eac3553fa6b6ed162f37",
+      "unity": "Assets/ElevenEleven/Opening/Media/SchoolAmbience.ogg",
+      "unity_sha256": "de27855ac634e4bf3327e167ab6b3562628d1cb76d26eac3553fa6b6ed162f37",
+      "bytes": 113133
+    },
+    {
+      "godot": "assets/cinematics/opening-cp45/lab-arrival.ogv",
+      "source_sha256": "936e5e1199edbaf5e8cf7e8c96529d69cd75667c114ee79daff6c4e9ee339c30",
+      "unity": "Assets/ElevenEleven/Opening/Media/Laboratory.ogv",
+      "unity_sha256": "936e5e1199edbaf5e8cf7e8c96529d69cd75667c114ee79daff6c4e9ee339c30",
+      "bytes": 2997080
+    },
+    {
+      "godot": "assets/cinematics/opening-cp45/lab-arrival.webp",
+      "source_sha256": "e795caf4e4916b10b97f75c44fae4e1413f0d6e05873a3ca89f02e916f6d491e",
+      "unity": "Assets/ElevenEleven/Opening/Media/LaboratoryPoster.png",
+      "unity_sha256": "6fbe1261e6a645ac55f4d06e766e90eb307ff030a76c42a1f374bfa8e7fd5ad8",
+      "bytes": 539756,
+      "decoded_rgba_sha256": "e290128cadba08c0992b312bdd6d5722cc51afbb910845558286085b5414e516"
+    },
+    {
+      "godot": "assets/cinematics/opening-cp45/experiment.ogv",
+      "source_sha256": "8055825012e602e3fe67db484b154192d01213324d894e3b5ab339779dde766a",
+      "unity": "Assets/ElevenEleven/Opening/Media/Experiment.ogv",
+      "unity_sha256": "8055825012e602e3fe67db484b154192d01213324d894e3b5ab339779dde766a",
+      "bytes": 1693466
+    },
+    {
+      "godot": "assets/cinematics/opening-cp45/experiment.webp",
+      "source_sha256": "f438377d84ecec42a23a319418a43bc2ea5e23b741a59b108ef2dfdc7b1d3998",
+      "unity": "Assets/ElevenEleven/Opening/Media/ExperimentPoster.png",
+      "unity_sha256": "3e153b3fb96491f19912336ee74ff822dceadcbec2a13c801f9c532e6c405f20",
+      "bytes": 535119,
+      "decoded_rgba_sha256": "fb65b487996e36c852b7f2b46c2255cdb27f20da761b44ae69cb49cc4eabf377"
+    },
+    {
+      "godot": "assets/fonts/NotoSansArabic.ttf",
+      "source_sha256": "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e",
+      "unity": "Assets/ElevenEleven/Opening/Media/NotoSansArabic.ttf",
+      "unity_sha256": "63111b5b2e074dd48cc67692e0a2726d86ee94c1c37fe8598257b7b4e87e869e",
+      "bytes": 844676
+    },
+    {
+      "godot": "assets/fonts/NotoSansArabic-OFL.txt",
+      "source_sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96",
+      "unity": "Assets/ElevenEleven/Opening/Media/NotoSansArabic-OFL.txt",
+      "unity_sha256": "07fc70bfeb985cc1a87a8587d0a0c80bab11c86c9dc3fd95b6f0cb332f983e96",
+      "bytes": 4382
+    },
+    {
+      "godot": "assets/props/sector11_cryo_pod_v1.glb",
+      "source_sha256": "b7e8e49c591bb029e35a3e0e642ec70f96c4863305348dcb0ef9c45698c4891b",
+      "unity": "Assets/ElevenEleven/Opening/Room01/CryoPod.glb",
+      "unity_sha256": "b7e8e49c591bb029e35a3e0e642ec70f96c4863305348dcb0ef9c45698c4891b",
+      "bytes": 1849104
+    },
+    {
+      "godot": "assets/environment/sector11_cryo_dais_v1.glb",
+      "source_sha256": "2c9bcd9ebbd5a78e72878b40c427a7db5b2b98cc254d38f0920f23d923525ef8",
+      "unity": "Assets/ElevenEleven/Opening/Room01/CryoDais.glb",
+      "unity_sha256": "2c9bcd9ebbd5a78e72878b40c427a7db5b2b98cc254d38f0920f23d923525ef8",
+      "bytes": 1462680
+    },
+    {
+      "godot": "assets/environment/sector11_observation_module_v1.glb",
+      "source_sha256": "304d894dbdd5c311661c1be00193dcb6a7dde8e9dab52d1719727a0d33ac161c",
+      "unity": "Assets/ElevenEleven/Opening/Room01/ObservationModule.glb",
+      "unity_sha256": "304d894dbdd5c311661c1be00193dcb6a7dde8e9dab52d1719727a0d33ac161c",
+      "bytes": 518320
+    },
+    {
+      "godot": "assets/environment/sector11_service_module_v1.glb",
+      "source_sha256": "638b0fb43f8c0ad6407a4a619d512c318aa45f5102e8e646fa28f59ccf972c19",
+      "unity": "Assets/ElevenEleven/Opening/Room01/ServiceModule.glb",
+      "unity_sha256": "638b0fb43f8c0ad6407a4a619d512c318aa45f5102e8e646fa28f59ccf972c19",
+      "bytes": 440576
+    },
+    {
+      "godot": "assets/environment/sector11_ceiling_tile_v1.glb",
+      "source_sha256": "0417c79e3f8bde42e5711972a1fc60ffabcc729057cf5c4a8d8e8355c7631076",
+      "unity": "Assets/ElevenEleven/Opening/Room01/CeilingTile.glb",
+      "unity_sha256": "0417c79e3f8bde42e5711972a1fc60ffabcc729057cf5c4a8d8e8355c7631076",
+      "bytes": 558892
+    },
+    {
+      "godot": "assets/props/room01_clock_hero.glb",
+      "source_sha256": "a45d259ee418ed8d40005364b85ff573a921c270e3878e4f105bb0b10aa87ad6",
+      "unity": "Assets/ElevenEleven/Opening/Room01/StoppedClock.glb",
+      "unity_sha256": "a45d259ee418ed8d40005364b85ff573a921c270e3878e4f105bb0b10aa87ad6",
+      "bytes": 238516
+    },
+    {
+      "godot": "assets/props/room01_trace_frame.glb",
+      "source_sha256": "f9121c143d20394f9df25af3fa707b66819abdb67ffe0279d4d0e16e7aae7d8c",
+      "unity": "Assets/ElevenEleven/Opening/Room01/PersonalTrace.glb",
+      "unity_sha256": "f9121c143d20394f9df25af3fa707b66819abdb67ffe0279d4d0e16e7aae7d8c",
+      "bytes": 15424
+    }
+  ],
+  "godot_implementation_sha256": {
+    "scripts/boot.gd": "0e01ffd174dd36efc73a136f276e022f9d691a471e7a53323923ffa6d78fa3e4",
+    "scripts/ui/title_entry.gd": "f1715346a52a9a07d192b3f10a1c57e5b4257fb85d5ad231fd9c1f3cdc0673bf",
+    "scripts/ui/cover_recovery.gd": "7181c7950ac037ef9d1b8c4c50e665011aeda921e74cdeccc385cb416e9322e9",
+    "scripts/ui/opening_memory_film.gd": "60f63f6118f51e5e2a297106e6badf6c05a1cbadc6a1845379284c35e3f2a1ea",
+    "scripts/ui/school_lab_opening.gd": "5bd2966f106b2878af1b8d4f568d9c459b335530541d7a77b418c17be526173d",
+    "scripts/ui/chapter_loading_screen.gd": "338a56fec228608bb753ce47325a312a9c3f0adf44a374ad2e681e453b8df2e5",
+    "scripts/audio/procedural_cinematic_audio.gd": "c0244fe893ff7cfbdef6505fa29c9798dedd867ec5fe7b53ccf6cce20cf45c9e",
+    "scenes/opening_native_room.tscn": "b533c5c4b80cf6b8adacadec7d1f392863008b1e27a6163061dc528d2d747ee8",
+    "scenes/opening_web_room.tscn": "65041fd8398e2ab36d0265e17b5bd3525103551853e5a240faadef3b08b0d139",
+    "scenes/props/sector11_cryo_pod.tscn": "15e45c635ba844cb9bb759eaffe765f2e9f1b62c8d3519c66d1c7bf7b0b19216",
+    "scripts/props/sector11_capsule_visual.gd": "16cc257ad62d3b36945ac0a6655af110d07dd56a077043973c29b5577a406954",
+    "scripts/environment/sector11_visual_shell.gd": "746b09fc87be83173f29b8a82387047c929d5eaaea47b4a72efbfe5e08f5c64b",
+    "scripts/environment/opening_evidence.gd": "984e413817c536bee67b4eee43c06631aaad0a7aa0dc9ad8b7d8a700985b0bed"
+  },
+  "generated_audio": {
+    "file": "Assets/ElevenEleven/Opening/Media/PressureAir.wav",
+    "sha256": "1c24ac71ab4633fbf830b2b82bd30eb704fdbbfbbd9423b866bf9d0d9ff7b7c5",
+    "source": "godot/scripts/audio/procedural_cinematic_audio.gd",
+    "method": "create_pressure_air",
+    "duration_seconds": 8,
+    "seed": 4511,
+    "sample_rate": 22050,
+    "channels": 1
+  }
+}

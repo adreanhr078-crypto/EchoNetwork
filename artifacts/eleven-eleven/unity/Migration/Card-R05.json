@@ -1,0 +1,85 @@
+{
+  "card": "R05",
+  "status": "PASS_SCOPED",
+  "scope": "Real floor and render warmup before control, stable scene teardown",
+  "preload_regression_checks": 10,
+  "resume_regression_checks": 14,
+  "verified_scene_guids": 55,
+  "standalone_device": "Intel UHD Graphics, Direct3D11, 1280x720, hidden player",
+  "samples": {
+    "prepared": [
+      {
+        "cut_to_gameplay_ms": 8.857,
+        "cut_to_observed_movement_ms": 104.387,
+        "cut_to_probe_render_ms": 353.381,
+        "whole_probe_worst_update_gap_ms": 305.951,
+        "warmup_render_precedes_cut": true
+      },
+      {
+        "cut_to_gameplay_ms": 5.93,
+        "cut_to_observed_movement_ms": 106.202,
+        "cut_to_probe_render_ms": 355.591,
+        "whole_probe_worst_update_gap_ms": 274.05,
+        "warmup_render_precedes_cut": true
+      },
+      {
+        "cut_to_gameplay_ms": 6.87,
+        "cut_to_observed_movement_ms": 118.668,
+        "cut_to_probe_render_ms": 374.701,
+        "whole_probe_worst_update_gap_ms": 337.291,
+        "warmup_render_precedes_cut": true
+      }
+    ],
+    "early_skip": [
+      {
+        "cut_to_gameplay_ms": 803.83,
+        "cut_to_observed_movement_ms": 895.695,
+        "cut_to_probe_render_ms": 1146.046,
+        "whole_probe_worst_update_gap_ms": 285.533,
+        "warmup_render_precedes_cut": false
+      },
+      {
+        "cut_to_gameplay_ms": 740.924,
+        "cut_to_observed_movement_ms": 845.055,
+        "cut_to_probe_render_ms": 1095.069,
+        "whole_probe_worst_update_gap_ms": 258.618,
+        "warmup_render_precedes_cut": false
+      },
+      {
+        "cut_to_gameplay_ms": 818.614,
+        "cut_to_observed_movement_ms": 904.582,
+        "cut_to_probe_render_ms": 1157.615,
+        "whole_probe_worst_update_gap_ms": 270.925,
+        "warmup_render_precedes_cut": false
+      }
+    ]
+  },
+  "retained_memory": {
+    "settling_runs": 3,
+    "measured_runs": 30,
+    "first_to_last_5_median_mib": 0.062,
+    "range_mib": [
+      426.03,
+      427.329
+    ],
+    "unit": "Editor profiler total allocated memory; headless"
+  },
+  "save": "Initial fresh-entry save runs off the Unity thread after handoff. Ordered before later saves and completed on ordinary quit.",
+  "pending": [
+    "Present-time graphics, minimum-device sample counts and cold runs need further evidence.",
+    "The synchronous warm render still produces a whole-probe update gap over the plan target.",
+    "An early skip can reach the room before preparation has completed; R06 exposes and permits cancellation of that wait."
+  ],
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "e978a77de31f57021c014aebbbd6cbeec27644c3510702e236ed7548c31760de",
+    "Assets/ElevenEleven/Editor/RoomPreloadSmoke.cs": "d1341e8261ab792ee63a0d6a48aa78556f2433df0617493fe156c27a09a1ab87",
+    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "2771dad2f6b51196ba392e59ed53dd286cd5a0f6b7a1797f51b045dddfe89bfc",
+    "Assets/ElevenEleven/Opening/Room01Player.cs": "42bec490504b23c9a99d7ad38097e9edb2b1b080c107e04842d11824840e1a0d",
+    "Assets/ElevenEleven/Opening/ChapterRoomStage.cs": "306ca0a5d664804dda3484508e76ef2786859b66a20984cd76df8b4e6aaf836f",
+    "Assets/ElevenEleven/Opening/PreparedChapterRoom.cs": "a0e6f5d96f503c0d246d4388f65a1ecc27551be4e58264aa764b50a38ea3cd96",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "7941be263bfcf67ac20c98ba9459796e5740e7fb176bdfe80efd50dd4c6a5fa4",
+    "Assets/ElevenEleven/Editor/RoomWarmupSmoke.cs": "c25c51ad9ec7582cefaf069d56b6f8984a60dbe852064b88b5120fd837bd9212",
+    "Assets/ElevenEleven/Editor/RoomWarmupSmoke.cs.meta": "ab204a9191793fe1e2e33121c46ef315d4150fa542835f94fd335e04e4f58f57"
+  },
+  "next": "R06"
+}

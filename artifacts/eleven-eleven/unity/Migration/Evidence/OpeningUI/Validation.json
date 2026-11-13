@@ -1,0 +1,44 @@
+{
+  "scope": "Rendered Windows 1280x720, Intel UHD, D3D11, Unity 6000.3.23f1 with isolated save each run",
+  "results": {
+    "Full": {
+      "result": "ENTRY_WINDOWS_ROUTE_PASS checks=99 walked_metres=34.15 reduced_motion=False graphics=Direct3D11 device=Intel(R) UHD Graphics",
+      "captures": {
+        "Full-00-title-ar.png": "bee36eac44c6114d0daeb1c1552352e886ce186a014bea4c108979b93e0805ee",
+        "Full-10-system-wake.png": "ac2820247acde8e3af2c4d4d4229483e193008e4ea2907f42edb7e592aaad84b",
+        "Full-02-crossing.png": "499e136a156c72403ad6a32115f785c3c26fc2f7dff5d7edacb62754897015c9",
+        "Full-03-continue.png": "07156d5c9453bd0811841baf6b645b7263e0a9ce61938cf8e402da2db0031e46",
+        "Full-04-drag.png": "2b80f95d33b8617dadf909879d497488b6e35c757fa8c8f8f57d31623f53e7b1",
+        "Full-06b-delayed-skip.png": "a57e84fb34c42b58605fc8ef08a9161fa70b47fddc9bd82b48e4b2655af86ea3",
+        "Full-08-memory-in-trial.png": "2f8d3a57603cc46fd4e084fa4b7c78bd710bd758185e741ad9ae62a445a1a42d"
+      }
+    },
+    "Reduced": {
+      "result": "ENTRY_WINDOWS_ROUTE_PASS checks=87 walked_metres=34.14 reduced_motion=True graphics=Direct3D11 device=Intel(R) UHD Graphics",
+      "captures": {
+        "Reduced-00-title-ar.png": "bee36eac44c6114d0daeb1c1552352e886ce186a014bea4c108979b93e0805ee",
+        "Reduced-10-system-wake.png": "384c150af0e2c937eb26528e1a9a29fdf0fb475f91edc4cccf4d3dacad46df9a",
+        "Reduced-02-crossing.png": "ee5cc5acb4c679b048446c5027110e8f8b287501a34ff3342b21b3daed55d68b",
+        "Reduced-03-continue.png": "436c9a33933ad8f60c997a683f80c9bd55360cb01c9e896638ecd66613c04dbd"
+      }
+    }
+  },
+  "builds": {
+    "verify": {
+      "result": "ENTRY_WINDOWS_BUILD_PASS bytes=253328423 warnings=0 verification=True",
+      "sha256": {
+        "11.11.exe": "82efd5a8c297a5046f6bb72c240dab8972e64003851935eba0a46ad121ce0305",
+        "11.11_Data/data.unity3d": "1bd230a06e23caabc20be10621208112509fa8d98aea6ad44c940be59840b4a7",
+        "11.11_Data/Managed/Assembly-CSharp.dll": "6e2e533cd18cd9c72f5bde5328c1e50adadd28ee31fe27584579237b9f7ed1a8"
+      }
+    },
+    "clean": {
+      "result": "ENTRY_WINDOWS_BUILD_PASS bytes=253304529 warnings=0 verification=False",
+      "sha256": {
+        "11.11.exe": "82efd5a8c297a5046f6bb72c240dab8972e64003851935eba0a46ad121ce0305",
+        "11.11_Data/data.unity3d": "8751b7eee37832681d8f714f4f4b053273587922a9ec30996e8d7aa2c37ab2ec",
+        "11.11_Data/Managed/Assembly-CSharp.dll": "545227b75ef8246754e716d4aac2edb701e1073297e132c6f1471f4878ba8ba8"
+      }
+    }
+  }
+}

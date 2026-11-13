@@ -1,0 +1,64 @@
+{
+  "card": "R00",
+  "status": "ACCEPTED",
+  "godot_head": "d4d95c1b83446a4802df5236237b928fe669682e",
+  "plan_sha256": "c1de7635bf4438686d055c62ba94de193e27d81b6c943a9e4f57c44cd28f1f5f",
+  "cards": 60,
+  "godot_worktree_status": [
+    "M PROJECT_MAP.ar.md",
+    " M artifacts/eleven-eleven/docs/11-11/design/CONTINUATION.md",
+    " M artifacts/eleven-eleven/docs/internal/production/CURRENT_CONTEXT_CACHE.json",
+    " M artifacts/eleven-eleven/docs/internal/production/CURRENT_WORK.ar.md",
+    "?? artifacts/eleven-eleven/tools/relay/"
+  ],
+  "device": {
+    "os": "Microsoft Windows 11 Pro",
+    "cpu": "12th Gen Intel(R) Core(TM) i3-1215U",
+    "logical_cpus": 8,
+    "gpu": "Intel(R) UHD Graphics",
+    "driver": "31.0.101.4032",
+    "ram_mib": 7896,
+    "free_disk_mib": 8805,
+    "unity": "6000.3.23f1"
+  },
+  "verified": {
+    "godot_baseline_sources": 7,
+    "reference_frames": 4,
+    "intake_assets": 12,
+    "source_assets": 12,
+    "installed_unity_files": 21,
+    "golden_files": 192
+  },
+  "baseline_evidence_sha256": "2507ab9c20145194473868db1a2e0378eee7b2bde4016bf4f981f5bbac07f674",
+  "save_baseline": {
+    "contract_fixture_sha256": "71bf429d5ff648e818651cb6243744016ee923bd21063e2be882f0561b3b8f0e",
+    "explicit_acceptances": 1,
+    "reloads": 3,
+    "fixture_checks": 71,
+    "live_player_saves_touched": false
+  },
+  "reproduction_paths": [
+    {
+      "issue": "Default boot avatar",
+      "route": "Godot title > cover > opening > wake, compare no flag versus --echo-school-candidate",
+      "default_checks": 10,
+      "school_checks": 11
+    },
+    {
+      "issue": "Opening load stall",
+      "route": "Same rendered boot, measure from transfer request to curtain lift and process heartbeat",
+      "baseline_ms": 23253,
+      "school_candidate_ms": 19435
+    },
+    {
+      "issue": "Pact face readability",
+      "route": "Explicit pact from isolated Godot fixture; compare School and Pact face frames",
+      "frames": [
+        "03-school65-face.jpg",
+        "04-pact72-face.jpg"
+      ]
+    }
+  ],
+  "method": "Reused Godot diagnostic runs after checking their source and frame SHA-256. Verified installed Unity files independently.",
+  "next": "R01"
+}

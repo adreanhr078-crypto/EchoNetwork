@@ -1,0 +1,132 @@
+{
+  "card": "R06",
+  "status": "PASS_SCOPED",
+  "scope": "Real progress and cancellation in the opening and Continue",
+  "checks": {
+    "loading_and_checkpoint_race": 15,
+    "resume": 14,
+    "normal": 45,
+    "preload": 10
+  },
+  "verified_scene_guids": 57,
+  "samples_per_route": 20,
+  "measured_device": "Intel UHD Graphics, Direct3D11, 1280x720 hidden standalone, process launches with shared OS cache",
+  "probe_boundaries": "Frame/update timings are software markers. The explicit offscreen render is a separate check.",
+  "measurements": {
+    "ready_cut": {
+      "title_canvas_ms": {
+        "p50": 85.452,
+        "p95": 103.157,
+        "max": 173.389
+      },
+      "entry_to_movement_ms": {
+        "p50": 107.474,
+        "p95": 118.228,
+        "max": 129.153
+      },
+      "title_to_playable_ms": {
+        "p50": 1183.927,
+        "p95": 1507.463,
+        "max": 1521.328
+      },
+      "first_room_request_to_ready_ms": {
+        "p50": 871.403,
+        "p95": 1047.801,
+        "max": 1129.629
+      },
+      "worst_visible_loading_update_gap_ms": {
+        "p50": 89.229,
+        "p95": 147.642,
+        "max": 161.086
+      },
+      "worst_ready_cut_update_gap_ms": {
+        "p50": 64.483,
+        "p95": 72.438,
+        "max": 74.724
+      }
+    },
+    "early_skip": {
+      "title_canvas_ms": {
+        "p50": 85.275,
+        "p95": 111.171,
+        "max": 113.011
+      },
+      "entry_to_movement_ms": {
+        "p50": 848.422,
+        "p95": 953.168,
+        "max": 1077.409
+      },
+      "title_to_playable_ms": {
+        "p50": 1083.047,
+        "p95": 1172.639,
+        "max": 1375.074
+      },
+      "first_room_request_to_ready_ms": {
+        "p50": 818.314,
+        "p95": 893.955,
+        "max": 1007.556
+      },
+      "worst_visible_loading_update_gap_ms": {
+        "p50": 90.732,
+        "p95": 142.509,
+        "max": 145.504
+      },
+      "worst_ready_cut_update_gap_ms": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "continue": {
+      "title_canvas_ms": {
+        "p50": 113.173,
+        "p95": 124.988,
+        "max": 130.871
+      },
+      "entry_to_movement_ms": {
+        "p50": 906.442,
+        "p95": 1005.645,
+        "max": 1025.779
+      },
+      "title_to_playable_ms": {
+        "p50": 1006.115,
+        "p95": 1106.906,
+        "max": 1127.007
+      },
+      "first_room_request_to_ready_ms": {
+        "p50": 826.446,
+        "p95": 927.223,
+        "max": 932.363
+      },
+      "worst_visible_loading_update_gap_ms": {
+        "p50": 522.653,
+        "p95": 595.78,
+        "max": 628.524
+      },
+      "worst_ready_cut_update_gap_ms": {
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "pending": [
+    "Physical presentation on the minimum-device matrix and forced-cold cache distribution.",
+    "Visible loading and ready-cut update-gap targets require review against the measured distribution.",
+    "Human reading and navigation in both languages."
+  ],
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "45377676946c4c5e49a98aa61f3411c72d365de2ebb567329882ac036bd22a3f",
+    "Assets/ElevenEleven/Editor/RoomPreloadSmoke.cs": "11c7726f732d0cf921a0a5cd73caf59094bd0bdf1e59588eda70640a2bf45736",
+    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "c7259d3ded61671fb501339fe9dc7018b523510881440fc9471faeb0045e5572",
+    "Assets/ElevenEleven/Opening/PreparedChapterRoom.cs": "5976909aaa6cbf21b5a96d9452228df6ca85d02eb3e2a8bd26eb6306d2b1ed30",
+    "Assets/ElevenEleven/Opening/CheckpointFile.cs": "f3d0051c48962f159d678a9e0c5e6a80d3289ada9711d1d8dc5a20f858e61c2c",
+    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "668ee6d25969a3e4892659eac16e8a56aaeefcf0d16844308f4283fc4d5eec88",
+    "Assets/ElevenEleven/Scenes/ChapterOpening.unity": "7a5be9970e02dbc058cca2c2e513433efbcaafc6ca813e679ed447c9c122d587",
+    "Assets/ElevenEleven/Editor/ChapterLoadingSmoke.cs": "e2f36cf1894610cfcc0d7a3b884101b6cb4d1649c5364825d8fa8e1dfb086006",
+    "Assets/ElevenEleven/Opening/ChapterLoadingView.cs": "2cf7d1e3f192c0ffaacb79eae09fdcf0f7ef5f681e3bf608cca20eb3ebc4f5ed",
+    "Assets/ElevenEleven/Editor/ChapterLoadingSmoke.cs.meta": "8be16848cb5a030cfd37f0e886830039e7815ce9b6d68e0c1fc765661c9fa6e6",
+    "Assets/ElevenEleven/Opening/ChapterLoadingView.cs.meta": "0b550324cfbad2afeb3332dfe48d7b8257f4b9cbd6121c721aa9d8006eca848f"
+  },
+  "next": "R07"
+}

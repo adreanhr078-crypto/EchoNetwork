@@ -1,0 +1,44 @@
+{
+  "card": "R09",
+  "status": "PASS_SCOPED",
+  "scope": "Title, recovery and corridor palette in both Unity quality tiers",
+  "tiers": {
+    "PC": {
+      "pipeline": "PC_RPAsset",
+      "device": "Intel(R) UHD Graphics",
+      "frames": 6
+    },
+    "Mobile": {
+      "pipeline": "Mobile_RPAsset",
+      "device": "Intel(R) UHD Graphics",
+      "frames": 6
+    }
+  },
+  "normal_route_checks": 45,
+  "verified_scene_guids": 57,
+  "palette_review_script_sha256": "34c3016db75b6b8ca84f0f37f68209a49f69165996f5fdc20a3b82738f795985",
+  "evidence_directory": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-11\\ig-x20\\outputs\\11.11-R09-Palette",
+  "image_sha256": {
+    "Mobile/corridor-after.png": "a34758a337b66375f8477168b944be14bac738e0469c0d119743c1757b3c37e0",
+    "Mobile/corridor-before.png": "7a01e268c21d94eae40cc338d9c6af65fb91e982e7be3fc4837f8df458b1b5cd",
+    "Mobile/title-after.png": "5cd1253de256990993d03a36ef6a0a309984e4d06fa534f0750b6a7c6fa46e83",
+    "Mobile/title-before.png": "628a39645d000b854fcf0ca496560b24b67fefa7bb10ff2acdc5ed392497c7aa",
+    "Mobile/wake-after.png": "e823d501204719a4dc40490c12135340e29ccd53eb546313b266ecc8220a8d15",
+    "Mobile/wake-before.png": "d2c1878ef3a04b05c1a1befdd983edbfa612527d50eb2d64496aac09a10bad4f",
+    "PC/corridor-after.png": "ef353ee71323d30967c1f31b320b080754989a6d4f1603a7e7526fe89ff51f8e",
+    "PC/corridor-before.png": "479d13cc320c47fda62e4891300bc31f8294f8c887369dcc9d81b6d579b6d852",
+    "PC/title-after.png": "eefb773ec8920ebf4416a57b3c40202c549c2afc9b48b5e960aa3160eca7e112",
+    "PC/title-before.png": "bdd7c2cf39bbb52cb04aeb2219ed0f3abc93d939cc5ba6e24ad7830fc2b7dc12",
+    "PC/wake-after.png": "f1e09c2ba58617ddf196cb085241c954edaccae73217748d552fd4a9e9f43a98",
+    "PC/wake-before.png": "7a2d65d1068312cfff2f07e04cf52a1fd7fa4ec775aa74bc39aa98a9f9c1e6c1"
+  },
+  "pending": [
+    "Independent review of cue recognition at gameplay distance and physical mobile hardware."
+  ],
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "821839ced08ecc3c4528d8e35b7f1fa97eb0c4c0495b4bd4c19c511c485da699",
+    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "61d4e8cd3d9434358dbbfcefd3a7f9846da0d84243ce702d6237d72bee1444d6",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "17c2cc45b541905921203a30f0b40d5c0f1b72379323a4cef9b1ab6e11e46da7"
+  },
+  "next": "R10"
+}

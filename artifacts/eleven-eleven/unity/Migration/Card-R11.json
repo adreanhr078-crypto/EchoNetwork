@@ -1,0 +1,565 @@
+{
+  "card": "R11",
+  "status": "PASS_SCOPED",
+  "scope": "53-event source, input and implementation inventory",
+  "source_hashes": {
+    "docs\\internal\\production\\CINEMATIC_EXPERIENCE_SCENE_LEDGER_2026-11-03.json": "79e4018bfbfe6a1a66379eb72088a4a023d73c985e19a95851f1948d7eeff79e",
+    "docs\\internal\\production\\part-1-opening-vertical-slice-matrix-2026-09.md": "6e16916452dea537977747165a0e8332c6d7f5d7caa511c9efb41904170c7dac",
+    "docs\\internal\\production\\CHAPTER_STAGE00_EXECUTION_2026-10-09.ar.md": "e1a1fd7ac8db28f1512fd2705191be5d191f307102347c6c8632c4b014d80c08",
+    "docs\\internal\\narrative\\current\\ar\\manifest.json": "b878a05e2af186ef47fcf4a10a1f51e9d23d459708c5f26cd0087dad71199cc5",
+    "godot\\scripts\\cinematics\\lab_memory_trial.gd": "08072a9e26fcb972359acc3221466149dba8adb4e8412e330e34aef46d49c96f",
+    "public\\manhwa\\echo-network-final-2026-09-v1\\publication-manifest.json": "997bbf8fbf42bbb0c9e7eb908bd16b14ebd996ce13328188cf9ef7a72d42e866"
+  },
+  "approved_pdf_sha256": "6BE33FDD8A66210302AA44ED56D854B544F7A8B4C62AA57108557438571BFF1C",
+  "verified_local_page_hashes": 70,
+  "counts_by_unity_state": {
+    "لقطة الافتتاح موجودة": 2,
+    "الحوار التفاعلي موجود": 1,
+    "مخطط للنقل": 46,
+    "لقطة التجربة موجودة": 1,
+    "استلام التحكم موجود": 1,
+    "تفاعل الغرفة موجود": 1,
+    "سلطة العقد مختبرة في عزل R02": 1
+  },
+  "constraints_ar": [
+    "تبقى School65 الهيئة قبل موافقة زيرو الصريحة. تبدأ الهيئة المكتسبة من موافقة محفوظة في O06 ثم يتبعها التحول.",
+    "ترتبط ذكريات الأرشيف بالسياق الحالي للاعب، وتبقى قصاصات المختبر القسرية في L05 وL06.",
+    "اختيار الأمنية في S03 مستقل عن العقد. يتلو الحفظَ النقلُ إلى المستشفى. تتوقف الحزمة قبل الخروج من المستشفى.",
+    "الصفحات المعيّنة بالسياق تحتاج فحص اللوحة قبل كشفها أو اعتمادها في البناء."
+  ],
+  "events": [
+    {
+      "id": "E01",
+      "event_ar": "عودة إيكو من المدرسة",
+      "pages_or_context": "3",
+      "attribution_ar": "تأسيس الحياة المدرسية في مصفوفة الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "مشاهدة أو متابعة",
+      "unity_status_ar": "لقطة الافتتاح موجودة",
+      "pending_ar": "مسير المدرسة وأداء اللاعب مفتوحان"
+    },
+    {
+      "id": "E02",
+      "event_ar": "الوصول للمختبر",
+      "pages_or_context": "2",
+      "attribution_ar": "المختبر في مصفوفة الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "مشاهدة أو متابعة",
+      "unity_status_ar": "لقطة الافتتاح موجودة",
+      "pending_ar": "عبور العتبة المكاني مفتوح"
+    },
+    {
+      "id": "E03",
+      "event_ar": "لقاء الأب والأسئلة",
+      "pages_or_context": "2–7",
+      "attribution_ar": "مرجع الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "اختيار سؤال ثم العودة",
+      "unity_status_ar": "الحوار التفاعلي موجود",
+      "pending_ar": "الأداء والصوت الأصلي مفتوحان"
+    },
+    {
+      "id": "E04",
+      "event_ar": "الاستعداد والجلوس الأول",
+      "pages_or_context": "2–7",
+      "attribution_ar": "مرجع الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "مشاهدة وتخطٍ",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تأليف الانتقال والتمثيل"
+    },
+    {
+      "id": "E05",
+      "event_ar": "تعثر المعايرة",
+      "pages_or_context": "2–7",
+      "attribution_ar": "مرجع الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "مشاهدة وتخطٍ",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تأليف الانتقال والتمثيل"
+    },
+    {
+      "id": "E06",
+      "event_ar": "نجاح التجربة و11:11",
+      "pages_or_context": "2–7",
+      "attribution_ar": "مرجع الافتتاح",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "متابعة إلى الغرفة",
+      "unity_status_ar": "لقطة التجربة موجودة",
+      "pending_ar": "المعايرة التفاعلية والتمثيل مفتوحان"
+    },
+    {
+      "id": "E07",
+      "event_ar": "الاستيقاظ الأول داخل النظام",
+      "pages_or_context": "7",
+      "attribution_ar": "وصول الوعي في المصفوفة؛ الاستيقاظ في الغرفة اقتباس لعب",
+      "owner": "OpeningCinematicPresenter",
+      "input_ar": "الحركة بشخصية School65",
+      "unity_status_ar": "استلام التحكم موجود",
+      "pending_ar": "النهوض المؤلف والمراجعة البشرية مفتوحان"
+    },
+    {
+      "id": "R01",
+      "event_ar": "أول دليل داخل الغرفة الأولى",
+      "pages_or_context": "7–8",
+      "attribution_ar": "الإشارة والأثر؛ ألغاز الساعة والطاقة من عقد اللعبة",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "فحص الساعة والأثر وربط الإشارة والطاقة",
+      "unity_status_ar": "تفاعل الغرفة موجود",
+      "pending_ar": "قبول مهمة الغرفة عند اللاعبين مفتوح"
+    },
+    {
+      "id": "R02",
+      "event_ar": "ذاكرة شيزوكا الأولى",
+      "pages_or_context": "10–29",
+      "attribution_ar": "سياق فقط؛ مرجع مشهد الذكرى الأول يحتاج تعيينًا",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "استكشاف وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الذكرى وصلاحية كشفها"
+    },
+    {
+      "id": "R03",
+      "event_ar": "تعليق إيكو أثناء السير بعد الذاكرة",
+      "pages_or_context": "10–29",
+      "attribution_ar": "نطاق أرشيف الذاكرة",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "استكشاف وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الذكرى وصلاحية كشفها"
+    },
+    {
+      "id": "R04",
+      "event_ar": "أثر يوكي",
+      "pages_or_context": "10–29",
+      "attribution_ar": "سياق فقط؛ مرجع مشهد الذكرى الأول يحتاج تعيينًا",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "استكشاف وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الذكرى وصلاحية كشفها"
+    },
+    {
+      "id": "R05",
+      "event_ar": "تذكّر مستقل بعد أثر يوكي",
+      "pages_or_context": "10–29",
+      "attribution_ar": "نطاق أرشيف الذاكرة",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "استكشاف وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الذكرى وصلاحية كشفها"
+    },
+    {
+      "id": "R06",
+      "event_ar": "دليلSubjects/EX-011",
+      "pages_or_context": "10–29",
+      "attribution_ar": "نطاق أرشيف الذاكرة",
+      "owner": "Room01Player / NativeCampaignController",
+      "input_ar": "استكشاف وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الذكرى وصلاحية كشفها"
+    },
+    {
+      "id": "P01",
+      "event_ar": "عبور النار",
+      "pages_or_context": "30–47",
+      "attribution_ar": "نطاق الفصل؛ تصميم لعب",
+      "owner": "NativeJourneyController",
+      "input_ar": "عبور ومهارة",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل الحركة والمخاطر"
+    },
+    {
+      "id": "P02",
+      "event_ar": "عبور الكهرباء",
+      "pages_or_context": "30–47",
+      "attribution_ar": "نطاق الفصل؛ تصميم لعب",
+      "owner": "NativeJourneyController",
+      "input_ar": "عبور ومهارة",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل الحركة والمخاطر"
+    },
+    {
+      "id": "P03",
+      "event_ar": "عبور الرياح",
+      "pages_or_context": "30–47",
+      "attribution_ar": "نطاق الفصل؛ تصميم لعب",
+      "owner": "NativeJourneyController",
+      "input_ar": "عبور ومهارة",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل الحركة والمخاطر"
+    },
+    {
+      "id": "P04",
+      "event_ar": "اختبار المهارة المركب",
+      "pages_or_context": "30–47",
+      "attribution_ar": "نطاق الفصل؛ تصميم لعب",
+      "owner": "NativeJourneyController",
+      "input_ar": "عبور ومهارة",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل الحركة والمخاطر"
+    },
+    {
+      "id": "M01",
+      "event_ar": "مرآة الحاضر",
+      "pages_or_context": "9",
+      "attribution_ar": "مرجع الانعكاس؛ امتداد لعب",
+      "owner": "MirrorSector / NativeCampaignController",
+      "input_ar": "فحص وانعكاس",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ترتيب الكشف قبل المختبر"
+    },
+    {
+      "id": "M02",
+      "event_ar": "ظهور إيكو المستقبلي",
+      "pages_or_context": "9",
+      "attribution_ar": "مرجع الانعكاس؛ امتداد لعب",
+      "owner": "MirrorSector / NativeCampaignController",
+      "input_ar": "فحص وانعكاس",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ترتيب الكشف قبل المختبر"
+    },
+    {
+      "id": "M03",
+      "event_ar": "انكسار التطابق والعودة",
+      "pages_or_context": "9",
+      "attribution_ar": "مرجع الانعكاس؛ امتداد لعب",
+      "owner": "MirrorSector / NativeCampaignController",
+      "input_ar": "فحص وانعكاس",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ترتيب الكشف قبل المختبر"
+    },
+    {
+      "id": "L01",
+      "event_ar": "دخول المختبر الأخير",
+      "pages_or_context": "37",
+      "attribution_ar": "صفحة مواجهة كينجا في تدقيق الفصل",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L02",
+      "event_ar": "المواجهة والجلوس/التقييد",
+      "pages_or_context": "37",
+      "attribution_ar": "مواجهة كينجا؛ الجلوس والتقييد يتبعان توجيه المالك",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L03",
+      "event_ar": "بداية الاختبار المؤلم",
+      "pages_or_context": "37–44",
+      "attribution_ar": "مصفوفة الحدث والمهمة",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L04",
+      "event_ar": "مقاومة إيكو الأولى",
+      "pages_or_context": "37–44",
+      "attribution_ar": "مصفوفة الحدث والمهمة",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L05",
+      "event_ar": "ذاكرة شيزوكا القسرية",
+      "pages_or_context": "41",
+      "attribution_ar": "قصاصة شيزوكا الحالية في lab_memory_trial.gd",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L06",
+      "event_ar": "ذاكرة يوكي القسرية",
+      "pages_or_context": "41",
+      "attribution_ar": "قصاصة يوكي الحالية في lab_memory_trial.gd",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L07",
+      "event_ar": "الاختيار المستحيل والرفض",
+      "pages_or_context": "43–44",
+      "attribution_ar": "تدقيق الإسقاط واليأس",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "L08",
+      "event_ar": "انهيار الإدراك",
+      "pages_or_context": "43–44",
+      "attribution_ar": "تدقيق الانهيار",
+      "owner": "DrKinjaLabRoom",
+      "input_ar": "حركة وتفاعل ثم قطع",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "المختبر والكرسي وملكية التحكم"
+    },
+    {
+      "id": "O01",
+      "event_ar": "الغرق",
+      "pages_or_context": "44–51",
+      "attribution_ar": "مصفوفة الغرق والعقد",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "استماع واختيار",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الموافقة بالمختبر الفعلي"
+    },
+    {
+      "id": "O02",
+      "event_ar": "الوصول لقاع المحيط",
+      "pages_or_context": "44–51",
+      "attribution_ar": "مصفوفة الغرق والعقد",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "استماع واختيار",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الموافقة بالمختبر الفعلي"
+    },
+    {
+      "id": "O03",
+      "event_ar": "إدراك حضورZero",
+      "pages_or_context": "48",
+      "attribution_ar": "ظهور زيرو في تدقيق الفصل",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "استماع واختيار",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الموافقة بالمختبر الفعلي"
+    },
+    {
+      "id": "O04",
+      "event_ar": "المحادثة العميقة",
+      "pages_or_context": "44–51",
+      "attribution_ar": "مصفوفة الغرق والعقد",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "استماع واختيار",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الموافقة بالمختبر الفعلي"
+    },
+    {
+      "id": "O05",
+      "event_ar": "لحظة القرار",
+      "pages_or_context": "50–51",
+      "attribution_ar": "سياق قرار العقد المعتمد",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "استماع واختيار",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط الموافقة بالمختبر الفعلي"
+    },
+    {
+      "id": "O06",
+      "event_ar": "انعقاد العقد",
+      "pages_or_context": "50–51",
+      "attribution_ar": "العقد وفق تدقيق الفصل؛ يتطلب موافقة صريحة",
+      "owner": "PactRevengePresentation / NativeCampaignPact",
+      "input_ar": "تأكيد صريح أو تأجيل",
+      "unity_status_ar": "سلطة العقد مختبرة في عزل R02",
+      "pending_ar": "مسار المختبر الفعلي والتحول مفتوحان"
+    },
+    {
+      "id": "T01",
+      "event_ar": "العودة لجسم المختبر",
+      "pages_or_context": "51–58",
+      "attribution_ar": "سياق التحول؛ توجيه المالك",
+      "owner": "PactRevengePresentation",
+      "input_ar": "مشاهدة ثم تسليم التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تحول مكتسب وحركة فك القيود"
+    },
+    {
+      "id": "T02",
+      "event_ar": "بداية الضحكة الهستيرية",
+      "pages_or_context": "51–58",
+      "attribution_ar": "سياق التحول؛ توجيه المالك",
+      "owner": "PactRevengePresentation",
+      "input_ar": "مشاهدة ثم تسليم التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تحول مكتسب وحركة فك القيود"
+    },
+    {
+      "id": "T03",
+      "event_ar": "تحول الشعر والعين والعلامة",
+      "pages_or_context": "51، 56",
+      "attribution_ar": "العين والجناح في تدقيق الفصل؛ الشعر من توجيه المالك",
+      "owner": "PactRevengePresentation",
+      "input_ar": "مشاهدة ثم تسليم التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تحول مكتسب وحركة فك القيود"
+    },
+    {
+      "id": "T04",
+      "event_ar": "فك القيود وكسر الكرسي",
+      "pages_or_context": "51–58",
+      "attribution_ar": "سياق التحول؛ توجيه المالك",
+      "owner": "PactRevengePresentation",
+      "input_ar": "مشاهدة ثم تسليم التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تحول مكتسب وحركة فك القيود"
+    },
+    {
+      "id": "T05",
+      "event_ar": "أول هجوم بإخراج مؤلف",
+      "pages_or_context": "51–58",
+      "attribution_ar": "سياق التحول؛ توجيه المالك",
+      "owner": "PactRevengePresentation",
+      "input_ar": "مشاهدة ثم تسليم التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "تحول مكتسب وحركة فك القيود"
+    },
+    {
+      "id": "C01",
+      "event_ar": "تسليم القتال للمستخدم",
+      "pages_or_context": "56–58",
+      "attribution_ar": "سياق المواجهة؛ تصميم لعب",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "C02",
+      "event_ar": "سلسلة ضربات بيدين",
+      "pages_or_context": "56–58",
+      "attribution_ar": "سياق المواجهة؛ تصميم لعب",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "C03",
+      "event_ar": "مقاومة كينجا",
+      "pages_or_context": "56–58",
+      "attribution_ar": "سياق المواجهة؛ تصميم لعب",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "C04",
+      "event_ar": "الخنق التمثيلي بالحبل ثم تقييد كينجا",
+      "pages_or_context": "58",
+      "attribution_ar": "صفحة الياقة مرجع للمواجهة؛ الأفعال الدقيقة تحتاج تدقيقًا",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "C05",
+      "event_ar": "الحقن والانتقام بأدوات المختبر",
+      "pages_or_context": "56–58",
+      "attribution_ar": "سياق المواجهة؛ تصميم لعب",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "C06",
+      "event_ar": "جلوس إيكو فوق كينجا والضربات الأخيرة",
+      "pages_or_context": "56–58",
+      "attribution_ar": "سياق المواجهة؛ تصميم لعب",
+      "owner": "NativeCampaignController",
+      "input_ar": "قتال وتفاعل",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل المواجهة ومراجعة تماس الحركة"
+    },
+    {
+      "id": "S01",
+      "event_ar": "توقف النظام فجأة",
+      "pages_or_context": "58–62",
+      "attribution_ar": "سياق الرغبة والنقل",
+      "owner": "NativeCampaignController / SystemWindow",
+      "input_ar": "إدراك وتأكيد",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط القرار بالحفظ والنقل"
+    },
+    {
+      "id": "S02",
+      "event_ar": "إدراك إيكو العجز",
+      "pages_or_context": "58–62",
+      "attribution_ar": "سياق الرغبة والنقل",
+      "owner": "NativeCampaignController / SystemWindow",
+      "input_ar": "إدراك وتأكيد",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط القرار بالحفظ والنقل"
+    },
+    {
+      "id": "S03",
+      "event_ar": "ظهور النظام والأمنية",
+      "pages_or_context": "61",
+      "attribution_ar": "صفحة الأمنية في تدقيق الفصل",
+      "owner": "NativeCampaignController / SystemWindow",
+      "input_ar": "إدراك وتأكيد",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط القرار بالحفظ والنقل"
+    },
+    {
+      "id": "S04",
+      "event_ar": "الصداع والانهيار",
+      "pages_or_context": "58–62",
+      "attribution_ar": "سياق الرغبة والنقل",
+      "owner": "NativeCampaignController / SystemWindow",
+      "input_ar": "إدراك وتأكيد",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "ربط القرار بالحفظ والنقل"
+    },
+    {
+      "id": "H01",
+      "event_ar": "السواد المقصود",
+      "pages_or_context": "62",
+      "attribution_ar": "صفحة النقل؛ السواد قرار إخراجي",
+      "owner": "NativeCampaignController",
+      "input_ar": "استيقاظ واستعادة التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل مشهد المستشفى وفحص العلامة"
+    },
+    {
+      "id": "H02",
+      "event_ar": "فتح العينين في المستشفى",
+      "pages_or_context": "63",
+      "attribution_ar": "صفحة الاستيقاظ بالمستشفى في تدقيق الفصل",
+      "owner": "NativeCampaignController",
+      "input_ar": "استيقاظ واستعادة التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل مشهد المستشفى وفحص العلامة"
+    },
+    {
+      "id": "H03",
+      "event_ar": "استعادة الجسد والسيطرة",
+      "pages_or_context": "62–69",
+      "attribution_ar": "سياق الاستيقاظ في المستشفى",
+      "owner": "NativeCampaignController",
+      "input_ar": "استيقاظ واستعادة التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل مشهد المستشفى وفحص العلامة"
+    },
+    {
+      "id": "H04",
+      "event_ar": "فحص الأثر والمرآة",
+      "pages_or_context": "62–69",
+      "attribution_ar": "سياق الاستيقاظ في المستشفى",
+      "owner": "NativeCampaignController",
+      "input_ar": "استيقاظ واستعادة التحكم",
+      "unity_status_ar": "مخطط للنقل",
+      "pending_ar": "نقل مشهد المستشفى وفحص العلامة"
+    }
+  ],
+  "story_ledger_sha256": "c4a2558c5df99c28da6e3c279c82cf295a18839fd7ce11ded764bd447595f0f4",
+  "pending": "Review precise page matches for context-only rows and clear R10 human acceptance.",
+  "next": "R12"
+}

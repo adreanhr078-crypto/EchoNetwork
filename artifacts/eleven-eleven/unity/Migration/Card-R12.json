@@ -1,0 +1,30 @@
+{
+  "card": "R12",
+  "status": "OPEN",
+  "scope": "Ported the two pressure routes to a tested C# review model",
+  "godot_fixture_sha256": "3d111b205211265e1fc363c10bdd87f7c8cd214170d934c324c997244c8d224e",
+  "godot_review_sha256": "e88e1dbca16292dab2c4841d614bd4f7d302dc456b90938accec85ac1feb163c",
+  "duration_seconds": {
+    "high": 3.6,
+    "low": 2.8,
+    "valve": 5.5
+  },
+  "band_length_m": 1.4,
+  "wheel": {
+    "source_sha256": "b1f6013a2cf01e6d7142364e784145fe7ab3ca4c98cc4fbb900b061e1a184b32",
+    "mesh_parts": 9,
+    "bounds_metres": "(0.45, 0.45, 0.10)",
+    "unity_review_asset": "Assets/ElevenEleven/MotionReview/stormworks_precision_wheel_v1.glb"
+  },
+  "source_and_checks": {
+    "Room01PressureTrial.cs": "01aa2415fbfd0f464bbe582ad7679bb7eccbec1014d1caf4dd5ccccec3e41b49",
+    "Room01PressureTrialProbe.cs": "e52cf34b360d956080b43ca8bb67e47b510c06c0acc9e9ecd1e6e714a2698d62",
+    "pressure-model.log": "00e31131dc8db3ece3fe96569474a3b85469a4692eaf318cb0cbae926be2519d",
+    "PressureAssetReview.cs": "86b40025963e197f9376aa3a9b2262f350a8d8a4b7b0dd788f5d8433748e1d4c"
+  },
+  "model_checks": 11,
+  "unity_scene_integration": "pending",
+  "human_sessions": 0,
+  "pending": "Mount the review inside Room 01 with its visible readout, valve, safe retry and session recorder; run five independent first-time sessions.",
+  "next": "R12"
+}

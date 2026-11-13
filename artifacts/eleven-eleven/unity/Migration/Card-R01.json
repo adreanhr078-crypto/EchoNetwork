@@ -1,0 +1,37 @@
+{
+  "card": "R01",
+  "status": "ACCEPTED",
+  "scope": "Default School65 identity on normal first-room boot",
+  "godot_baseline": "d4d95c1b83446a4802df5236237b928fe669682e",
+  "unity": "6000.3.23f1",
+  "editor_play_mode_checks": 45,
+  "verified_scene_guids": 54,
+  "export": {
+    "target": "Windows x86_64, Direct3D11",
+    "bytes_reported": 248584473,
+    "warnings": 0,
+    "exe_sha256": "82efd5a8c297a5046f6bb72c240dab8972e64003851935eba0a46ad121ce0305",
+    "route": "Title, public cover and film controls, Room 01, School65 Idle and physical Walk"
+  },
+  "motion": {
+    "joints": 65,
+    "rendered_run_samples": 25,
+    "idle_samples": 58,
+    "walk_samples": 37,
+    "run_integrated": false,
+    "idle_and_walk_source_keys_preserved": true
+  },
+  "frames_sha256": {
+    "Evidence/room01-normal-entry.png": "6bf5e63d487c88c89f56352ea729e7e82d696907898a155a089c87665e7dba5c",
+    "Evidence/school65-idle-front.png": "0b3d20bdb73d42b83466e65187bcf6e3dd01bf0634ea3bf2bb6226875b5c3644",
+    "Evidence/school65-walk-side.png": "f55a794ecf0b137729e296a345eaea7195f0ef83f2d8ebf4c40c9a1785039aa4"
+  },
+  "limits": [
+    "One reference device",
+    "Reduced Motion selected through the title control for the route",
+    "The capture observer uses the normal public UI and changes no avatar selection",
+    "Capsule wake staging, continuous foot-contact acceptance, and the face art are separate",
+    "Old save, recovery, and earned Pact authority are the R02 gate"
+  ],
+  "next": "R02"
+}

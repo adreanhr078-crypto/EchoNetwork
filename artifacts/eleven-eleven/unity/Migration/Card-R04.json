@@ -1,0 +1,47 @@
+{
+  "card": "R04",
+  "status": "ACCEPTED",
+  "scope": "Separated first-entry assets and asynchronous room staging",
+  "native_preload_checks": 10,
+  "normal_route_regression": 45,
+  "resume_regression": 14,
+  "verified_scene_guids": 55,
+  "route_inventory": {
+    "ChapterTitle": {
+      "source_assets": 6,
+      "source_bytes": 12860873
+    },
+    "ChapterOpening": {
+      "source_assets": 16,
+      "source_bytes": 17175876
+    },
+    "ChapterRoom01": {
+      "source_assets": 22,
+      "source_bytes": 45467138
+    }
+  },
+  "inventory_sha256": "f89c8f1bde8b28e3bc8a03408cf0afcdd27534e7dcb292f56e2e4429b3b63e1d",
+  "checks": [
+    "School only in Room 01 dependency inventory",
+    "room staged before the cover resolves",
+    "staged camera and controls are disabled",
+    "staging writes no checkpoint",
+    "only one active gameplay scene after handoff",
+    "staged room released on leaving",
+    "missing destination reports the error and retries through the public button"
+  ],
+  "residency_policy": "Title UI only. Opening media and a staged first room. Return releases the staged scene. Later cells need R05 budget evidence.",
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "9c20197d9a059623413dc8cba44c32b03955ea78a847fb2b80ec16a56e3ed32a",
+    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "36beccd199ee2bfc00d10661526bc7950aabdf5d9d815e579f1762b6b575593b",
+    "Assets/ElevenEleven/Opening/OpeningReviewHost.cs": "b1628d683e473edc8d0fb594f5f2c4bee5953bb481853ad235736ede38648563",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "1e1e4024722f60eae0756ea393d110297f5886f064c9cd9a722da9e34bc7fd90",
+    "Assets/ElevenEleven/Opening/ChapterRoomStage.cs": "e2c5f2223273d0ac39d9182016ff79ea1ffef2f7b49a3e14215e1ab5076d5282",
+    "Assets/ElevenEleven/Opening/PreparedChapterRoom.cs": "700981e7a0645284d8d7d7e4afb606902e4b3f0fbc970c1317583e81e5471bad",
+    "Assets/ElevenEleven/Editor/RoomPreloadSmoke.cs": "c544914fbf3822fa0c3d45545f1416024df1c5d34201db52b129fbb7632ed900",
+    "Assets/ElevenEleven/Opening/ChapterRoomStage.cs.meta": "98764296ce3e56d2179a1a86c4346d8b6b6f8ab594c7ca4304d0fa2e0bf2502b",
+    "Assets/ElevenEleven/Opening/PreparedChapterRoom.cs.meta": "695fba537616bd57691ceb086db9c440fa27551c101decc960d3869ec949b685",
+    "Assets/ElevenEleven/Editor/RoomPreloadSmoke.cs.meta": "fa81092be03f74a82e075f3b1626099cf50ac103bffeb3afa8b3ecb8a95ed811"
+  },
+  "next": "R05"
+}

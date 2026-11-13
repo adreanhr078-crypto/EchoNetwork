@@ -1,0 +1,133 @@
+{
+  "card": "R07",
+  "status": "PASS_SCOPED",
+  "scope": "Matched portrait matrix and source-layer attribution",
+  "unity_portraits": 38,
+  "godot_reference_frames": 2,
+  "assets": {
+    "school_unity": {
+      "sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+      "bone_count": 65,
+      "primitives": 1,
+      "morph_targets": 0,
+      "alpha_modes": [
+        "OPAQUE"
+      ],
+      "eye_or_hair_nodes": [],
+      "embedded_images": {
+        "echo-school-p2-pbr-rig_basecolor.jpg": "ff9e4e12d787048a4fa923551308d9634b3d1378bbef8785fe1596c2b168bd6e",
+        "echo-school-p2-pbr-rig_rm.png": "8cc3c31bd9ec8ec820242b789689449fdc7ce2e030726836ecf73ff7554f8cbf",
+        "echo-school-p2-pbr-rig_normal.jpg": "07e890eb7c43741734ebcedb62cb136945a3e1ddd47060c2c2c926a111cb2eb8"
+      }
+    },
+    "echo_school65_candidate.glb": {
+      "sha256": "8b726c218e192e31f7ccf0f50675ad5b3f84e3e3c3ea3e3e20820d85c2ac2632",
+      "bone_count": 65,
+      "primitives": 1,
+      "morph_targets": 0,
+      "alpha_modes": [
+        "OPAQUE"
+      ],
+      "eye_or_hair_nodes": [],
+      "embedded_images": {
+        "echo-school-p2-pbr-rig_normal": "07e890eb7c43741734ebcedb62cb136945a3e1ddd47060c2c2c926a111cb2eb8",
+        "echo-school-p2-pbr-rig_basecolor": "ff9e4e12d787048a4fa923551308d9634b3d1378bbef8785fe1596c2b168bd6e",
+        "echo-school-p2-pbr-rig_rm": "8cc3c31bd9ec8ec820242b789689449fdc7ce2e030726836ecf73ff7554f8cbf"
+      }
+    },
+    "echo_pact72_candidate.glb": {
+      "sha256": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8",
+      "bone_count": 72,
+      "primitives": 1,
+      "morph_targets": 0,
+      "alpha_modes": [
+        "OPAQUE"
+      ],
+      "eye_or_hair_nodes": [],
+      "embedded_images": {
+        "Echo_ZeroPact_Rig4K_Source_normal": "7b3a05388d183705614ea37f4fd40052175625573615b2c435d981d83e42a16a",
+        "Echo_ZeroPact_Rig4K_Source_basecolor": "cfe125061634b48ebf88cb9cf8f9517eb5558bc4a7ac1d234a08a832b0843be1",
+        "Echo_ZeroPact_Rig4K_Source_rm": "1b48888777286de9c408319406c1dca593fa22e399e965bcff69a654ebfc1adb"
+      }
+    },
+    "echo_v31_short_jacket.glb": {
+      "sha256": "36597ac483fe2a84cf8e2343bbb81a67c0f73d45c568dc759e88bbbc6c498bfa",
+      "bone_count": 68,
+      "primitives": 1,
+      "morph_targets": 0,
+      "alpha_modes": [
+        "OPAQUE"
+      ],
+      "eye_or_hair_nodes": [],
+      "embedded_images": {
+        "echo_original_high_normal": "462cdbdba932bcd47e96be005357dd053decde4df97828da06b80e965b07bd88",
+        "echo_original_high_basecolor": "08599602e6e6134702c77508d18219310180f09243a28bdbd6031e4d8571330f",
+        "echo_original_high_rm": "96d9f0db0819d0afa40fd78aeaa203acac6c40ab5ccc422dcb52f33ba9aec9a0"
+      }
+    }
+  },
+  "source_script_hashes": {
+    "godot/scripts/player/echo_player.gd": "35e4206ecfc7b34a3f572dbdb4ffffb9bb140ac89813b089a25be3cf0192f3ba",
+    "godot/scripts/player/zero_eye_singularity.gd": "f3c72765ad8a0ba612fb9406b00ea41e3438351540af13fb7c74630118263c54",
+    "godot/shaders/zero_contract_iris.gdshader": "9f8489510964e05df678c132950e92c3263215e60c759532f80ff0bc80dd2dd0",
+    "godot/engine_visuals/HyperAnimeWorldManager.gd": "52af5a282d31f2b4ae15b7cdf74bb7c48a60665854299be2a6bde0423c367cb9",
+    "godot/engine_visuals/HyperMaterialAdapter.gd": "e5d7410be2b4304cac37159586a7b18110d98755afdaa3c8bb4f4ecc75bafdd9"
+  },
+  "capture_script_sha256": "f0f57bf0b7605cd94edca67ef8c39cbbc23c7f29c5074d3e08afef6608d0d270",
+  "review_gallery": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-11\\ig-x20\\outputs\\11.11-R07-Face-Review\\index.html",
+  "visual_findings_ar": [
+    "في School65 تظهر قزحيتان زرقاوان في الخامة المعزولة. خصل المقدمة تقطع طرف العين، وتزيد انعكاسات الشعر والظلال الزرقاء صعوبة قراءتها تحت ضوء الغرفة.",
+    "في Pact72 تظهر القزحيتان البنفسجيتان من الخامة المخبوزة. الانعكاس القوي عند حواف الجفن والشعر موجود في اللقطة المضاءة. لم تظهر هندسة عين مكررة في العينات المفحوصة.",
+    "تُظهر خامة V31 المرجعية عينًا حمراء وأخرى زرقاء. إسقاط Godot المكتسب يلوّن رقعة من سطح القزحية الأصلية، ويستثني مسار Pact72 منه. تمريرة next_pass التلقائية تخص الأرضيات."
+  ],
+  "output_sha256": {
+    "03-school65-face.jpg": "5a411de6846898793ba507cbeb75a57ebf4b8676814918e94644f9e95a17bccc",
+    "04-pact72-face.jpg": "70b0c05bcb15fecf7eabff2d8408c400255698d50116e93c9010c8ff0a401aca",
+    "index.html": "7f29f980916ffa7f50b48bfad4b1b8e5e1c96122feca12553da7053376134602",
+    "pact72-atlas-only.png": "ffc70073841c10828accc308e433ae6586cf7b2c0323daf7ccd417a3bdda4898",
+    "pact72-geometry-only.png": "22cc16eed0f4bda95fc4d61a6d77070875603790c02317c94ce47d729ef3642b",
+    "pact72-neutral-front.png": "b87b61f0491e7f0c49a382038893cec34c5548a6eaf8bb4fcb22b62f297b3c13",
+    "pact72-neutral-profile.png": "58f8acf1756ae7357001c1d155b5ec47b2bf704ae663b596c3320da251f4e3b1",
+    "pact72-neutral-three-quarter.png": "69974b5790025cd7b613311bdf19389dc49117289c3c66791af3d9619f18bad0",
+    "pact72-room01-front.png": "6d28c2b3cd9bf85aec0068b438aff5a530cf61cab41dce52f87678005931992b",
+    "pact72-room01-play-distance.png": "4a4c204c4c2cebf6dacdc88a3cc1fbeb73dd29d1d02318e79ebc04b771912b7e",
+    "pact72-room01-profile.png": "b38911db29254de0b84167ca781f1c104b2d4ae446633327990a4d9f26fd34bb",
+    "pact72-room01-three-quarter.png": "90f1dad6af160cb7f7933466b8a6344f0139d13378c5e122e1b6534b42b93130",
+    "school65-atlas-only.png": "4924a212afc9021ad93dbbfcd57e4af1b01fdb91e6c7f6b051190cb358cb4103",
+    "school65-geometry-only.png": "79a1de32b4243dc528acc0df9f1be0c12ddbb987301d49efe985037210c9a94a",
+    "school65-godot-source-atlas-only.png": "dbc057c267b53d4ecf97712c4c8a6b8741f830443f7d013846259f9bb2049aa6",
+    "school65-godot-source-geometry-only.png": "f4a49c0d8673fb9feee967521ec2e9c8706e212895f5fe0159fc680d02803fea",
+    "school65-godot-source-neutral-front.png": "da4efc4c90406a5d46c371c45b8f5d807243ccf3e943074c7a6457dd637d0f7c",
+    "school65-godot-source-neutral-profile.png": "604ce81f72d02a6473fd75ee775427bae90629fdb6f1b63b24da21738de9e448",
+    "school65-godot-source-neutral-three-quarter.png": "8177a24a774c22544ca2124899ede562a1df62d463d828d00abac78def5f4745",
+    "school65-godot-source-room01-front.png": "d50e1f2f184ab826910693de1861a6b8cec72cc25a30aa477c4927b52cdda484",
+    "school65-godot-source-room01-play-distance.png": "50442393f2d1663abe34eadd572d7361b80becec7d52423d2bdc98ec861965b7",
+    "school65-godot-source-room01-profile.png": "8c6c928f7e221b1a77673fec35ddbfaf8d631b2052faaa0eeb01bc3c750f1cfe",
+    "school65-godot-source-room01-three-quarter.png": "195dad92a79c31b2b710354db332cf29deb871e4780833bd7ed8bd29b3aa72f3",
+    "school65-neutral-front.png": "4559687a98ea715243e2c4901eecd4b5415ab69063dc48a6f2273f4b05a4a10a",
+    "school65-neutral-profile.png": "94dce411a2c810661d93f2d5b70ff4390e1d4a66f983401569a08f08fdfb5fb2",
+    "school65-neutral-three-quarter.png": "28bb8f17f3952df4c68dfa0229548a71d3e69f494151aac86a3d149f3ff5f345",
+    "school65-room01-front.png": "649f23a52a0e0616f4d05f70dcfc1c3c8f1d3442497b8ca6c0e57d17fe842bf3",
+    "school65-room01-play-distance.png": "bb6e7e8e1c1649088df2ffb7336e5d433c93645d936bc1badbd37264dedc0501",
+    "school65-room01-profile.png": "8abd6084590c9c387cd635200550d595286533e343424d730e8b3c5011f5cdd5",
+    "school65-room01-SchoolIdle.png": "3338b9100930e532e3c673d0f269d843cd5e4ff91efb23a0a3aad7fdc43b97b1",
+    "school65-room01-SchoolWalk.png": "20af9c6b961e1e88abc9d0c2e95eea58c5fe7b08168d1dbcebbd1e8e9f41729f",
+    "school65-room01-three-quarter.png": "d6d0b3df8f2673ac42d89b18e1596c86cc2c4822af2e2510675cb8f7a0a98235",
+    "unity-inventory.tsv": "aaf433900e9d7d9aa3a949a10e9e1229be9ae412a567c6cf42afe2ef89e6bf61",
+    "v31-atlas-only.png": "f4aea904faf92566a355841d1d9929ba502d38d00a00a2ceb118727dbe28f7fa",
+    "v31-geometry-only.png": "d33727a2f4144b39df78993e50aa6a7e275a9585bfed23a67f6b83b2235e92eb",
+    "v31-neutral-front.png": "e7f60b4273ececec683de7e09295cf09134940774909195e9125eeaea4e0138a",
+    "v31-neutral-profile.png": "794f23381014f81ba7ea72348ea38df15757db07540258b5e93157d4fbf83230",
+    "v31-neutral-three-quarter.png": "16002a82fa49861815b2ae89cdbc7e42df41860be0a1a82254a4221377f761b6",
+    "v31-room01-front.png": "337cce147edf2fc6dd6b58505479a67b947f2fc77b01335364301faf00d1da05",
+    "v31-room01-play-distance.png": "b77b1ef55df475250f89571bb0d2d3dabf0ca6d5ed3f464db20fd28bb52b376a",
+    "v31-room01-profile.png": "b7892d7ee4c44730845a9951ac31ebd9586718a7b2b218daae1a93646a6b83f2",
+    "v31-room01-three-quarter.png": "64c4fe3cb94ab55a0129e1f31eddb1c8e34bd0cdf86b065751c5c80c23b43cbf"
+  },
+  "godot_overlay_attribution": "V31 copies a source-skinned patch near one authored iris. Pact72 bypasses that overlay and uses baked violet irises. The automatically added next_pass targets floor/deck meshes.",
+  "pending": [
+    "Actual Unity Laboratory/Zero route, transformation-time camera, and human acceptance.",
+    "Blink and gaze animation cannot be qualified from the unmodified source rigs."
+  ],
+  "next": "R08"
+}

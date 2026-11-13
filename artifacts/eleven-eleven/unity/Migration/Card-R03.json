@@ -1,0 +1,197 @@
+{
+  "card": "R03",
+  "status": "ACCEPTED",
+  "scope": "Windows release-player startup diagnosis",
+  "build_sha256": "82efd5a8c297a5046f6bb72c240dab8972e64003851935eba0a46ad121ce0305",
+  "timing_probe_sha256": "61f78f201257da082b5c484b9ed3ebc1cdab7ef2c2738f972dc09a0f6ea5b92e",
+  "device": {
+    "renderer": "Direct3D11",
+    "gpu": "Intel UHD",
+    "width": 1280,
+    "height": 720
+  },
+  "count": 9,
+  "measurements": {
+    "fresh": {
+      "title_canvas_ms_since_engine_start": {
+        "median": 131.5,
+        "minimum": 120.12,
+        "maximum": 256.02
+      },
+      "room_scene_load_ms": {
+        "median": 614.12,
+        "minimum": 563.21,
+        "maximum": 676.38
+      },
+      "room_request_to_ground_ms": {
+        "median": 663.87,
+        "minimum": 638.75,
+        "maximum": 1281.09
+      },
+      "room_request_to_input_ms": {
+        "median": 754.18,
+        "minimum": 710.97,
+        "maximum": 1401.15
+      },
+      "injected_input_to_motion_ms": {
+        "median": 27.53,
+        "minimum": 14.7,
+        "maximum": 29.06
+      },
+      "room_request_to_render_ms": {
+        "median": 1333.82,
+        "minimum": 1249.99,
+        "maximum": 2081.52
+      },
+      "room_load_logical_read_mib": {
+        "median": 123.86,
+        "minimum": 123.86,
+        "maximum": 123.9
+      },
+      "worst_update_gap_ms": {
+        "median": 131.56,
+        "minimum": 110.62,
+        "maximum": 640.57
+      }
+    },
+    "continue": {
+      "title_canvas_ms_since_engine_start": {
+        "median": 164.46,
+        "minimum": 162.21,
+        "maximum": 184.04
+      },
+      "room_scene_load_ms": {
+        "median": 642.37,
+        "minimum": 585.73,
+        "maximum": 656.63
+      },
+      "room_request_to_ground_ms": {
+        "median": 650.64,
+        "minimum": 599.36,
+        "maximum": 664.77
+      },
+      "room_request_to_input_ms": {
+        "median": 720.07,
+        "minimum": 676.63,
+        "maximum": 744.29
+      },
+      "injected_input_to_motion_ms": {
+        "median": 15.85,
+        "minimum": 14.11,
+        "maximum": 16.0
+      },
+      "room_request_to_render_ms": {
+        "median": 1270.14,
+        "minimum": 1249.37,
+        "maximum": 1352.07
+      },
+      "room_load_logical_read_mib": {
+        "median": 163.81,
+        "minimum": 163.81,
+        "maximum": 163.81
+      },
+      "worst_update_gap_ms": {
+        "median": 612.59,
+        "minimum": 549.98,
+        "maximum": 626.95
+      }
+    },
+    "legacy": {
+      "title_canvas_ms_since_engine_start": {
+        "median": 174.99,
+        "minimum": 151.63,
+        "maximum": 197.55
+      },
+      "room_scene_load_ms": {
+        "median": 695.25,
+        "minimum": 683.64,
+        "maximum": 712.98
+      },
+      "room_request_to_ground_ms": {
+        "median": 701.79,
+        "minimum": 696.14,
+        "maximum": 721.09
+      },
+      "room_request_to_input_ms": {
+        "median": 774.75,
+        "minimum": 766.22,
+        "maximum": 798.01
+      },
+      "injected_input_to_motion_ms": {
+        "median": 16.46,
+        "minimum": 14.27,
+        "maximum": 19.25
+      },
+      "room_request_to_render_ms": {
+        "median": 1352.07,
+        "minimum": 1346.56,
+        "maximum": 1445.95
+      },
+      "room_load_logical_read_mib": {
+        "median": 163.81,
+        "minimum": 163.78,
+        "maximum": 163.81
+      },
+      "worst_update_gap_ms": {
+        "median": 654.06,
+        "minimum": 653.22,
+        "maximum": 681.99
+      }
+    }
+  },
+  "raw": [
+    {
+      "file": "R03Samples/fresh-01.json",
+      "sha256": "52bf35d9b220db21e31104b623110305915fe2567317fa62bc93d47d2e8a652c",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/fresh-02.json",
+      "sha256": "ee9e4e98a2248d9523cb0862c5d5148b98e22aa2c3ff52f9de1e95d19e0016b5",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/fresh-03.json",
+      "sha256": "bcb6a26d42a7e2cc81d4c254e7a1af5eef50d399e8a45fee41dd74d43152d714",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/continue-01.json",
+      "sha256": "87c1d2ca2e1217aa05aeeafa16d8931948576e8c482027905c871e3f9c471834",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/continue-02.json",
+      "sha256": "a1ba59018fc961c20d6634719a13c8daba5e95c21fdf24a18b115ef40ca825fd",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/continue-03.json",
+      "sha256": "834e1f8921dc49ffb2bc067a3db9cd16296b57ec5e7c8b29e5782589e2674d95",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/legacy-01.json",
+      "sha256": "6d166d7595d2c4c85934bb9c3730db3edee1e5856aebe2f45d5e925d691f95eb",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/legacy-02.json",
+      "sha256": "eb5d32d1a56aa838c0021485e8a0dccb66e5fcabaafaa21cfca0f272a09ec677",
+      "offscreen_render_request": true
+    },
+    {
+      "file": "R03Samples/legacy-03.json",
+      "sha256": "68466aea9be8f63c93b21ae16df3849d2118cdd7c953dedc4967f2bba472eb1f",
+      "offscreen_render_request": true
+    }
+  ],
+  "limits": [
+    "Three independent processes per route, shared OS file cache, no forced cold-cache claim",
+    "Public controls driven through Reduced Motion in a hidden release player",
+    "Title Canvas submission and real offscreen room render are distinct from desktop presentation",
+    "Windows process logical I/O includes cache reads and non-asset reads; it is not physical disk throughput",
+    "Diagnostic sample sizes do not establish the later frame-time and device gates"
+  ],
+  "next": "R04"
+}

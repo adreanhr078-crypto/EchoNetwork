@@ -1,0 +1,330 @@
+{
+  "plan_sha256": "c1de7635bf4438686d055c62ba94de193e27d81b6c943a9e4f57c44cd28f1f5f",
+  "cards": [
+    {
+      "id": "R00",
+      "title": "تثبيت المصدر (P00)",
+      "status": "ACCEPTED",
+      "checkpoint": "Card-R00.json"
+    },
+    {
+      "id": "R01",
+      "title": "School افتراضي (P07)",
+      "status": "ACCEPTED",
+      "checkpoint": "Card-R01.json"
+    },
+    {
+      "id": "R02",
+      "title": "استمرار الهيئة (P07/P09)",
+      "status": "PASS_SCOPED",
+      "next_action": "Godot v1 opening checkpoint, backup recovery, and Pact authority",
+      "checkpoint": "Card-R02.json",
+      "pending": "Actual imported Laboratory / Zero chapter scene, emitted consent event, rendered Pact and post-Pact player resume"
+    },
+    {
+      "id": "R03",
+      "title": "خط زمن حقيقي (P03/P16)",
+      "status": "ACCEPTED",
+      "next_action": "Instrument the Windows player and collect fresh, Continue, and legacy entry samples",
+      "checkpoint": "Card-R03.json"
+    },
+    {
+      "id": "R04",
+      "title": "فصل موارد الدخول (P16)",
+      "status": "ACCEPTED",
+      "next_action": "Preload the first room while the existing opening is active; keep the staged scene inert",
+      "checkpoint": "Card-R04.json"
+    },
+    {
+      "id": "R05",
+      "title": "تهيئة ورسم مبكران (P16/P38)",
+      "status": "PASS_SCOPED",
+      "next_action": "Warm drawing and physics without taking input from the opening",
+      "checkpoint": "Card-R05.json"
+    },
+    {
+      "id": "R06",
+      "title": "شاشة التحميل (P16/P20)",
+      "status": "PASS_SCOPED",
+      "next_action": "Report real load state and make early skip and Continue cancellable",
+      "checkpoint": "Card-R06.json"
+    },
+    {
+      "id": "R07",
+      "title": "تشريح العين (P07/P09)",
+      "status": "PASS_SCOPED",
+      "next_action": "Audit the source face layers and render matched School/Pact/V31 views",
+      "checkpoint": "Card-R07.json"
+    },
+    {
+      "id": "R08",
+      "title": "وجه مقروء (P09/P10)",
+      "status": "PASS_SCOPED",
+      "next_action": "Prove the smallest lighting or camera correction without changing the protected mesh",
+      "checkpoint": "Card-R08.json"
+    },
+    {
+      "id": "R09",
+      "title": "لوحة ضوء الافتتاح (P10/P29)",
+      "status": "PASS_SCOPED",
+      "next_action": "Compare the title, wake and corridor palette on Mobile and PC",
+      "checkpoint": "Card-R09.json"
+    },
+    {
+      "id": "R10",
+      "title": "حزمة دخول مرشحة",
+      "status": "PASS_SCOPED",
+      "next_action": "Walk the full opening, gate and Continue in the Windows candidate",
+      "checkpoint": "Card-R10.json"
+    },
+    {
+      "id": "R11",
+      "title": "سجل القصة (P01/P05)",
+      "status": "PASS_SCOPED",
+      "next_action": "Inventory the 53 story beats and their source pages",
+      "checkpoint": "Card-R11.json"
+    },
+    {
+      "id": "R12",
+      "title": "جلسات Room01 (P24)",
+      "status": "OPEN",
+      "next_action": "Mount the review inside Room 01 with its visible readout, valve, safe retry and session recorder; run five independent first-time sessions.",
+      "checkpoint": "Card-R12.json"
+    },
+    {
+      "id": "R13",
+      "title": "التحكم والإشارات (P11)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R14",
+      "title": "القفز والهبوط (P12)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R15",
+      "title": "صعود الحافة (P13)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R16",
+      "title": "كاميرا الحركة (P14)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R17",
+      "title": "Stormworks مختبر اللعب (P25)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R18",
+      "title": "المونتاج المرجعي (P02/P06)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R19",
+      "title": "كلفة قوة ونموذج مواجهة (P15/P26)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R20",
+      "title": "بوابة شريحة التوقيع",
+      "status": "OPEN"
+    },
+    {
+      "id": "R21",
+      "title": "خريطة اتصال (P23/P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R22",
+      "title": "خيار A للغرف (P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R23",
+      "title": "خيار B للمنشأة (P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R24",
+      "title": "حسم الجغرافيا",
+      "status": "OPEN"
+    },
+    {
+      "id": "R25",
+      "title": "الأمن (P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R26",
+      "title": "العينات (P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R27",
+      "title": "الأرشيف (P28)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R28",
+      "title": "المفاعل (P23/P26/P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R29",
+      "title": "إزالة التلوث (P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R30",
+      "title": "المرآة (P28)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R31",
+      "title": "المختبر إلى زيرو (P30/P31)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R32",
+      "title": "عودة المواجهة (P32/P33)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R33",
+      "title": "المستشفى (P34/P35)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R34",
+      "title": "الممرات والخلايا (P16/P23)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R35",
+      "title": "بوابة الرحلة الرمادية",
+      "status": "OPEN"
+    },
+    {
+      "id": "R36",
+      "title": "فن القطاعات (P04/P10/P27)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R37",
+      "title": "الماء والخطر (P22/P23/P26)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R38",
+      "title": "كينجا والأداء (P05/P08)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R39",
+      "title": "الكرسي (P30)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R40",
+      "title": "العنوان والغلاف (P17–P20)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R41",
+      "title": "المدرسة والتجربة (P29/P36)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R42",
+      "title": "الغرق والعقد (P22/P31)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R43",
+      "title": "الضحكة والتحرر (P09/P32)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R44",
+      "title": "القتال (P15/P26/P33)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R45",
+      "title": "الانهيار والخاتمة (P34/P35)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R46",
+      "title": "مزج وحقوق (P04/P37)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R47",
+      "title": "استراحة وواجهة نتائج (P20/P21)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R48",
+      "title": "استمرارية المشاهد (P36)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R49",
+      "title": "بوابة الفن المتصل",
+      "status": "OPEN"
+    },
+    {
+      "id": "R50",
+      "title": "ميزانية الأجهزة (P03/P38)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R51",
+      "title": "الإتاحة (P20/P21/P38)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R52",
+      "title": "الحفظ والسلطة (P17/P21/P23/P38)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R53",
+      "title": "جلسات تأكيد الفصل (P39)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R54",
+      "title": "مقارنة إخراج وتحكم (P02/P39)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R55",
+      "title": "التأهيل في الإصدار (P38/P39)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R56",
+      "title": "اختبار تحمّل وارتداد (P38)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R57",
+      "title": "صفحة المتجر والمقطع (P39)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R58",
+      "title": "بروفة التسليم (P39)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R59",
+      "title": "القبول والمراقبة (P39)",
+      "status": "OPEN"
+    }
+  ]
+}

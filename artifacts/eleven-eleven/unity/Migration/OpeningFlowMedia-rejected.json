@@ -1,0 +1,49 @@
+{
+  "status": "REJECTED_BY_OWNER",
+  "shots": {
+    "school": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "36314c2a-800a-4d76-b499-37d7fb01f9b2",
+      "source_sha256": "6edfd42d7416673b4372a135325401f94c55d48225dda081012584c55b1a790c",
+      "unity_sha256": "9a3fb33fe7c7eb61fbf9fda259aad22aa151c5cf2c6ce8e511e3cc34f606c27e",
+      "poster_sha256": "d30421969a51322c6457fe682ee1716c170523811378a99a98ffbc4685d83a6c",
+      "unity_clip": "Flow-school.mp4",
+      "duration_seconds": 8.042667,
+      "target_video_seconds": 8
+    },
+    "laboratory": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "76ac94a9-4010-4885-86bd-c48aef80a29d",
+      "source_sha256": "016e519f2c6dde3c54d9a65766d3d953d5269620b0044c632e98ec8dd4f96518",
+      "unity_sha256": "23ef761c0f859021eb8ee9afad73807fb77aa3d26bc9d2c1ceb0c104d30791f2",
+      "poster_sha256": "bf9b9c662fc6acb45d2e672abe13c7928808b710269b1965daeaf6ef2be5e111",
+      "unity_clip": "Flow-laboratory.mp4",
+      "duration_seconds": 8.042667,
+      "target_video_seconds": 8
+    },
+    "memory": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "ead04956-0e90-4bf3-a6a3-f356a28f8b6c",
+      "source_sha256": "6b389d6a9c96689685f14e8f08030b524459367201fac56cfc7a0330ba3b23d0",
+      "unity_sha256": "c35f1ba80a1219757019f74e35893e08c5a44b85a9783b0711f98db552854a16",
+      "poster_sha256": "26b85e3db5defc4dcaa370ce050f523c4d725611ce2a99f69032a361060c2513",
+      "unity_clip": "Flow-memory.mp4",
+      "duration_seconds": 4.032,
+      "target_video_seconds": 4
+    },
+    "experiment": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "2c1e580e-6396-4c31-b31b-84ab9185424a",
+      "source_sha256": "3d22f62443268f5a8622958a7994660e863fdcd4a061d34fe06f27aa38bb0ebf",
+      "unity_sha256": "fd80320a9607c11653150160a7416e49024967c75ecd417afd515019ca2782c6",
+      "poster_sha256": "9f59d63e51ac3db0fcdd354f7e910d24464a028998f8ed8f6d7baeeb4876c5ef",
+      "unity_clip": "Flow-experiment.mp4",
+      "duration_seconds": 6.037333,
+      "target_video_seconds": 6
+    }
+  }
+}

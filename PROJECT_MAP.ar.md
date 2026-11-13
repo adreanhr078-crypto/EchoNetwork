@@ -1,3 +1,7 @@
+الأحدث ١٣ نوفمبر. [مشروع نقل Unity](artifacts/eleven-eleven/unity/README.md) و[نقطة الاستئناف](artifacts/eleven-eleven/unity/Migration/CURRENT_WORK.ar.md). مدخل اللعبة من شاشة العنوان إلى أول غرفة، والخطوة التالية R12.
+
+الأحدث ١١ نوفمبر. مشروع نقل Unity المحلي في `C:/Users/yasmo/Documents/Codex/2026-11-11/hgh/outputs/New Unity Project`. من `11.11 > Open Chapter 1` إلى إيكو المدرسي وضبط الإشارة وتفعيل الموصل وعبور الباب. الدليل `Migration/R01Manifest.json`، والمرجع Godot عند `d4d95c1b`.
+
 الأحدث ٦ نوفمبر. خطة إعادة تأهيل الفصل `artifacts/eleven-eleven/docs/internal/production/PRODUCTION_RESET_2026-11-06.ar.md` (٦٠ بطاقة) و`RESET_EVIDENCE_2026-11-06.json`. أول بوابة: School في التشغيل العادي من أول غرفة، ثم تجهيز العالم من أول شاشة تحميل. بطاقة CURRENT_WORK هي مدخل الاستئناف.
 
 الأحدث ٥ نوفمبر. نموذج ضغط الغرفة الأولى `artifacts/eleven-eleven/godot/tests/room01_pressure_review.gd`. تشغيل المعاينة والدليل في بطاقة P24؛ نقطة الاستئناف والكاش يحددان اختبار اللاعبين وتأليف حركة الكرسي.

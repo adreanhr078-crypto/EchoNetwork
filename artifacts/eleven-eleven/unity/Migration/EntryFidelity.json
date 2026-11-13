@@ -1,0 +1,73 @@
+{
+  "scope": "Windows title, opening cover and Room 01 architecture",
+  "godot_commit": "d4d95c1b",
+  "status": "PARTIALLY_VERIFIED",
+  "source_sha256": {
+    "godot/scripts/boot.gd": "0e01ffd174dd36efc73a136f276e022f9d691a471e7a53323923ffa6d78fa3e4",
+    "godot/scripts/ui/title_entry.gd": "f1715346a52a9a07d192b3f10a1c57e5b4257fb85d5ad231fd9c1f3cdc0673bf",
+    "godot/scripts/ui/cover_recovery.gd": "7181c7950ac037ef9d1b8c4c50e665011aeda921e74cdeccc385cb416e9322e9",
+    "godot/assets/cinematics/title-moon-v1.ogv": "c1c31f79f2b87c620ec6c48a6236396641573f59ae1ad5d3284557d262b37ea6",
+    "public/assets/cinematics/title-entry/echo-moon-v1.mp4": "65bf927d36ff713046b9fe14069e3cab9692c450b9852c883225ea4c0ab97966",
+    "godot/assets/textures/opening-cover.webp": "4968d7cac3bcc7d29738c5cb3aec10754772b6981c4273ccbd1ee117ad6c4c64",
+    "godot/assets/props/sector11_supply_case_v1.glb": "d3198a5b7c3baf1008c0c895d2cb5d60207f65e9fce1c2c79fa1841ad6608d6f",
+    "godot/scripts/environment/sector11_visual_shell.gd": "746b09fc87be83173f29b8a82387047c929d5eaaea47b4a72efbfe5e08f5c64b"
+  },
+  "unity_sha256": {
+    "Scenes/ChapterTitle.unity": "687ff6f7e2ea7ca02ecc8849ed3aa79950137d6f3f5dc2b8df14443b33334732",
+    "Scenes/ChapterOpening.unity": "93951187e6d65223f8d25d7c65dd37814960c0e308c8b6accb7770bf91b3877a",
+    "Scenes/OpeningReview.unity": "8ec9301e02dd1d05a22c05f1055400c4db2897c6246449bb71f7f3369fb3595f",
+    "Scenes/ChapterRoom01.unity": "17c2cc45b541905921203a30f0b40d5c0f1b72379323a4cef9b1ab6e11e46da7",
+    "Opening/Media/TitleMoonLoop.mp4": "b28599cea6e176ce1e0050313d6f7933bd17e17cb34015b46a4c33bf203ae4df",
+    "Opening/Media/TitleMoonLoopPoster.png": "cfcd6b0d5bda1b7734b449abcb577d72b6e1ea50b32e08d27d4fc167348985b1",
+    "Opening/Media/Cover.png": "1fe0e4f228ad8374bc0fb04841087d7d798aff5f071626692a3a809ba899b465",
+    "Opening/Room01/SupplyCase.glb": "d3198a5b7c3baf1008c0c895d2cb5d60207f65e9fce1c2c79fa1841ad6608d6f",
+    "Opening/CoverRecoveryPresenter.cs": "f97da8d9c2dd24051033e85a9def04881d7948440cd88dd41fbf755ad7e6f3e5",
+    "Opening/CoverTileInput.cs": "7238af59221a7c4f6376e06ea2f08f1e9493750191684397e176cd4fb1fbc11f",
+    "Opening/CoverFracture.cs": "f6d5c7d82abf86f5dccdef0b37ef57b4c40d0f35bbbd40aa3c0002e1d9e6c98d",
+    "Opening/EntryCopy.cs": "dd48f34be238f5ec332964258e2f0804c5a5fb7cb3283e8b2c158edc17da3aeb",
+    "Editor/OpeningRoomFidelity.cs": "0e809ec11d79fce5b98157a97424c7b83ed6d3a9db8c5f4fa1d966e5f39c2ee8",
+    "Editor/EntryStyle.cs": "5f3ebd93c31b1a81610c950e68e6d56cc0bac3976369411882cc6bae78ecb794",
+    "Opening/Media/SchoolWindows.mp4": "2a92529f707dfe8da2f572b58b0919b871c071529f75f920dfaf0938125598d6",
+    "Opening/Media/LaboratoryWindows.mp4": "d69ba681feb2ecfcc3614a66a0b14591e0520d952c9b6762b60037677250614a",
+    "Opening/Media/ExperimentWindows.mp4": "a9b9a2d365d699fccff9725f0ad8937a05580a40d5a3d1c0ae6a741536cfe79c",
+    "Editor/ChapterSceneBuilder.cs": "8e6878691f2139d4a9166b106d16979588d73aac45824e455cbcdea1ca1f9bd0",
+    "Editor/OpeningReviewSceneBuilder.cs": "061617418b1eb2fdf286f804cb915d2178230847da123dd94dccfbe2eb93e2db"
+  },
+  "title": {
+    "format": "Original full-motion shot, 1.5 s overlap, BT.709 H.264 baseline, 1280x720 at 24 fps",
+    "duration_seconds": 8.5,
+    "bytes": 6682524,
+    "comparison": "Mean absolute RGB channel difference between last and first decoded frames at 96x54",
+    "godot_seam": 56.74,
+    "unity_seam": 4.05,
+    "godot_adjacent_p95": 3.39,
+    "unity_adjacent_p95": 3.37,
+    "windows_test": "Video displayed in Direct3D11 on Intel UHD. Two loop boundaries, mute and motion toggles passed before entering the cover."
+  },
+  "cover": "Original art, Arabic lockup and 2x3 permutation retained. Drag preview, target highlight, keyboard tab and optional fracture added.",
+  "room": "Source architectural bays, gate frame, wet ceramic deck, signal rails and two original supply cases with matching box collision.",
+  "routes": {},
+  "clean_build": null,
+  "pending": [
+    "Touch device and independent art/performance review",
+    "Godot preference and opening cursor persistence across restarts, native server/account branch",
+    "R12 pressure review integration and player sessions",
+    "Supply-case break/reward behavior, later rooms and full Hyper Anime system coverage"
+  ],
+  "cover_windows_test": "Arabic and English, reference modal, drag preview, cancel, successful swap, undo, reset and original solution passed.",
+  "cover_release_pending": "Physical touch and keyboard-navigation qualification.",
+  "opening_movie": {
+    "failure": "Theora School.ogv rejected in Windows player. Full motion route was stopped at School.",
+    "fix": "H.264 Constrained Baseline MP4s copied from exact Godot source clips and assigned by GUID in both opening scenes. All 192/192/144 frames decoded externally. Unity reimport, playback and full route are pending.",
+    "scenes_checked": [
+      "Scenes/ChapterOpening.unity",
+      "Scenes/OpeningReview.unity"
+    ]
+  },
+  "room_candidate": {
+    "path": "Migration\\Review\\EntryFidelity\\ChapterRoom01-Candidate.unity",
+    "sha256": "b94096e237409ed6829d54455ebdbee4ae465400dc4320f796e148870a5ead0d",
+    "windows_test": "Rendered arrival and first clock interaction. Reduced route then hit a null gameplay transform after cross-project prefab import. R10 scene restored to the normal path. Builder now uses scene instances for room props and needs a fresh Unity rebuild."
+  },
+  "blocker": "Unity Editor license validation failed with exit code 198 on retry, including after starting Unity Hub headless. No verified updated Windows build is published."
+}

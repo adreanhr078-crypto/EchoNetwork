@@ -1,0 +1,46 @@
+{
+  "card": "R08",
+  "status": "PASS_SCOPED",
+  "scope": "Existing recovery light retuned; close and play-distance comparisons",
+  "verified_scene_guids": 57,
+  "normal_rendered_checks": 45,
+  "resume_checks": 14,
+  "golden_check": "{\"status\": \"PASS\", \"golden_status\": \"OWNER_APPROVED_GOLDEN_REFERENCE\", \"protected_files\": 192}",
+  "rendered_ab_cases": 18,
+  "selected_variant": "mid",
+  "camera_and_fixture_sha256": "99bee5d5cd7c1e1c60124c9a81f958825238192fa7621ee1230de37fa60c9049",
+  "school_original_sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+  "face_sample_luma_8bit": {
+    "school65": {
+      "before": 75.82,
+      "mid": 144.92
+    },
+    "pact72": {
+      "before": 73.62,
+      "mid": 128.99
+    }
+  },
+  "evidence_directory": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-11\\ig-x20\\outputs\\11.11-R08-Recovery",
+  "evidence_sha256": {
+    "pact72-before-front.png": "90c61b34f09056d367aaa347b9e58e6a485d44a9f60cb621759959c03c214162",
+    "pact72-before-three-quarter.png": "bad7c65f176c92024ff8bb2e62e948fccf9879f391a450433a56cb147b13c104",
+    "pact72-mid-front.png": "84a97ae457b314b1175dce4856d4155c5a8ee315a560d93bb8e14bfe324db241",
+    "pact72-mid-three-quarter.png": "bdf98913acf431586297f24a925928e1cf9a312068eb690d3a90a42a8fc5499f",
+    "README.ar.md": "c791eefacdb5b18d902d0839e635b47d768fa3ce87ec1e4603320cf6955bc95d",
+    "room01-gameplay.png": "9f76be924344f84ec385402a114f8003fb31d26080df57560a688af04dcf8651",
+    "room01-school-front.png": "0350f868e4f1e17f1376cc5fca4c07890930db6861c52cb901f4c6cccde15029",
+    "school65-before-front.png": "1d79cd544add6084001f1ce2f0e47de861855c29e943f00388c52dc68d418d1a",
+    "school65-before-three-quarter.png": "e963ef8646aaa759a9635e388d7541befed750bbf16845d91b960a1ed92f676b",
+    "school65-mid-front.png": "30e2930a92056ccf623a2fe31eaaeaafc36a941d44f564943f5611d72bafbc3b",
+    "school65-mid-three-quarter.png": "5312d3bc5f81c7031592cfecb0d8f2a5d46890d753af8942b36844362320c77d"
+  },
+  "pending": [
+    "Independent art and player review, usable blink/gaze and expression.",
+    "The actual native Pact transformation and its camera remain pending."
+  ],
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "5029101a86fe6fcff8915711c71e499ede332692cd77c831994aaf6dc9b6ba8f",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "c4e6afd3e3ea06c293d4f1fbfc01857b7ab65e6e94f595f505c355ac886a25e1"
+  },
+  "next": "R09"
+}

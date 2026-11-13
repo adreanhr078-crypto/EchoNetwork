@@ -1,0 +1,115 @@
+{
+    "route": "fresh",
+    "graphicsDevice": "Intel(R) UHD Graphics",
+    "graphicsApi": "Direct3D11",
+    "width": 1280,
+    "height": 720,
+    "worstUpdateGapMilliseconds": 281.8034000000001,
+    "worstVisibleLoadUpdateGapMilliseconds": 81.55200000000007,
+    "worstReadyCutUpdateGapMilliseconds": 60.51139999999977,
+    "usedOffscreenRenderRequest": true,
+    "marks": [
+        {
+            "name": "managed_before_title_load",
+            "milliseconds": 46.04010442176876,
+            "logicalReadBytes": 21992424,
+            "logicalReadOperations": 165
+        },
+        {
+            "name": "ChapterTitle_scene_loaded",
+            "milliseconds": 89.05470442176878,
+            "logicalReadBytes": 22124459,
+            "logicalReadOperations": 167
+        },
+        {
+            "name": "entry_requested_ChapterOpening",
+            "milliseconds": 111.8659044217688,
+            "logicalReadBytes": 22124459,
+            "logicalReadOperations": 167
+        },
+        {
+            "name": "request_ChapterOpening",
+            "milliseconds": 112.0184044217688,
+            "logicalReadBytes": 22124459,
+            "logicalReadOperations": 167
+        },
+        {
+            "name": "loading_view_Opening",
+            "milliseconds": 116.4892044217688,
+            "logicalReadBytes": 24539637,
+            "logicalReadOperations": 177
+        },
+        {
+            "name": "title_canvas_submission",
+            "milliseconds": 125.81600442176877,
+            "logicalReadBytes": 24539637,
+            "logicalReadOperations": 177
+        },
+        {
+            "name": "ChapterOpening_scene_loaded",
+            "milliseconds": 224.9741044217687,
+            "logicalReadBytes": 66526327,
+            "logicalReadOperations": 7155
+        },
+        {
+            "name": "request_ChapterRoom01",
+            "milliseconds": 225.99570442176876,
+            "logicalReadBytes": 66526327,
+            "logicalReadOperations": 7155
+        },
+        {
+            "name": "ChapterRoom01_scene_loaded",
+            "milliseconds": 768.8326044217687,
+            "logicalReadBytes": 196497175,
+            "logicalReadOperations": 7346
+        },
+        {
+            "name": "room_ground_contact",
+            "milliseconds": 787.7003044217688,
+            "logicalReadBytes": 196497175,
+            "logicalReadOperations": 7346
+        },
+        {
+            "name": "warmup_render_done",
+            "milliseconds": 1078.6783044217686,
+            "logicalReadBytes": 200809618,
+            "logicalReadOperations": 7633
+        },
+        {
+            "name": "entry_requested_ChapterRoom01",
+            "milliseconds": 1085.017004421769,
+            "logicalReadBytes": 200809618,
+            "logicalReadOperations": 7633
+        },
+        {
+            "name": "gameplay_released",
+            "milliseconds": 1087.9922044217687,
+            "logicalReadBytes": 200809618,
+            "logicalReadOperations": 7633
+        },
+        {
+            "name": "movement_queued",
+            "milliseconds": 1173.1568044217688,
+            "logicalReadBytes": 200874130,
+            "logicalReadOperations": 7701
+        },
+        {
+            "name": "room_motion_applied",
+            "milliseconds": 1188.677504421769,
+            "logicalReadBytes": 200874130,
+            "logicalReadOperations": 7701
+        },
+        {
+            "name": "room_render_request_begin",
+            "milliseconds": 1438.2314044217685,
+            "logicalReadBytes": 200874130,
+            "logicalReadOperations": 7701
+        },
+        {
+            "name": "room_render_request_end",
+            "milliseconds": 1444.8789044217688,
+            "logicalReadBytes": 200874130,
+            "logicalReadOperations": 7701
+        }
+    ]
+}

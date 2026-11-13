@@ -1,0 +1,135 @@
+{
+  "status": "REVIEW_CANDIDATE",
+  "shots": {
+    "school": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "8842c9ba-f2d1-44ce-80f3-d4920160c19c",
+      "source_sha256": "e34c34498d9505bf9ca2c24c185de2c23ee96a9820d3f4f438b8ca11aebdb106",
+      "unity_sha256": "cdcd5ea5d51ce9cd01d11c9766fb1eb89a4656b028922753d3245dc115425213",
+      "poster_sha256": "2af69c8000e9b49e2edd83b16c32d77a504069c6c011cf17b5af6e2529568c16",
+      "unity_clip": "Opening3D-friends.mp4",
+      "poster": "Opening3D-friends.png",
+      "duration_seconds": 6,
+      "clip_guid": "14434a150e054f5d8f3e3d07fe7098a7",
+      "poster_guid": "3308e87a0cfc49c69e5aed945d91f22b",
+      "old_clip_guid": "1078aacb8aea43e9bc87bd97b63f0c2e",
+      "old_poster_guid": "4364dfccd7124c7b9bc2051b35a23672"
+    },
+    "laboratory": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "239e25c4-058d-48f3-add9-f26ac1eb7b57",
+      "source_sha256": "65629a1a8cba81f16dda9c7cfa7cbbda254a10b4a6723d13d14b284416dbe61e",
+      "unity_sha256": "dfdd97a4308d8f2c9df6f4c57135822f839a1d000cfb778411ef59e35e808c19",
+      "poster_sha256": "9fccd9bd78032c8755156302da5ee30a25f5eb246354e38a1c3c9a449744135d",
+      "unity_clip": "Opening3D-lab.mp4",
+      "poster": "Opening3D-lab.png",
+      "duration_seconds": 6,
+      "clip_guid": "8842da02383d439e84c15835fd938746",
+      "poster_guid": "7cf4c03869b44d4ca6e326282afb3853",
+      "old_clip_guid": "14abbe2de4404a87811c4bb488fc3c44",
+      "old_poster_guid": "21198713f62f4b26ba64c908e69a6bc9"
+    },
+    "experiment": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "5fc1dc2f-b778-480e-8597-997ab5bd4270",
+      "source_sha256": "59641790d681d4b8f5609fd942349932dc83b3375c130b802953285989b84cb9",
+      "unity_sha256": "fd0b7a58bfb082c07e6384c9c1dff8e82f04a7c334ccc5baadaab9c75d2c39c3",
+      "poster_sha256": "45d1348047396c8f9673dd25e6a4d15a385d898a4e86c84affce2641aa0a71b8",
+      "unity_clip": "Opening3D-trial.mp4",
+      "poster": "Opening3D-trial.png",
+      "duration_seconds": 8,
+      "clip_guid": "5279682b5b9e471ab0a6ac58d869dadd",
+      "poster_guid": "b0c390c7014b40288d2b555a0d0361b7",
+      "old_clip_guid": "6f49dd6ee27f498eaf51bf1be67b62e9",
+      "old_poster_guid": "0c34fff9e8514e679830250851b07778"
+    },
+    "memory": {
+      "provider": "Google Flow",
+      "model": "Omni 1.2 Flash",
+      "asset_id": "a0acbbfa-86b7-4d19-a6e0-989a4729d582",
+      "source_sha256": "eef31ddaa530fcce0de9c7c48b467d9d6528a0f08c10a96f3e7d5c3b3cb55e9f",
+      "unity_sha256": "979bca36a15ae85b0458f705449c15969fb35032d0e1c59dc67f1ce1462db2d8",
+      "poster_sha256": "3a53fba6098022c14757904eae2b3f80c1c32c0f53d2ae5532e65cb286b2f3dc",
+      "unity_clip": "Opening3D-threshold.mp4",
+      "poster": "Opening3D-threshold.png",
+      "duration_seconds": 5,
+      "clip_guid": "acde6842afa1496986dde4bd57aa39d3",
+      "poster_guid": "0ff865c57aa44c79978897e4586f16dc",
+      "old_clip_guid": "44a9374e56ce41baab3f5fbf685f25cf",
+      "old_poster_guid": "31be0662a23d4655ab9a84a8215966ab"
+    }
+  },
+  "memory_cuts_seconds": [
+    [
+      3.167,
+      3.583
+    ],
+    [
+      5.333,
+      5.875
+    ]
+  ],
+  "credit_balance": {
+    "before": 1022,
+    "after": 911,
+    "spent": 111
+  },
+  "retake_rejected": "5a561664-8015-48da-8db9-6085d4e8dcfb",
+  "source_images": {
+    "Echo3D-Friends.png": "f355a8269c713ce73422f5b62d541f7b7585b580062be11a7d948a9a87331607",
+    "Echo3D-Lab.png": "7403289e927777db394ccad147c11c7f04200649e6190dca453d297d74c2975a",
+    "Echo3D-Threshold.png": "969835a81414cdf6046cd89abd4a72f2275649fa63e30f51c030d0a0e0685b16",
+    "Echo3D-Trial.png": "ff5a98fac18b69487371f7bc4de7829b44ed80d15eba26d2bfc60e1685ffaf7e"
+  },
+  "sound": "Original Flow SFX, locally authored foley and synchronized trial/memory sound treatment. No ElevenLabs charge.",
+  "playback": {
+    "state": "WINDOWS_SCOPED_PASS",
+    "build": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-12\\60\\outputs\\11.11 - Unity Windows\\11.11.exe",
+    "exe_sha256": "82efd5a8c297a5046f6bb72c240dab8972e64003851935eba0a46ad121ce0305",
+    "build_bytes": 253295376,
+    "warnings": 0,
+    "routes": {
+      "Full": "ENTRY_WINDOWS_ROUTE_PASS checks=87 walked_metres=34.14 reduced_motion=False graphics=Direct3D11 device=Intel(R) UHD Graphics",
+      "Reduced": "ENTRY_WINDOWS_ROUTE_PASS checks=79 walked_metres=34.15 reduced_motion=True graphics=Direct3D11 device=Intel(R) UHD Graphics"
+    },
+    "image_hashes": {
+      "08-memory-in-trial.png": "4a8a12ea4b6b103b35829f66d43a8bee4fc3505d11e76ae537f54efece371341",
+      "10-system-wake.png": "ac50caa431af5a8ae1fa900ccb09f65f162bbdf415974044a39bf91a6759280d",
+      "02-crossing.png": "875e2d0f7baf1cb456b9580e7b1579e9b2e14cb957a3bab9d6a2eed41dbd3dad",
+      "03-continue.png": "2bed21ec7aba0c36f19a6666930f04d84950bbe4c3bae4a5eff0ad98980a5e66"
+    },
+    "scene_hashes": {
+      "ChapterTitle": "687ff6f7e2ea7ca02ecc8849ed3aa79950137d6f3f5dc2b8df14443b33334732",
+      "ChapterOpening": "b42d686ae2967993c091aacea3095639e875256d7ca27bfb4caad322dceb3ea3",
+      "ChapterRoom01": "17c2cc45b541905921203a30f0b40d5c0f1b72379323a4cef9b1ab6e11e46da7"
+    },
+    "notes": "Rendered D3D11 captures at 1280x720. Embedded audio routing, mute and pause asserted. Room01 is the stable production version."
+  },
+  "review": {
+    "sha256": "51f7b92fd5790adcce64cc6d5ba99f6d16c3b0bafdf45b5621d346b9a1e7f866",
+    "seconds": 27.75,
+    "video_frames": 666,
+    "audio_measurement": "Integrated loudness:\n    I:         -19.0 LUFS\n    Threshold: -29.1 LUFS\n\n  Loudness range:\n    LRA:         7.6 LU\n    Threshold: -39.2 LUFS\n    LRA low:   -23.1 LUFS\n    LRA high:  -15.5 LUFS\n\n  True peak:\n    Peak:       -2.3 dBFS\n[out#0/null @ 0000024a612b3e80] video:0KiB audio:5203KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown\nsize=N/A time=00:00:27.75 bitrate=N/A speed=54.8x elapsed=0:00:00.50"
+  },
+  "scene_order": [
+    "friends",
+    "laboratory",
+    "trial with intercut friends memories",
+    "cyan threshold",
+    "Unity SystemWake"
+  ],
+  "friends_cut_source_seconds": [
+    [
+      0,
+      3.125
+    ],
+    [
+      5.125,
+      8
+    ]
+  ],
+  "cache": "Four original images and five source clips cached locally. Original 2D clips rejected by the owner were removed from opening scene bindings."
+}

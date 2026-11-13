@@ -1,0 +1,131 @@
+{
+    "route": "fresh",
+    "graphicsDevice": "Intel(R) UHD Graphics",
+    "graphicsApi": "Direct3D11",
+    "width": 1280,
+    "height": 720,
+    "worstUpdateGapMilliseconds": 285.5327999999999,
+    "usedOffscreenRenderRequest": true,
+    "marks": [
+        {
+            "name": "managed_before_title_load",
+            "milliseconds": 47.35330351473932,
+            "logicalReadBytes": 21528504,
+            "logicalReadOperations": 169
+        },
+        {
+            "name": "ChapterTitle_scene_loaded",
+            "milliseconds": 93.43650351473932,
+            "logicalReadBytes": 21660368,
+            "logicalReadOperations": 171
+        },
+        {
+            "name": "request_ChapterOpening",
+            "milliseconds": 121.76760351473925,
+            "logicalReadBytes": 21660368,
+            "logicalReadOperations": 171
+        },
+        {
+            "name": "title_canvas_submission",
+            "milliseconds": 127.8114035147393,
+            "logicalReadBytes": 23949544,
+            "logicalReadOperations": 180
+        },
+        {
+            "name": "ChapterOpening_scene_loaded",
+            "milliseconds": 237.63490351473926,
+            "logicalReadBytes": 65903224,
+            "logicalReadOperations": 7128
+        },
+        {
+            "name": "request_ChapterRoom01",
+            "milliseconds": 238.67630351473935,
+            "logicalReadBytes": 65903224,
+            "logicalReadOperations": 7128
+        },
+        {
+            "name": "film_handoff_requested",
+            "milliseconds": 289.2020035147394,
+            "logicalReadBytes": 82603796,
+            "logicalReadOperations": 7297
+        },
+        {
+            "name": "ChapterRoom01_scene_loaded",
+            "milliseconds": 778.2545035147392,
+            "logicalReadBytes": 195891486,
+            "logicalReadOperations": 7372
+        },
+        {
+            "name": "room_ground_contact",
+            "milliseconds": 788.0370035147392,
+            "logicalReadBytes": 195891486,
+            "logicalReadOperations": 7372
+        },
+        {
+            "name": "warmup_render_done",
+            "milliseconds": 1083.9755035147393,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "active_scene_changed",
+            "milliseconds": 1086.530803514739,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "presentation_enable_begin",
+            "milliseconds": 1087.1342035147393,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "first_checkpoint_begin",
+            "milliseconds": 1087.9276035147393,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "first_checkpoint_dispatched",
+            "milliseconds": 1093.0267035147392,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "gameplay_released",
+            "milliseconds": 1093.0323035147394,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "opening_unload_begin",
+            "milliseconds": 1093.0367035147392,
+            "logicalReadBytes": 200203925,
+            "logicalReadOperations": 7659
+        },
+        {
+            "name": "movement_queued",
+            "milliseconds": 1167.1014035147393,
+            "logicalReadBytes": 200239253,
+            "logicalReadOperations": 7712
+        },
+        {
+            "name": "room_motion_applied",
+            "milliseconds": 1184.8974035147394,
+            "logicalReadBytes": 200239253,
+            "logicalReadOperations": 7712
+        },
+        {
+            "name": "room_render_request_begin",
+            "milliseconds": 1428.9308035147392,
+            "logicalReadBytes": 200239253,
+            "logicalReadOperations": 7712
+        },
+        {
+            "name": "room_render_request_end",
+            "milliseconds": 1435.2483035147395,
+            "logicalReadBytes": 200239253,
+            "logicalReadOperations": 7712
+        }
+    ]
+}

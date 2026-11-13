@@ -1,0 +1,51 @@
+{
+  "card": "R02",
+  "status": "PASS_SCOPED",
+  "opening_checks": 14,
+  "isolated_pact_authority_checks": 17,
+  "verified_scene_guids": 54,
+  "native_opening": [
+    "Godot v1 read-only fallback",
+    "Unity save and last valid backup",
+    "fall recovery",
+    "post-gate resume",
+    "new game after older save",
+    "School65 throughout"
+  ],
+  "isolated_pact": [
+    "explicit button",
+    "defer and reload",
+    "failed save",
+    "duplicate controller rejection",
+    "earned legacy load",
+    "65 to 72 visible joints",
+    "one anatomical left wing"
+  ],
+  "pending": "Actual imported Laboratory / Zero chapter scene, emitted consent event, rendered Pact and post-Pact player resume",
+  "source_sha256": {
+    "godot/scripts/systems/save_manager.gd": "76aabad5e8d295b1e360e0ef369b14144291b11106d2d784f242d4f3d6fb7de9",
+    "godot/scripts/systems/native_campaign_checkpoint.gd": "b534428a81e8c7ba6cbe4633ce5ee8944cd79def43617da69f1d937402fa64fe",
+    "godot/scripts/systems/native_campaign_controller.gd": "37f8133754a1a9c35e635668e3c6518cf5d8fa3a3f82dbb5b14d9a8a5400ce54",
+    "godot/assets/characters/echo_pact72_candidate.glb": "747dd0eb7182736d2fd6624829d07603926390128b984350475336a41fde08e8"
+  },
+  "unity_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterSceneBuilder.cs": "8a98540eae7da670cdada02bfbea8b3b1307516c5f22d937ee3c5b6f2388d0ca",
+    "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "0bd653c9cd5dfd8a0800bc7d783a28e99140c2b4137ac8cbfa0b0551edd41964",
+    "Assets/ElevenEleven/Opening/ChapterTitle.cs": "1579cb5c9fac2e0e7af51c444c0f5fd7a415bd5f2da26ffd85e19a51024e5c26",
+    "Assets/ElevenEleven/Opening/Room01Player.cs": "698a6aac5ae33d89324e4a3abca5b18432f279e9def8a73c9e1de9fce26fa588",
+    "Assets/ElevenEleven/Opening/Room01SignalTuner.cs": "fc8b9c638ccc404441a1921cc82889afd7bbafd58cf7ffc026940f0df8353346",
+    "Assets/ElevenEleven/Opening/Room01Gate.cs": "1f83d177c24147bea2dfd2f79c8d92ef6d9945f3737b48383786cbf3ce09b9f8",
+    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "cb147f8e2be71973530ee41607a919fd504ff0e0fcb2ea0095ea913c7ae71999",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "9dcd4a13fb6551e17e4d29a9480131db5f2f91711f943e63ef56dfd16484c596",
+    "Assets/ElevenEleven/Editor/Room01ResumeSmoke.cs": "7f514c602ea41be2ce52d33bfee4c2fa492c4740b760373feaf3a130672ea206",
+    "Assets/ElevenEleven/Opening/Room01Checkpoint.cs": "e8b413e432789a0dbc1dfc58f7c740ff6d1fe129528d160898f304ebf34290f6",
+    "Assets/ElevenEleven/Opening/ChapterSaveSession.cs": "400c57f2439e01e6e628971762df22448419fc82fea2155ea59c5fc858ffa959",
+    "Assets/ElevenEleven/Opening/CheckpointFile.cs": "4c6a46e522e763af8901a9126d045591a9d0970e33f9cf83463a747684bb29d7",
+    "Assets/ElevenEleven/Editor/Room01ResumeSmoke.cs.meta": "0ccee94872fdda4d02efcfb59ec8e610f8a641c882584a83414c2594773470a0",
+    "Assets/ElevenEleven/Opening/Room01Checkpoint.cs.meta": "570596a07110fc6341d989de466e6947c05f536503ec31981354173b86a1e5f1",
+    "Assets/ElevenEleven/Opening/ChapterSaveSession.cs.meta": "86e65807dd138a16397e9a868c7850199881ec1003d76a93228e07bcf3ea4ba7",
+    "Assets/ElevenEleven/Opening/CheckpointFile.cs.meta": "a9a2043e45e2a36d1554cd9053b3b9327f00f246b023c752a73c6d44af08d9c9",
+    "Packages/manifest.json": "6e2c49701c2cb2a55ef4ad4eef1a6aa17e4ba3e01f2aa619e0163a4f02561688"
+  },
+  "next_independent_card": "R03"
+}

@@ -1,0 +1,10 @@
+# Unity project assets travel with the checkpoint even when the repository LFS quota is exhausted.
+* -filter
+*.unity text eol=lf whitespace=-blank-at-eol
+*.prefab text eol=lf whitespace=-blank-at-eol
+*.meta text eol=lf whitespace=-blank-at-eol
+*.asset whitespace=-blank-at-eol
+*.mat whitespace=-blank-at-eol
+*.wlt whitespace=-blank-at-eol
+*NotoSansArabic-OFL.txt whitespace=-blank-at-eol
+*.cs text eol=lf
