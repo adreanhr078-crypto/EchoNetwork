@@ -231,6 +231,7 @@ namespace ElevenEleven.Editor
             var stage = new GameObject("Room stage").AddComponent<ChapterRoomStage>();
             Assign(stage, ("content", content), ("player", driver), ("gameplayCamera", camera),
                 ("listener", camera.GetComponent<AudioListener>()), ("hud", hud), ("events", roomEvents));
+            StormworksConstruction.Apply(scene);
             Save(scene, RoomPath);
         }
 

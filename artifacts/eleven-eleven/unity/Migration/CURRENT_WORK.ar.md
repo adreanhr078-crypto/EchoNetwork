@@ -1,6 +1,14 @@
 # استئناف نقل 11.11 من Godot إلى Unity
 
-افتح هذا الملف و[كاش الاستئناف](CURRENT_CONTEXT_CACHE.json) أولًا، ثم [سجل البطاقات الستين](CardLedger.json). مصدر اللعبة المرجعي هو [Godot](../../godot/) على الالتزام `d4d95c1b83446a4802df5236237b928fe669682e`. مشروع النقل هو المجلد الأب لهذا الملف، وإصدار المحرر Unity 6000.3.23f1 مع URP 17.3.0 وglTFast 6.21.0. من قائمة Unity اختر `11.11 > Open Chapter 1` وابدأ من `ChapterTitle`. ترتيب البناء هو `ChapterTitle → ChapterOpening → ChapterRoom01`. تستعيد المتابعة غرفة الحفظ مباشرةً. تأتي جميع أصول مشروع Unity مع الفرع الرئيسي `main`. المشروع الحالي في `artifacts/eleven-eleven/unity`، ومشروع G0 التاريخي في `artifacts/eleven-eleven/art/unity/EchoNetwork-Unity`.
+**١٨ نوفمبر ٢٠٢٦ — محطة الصدى والمراقبة**
+
+ربطت غرفة الاحتواء بالمفاعل والحجر والمراقبة حتى مهبط مختبر كينجا. للحجر منحدر ووحدة رفع، وللمراقبة شبكة كشف ومرآة تعمل داخل Unity. يحفظ المسار نقاط العودة وحالة الأبواب. كسوة الاحتواء والعينات والأرشيف متصلة من الأرض إلى السقف، مع مواسير ووصلات ملحومة بصريًا. استُخدمت خامات Tripo المحفوظة وأعيد تركيب نماذجها بتحجيم موحّد. جرى تجهيز الأرضية والسقف بوحدات Unity المحلية ريثما يصبح تصدير النموذجين المولّدين متاحًا.
+
+دليل النطاق [تشغيل Unity ولقطات D3D11](Evidence/Station/Validation.json) يحوي 75 فحصًا وبصمات المشهد. تبقى مراجعة المالك واختبارات اللاعبين والأداء مفتوحة. الاستئناف على R31 من مهبط المختبر، ثم الذاكرة ومواجهة كينجا، وقرار عقد Zero الصريح، والمستشفى. ما زال تسليم نسخة Windows مربوطًا بإكمال الفصل.
+
+**١٨ نوفمبر ٢٠٢٦** — وافق المالك على العالم الهجين. المصدر والعمل المتحقق وبصماته في مفتاح unity_redesign_20261118 من الكاش. [الخطة المعتمدة](UNITY_REBUILD_PLAN.ar.md) تنظم الحلقات والقبول. التسليم بعد استكمال نقل Godot الأساسي والمراجعة الفنية الكاملة.
+
+افتح هذا الملف و[كاش الاستئناف](CURRENT_CONTEXT_CACHE.json) أولًا، ثم [سجل البطاقات الستين](CardLedger.json). مصدر اللعبة المرجعي هو [Godot](../../godot/) على الالتزام `d4d95c1b83446a4802df5236237b928fe669682e`. مشروع النقل هو المجلد الأب لهذا الملف، وإصدار المحرر Unity 6000.3.23f1 مع URP 17.3.0 وglTFast 6.21.0. من قائمة Unity اختر `11.11 > Open Chapter 1` وابدأ من `ChapterTitle`. ترتيب البناء هو `ChapterTitle → ChapterOpening → ChapterRoom01`. تستعيد المتابعة غرفة الحفظ مباشرةً. تأتي جميع أصول مشروع Unity مع الفرع.
 
 ## نقل المتابعة إلى حساب آخر
 
@@ -8,15 +16,13 @@
 
 ```powershell
 $env:GIT_LFS_SKIP_SMUDGE = '1'
-git clone --filter=blob:none --sparse --branch main --single-branch --depth 1 https://github.com/adreanhr078-crypto/EchoNetwork.git
+git clone --filter=blob:none --sparse --branch unity/station-walls-2026-11-18 --single-branch --depth 1 https://github.com/adreanhr078-crypto/EchoNetwork.git
 cd EchoNetwork
 git sparse-checkout set artifacts/eleven-eleven/unity artifacts/eleven-eleven/docs .agents/skills .codex/skills
 Remove-Item Env:GIT_LFS_SKIP_SMUDGE
 ```
 
 افتح `artifacts/eleven-eleven/unity` في Unity Hub. أصول مشروع Unity تأتي مباشرة مع الفرع. عند الحاجة إلى شجرة Godot نفّذ `git sparse-checkout add artifacts/eleven-eleven/godot` مع `GIT_LFS_SKIP_SMUDGE=1` أولًا. أصول Godot التاريخية المخزنة في LFS تحتاج حصة متاحة على المستودع أو نسخة مؤهلة من الكاش الأصلي عند مراجعة الغرف. رفض خادم LFS الرفع أثناء التسليم بسبب نفاد الحصة، لذلك أُدرجت كل ملفات Unity في Git مباشرة. تأتي جلسة Unity والرصيد والصلاحيات من حسابك الحالي. تصدير Windows قابل للإعادة عبر [أداة البناء](Tools/BuildWindows.ps1) و[أداة الفحص](Tools/TestWindows.ps1). سجل البناء الأصلي يحمل بصمات المشاهد ومكوّنات الحزمة واللقطات الفعلية.
-
-بعد تنزيل `main` استعمل [مرفقات التسليم](https://github.com/adreanhr078-crypto/EchoNetwork/releases/tag/unity-handoff-2026-11-14) لتشغيل نسخة Windows التي طابقت دليل الواجهة أو لمراجعة النسخ والأدلة السابقة. تشمل المرفقات أرشيف مصادر Unity وبصمات SHA-256. حُفظت رؤوس الفروع التاريخية تحت علامات `archive/branches/`.
 
 ## وضع البطاقات وما تبقى من النقل
 

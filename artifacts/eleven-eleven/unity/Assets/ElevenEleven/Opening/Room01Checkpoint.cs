@@ -14,6 +14,9 @@ namespace ElevenEleven.Opening
         public bool Terminal { get; set; }
         public bool Conduit { get; set; }
         public bool Ending { get; set; }
+        public int StationStage { get; set; }
+        public int ArchiveFragments { get; set; }
+        public int ReactorBreakers { get; set; }
         public double Frequency { get; set; } = 80;
         public double Phase { get; set; }
         public double Channel { get; set; } = 1;
@@ -39,6 +42,13 @@ namespace ElevenEleven.Opening
                 Terminal = ReadBool(flags, "terminal"),
                 Conduit = ReadBool(flags, "conduit"),
                 Ending = ReadBool(flags, "ending"),
+                StationStage = flags.TryGetValue("station", out var station)
+                    ? station.Type == JTokenType.Integer ? (int)station : throw new FormatException("station")
+                    : 0,
+                ArchiveFragments = flags.TryGetValue("archive_fragments", out var fragments)
+                    && fragments.Type == JTokenType.Integer ? (int)fragments : flags.ContainsKey("archive_fragments") ? -1 : 0,
+                ReactorBreakers = flags.TryGetValue("reactor_breakers", out var breakers)
+                    && breakers.Type == JTokenType.Integer ? (int)breakers : flags.ContainsKey("reactor_breakers") ? -1 : 0,
                 Frequency = ReadNumber(terminal, "frequency"),
                 Phase = ReadNumber(terminal, "phase"),
                 Channel = ReadNumber(terminal, "harmonic"),
@@ -49,6 +59,13 @@ namespace ElevenEleven.Opening
         private bool IsValid() =>
             (!Clock || Wake) && (!Photo || Clock) && (!Memory || Photo) &&
             (!(Terminal || Conduit) || Memory) && (!Ending || (Terminal && Conduit)) &&
+            StationStage >= 0 && StationStage <= StormworksRoute.SurveillancePassed && (StationStage == 0 || Ending) &&
+            ArchiveFragments >= 0 && ArchiveFragments <= StationArchiveWing.CompleteMask &&
+            (StationStage >= StormworksRoute.SpecimenPassed || ArchiveFragments == 0) &&
+            (StationStage < StormworksRoute.ArchiveDecoded || ArchiveFragments == StationArchiveWing.CompleteMask) &&
+            ReactorBreakers >= 0 && ReactorBreakers <= StationReactorWing.Both &&
+            (StationStage >= StormworksRoute.ArchivePassed || ReactorBreakers == 0) &&
+            (StationStage < StormworksRoute.ReactorPassed || ReactorBreakers == StationReactorWing.Both) &&
             InRange(Frequency, 50, 150) && InRange(Phase, 0, 180) && InRange(Channel, 1, 10);
 
         private static bool InRange(double value, double minimum, double maximum) => value >= minimum && value <= maximum;
@@ -68,7 +85,8 @@ namespace ElevenEleven.Opening
             ["milestones"] = new JObject
             {
                 ["wake"] = Wake, ["clock"] = Clock, ["photo"] = Photo, ["memory"] = Memory,
-                ["terminal"] = Terminal, ["conduit"] = Conduit, ["ending"] = Ending,
+                ["terminal"] = Terminal, ["conduit"] = Conduit, ["ending"] = Ending, ["station"] = StationStage, ["archive_fragments"] = ArchiveFragments,
+                ["reactor_breakers"] = ReactorBreakers,
             },
             ["terminal"] = new JObject { ["frequency"] = Frequency, ["phase"] = Phase, ["harmonic"] = Channel },
         };

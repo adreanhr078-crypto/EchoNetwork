@@ -1,16 +1,14 @@
 {
   "checkpoint": "UNITY_OPENING_UI_R12_20261113",
   "godot_baseline": "d4d95c1b83446a4802df5236237b928fe669682e",
-  "git_branch": "main",
-  "release_tag": "unity-handoff-2026-11-14",
   "unity_version": "6000.3.23f1",
   "project": "artifacts/eleven-eleven/unity",
   "checkpoint_file": "Migration/CURRENT_WORK.ar.md",
   "plan": "artifacts/eleven-eleven/docs/internal/production/PRODUCTION_RESET_2026-11-06.ar.md",
   "ledger": "Migration/CardLedger.json",
-  "next_card": "R12",
+  "next_card": "R31",
   "next_status": "OPEN",
-  "next_action": "Mount pressure corridor, valve, and safe reset in isolated Unity Room01 review, then five new players.",
+  "next_action": "Connect Kinja's examination theatre and the approved pre-pact memory trial to the surveillance landing. Keep explicit Pact authority and prepare the hospital route.",
   "release_evidence": "Migration/Evidence/OpeningUI/Validation.json",
   "worker_policy": "ROOT_ONLY; hash and cache first; preserve Canon and Golden; external generation only for a measured gap",
   "opening_followup": {
@@ -48,5 +46,74 @@
     "Assets/ElevenEleven/Opening/OpeningCinematicPresenter.cs": "f9b14884d99733e5460521f66b3fc88732d14ff21892a8a91dddc50cd23d78df",
     "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "fbdd83d7b22ce659a4d37f83d6cb1c2a0cd31a64b1968cfe22256e247a5182d4",
     "Assets/ElevenEleven/Opening/ChapterWindowsAcceptance.cs": "9d121455faf599e781c0f777a6de042c4f483812b075f83a6cda4c3fc46c62bf"
+  },
+  "unity_redesign_20261118": {
+    "state": "IMPLEMENTING_APPROVED_HYBRID",
+    "plan": "Migration/UNITY_REBUILD_PLAN.ar.md",
+    "acceptance_scope": "Full core Godot chapter migrated and expanded, before Windows trial or delivery",
+    "next": "After owner decisions, review source coverage then fix governor LOD and replace draft geometry with Godot Stormworks modules.",
+    "playmode": {
+      "renderer": "D3D11",
+      "station_checks": 22,
+      "fresh_title_regression": "OPEN after older harness stopped on entry UI"
+    },
+    "tripo": {
+      "task": "255f685a-a3f2-42a9-b637-22013f810caf",
+      "verified_spent": 80,
+      "source": "Migration/ArtSources/PressureGovernor/Tripo-Original-4K.glb",
+      "review": "203,994 triangle close governor derivative reviewed after correcting breakup; original and reference retained"
+    },
+    "reclaimed_disk_bytes": 7378337792,
+    "sha256": {
+      "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "922261a1fba72d17631d945072f1ec9cda0d6f4120dcddb5e12e95fa7976d6c5",
+      "Assets/ElevenEleven/Opening/Stormworks/PressureGovernor-Unity.glb": "a29863b541a3a64759da335d87d600d7f38b8276fa90d7ab97420b1c29e7a426",
+      "Assets/ElevenEleven/Echo/Locomotion/SchoolRun.anim": "b6929c47d5d4fb01bd498a6ecf2c74b0edf2b33f33dcb2ac731e99ce6b58e934",
+      ".agents/skills/echo-unity-art-motion/SKILL.md": "c674a25bebfaa3374e3b347945d3f0036dd8a1159ca96caba532ab7804863860",
+      "Migration/GodotRoomsSource.json": "9bda47f0ca7d54a3b4319e624d0a7d4db59fb54216b7aa40d4880688e49d89bd",
+      "Assets/ElevenEleven/Opening/Stormworks/Stormworks-Godot-Kit.glb": "8580e3ef57692149d821535f7adef0f31e8b07102d7561fe5dc9567ebc01e779"
+    },
+    "owner_direction": "Station hub with short direct wing-to-wing paths and unlockable returns. Mystery/traversal first, combat after explicit pact. Keep Tripo hero art and authored Unity gameplay/VFX.",
+    "source_inventory": "Migration/GodotRoomsSource.json",
+    "route_order": [
+      "containment",
+      "pressure",
+      "station",
+      "relay",
+      "lab annex",
+      "security",
+      "specimen",
+      "archive",
+      "reactor",
+      "decontamination",
+      "mirror",
+      "Kinja",
+      "hospital"
+    ],
+    "verified_connected_through": "Surveillance to examination landing; D3D11, local save stages 9–15, scoped",
+    "checkpoints": {
+      "archive_d3d11_checks": 48,
+      "reactor_headless_checks": 48,
+      "archive_media": "three shard scenes bound to cached Flow clips and posters; first verified decoded inside Unity",
+      "demo_export": "Not requested before complete Godot core and quality acceptance",
+      "surveillance_d3d11_checks": 75
+    },
+    "pending_after_reactor": [
+      "Kinja and Zero sequence",
+      "hospital",
+      "full chapter playtests and performance acceptance"
+    ],
+    "reference_art": {
+      "facade": {
+        "tripo": "86a2c001-7d30-4b67-a870-8274499f8bd8",
+        "ref": "Migration/ArtSources/ContainmentFacade/Reference.png"
+      },
+      "core": {
+        "tripo": "db127bc6-2914-4149-855b-88e24891b15b",
+        "ref": "Migration/ArtSources/MemoryCore/Reference.png"
+      }
+    },
+    "godot_visual_cache": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-17\\h\\work\\godot-art",
+    "current_evidence": "Migration/Evidence/Station/Validation.json",
+    "tripo_ceiling_and_floor": "Two generated assets retained in Studio; export blocked. Source references cached under Migration/ArtSources. Runtime uses locally modeled cassettes."
   }
 }

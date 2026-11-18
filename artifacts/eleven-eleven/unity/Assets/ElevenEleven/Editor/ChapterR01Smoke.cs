@@ -56,15 +56,18 @@ namespace ElevenEleven.Editor
                 var scene = SceneManager.GetActiveScene().name;
                 switch (stage)
                 {
-                    case 0 when scene == "ChapterTitle":
+                    case 0 when scene == "ChapterTitle" && FindButton("Chapter entry").interactable:
                         Application.targetFrameRate = 45;
                         Application.runInBackground = true;
                         InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
                         InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
                         Press("Motion on");
                         Require(ChapterSceneLink.ReducedMotion, "Title exposes reduced motion");
-                        Press("Tap to Start");
-                        stage++;
+                        stage = 14;
+                        break;
+                    case 14 when scene == "ChapterTitle" && HasButton("Chapter entry") && FindButton("Chapter entry").interactable:
+                        Press("Chapter entry");
+                        stage = 1;
                         break;
                     case 1 when scene == "ChapterOpening":
                         Press("Piece 1");
