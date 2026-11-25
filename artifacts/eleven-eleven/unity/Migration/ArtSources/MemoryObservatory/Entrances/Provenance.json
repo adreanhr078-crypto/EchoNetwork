@@ -1,0 +1,52 @@
+{
+  "observatory-west-shelter": {
+    "task_id": "26c66cbd-990e-46d5-9e39-07bc0e98966a",
+    "credits_billed": 60,
+    "source_triangles": 1893371,
+    "runtime_triangles": 335000,
+    "source_sha256": "7fe333f36848d8c7eaa1c361fead793f39890d512c27bc32146171c188995df3",
+    "runtime_sha256": "8d8163cdb26a7b39578f8eaba90ff61c0f61f3e0a95ede15201ec17dbb602131",
+    "prompt": "West-Shelter-Reference.png",
+    "runtime_file": "observatory-west-shelter.glb"
+  },
+  "observatory-east-facade": {
+    "task_id": "dbe16df1-ede3-42ed-8abd-73b0a2d29a08",
+    "credits_billed": 60,
+    "source_triangles": 1936988,
+    "runtime_triangles": 349999,
+    "source_sha256": "542dc71820670d1e24a1934cde67de9ce355782e4c5e68128b71c8a8a4ce2504",
+    "runtime_sha256": "8f755ad6af050649bb1e088046c49a276d09e9d0525a789eb2a264ca95a4fdf8",
+    "prompt": "East-Facade-Reference.png",
+    "runtime_file": "observatory-east-facade.glb"
+  },
+  "observatory-east-rack": {
+    "task_id": "0ca0f7c8-d3f8-48a7-a78c-9572c3f18843",
+    "credits_billed": 60,
+    "source_triangles": 1845125,
+    "runtime_triangles": 176000,
+    "source_sha256": "112c88fb675fa7e89341061a68916e4359446f75475b5539e6fc068bec8b5094",
+    "runtime_sha256": "ef1891e33bf2edb79cc905dc6e6e17eef2027885b6322ba278bde4151131ba6e",
+    "prompt": "East-Rack-Reference.png",
+    "runtime_file": "observatory-east-rack.glb"
+  },
+  "observatory-east-shutter": {
+    "task_id": "2d953558-347d-4804-9465-23023adb75d7",
+    "credits_billed": 60,
+    "source_triangles": 1918751,
+    "runtime_triangles": 224999,
+    "source_sha256": "e605bd6b847c172ccdd3a85adf0d3b36d6a5b6f14351a7a5ff8753569951e1b2",
+    "runtime_sha256": "c74e72a4c1f25984708ca27fcc287493c52e4aea2b03461658f68d93ce1c83be",
+    "prompt": "East-Shutter-Reference.png",
+    "runtime_file": "observatory-east-shutter.glb"
+  },
+  "observatory-west-tread": {
+    "task_id": "f6e8e659-03bb-4911-8c3d-4a38b80e522e",
+    "credits_billed": 60,
+    "source_triangles": 1970722,
+    "runtime_triangles": 154999,
+    "source_sha256": "e86db23dcbd2653c0bbe844a7048498cee4b5e8291e9c7e5252afd4ebd26894d",
+    "runtime_sha256": "57ae80d1fca7853f7c7f6020f457b22bd535a373f0ecd878b46af971d5755bb3",
+    "prompt": "West-Tread-Reference.png",
+    "runtime_file": "observatory-west-tread.glb"
+  }
+}
