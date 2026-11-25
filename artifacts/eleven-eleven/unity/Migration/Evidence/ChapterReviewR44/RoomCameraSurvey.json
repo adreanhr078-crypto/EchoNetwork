@@ -1,0 +1,106 @@
+{
+  "scope": "One camera snapshot per room from the ordinary connected route and isolated save. This is a review baseline, with room art acceptance still open.",
+  "scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+  "room_views": [
+    {
+      "room": "Signal",
+      "file": "71-Signal-FirstPlayableView.png",
+      "view": "scope=first playable camera after entering the signal chamber feet=(0.000, 0.040, -4.000) eye=(0.000, 1.978, -6.332) forward=(0.000, -0.225, 0.974) fov=60.00 reducedMotion=True",
+      "sha256": "3e43447d5cfb05fe851b17c1f04f1ff7c058cec175b7b32945aa6428df693657"
+    },
+    {
+      "room": "Pressure",
+      "file": "72-Pressure-VentedPass.png",
+      "view": "scope=already on the vented pressure pass feet=(0.000, 0.040, 24.300) eye=(0.079, 1.729, 23.086) forward=(-0.039, -0.225, 0.974) fov=55.00 reducedMotion=False",
+      "sha256": "eecb4da36eca3c829ab770663069313304951e020f54633fdb2cdfb7c3311027"
+    },
+    {
+      "room": "Observatory",
+      "file": "73-Observatory-Bridge.png",
+      "view": "scope=bridge after the vista releases input feet=(-1.050, 0.040, 51.700) eye=(-0.740, 2.611, 47.364) forward=(-0.043, -0.225, 0.973) fov=64.00 reducedMotion=False",
+      "sha256": "9e34c2eb42f7eff3d4df7f089920e0ef16a7501ccccf8a0314e74762d73b3a29"
+    },
+    {
+      "room": "Relay",
+      "file": "74-Relay-StairApproach.png",
+      "view": "scope=relay stair approach before activation feet=(-15.000, 1.180, 55.638) eye=(-15.240, 3.360, 52.863) forward=(0.046, -0.225, 0.973) fov=57.98 reducedMotion=False",
+      "sha256": "9a2b83be74572c9decd1ed2c43bef8fb47d8f59ba7fbe71f2730812c65a4581c"
+    },
+    {
+      "room": "Memory Lab",
+      "file": "75-MemoryLab-LogApproach.png",
+      "view": "scope=inside the memory lab before logging feet=(15.000, 0.080, 66.702) eye=(15.300, 2.272, 63.829) forward=(-0.056, -0.225, 0.973) fov=55.89 reducedMotion=False",
+      "sha256": "491d67ab65ac45e4321a262f7459869f932f5709fcb0546b5309004266240b46"
+    },
+    {
+      "room": "Security",
+      "file": "76-Security-Diversion.png",
+      "view": "scope=security arrival before activating the diversion feet=(13.640, 0.046, 81.170) eye=(13.763, 1.709, 79.968) forward=(-0.062, -0.225, 0.973) fov=55.00 reducedMotion=False",
+      "sha256": "33066be5820bc35c0f9cfbbdf763c1c147d3c30ac5fb94f4dadbcabe9c19449e"
+    },
+    {
+      "room": "Specimens",
+      "file": "77-Specimen-EX011.png",
+      "view": "scope=checked EX-011 terminal approach feet=(-5.820, 0.040, 115.890) eye=(-6.150, 2.415, 112.187) forward=(0.054, -0.225, 0.973) fov=59.00 reducedMotion=False",
+      "sha256": "acf281d5ca4a4821e3ff9cf41afc50f20c4acb7f147ec67c956511208fb36e3d"
+    },
+    {
+      "room": "Archive",
+      "file": "78-Archive-Decoder.png",
+      "view": "scope=checked archive decoder approach feet=(-35.170, 0.080, 119.240) eye=(-34.850, 2.347, 115.830) forward=(-0.057, -0.225, 0.973) fov=56.00 reducedMotion=False",
+      "sha256": "146edd06a89584b6890b1b3ae95b06aa3f4e5748f946ba01098b236a5614272b"
+    },
+    {
+      "room": "Reactor",
+      "file": "79-Reactor-EntryBalcony.png",
+      "view": "scope=reactor entry balcony feet=(-35.500, 0.080, 147.341) eye=(-35.175, 2.546, 143.804) forward=(-0.049, -0.225, 0.973) fov=64.61 reducedMotion=False",
+      "sha256": "99a05bad3b2970479a5c09b708c542aea1f3340b108f2a96dac15b8d69850c89"
+    },
+    {
+      "room": "Quarantine",
+      "file": "80-Quarantine-UpperCatwalk.png",
+      "view": "scope=upper catwalk beside the override before activation feet=(-36.900, 7.250, 217.060) eye=(-36.660, 9.517, 213.650) forward=(-0.042, -0.225, 0.973) fov=57.00 reducedMotion=False",
+      "sha256": "6f7c745acf8153207688ad8a6fddff95407abad24360cab32bb094c436335b8e"
+    },
+    {
+      "room": "Surveillance",
+      "file": "81-Surveillance-RecoveryAisle.png",
+      "view": "scope=playable surveillance bay after scanner recovery feet=(-35.500, 4.045, 244.200) eye=(-35.790, 6.261, 240.838) forward=(0.052, -0.225, 0.973) fov=56.00 reducedMotion=False",
+      "sha256": "32a80b26d53546ff6cc60f57084a7843eb26352d33d7906f2c2c1524b761d284"
+    },
+    {
+      "room": "Inspection Mirror",
+      "file": "82-InspectionMirror-Interlock.png",
+      "view": "scope=live reflection after unlocking the interlock feet=(-28.800, 4.045, 252.000) eye=(-31.723, 6.180, 251.820) forward=(0.974, -0.225, 0.037) fov=54.00 reducedMotion=False",
+      "sha256": "3eee1ac727e0d76c9cf9fc36e031173ffa0a135accffd841f8df6b05200456ec"
+    },
+    {
+      "room": "Examination Theatre",
+      "file": "83-ExaminationTheatre-RampArrival.png",
+      "view": "scope=theatre ramp arrival before dialogue feet=(-35.500, 5.280, 298.489) eye=(-35.780, 7.601, 295.276) forward=(0.048, -0.225, 0.973) fov=57.89 reducedMotion=False",
+      "sha256": "45c82a744aeb96db00d2620a4fb307d2d05f26c78b3a62c927f100cf91d1042c"
+    },
+    {
+      "room": "Zero Threshold",
+      "file": "84-ZeroThreshold-AfterContinue.png",
+      "view": "scope=altar approach after restoring completed examination feet=(-33.300, 4.045, 311.530) eye=(-33.020, 6.456, 307.584) forward=(-0.043, -0.225, 0.973) fov=61.00 reducedMotion=False",
+      "sha256": "4720eb6d45f4de5d903d57e09c0950733bfd167e6ee960da6d37fd41e08e13e5"
+    },
+    {
+      "room": "Observation Alcove",
+      "file": "85-ObservationAlcove-ShizukaCue.png",
+      "view": "scope=checked Shizuka cue within the authored observation alcove feet=(-39.600, 5.245, 301.030) eye=(-39.920, 7.396, 297.863) forward=(0.061, -0.225, 0.973) fov=54.00 reducedMotion=False",
+      "sha256": "2561d414d4db694b8ba95b46752aecb8c9a624453220b3baee2eec4c11321a3a"
+    },
+    {
+      "room": "Hospital Ward",
+      "file": "86-Ward-AwakeAfterContinue.png",
+      "view": "scope=normal ward control after restoring awake checkpoint feet=(94.700, 0.045, 301.180) eye=(94.900, 2.146, 298.403) forward=(-0.043, -0.225, 0.973) fov=55.00 reducedMotion=False",
+      "sha256": "924534258fdb192d7884f9ca1db4ff822a3629b5cec664fd525e624e1e2fadde"
+    }
+  ],
+  "title_and_ward_marker": false,
+  "fresh_entry_checks": 34,
+  "station_checks_logged": 143,
+  "comparison_sha256": "9e760444e234f3d84d0c916e7f7f3dfe7abe398b1bbf1aa5030fe1b0dae6a21c"
+}

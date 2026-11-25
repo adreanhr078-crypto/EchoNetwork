@@ -1,0 +1,93 @@
+{
+  "checkpoint": "UNITY_R36_CHAPTER_ROOM_ART_20261120",
+  "status": "PASS_SCOPED",
+  "engine": "Unity 6000.3.23f1, URP, D3D11",
+  "scope": "Editor checks for the scripted route, save/reload, and room environment art. Art direction references are stored separately.",
+  "route": {
+    "fresh_title_entry_checks": null,
+    "fresh_title_to_ward_checks": null,
+    "fresh_title_failure": "TimeoutException: Chapter entry stalled at stage 2, film School, room ready , room failed , render warmed .",
+    "gate_to_pact_checks": 128,
+    "pact_to_ward_checks": 31,
+    "pact_to_ward_failure": null,
+    "station_fixture_failure": null
+  },
+  "motion": {
+    "verified_in_play_mode": true,
+    "serialized_zones": {
+      "Sample glass and filter shutters": 16,
+      "Relay wind and copper cladding chips": 16,
+      "Sensor louvers and dust": 16,
+      "High orbit glacial shards": 16,
+      "Observation alcove afterimages": 16,
+      "Optical blades and scratched glass": 16,
+      "Examination filtration fins and air": 16,
+      "Condensate and extraction shutters": 16,
+      "Condensate and check valves": 16,
+      "Dust drifting across the window reveal": 18,
+      "Hot debris and regulator plates": 16,
+      "Mirror service edge and reflected dust": 15,
+      "Detached violet memories": 18,
+      "Decoder fragments and iris petals": 16,
+      "Laboratory diffraction shelf": 16,
+      "Window chips and condensation": 18
+    },
+    "serialized_count": 261,
+    "minimum_elements_per_zone": 15,
+    "pause_reduced_motion_distance": "PASS"
+  },
+  "station_colliders_before_after": [
+    372,
+    372
+  ],
+  "windows_player_performance": null,
+  "player_art_acceptance": null,
+  "flow_audio_listening_review": null,
+  "sources": "Migration/ArtSources/ChapterRoomRebuild/Provenance.json",
+  "source_sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "86fa5c1cefbf0fa56065dbc196f2b4745f0f81b08548d2cebbdfebc38e7ee683",
+    "Assets/ElevenEleven/Editor/ChapterRoomEnvironmentArt.cs": "f678b0923cc06be383cd222c9b05fe2916a81616f9d06364c229295ef6a75a17",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "377ab0ca594cc1720e36b27c34151b18e36145bccdee6910f96ba6b73b8b0ac0",
+    "Assets/ElevenEleven/Editor/ChapterRoomMotionReview.cs": "1ec376227c65364b082cae3b6d24d0341d13f0721827baf34f861acaeb8ad7f2",
+    "Assets/ElevenEleven/Opening/RoomEnvironmentMotion.cs": "2621349d7a2fb7a68ae983d941bc192cfe39c56c9f80d3ab79637c2bc2a8d652",
+    "Assets/ElevenEleven/Opening/Stormworks/RoomAmbientLight.shader": "845531967fd02d0b0cd2dd5988c4d7b4dca3bc7221018d0b373409924b3a8e79",
+    "Assets/ElevenEleven/Opening/Stormworks/PressureViewport-Tripo.glb": "bc19d78338ac363abc33e983f7c73fe8d55882a325e96e156ff1be68292ce380"
+  },
+  "rollback": {
+    "scene_before_continuation": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-20\\new-chat-3\\work\\ChapterRoom01.before-continuation.unity.gz",
+    "sha256": "18b2b69d7641f6548afc6e0de3296ce064e4f45ea3c56fe60d0e3aeb482612f4",
+    "compression": "gzip"
+  },
+  "captures_sha256": {
+    "01-Containment.png": "531d165fd10e4f4470e6a84bdd2089154b84ed43eaacc7b3972d53cdd71d8f6d",
+    "02-Pressure.png": "05126b9fa59153fe90f39183b415aa65b1348e1b1b9ef417227ad94d568883fe",
+    "03-EchoStation.png": "2098c119be116d29886afe3be62a408699a3dffb54535779eaf3cc3405b84133",
+    "04-ServicePlatforms.png": "c911dfe493abff89eac3cfcacbf0f01a0ff5338a5835ace6126561d76da26949",
+    "05-MemoryLab.png": "0f84ec03eb84d330d8863711c72b0383b1e6cb8d92677403871f4427bd9ad54a",
+    "06-Security.png": "bd704837a2d999933c009da423bc52c51c64c0b438b31be37e8470aed5ad5e8c",
+    "06B-Security-Lane.png": "30c88db49c8fc87df2362d12d15f9c71f2e411044592725be2c3c1e924defc8a",
+    "07-Specimens.png": "e3b191ef94e819891efac690eef4d104342ebef75305e31612825d03bdb16e41",
+    "08-Archive.png": "99dd5cd76aaa2f9cb790a29f27f78e925cf966f73c616e9a964520a43fc76fa4",
+    "09-Reactor.png": "e030975f5403c4779fb2b1062b7813e8bbca8584ee047818b51d36c1e3988769",
+    "10-Quarantine.png": "23b3f769e0b0ffffc2c9dbee0ff0ed1f32b5126c349ad8c081057f95cea69729",
+    "11-Surveillance.png": "1e7d79a63d83c524880ffa9dbbe9e3261a8d3cee768163a9cb60887f0b676b08",
+    "12-InspectionMirror.png": "8450e42dbf2c50e5146ba124a09343b44c978efdef1289b1b02f0d88767fcb24",
+    "13-Kinja-Dialogue.png": "b916d48567dc501e633f171ce92a01da84b95dda3c14d87f9f3d428559cad734",
+    "14-Examination-Theatre.png": "5ea2b88a355e90ba19078ca7d861d04d31a27e22555e1b5dd7b86156bfb79b62",
+    "15-Yuki-Memory.png": "c72fca3f2a58a7f527ad20d4f8e3f598b1b151f68b59cf2ecfb85307b12859a9",
+    "16-Zero-Altar.png": "d4cf0c1dc3d925a15fee2909e54942d29ed4623c1a477f22d83784fb45a7aa01",
+    "17-Zero-Manifestation.png": "e52295ae5e9447412d5d7ea8477d2114608965de9e709e62ef200afb8a8fa2d4",
+    "18-Zero-Decision.png": "6935f185924be357381d3e7890b6c588a4e33795d285d26da184118b4b95f386",
+    "19-Pact-Sealed.png": "66e9a8efa3db7276651b686b5599b463924e7156d68cb0a80c5e478ec8cc247e",
+    "20-Pact-After-Reload.png": "f8ce4d789c28a1441e93c43b252a89476c7cfa4faeecb4170ccd28093f2ad23b",
+    "21-Kinja-Confrontation.png": "3a2892b076748c32c5d4e4606e7960ea0fd3755378f624cd758e727ce0cb4583",
+    "22-Zero-Wish.png": "ea5422c5ffdece05edfb124760cb5e761ba27d0254b9a2fffc580585494a9a7b",
+    "23-Hospital-Bedside.png": "542599e58f2cea51c3a71e5944f50f7048870576f4df9e311e8d4cfa786aa6fc",
+    "24-Hospital-Pact-Reflection.png": "27916382917f98a156e0bbbff57d31ecc495efcbcc695b9285dc6d2a30e0dfd4",
+    "25-Hospital-Normal-Reflection.png": "c6cf2afe13978df07499bd158710fb6da89866a2be0b30600f8bb868e89ac411",
+    "31-Signal-Entry.png": "2ddb5064492b03ec42f13cdc738be3c5215242f2f12eb23559033e8f997691e7",
+    "32-Signal-Reverse.png": "9119a40cccb5da49b705845dd95a627c850fcbac63871567fea6979568470784",
+    "33-Signal-West-Viewport.png": "0963be9d0546bc3f2ac0ea8754b738c2890bb31c84b6cbb92fe0425153c5580a",
+    "34-Signal-Tripo-Viewport.png": "02243804480f480f46c04e4e9c0217eb7de8f70516ab2c2fb04d7d6665295e95"
+  }
+}

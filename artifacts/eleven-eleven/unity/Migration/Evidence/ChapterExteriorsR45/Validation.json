@@ -1,0 +1,20 @@
+{
+  "checkpoint": "UNITY_R45_SCANNER_RECOVERY_AND_EXTERIORS_20261123",
+  "scene_sha256": "af5f2a5d35c85f17d161d78cb20e030e17269a0a7c0ba640088c3582a12d7b6a",
+  "baseline_scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+  "colliders_unchanged": 394,
+  "exterior_meshes": 4,
+  "scanner_recovery": [
+    "feet=(0.000, 0.045, 2.200) camera=(-0.096, 1.715, 1.086) reduced=False stage=11",
+    "feet=(0.000, 0.045, 2.200) camera=(0.000, 1.704, 1.079) reduced=True stage=11"
+  ],
+  "renderer": "Unity Editor Play Mode / URP / D3D11",
+  "captures": {
+    "Before-Recovery.png": "32a80b26d53546ff6cc60f57084a7843eb26352d33d7906f2c2c1524b761d284",
+    "01-Surveillance-Recovery-Full.png": "5e090f1b956df7ad21051bc38c15636c8106ca552a7938f2729eee86cd4f27ad",
+    "02-Surveillance-Recovery-Reduced.png": "eae83e1ed218d3fcb4655b0bd96eb1539425bdf264c00d3ed92a70eedf4d973c",
+    "03-Observatory-Exteriors-Before.png": "52e37e1ad283a1a049557a45b7d312ca11225e5eb1ce55c15936ddec81f08923",
+    "04-Observatory-Exteriors-After.png": "a8274d1a088c0f758fb26e7661ac688e9609deddb41a6ebb49bb9e1a5ed3a98b"
+  },
+  "review_scope": "Scanner contact and recovery in full and Reduced Motion after resuming an isolated stage-11 save. Four exterior finishes matched at the same gameplay-camera pose. Broader room and Windows profiling work remains open."
+}

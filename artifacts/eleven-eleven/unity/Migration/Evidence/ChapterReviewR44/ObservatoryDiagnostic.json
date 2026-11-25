@@ -1,0 +1,189 @@
+{
+  "scene_and_art": "R42 scene with R43 physical water assets",
+  "graphics_api": "Direct3D11",
+  "device": "Intel(R) UHD Graphics",
+  "method": "One isolated Unity Editor Play Mode pass at 1280x720. Fixed URP camera request and synchronous one-pixel GPU readback. Five warmups and 12 renders per row.",
+  "views": {
+    "baseline": {
+      "samples": 12,
+      "mean_ms": 492.795,
+      "p50_ms": 494.871,
+      "p95_ms": 605.177
+    },
+    "no-additional-light-shadows": {
+      "samples": 12,
+      "mean_ms": 882.002,
+      "p50_ms": 877.668,
+      "p95_ms": 1162.263
+    },
+    "no-realtime-shadows": {
+      "samples": 12,
+      "mean_ms": 443.472,
+      "p50_ms": 404.135,
+      "p95_ms": 662.767
+    },
+    "water-hidden": {
+      "samples": 12,
+      "mean_ms": 558.436,
+      "p50_ms": 544.334,
+      "p95_ms": 638.263
+    }
+  },
+  "conclusion": "Neither toggling realtime shadows nor hiding the surface lowered p95 in this pass. The ordered experiment is variable, so the hardware cost of these features remains unisolated. No graphics quality was cut on this evidence.",
+  "next_measurement": "Audit the imported formats and runtime sizes of the high-res GLB maps against the current cached BC7 pack before making any source changes.",
+  "embedded_maps_statics": {
+    "models": 27,
+    "estimated_rgba32_mip_total_mib": 1046.66,
+    "scope": "PNG and JPEG textures in GLB files directly referenced by the room scene, estimated RGBA32 with full mips. Actual GPU formats require a Unity audit.",
+    "biggest": [
+      {
+        "asset": "Assets/ElevenEleven/MotionReview/echo_pact72_candidate.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 256.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Echo/School/EchoSchool-Tripo-Original.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ],
+          [
+            4096,
+            4096
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 256.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Room01/CryoPod.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 64.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Stormworks/Kinja-Godot.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 64.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Stormworks/server_rack.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 64.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Stormworks/PressureViewport-Tripo.glb",
+        "embedded_maps": 2,
+        "dimensions": [
+          [
+            2048,
+            2048
+          ],
+          [
+            2048,
+            2048
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 42.67
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ArchivePrismYoke.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 16.0
+      },
+      {
+        "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/CeilingDuctCassette.glb",
+        "embedded_maps": 3,
+        "dimensions": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ]
+        ],
+        "rgba32_mip_estimate_mib": 16.0
+      }
+    ]
+  }
+}

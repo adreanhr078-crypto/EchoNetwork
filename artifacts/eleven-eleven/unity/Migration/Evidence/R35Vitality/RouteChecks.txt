@@ -1,0 +1,128 @@
+ECHO_CONNECTED_ENTRY_PASS 34 checks
+STATION_CHECK Normal Room 01 scene owns the extension and camera
+STATION_CHECK URP scene grade active
+STATION_CHECK Old dead end is open
+STATION_CHECK Optimized pressure governor is imported into the live room
+STATION_CHECK The original gate is open at the start of the station route
+STATION_CHECK High pressure recovers to a safe bay
+STATION_CHECK Failure does not grant progress
+STATION_CHECK Walking through vented pressure writes stage one
+STATION_CHECK In-engine vista temporarily owns input
+STATION_CHECK Vista can be skipped
+STATION_CHECK Sprint uses remapped School65 Run
+STATION_CHECK Jump input reaches the first suspended plate
+STATION_CHECK Alternate stair route reaches relay on foot
+STATION_CHECK Relay writes stage two
+STATION_CHECK Security requires the station log
+STATION_CHECK Lab log writes stage three
+STATION_CHECK Lab progress restores door and safe position
+STATION_CHECK Continuing after the relay does not replay the vista
+STATION_CHECK Lab restore opens the route to Security
+STATION_CHECK Original diversion station earns a scanning window
+STATION_CHECK Security gate has a physical collider
+STATION_CHECK Security traversal advances the route checkpoint
+STATION_CHECK Security checkpoint restores beyond the released gate
+STATION_CHECK Passing security opens the original specimen wing
+STATION_CHECK Security and specimen floors are connected
+STATION_CHECK The canonical EX-011 record unlocks the west gate
+STATION_CHECK West specimen crossing persists
+STATION_CHECK Specimen progress restores gate and west landing
+STATION_CHECK Clearing specimens unlocks the Station shortcut
+STATION_CHECK Shortcut physically joins the Station perimeter
+STATION_CHECK Specimen gate also leads directly to the Archive
+STATION_CHECK First fragment stores partial archive progress
+STATION_CHECK A recovered shard presents a skippable memory
+STATION_CHECK The memory presents a still while the clip is preparing
+STATION_CHECK Partial save restores the collected shard without replay
+STATION_CHECK Second memory is independently recoverable
+STATION_CHECK Upper catwalk third memory restores the full record
+STATION_CHECK Decoding requires the recovered record and opens the gate
+STATION_CHECK Archive exit stores the reactor approach
+STATION_CHECK Archive gate and landing survive restart
+STATION_CHECK Reserve conduit reaches the reactor entry balcony
+STATION_CHECK Reactor breakers accept either order
+STATION_CHECK One breaker keeps the bridge recessed
+STATION_CHECK Partial circuit power survives reload
+STATION_CHECK Both breakers restore hydraulic power
+STATION_CHECK Restored hydraulic bridge is physically solid at the raised height
+STATION_CHECK Crossing the reactor stores its exit checkpoint
+STATION_CHECK Reactor bridge restores on resume
+STATION_CHECK Walkable pressure seal connects reactor and quarantine
+STATION_CHECK Override cannot be triggered through the catwalk floor
+STATION_CHECK Authored west ramp is climbable to the quarantine catwalk
+STATION_CHECK Quarantine override saves at the console
+STATION_CHECK Cleared quarantine restores to its safe catwalk
+STATION_CHECK Cleared quarantine restores with spray disabled
+STATION_CHECK Quarantine and surveillance joined through a physical connector
+STATION_CHECK Scanner contact returns to the surveillance arrival bay
+STATION_CHECK Surveillance console can be used before the mirror
+STATION_CHECK Partial surveillance progress resumes on the command dais
+STATION_CHECK Grid shutdown alone keeps the north gate shut
+STATION_CHECK Mirror inspection lifts the final interlock
+STATION_CHECK The live mirror rendered a planar color target
+STATION_CHECK Walking through surveillance saves the examination landing
+STATION_CHECK Examination landing is a safe reload point
+STATION_CHECK Walking from the landing crosses the entrance and climbs the examination ramp
+STATION_CHECK Starting Kinja's dialogue commits no progress
+STATION_CHECK Examination dialogue holds locomotion
+STATION_CHECK Cancel returns to the landing without committing examination
+STATION_CHECK Cancelled examination is retryable
+STATION_CHECK Five lines hand control back for the two memories
+STATION_CHECK The Godot Kinja rig is visible in the theatre
+STATION_CHECK The overload screen opens a replay without collecting a memory
+STATION_CHECK The repeat test screen provides a second independent replay
+STATION_CHECK Yuki can be examined first using the approved memory crop
+STATION_CHECK The same memory cannot count twice
+STATION_CHECK The opposite cue opens Shizuka's approved memory crop
+STATION_CHECK The two memories open the timed ultimatum with two choices, review, and refusal
+STATION_CHECK Review returns control to reread the memories
+STATION_CHECK Refusing to sacrifice a memory still does not complete the trial
+STATION_CHECK Failed durable write leaves the resistance action retryable
+STATION_CHECK Reaching for the light commits the trial before handoff
+STATION_CHECK Resume restores the completed examination and altar cue
+STATION_CHECK Resume opens the altar approach without replaying the trial
+STATION_CHECK Legitimate altar entry starts with School65
+STATION_CHECK Normal interaction from the saved altar opens the encounter and records its first beat
+STATION_CHECK Opening Zero plays the cached descent without changing pact authority
+STATION_CHECK Zero manifests before the decision without exposing Pact72
+STATION_CHECK Decision stays hidden until all three questions are heard
+STATION_CHECK Zero answers question 1
+STATION_CHECK Zero answers question 2
+STATION_CHECK Zero answers question 3
+STATION_CHECK Consent requires all questions and its default focus defers
+STATION_CHECK Deferring returns control with the school avatar and saves the choice
+STATION_CHECK Reloaded defer stays at the altar without revealing the pact
+STATION_CHECK Deliberate interaction reopens the saved decision
+STATION_CHECK A locked checkpoint leaves consent retryable with no transformation
+STATION_CHECK One explicit successful consent transaction exposes Pact72
+STATION_CHECK The manifestation gives way to the earned avatar
+STATION_CHECK The recap hands back control without repeating consent
+STATION_CHECK Reload restores precisely the earned avatar
+STATION_CHECK Pact idle binds to the live skinned model
+STATION_CHECK Pact72 stands upright at player scale after the animated reload
+STATION_CHECK Pact72 walks through normal input after resume
+STATION_CHECK Pact strike cannot reach Kinja from the altar
+STATION_CHECK First input contact saves without opening the decision
+STATION_CHECK Reload resumes the encounter with the first contact and earned Pact72
+STATION_CHECK Kinja confrontation opens on the theatre floor after recovery from the third contact
+STATION_CHECK Backing away preserves the confrontation
+STATION_CHECK Echo releases Kinja before the escape wish
+STATION_CHECK Failed wish write allows retry
+STATION_CHECK Reload restores the unconfirmed wish
+STATION_CHECK Explicit consent commits the escape wish once
+STATION_CHECK Confirmed wish does not replay on return
+STATION_CHECK The escape resumes at the bedside without the wing or an automatic wake
+STATION_CHECK The hospital uses its authored bedside safe anchor
+STATION_CHECK URP direct capture supported
+STATION_CHECK Explicit wake opens the ward
+STATION_CHECK Ward reload preserves wake without repeating the film
+STATION_CHECK The temporary wing is mirror-only while examination injuries persist on the live avatar
+STATION_CHECK A failed mirror write remains retryable
+STATION_CHECK Reading the live mirror persists the EX-011 and chapter clear
+STATION_CHECK Story text uses its own reveal while the separate system hologram never blocks input
+STATION_CHECK URP direct capture supported
+STATION_CHECK URP direct capture supported
+STATION_CHECK The memory ends and the live mirror returns to normal
+STATION_CHECK The ordinary title entry offers Continue after chapter clear
+STATION_CHECK Chapter-cleared saves resume by the mirror with no duplicate grant
+ECHO_CONNECTED_WARD_PASS 126 checks

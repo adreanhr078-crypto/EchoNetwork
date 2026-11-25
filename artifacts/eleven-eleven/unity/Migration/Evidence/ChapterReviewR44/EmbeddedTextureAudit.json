@@ -1,0 +1,963 @@
+{
+  "unity": "6000.3.23f1",
+  "model_count": 27,
+  "map_count": 74,
+  "formats": {
+    "RGB24": 58,
+    "ARGB32": 16
+  },
+  "editor_allocated_bytes": 890659633,
+  "editor_allocated_mib": 849.4,
+  "scope": "Imported GLB sub-assets read by Unity's editor. The sum is an individual asset memory measure and does not represent a live Windows player's residency.",
+  "models": [
+    {
+      "asset": "Assets/ElevenEleven/MotionReview/echo_pact72_candidate.glb",
+      "maps": [
+        {
+          "name": "Echo_ZeroPact_Rig4K_Source_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "ef024c04c11b31144aa3b88f273d3c7f",
+          "fileId": -1982816074619226628,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 67109796
+        },
+        {
+          "name": "Echo_ZeroPact_Rig4K_Source_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "ef024c04c11b31144aa3b88f273d3c7f",
+          "fileId": 3960617296403903930,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 67109793
+        },
+        {
+          "name": "Echo_ZeroPact_Rig4K_Source_rm",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "ef024c04c11b31144aa3b88f273d3c7f",
+          "fileId": -6550895471995436157,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 89479380
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Echo/School/EchoSchool-Tripo-Original.glb",
+      "maps": [
+        {
+          "name": "echo-school-p2-pbr-rig_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "6c2be5696e6db2248b90afbc859264c1",
+          "fileId": -6293394373254997119,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 67109796
+        },
+        {
+          "name": "echo-school-p2-pbr-rig_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "6c2be5696e6db2248b90afbc859264c1",
+          "fileId": 4897787409294416029,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 67109793
+        },
+        {
+          "name": "echo-school-p2-pbr-rig_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "6c2be5696e6db2248b90afbc859264c1",
+          "fileId": -1297597135990515241,
+          "width": 4096,
+          "height": 4096,
+          "mipmaps": 13,
+          "editorMemoryBytes": 89479380
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Room01/CryoPod.glb",
+      "maps": [
+        {
+          "name": "Color_6248cb3a-6746-47cc-a58d-b1f05e73acc7",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "2c2c81b591f300d4387553a0f99310c1",
+          "fileId": -3503130463586208723,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778154
+        },
+        {
+          "name": "NormalGL_6248cb3a-6746-47cc-a58d-b1f05e73acc7",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "2c2c81b591f300d4387553a0f99310c1",
+          "fileId": -7350336503942391411,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778157
+        },
+        {
+          "name": "ORM_6248cb3a-6746-47cc-a58d-b1f05e73acc7",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "2c2c81b591f300d4387553a0f99310c1",
+          "fileId": 3039290775619158149,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778152
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/Kinja-Godot.glb",
+      "maps": [
+        {
+          "name": "Color_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "f94c397236d59bb4ea3cf76ad209682b",
+          "fileId": -6176462226886910191,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778154
+        },
+        {
+          "name": "NormalGL_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "f94c397236d59bb4ea3cf76ad209682b",
+          "fileId": -2080869739574473720,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778157
+        },
+        {
+          "name": "ORM_c9d42e4f-7d8e-45c1-a1f0-8c9378488a68",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "f94c397236d59bb4ea3cf76ad209682b",
+          "fileId": 3361584602187388574,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778152
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/server_rack.glb",
+      "maps": [
+        {
+          "name": "Color_2c039174-fe10-45de-9b66-c07a92247112",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "0a2906322fe473843a35d2367c6b8430",
+          "fileId": 557796180976709109,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778154
+        },
+        {
+          "name": "NormalGL_2c039174-fe10-45de-9b66-c07a92247112",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "0a2906322fe473843a35d2367c6b8430",
+          "fileId": -2158689431624451804,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778157
+        },
+        {
+          "name": "ORM_2c039174-fe10-45de-9b66-c07a92247112",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "0a2906322fe473843a35d2367c6b8430",
+          "fileId": 8361791477969453530,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778152
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/PressureViewport-Tripo.glb",
+      "maps": [
+        {
+          "name": "Echo-PressureViewport-Unity-2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "e8841888d049c6242ae01c984eda2188",
+          "fileId": -3843185238064449258,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 16778156
+        },
+        {
+          "name": "Echo-PressureViewport-Unity-2K_normal.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "e8841888d049c6242ae01c984eda2188",
+          "fileId": 1316084089753792384,
+          "width": 2048,
+          "height": 2048,
+          "mipmaps": 12,
+          "editorMemoryBytes": 22370558
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ArchivePrismYoke.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-ArchivePrismYoke-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "82043038f134bae43baf4b28637dedb5",
+          "fileId": 476358567192797598,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195246
+        },
+        {
+          "name": "Echo-R36-ArchivePrismYoke-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "82043038f134bae43baf4b28637dedb5",
+          "fileId": 7069307387612637884,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-ArchivePrismYoke-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "82043038f134bae43baf4b28637dedb5",
+          "fileId": 163092773447688807,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593340
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/CeilingDuctCassette.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-CeilingDuctCassette-Maps1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "dbc8af26711280d49978ff078843b08c",
+          "fileId": -8713794533941139898,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195245
+        },
+        {
+          "name": "Echo-R36-CeilingDuctCassette-Maps1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "dbc8af26711280d49978ff078843b08c",
+          "fileId": 8452326484250179286,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195242
+        },
+        {
+          "name": "Echo-R36-CeilingDuctCassette-Maps1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "dbc8af26711280d49978ff078843b08c",
+          "fileId": 943568643450899311,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195238
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ExaminationCrown.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-ExaminationCrown-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "9b0c4dae93f19a94abbe2d8cff2f9727",
+          "fileId": 196070911929942717,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195246
+        },
+        {
+          "name": "Echo-R36-ExaminationCrown-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "9b0c4dae93f19a94abbe2d8cff2f9727",
+          "fileId": -8326475569253090664,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-ExaminationCrown-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "9b0c4dae93f19a94abbe2d8cff2f9727",
+          "fileId": 140878033675513177,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593340
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/KinjaObservationPanel.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-KinjaObservationPanel-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "98f66702f2d431f448621c44953d83ed",
+          "fileId": -6746893201153379711,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195251
+        },
+        {
+          "name": "Echo-R36-KinjaObservationPanel-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "98f66702f2d431f448621c44953d83ed",
+          "fileId": -998868474416055304,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195248
+        },
+        {
+          "name": "Echo-R36-KinjaObservationPanel-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "98f66702f2d431f448621c44953d83ed",
+          "fileId": 2833643882554385878,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593345
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/MemoryLabCoolant.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-Panel994-PBR-1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "6c99792e2b4dc8c408b7e13cdac4bc0b",
+          "fileId": -488105137811018793,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195234
+        },
+        {
+          "name": "Echo-R36-Panel994-PBR-1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "6c99792e2b4dc8c408b7e13cdac4bc0b",
+          "fileId": -8930766429758069669,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195199
+        },
+        {
+          "name": "Echo-R36-Panel994-PBR-1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "6c99792e2b4dc8c408b7e13cdac4bc0b",
+          "fileId": 1420595879977072015,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195199
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/PressureCassette.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-PressureCassette-PBR-2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "2b1d2a8e4ce9f7b429830f272acbdbec",
+          "fileId": 4844973077649994918,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195246
+        },
+        {
+          "name": "Echo-R36-PressureCassette-PBR-2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "2b1d2a8e4ce9f7b429830f272acbdbec",
+          "fileId": -8447235287387975226,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-PressureCassette-PBR-2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "2b1d2a8e4ce9f7b429830f272acbdbec",
+          "fileId": -4589713172367152835,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593340
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/QuarantineAirHandler.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-QuarantineAirHandler-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "51ea120e14f2e924d8dba361d6ac70b5",
+          "fileId": -4467152629249974937,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195250
+        },
+        {
+          "name": "Echo-R36-QuarantineAirHandler-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "51ea120e14f2e924d8dba361d6ac70b5",
+          "fileId": -6311985320114220036,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195247
+        },
+        {
+          "name": "Echo-R36-QuarantineAirHandler-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "51ea120e14f2e924d8dba361d6ac70b5",
+          "fileId": 812678737563551757,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593344
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ReactorJacket.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-ReactorJacket-PBR-2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "fbbed437ff9027143b5dfe554e1828ae",
+          "fileId": -7454903369953589598,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-ReactorJacket-PBR-2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "fbbed437ff9027143b5dfe554e1828ae",
+          "fileId": -3978540650459002808,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195240
+        },
+        {
+          "name": "Echo-R36-ReactorJacket-PBR-2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "fbbed437ff9027143b5dfe554e1828ae",
+          "fileId": -5535339686253524657,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593337
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ReactorSideBus.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-ReactorSideBus-Maps1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "ad21a2d8455ef0b4fa58926b52941d2d",
+          "fileId": 8298990418426275918,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195240
+        },
+        {
+          "name": "Echo-R36-ReactorSideBus-Maps1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "ad21a2d8455ef0b4fa58926b52941d2d",
+          "fileId": 5872616622599299429,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195237
+        },
+        {
+          "name": "Echo-R36-ReactorSideBus-Maps1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "ad21a2d8455ef0b4fa58926b52941d2d",
+          "fileId": -6794706767559692396,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195233
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/RelayWinch.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-RelayWinch-Maps1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "7e2d5de19fb377744a77d13c894782f9",
+          "fileId": -1720206749131921466,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195236
+        },
+        {
+          "name": "Echo-R36-RelayWinch-Maps1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "7e2d5de19fb377744a77d13c894782f9",
+          "fileId": -3345759126614050159,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195233
+        },
+        {
+          "name": "Echo-R36-RelayWinch-Maps1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "7e2d5de19fb377744a77d13c894782f9",
+          "fileId": 340985875669429951,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195199
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SecurityBulkhead.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SecurityBulkhead-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "7bd1ec199f01b5043a6b0515d6ec73fa",
+          "fileId": -2083214523336781961,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195246
+        },
+        {
+          "name": "Echo-R36-SecurityBulkhead-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "7bd1ec199f01b5043a6b0515d6ec73fa",
+          "fileId": -935921690356358873,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-SecurityBulkhead-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "7bd1ec199f01b5043a6b0515d6ec73fa",
+          "fileId": -4139855412200611817,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593340
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalArch.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SignalArch-PBR-1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "10c398130b5c9724bb200fd693ce5c7a",
+          "fileId": 8843913713162443595,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195236
+        },
+        {
+          "name": "Echo-R36-SignalArch-PBR-1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "10c398130b5c9724bb200fd693ce5c7a",
+          "fileId": -3671432524197136395,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195233
+        },
+        {
+          "name": "Echo-R36-SignalArch-PBR-1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "10c398130b5c9724bb200fd693ce5c7a",
+          "fileId": 4098524369967253831,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195199
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalConsole.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SignalConsole-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "50c0d184ae1901445ba6b7a7f55790f4",
+          "fileId": -8889076078857849917,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195243
+        },
+        {
+          "name": "Echo-R36-SignalConsole-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "50c0d184ae1901445ba6b7a7f55790f4",
+          "fileId": 5949290786326490597,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195240
+        },
+        {
+          "name": "Echo-R36-SignalConsole-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "50c0d184ae1901445ba6b7a7f55790f4",
+          "fileId": -1641601918276608216,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593337
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalWall.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SignalWall-PBR-2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "254f64f1d1fb25249a8701ec38d84136",
+          "fileId": 667364811870753598,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195240
+        },
+        {
+          "name": "Echo-R36-SignalWall-PBR-2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "254f64f1d1fb25249a8701ec38d84136",
+          "fileId": -8852516242151073713,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195237
+        },
+        {
+          "name": "Echo-R36-SignalWall-PBR-2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "254f64f1d1fb25249a8701ec38d84136",
+          "fileId": 9217955053683656795,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593334
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SpecimenServiceRack.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SpecimenServiceRack-PBR-1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "818831f8347956842ac58e8ba4ad1850",
+          "fileId": 2844633792480348076,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195245
+        },
+        {
+          "name": "Echo-R36-SpecimenServiceRack-PBR-1K_normal",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "818831f8347956842ac58e8ba4ad1850",
+          "fileId": 1280323988731338601,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195242
+        },
+        {
+          "name": "Echo-R36-SpecimenServiceRack-PBR-1K_rm",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "818831f8347956842ac58e8ba4ad1850",
+          "fileId": 9141671734990881658,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195238
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SurveillanceCableBay.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-SurveillanceCableBay-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "fa3e1e27c6d15c44796a62713bc4c5c4",
+          "fileId": -1361478809554804211,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195250
+        },
+        {
+          "name": "Echo-R36-SurveillanceCableBay-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "fa3e1e27c6d15c44796a62713bc4c5c4",
+          "fileId": 1056610365304596862,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195247
+        },
+        {
+          "name": "Echo-R36-SurveillanceCableBay-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "fa3e1e27c6d15c44796a62713bc4c5c4",
+          "fileId": 2124777003841066151,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593344
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/WetDeckSection.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-WetDeckSection-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "83a118adf5df3544db1c1859fb840a5c",
+          "fileId": -5708539269302029457,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195244
+        },
+        {
+          "name": "Echo-R36-WetDeckSection-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "83a118adf5df3544db1c1859fb840a5c",
+          "fileId": -8933671033595601795,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195241
+        },
+        {
+          "name": "Echo-R36-WetDeckSection-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "83a118adf5df3544db1c1859fb840a5c",
+          "fileId": -6610904996563993201,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593338
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ZeroBasaltRing.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-ZeroBasaltRing-Maps2K_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "3ddfe74963a620b4f89b2825b4437f8d",
+          "fileId": 1918698730359830299,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195244
+        },
+        {
+          "name": "Echo-R36-ZeroBasaltRing-Maps2K_normal.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_UNorm",
+          "guid": "3ddfe74963a620b4f89b2825b4437f8d",
+          "fileId": 6614167868801198307,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195241
+        },
+        {
+          "name": "Echo-R36-ZeroBasaltRing-Maps2K_rm.png",
+          "format": "ARGB32",
+          "graphicsFormat": "88",
+          "guid": "3ddfe74963a620b4f89b2825b4437f8d",
+          "fileId": -3623931862955489065,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 5593338
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/UtilityLamp.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-UtilityLamp-Final_basecolor.jpg",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "378df35c5dcbf9745866628dbf145bb8",
+          "fileId": -8669244951641020054,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195240
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/WardRadiator.glb",
+      "maps": [
+        {
+          "name": "Echo-R36-WardRadiator-PBR-1K_basecolor",
+          "format": "RGB24",
+          "graphicsFormat": "R8G8B8_SRGB",
+          "guid": "8b249e2d5c02f1447a5cf84b83bf5369",
+          "fileId": -8862020437475140311,
+          "width": 1024,
+          "height": 1024,
+          "mipmaps": 11,
+          "editorMemoryBytes": 4195238
+        }
+      ]
+    },
+    {
+      "asset": "Assets/ElevenEleven/Opening/Stormworks/Security-Godot-Art.glb",
+      "maps": [
+        {
+          "name": "maintenance_jutsu_v1_Maintenance ceramic grain 512",
+          "format": "ARGB32",
+          "graphicsFormat": "87",
+          "guid": "24d24f2bda353eb4eaa6da9dfe774ab0",
+          "fileId": 1407671958206102404,
+          "width": 512,
+          "height": 512,
+          "mipmaps": 10,
+          "editorMemoryBytes": 1399047
+        }
+      ]
+    }
+  ]
+}

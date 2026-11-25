@@ -131,5 +131,20 @@
       8
     ]
   ],
-  "cache": "Four original images and five source clips cached locally. Original 2D clips rejected by the owner were removed from opening scene bindings."
+  "cache": "Four original images and five source clips cached locally. Original 2D clips rejected by the owner were removed from opening scene bindings.",
+  "chair_continuity_20261119": {
+    "status": "INTEGRATED_REVIEW_CANDIDATE",
+    "project_id": "3b40657b-2008-4d88-80e3-245a6c3ddb27",
+    "source_sha256": {
+      "Flow-Chair-Continuity.mp4": "30a2676cd00ef2430e303d4360d8cc47391c2b8ab53fc2dc89428ec12d12a85c",
+      "Flow-Chair-Experiment.mp4": "a1138ee0c77d021400a9c22e2ae9dc4c1e797f590e7101e41953782c42a4fd2f"
+    },
+    "experiment_edit_id": "bb3228f4-a0fb-43dd-81db-3fa4d31de5e3",
+    "delivery": {
+      "lab": "4.5s existing lab entry, then 6s chair",
+      "trial": "6s seated experiment then existing trial from 2.5s"
+    },
+    "audio": "Cached pressure ambience and existing entry and trial soundtrack. Flow source audio omitted.",
+    "new_generations": 0
+  }
 }

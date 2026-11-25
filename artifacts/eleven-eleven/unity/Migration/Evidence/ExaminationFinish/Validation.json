@@ -1,0 +1,35 @@
+{
+  "checkpoint": "UNITY_R36_EXAMINATION_THEATRE_FINISH_20261119",
+  "status": "PASS_SCOPED",
+  "graphics": "Unity 6000.3.23f1 / D3D11 / 1280x720",
+  "checks": 67,
+  "scope": "Surveillance landing to examination and memory replay, Zero consent and defer, Kinja confrontation and escape wish save. Reduced Motion in examination. Isolated automated checkpoint and scripted controls.",
+  "changes": [
+    "Shadow-enabled surgical key and shaped fill",
+    "Glazing and carrier layers tuned per vitrine",
+    "Ceramic grain and surface response",
+    "Service ribs, gantry rail and dais clearance marks"
+  ],
+  "collider_counts_preserved": true,
+  "baseline_sha256": "c5b1330c17e97218eda2dc6822bd346b2750a489d3771bcc2b1195afb75c9a1a",
+  "review_notes": [
+    "Hospital mirror distortion deferred by the owner",
+    "Mobile shadow policy, performance, and owner approval remain open"
+  ],
+  "source_sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "3154907e4ac0b611c34d9f0d83d74dd61599a0fcf7c8fdc23be1854a91ed282e",
+    "Assets/ElevenEleven/Editor/ExaminationTheatreFinish.cs": "97070921a935b3c97d61989974267968075f5306361c1fc30d6d08033d091229",
+    "Assets/ElevenEleven/Editor/StationExaminationConstruction.cs": "32af58af549cc44da420b67bc909607e1bfad6b3314da776a5b8e88678894924",
+    "Assets/ElevenEleven/Opening/Stormworks/StormworksSurface.shader": "97ba7baa033fc214c290d4eb0efdd914f55baff59317c5f0c60c530b48fd9611",
+    "Assets/ElevenEleven/Opening/Stormworks/Examination ceramic deck.mat": "c6614b99587b75314d671d93d6941a7a86a78384d493d5b8bb84e64b425bbb9d"
+  },
+  "capture_sha256": {
+    "Before/13-Kinja-Dialogue.png": "faeef60a9c1b1e38abc636f1f95ce9d89bac0957e0daa03e07b569645198cfd0",
+    "Before/14-Examination-Theatre.png": "6e9e8f270cdeb68d599ce08768470e91c1182dd3ce9d0c6c567db52df6ed9508",
+    "Before/16-Zero-Altar.png": "7105ef5715f2fe7217479e34f47af0faa358e64f0c14d18829535de5b0aadf20",
+    "After/13-Kinja-Dialogue.png": "164bdc126795c0b0344295181803869f28f65bb439c6a899f4f41c90209aab3f",
+    "After/14-Examination-Theatre.png": "d81a927d934aaffcc56ccfde97efd5d3e0d82d412b9dadfce43d5b1f00ca67ed",
+    "After/16-Zero-Altar.png": "a3909ede0f7dcfee34665cdadb83d6221ffed871ed4e5e43422f618093fed902"
+  },
+  "paid_generations": 0
+}

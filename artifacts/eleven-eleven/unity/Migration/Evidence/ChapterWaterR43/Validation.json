@@ -1,0 +1,97 @@
+{
+  "checkpoint": "UNITY_R43_PHYSICAL_WATER_20261123",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+  "renderer": "Unity 6000.3.23f1 / D3D11 / URP",
+  "scene_collision": "R42 scene bytes unchanged",
+  "reservoir": {
+    "geometry_waves": 5,
+    "surface_detail_bands": 4,
+    "runoff_sources": 2,
+    "restored_station_stage": 3,
+    "reduced_motion_clock_freezes_and_resumes": true,
+    "reflection_cubemap": {
+      "face_size": 128,
+      "mips": 8,
+      "path": "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Observatory reservoir reflection.exr"
+    }
+  },
+  "utility": {
+    "live_drop_survives_next_fall": true,
+    "reduced_motion_disables_impacts": true,
+    "uses": [
+      "Signal Chamber",
+      "Pressure Return"
+    ]
+  },
+  "matched_pixel_masks": {
+    "01-CentralBridge-Follow": {
+      "visible": 165984,
+      "changed": 165793,
+      "shader_error_pink": 0
+    },
+    "02-EastCatwalk-Follow": {
+      "visible": 123779,
+      "changed": 123520,
+      "shader_error_pink": 0
+    },
+    "03-WestRunoff-Close": {
+      "visible": 446302,
+      "changed": 446291,
+      "shader_error_pink": 0
+    },
+    "04-EastRunoff-Close": {
+      "visible": 435867,
+      "changed": 429540,
+      "shader_error_pink": 0
+    },
+    "08-Signal-LiveImpact": {
+      "visible": 36652,
+      "changed": 36415,
+      "shader_error_pink": 0
+    },
+    "09-Signal-ReducedMotion": {
+      "visible": 32444,
+      "changed": 32234,
+      "shader_error_pink": 0
+    }
+  },
+  "verified_shader_motion": {
+    "closeup_luminance_stddev": 6.78,
+    "mean_frame_luminance_delta": 6.79
+  },
+  "asset_sha256": {
+    "Assets/ElevenEleven/Opening/RoomUtilityEffects.cs": "8a1a802392775e37f8c37e059a73e26df9618e609ddc2e83ae7fc14600aafa60",
+    "Assets/ElevenEleven/Opening/Stormworks/RoomUtilityWater.shader": "1051692a1ba686f837ff8636b44f51e36037f04552421a79d63d01c6a5055f8f",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReservoir.shader": "c5244dd23782a8ea44567e9361fe5655808cfe9d5e24af44f5140ddda80ab98f",
+    "Assets/ElevenEleven/Opening/Stormworks/Station Gerstner reservoir.mat": "10c0c7b37bca08a3ba8a015a1964bc6fd7cc52253facb12269e1fb926f12b323",
+    "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Observatory reservoir reflection.exr": "2eb7fba26c7e4d745adbc4efc00d027945a70340ec8aa036591b0e12cbcd7584",
+    "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Observatory reservoir reflection.exr.meta": "03c6a5525a617adb281dd2b034658854b7695322dd673fc51a98e2d2eb9c8609",
+    "Assets/ElevenEleven/Editor/ReservoirReflectionBake.cs": "9549d3ed02ef0179482eb599eb0924fb391f23c370507475322e40a29c07255e",
+    "Assets/ElevenEleven/Editor/ReservoirReflectionBake.cs.meta": "51e870a949586006dd7c41ef262be79ee483d744c4ce73d23debbf1e12d67101"
+  },
+  "captures_sha256": {
+    "01-CentralBridge-Follow-R42.png": "40e6c7177c5fdab4f3c7010d3e63eef90e8b5c47f81d65d8f0d2d7158d00ac4a",
+    "01-CentralBridge-Follow-Production.png": "0bbd9b7fa8d2f50feca88f750cb140f8a1104bd3faa42e8173d6145922bd5396",
+    "02-EastCatwalk-Follow-R42.png": "2a0acace8358bc764e6079d2d2a109bdb128203f753a528caa2c3f0418352e2e",
+    "02-EastCatwalk-Follow-Production.png": "125260cd5c5613fb886e338de86315391249cbb0c4c0bf2ddbbd820abbbdf35a",
+    "03-WestRunoff-Close-R42.png": "46d117adbaffcb11e6375c06280343a1837387db7f8c6608cd70dd0ffc0b2b63",
+    "03-WestRunoff-Close-Production.png": "5ceaa8ff01716de008253d085c6a1e0db277fb27ac1c345cce71e31e83951b56",
+    "04-EastRunoff-Close-R42.png": "e90bbd498c7c289d99c489728ae1447bee61f475471c98b4bbce3dcaa8b663c2",
+    "04-EastRunoff-Close-Production.png": "e3adf4455f1e800731434b0ab8c6019b17ab0d1e53d6bc5e159ec15c18196ca2",
+    "08-Signal-LiveImpact-R42.png": "7045e33f5695a8df225a56e3be6ac2688c458d1b613a68aa638780f4f62df65f",
+    "08-Signal-LiveImpact-Production.png": "b6a2bd39747b0b9259bf51360ac342a9dc042dc91646a5f746540f637f6e22ab",
+    "09-Signal-ReducedMotion-R42.png": "eb48416b3bdad7e04100dd99c08d5a8347d27ba8d0241f0634387939055375a2",
+    "09-Signal-ReducedMotion-Production.png": "7c51897476b423b96eb6f0cbe91f7452f87b8e7d2b6d3a118b237f223107e7f5",
+    "05-WestRunoff-ReducedMotion-Start.png": "d6bddb45af8ca3be6621034056c2f03e5e31205efb055489ad5f63473349dec4",
+    "06-WestRunoff-ReducedMotion-Later.png": "d6bddb45af8ca3be6621034056c2f03e5e31205efb055489ad5f63473349dec4",
+    "07-WestRunoff-FullMotion-Resumed.png": "305408e6790d5fdae1114a0f73bcbac5fbb94b43bb587330a73f351c25e637f2"
+  },
+  "references": {
+    "unity_boat_attack": "https://github.com/Unity-Technologies/boat-attack-water",
+    "crest_wave_spectra": "https://github.com/wave-harmonic/crest/blob/master/docs/user/waves.rst",
+    "tessendorf_dispersion": "https://jtessen.people.clemson.edu/reports/papers_files/simdoc.pdf",
+    "unity_baked_reflections": "https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Lightmapping.BakeReflectionProbe.html"
+  },
+  "scope": "Matched Play Mode renders in the isolated Unity editor. R43 standalone Windows performance and the rest of the room review remain open."
+}

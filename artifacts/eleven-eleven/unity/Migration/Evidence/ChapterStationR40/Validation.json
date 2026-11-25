@@ -1,0 +1,163 @@
+{
+  "checkpoint": "UNITY_R40_STATION_ART_AND_REACTIVE_CUES_20261121",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "4984e28bdf8849c2444672afd76f520e43b88f702573cac08c43dc790e6b651a",
+  "baseline_sha256": "2771077ffc4a1ce69cdea93692c3f9a22988e6229bfb693f37076a7bb367a326",
+  "renderer": "Unity 6000.3.23f1 / URP / D3D11 / Intel UHD Graphics",
+  "fit": {
+    "glazed_panes": 16,
+    "security_finishes": 16,
+    "specimen_bays": 6,
+    "archive_racks": 6,
+    "quarantine_pods": 6,
+    "live_cues": 5,
+    "colliders": 394
+  },
+  "specimen_deck": {
+    "plates": 24,
+    "superseded_cassettes": 80,
+    "drains": 2,
+    "security_cover_plates": 6,
+    "colliders": 394
+  },
+  "motion": {
+    "zones": 16,
+    "targets": 389,
+    "minimum": 23,
+    "controller_checks": [
+      "pause",
+      "reduced motion",
+      "distance culling"
+    ]
+  },
+  "runtime": {
+    "fresh_editor_full_chapter": true,
+    "chapter_entry_checks": 34,
+    "station_and_ward_checks": 136,
+    "opening_mode": "Reduced Motion opening, full station motion, isolated fresh save",
+    "contact_surface_scope": "Connected run precedes the render-only specimen deck, checkpoint cover, and valve gland finish. Those final visuals, the pressure configuration and all 394 collider records were checked afterward.",
+    "reactive_cues": [
+      "pressure vent",
+      "independent west/east breaker and restore",
+      "quarantine override and restore",
+      "surveillance override and restore"
+    ]
+  },
+  "visual_scope": "Fourteen saved native editor angles and scoped Play Mode captures. Owner visual acceptance remains open.",
+  "native_capture_sha256": {
+    "43-WallReview-Pressure.png": "5f6ef79859ede456d296c53b46d1725bcd1371d3c1407e52ce00eea649f28a18",
+    "46-WallReview-Security.png": "152d3776da5748b5e5ce0d934c01b0aa4e256d741139e2940b3c829e93b246e8",
+    "47-WallReview-Specimens.png": "2bb09c0b9f4fc08e95b3354cd979ea24e5b9708faeb4948ed14ef90d975ec2c1",
+    "48-WallReview-Archive.png": "1a433353d676223c5185cd900ec46cce959972175e194648281bef26da4419c5",
+    "49-WallReview-Reactor.png": "7036709fad082dab71f2ab1c76248e55de990e3910b38052d802a6069e50e46e",
+    "50-WallReview-Quarantine.png": "e40ba31cb6057fa634aaa377c29214efd0aa468f0909a195e2f6b0a94285bd41",
+    "51-WallReview-Surveillance.png": "67284ad7e80a13805aca453fcc176879c88a71cf1b8854c95402d77501eac8d3",
+    "63-WallReview-Security-Checkpoint.png": "5bbcf51f94b85c0415e43d8a59ca535a7ce20c715d26a312620b5cf3e2a67c42",
+    "64-WallReview-Surveillance-Stations.png": "7e1adef7707c27a1e41448717235bfdd1ba1021f3b8b29328104ba37813d4cf5",
+    "71-WallReview-Surveillance-Wall-Close.png": "905c5e8a3f007e762b89c5e75a0421dcb38e8bbf637ec05406a941aec8f05d60",
+    "77-WallReview-Pressure-Sill.png": "a592cb958cd7d0ad7a6ff8e64a60af1191ccb832b1b1bb06c1a516b81795d8f1",
+    "78-WallReview-Surveillance-Dais.png": "d50f01cc4bddb4eb3780f706696fe2a3b1168416c1065e5a07e510cdae7de32f",
+    "79-WallReview-Surveillance-Optical-Glazing.png": "0dae16b4c0cd6f761721b5c5f56bd85e522596f38ea565fd4a44ce406a91cd65",
+    "80-WallReview-Machined-Pressure-Valve.png": "3a1fd453e4fbde56853451d4020a62991fc6866026eafd78c8b0dc1c12b2f8db"
+  },
+  "play_capture_sha256": {
+    "02-Pressure.png": "9b69c3191122bc9d3ec96c20b121a7c2dd8c6dee02c4e2f0d489951254f3edc0",
+    "06-Security.png": "52962cfcd62de7660581bcd8a649c6680c9de45f72e43f9a5fde66120e815c1e",
+    "11-Surveillance.png": "2270d4facc57056a5834868dacf46432c69ffbb4376f60d4b044db5bb5d09c31",
+    "12-InspectionMirror.png": "41c00d263270e448c63e33f8c8158f1c4a70d0107ce023fd9442faec190e665a",
+    "90-Pressure-Vent-Readout.png": "e86cf7c210d2ee95035bfe9a2e4f9b38a940285d7852fc836ee36617f8127da8",
+    "91-Reactor-Breaker-Readout.png": "c11f3a91480f0e6168230d57bd130ef9da6815f4caead0b2324c50601aec1062",
+    "92-Quarantine-Override-Readout.png": "5598bb546fb9b774191e134a921cb603800ec0f717effbd47dbac0b585462f1e"
+  },
+  "production_roadmap": "Migration/CHAPTER_PRODUCTION_ROADMAP.ar.md",
+  "camera_profiles": {
+    "scope": "Serialized framing volumes in the promoted scene. Complete room-by-room gameplay camera polish remains open.",
+    "rooms": [
+      {
+        "name": "Signal Chamber",
+        "vertical_fov_degrees": 57.0,
+        "camera_arm_metres": 3.7
+      },
+      {
+        "name": "Pressure Plenum",
+        "vertical_fov_degrees": 55.0,
+        "camera_arm_metres": 3.0
+      },
+      {
+        "name": "Observatory",
+        "vertical_fov_degrees": 64.0,
+        "camera_arm_metres": 4.45
+      },
+      {
+        "name": "Relay",
+        "vertical_fov_degrees": 57.0,
+        "camera_arm_metres": 3.2
+      },
+      {
+        "name": "Memory Lab",
+        "vertical_fov_degrees": 55.0,
+        "camera_arm_metres": 3.3
+      },
+      {
+        "name": "Security",
+        "vertical_fov_degrees": 55.0,
+        "camera_arm_metres": 3.4
+      },
+      {
+        "name": "Specimen Containment",
+        "vertical_fov_degrees": 59.0,
+        "camera_arm_metres": 3.8
+      },
+      {
+        "name": "Memory Archive",
+        "vertical_fov_degrees": 56.0,
+        "camera_arm_metres": 3.5
+      },
+      {
+        "name": "Reserve Reactor",
+        "vertical_fov_degrees": 62.0,
+        "camera_arm_metres": 4.15
+      },
+      {
+        "name": "Quarantine",
+        "vertical_fov_degrees": 57.0,
+        "camera_arm_metres": 3.5
+      },
+      {
+        "name": "Surveillance",
+        "vertical_fov_degrees": 56.0,
+        "camera_arm_metres": 3.45
+      },
+      {
+        "name": "Inspection Mirror",
+        "vertical_fov_degrees": 54.0,
+        "camera_arm_metres": 3.0
+      },
+      {
+        "name": "Examination Theatre",
+        "vertical_fov_degrees": 57.0,
+        "camera_arm_metres": 3.65
+      },
+      {
+        "name": "Zero Threshold",
+        "vertical_fov_degrees": 61.0,
+        "camera_arm_metres": 4.05
+      },
+      {
+        "name": "Observation Alcove",
+        "vertical_fov_degrees": 54.0,
+        "camera_arm_metres": 3.25
+      },
+      {
+        "name": "Hospital Ward",
+        "vertical_fov_degrees": 55.0,
+        "camera_arm_metres": 2.85
+      }
+    ]
+  },
+  "windows": {
+    "status": "BLOCKED_BUILD_DISK_SPACE",
+    "scope": "The isolated Windows player export reached the C: disk reserve, including a retry with Unity LZ4. The fixed-view standalone profile never ran.",
+    "resume": "Retry the isolated Windows export when there is sufficient additional staging space. Editor D3D11 screenshots and play checks are recorded separately."
+  }
+}

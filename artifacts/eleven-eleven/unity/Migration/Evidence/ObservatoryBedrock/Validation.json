@@ -1,0 +1,51 @@
+{
+  "checkpoint": "UNITY_R36_OBSERVATORY_BASALT_20261120",
+  "status": "PASS_SCOPED",
+  "engine": "Unity 6000.3.23f1 / D3D11",
+  "checks": 46,
+  "clock": "4.91 deg; upper 1.22 to 1.02; lower 0.33 to 0.53",
+  "collider_counts": {
+    "65": 377,
+    "64": 14,
+    "143": 1,
+    "136": 2
+  },
+  "bedrock": {
+    "previous_triangles_per_mesh": 235000,
+    "current_triangles_per_mesh": 70000,
+    "old_mesh_sha256": "3eb867b4b3f2093aaae0d6ed98df3b509ed26d46743f09a2507481cad5907465",
+    "source": "ArtSources/MemoryObservatory/observatory-bedrock-face/Tripo-Original-PBR.glb",
+    "texture_policy": "Reused the original external PBR textures and Unity texture settings."
+  },
+  "source_sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "01c8d13177e183fa3df52526e224d7ccb1c82f1e1e1843f08a586bd89672159c",
+    "Assets/ElevenEleven/Opening/Stormworks/Observatory/observatory-bedrock-face.glb": "2db2920564fa597e5e64e5f6d9f3d044afecc468b405f5f686299509bfc2bfa6",
+    "Assets/ElevenEleven/Editor/ObservatoryEntranceArt.cs": "97ffb7372e5c276804cf372d85c7727c4e72625fac370baf3a869c88456af746",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "e0f4ecc8f88c3405b07d6325a4ee2143d2d7cc42e9b43ae045aa81016b64d119",
+    "Assets/ElevenEleven/Opening/Stormworks/StationMemoryObservatory.cs": "bfd8be0fc0dbfe1f13ad7adbb5be62db2f576646bf547a1d39b4ee315f3a0d23",
+    "Assets/ElevenEleven/Opening/Stormworks/Observatory/Maps/observatory-bedrock-face/Map-0-linear.png": "fef50eaed5af1206836702f1119b02769cac1224d20bc0f96bd957adb56baf05",
+    "Assets/ElevenEleven/Opening/Stormworks/Observatory/Maps/observatory-bedrock-face/Map-1-srgb.jpg": "adc7931008fd6589f88ca41620d6be8d7bd11c0d422e8569e6556d93f99dc796",
+    "Assets/ElevenEleven/Opening/Stormworks/Observatory/Maps/observatory-bedrock-face/Map-2-linear.jpg": "64c6ccb43d1cc5690eca9cb02ab8188c37e5069ba6b238a823b0db4382ecc4d8"
+  },
+  "capture_sha256": {
+    "09-Observatory-Catwalk.png": "0c9fcd1c7cd80535f746ff38549de117dd148a26fd65d260d713d5ac14890bdd",
+    "11-East-Lab-Entrance.png": "836e0a2f61b5b767752eeb0105948a5e041958bc37055e4beed7294d7885aa60",
+    "12-West-Relay-Entrance.png": "0ad68216190ea82697a0b38dcd6857605a5dbdc2b194b7b20abd91dc948d7aee",
+    "13-East-Branch.png": "35ca12ac9fc99f3407a36616c42566679958d1a82acdb131acb355aebf8c8b9e",
+    "14-West-Branch.png": "e49be4f34f27a1ba9aa925430a309a49c32411139c7356e1899281bdd5b1eafd",
+    "15-Clock-First.png": "bd0f2a074beba3478b539fbd28f68bc9a57369c3fbffe5853e094e9694bb2643",
+    "16-Clock-Second.png": "4903bc34f768e36c15cd07cdee4b93b1035fc69be9afaaa93caff97a05eab608"
+  },
+  "tripo": {
+    "studio_balance_observed": 1075,
+    "additional_credits_spent": 0
+  },
+  "windows_profile": null,
+  "windows_build_blocker": {
+    "platform": "Windows x64",
+    "status": "BLOCKED_LOW_DISK",
+    "stage": "D3D11 glTF shader compilation",
+    "detail": "The build was stopped after Windows pagefile growth left less than 2 MiB free on C:. No player timings were collected."
+  },
+  "open": "Owner visual review and Windows player profiling."
+}

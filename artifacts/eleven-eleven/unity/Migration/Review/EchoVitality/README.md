@@ -1,0 +1,7 @@
+# Echo vitality review
+
+The face review uses the current School65 GLB and Blender 4.5.16. It adds two named selection groups on a derivative, with 136 right-eye and 130 left-eye vertices. The group names do not match deform bones. The original FBX/GLB, skin, UVs, animations and playable avatar are not edited by the review. The upper aperture samples in the JSON hit the eye islands; use them as optical references, not as eyelid selection.
+
+School65Intake.py takes ECHO_REVIEW_SOURCE (the original GLB) and ECHO_REVIEW_WORK (an existing output directory). It renders the neutral face, ray-casts the reviewed landmarks and saves the compressed Blender derivative. VerifySchool65Derivative.py takes ECHO_REVIEW_DERIVATIVE and checks the saved rig, UV and review groups.
+
+SpringBoneReview.cs is the editor test for an isolated Unity 6000.3.23f1 project. Put the script in that project's Assets/Editor. Add com.unity.springbone from a local checkout of UnityChanSpringBone at 9415071549aee47c094657d9ef5af239b96c201f (MIT), plus com.unity.modules.animation, com.unity.modules.physics and com.unity.modules.imgui. Use batch mode with -nographics -executeMethod SpringBoneReview.Run. The fixture uses three 8 cm test strands and a deterministic 90-degree turn. It checks length, peak response, settling and pause. This is a solver benchmark on synthetic guides. The next comparison uses skin-weighted guides and a separate Unity Cloth patch on the original garment shape.

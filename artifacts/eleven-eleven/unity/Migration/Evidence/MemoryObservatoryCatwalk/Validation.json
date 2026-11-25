@@ -1,0 +1,113 @@
+{
+  "checkpoint": "UNITY_R36_OBSERVATORY_CATWALK_20261120",
+  "status": "PASS_SCOPED",
+  "checks": 34,
+  "engine": "Unity 6000.3.23f1 / D3D11",
+  "capture_size": [
+    1280,
+    720
+  ],
+  "scope": "Seven bridge bays and lab branch, rail collisions, clear jump and lab crossings, pressure gate, reveal, sprint-jump, alternate relay stairs, unlock, archive log, save/reload into Security; animated memory field.",
+  "original_scene_sha256": "b201b213d0982c06662ae1d730e90b1d08bdba4d6d01d5178dc4237d15175f10",
+  "new_source_hashes": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "1a521b15b9fa54cd57aa7474926cfa0572746fd22ababf603efa9ca0c6d1c205",
+    "Assets/ElevenEleven/Editor/ObservatoryCatwalkArt.cs": "40da2dd90a46f50a37a2a4414f46a54994c07a0ca503a176501cc2e5483153e5",
+    "Assets/ElevenEleven/Editor/MemoryObservatoryArt.cs": "3bde6093cdaef0f67bd0feab7b8bd252dd4f38ee7081ecd31fea435b05d23e1f",
+    "Assets/ElevenEleven/Editor/ObservatoryTextureImport.cs": "54dc767b52b11d6188f4e9cd78237ea505c7707a8910350a580cfe8457731005",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "53756937db9d5a426564d5fce9213d2971f05529304339706ea55a11ff80da3c",
+    "Assets/ElevenEleven/Opening/Stormworks/ObservatoryMemory.shader": "715e8db3aebd08b70cb2f16c0ce74667f4efbb12437dbeefd7dc98c8c6f4ba06",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReservoir.shader": "1007751bb9657e467eda078b92db31cf98409c1d4a15db9824887553a9293b8a",
+    "Assets/ElevenEleven/Opening/Stormworks/StationAtmosphere.shader": "8eaef38d95b1dc639bae4dec78b752a1f60c85d4648628eba43760acce7b751c"
+  },
+  "physics_before": {
+    "65": 345,
+    "64": 14,
+    "143": 1,
+    "136": 2
+  },
+  "physics_after": {
+    "65": 359,
+    "64": 14,
+    "143": 1,
+    "136": 2
+  },
+  "texture_import": {
+    "source_maps": 33,
+    "dimensions": [
+      4096,
+      4096
+    ],
+    "desktop_compression": "BC7",
+    "original_maps_preserved": true,
+    "data": "ArtSources/MemoryObservatory/Unity-Texture-Maps.json"
+  },
+  "approved_generation_tripo": {
+    "new_cost": 320,
+    "balance_at_check": 300,
+    "model": "v3.1-20260211",
+    "per_asset": {
+      "observatory-clock-plinth": {
+        "task_id": "7942ba1d-bcef-4a11-853f-d5bd7a1e2ed1",
+        "credits_billed": 50,
+        "source_triangles": 1864029,
+        "runtime_triangles": 315000,
+        "source_sha256": "67bb48df95d837ebf0e971a2bf5eca41e96f9489111b4e25ecf7a584fb9bb164",
+        "runtime_sha256": "ca349e6480b29192d1f9b2b5dda6ead1fda8c39026d7564e4fd2a067a41c52f0",
+        "runtime_file": "observatory-clock-plinth.glb"
+      },
+      "observatory-catwalk-bay": {
+        "task_id": "a44bf849-8160-4683-adef-c9e1ba1c9859",
+        "credits_billed": 60,
+        "source_triangles": 1945059,
+        "runtime_triangles": 349999,
+        "source_sha256": "f41f644fdc2e9e3229c7f81f3ab05714460f330f99a7b02ae79c23bc996dddd7",
+        "runtime_sha256": "32d5e12948a20ac8062abc1d851d60e45779f376b881ee7008cf2b4bcfa007b0",
+        "runtime_file": "observatory-catwalk-bay.glb"
+      },
+      "observatory-viaduct-arch": {
+        "task_id": "8cdabd0d-ea9c-4d05-b5a9-0e52df4e1c60",
+        "credits_billed": 50,
+        "source_triangles": 1932766,
+        "runtime_triangles": 264999,
+        "source_sha256": "530f2882e655624c31584585bbe2d8a9afb811d29135f244507b55d656fc4b4d",
+        "runtime_sha256": "efb5b8873f4fc4b369d6a8f490b28d359f0d01af0ffb616dbc95c0c3e1a7d5ce",
+        "runtime_file": "observatory-viaduct-arch.glb"
+      },
+      "observatory-bedrock-face": {
+        "task_id": "ac92f5ae-f471-4333-9f23-a51b11fd5a25",
+        "credits_billed": 50,
+        "source_triangles": 1992750,
+        "runtime_triangles": 235000,
+        "source_sha256": "a545b57c6f09b75a5b217cef37024104861db743f312d687f3ff68ba61827814",
+        "runtime_sha256": "79545d3a227acb844cc6e8ef49490e676aa3177e93524c751efc3b7e917c415f",
+        "runtime_file": "observatory-bedrock-face.glb"
+      },
+      "observatory-relay-maintenance": {
+        "task_id": "a3972248-4a95-4ba6-b6e0-c21653dd565e",
+        "credits_billed": 50,
+        "source_triangles": 1772492,
+        "runtime_triangles": 274999,
+        "source_sha256": "6af517d15ee1c02ef342f5e2aef134c65a2a29275a01bda5b4d509f53526898b",
+        "runtime_sha256": "2f8cb8154302c20456ba64d6d56d20c9d7d879c27651bfa2ae632dbb42662f9e",
+        "runtime_file": "observatory-relay-maintenance.glb"
+      },
+      "observatory-asymmetric-shard": {
+        "task_id": "ec831dd0-bbae-41ac-b1b1-473ee290889d",
+        "credits_billed": 60,
+        "source_triangles": 1957872,
+        "runtime_triangles": 265000,
+        "source_sha256": "84320f6d5d7fe1013b96c263141075abd07b277c8af964001bdbadea900f1f59",
+        "runtime_sha256": "241d4b31f0437fea6f073cb474302c4cedb95579729f256e42cd459c9c262218",
+        "runtime_file": "observatory-asymmetric-shard.glb"
+      }
+    }
+  },
+  "capture_hashes": {
+    "Memory-Observatory-Station-V2.png": "ea56c40e059891a16459774fdb31e7b75a5f525ff3bf982ac0e14488edd65833",
+    "Memory-Observatory-Memories-V2.png": "5cbdb25cb1e5c46489c4d6af194f14456f538736350c925c0d8eeb67c0c8992c",
+    "Memory-Observatory-Archive-V2.png": "e2366b2ac61290862367675816757442028ea2d7bb98d62b0fc5f1be53af36e1",
+    "Memory-Observatory-Catwalk-Unity.png": "52863c76d00285ae479b47c246619f5c150944798c5b7a0f669496193eb393f5",
+    "Memory-Observatory-Workshop-Unity.png": "3e9ef06193b68319760ed1b08f29fcad001f191ea02ed3b336a557a77a983be0"
+  },
+  "open": "Visual match and player approval, GPU frame-time measurement on target hardware, subsequent rooms and chapter-wide mission work."
+}

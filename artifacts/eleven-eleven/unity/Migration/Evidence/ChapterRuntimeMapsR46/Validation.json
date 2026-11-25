@@ -1,0 +1,146 @@
+{
+  "checkpoint": "UNITY_R46_CACHED_TEXTURE_COMPRESSION_20261123",
+  "scene_sha256": "af5f2a5d35c85f17d161d78cb20e030e17269a0a7c0ba640088c3582a12d7b6a",
+  "map_count": 11,
+  "model_count": 4,
+  "format": "BC7",
+  "scope": "Four environment GLBs. Unity imported-texture allocation is measured per texture in the Editor. A Windows player memory profile is still open.",
+  "editor_texture_bytes_before": 349535641,
+  "editor_texture_bytes_after": 97877536,
+  "decline_percent": 72.0,
+  "matching_views": {
+    "01-CryoPod": {
+      "psnr_db": 54.66
+    },
+    "02-Viewport": {
+      "psnr_db": 64.75
+    },
+    "03-Lab-Racks": {
+      "psnr_db": 47.3
+    },
+    "04-Archive-Yoke": {
+      "psnr_db": 48.39
+    }
+  },
+  "original_payloads": "Migration/ArtSources/ChapterRuntimeMapsR46",
+  "provenance": {
+    "models": [
+      {
+        "model": "Room01/CryoPod.glb",
+        "original_sha256": "b7e8e49c591bb029e35a3e0e642ec70f96c4863305348dcb0ef9c45698c4891b",
+        "runtime_sha256": "9ee97e4eca081c8f66733cd8b4a28f2a3b74da79de75eb91a3f54fb76d8be1bc",
+        "maps": [
+          {
+            "path": "Room01/RuntimeMaps/CryoPod/Map-0-srgb.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "aef323e06f35c56709e5f84e6679e96472fc09a226f85e33a1d08d81a07a28ea"
+          },
+          {
+            "path": "Room01/RuntimeMaps/CryoPod/Map-1-linear.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "d72834d879873061ce7ec764e2630e7acde89d8021b3976706ee0581fde3383e"
+          },
+          {
+            "path": "Room01/RuntimeMaps/CryoPod/Map-2-linear.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "afcd721099a30457d3282673bec6576b42dc9f545867156ea445a3db4b1d7f24"
+          }
+        ]
+      },
+      {
+        "model": "Stormworks/server_rack.glb",
+        "original_sha256": "8cb9cd6af716ebe65b35cd041d6732ccd8026141894a7cb5dbaac4ba6aa21244",
+        "runtime_sha256": "6f7d363199a4a8ce2b64075c01ac4d685f667a066b107d8dcc4d9d66e01a30a6",
+        "maps": [
+          {
+            "path": "Stormworks/RuntimeMaps/server_rack/Map-0-srgb.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "c806bcf9c496c96742f06c305ec273610bb11fc91559049284bc7f748f2bd941"
+          },
+          {
+            "path": "Stormworks/RuntimeMaps/server_rack/Map-1-linear.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "85b897846c21f34650ee91c65de21ebe7660963fb10a38fc2d71220c076c9e81"
+          },
+          {
+            "path": "Stormworks/RuntimeMaps/server_rack/Map-2-linear.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "741dac8d4e9ad2f93010256038d7666520aa67d729a0315d23b25e63e1cdc37c"
+          }
+        ]
+      },
+      {
+        "model": "Stormworks/PressureViewport-Tripo.glb",
+        "original_sha256": "bc19d78338ac363abc33e983f7c73fe8d55882a325e96e156ff1be68292ce380",
+        "runtime_sha256": "6e5b19ca751f18a3cd6d48e6b4c5b881effbf0ec20257111b8353fdc0f23593b",
+        "maps": [
+          {
+            "path": "Stormworks/RuntimeMaps/PressureViewport-Tripo/Map-0-srgb.jpg",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "1dd59d648204a23e9eb8bfc7c717d55efe8617f933fbd421d5ac0d9ba09b4817"
+          },
+          {
+            "path": "Stormworks/RuntimeMaps/PressureViewport-Tripo/Map-1-linear.png",
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "6c41d6acd92f11ae65971e27d5974f7767fe5a6f4c3b2d9c76e4bde97f8e58d6"
+          }
+        ]
+      },
+      {
+        "model": "Stormworks/TripoChapterKit/ArchivePrismYoke.glb",
+        "original_sha256": "affec15f6a4bea6fe444b8a6d96b3c9b8824923bea0915ebe4a3a01b470d83ff",
+        "runtime_sha256": "b2f8c363cc94f407526d228563076311372c3787db9674b6e75122c26ac3179e",
+        "maps": [
+          {
+            "path": "Stormworks/TripoChapterKit/RuntimeMaps/ArchivePrismYoke/Map-0-srgb.jpg",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "a884609d82b156973862751966d56f3f92543b06fc3291e5262263b73427dcde"
+          },
+          {
+            "path": "Stormworks/TripoChapterKit/RuntimeMaps/ArchivePrismYoke/Map-1-linear.png",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "11eb7e13387eb81892103953dbb6d84ff7d948e07310b5ed051d0281dd1f1504"
+          },
+          {
+            "path": "Stormworks/TripoChapterKit/RuntimeMaps/ArchivePrismYoke/Map-2-linear.jpg",
+            "size": [
+              1024,
+              1024
+            ],
+            "sha256": "c0397f5ce73edd494f21c5f06b642b2c9a34a691ba7cc6f84f072b41e6d8c66f"
+          }
+        ]
+      }
+    ]
+  }
+}

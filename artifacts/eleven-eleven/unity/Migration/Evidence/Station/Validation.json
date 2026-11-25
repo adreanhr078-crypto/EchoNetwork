@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-18",
+  "status": "PASS_SCOPED",
+  "unity": "6000.3.23f1",
+  "graphicsApi": "D3D11",
+  "renderer": "Renderer: Intel(R) UHD Graphics (ID=0x46b3)",
+  "playModeChecks": 75,
+  "scope": "Connected Room 01 through surveillance; editor input, physical paths, local checkpoint recovery and rendered verification",
+  "lastCheckpoint": 15,
+  "materials": "Uniformly fitted cached PBR facade and core; local full-height wall, coolant, gasketed deck and ceiling assemblies",
+  "mirrorOptimization": {
+    "uniqueTrianglesOriginal": 3696394,
+    "uniqueTrianglesOptimized": 211279,
+    "pbrMapsKept": 3
+  },
+  "screenshots": {
+    "01-Containment.png": "5ecaf7950683d87b4ba7014aafb47b7336c89742e2bb2439083097307d68cffc",
+    "02-Pressure.png": "e186a2cb33dbc4abddcda6f6b5a2cf1d5f7d50eaae115e075a864cbf4c06ebd0",
+    "07-Specimens.png": "1276d505883f84ba7b591b236dec4ee0e422815208ed4c54fa1ecc52372897ec",
+    "08-Archive.png": "5879f1456efb0851d3d3dca0f414ba6fb459e00a7d5f9072c38f8fc8eb17ffe5",
+    "10-Quarantine.png": "2d8a1ce1a476ae342d9cf5f6300e2dbbc1a37c2ac112ec6bf1b771a26418fe65",
+    "11-Surveillance.png": "11a186106fe698022514ff410f1f7ce3eb6c8b3d7b75d0b0569a4cba4702ecd4",
+    "12-InspectionMirror.png": "de6b9eec663abaaa915d5de066ba52afb3b6b0fbe0b6ce69f22e21a944094afb"
+  },
+  "sourceSha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "cd8314ef7818dbbe345600ffd165d6f8a97f580378ce668d889f6c983e8c5b56",
+    "Assets/ElevenEleven/Opening/Room01Checkpoint.cs": "c420bcbf5a91a641d839f3bdbcc3153faf96e8911d23cb41f0baaa86ce787663",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "6253184608b05cea17109ac07b096feb4b7d26f492b24ca6a085bb153080a926",
+    "Assets/ElevenEleven/Editor/StationWallDressing.cs": "4b9bcf390710012143e47e9b9518abec328afb3d9571120c9f2706edb09a93f9",
+    "Assets/ElevenEleven/Editor/StationSurfaceDressing.cs": "7e9479e6dbd4022a51bdb94a76e46cdc7575273c393f6d850067bed57018b89d",
+    "Assets/ElevenEleven/Editor/TripoRoomDressing.cs": "c39639c7481590a72b6880738c241e4fd7a2a479dc613558651aa2f7bb3a0f6f",
+    "Assets/ElevenEleven/Opening/Stormworks/StormworksRoute.cs": "9e6b38385571740c192b0f55f2dcb12eab30dccfd84c0738fe6385f1d3fc927c",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReflection.cs": "f2abe5c35d8ed41b1d865b28d6bad8535590f7c2c06c5f2ce39b865edb2d9af9",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReflection.shader": "62c5678bf6c39a428bec581f3a07351959895caee7b2f7b4c4b857457e10fb98",
+    "Assets/ElevenEleven/Opening/Stormworks/Mirror-Godot-Art.glb": "cdef573ece1228dbfdd106c31f88f01dadfe838df4c7d2b2a4f95127048375d7",
+    "Assets/ElevenEleven/Opening/Stormworks/Decon-Godot-Art.glb": "38ae62644a027d3733b4b96a2e13bf4363a3275fa7914d8b46b2f1a209be30dd",
+    "Assets/ElevenEleven/Opening/Stormworks/ContainmentFacade-Tripo.glb": "082f57b66d163405111ae601fedf8da090961a6e4dbe7c77091dfe742fd699a9",
+    "Assets/ElevenEleven/Opening/Stormworks/MemoryCore-Tripo.glb": "7acc7b975c64308a1e9bd70f1e7b666766ab0d0f698744f3c5052768ac3bfd60",
+    "Migration/GodotRoomsSource.json": "9bda47f0ca7d54a3b4319e624d0a7d4db59fb54216b7aa40d4880688e49d89bd"
+  },
+  "open": [
+    "Kinja and Zero sequence",
+    "hospital",
+    "full chapter playtests and performance acceptance"
+  ]
+}

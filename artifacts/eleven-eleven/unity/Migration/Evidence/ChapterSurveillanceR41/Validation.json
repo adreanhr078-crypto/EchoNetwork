@@ -1,0 +1,60 @@
+{
+  "checkpoint": "UNITY_R41_SURVEILLANCE_APPROACHES_20261122",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "cdde3274bb3ee5f6e156aa173132bdec44c3adbfaf53298fac07af3cdc3d5f47",
+  "baseline_sha256": "4984e28bdf8849c2444672afd76f520e43b88f702573cac08c43dc790e6b651a",
+  "renderer": "Unity 6000.3.23f1 / URP / D3D11",
+  "colliders_unchanged": 394,
+  "motion": {
+    "zones": 16,
+    "targets": 389,
+    "checks": [
+      "animation",
+      "pause",
+      "reduced motion",
+      "culling"
+    ]
+  },
+  "entry_checks": 34,
+  "station_and_ward_checks": 155,
+  "surveillance": {
+    "flanges": 8,
+    "aisle_guides": 16,
+    "live_threshold_inlays": 8,
+    "states": [
+      "armed",
+      "Reduced Motion",
+      "restored shutdown"
+    ]
+  },
+  "capture_scope": "Five matched native Play Mode pairs, captured by the production follow camera. The R41 fittings are disabled for each baseline frame. The Reduced Motion pair verifies camera framing. The before/after images show identical route states.",
+  "captures_sha256": {
+    "93-Surveillance-Arrival-R40.png": "ee2d13ca520900cf6b73196312baf26dbc3d890bd0c146a5b436262377464f88",
+    "93-Surveillance-Arrival-R41.png": "6070d2be5f636bbe83f6f3d93e61d52f38f0ed6ec4f7a81f82e76d700c91bff0",
+    "94-Surveillance-Side-Aisle-R40.png": "a9c60795018f45e730ca6bf673a7e2cc5c599e805c0d7fdb82d0bd3ebcdb2c24",
+    "94-Surveillance-Side-Aisle-R41.png": "589368a493b69fe92c4666396829e9312e9f0168eff61c26ca3fa2611807c4a9",
+    "95-Surveillance-Approach-Emitter-R40.png": "95e3676aabdc8557e8762b53976c3b2a39ebc35ed979d06bfb1dcf964d7940be",
+    "95-Surveillance-Approach-Emitter-R41.png": "fb2c59fc3e637b9654f41674bb0053d594a459321c9e2d492b81fe4475f8e077",
+    "96-Surveillance-Reduced-Motion-R40.png": "563abda0744d858385daebdecf6141d51667426e5185a4c8d4eff9743af3dda7",
+    "96-Surveillance-Reduced-Motion-R41.png": "b507d9591ac07a6e934b44cf3b7e560e600b31d45f404f8eea71476f3747c4b7",
+    "97-Surveillance-After-Reload-R40.png": "d281a60c0da5376e8db2e918d7c485cdc5357e5654abaebb552254ed237a99de",
+    "97-Surveillance-After-Reload-R41.png": "c78c95470640b0516aef64fde3a6f5dc1aee7ce4b8cc1beea62c1b801d888650"
+  },
+  "windows": {
+    "status": "PASS_SCOPED_PLAYER_TIMINGS",
+    "device": "Intel(R) UHD Graphics",
+    "evidence": "Windows/Timings.json",
+    "build": {
+      "bytes": 3403639021,
+      "warnings": 1,
+      "compression": "None"
+    },
+    "p95_ms": {
+      "observatory": 805.73,
+      "reactor": 95.52,
+      "surveillance": 72.55,
+      "inspection-mirror": 32.22
+    }
+  },
+  "remaining": "Pressure and Security gameplay camera occlusion, Signal and remaining room art review, then sound and later roadmap stages."
+}

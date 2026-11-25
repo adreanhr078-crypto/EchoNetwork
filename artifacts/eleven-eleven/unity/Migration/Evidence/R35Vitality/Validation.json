@@ -1,0 +1,59 @@
+{
+  "checkpoint": "UNITY_R35_VITALITY_FIRST_PASS_20261119",
+  "route": {
+    "status": "PASS_SCOPED",
+    "entry_point": "ElevenEleven.Editor.ChapterR01Smoke.RunConnected",
+    "graphics": "Unity 6000.3.23f1 / D3D11",
+    "entry_checks": 34,
+    "station_checks": 126,
+    "scope": "Fresh isolated save; reduced-motion opening; animated station and ward; title Continue restores EX-011. Scripted inputs, repositioning and intermediate checkpoint reloads.",
+    "open": [
+      "Full-motion opening",
+      "Windows player and Android",
+      "Human route and art review"
+    ],
+    "mirror_review": "The reflected left wing and returning School65 are visible. Fringe and bright light still obscure the eyes.",
+    "captures_sha256": {
+      "24-Hospital-Pact-Reflection.png": "c86162a5000f1965cb4a2fa9cb52c55334c3adb704c703ee1ed2ce771b7670ea",
+      "25-Hospital-Normal-Reflection.png": "bbbec86fd611e55dc73fa910675559d872249a8e47c0078e0610b5f9e2f1edfc"
+    },
+    "compact_log_bytes": 8049,
+    "local_log_bytes": 162932,
+    "compact_log_reduction_percent": 95.1
+  },
+  "face": {
+    "status": "DERIVATIVE_REOPEN_PASS",
+    "blender": "4.5.16",
+    "right_eye_vertices": 136,
+    "left_eye_vertices": 130,
+    "scope": "Two named vertex groups and manually mapped optical landmarks. The original GLB is unchanged.",
+    "open": "Author eyelid deformation and verify neutral/blink at the same camera."
+  },
+  "springbone": {
+    "status": "SYNTHETIC_FIXTURE_PASS",
+    "repo": "https://github.com/unity3d-jp/UnityChanSpringBone",
+    "commit": "9415071549aee47c094657d9ef5af239b96c201f",
+    "license": "MIT",
+    "length_m": 0.08,
+    "peak_length_error_m": 2.98e-08,
+    "peak_angle_deg": 31.18,
+    "settled_angle_deg": 0.432,
+    "scope": "Three synthetic strands; fixed steps; 90-degree turn; no collision; pause check.",
+    "open": "Bind authored hair guides and test collision on School65. Author a separate Unity Cloth collar patch.",
+    "editor_log_note": "Unity Search raised an internal indexing exception during startup in the isolated lab; the runtime fixture ran and passed."
+  },
+  "paid_generations": 0,
+  "sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterTitle.unity": "e5227919fa86bc3ab1fd2501256978243d892a76179cf34d87889e0d8009fcb5",
+    "Assets/ElevenEleven/Scenes/ChapterOpening.unity": "78dcb554fb008a0577d90586b98c5bca0a1b6682895c1c1bba62a6bfbbd9198b",
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "67d2938f89469f146ffb978c9780b6db0ea7acfa58974f11c450e272c4b1e973",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReflection.cs": "478f8396489b9246ca444ab2e540c9fd4192c100025cc79a38e58eaee66dc79a",
+    "Assets/ElevenEleven/Editor/ChapterR01Smoke.cs": "5c787e4ef8cd2731ef347cda12e7ae6f2e0ce399ac2747d5fbbcf215a43033d7",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "fa449155450103131c121bb68c5f90186d3ddde5b92016f72474ef5a8bfca7a5",
+    "Assets/ElevenEleven/Echo/School/EchoSchool-Tripo-Original.glb": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+    "Migration/Review/EchoVitality/School65Intake.py": "2f08e2e584e7e86ab778f0571fa2b742affe43ffb2a5701622e527c75a4e08eb",
+    "Migration/Review/EchoVitality/School65-eye-landmarks.json": "f60ae264a0ce0b52d9cd404cbcb3629c35420341c6508865d05b9eb736f4e714",
+    "Migration/Review/EchoVitality/School65-eye-review.blend": "3a1e003deeda9eb50b4471280d60b14bb277494a3307627f0c86093860bb5566",
+    "Migration/Review/EchoVitality/SpringBoneReview.cs": "8c109b5c6993f82ee0bec66ddf7d1815e00ca4ef9c384d95b0458635609854ef"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-19",
+  "status": "PASS_SCOPED",
+  "unity": "6000.3.23f1",
+  "graphicsApi": "D3D11",
+  "suite": "ElevenEleven.Editor.StormworksSmoke.RebuildAndRun",
+  "environment": [
+    "ECHO_EXAMINATION_ONLY=1",
+    "ECHO_STATION_PACT=1",
+    "ECHO_STATION_KINJA=1",
+    "ECHO_STATION_WARD=1",
+    "ECHO_STATION_PACT_SEED=verified ZeroPact fixture"
+  ],
+  "scope": "Saved Pact72 before Kinja, through the confrontation, escape, the ward and the saved EX-011 reveal.",
+  "playModeChecks": 27,
+  "observedChecks": [
+    "The dedicated fixture starts from a saved Pact72 before facing Kinja",
+    "Reload restores precisely the earned avatar",
+    "Pact idle binds to the live skinned model",
+    "Pact72 stands upright at player scale after the animated reload",
+    "Pact72 walks through normal input after resume",
+    "URP direct capture supported",
+    "Pact strike cannot reach Kinja from the altar",
+    "First input contact saves without opening the decision",
+    "Reload resumes the encounter with the first contact and earned Pact72",
+    "Kinja confrontation opens on the theatre floor after recovery from the third contact",
+    "URP direct capture supported",
+    "Backing away preserves the confrontation",
+    "Echo releases Kinja before the escape wish",
+    "Failed wish write allows retry",
+    "Reload restores the unconfirmed wish",
+    "URP direct capture supported",
+    "Explicit consent commits the escape wish once",
+    "Confirmed wish does not replay on return",
+    "The escape resumes at the bedside without the wing or an automatic wake",
+    "The hospital uses its authored bedside safe anchor",
+    "URP direct capture supported",
+    "Explicit wake opens the ward",
+    "Ward reload preserves wake without repeating the film",
+    "A failed mirror write remains retryable",
+    "Reading the live mirror persists the EX-011 and chapter clear",
+    "URP direct capture supported",
+    "Chapter-cleared saves resume by the mirror with no duplicate grant"
+  ],
+  "chapterRoomSha256": "7e5ac1e1d63e5a8b3a3318d841253d005bcd0c1e793a61e60c1dd0999b3a9e83",
+  "wardSourceAssets": {
+    "WardAwakening.mp4": "1c642cea031ec9558a7384dd446952f9908bd8d78a92726ee8fa2b2ce25baefc",
+    "WardAwakening.png": "7265a5466cba2e38469ea16d123f9e0fad112cbe5953f1bc214e51aa80b9312b",
+    "WardBed.glb": "f1ff2bc012da0ec4ea8384f0065a9748e44af12310f44ef6238bbbd560c55ff1",
+    "WardCurtain.glb": "e0f21968e998770fb0fbe69cf960ad270a5bd5abcde2817a2b8f441fe4f88c0a",
+    "WardExterior.png": "b578229f4c0a2bc334ed8ea02ca431db0cd77e4e4900914936d70720b9b4a232",
+    "WardHeadwall.glb": "c9ccb13ee53e2f80e27ac0a053782d692dc95ba88c0def5ba67cb85b242f1b99"
+  },
+  "captureSha256": {
+    "21-Kinja-Confrontation.png": "9192448407cd84ce282a38eb7bb66e3680ebc4ea7f3bea1581d952c1138225f1",
+    "22-Zero-Wish.png": "a18d61ed74bba1b499ad2bd1cf9abf99f13844014e06c702a5f174fbc96d5b24",
+    "23-Hospital-Bedside.png": "c178fcb901a34e4cca411bb4f968f6ade333410b99d5a1e67099361ab0b8bcb8",
+    "24-Hospital-EX011.png": "e742a92c5aadab3215be877f10dd611dc2bc8a4e0e12a8a62f63251f25443653"
+  },
+  "remaining": [
+    "Full fresh-player route and device checks",
+    "Owner performance and cinematography review",
+    "Authored collar and bedside body motion"
+  ]
+}

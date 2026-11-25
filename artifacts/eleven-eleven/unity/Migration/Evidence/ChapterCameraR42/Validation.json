@@ -1,0 +1,28 @@
+{
+  "checkpoint": "UNITY_R42_PRESSURE_AND_SECURITY_CAMERA_20261122",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+  "baseline_sha256": "cdde3274bb3ee5f6e156aa173132bdec44c3adbfaf53298fac07af3cdc3d5f47",
+  "geometry": {
+    "colliders_and_transforms_unchanged": 394,
+    "security_progress_wiring_unchanged": true
+  },
+  "route": {
+    "title_checks": 34,
+    "station_and_ward_checks": 142,
+    "environment_motion_targets": 389,
+    "resumption": "The connected run wrote the final mirror save before timing out on the title. A fresh title launch resumed an exact copy of that save at the ward mirror without repeating its grant."
+  },
+  "camera": {
+    "survey_views": 8,
+    "modes": [
+      "Full Motion",
+      "Reduced Motion"
+    ],
+    "pressure_before_z": 21.377,
+    "pressure_after_z": 23.086,
+    "diversion_cabinet_no_longer_blocks_chest_ray": true
+  },
+  "windows_scope": "Independent Windows performance evidence belongs to R41. R42 was verified in Editor Play Mode.",
+  "next": "R43 reservoir and Signal utilities. Continue remaining room review and observatory performance profiling."
+}

@@ -1,0 +1,235 @@
+{
+  "checkpoint": "UNITY_R36_ROOM_POLISH_20261121",
+  "status": "EDITOR_VERIFIED",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "8109203e21a9377480ae0a707bf65f51ea6de72d36f266dd05dabefb68e98c91",
+  "colliders_preserved": 394,
+  "surfaces": 603,
+  "fixtures": 14,
+  "baked_decks_refinished": 2,
+  "playtested_scene_sha256": "b2ed6990a705bb80f708f8cc271a500faeab3222670861e247483a8cc81986c9",
+  "materials": {
+    "Pressure": {
+      "surfaces": 85,
+      "reused_cassettes": 72
+    },
+    "Service": {
+      "surfaces": 18,
+      "reused_cassettes": 0
+    },
+    "Reactor": {
+      "surfaces": 332,
+      "reused_cassettes": 0
+    },
+    "Sealed": {
+      "surfaces": 147,
+      "reused_cassettes": 143
+    },
+    "Clinical": {
+      "surfaces": 18,
+      "reused_cassettes": 16
+    },
+    "Ward": {
+      "surfaces": 1,
+      "reused_cassettes": 0
+    }
+  },
+  "floor_material_refs_in_scene": {
+    "Clinical deck": 19,
+    "Pressure deck": 85,
+    "Reactor deck": 333,
+    "Sealed deck": 147,
+    "Service deck": 18
+  },
+  "floor_projection_vertices": 29904,
+  "floor_projection_asset_bytes": 3419467,
+  "runtime_maps": {
+    "derived_from": "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Station-BrushedSteel-Base.png",
+    "source_sha256": "edf16ce01adb2217fd6ee5599b5c4d90f2b32309491c6a9556426e472908c88f",
+    "reused_ward_material": "Assets/ElevenEleven/Opening/Hospital/Finishes/Ward mottled vinyl.mat",
+    "ward_sha256": "9ecfb44bba331c7f764f1e354053a4366eed24ffe780604cf013d6a372386788",
+    "maps": {
+      "Clinical-Base.png": "61d2607f70752ff68912a111c408ed178ad5813d8c1a4a714da3fc0188ae8d96",
+      "Clinical-MetalSmooth.png": "cd247c2b9ce8e40055401d7f1fbb6eeaf4719cf6544143ff72cbba796751d189",
+      "Clinical-Normal.png": "88cd815b98b5acb0168fa09bc24cc7b963176b2ef540b7ba6e88c7e85ff777a5",
+      "Pressure-Base.png": "5e1c3248de951981c770490a8729a7489e12db801b142163ccc638ffb613ba2f",
+      "Pressure-MetalSmooth.png": "7aa2175c91a256660cbf821c8d1bf25c1277edb2ec2b04fb7cfd1a01951a0a69",
+      "Pressure-Normal.png": "757956a52f446df1e6271493b9e17e1372fd926534fb4654eb299ee17461ceb8",
+      "Reactor-Base.png": "1b11f242da0543fc70b7bec4b28cda976eff34815432d35f6aab4e0c15e71204",
+      "Reactor-MetalSmooth.png": "50257089ac508bfb4bed896bccadad90c499772c11bbfc07efbf0c9f6a88bf35",
+      "Reactor-Normal.png": "55b91ee2ed300305c385e9050a1c3d7f1ca4ed4d7ef769389228d6b8b162b027",
+      "Sealed-Base.png": "56bd8f195e5039fd9e512449ade674c36806e0f8e8169870ae1b33a79bc46d62",
+      "Sealed-MetalSmooth.png": "98742db49be06867b4b4fa236b5456ccba24032bb76a2f17980220b8dc8ba79d",
+      "Sealed-Normal.png": "97ba307cad0cc496abaee67ba65354ae6aa4c60f683ce5c96894ada0f54972a3",
+      "Service-Base.png": "33b07b5f05ac3fe385e7df5abeef61b2bb8e584db556d6421972e99ee481daa9",
+      "Service-MetalSmooth.png": "1157cd5bce1ef3fa4c5c7de7a3650eb2593b8f3f9c462441ea19e9f359d11119",
+      "Service-Normal.png": "e2a9bb4a57df036f1328e2d3d9f8e19e53abb6114f8428cc78d658a669c94e1f"
+    }
+  },
+  "motion": {
+    "zones": 16,
+    "total": 389,
+    "new": 128,
+    "minimum_per_zone": 23,
+    "areas": [
+      {
+        "controller": "Sensor louvers and dust",
+        "mechanism": "Security optical gimbal",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Sample glass and filter shutters",
+        "mechanism": "Sample filter metering bank",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Decoder fragments and iris petals",
+        "mechanism": "Memory indexing rotor",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Hot debris and regulator plates",
+        "mechanism": "Reactor thermal bypass shutters",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Condensate and check valves",
+        "mechanism": "Decontamination downdraft regulator",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Detached violet memories",
+        "mechanism": "Zero carrier field",
+        "moving_elements": 26
+      },
+      {
+        "controller": "Observation alcove afterimages",
+        "mechanism": "Observation telemetry sweep",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Examination filtration fins and air",
+        "mechanism": "Examination objective iris",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Optical blades and scratched glass",
+        "mechanism": "Surveillance scan carriage",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Mirror service edge and reflected dust",
+        "mechanism": "Reflection registration bars",
+        "moving_elements": 23
+      },
+      {
+        "controller": "Dust drifting across the window reveal",
+        "mechanism": "Window curtain in the morning draft",
+        "moving_elements": 26
+      },
+      {
+        "controller": "High orbit glacial shards",
+        "mechanism": "Chronostat reference iris",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Relay wind and copper cladding chips",
+        "mechanism": "Relay guide rollers",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Laboratory diffraction shelf",
+        "mechanism": "Laboratory spectrometer",
+        "moving_elements": 24
+      },
+      {
+        "controller": "Window chips and condensation",
+        "mechanism": "Signal phase register",
+        "moving_elements": 26
+      },
+      {
+        "controller": "Condensate and extraction shutters",
+        "mechanism": "Plenum differential regulator",
+        "moving_elements": 24
+      }
+    ],
+    "play_tested_pause_reduced_motion_and_culling": true
+  },
+  "checkpoint_play_route": {
+    "result": "PASS",
+    "checks": 104
+  },
+  "fresh_title_route": "Outside this scoped check",
+  "standalone_player_performance": "Unmeasured",
+  "captures": {
+    "41-Polished-Signal.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/41-Polished-Signal.png",
+      "sha256": "3dac13516c6b89741ae06ee0885a95f5198b076fec272ed32e75197aa67513b3"
+    },
+    "42-Polished-Signal-Reverse.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/42-Polished-Signal-Reverse.png",
+      "sha256": "0a5105b4f4537ba305e17a3a1d9d30e6d2a1f315a68ffde0afc6e8fa15435a69"
+    },
+    "43-Polished-Pressure.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/43-Polished-Pressure.png",
+      "sha256": "bbc648297dd06565927545a9c718188b332f9e6a2edad75c70c15198449aeb11"
+    },
+    "44-Polished-Relay.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/44-Polished-Relay.png",
+      "sha256": "93a96258ad0a3f561b79416b6e2ab421ad27fb9f5cdde8bba8d5791c7a73c370"
+    },
+    "45-Polished-Memory-Lab.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/45-Polished-Memory-Lab.png",
+      "sha256": "ae25bc3e2ed8531f8832a13dc882127dba1247b910df50be78dea13c543c8535"
+    },
+    "46-Polished-Security.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/46-Polished-Security.png",
+      "sha256": "ef2767f879ea87cbbda33beb79e01b7547382e6c550965d8c36717ea000b0181"
+    },
+    "47-Polished-Specimens.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/47-Polished-Specimens.png",
+      "sha256": "69b76c87371bfb8a5840ff3121465a4059e51d7cb9d2f634d6c78a8beb547259"
+    },
+    "48-Polished-Archive.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/48-Polished-Archive.png",
+      "sha256": "1fd8dbf74544582d462ef3264e787c183b0523a4437f8e9dd49a79046f26b128"
+    },
+    "49-Polished-Reactor.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/49-Polished-Reactor.png",
+      "sha256": "77266cd2583e342592e2fd23b3a8edd199cb4014ceed67e822fe8d0d6f9ca1e5"
+    },
+    "50-Polished-Quarantine.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/50-Polished-Quarantine.png",
+      "sha256": "128e74aa8c5834fd11bf1355489fefbb228035d2a90a817238aa1be4a3c01b8e"
+    },
+    "51-Polished-Surveillance.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/51-Polished-Surveillance.png",
+      "sha256": "c36299075b6352d955b0fa06cd56d8d358641a4bf224196508ee9cd41a4acc2e"
+    },
+    "52-Polished-Observatory.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/52-Polished-Observatory.png",
+      "sha256": "49d1103d8330bacda7d0033c1b53d854a4e447ae978917fccbedc6b0bc42495b"
+    },
+    "54-Polished-Examination.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/54-Polished-Examination.png",
+      "sha256": "9021b8514f7662b60b8abbb36762a7936faf2bc0e6fd68a8887322fc512cef45"
+    },
+    "55-Polished-Zero.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/55-Polished-Zero.png",
+      "sha256": "2e540c20e541e7a2ac1aea836c2c56a6ac0bd4fa16300a7e4143884d64881f7d"
+    },
+    "56-Polished-Confrontation.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/56-Polished-Confrontation.png",
+      "sha256": "2afd38da93ccbc882a1b3b35bf7141a6952343c97be5d813a55cd5e1af23829c"
+    },
+    "57-Polished-Ward.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-final/57-Polished-Ward.png",
+      "sha256": "9e471362dd986f1bc29996c995fb4275e8e8a329a22749d511176eb588d89529"
+    },
+    "12-InspectionMirror.png": {
+      "path": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/captures-room-polish-play/12-InspectionMirror.png",
+      "sha256": "8728e0f9464c6ddccc66a0c8eeb6aee47d96d6ace3db7acc972c1b14b81613bb"
+    }
+  },
+  "rollback": "C:/Users/yasmo/Documents/Codex/2026-11-20/new-chat-3/work/ChapterRoom01.before-room-polish.unity.gz"
+}

@@ -1,22 +1,41 @@
 {
-  "checkpoint": "UNITY_OPENING_UI_R12_20261113",
+  "checkpoint": "UNITY_R48_MEMORY_LABORATORY_20261123",
   "godot_baseline": "d4d95c1b83446a4802df5236237b928fe669682e",
-  "git_branch": "main",
-  "release_tag": "unity-handoff-2026-11-14",
   "unity_version": "6000.3.23f1",
   "project": "artifacts/eleven-eleven/unity",
   "checkpoint_file": "Migration/CURRENT_WORK.ar.md",
   "plan": "artifacts/eleven-eleven/docs/internal/production/PRODUCTION_RESET_2026-11-06.ar.md",
   "ledger": "Migration/CardLedger.json",
-  "next_card": "R12",
-  "next_status": "OPEN",
-  "next_action": "Mount pressure corridor, valve, and safe reset in isolated Unity Room01 review, then five new players.",
+  "next_card": "R49",
+  "next_status": "UNITY_R48_LAB_GAMEPLAY_AND_RESUME_VERIFIED",
+  "next_action": "Finish the Reactor vestibule reveal and cold-to-hot cues, then the harsh public-facing quarantine override panel, using cached art and follow camera checks. Continue the room plan before audio.",
+  "r34_route_entry_recheck": {
+    "status": "PASS_SCOPED",
+    "graphics": "Unity 6000.3.23f1 / D3D11 / Intel UHD",
+    "mapped_godot_links": 6,
+    "source_godot_controller_sha256": "37f8133754a1a9c35e635668e3c6518cf5d8fa3a3f82dbb5b14d9a8a5400ce54",
+    "entry_test": "ElevenEleven.Editor.ChapterR01Smoke.Run",
+    "entry_checks": 47,
+    "entry_scene_sha256": "67d2938f89469f146ffb978c9780b6db0ea7acfa58974f11c450e272c4b1e973",
+    "entry_test_sha256": "f5a6d880af3b3d65d57e74ec98308889d41ed41734cb88a3d0bdf33101f246e8",
+    "station_test": "ElevenEleven.Editor.StormworksSmoke.Run from end-of-Room01 fixture with Pact, Kinja and Ward enabled",
+    "station_checks": 122,
+    "station_baseline_scene_sha256": "bc7d8c044a3d5bda38ab53d16ed88fbfc18a29f58daace897870e049f05f6454",
+    "logs": "C:/Users/yasmo/Documents/Codex/2026-11-19/h-lg/work",
+    "open": "One fresh continuous title-to-ward run, player and owner review, Windows export, target-device performance.",
+    "character_plan": "C:/Users/yasmo/Documents/Codex/2026-11-19/h-lg/outputs/11.11-خطة-حيوية-إيكو.md",
+    "school65_source_sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+    "school65_source_probe": "65 joints, no primitive morph targets, no hair or garment chains identified by joint name",
+    "paid_generations": 0
+  },
   "release_evidence": "Migration/Evidence/OpeningUI/Validation.json",
   "worker_policy": "ROOT_ONLY; hash and cache first; preserve Canon and Golden; external generation only for a measured gap",
   "opening_followup": {
     "state": "OPEN",
     "path": "Migration/OpeningContinuity.ar.md",
-    "next": "Use cached keyframes and audio to extend an uninterrupted lab chair sit and show Kinja beside Echo during his distress."
+    "next": "Verify both integrated Flow edits in Windows and review the matching cut and sound.",
+    "manifest": "Migration/OpeningFlow3D.json",
+    "windows_status": "Build interrupted in compute shader compilation; Editor full-motion probe did not decode the school clip in batch mode."
   },
   "verified_opening_windows": {
     "full": 99,
@@ -48,5 +67,327 @@
     "Assets/ElevenEleven/Opening/OpeningCinematicPresenter.cs": "f9b14884d99733e5460521f66b3fc88732d14ff21892a8a91dddc50cd23d78df",
     "Assets/ElevenEleven/Opening/ChapterSceneLink.cs": "fbdd83d7b22ce659a4d37f83d6cb1c2a0cd31a64b1968cfe22256e247a5182d4",
     "Assets/ElevenEleven/Opening/ChapterWindowsAcceptance.cs": "9d121455faf599e781c0f777a6de042c4f483812b075f83a6cda4c3fc46c62bf"
+  },
+  "unity_redesign_20261118": {
+    "state": "IMPLEMENTING_APPROVED_HYBRID",
+    "plan": "Migration/UNITY_REBUILD_PLAN.ar.md",
+    "acceptance_scope": "Full core Godot chapter migrated and expanded, before Windows trial or delivery",
+    "next": "After owner decisions, review source coverage then fix governor LOD and replace draft geometry with Godot Stormworks modules.",
+    "playmode": {
+      "renderer": "D3D11",
+      "station_checks": 22,
+      "fresh_title_regression": "OPEN after older harness stopped on entry UI"
+    },
+    "tripo": {
+      "task": "255f685a-a3f2-42a9-b637-22013f810caf",
+      "verified_spent": 80,
+      "source": "Migration/ArtSources/PressureGovernor/Tripo-Original-4K.glb",
+      "review": "203,994 triangle close governor derivative reviewed after correcting breakup; original and reference retained"
+    },
+    "reclaimed_disk_bytes": 7378337792,
+    "sha256": {
+      "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "922261a1fba72d17631d945072f1ec9cda0d6f4120dcddb5e12e95fa7976d6c5",
+      "Assets/ElevenEleven/Opening/Stormworks/PressureGovernor-Unity.glb": "a29863b541a3a64759da335d87d600d7f38b8276fa90d7ab97420b1c29e7a426",
+      "Assets/ElevenEleven/Echo/Locomotion/SchoolRun.anim": "b6929c47d5d4fb01bd498a6ecf2c74b0edf2b33f33dcb2ac731e99ce6b58e934",
+      ".agents/skills/echo-unity-art-motion/SKILL.md": "c674a25bebfaa3374e3b347945d3f0036dd8a1159ca96caba532ab7804863860",
+      "Migration/GodotRoomsSource.json": "9bda47f0ca7d54a3b4319e624d0a7d4db59fb54216b7aa40d4880688e49d89bd",
+      "Assets/ElevenEleven/Opening/Stormworks/Stormworks-Godot-Kit.glb": "8580e3ef57692149d821535f7adef0f31e8b07102d7561fe5dc9567ebc01e779"
+    },
+    "owner_direction": "Station hub with short direct wing-to-wing paths and unlockable returns. Mystery/traversal first, combat after explicit pact. Keep Tripo hero art and authored Unity gameplay/VFX.",
+    "source_inventory": "Migration/GodotRoomsSource.json",
+    "route_order": [
+      "containment",
+      "pressure",
+      "station",
+      "relay",
+      "lab annex",
+      "security",
+      "specimen",
+      "archive",
+      "reactor",
+      "decontamination",
+      "mirror",
+      "Kinja",
+      "hospital"
+    ],
+    "verified_connected_through": "Surveillance to examination landing; D3D11, local save stages 9–15, scoped",
+    "checkpoints": {
+      "archive_d3d11_checks": 48,
+      "reactor_headless_checks": 48,
+      "archive_media": "three shard scenes bound to cached Flow clips and posters; first verified decoded inside Unity",
+      "demo_export": "Not requested before complete Godot core and quality acceptance",
+      "surveillance_d3d11_checks": 75
+    },
+    "pending_after_reactor": [
+      "Kinja and Zero sequence",
+      "hospital",
+      "full chapter playtests and performance acceptance"
+    ],
+    "reference_art": {
+      "facade": {
+        "tripo": "86a2c001-7d30-4b67-a870-8274499f8bd8",
+        "ref": "Migration/ArtSources/ContainmentFacade/Reference.png"
+      },
+      "core": {
+        "tripo": "db127bc6-2914-4149-855b-88e24891b15b",
+        "ref": "Migration/ArtSources/MemoryCore/Reference.png"
+      }
+    },
+    "godot_visual_cache": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-17\\h\\work\\godot-art",
+    "current_evidence": "Migration/Evidence/Station/Validation.json",
+    "tripo_ceiling_and_floor": "Two generated assets retained in Studio; export blocked. Source references cached under Migration/ArtSources. Runtime uses locally modeled cassettes."
+  },
+  "r31": {
+    "scope": "PASS_SCOPED",
+    "evidence": "Migration/Evidence/Examination/Validation.json",
+    "checks": 84,
+    "card": "Migration/Card-R31.json",
+    "pact": {
+      "scope": "PASS_SCOPED",
+      "checks": 48,
+      "evidence": "Migration/Evidence/ZeroPact/Validation.json"
+    }
+  },
+  "r32": {
+    "scope": "PASS_SCOPED",
+    "card": "Migration/Card-R32.json",
+    "evidence": "Migration/Evidence/ConfrontationWard/Validation.json",
+    "checks": 27
+  },
+  "r33": {
+    "scope": "PASS_SCOPED",
+    "card": "Migration/Card-R33.json",
+    "evidence": "Migration/Evidence/ConfrontationWard/Validation.json",
+    "checks": 27
+  },
+  "r34": {
+    "source": "godot/scripts/systems/native_campaign_controller.gd",
+    "live_room_ids": [
+      "specimen",
+      "archive",
+      "reactor",
+      "decon",
+      "mirror",
+      "lab"
+    ],
+    "unity_scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity"
+  },
+  "omega_slice": {
+    "status": "PASS_SCOPED",
+    "evidence": "Migration/Evidence/OmegaSlice/Validation.json",
+    "play_mode_checks": 75,
+    "priority": "Ward interactive close-up, then authored lab performance and final Flow scenes",
+    "original_assets_reused": true,
+    "paid_generations_this_session": 0
+  },
+  "r35_vitality": {
+    "evidence": "Evidence/R35Vitality/Validation.json",
+    "entry_checks": 34,
+    "station_checks": 126,
+    "review_assets": "Review/EchoVitality",
+    "springbone_commit": "9415071549aee47c094657d9ef5af239b96c201f",
+    "paid_generations": 0
+  },
+  "ward_art": {
+    "evidence": "Evidence/WardArt/Validation.json",
+    "ward_checks": 14,
+    "examination_to_ward_checks": 80,
+    "skill_bundle_revision": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+    "skills_installed_project_local": 80,
+    "paid_generations": 0,
+    "final_examination_layout_checks": 31
+  },
+  "examination_theatre_finish": {
+    "evidence": "Evidence/ExaminationFinish/Validation.json",
+    "checks": 67,
+    "paid_generations": 0
+  },
+  "echo_station_finish": {
+    "evidence": "Evidence/EchoStationFinish/Validation.json",
+    "checks": 23,
+    "paid_generations": 0
+  },
+  "chronostat_hero": {
+    "evidence": "Evidence/ChronostatArt/Validation.json",
+    "checks": 28,
+    "route_and_standard_capture_checks": 23,
+    "infrastructure_material_effects_and_additional_capture_checks": 5,
+    "tripo_credit_balance_at_check": 870
+  },
+  "memory_observatory": {
+    "status": "PASS_SCOPED",
+    "evidence": "Evidence/MemoryObservatory/Validation.json",
+    "checks": 29,
+    "scene_sha256": "b201b213d0982c06662ae1d730e90b1d08bdba4d6d01d5178dc4237d15175f10",
+    "cached_sources": "ArtSources/MemoryObservatory/Provenance.json",
+    "tripo_credits_billed": 250,
+    "tripo_balance_after_jobs": 620,
+    "originals_preserved": true,
+    "visual_review": "awaiting owner review"
+  },
+  "observatory_catwalk": {
+    "evidence": "Evidence/MemoryObservatoryCatwalk/Validation.json",
+    "status": "PASS_SCOPED",
+    "checks": 34,
+    "chapter_scene_sha256": "1a521b15b9fa54cd57aa7474926cfa0572746fd22ababf603efa9ca0c6d1c205",
+    "tripo_credit_balance_at_check": 300,
+    "tripo_credits_this_pass": 320,
+    "source_cache": [
+      "ArtSources/MemoryObservatory/Corridor-Provenance.json",
+      "ArtSources/MemoryObservatory/Shard-Provenance.json"
+    ],
+    "needs": "Owner visual review and frame timings on target hardware"
+  },
+  "observatory_entrances": {
+    "status": "PASS_SCOPED",
+    "checks": 45,
+    "evidence": "Evidence/ObservatoryEntrances/Validation.json",
+    "source_cache": "ArtSources/MemoryObservatory/Entrances/Provenance.json",
+    "tripo_credits": 300,
+    "tripo_balance": 0,
+    "sha256": "4e92622b66db12fe49c93cbd793eb551ac799029fb15761b24aa33dd6d795d3d"
+  },
+  "observatory_bedrock": {
+    "checks": 46,
+    "evidence": "Evidence/ObservatoryBedrock/Validation.json",
+    "scene_sha256": "01c8d13177e183fa3df52526e224d7ccb1c82f1e1e1843f08a586bd89672159c",
+    "windows_profiled_locally": false,
+    "windows_build_status": "BLOCKED_LOW_DISK"
+  },
+  "station_wing_finish": {
+    "checks": 144,
+    "evidence": "Evidence/StationWingFinish/Validation.json",
+    "source_sha256": "fa2c2a46a8328e40b1cb13623c0592a10d94447261b05391394a6ded60ba03ac",
+    "fresh_title_to_ward": null,
+    "windows_profiled_locally": false
+  },
+  "chapter_room_rebuild": {
+    "status": "PARTIAL",
+    "evidence": "Evidence/ChapterRoomRebuild/Validation.json",
+    "sources": "ArtSources/ChapterRoomRebuild/Provenance.json",
+    "scene_sha256": "86fa5c1cefbf0fa56065dbc196f2b4745f0f81b08548d2cebbdfebc38e7ee683",
+    "zones": 16,
+    "moving_elements": 261,
+    "minimum": 15,
+    "motion_play_mode": false,
+    "station_fixture_checks": null,
+    "fresh_title_to_ward": null,
+    "windows_profiled_locally": false
+  },
+  "tripo_room_rebuild": {
+    "scene_sha256": "21db8d9c317f2cd1f5ce9b2a66e2ffa5bb5935a8c8636817f0d09808f0ffbf26",
+    "unique_new_assets": 20,
+    "scene_instances": 56,
+    "pbr_assets": 18,
+    "motion_zones": 16,
+    "authored_moving_elements": 261,
+    "collider_identity_count": 372,
+    "evidence": "Evidence/ChapterTripoKit/Validation.json",
+    "studio_final_credits_observed": 0
+  },
+  "r36_room_polish": {
+    "evidence": "Migration/Evidence/ChapterRoomPolish/Validation.json",
+    "surfaces": 603,
+    "fixtures": 14,
+    "movement_zones": 16,
+    "moving_elements": 389,
+    "additional_targets": 128,
+    "minimum_per_zone": 23,
+    "checkpoint_route_checks": 104,
+    "source_scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+    "source_scene_sha256": "8109203e21a9377480ae0a707bf65f51ea6de72d36f266dd05dabefb68e98c91"
+  },
+  "r37_flow_restaging": {
+    "evidence": "Migration/Evidence/ChapterRoomFlowRestaging/Validation.json",
+    "room_floors_walls_and_ceilings": 2342,
+    "moving_elements": 389,
+    "source_scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+    "source_scene_sha256": "b8da86377e49bb12739bf81b3f03bc1611cc2273c60a216e306d87078ce8d174",
+    "flow_manifest": "Migration/ArtSources/ChapterRoomRebuild/R37/FlowReferences.json",
+    "play_route_verified": false
+  },
+  "r38_cinematography": {
+    "evidence": "Migration/Evidence/ChapterCinematography/Validation.json",
+    "scene_sha256": "1fdc0ff990d40360b8adbdc85b6f52d40e5dbbb51fdb62f1ef12abe1d47b483d",
+    "authored_lights": 15,
+    "camera_profiles": 16,
+    "scattering_shafts": 8,
+    "camera_pass": true,
+    "utility_pass": false,
+    "entry_checks": 0,
+    "station_checks": 0
+  },
+  "r39_wall_fabrication_scanner_gallery": {
+    "sha256": "2771077ffc4a1ce69cdea93692c3f9a22988e6229bfb693f37076a7bb367a326",
+    "baseline_sha256": "1fdc0ff990d40360b8adbdc85b6f52d40e5dbbb51fdb62f1ef12abe1d47b483d",
+    "evidence": "Migration/Evidence/ChapterWallFabrication/Validation.json",
+    "references": "Migration/ArtSources/ChapterRoomRebuild/R39",
+    "motion": "389 motion targets in 16 zones tested in the earlier R39 fit; four stateful scanner arcs tested in the final gallery.",
+    "colliders": 394,
+    "route": "Signal gate and Surveillance validated separately. Earlier play reached EX-011 with an isolated save.",
+    "ward_resume_pass": true,
+    "rollback": "ChapterRoom01.before-R39.unity.gz in the continuation work directory."
+  },
+  "production_roadmap": "Migration/CHAPTER_PRODUCTION_ROADMAP.ar.md",
+  "r40_station_details": {
+    "scene_sha256": "4984e28bdf8849c2444672afd76f520e43b88f702573cac08c43dc790e6b651a",
+    "baseline_sha256": "2771077ffc4a1ce69cdea93692c3f9a22988e6229bfb693f37076a7bb367a326",
+    "evidence": "Migration/Evidence/ChapterStationR40/Validation.json",
+    "visual_review_and_windows": "Owner visual review and standalone Windows profiling are open. Isolated Windows export hit the C: disk reserve even with Unity LZ4. See R40 Validation.json."
+  },
+  "r41_surveillance_approaches": {
+    "scene_sha256": "cdde3274bb3ee5f6e156aa173132bdec44c3adbfaf53298fac07af3cdc3d5f47",
+    "evidence": "Migration/Evidence/ChapterSurveillanceR41/Validation.json",
+    "windows": "Migration/Evidence/ChapterSurveillanceR41/Windows/Timings.json",
+    "windows_p95_ms": {
+      "observatory": 805.73,
+      "reactor": 95.52,
+      "surveillance": 72.55,
+      "inspection-mirror": 32.22
+    }
+  },
+  "r42_pressure_and_security_camera": {
+    "scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+    "evidence": "Migration/Evidence/ChapterCameraR42/Validation.json"
+  },
+  "r43_physical_water": {
+    "scene_sha256": "dbeddea07a7a81d44c1adbfb52a8ead767958e527f8ee406866c12c89203d79a",
+    "evidence": "Migration/Evidence/ChapterWaterR43/Validation.json"
+  },
+  "r44_observatory_diagnostic": {
+    "evidence": "Migration/Evidence/ChapterReviewR44/ObservatoryDiagnostic.json",
+    "editor_p95_ms": {
+      "baseline": 605.177,
+      "no-additional-light-shadows": 1162.263,
+      "no-realtime-shadows": 662.767,
+      "water-hidden": 638.263
+    }
+  },
+  "r44_route_camera_survey": {
+    "view_count": 16,
+    "evidence": "Migration/Evidence/ChapterReviewR44/RoomCameraSurvey.json"
+  },
+  "r44_embedded_texture_audit": {
+    "evidence": "Migration/Evidence/ChapterReviewR44/EmbeddedTextureAudit.json",
+    "model_count": 27,
+    "map_count": 74,
+    "editor_allocated_mib": 849.4
+  },
+  "r45_scanner_and_observatory_exteriors": {
+    "scene_sha256": "af5f2a5d35c85f17d161d78cb20e030e17269a0a7c0ba640088c3582a12d7b6a",
+    "evidence": "Migration/Evidence/ChapterExteriorsR45/Validation.json"
+  },
+  "r46_cached_runtime_maps": {
+    "evidence": "Migration/Evidence/ChapterRuntimeMapsR46/Validation.json",
+    "before_bytes": 349535641,
+    "after_bytes": 97877536
+  },
+  "r47_specimen_archive_approaches": {
+    "scene_sha256": "6607060ead2a79fdf2a6d8a8c4ccf437c245e46bee36e03c616c5be9640a0a06",
+    "evidence": "Migration/Evidence/ChapterRecordsR47/Validation.json"
+  },
+  "r48_memory_lab_inductors": {
+    "scene_sha256": "c3658f7acbe5b102c5c45a43f858eb131014708bd034b72751dcc667a07fcb3a",
+    "evidence": "Migration/Evidence/ChapterLaboratoryR48/Validation.json"
   }
 }

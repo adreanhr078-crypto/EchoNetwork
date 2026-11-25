@@ -1,0 +1,48 @@
+{
+  "checkpoint": "UNITY_R36_TRIPO_ROOM_REBUILD_20261121",
+  "status": "PASS_SCOPED",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "scene_sha256": "21db8d9c317f2cd1f5ce9b2a66e2ffa5bb5935a8c8636817f0d09808f0ffbf26",
+  "engine": "Unity 6000.3.23f1 / URP / D3D11",
+  "kit_provenance": "ArtSources/ChapterRoomRebuild/TripoKit/Provenance.json",
+  "unique_new_assets": 20,
+  "scene_instances": 56,
+  "unique_geometry_triangles": 318491,
+  "pbr_assets": 18,
+  "collider_identity_count": 372,
+  "motion_zones": 16,
+  "authored_moving_elements": 261,
+  "minimum_per_zone": 15,
+  "editor_visual_captures": {
+    "41-Tripo-Signal.png": "75f9904b0281604aac18f5e612a8bd72ca9672f7061b36074ee18f671dcc5eac",
+    "42-Tripo-Signal-Reverse.png": "1a4f3583a53a85f253e6616447e75d81e2864b5223ce6b777b8144740114cf4c",
+    "43-Tripo-Pressure.png": "578b982fe4236703b4ed7f1efce4c4032270c135840ccde3e60f06576fc5dac5",
+    "44-Tripo-Relay.png": "67c16fe0179ea97bc074c5cfce1fb9ff46cb68be61043799200a286006784613",
+    "45-Tripo-Memory-Lab.png": "455eef49e5ee372385ee0fc4b6d4c3fe4826fc190a233aaf9266c8d137e3ebdb",
+    "46-Tripo-Security.png": "05f4557a73dac231c2875feb61adb626150cbf635064616ba87cb926c793ab3b",
+    "47-Tripo-Specimens.png": "2952e4afad8ecba0eb34d3bc127a2001a6e74c4b5eece5d94173c896467555a0",
+    "48-Tripo-Archive.png": "80976a7e717ee1feef5a4b91771e10554a8a3cdb1d39685ec7cf1a7d2e460063",
+    "49-Tripo-Reactor.png": "978882d1744e1875e5589efd4133242c409845fc0abc36a6742d890bfa33b40b",
+    "50-Tripo-Quarantine.png": "35ba04919f0ee256b92e864fee194f0e8309afc0015ab348436d812829195a93",
+    "51-Tripo-Surveillance.png": "446fba63e7705e73022a272c4af2a794169f2ac7ed0b16bfb72ceecd310c26bb",
+    "54-Tripo-Examination.png": "284120e90497039f8ae7c31216df270383b404de454b5ca437bdb7f5fa12b03c",
+    "55-Tripo-Zero.png": "87be9796648c75d2a8c398c3fc660a6c867ac42f60ef030489893d3d4d4c93b8",
+    "56-Tripo-Confrontation.png": "269261ca376cdc8cc90bea49164fe14cfd92a0923a628d40c6d637134a84f673",
+    "57-Tripo-Ward.png": "8c12f9069c20e7f22a326f5fe74381633c3d0e2d21b1b5656864dd558739727f"
+  },
+  "prior_layer_play_mode": {
+    "evidence": "Evidence/ChapterRoomRebuild/Validation.json",
+    "gate_to_pact": 128,
+    "pact_to_ward": 31,
+    "motions": true
+  },
+  "fresh_title_full_route": "Open. The earlier Unity run reached the opening film and timed out waiting for the room.",
+  "windows_player_performance": null,
+  "owner_visual_review": null,
+  "rollback_scene": "C:\\Users\\yasmo\\Documents\\Codex\\2026-11-20\\new-chat-3\\work\\ChapterRoom01.before-full-tripo-kit.unity.gz",
+  "source_sha256": {
+    "Assets/ElevenEleven/Editor/ChapterRoomTripoKit.cs": "f9aaa01d48acead2c1c67eb063d388a61be5f5e8d7da272257727bff9f28aa08",
+    "Assets/ElevenEleven/Editor/StormworksConstruction.cs": "6a55244badbb1d801a2ec42a6e84ccba966ba1df7c8f4492d7198d0732d9e17b",
+    "Assets/ElevenEleven/Opening/RoomEnvironmentMotion.cs": "2621349d7a2fb7a68ae983d941bc192cfe39c56c9f80d3ab79637c2bc2a8d652"
+  }
+}

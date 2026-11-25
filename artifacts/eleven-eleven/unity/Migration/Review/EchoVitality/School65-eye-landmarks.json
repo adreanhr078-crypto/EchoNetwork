@@ -1,0 +1,174 @@
+{
+  "status": "TOPOLOGY_REVIEW",
+  "source_sha256": "dab651f21b85b509853729b3d3ee6c8dbc888621c9f2f644696516ccfcceece9",
+  "coordinates": "Blender world metres and School65-eye-geometry.png pixels",
+  "selection": "Manually placed surface landmarks, mapped by orthographic ray cast",
+  "connectivity": "Exact-position seam analysis rounded to one micrometre; source mesh untouched",
+  "vertices": 108934,
+  "triangles": 51552,
+  "materials": 1,
+  "bones": 65,
+  "shape_keys": false,
+  "eyes": {
+    "right_eye": {
+      "outer": {
+        "pixel": [
+          306,
+          509
+        ],
+        "world_m": [
+          -0.030047,
+          -0.037526,
+          0.908166
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "upper": {
+        "pixel": [
+          392,
+          521
+        ],
+        "world_m": [
+          -0.021783,
+          -0.024987,
+          0.907012
+        ],
+        "analysis_component": 32263,
+        "component_vertex_count": 136
+      },
+      "inner": {
+        "pixel": [
+          503,
+          551
+        ],
+        "world_m": [
+          -0.011117,
+          -0.029052,
+          0.90413
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "lower": {
+        "pixel": [
+          397,
+          568
+        ],
+        "world_m": [
+          -0.021303,
+          -0.020208,
+          0.902496
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "iris": {
+        "pixel": [
+          403,
+          547
+        ],
+        "world_m": [
+          -0.020726,
+          -0.024862,
+          0.904514
+        ],
+        "analysis_component": 32263,
+        "component_vertex_count": 136
+      },
+      "cheek_reference": {
+        "pixel": [
+          393,
+          629
+        ],
+        "world_m": [
+          -0.021687,
+          -0.025583,
+          0.896634
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      }
+    },
+    "left_eye": {
+      "outer": {
+        "pixel": [
+          894,
+          511
+        ],
+        "world_m": [
+          0.026456,
+          -0.016547,
+          0.907973
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "upper": {
+        "pixel": [
+          804,
+          523
+        ],
+        "world_m": [
+          0.017807,
+          -0.024993,
+          0.90682
+        ],
+        "analysis_component": 72307,
+        "component_vertex_count": 130
+      },
+      "inner": {
+        "pixel": [
+          700,
+          555
+        ],
+        "world_m": [
+          0.007814,
+          -0.029541,
+          0.903745
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "lower": {
+        "pixel": [
+          808,
+          568
+        ],
+        "world_m": [
+          0.018192,
+          -0.020004,
+          0.902496
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      },
+      "iris": {
+        "pixel": [
+          797,
+          547
+        ],
+        "world_m": [
+          0.017135,
+          -0.024887,
+          0.904514
+        ],
+        "analysis_component": 72307,
+        "component_vertex_count": 130
+      },
+      "cheek_reference": {
+        "pixel": [
+          813,
+          630
+        ],
+        "world_m": [
+          0.018672,
+          -0.025351,
+          0.896538
+        ],
+        "analysis_component": 107697,
+        "component_vertex_count": 59373
+      }
+    }
+  }
+}

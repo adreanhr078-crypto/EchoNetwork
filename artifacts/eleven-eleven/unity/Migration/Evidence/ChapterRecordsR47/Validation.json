@@ -1,0 +1,39 @@
+{
+  "checkpoint": "UNITY_R47_RECORD_APPROACHES_20261123",
+  "scene_sha256": "6607060ead2a79fdf2a6d8a8c4ccf437c245e46bee36e03c616c5be9640a0a06",
+  "baseline_scene_sha256": "af5f2a5d35c85f17d161d78cb20e030e17269a0a7c0ba640088c3582a12d7b6a",
+  "renderer": "Unity 6000.3.23f1 Play Mode / URP / D3D11",
+  "preserved_colliders": 394,
+  "archive_visual_orbits": 3,
+  "camera_pose_source": "R47 Full Motion camera position, direction and FOV match the values printed for the two R44 baseline shots.",
+  "gameplay_views": [
+    "01-Specimen-Full feet=(-5.820, 0.040, 115.890) eye=(-6.150, 2.415, 112.187) forward=(0.054, -0.225, 0.973) fov=59.00 reduced=False",
+    "02-Specimen-Reduced feet=(-5.820, 0.040, 115.890) eye=(-5.820, 2.250, 112.382) forward=(0.000, -0.225, 0.974) fov=60.00 reduced=True",
+    "04-Archive-Full feet=(-35.170, 0.080, 119.240) eye=(-34.850, 2.347, 115.830) forward=(-0.057, -0.225, 0.973) fov=56.00 reduced=False",
+    "05-Archive-Reduced feet=(-35.170, 0.080, 119.240) eye=(-35.170, 2.290, 115.732) forward=(0.000, -0.225, 0.974) fov=60.00 reduced=True"
+  ],
+  "interaction_checks": [
+    "native specimen dressing and recorder are active",
+    "EX-011 commits stage five",
+    "specimen gate commits Archive access",
+    "fragment 1 updates persistent bit mask",
+    "fragment 2 updates persistent bit mask",
+    "fragment 3 updates persistent bit mask",
+    "supported native archive optics shader",
+    "archive interaction commits decoded stage and mask",
+    "decoded stage and three fragments restored",
+    "recovered shards stay absent after title resume"
+  ],
+  "scope": "Stage 4 isolated title resume, EX-011 record, gate crossing, three fragment interactions, decoding, and a fresh title resume from the resulting stage 7 save.",
+  "editor_diagnostic": "Unity SearchDatabase emitted a startup indexing exception in both Play sessions. Route checks and native D3D11 renders completed with exit code 0.",
+  "captures": {
+    "77-Specimen-EX011.png": "acf281d5ca4a4821e3ff9cf41afc50f20c4acb7f147ec67c956511208fb36e3d",
+    "01-Specimen-Full.png": "55b6ab57b566006d61f8655d5917a811da39c893ec85087e71ae601e3a1a7fe9",
+    "78-Archive-Decoder.png": "146edd06a89584b6890b1b3ae95b06aa3f4e5748f946ba01098b236a5614272b",
+    "04-Archive-Full.png": "e28454cc86a26019da915f9b3027c8a3e49bfe62f5f9fad057800cf04a54e562",
+    "02-Specimen-Reduced.png": "5938316ce57a065511f3a836b3909a5304d3b1884ad697c9bd6a0c38a8a3c12d",
+    "05-Archive-Reduced.png": "efe90a654668b9400b259227a15cf7f1f5ef3ac0c5437a6d6ab2bde4250c403d",
+    "03-EX011-Close.png": "bd6d732c5466afcef52e4670b13a421c87c6db8b3eac7ddf497e32e6f26edf88",
+    "06-Archive-Projection-Landmark.png": "16c9a6bde528516b53792dde231eccbbe47dc490f0221407d9fd35eaaf5564fb"
+  }
+}

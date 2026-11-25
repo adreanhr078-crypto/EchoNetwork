@@ -1,0 +1,47 @@
+{
+  "checkpoint": "UNITY_R48_MEMORY_LABORATORY_20261123",
+  "scene_sha256": "c3658f7acbe5b102c5c45a43f858eb131014708bd034b72751dcc667a07fcb3a",
+  "baseline_scene_sha256": "6607060ead2a79fdf2a6d8a8c4ccf437c245e46bee36e03c616c5be9640a0a06",
+  "renderer": "Unity 6000.3.23f1 Play Mode / URP / D3D11",
+  "preserved_colliders": 394,
+  "shared_meshes": 1,
+  "inductors": 2,
+  "original_collars": 12,
+  "camera_and_motion": [
+    "01-Lab-Powered-Full feet=(15.000, 0.080, 66.702) eye=(15.300, 2.272, 63.487) forward=(-0.056, -0.225, 0.973) fov=55.00 surfaceTime=0.3333 reduced=False",
+    "02-Lab-Powered-Advanced feet=(15.000, 0.080, 66.702) eye=(15.300, 2.272, 63.487) forward=(-0.056, -0.225, 0.973) fov=55.00 surfaceTime=1.0000 reduced=False",
+    "04-Lab-Powered-Reduced feet=(15.000, 0.080, 66.702) eye=(15.000, 2.290, 63.194) forward=(0.000, -0.225, 0.974) fov=60.00 surfaceTime=1.0000 reduced=True",
+    "05-Lab-Reduced-Held feet=(15.000, 0.080, 66.702) eye=(15.000, 2.290, 63.194) forward=(0.000, -0.225, 0.974) fov=60.00 surfaceTime=1.0000 reduced=True"
+  ],
+  "baseline_camera": "Same player anchor as the R44 before image. R44 has 0.89 degrees more FOV and is 0.342 m nearer.",
+  "left_coil_native_capture_mean_absolute_rgb_delta": {
+    "full_motion": [
+      5.093,
+      15.238,
+      16.185
+    ],
+    "reduced_motion_held": [
+      3.777,
+      1.911,
+      1.269
+    ]
+  },
+  "interaction_checks": [
+    "Lab readout is active",
+    "native dielectric shader uses its dedicated branch",
+    "real restored relay powers the coil shader",
+    "Reduced Motion freezes inductor phase with the fixed camera lens",
+    "real log interaction commits stage three",
+    "fresh title resume retains the log and relay power"
+  ],
+  "capture_sha256": {
+    "75-MemoryLab-LogApproach.png": "491d67ab65ac45e4321a262f7459869f932f5709fcb0546b5309004266240b46",
+    "01-Lab-Powered-Full.png": "c8329ea8238b8612c3ffe18ad897b640b82022ac37f9d40535cc1f9ddadf26aa",
+    "02-Lab-Powered-Advanced.png": "d1d6929db862dd1beeb2c91dfe004988c90b714f6985033caaa65e7ea8b811c3",
+    "03-Lab-Inductor-Close.png": "c36a121867fab74b26fc7e2152455a9aaaafe8ba1290e8d9596b2f141f7a134a",
+    "04-Lab-Powered-Reduced.png": "bae75169b592bc0ea6bf44581b394a3edee02930676a18c247435b11af0a5540",
+    "05-Lab-Reduced-Held.png": "c93c9c493b87013b219a62be4f0a84e0e7f3e6679c9d40293ac6ee297235a6ba"
+  },
+  "scope": "Native graphical relay and log interaction in stage 2. A separate Unity headless launch resumed from the committed stage 3 save and confirmed relay state.",
+  "graphical_title_resume": "The graphical resume attempt exhausted its title preparation deadline. The subsequent Unity headless launch reached the restored stage and passed."
+}

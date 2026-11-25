@@ -1,0 +1,53 @@
+{
+  "checkpoint": "UNITY_WARD_ART_UI_20261119",
+  "status": "PASS_SCOPED",
+  "scope": "Awake ward, native visual comparison, look-away, failed-write recovery, EX-011, and resume. Unity 6000.3.23f1, D3D11, 1280x720.",
+  "ward_checks": 14,
+  "visual_review": "Directional window key and cast bed shadows, real curtain geometry, textured wall and vinyl, accessible exit silhouette, smaller Arabic dialogue, and small fixed-size glyph. Art and UI quality remain subject to owner review.",
+  "scene_backup_sha256": "67d2938f89469f146ffb978c9780b6db0ea7acfa58974f11c450e272c4b1e973",
+  "unchanged_collider_and_controller_counts": true,
+  "skills": {
+    "source": "gamedev-skills/awesome-gamedev-agent-skills",
+    "commit": "c6ca6c41c839b68319ffc08430b99ab768debc32",
+    "scope": "project",
+    "installed": 80
+  },
+  "capture_sha256": {
+    "Before/24-Hospital-Pact-Reflection.png": "12176883d5760cd831f53ebc6be2392c3db713a83ca383144ebea0f49d589dc6",
+    "Before/25-Hospital-Normal-Reflection.png": "b060a839a87d1204ad7b96d3f08a86bb868d0b49b8d1554040b30448deaefb73",
+    "Before/26-Ward-Bed-and-Window.png": "797ac749072daa54d6b20d62ed228a51eeaeeb96f98647d55428b46417a1dae2",
+    "Before/27-Ward-Egress.png": "ca4ba4a3cf2427daf665428b28de70086714bd3a3d1a2ab221e2bb6bbaa7f338",
+    "After/24-Hospital-Pact-Reflection.png": "5c74e8e4caa488f2158bb75d447538dbf864157c9dd063603eb138b7060d6af8",
+    "After/25-Hospital-Normal-Reflection.png": "6950759775e9c84ac45cac98c9f5d343db00bf62d61bb6e4213179e45199896a",
+    "After/26-Ward-Bed-and-Window.png": "0a56b62113c881cc98c451cbb28eb106a62012186a63ee0d62f1934528bc81a0",
+    "After/27-Ward-Egress.png": "2696c11f884b21507211bffe0c64748bada5308d9aadb118b5239ae6f6116736"
+  },
+  "sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "78ddcef2c8d650b294b75f28db30c33e0a8e3eaa5e5ba339fdae644be422d043",
+    "Assets/ElevenEleven/Editor/HospitalWardArt.cs": "46ad9879987daa4c3a7adcddec87641822ba241e06e041d5052cdf4fe4061181",
+    "Assets/ElevenEleven/Editor/CinematicDialogueStyle.cs": "de5eddc58a9bdadfaba8d6ece7862cc48c5b97ddea54d7a12d9518388f92a9e1",
+    "Assets/ElevenEleven/Opening/Media/DialogueGlass.shader": "23a78fa65c757ae7d56e423e3a81bd89a3faf4a6578476ee8936d2394ee09474",
+    "Assets/ElevenEleven/Opening/Stormworks/StationReflection.cs": "5c08604846f5ab7a6545f8819130240bddd77b697cbfb5d75eb5b1afe2c9ae8b",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "4c7db0a19198a7bd7237a5737afd77d192c7a510b454b3b2426628b034b09ed7",
+    "skills-lock.json": "2c6cd78d9284994a44416d02af67e7f9631a89963d172b09ff87942a2e52cf16"
+  },
+  "open": [
+    "Further room passes",
+    "Multi-resolution input and device performance",
+    "Inter-room mission and motion expansion",
+    "Owner acceptance"
+  ],
+  "paid_generations": 0,
+  "extended_route": {
+    "checks": 80,
+    "scope": "Surveillance landing to EX-011 through examination, pact, confrontation and ward",
+    "scene_sha256": "78ddcef2c8d650b294b75f28db30c33e0a8e3eaa5e5ba339fdae644be422d043"
+  },
+  "final_layout": {
+    "checks": 31,
+    "scope": "Examination through altar, following the final alignment of the exit control",
+    "scene_sha256": "c5b1330c17e97218eda2dc6822bd346b2750a489d3771bcc2b1195afb75c9a1a",
+    "style_sha256": "14f470b35002382c83d0c00dce4f459864ade9c99a131bfd47da632407be4dae",
+    "capture_sha256": "faeef60a9c1b1e38abc636f1f95ce9d89bac0957e0daa03e07b569645198cfd0"
+  }
+}

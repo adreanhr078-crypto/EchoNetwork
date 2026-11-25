@@ -1,0 +1,43 @@
+{
+  "checkpoint": "UNITY_R36_ECHO_STATION_FINISH_20261119",
+  "status": "PASS_SCOPED",
+  "graphics": "Unity 6000.3.23f1 / D3D11 / 1280x720",
+  "scope": "Post-blast-gate fixture, pressure recovery, vista skip, first suspended plate jump, alternate relay stairs, memory log, and security unlock after reload.",
+  "checks": 23,
+  "review": [
+    "Matched vista and route angles",
+    "West amber and east aqua guidance",
+    "22 bridge cassettes and 4 suspended platform treads",
+    "Station-only water shimmer and brushed steel PBR maps"
+  ],
+  "collider_counts_preserved": true,
+  "baseline_sha256": "3154907e4ac0b611c34d9f0d83d74dd61599a0fcf7c8fdc23be1854a91ed282e",
+  "source_sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "1c3e47609410cb2fbe13f75152c87ee4b9e631fe26faedaeced0ee0074f6cbd5",
+    "Assets/ElevenEleven/Editor/StationVistaFinish.cs": "1ca7e09c11806d737fbae9ea7f12373c61352778925f0b82593b2c036967f0d8",
+    "Assets/ElevenEleven/Editor/StationSurfaceDressing.cs": "305cdd58960054b9ed58d157b16a4ee23b7ddfa667f48e7eb1c79bd777a096f2",
+    "Assets/ElevenEleven/Editor/StormworksConstruction.cs": "64b7fc81d3f4e43f53739f6aefa367f176a5f8286db967f4f85e82596c68ac9e",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "37ab0bfafdd991900f758f4a5718c656df09240854751cd35d11c5c8cf25e7a3",
+    "Assets/ElevenEleven/Opening/Stormworks/StormworksSurface.shader": "25c029c81efa1b938b494e7d485264b7865beece82ca5e991f2796f6ade4353d",
+    "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Station-BrushedSteel-Base.png": "edf16ce01adb2217fd6ee5599b5c4d90f2b32309491c6a9556426e472908c88f",
+    "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Station-BrushedSteel-MetalSmooth.png": "132028a843238551963d41e48aa702eb9f0379b83ea76e7f97e1129bd31ee0af",
+    "Assets/ElevenEleven/Opening/Stormworks/StationFinishes/Station-BrushedSteel-Normal.png": "a0390962aa9798a1fc0c9cb7267de6a7bc54775a68bc07ab873776c0e97b7561"
+  },
+  "capture_sha256": {
+    "Before/03-EchoStation.png": "cf1212ebdff5b0e7fb44564fc86375fd355a397cb9a1f96dc47c9df269a9673a",
+    "Before/04-ServicePlatforms.png": "f045424e8e5ba382d5c98338543fe98f9e9e84ea3b40c53d6d63f3e90e750648",
+    "Before/05-MemoryLab.png": "db666d04d2d1b91a679c1a3a828cd0c6e1a6945076cb87a1a28a01bf0a2589c5",
+    "Before/06-Relay-Approach.png": "efda1125fa78d264fc0d2e05c235539168e7e1e046c5b19939834f4b3f004030",
+    "After/03-EchoStation.png": "79c0ee943741e2f8d91d728c3001acef4357fc5c20b4cea4030186f1eeaeaded",
+    "After/04-ServicePlatforms.png": "abb6f1e126423310b43f05786a6e46a58ea1b3c10a2b8beefb9de6f0fc77e4f5",
+    "After/05-MemoryLab.png": "a8a3e9a41166d66cac9bb02e88a4ded10454060b540b29c5c12bacf722c713e4",
+    "After/06-Relay-Approach.png": "564be82fc3564726532215cc3ef6f76d0a952acb40b96b32c45bb8e2b490592e"
+  },
+  "open": [
+    "Security sector art",
+    "Owner gameplay review",
+    "Device performance and mobile lighting",
+    "Mirror distortion deferred"
+  ],
+  "paid_generations": 0
+}

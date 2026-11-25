@@ -1,0 +1,60 @@
+{
+  "unity": "6000.3.23f1",
+  "graphicsDevice": "Intel(R) UHD Graphics",
+  "graphicsApi": "Direct3D11",
+  "quality": "PC",
+  "width": 1280,
+  "height": 720,
+  "method": "URP offscreen camera render plus synchronous one-pixel GPU readback; 24 warm-up renders per view.",
+  "views": [
+    {
+      "name": "observatory",
+      "frames": 72,
+      "cameraRenders": 72,
+      "meanMs": 557.43525,
+      "p50Ms": 519.4476,
+      "p95Ms": 805.7257,
+      "p99Ms": 922.1018
+    },
+    {
+      "name": "reactor",
+      "frames": 72,
+      "cameraRenders": 72,
+      "meanMs": 73.38997777777777,
+      "p50Ms": 72.3124,
+      "p95Ms": 95.5184,
+      "p99Ms": 107.5849
+    },
+    {
+      "name": "surveillance",
+      "frames": 72,
+      "cameraRenders": 72,
+      "meanMs": 46.43169027777777,
+      "p50Ms": 43.382,
+      "p95Ms": 72.5504,
+      "p99Ms": 79.4417
+    },
+    {
+      "name": "inspection-mirror",
+      "frames": 72,
+      "cameraRenders": 72,
+      "meanMs": 23.347577777777783,
+      "p50Ms": 21.4348,
+      "p95Ms": 32.2191,
+      "p99Ms": 54.6486
+    }
+  ],
+  "captures_sha256": {
+    "Windows-observatory.png": "33e4079e87320ecaa49aa7c41b6fa1d0b08230df38dce11422530b199c5634cd",
+    "Windows-reactor.png": "384beb3015d21b9315085eaa44d8a30b7b6645bfa61836fda927b3df03fcaae0",
+    "Windows-surveillance.png": "95458a90ab7594f21236c02e1fc568ee221637d5d684b3c9dda655df678c8764",
+    "Windows-inspection-mirror.png": "c049f9dae08f1cdcd940d2f5553ed2c1b996e91b22da2266911fe3ded244877c"
+  },
+  "scene_sha256": "cdde3274bb3ee5f6e156aa173132bdec44c3adbfaf53298fac07af3cdc3d5f47",
+  "build": {
+    "bytes": 3403639021,
+    "warnings": 1,
+    "compression": "None"
+  },
+  "scope": "Fixed-viewport in-engine renders in the independent DX11 player with synchronous GPU readback. The route and its save were checked separately in Editor Play Mode."
+}

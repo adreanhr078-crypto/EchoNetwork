@@ -1,0 +1,82 @@
+{
+  "checkpoint": "UNITY_R39_VISUAL_FABRICATION_AND_SCANNER_GALLERY_20261121",
+  "scene": "Assets/ElevenEleven/Scenes/ChapterRoom01.unity",
+  "baseline_sha256": "1fdc0ff990d40360b8adbdc85b6f52d40e5dbbb51fdb62f1ef12abe1d47b483d",
+  "scene_sha256": "2771077ffc4a1ce69cdea93692c3f9a22988e6229bfb693f37076a7bb367a326",
+  "renderer": "Unity 6000.3.23f1 URP D3D11 Intel UHD, full mip level for native captures",
+  "visual_review": {
+    "reviewed": true,
+    "survey_results": 411,
+    "initial_saved_fabrication": 550,
+    "visible_faces_and_decks": {
+      "signal": 6,
+      "security": 11,
+      "lab_exterior": 9,
+      "surveillance_relief": 34,
+      "decks": 107,
+      "colliders": 394,
+      "zones": 16,
+      "targets": 389,
+      "minimum": 23
+    },
+    "scanner_gallery": {
+      "arcs": 4,
+      "optical_boxes_hidden": 12,
+      "stair_nosings": 16,
+      "colliders": 394
+    },
+    "floor_detail": {
+      "plates": 42,
+      "drain_runs": 2,
+      "cased_bolts": 168,
+      "colliders": 394
+    },
+    "scope": "Matched editor camera and wall close-up images. Individual owner art approval remains open.",
+    "native_capture_hashes": {
+      "41-WallReview-Signal.png": "3490ebf93ee5adee0ae1476e77c9e362dd4e9a1972831ef7ae0d462ccd93a349",
+      "43-WallReview-Pressure.png": "4565ec45bd3cdeec6eb846b77c5b12d6d69094a71575ec19e2fc7b7f9d2b00ee",
+      "46-WallReview-Security.png": "ddeb2b06b7b9b19a5f57eb08ff508a5ac892ab9ea2342bf7e8d8376621c64334",
+      "51-WallReview-Surveillance.png": "55079b314a5cc13a35a2f8ffb2c5cf29c69e70bf1ee99cec27361653b5daa1a5",
+      "52-WallReview-Observatory.png": "71bec6e6deeba2c0669e89afae08447c87547ebaa352a38729012529d9fad743",
+      "63-WallReview-Security-Checkpoint.png": "2682b38d96f846abd0a724ff1b8c2ba9bf33e7369f4d898b3fc1a1a28c13ea15",
+      "64-WallReview-Surveillance-Stations.png": "f8b58040279883be4cb01bb295fbb4ee7a800cb04d312f2f8c40c3b7ccfce0f2",
+      "70-WallReview-Signal-Wall-Close.png": "090906b857ca968512a571d8d9d523006a03e2ad4bf2ce6a2e6671cadb2c891e",
+      "71-WallReview-Surveillance-Wall-Close.png": "de550182c324e6c3b885257a64466792632516f8820b9e0c6f7d3a2052ab4861",
+      "72-WallReview-Security-Return-Close.png": "bf60ecfa82e48845f2ae2645b4af096cdd038597d0b863d938c2e02337bd674f",
+      "73-WallReview-Observatory-Lab-Wall.png": "b3cbea9e0f5c21738ad8d3d2fd121b8e265ff1de68bc8edc6d184bcdde67dc0a",
+      "74-WallReview-Inspection-Mirror.png": "620a910cf99f5e930f741f050840ec4cac22cd544452dbf23298b10619e40ee8",
+      "76-WallReview-Surveillance-Deck-Close.png": "c12ecdde17c25d8797174882dbf0e299ffaee2651e40ecdfd76d4bcfb3181302"
+    },
+    "runtime_capture_hashes": {
+      "80-Surveillance-Gameplay-Camera.png": "0ba7ef452487581e68980a82fd2954c72a8280495551dbbf94134c1749248808",
+      "81-Electrical-Discharge.png": "1c3c44071fa526e917a15c06c207aec334ed33eafe2fff818d3d908aabf9ad7d",
+      "82-Electrical-Discharge.png": "5f3e2fce40def405625e6f7ada2e496b6a06af502f956f13c35faef5bed30a0c",
+      "83-Electrical-Discharge.png": "bc73d637f524ebb3788ef1a063d19abc6a6579c59c7f602d1480ea0f0c1169a5",
+      "84-Electrical-Discharge.png": "c8bafef2f45964e6d4e856edc0e20e6cf8e3cd9ab371f41bbfbfc86528677737"
+    }
+  },
+  "runtime": {
+    "aperture_gate_pass": true,
+    "aperture_gate_checks": 26,
+    "aperture_gate_scope": "Saved Signal aperture and scanner gallery before the deck-only material and mesh pass.",
+    "scanner_play_pass": true,
+    "ward_resume_pass": true,
+    "preceding_r39_motion": {
+      "zones": 16,
+      "moving_elements": 389
+    },
+    "preceding_r39_entry_checks": 31,
+    "preceding_r39_station_checks_to_mirror": 130,
+    "preceding_r39_station_limit": "Chapter was cleared at the mirror. A subsequent old smoke assertion only accepted the English Continue string. Direct starting point was ChapterRoom01.",
+    "fresh_title_to_ward_final": "Unverified",
+    "windows_player_performance": "Unmeasured"
+  },
+  "references": {
+    "generator": "Built-in image generation",
+    "project_subdirectory": "Migration/ArtSources/ChapterRoomRebuild/R39",
+    "outputs": {
+      "11.11-Signal-Aperture-Design.png": "15cda8b969c237c35f2f45dac382a1bcbdf0eb47e8c4958edafd4149cf5117d8",
+      "11.11-Surveillance-Design.png": "cc5db8d5eab6450d6f28848b494dde889a667f39e489f8d2e75634d85f1c595d"
+    }
+  }
+}

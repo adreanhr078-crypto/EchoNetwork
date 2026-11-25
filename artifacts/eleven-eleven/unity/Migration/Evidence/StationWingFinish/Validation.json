@@ -1,0 +1,49 @@
+{
+  "checkpoint": "UNITY_R36_STATION_WINGS_20261120",
+  "status": "PASS_SCOPED",
+  "engine": "Unity 6000.3.23f1, URP, D3D11",
+  "baseline_checks_through_altar": 93,
+  "station_through_ward_checks": 144,
+  "fresh_title_to_ward": null,
+  "fresh_editor_attempt": "Stopped during additive loading of the opening room after private memory reached about 15 GiB on the 8 GiB test machine.",
+  "rooms": [
+    "Security checkpoint",
+    "Specimen containment",
+    "Memory archive",
+    "Reserve reactor",
+    "Decontamination",
+    "Surveillance"
+  ],
+  "scope": "Room finishes, security clearance, fixture progression through ward mirror, save and resume.",
+  "source_sha256": {
+    "Assets/ElevenEleven/Scenes/ChapterRoom01.unity": "fa2c2a46a8328e40b1cb13623c0592a10d94447261b05391394a6ded60ba03ac",
+    "Assets/ElevenEleven/Editor/StationWingFinish.cs": "4ee9bc7916bd0b7ef0eb8161fe1dbdc6887240964ec768c42b0e2f29e6879dae",
+    "Assets/ElevenEleven/Editor/MemoryObservatoryArt.cs": "6ee5eba8eac576f5d37ab4b77aece3f85195fa1077d6454160500acd48966f56",
+    "Assets/ElevenEleven/Editor/StormworksConstruction.cs": "ef2962942f8b1dc5b9154ab9934daa7cbbdd74abc82cd0301c7cac0f385cc915",
+    "Assets/ElevenEleven/Editor/StormworksSmoke.cs": "dc044b1e3523fa27b50fd07d9bd37ff7874382b2ab01e2eedc471dacdfa16e18",
+    "Assets/ElevenEleven/Editor/ChapterR01Smoke.cs": "453a5d93fb1a803118f9f05b18f10eeef8fdef0e4dbc017e89d721fe0779d4e4",
+    "Assets/ElevenEleven/Editor/ContainmentMaterials.cs": "7330dd93cdcb4b9f737fc095eaf9a9edc62cd82ddf938df7de905fc83e554a2d",
+    "Assets/ElevenEleven/Opening/ChapterRoomStage.cs": "1bc46b34865d486215b36bb160c604f733bad65f9abb35fc96fa5e8cc3d04c12",
+    "Assets/ElevenEleven/Opening/Stormworks/Specimen laminated glass.mat": "68aac2da24be26e7b0b5b247d594b538e6d79feab4fbc7114db9db3eb483f8e6",
+    "Assets/ElevenEleven/Opening/Stormworks/Specimen circulating serum.mat": "ee5be289f4eed26b49f8e0b1eee03a72864b587002c081a9776cb29a04147d32",
+    "Assets/ElevenEleven/Opening/Stormworks/EX-011 amber serum.mat": "b5be1299408ba34f93ce5fc6a47947d1fd2d157a0d955b4e8cbb7a07cdec4402"
+  },
+  "baseline_scene_sha256": "01c8d13177e183fa3df52526e224d7ccb1c82f1e1e1843f08a586bd89672159c",
+  "collider_counts": {
+    "65": 377,
+    "64": 14,
+    "143": 1,
+    "136": 2
+  },
+  "capture_sha256": {
+    "06-Security.png": "e7cf997d8ac46f6c8531b6d52be893c363d06fa0870a302659985ba5537d3dfd",
+    "07-Specimens.png": "f00f78e0ba455212226c400e15e120562f5ba2a0bc755f7796b0ce317ec7690c",
+    "08-Archive.png": "8f17b2d469f33a03531907adbc2fe7ee41ae9e4a8b53d639818dccff1ad98ebe",
+    "09-Reactor.png": "3c634d6353896eac29dc4dcd99c8cddd4ed0e0ac901a29fa51b333f38959a5b3",
+    "10-Quarantine.png": "38946431d80488ef4f7982edcff4d429520e1247ff80015812bbde6c3e34bb06",
+    "11-Surveillance.png": "9fb6a39e43918984ccc2e1ec3dedfbca2528bfb3e9ef63ef7a876ecd84498c84",
+    "06B-Security-Lane.png": "95f6cf1087d89d9ab2aad848ab7710e915cc84f4069e07e8779c6a9d11020fdc"
+  },
+  "new_tripo_credits_spent": 0,
+  "windows_profile": null
+}
