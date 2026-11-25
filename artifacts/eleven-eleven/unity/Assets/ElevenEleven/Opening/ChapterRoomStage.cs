@@ -8,6 +8,7 @@ namespace ElevenEleven.Opening
 {
     public sealed class ChapterRoomStage : MonoBehaviour
     {
+        private const float WarmupDistance = 34f;
         [SerializeField] private GameObject content;
         [SerializeField] private Room01Player player;
         [SerializeField] private Camera gameplayCamera;
@@ -68,8 +69,10 @@ namespace ElevenEleven.Opening
             }
 
             RenderTexture target = null;
+            var gameplayDistance = gameplayCamera.farClipPlane;
             try
             {
+                gameplayCamera.farClipPlane = Mathf.Min(gameplayDistance, WarmupDistance);
                 target = RenderTexture.GetTemporary(320, 180, 24, RenderTextureFormat.ARGB32);
                 var request = new UniversalRenderPipeline.SingleCameraRequest { destination = target };
                 if (!RenderPipeline.SupportsRenderRequest(gameplayCamera, request))
@@ -90,6 +93,7 @@ namespace ElevenEleven.Opening
             }
             finally
             {
+                gameplayCamera.farClipPlane = gameplayDistance;
                 if (target != null) RenderTexture.ReleaseTemporary(target);
             }
         }

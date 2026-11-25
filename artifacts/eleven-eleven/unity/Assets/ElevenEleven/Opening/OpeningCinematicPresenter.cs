@@ -108,7 +108,14 @@ namespace ElevenEleven.Opening
 
         private void Update()
         {
-            if (!showingVideo || !player.isPlaying || Paused) return;
+            if (!showingVideo || Paused) return;
+            if (mediaPlaying && player.frame >= 0 && player.frameCount > 1 &&
+                (ulong)player.frame + 1 >= player.frameCount)
+            {
+                VideoFinished(player);
+                return;
+            }
+            if (!player.isPlaying) return;
             var delta = Time.unscaledDeltaTime;
             watchedSeconds += delta;
             if (!offeredSkip && watchedSeconds >= 10f)

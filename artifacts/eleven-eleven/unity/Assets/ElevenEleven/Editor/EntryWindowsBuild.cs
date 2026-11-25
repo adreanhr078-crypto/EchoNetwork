@@ -9,7 +9,9 @@ namespace ElevenEleven.Editor
 {
     internal static class EntryWindowsBuild
     {
-        public static void Run()
+        public static void Run() => Export(BuildOptions.CompressWithLz4);
+
+        internal static void Export(BuildOptions compression)
         {
             var output = Environment.GetEnvironmentVariable("ECHO_ENTRY_EXPORT_PATH");
             if (!Application.isBatchMode || !Path.IsPathRooted(output))
@@ -25,14 +27,14 @@ namespace ElevenEleven.Editor
                 scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path).ToArray(),
                 locationPathName = output,
                 target = BuildTarget.StandaloneWindows64,
-                options = BuildOptions.StrictMode | BuildOptions.CompressWithLz4,
+                options = BuildOptions.StrictMode | compression,
                 extraScriptingDefines = verify ? new[] { "ECHO_R10_PLAYER_PROBE", "ECHO_R01_VERIFY_EXPORTED_PLAYER" } : Array.Empty<string>(),
             });
             var summary = report.summary;
             if (summary.result != BuildResult.Succeeded || summary.totalErrors != 0 || !File.Exists(output))
                 throw new InvalidOperationException($"Windows export failed: {summary.result}, {summary.totalErrors} errors.");
 
-            Debug.Log($"ENTRY_WINDOWS_BUILD_PASS bytes={summary.totalSize} warnings={summary.totalWarnings} verification={verify}");
+            Debug.Log($"ENTRY_WINDOWS_BUILD_PASS bytes={summary.totalSize} warnings={summary.totalWarnings} verification={verify} compression={compression}");
             EditorApplication.Exit(0);
         }
     }

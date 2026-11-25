@@ -38,11 +38,11 @@ namespace ElevenEleven.Editor
             var cover = Load<Texture2D>("Cover.png");
             var backdrop = Load<Texture2D>("CoverBackdrop.png");
             var schoolClip = Load<VideoClip>("Opening3D-friends.mp4");
-            var laboratoryClip = Load<VideoClip>("Opening3D-lab.mp4");
-            var experimentClip = Load<VideoClip>("Opening3D-trial.mp4");
+            var laboratoryClip = Load<VideoClip>("Opening3D-lab-continuity.mp4");
+            var experimentClip = Load<VideoClip>("Opening3D-trial-continuity.mp4");
             var schoolPoster = Load<Texture2D>("Opening3D-friends.png");
-            var laboratoryPoster = Load<Texture2D>("Opening3D-lab.png");
-            var experimentPoster = Load<Texture2D>("Opening3D-trial.png");
+            var laboratoryPoster = Load<Texture2D>("Opening3D-lab-continuity.png");
+            var experimentPoster = Load<Texture2D>("Opening3D-trial-continuity.png");
             var schoolAudio = Load<AudioClip>("SchoolAmbience.ogg");
             var pressureAir = Load<AudioClip>("PressureAir.wav");
 
@@ -156,9 +156,10 @@ namespace ElevenEleven.Editor
             filmData.ApplyModifiedPropertiesWithoutUndo();
 
             var strip = Element("Dialogue and Playback", filmPanel.transform, 0, 0, 1, 0.27f);
-            var dialogueGlass = EntryStyle.Glass(strip);
-            dialogueGlass.color = new Color(0.45f, 0.77f, 1f, 0.56f);
+            strip.AddComponent<Image>();
+            CinematicDialogueStyle.Apply(strip, CinematicDialogueStyle.Palette.Laboratory);
             var dialogue = Label("Dialogue", strip.transform, font, "", 24, 0.06f, 0.56f, 0.94f, 0.96f);
+            CinematicDialogueStyle.Story(dialogue);
             var next = EntryStyle.Action("Continue", filmPanel.transform, font, "Forward", 0.40f, 0.045f, 0.60f, 0.12f, 21, 0.50f);
             var pause = EntryStyle.Action("Pause", filmPanel.transform, font, "Pause", 0.025f, 0.91f, 0.15f, 0.975f, 16, 0.34f);
             var skip = EntryStyle.Action("Skip shot", filmPanel.transform, font, "Forward", 0.81f, 0.04f, 0.97f, 0.105f, 17, 0.36f);

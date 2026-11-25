@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using ElevenEleven.Opening;
 using UnityEditor;
@@ -14,6 +15,8 @@ namespace ElevenEleven.Editor
     internal static class ChapterR01Smoke
     {
         private const string Running = "ElevenEleven.R01.Playing";
+        private const string Connected = "ElevenEleven.R01.Connected";
+        private const string DirectRoom = "ElevenEleven.R01.DirectRoom";
         private const string Deadline = "ElevenEleven.R01.Deadline";
         private static int stage;
         private static int checks;
@@ -22,10 +25,15 @@ namespace ElevenEleven.Editor
         private static int waitFrames;
         private static bool conduitFirst;
         private static AsyncOperation reload;
+        private static bool PhotographyEntryOnly =>
+            Environment.GetEnvironmentVariable("ECHO_PHOTOGRAPHY_ENTRY_ONLY") == "1";
+        private static bool FullOpening => Environment.GetEnvironmentVariable("ECHO_R01_FULL_OPENING") == "1";
 
         static ChapterR01Smoke()
         {
-            if (SessionState.GetBool(Running, false)) EditorApplication.update += Advance;
+            if (!SessionState.GetBool(Running, false)) return;
+            if (SessionState.GetBool(DirectRoom, false)) stage = 3;
+            EditorApplication.update += Advance;
         }
 
         public static void Run()
@@ -33,7 +41,37 @@ namespace ElevenEleven.Editor
             if (!Application.isBatchMode) throw new InvalidOperationException("Use Unity batch mode.");
             ChapterSceneBuilder.OpenRegisteredTitle();
             SessionState.SetBool(Running, true);
-            SessionState.SetFloat(Deadline, (float)EditorApplication.timeSinceStartup + 120f);
+            var openingLimit = SessionState.GetBool(Connected, false) ? 600f : FullOpening ? 240f : 120f;
+            SessionState.SetFloat(Deadline, (float)EditorApplication.timeSinceStartup + openingLimit);
+            EditorApplication.update += Advance;
+            EditorApplication.EnterPlaymode();
+        }
+
+        public static void RunConnected()
+        {
+            var fixture = Environment.GetEnvironmentVariable("ECHO_R02_FIXTURE_DIRECTORY");
+            if (!Application.isBatchMode || string.IsNullOrWhiteSpace(fixture) ||
+                (Directory.Exists(fixture) && Directory.EnumerateFileSystemEntries(fixture).Any()))
+                throw new InvalidOperationException("Use batch mode with an empty, isolated checkpoint directory.");
+
+            Directory.CreateDirectory(fixture);
+            SessionState.SetBool(Connected, true);
+            Run();
+        }
+
+        public static void RunFromRoomAndContinue()
+        {
+            var fixture = Environment.GetEnvironmentVariable("ECHO_R02_FIXTURE_DIRECTORY");
+            if (!Application.isBatchMode || string.IsNullOrWhiteSpace(fixture) ||
+                (Directory.Exists(fixture) && Directory.EnumerateFileSystemEntries(fixture).Any()))
+                throw new InvalidOperationException("Use batch mode with an empty, isolated checkpoint directory.");
+            Directory.CreateDirectory(fixture);
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/ElevenEleven/Scenes/ChapterRoom01.unity");
+            stage = 3;
+            SessionState.SetBool(DirectRoom, true);
+            SessionState.SetBool(Connected, true);
+            SessionState.SetBool(Running, true);
+            SessionState.SetFloat(Deadline, (float)EditorApplication.timeSinceStartup + 600f);
             EditorApplication.update += Advance;
             EditorApplication.EnterPlaymode();
         }
@@ -50,21 +88,39 @@ namespace ElevenEleven.Editor
             try
             {
                 if (EditorApplication.timeSinceStartup > SessionState.GetFloat(Deadline, 0f))
-                    throw new TimeoutException($"Chapter entry stalled at stage {stage}.");
+                {
+                    var room = UnityEngine.Object.FindFirstObjectByType<ChapterRoomStage>();
+                    var film = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                    throw new TimeoutException($"Chapter entry stalled at stage {stage}, film {film?.Beat}, " +
+                        $"room ready {room?.IsReady}, room failed {room?.IsFailed}, render warmed {room?.RenderWarmupCompleted}.");
+                }
                 if (!EditorApplication.isPlaying) return;
 
                 var scene = SceneManager.GetActiveScene().name;
                 switch (stage)
                 {
-                    case 0 when scene == "ChapterTitle":
+                    case 0 when scene == "ChapterTitle" && FindButton("Chapter entry").interactable:
                         Application.targetFrameRate = 45;
                         Application.runInBackground = true;
                         InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
                         InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
-                        Press("Motion on");
-                        Require(ChapterSceneLink.ReducedMotion, "Title exposes reduced motion");
-                        Press("Tap to Start");
-                        stage++;
+                        if (!FullOpening)
+                        {
+                            Press("Motion on");
+                            Require(ChapterSceneLink.ReducedMotion, "Title exposes reduced motion");
+                        }
+                        stage = 14;
+                        break;
+                    case 14 when scene == "ChapterTitle" && HasButton("Chapter entry") && FindButton("Chapter entry").interactable:
+                        if (SessionState.GetBool(Connected, false))
+                        {
+                            if (FindButton("Language").GetComponentInChildren<Text>().text == "English")
+                                Press("Language");
+                            Require(FindButton("Chapter entry").GetComponentInChildren<Text>().text == "Tap to Start",
+                                "An empty fixture starts a fresh chapter from the title");
+                        }
+                        Press("Chapter entry");
+                        stage = 1;
                         break;
                     case 1 when scene == "ChapterOpening":
                         Press("Piece 1");
@@ -76,6 +132,11 @@ namespace ElevenEleven.Editor
                     case 2 when scene == "ChapterOpening":
                         var film = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
                         if (film == null) return;
+                        if (FullOpening)
+                        {
+                            stage = 20;
+                            break;
+                        }
                         Require(film.Beat == OpeningBeat.School && !film.ShowingVideo, "Cover hands off to School under reduced motion");
                         Press("Pause");
                         Require(film.Paused && !FindButton("Continue").interactable, "Pause suspends the film");
@@ -95,12 +156,76 @@ namespace ElevenEleven.Editor
                         Require(film.Beat == OpeningBeat.Memory, "Experiment restores the school memory");
                         Press("Continue");
                         Require(film.Beat == OpeningBeat.SystemWake, "The system reveals the wake after the memory");
+                        stage = 24;
+                        break;
+                    case 24 when !FullOpening && scene == "ChapterOpening" && HasButton("Continue") && FindButton("Continue").interactable:
+                        var wake = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        if (wake.Beat != OpeningBeat.SystemWake) return;
                         Press("Continue");
-                        Require(film.Beat == OpeningBeat.Complete, "Wake fires the room handoff");
+                        Require(wake.Beat == OpeningBeat.Complete, "Wake fires the room handoff after the destination is ready");
+                        stage = 3;
+                        break;
+                    case 20 when scene == "ChapterOpening":
+                        var school = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        var schoolVideo = school.GetComponent<UnityEngine.Video.VideoPlayer>();
+                        if (school.Beat != OpeningBeat.School || !school.ShowingVideo || schoolVideo.frame < 24) return;
+                        Require(!school.CanSkip, "Skip stays hidden before ten seconds of playback");
+                        Press("Pause");
+                        Require(school.Paused && !schoolVideo.isPlaying, "Full opening uses decoded video and honors pause");
+                        Press("Pause");
                         stage++;
+                        break;
+                    case 21 when scene == "ChapterOpening":
+                        var lab = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        var labVideo = lab.GetComponent<UnityEngine.Video.VideoPlayer>();
+                        if (lab.Beat != OpeningBeat.Laboratory || !lab.ShowingVideo || labVideo.frame < 118) return;
+                        Require(labVideo.clip.name == "Opening3D-lab-continuity" && labVideo.clip.audioTrackCount == 1,
+                            "Native lab decodes the chair splice and retains one local SFX track");
+                        stage++;
+                        break;
+                    case 22 when scene == "ChapterOpening":
+                        var questions = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        if (questions.Beat != OpeningBeat.Questions) return;
+                        Press("What is this experiment?");
+                        Require(questions.Beat == OpeningBeat.ExperimentReply, "The seated shot hands off to the existing interactive experiment question");
+                        Press("Back to questions");
+                        Press("What about safety?");
+                        Require(questions.Beat == OpeningBeat.SafetyReply, "The safety question survives the recut");
+                        Press("Back to questions");
+                        Press("I am ready.");
+                        stage++;
+                        break;
+                    case 23 when scene == "ChapterOpening":
+                        var trial = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        var trialVideo = trial.GetComponent<UnityEngine.Video.VideoPlayer>();
+                        if (trial.Beat != OpeningBeat.Experiment || !trial.ShowingVideo || trialVideo.frame < 155) return;
+                        Require(trialVideo.clip.name == "Opening3D-trial-continuity" && trialVideo.clip.audioTrackCount == 1,
+                            "Native trial decodes beyond the recovered Kinja footage into the existing memory insert");
+                        stage++;
+                        break;
+                    case 24 when scene == "ChapterOpening":
+                        var threshold = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        var thresholdVideo = threshold.GetComponent<UnityEngine.Video.VideoPlayer>();
+                        if (threshold.Beat != OpeningBeat.Memory || !threshold.ShowingVideo || thresholdVideo.frame < 24) return;
+                        Require(thresholdVideo.clip.name == "Opening3D-threshold" && threshold.CanSkip,
+                            "The completed trial hands off to the decoded threshold and preserves the skip window");
+                        Press("Skip shot");
+                        Require(threshold.Beat == OpeningBeat.SystemWake, "Skipping the threshold reaches the System Wake screen");
+                        stage = 3;
                         break;
                     case 3 when scene == "ChapterRoom01":
                         var player = UnityEngine.Object.FindFirstObjectByType<Room01Player>();
+                        if (SessionState.GetBool(DirectRoom, false))
+                        {
+                            if (!player || !Camera.main) return;
+                            if (CameraProbe && !ObserveCameraFraming()) return;
+                            if (UtilityProbe && !ObserveUtilityEffects()) return;
+                            if (!PhotographyEntryOnly && !player.GetComponent<CharacterController>().isGrounded) return;
+                            Application.runInBackground = true;
+                            InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
+                            InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+                            ChapterSceneLink.ReducedMotion = true;
+                        }
                         var bones = player.GetComponentsInChildren<SkinnedMeshRenderer>().SelectMany(skin => skin.bones).Distinct().Count();
                         Require(bones == 65 && !player.name.Contains("V31"), "Normal entry spawns School65");
                         Require(Camera.main != null && Camera.main.isActiveAndEnabled, "Room camera owns the view");
@@ -109,6 +234,12 @@ namespace ElevenEleven.Editor
                         Require(Physics.Raycast(new Vector3(0, 0.7f, 17), Vector3.forward, 2f), "North exit is sealed");
                         keyboard = InputSystem.AddDevice<Keyboard>();
                         keyboard.MakeCurrent();
+                        if (PhotographyEntryOnly)
+                        {
+                            MoveNear("StoppedClock pedestal", new Vector3(.9f, 0f, .25f));
+                            stage = 5;
+                            break;
+                        }
                         startPosition = player.transform.position;
                         SetKey(Key.W);
                         Require(keyboard.wKey.isPressed, "Input System received the virtual W key");
@@ -197,8 +328,21 @@ namespace ElevenEleven.Editor
                         break;
                     case 11:
                         if (!Gate().IsOpen) return;
+                        if (UtilityProbe)
+                        {
+                            var light = GameObject.Find("Intermittent arc reflection on the conduit").GetComponent<Light>();
+                            if (light.color.g <= light.color.b) return;
+                            Require(!utilityArc.enabled, "The conduit switches to stable light after real power input");
+                            Debug.Log("ECHO_R37_UTILITIES_PLAY_PASS arc=true sparks=true runoff=true flame=true pause=true reduced_motion=true restored_conduit=true");
+                        }
                         Physics.SyncTransforms();
                         Require(!GateBlocked(), "Open door clears the physical opening");
+                        if (PhotographyEntryOnly)
+                        {
+                            Debug.Log($"ECHO_PHOTOGRAPHY_ENTRY_PASS {checks} checks");
+                            Finish(0);
+                            break;
+                        }
                         Place(new Vector3(0, 0.04f, 16.6f));
                         SetKey(Key.W);
                         stage++;
@@ -207,6 +351,19 @@ namespace ElevenEleven.Editor
                         if (Player().transform.position.z < 19.05f) return;
                         SetKey();
                         Require(Objective() == "The signal leads deeper into Sector 11.", "Walking through the door completes the threshold");
+                        if (SessionState.GetBool(Connected, false))
+                        {
+                            var fixture = Environment.GetEnvironmentVariable("ECHO_R02_FIXTURE_DIRECTORY");
+                            var save = Room01Checkpoint.Load(Path.Combine(fixture, "system_opening_v1.json"));
+                            Require(save != null && save.Wake && save.Ending && save.StationStage == 0,
+                                "Gate crossing writes the starting checkpoint for the station");
+                            Debug.Log($"ECHO_CONNECTED_ENTRY_PASS {checks} checks");
+                            Stop();
+                            // The station probe exercises the animated vista and mirror.
+                            ChapterSceneLink.ReducedMotion = false;
+                            StormworksSmoke.ContinueFromGate();
+                            break;
+                        }
                         if (conduitFirst)
                         {
                             Debug.Log($"CHAPTER_R01_NATIVE_PLAY_PASS {checks} checks");
@@ -231,6 +388,164 @@ namespace ElevenEleven.Editor
             {
                 Debug.LogException(error);
                 Finish(1);
+            }
+        }
+
+        private static int cameraStep;
+        private static int cameraFrame;
+        private static float cameraWait;
+        private static Vector3 cameraStart;
+        private static float cameraOpenArm;
+        private static readonly System.Reflection.BindingFlags PlayerFields =
+            System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
+        private static bool CameraProbe =>
+            Environment.GetEnvironmentVariable("ECHO_PHOTOGRAPHY_CAMERA_PROBE") == "1";
+
+        private static bool ObserveCameraFraming()
+        {
+            if (cameraStep == 5) return true;
+            var player = Player();
+            var camera = Camera.main;
+            void Look(float yaw, float pitch)
+            {
+                typeof(Room01Player).GetField("viewYaw", PlayerFields).SetValue(player, yaw);
+                typeof(Room01Player).GetField("viewPitch", PlayerFields).SetValue(player, pitch);
+            }
+            var feet = player.transform.position;
+            var arm = Vector3.Distance(camera.transform.position, feet + Vector3.up * 1.4f);
+            switch (cameraStep)
+            {
+                case 0:
+                    Require(camera.GetComponent<ChapterCameraFraming>(), "The playable camera owns the room framing");
+                    cameraStart = feet;
+                    ChapterSceneLink.ReducedMotion = false;
+                    Place(new Vector3(.61f,.04f,7.8f));
+                    Look(0f,8f);
+                    cameraWait = Time.time + .63f;
+                    break;
+                case 1:
+                    if (Time.time < cameraWait) return false;
+                    cameraOpenArm = arm;
+                    Require(Mathf.Abs(camera.fieldOfView - 57f) < .7f && cameraOpenArm > 2.9f,
+                        "Signal uses the narrower authored gameplay lens in clear space");
+                    StormworksSmoke.Capture(camera, "68-Live-Signal-Follow-Camera");
+                    ChapterSceneLink.ReducedMotion = true;
+                    cameraFrame = Time.frameCount + 2;
+                    break;
+                case 2:
+                    if (Time.frameCount < cameraFrame) return false;
+                    Require(Mathf.Abs(camera.fieldOfView - 60f) < .03f, "Reduced Motion locks the gameplay field of view");
+                    Place(new Vector3(10.64f,.04f,7.25f));
+                    Look(-90f,4f);
+                    cameraFrame = Time.frameCount + 2;
+                    break;
+                case 3:
+                    if (Time.frameCount < cameraFrame) return false;
+                    Require(arm < 1.64f && camera.transform.position.x < 11.61f,
+                        "Follow camera retracts before the containment wall");
+                    Place(new Vector3(.61f,.04f,7.8f));
+                    Look(0f,8f);
+                    ChapterSceneLink.ReducedMotion = false;
+                    cameraWait = Time.time + .67f;
+                    break;
+                case 4:
+                    if (Time.time < cameraWait) return false;
+                    Require(arm > cameraOpenArm*.87f, "Camera releases gently to room framing after wall clearance");
+                    Place(cameraStart);
+                    Look(0f,8f);
+                    Debug.Log("ECHO_PHOTOGRAPHY_CAMERA_PASS lens=57 reduced=60 collision=true release=true");
+                    break;
+            }
+            ++cameraStep;
+            return false;
+        }
+
+        private static readonly int UtilityPhase = Shader.PropertyToID("_UtilityPhase");
+        private static readonly int UtilityDrip = Shader.PropertyToID("_UtilityDrip");
+        private static readonly int UtilityLoad = Shader.PropertyToID("_UtilityLoad");
+        private static int utilityStep;
+        private static int utilityCaptured;
+        private static Vector3 utilityStart;
+        private static float utilityPausePhase;
+        private static LineRenderer utilityArc;
+        private static Renderer utilityWater;
+        private static Renderer utilityFlame;
+        private static bool UtilityProbe => SessionState.GetBool(DirectRoom, false) &&
+            Environment.GetEnvironmentVariable("ECHO_R37_UTILITY_PROBE") == "1";
+
+        private static bool ObserveUtilityEffects()
+        {
+            if (utilityStep == 4) return true;
+            if (utilityStep == 0)
+            {
+                utilityArc = GameObject.Find("White ion channel").GetComponent<LineRenderer>();
+                utilityWater = GameObject.Find("West viewport condensate spill").transform
+                    .Find("Shallow water over the steel deck").GetComponent<Renderer>();
+                utilityFlame = GameObject.Find("Turbulent flame tongue 1").GetComponent<Renderer>();
+                utilityStart = Player().transform.position;
+                ChapterSceneLink.ReducedMotion = false;
+                Place(new Vector3(-1.05f,.04f,5.11f));
+                utilityStep++;
+                return false;
+            }
+
+            var block = new MaterialPropertyBlock();
+            utilityWater.GetPropertyBlock(block);
+            var phase = block.GetFloat(UtilityPhase);
+            var drip = block.GetVector(UtilityDrip);
+            if (utilityStep == 1)
+            {
+                if ((utilityCaptured & 1) == 0 && utilityArc.enabled &&
+                    GameObject.Find("Expelled hot copper sparks").GetComponent<ParticleSystem>().particleCount > 0)
+                {
+                    CaptureUtility("65-Live-ConduitArc", new Vector3(-1.48f,1.71f,.62f), new Vector3(-3.32f,1.27f,3.53f));
+                    utilityCaptured |= 1;
+                }
+                if ((utilityCaptured & 2) == 0 && drip.w > 0f && phase > drip.z)
+                {
+                    CaptureUtility("66-Live-Water", new Vector3(-3.01f,1.55f,6.45f), new Vector3(-6.59f,.25f,8.42f));
+                    utilityCaptured |= 2;
+                }
+                utilityFlame.GetPropertyBlock(block);
+                if ((utilityCaptured & 4) == 0 && block.GetFloat(UtilityPhase) > .25f && block.GetFloat(UtilityLoad) > .1f)
+                {
+                    CaptureUtility("67-Live-Pilot", new Vector3(4.69f,1.54f,10.85f), new Vector3(7.28f,.68f,13.40f));
+                    utilityCaptured |= 4;
+                }
+                if (utilityCaptured != 7) return false;
+                utilityPausePhase = phase;
+                Time.timeScale = 0f;
+                utilityStep++;
+                return false;
+            }
+            if (utilityStep == 2)
+            {
+                Time.timeScale = 1f;
+                Require(Mathf.Approximately(phase,utilityPausePhase), "Runoff holds its phase when paused");
+                ChapterSceneLink.ReducedMotion = true;
+                utilityStep++;
+                return false;
+            }
+            if (phase > 0f) return false;
+            Require(!utilityArc.enabled && drip.w == 0f, "Reduced Motion settles live arc and runoff");
+            Place(utilityStart);
+            utilityStep++;
+            return false;
+        }
+
+        private static void CaptureUtility(string name, Vector3 origin, Vector3 target)
+        {
+            var camera = Camera.main;
+            var position = camera.transform.position;
+            var rotation = camera.transform.rotation;
+            try
+            {
+                camera.transform.SetPositionAndRotation(origin, Quaternion.LookRotation(target-origin));
+                StormworksSmoke.Capture(camera, name);
+            }
+            finally
+            {
+                camera.transform.SetPositionAndRotation(position, rotation);
             }
         }
 
@@ -288,10 +603,17 @@ namespace ElevenEleven.Editor
 
         private static void Finish(int code)
         {
+            Stop();
+            EditorApplication.Exit(code);
+        }
+
+        private static void Stop()
+        {
+            SessionState.EraseBool(DirectRoom);
             SessionState.EraseBool(Running);
+            SessionState.EraseBool(Connected);
             EditorApplication.update -= Advance;
             if (keyboard != null && keyboard.added) InputSystem.RemoveDevice(keyboard);
-            EditorApplication.Exit(code);
         }
     }
 }

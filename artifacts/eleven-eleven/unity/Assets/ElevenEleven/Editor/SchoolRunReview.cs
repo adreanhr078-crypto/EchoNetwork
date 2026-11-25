@@ -13,6 +13,7 @@ namespace ElevenEleven.Editor
         private const string Root = "Assets/ElevenEleven/";
         private const string Source = Root + "MotionReview/SchoolRunSkeleton.glb";
         private const string Times = Root + "MotionReview/SchoolRunSource.json";
+        internal const string BakedPath = Root + "Echo/Locomotion/SchoolRun.anim";
         private const string School = Root + "Echo/School/EchoSchool-Tripo-Original.glb";
 
         [Serializable]
@@ -23,8 +24,59 @@ namespace ElevenEleven.Editor
             if (!Application.isBatchMode) throw new InvalidOperationException("Use Unity batch mode.");
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
             AssetDatabase.ImportAsset(Source, ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
+            var clip = BuildRetargeted();
+            UnityEngine.Object.DestroyImmediate(clip);
+            EditorApplication.Exit(0);
+        }
+
+        internal static AnimationClip BakeInPlace()
+        {
+            var existing = AssetDatabase.LoadAssetAtPath<AnimationClip>(BakedPath);
+            if (existing != null) return existing;
+            var clip = BuildRetargeted();
+            var horizontal = AnimationUtility.GetCurveBindings(clip).Single(binding =>
+                binding.path.EndsWith("mixamorig:Hips", StringComparison.Ordinal) &&
+                binding.propertyName == "m_LocalPosition.x");
+            var curve = AnimationUtility.GetEditorCurve(clip, horizontal);
+            var keys = curve.keys;
+            var first = keys[0];
+            var last = keys[keys.Length - 1];
+            var velocity = (last.value - first.value) / (last.time - first.time);
+            if (Mathf.Abs(velocity) < 0.5f) throw new InvalidDataException("The Run does not contain expected forward travel.");
+            for (var i = 0; i < keys.Length; i++)
+            {
+                var key = keys[i];
+                key.value -= velocity * (key.time - first.time);
+                key.inTangent -= velocity;
+                key.outTangent -= velocity;
+                keys[i] = key;
+            }
+            curve.keys = keys;
+            clip.legacy = true;
+            clip.wrapMode = WrapMode.Loop;
+            AnimationUtility.SetEditorCurve(clip, horizontal, curve);
+            clip.name = "SchoolRun";
+            AssetDatabase.CreateAsset(clip, BakedPath);
+            return clip;
+        }
+
+        private static AnimationClip BuildRetargeted()
+        {
             var source = Instantiate(Source);
             var target = Instantiate(School);
+            try
+            {
+                return CompareAndRemap(source, target);
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(source);
+                UnityEngine.Object.DestroyImmediate(target);
+            }
+        }
+
+        private static AnimationClip CompareAndRemap(GameObject source, GameObject target)
+        {
             var clips = AssetDatabase.LoadAllAssetsAtPath(Source).OfType<AnimationClip>().ToArray();
             if (clips.Length != 1) throw new InvalidDataException($"Expected one imported Run clip, got {clips.Length}.");
             var sourceClip = clips[0];
@@ -94,7 +146,7 @@ namespace ElevenEleven.Editor
             if (errorPosition > 0.00005f || errorRotation > 0.1f || errorScale > 0.0002f || swing < 15f)
                 throw new InvalidDataException("Run sampling failed the Unity path-binding comparison.");
             Debug.Log("SCHOOL_RUN_NUMERIC_PASS, isolated comparison");
-            EditorApplication.Exit(0);
+            return retargeted;
         }
 
         private static GameObject Instantiate(string path)

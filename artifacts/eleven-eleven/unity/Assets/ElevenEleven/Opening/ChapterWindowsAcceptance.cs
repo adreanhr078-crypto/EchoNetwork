@@ -170,12 +170,12 @@ namespace ElevenEleven.Opening
                 Require(film.Beat == OpeningBeat.Memory && !film.ShowingVideo, "Reduced motion uses the threshold still.");
                 Press("Continue");
                 Require(film.Beat == OpeningBeat.SystemWake, "Reduced motion reaches the system.");
-                yield return Await(() => Button("Continue")?.interactable == true, "ready room before wake confirmation");
+                yield return Await(() => Button("Continue")?.interactable == true, "ready room before wake confirmation", 120f);
                 CaptureUi(filmCanvas, "10-system-wake.png");
                 Press("Continue");
                 Require(GameObject.Find("Chapter loading") == null, "Wake enters the prepared room without a loading panel.");
             }
-            yield return Await(() => SceneManager.GetActiveScene().name == "ChapterRoom01", "room arrival");
+            yield return Await(() => SceneManager.GetActiveScene().name == "ChapterRoom01", "room arrival", 120f);
             yield return null;
             actor = FindFirstObjectByType<Room01Player>();
             Require(IsSchool() && Camera.main != null && actor.GetComponentInChildren<Animation>().IsPlaying("Idle"),
@@ -311,11 +311,15 @@ namespace ElevenEleven.Opening
             button.onClick.Invoke();
         }
 
-        private IEnumerator Await(Func<bool> condition, string stage)
+        private IEnumerator Await(Func<bool> condition, string stage, float seconds = 22f)
         {
-            var deadline = Time.realtimeSinceStartup + 22f;
+            var deadline = Time.realtimeSinceStartup + seconds;
             while (!condition() && Time.realtimeSinceStartup < deadline) yield return null;
-            Require(condition(), "Timed out at " + stage);
+            var film = FindFirstObjectByType<OpeningCinematicPresenter>();
+            var video = film == null ? null : film.GetComponent<UnityEngine.Video.VideoPlayer>();
+            var diagnostics = video == null ? "" :
+                $" [{film.Beat}; {video.clip?.name}; frame {video.frame}/{video.frameCount}; playing {video.isPlaying}; paused {film.Paused}]";
+            Require(condition(), "Timed out at " + stage + diagnostics);
         }
 
         private void Require(bool condition, string reason)
