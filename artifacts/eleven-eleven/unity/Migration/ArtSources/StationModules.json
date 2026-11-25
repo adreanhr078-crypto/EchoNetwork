@@ -1,0 +1,11 @@
+{
+  "service": "Tripo Studio",
+  "model": "H3.1",
+  "observedCreditsBefore": 1135,
+  "observedCreditsAfter": 1075,
+  "assets": [
+    {"role":"containment floor", "task":"9c70ac57-954a-4717-81d4-0e17c990b0af", "credits":30, "reference":"ArtSources/ContainmentFloor/Reference.png"},
+    {"role":"containment ceiling", "task":"0c7b0b46-ff23-45e2-a8f6-ba41e7b4ad72", "credits":30, "reference":"ArtSources/ContainmentCeiling/Reference.png"}
+  ],
+  "status": "Both private tasks returned previews in the asset library. The item viewer stalled before export. The runtime uses the locally modeled cassettes and existing cached PBR pieces."
+}

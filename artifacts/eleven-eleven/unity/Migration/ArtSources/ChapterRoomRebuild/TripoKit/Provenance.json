@@ -1,0 +1,569 @@
+{
+  "studio_library": "https://studio.tripo3d.ai/assets",
+  "flow_project": "https://flow.google.com/u/2/project/f33505c2-5da9-45fd-b752-d44fdc0fd604",
+  "studio_opening_credits": 995,
+  "studio_final_credits_observed": 0,
+  "mode": "Private H3.1 image-to-mesh, triangular retopology, base color and PBR where present",
+  "assets": {
+    "ArchivePrismYoke": {
+      "triangles": 17499,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.5699,
+        0.9794,
+        0.2525
+      ],
+      "bytes": 2949788,
+      "sha256": "affec15f6a4bea6fe444b8a6d96b3c9b8824923bea0915ebe4a3a01b470d83ff",
+      "studio_export_sha256": "d33e355e6edfb6ce4ca96e7b780dcad6de67e3ed7d53469a4ba0faec968f5a8b",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "a10d0ca8-5070-4a08-8088-3a0ffeef5a3c",
+      "flow_concept": "Archive/Hero.jpg",
+      "reference_file": "References/ArchivePrismYoke.png",
+      "reference_sha256": "866cd22727f2c571e93cef78b10a1f80c27ad7f55a9a2de01968dc17260a7d37",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ArchivePrismYoke.glb",
+      "instances_in_scene": 1
+    },
+    "CeilingDuctCassette": {
+      "triangles": 13499,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9799,
+        0.5613,
+        0.3226
+      ],
+      "bytes": 1425536,
+      "sha256": "b3a2856464b64ca5978278c756bc87ba44b6266ba5c5cb610cfb77537c7c36fd",
+      "studio_export_sha256": "f5f2feda3b67d161762825b32d60d227990ae341272dc88fea48a8516a5148ae",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "48482e90-e14d-491c-9212-f70868840ae2",
+      "flow_concept": "Pressure/Hero.jpg",
+      "reference_file": "References/CeilingDuctCassette.png",
+      "reference_sha256": "7c7cd66125a934d52f417cdf39b7ae05029d84d358825f54f05ff406633d29d9",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/CeilingDuctCassette.glb",
+      "instances_in_scene": 2
+    },
+    "ExaminationCrown": {
+      "triangles": 15500,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.98,
+        0.7422,
+        0.4443
+      ],
+      "bytes": 2737824,
+      "sha256": "a504b94d3e818e010c3c264dcbff765f1505ce41745f91f539b612801553ffcf",
+      "studio_export_sha256": "7bfbdecd5be6c16640a8ed5c2cdddbb8ca9de8fc9cd9fdc587c0b611f8e0d542",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "a53b6475-9621-48e0-8aee-349b9471fbec",
+      "flow_concept": "Examination/Hero.jpg",
+      "reference_file": "References/ExaminationCrown.png",
+      "reference_sha256": "2e89fa079fd0b51f7dd28e9c5384eb2474487037a5fe7eb1dc6f01d0abfd5420",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ExaminationCrown.glb",
+      "instances_in_scene": 1
+    },
+    "KinjaObservationPanel": {
+      "triangles": 15998,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.979,
+        0.6753,
+        0.1867
+      ],
+      "bytes": 2973376,
+      "sha256": "acc412ecb02409da3ae8052dc2116f44064ba247aac574327850df77f0c732d0",
+      "studio_export_sha256": "4bbaf95cc4a6bf2a582a84976a27d2c8e6d5fcaf61cf69b4d7edca2027123de5",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "d4c46ac3-21e9-4763-8ecb-fcc97c34f44e",
+      "flow_concept": "Confrontation/Hero.jpg",
+      "reference_file": "References/KinjaObservationPanel.png",
+      "reference_sha256": "f234978c49310ccabd8de1bad44c41d8b93dc830280dacf75cf956a4334fb7d7",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/KinjaObservationPanel.glb",
+      "instances_in_scene": 1
+    },
+    "MemoryLabCoolant": {
+      "triangles": 16000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.979,
+        0.6109,
+        0.1664
+      ],
+      "bytes": 1584304,
+      "sha256": "1e447bfe735c0ae23db04488fceeaf051019917acf2dbe634ef8fcc11a891873",
+      "studio_export_sha256": "97aff45748de9aa74ee46bc8edf6722ce36fe4de438307f32dc4d284408e1feb",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "994fd801-b999-4dc0-9ba1-17509f85477e",
+      "flow_concept": "MemoryLab/Hero.jpg",
+      "reference_file": "References/MemoryLabCoolant.png",
+      "reference_sha256": "7c8a5631a8684c60c0609100a7c2ac8cb33166bd01d29b2f04f564f4a5c5a7be",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/MemoryLabCoolant.glb",
+      "instances_in_scene": 1
+    },
+    "PressureCassette": {
+      "triangles": 19999,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.531,
+        0.9796,
+        0.4337
+      ],
+      "bytes": 2930452,
+      "sha256": "2e43c519b1e721aa4fff3c2c7d903d96385ffdba237fe9878380680cfeccd2ea",
+      "studio_export_sha256": "464da24d99ea937b0f7990a18e876786b512af2babd5d4727c43362eca0cad4f",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "d61e7e79-cafe-47d9-9cba-77f0a912ae8e",
+      "flow_concept": "Pressure/Hero.jpg",
+      "reference_file": "References/PressureCassette.png",
+      "reference_sha256": "6bdf64af7108cbcb6ab623ad8eed973de6fed7e71eaef364a7a380d78953146c",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/PressureCassette.glb",
+      "instances_in_scene": 2
+    },
+    "QuarantineAirHandler": {
+      "triangles": 13000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9792,
+        0.3545,
+        0.2662
+      ],
+      "bytes": 2600336,
+      "sha256": "4fb621a0827b4d0eef595011e7b9a5b105fbfaaee6a3be00b8c3b21a71dcc1c2",
+      "studio_export_sha256": "c2d26258fb5769ba907b9d4a52ad6d0be270282008f1df1eb25ac5aa064567bb",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "abe9d3e8-4ead-479d-977d-42f4d8a41747",
+      "flow_concept": "Quarantine/Hero.jpg",
+      "reference_file": "References/QuarantineAirHandler.png",
+      "reference_sha256": "61513d6308fb9b8eaf142b26df8be44e233019b732571d6df5b301b4a6c351e1",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/QuarantineAirHandler.glb",
+      "instances_in_scene": 3
+    },
+    "ReactorJacket": {
+      "triangles": 22000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.7049,
+        0.9786,
+        0.7154
+      ],
+      "bytes": 2786060,
+      "sha256": "5bbeec6d59215a7e8e9dceaef7798a41cb8f5c1ed8e4bfc1c25ea69f6e8f49cf",
+      "studio_export_sha256": "e745858582a3dc06875cd1f52e20ac22c0b1cbe94bf834859aa14fe9e4e3ab5c",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "c4cbf5cf-5672-4137-be6a-6167988aaac8",
+      "flow_concept": "Reactor/Hero.jpg",
+      "reference_file": "References/ReactorJacket.png",
+      "reference_sha256": "d33657180ad76203b59b9957c667f93ce16ca2c06a0ad4e3be507bded5f14377",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ReactorJacket.glb",
+      "instances_in_scene": 1
+    },
+    "ReactorSideBus": {
+      "triangles": 14500,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9789,
+        0.2621,
+        0.1435
+      ],
+      "bytes": 1720652,
+      "sha256": "a365a865606de65670d94393acd8b031b0d2a385f6d306fa4b031a6a401c3524",
+      "studio_export_sha256": "085053e4da5a7f94936ed8f73a50f87fa5a4da54841e713a30786b742b53a8be",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "dfdc0159-606d-415f-82fa-1fe55dba0b30",
+      "flow_concept": "Reactor/Hero.jpg",
+      "reference_file": "References/ReactorSideBus.png",
+      "reference_sha256": "5dd49db1b08920492619373b689f93dabea416a617c1a87868a3bf0b82f8b561",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ReactorSideBus.glb",
+      "instances_in_scene": 6
+    },
+    "RelayWinch": {
+      "triangles": 16000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9795,
+        0.7695,
+        0.6386
+      ],
+      "bytes": 1482288,
+      "sha256": "6cb5f6b5e4944ad400b270404da9c4a8c9ab7a4bbfd9a6a555be22daabcfa0cf",
+      "studio_export_sha256": "c43cc90cd4be7625752361317e96c60f173e316a2ee3f762b2b6eeb24a312b8f",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "dfab5a37-a73d-460f-830d-43b2ca0f6e7a",
+      "flow_concept": "RelayBranch/Hero.jpg",
+      "reference_file": "References/RelayWinch.png",
+      "reference_sha256": "5dcd822cdb6304ec7f1116e2efebffe56285bc4bd2a56a93fca5433080c27773",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/RelayWinch.glb",
+      "instances_in_scene": 1
+    },
+    "SecurityBulkhead": {
+      "triangles": 18000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.7979,
+        0.9797,
+        0.3439
+      ],
+      "bytes": 2867260,
+      "sha256": "8cb2e67e164ca3163b84489071d9ae28e5ed98cd674297a61018b955467fcc02",
+      "studio_export_sha256": "01cd2ac8b66d0a03376068a80567ebe7b6cf9d295ce1e35ce0bac1f8689eed34",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "8826afcf-5a56-48e8-a3f7-f514d0ffa73d",
+      "flow_concept": "Security/Hero.jpg",
+      "reference_file": "References/SecurityBulkhead.png",
+      "reference_sha256": "2e80c544972879c1b466e58180b4b379250fa29e3292242854307915f3912cd6",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SecurityBulkhead.glb",
+      "instances_in_scene": 2
+    },
+    "SignalArch": {
+      "triangles": 14502,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9791,
+        0.9725,
+        0.1758
+      ],
+      "bytes": 1888336,
+      "sha256": "5d81d9d31a6300732bf2b0a1f20d1e3fbdca100b9c367cb7e94d8e6dc888611f",
+      "studio_export_sha256": "694bf08cf335cd58e40ac1b2e5c4ae962db9608433d852b20546388b71d240ee",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "aa026d63-e484-426d-9099-6749ce3f350e",
+      "flow_concept": "SignalChamber/01-Entry.jpg",
+      "reference_file": "References/SignalArch.png",
+      "reference_sha256": "5bd19495d05f3c37db7c4792a9bb3363bfaa1bb5f65db9ea2f09061c24dcc16e",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalArch.glb",
+      "instances_in_scene": 3
+    },
+    "SignalConsole": {
+      "triangles": 15998,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9796,
+        0.7225,
+        0.5941
+      ],
+      "bytes": 2486108,
+      "sha256": "2f843528d193c3a6f68a605b9b7229a92db53bf4374a194a969aab6cc353bb16",
+      "studio_export_sha256": "63e4bc47708cd5d42f8766d0687003a15aab1c36cffe9e4aea4bcb3d2deff68e",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "0c27bb0c-fb41-4499-80d1-4f9191e1550d",
+      "flow_concept": "SignalChamber/03-Workstation.jpg",
+      "reference_file": "References/SignalConsole.png",
+      "reference_sha256": "8d0bed5aac69801d0bb098b4eadeef9654160aca2cfe981eb8a18ef468c9bde0",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalConsole.glb",
+      "instances_in_scene": 1
+    },
+    "SignalWall": {
+      "triangles": 17999,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9785,
+        0.9741,
+        0.2477
+      ],
+      "bytes": 2933644,
+      "sha256": "e303cc879978887eb382d6fb8946feba418a69800bc0e42f4c50c6a96f45b933",
+      "studio_export_sha256": "64fbf7050643f09c9561dd42437222adb5fbb41abff6350dad202e4608ac6d33",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "2943e571-2a21-446d-aa23-a6fe8e4b7132",
+      "flow_concept": "SignalChamber/01-Entry.jpg",
+      "reference_file": "References/SignalWall.png",
+      "reference_sha256": "5a326586c1e256d46f3656e6e1133d7948e1d3f6900f387a27a6e1147920d028",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SignalWall.glb",
+      "instances_in_scene": 8
+    },
+    "SpecimenServiceRack": {
+      "triangles": 17000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.3723,
+        0.9785,
+        0.3748
+      ],
+      "bytes": 1642236,
+      "sha256": "34e232fd74b3133899ac578a95bd6dbd05b6373586ed3e8334307f11a63cd9a1",
+      "studio_export_sha256": "30851ab9c8540cce1dca24c78590427174c780d01805811ebcc72ebb68b66de9",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "c5195545-d710-4cc9-a126-a60261b4040c",
+      "flow_concept": "Specimens/Hero.jpg",
+      "reference_file": "References/SpecimenServiceRack.png",
+      "reference_sha256": "e49c4ab2ebc33e5ef708718c7a6d103ea1301d9bf1bc93370515237264391698",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SpecimenServiceRack.glb",
+      "instances_in_scene": 2
+    },
+    "SurveillanceCableBay": {
+      "triangles": 17998,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.885,
+        0.98,
+        0.3396
+      ],
+      "bytes": 2830112,
+      "sha256": "941f97e3715fdfba181ce296a4cdda622e817abfc219a409f0bdfa9d43e471d8",
+      "studio_export_sha256": "d7e758dbe016fb0c5322256740c753bd9bf66eaf601e045993d040ea85df9860",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "d839ad75-7946-4f6d-907b-2d04113c7cc2",
+      "flow_concept": "Surveillance/Hero.jpg",
+      "reference_file": "References/SurveillanceCableBay.png",
+      "reference_sha256": "c447b8e75670a836998de0a09b8df6de30550ae0ee6b3c405bcde3887906b895",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/SurveillanceCableBay.glb",
+      "instances_in_scene": 2
+    },
+    "UtilityLamp": {
+      "triangles": 9999,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": false,
+      "metal_roughness_map": false,
+      "dimensions_local": [
+        0.9814,
+        0.645,
+        0.7733
+      ],
+      "bytes": 952164,
+      "sha256": "6d22f66aa82b0e53c761bea862cf9fc85b4012b9d2aee0add3b9bb7c414316f8",
+      "studio_export_sha256": "2ff593bcfdf339b8f69263824e22b27a8d060c4b41cb0e10871c44ad2a751e68",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "fe9315b5-890c-4e0b-8127-1ac9f9496e38",
+      "flow_concept": "Security/Hero.jpg",
+      "reference_file": "References/UtilityLamp.png",
+      "reference_sha256": "9384d8df8f8735e88ef0de1692972ebb7b17c05042b75a7c7d3dda140e312299",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/UtilityLamp.glb",
+      "instances_in_scene": 3
+    },
+    "WardRadiator": {
+      "triangles": 16000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": false,
+      "metal_roughness_map": false,
+      "dimensions_local": [
+        0.9773,
+        0.7576,
+        0.6467
+      ],
+      "bytes": 1193748,
+      "sha256": "65b33de70a1be1d42e43ae3fe367d3c322747baae814ece7ba0a5a7b5301b67d",
+      "studio_export_sha256": "738dfa99a3ab901227aa9a0e05ddba1c401ccccc388be20475fe9fcaa6d3f9f1",
+      "studio_export_albedo_px": [
+        1024,
+        1024
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "2449d66a-c82c-4c0f-9951-e966a8e0a4f3",
+      "flow_concept": "Ward/Hero.jpg",
+      "reference_file": "References/WardRadiator.png",
+      "reference_sha256": "4a640cb3461c446e11239b6589f727c5d27b07049379ddeb4a7aaeb7bd9bb78b",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/WardRadiator.glb",
+      "instances_in_scene": 1
+    },
+    "WetDeckSection": {
+      "triangles": 11000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.6014,
+        0.0342,
+        0.9794
+      ],
+      "bytes": 2313516,
+      "sha256": "be620bfb0dd966844d0a459483a9e58c12c00f331f0c913fcca7e919a66c945a",
+      "studio_export_sha256": "451c568e1566897f1e3c21a5ee262cf8ebb4dc43a4f8f8e3acc560069f1cf1dd",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "ace442d0-22fc-41e8-a2cf-9e85bff3c864",
+      "flow_concept": "SignalChamber/01-Entry.jpg",
+      "reference_file": "References/WetDeckSection.png",
+      "reference_sha256": "da434f86ca87431007c2dcb72224d010e63149fe6e36ac007837c85735ccf2a4",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/WetDeckSection.glb",
+      "instances_in_scene": 14
+    },
+    "ZeroBasaltRing": {
+      "triangles": 16000,
+      "albedo_size_px": [
+        1024,
+        1024
+      ],
+      "normal_map": true,
+      "metal_roughness_map": true,
+      "dimensions_local": [
+        0.9782,
+        0.0699,
+        0.9779
+      ],
+      "bytes": 2839264,
+      "sha256": "34dfb0b4aeaa92be4d6d78ab8b737a4d63b507122eda9ab077e9b99481778520",
+      "studio_export_sha256": "8ec53d1dd500382c40bf243aa690eca226e02c3315351badd0c108e274a19e9f",
+      "studio_export_albedo_px": [
+        2048,
+        2048
+      ],
+      "runtime_texture_limit_px": 1024,
+      "studio_asset": "6ce19c91-acc0-457e-98e4-c424f1715a9f",
+      "flow_concept": "Zero/Hero.jpg",
+      "reference_file": "References/ZeroBasaltRing.png",
+      "reference_sha256": "58c4e4c93ef0bc1c2b978e5aec72c2fca32466afecbb137cbf407165ca26f08f",
+      "unity_file": "Assets/ElevenEleven/Opening/Stormworks/TripoChapterKit/ZeroBasaltRing.glb",
+      "instances_in_scene": 1
+    }
+  }
+}
