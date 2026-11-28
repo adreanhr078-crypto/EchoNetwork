@@ -1,0 +1,27 @@
+{
+  "checkpoint": "UNITY_WARD_PACT_HAIR_LEFT_EYE_20261128",
+  "scene_sha256": "41de16b1affffaa918faac342e31af63c58d85c5b2bb0133f0e9d80924f66275",
+  "baseline_scene_sha256": "554d3ccb68b0d1b6c2341b2f7bad7ad8bca88a5e405c623913f5d42fc2321eb2",
+  "preserved_colliders": 394,
+  "hair_donor": "Assets/ElevenEleven/MotionReview/echo_pact72_candidate.glb",
+  "renderer": "Unity 6000.3.23f1 D3D11 Play Mode with independent headless title resume",
+  "checks": [
+    "Expected isolated Ward starting state.",
+    "Clinical walls, original bedside fittings and real mirror are active.",
+    "Waking reveals the doctor's compress and the transient left-eye pulse.",
+    "The original post-pact head and hairstyle appear on the Ward body.",
+    "The pulse fades before the dressing is equipped.",
+    "The mirror waits for the doctor's compress.",
+    "The bedside action persists the pickup and shows an actual head-mounted compress.",
+    "The equipped medical gauze has a live cloth solver.",
+    "Gauze flexes 0.167 mm while both taped edges stay anchored.",
+    "The physical mirror reach commits EX-011.",
+    "Expected isolated Ward starting state.",
+    "Clinical walls, original bedside fittings and real mirror are active.",
+    "Ward checkpoint quiets the eye and restores the equipped compress."
+  ],
+  "captures": {
+    "01-Ward-Left-Eye-Pulse.png": "7397a891de844154859c8f71279baa1c95cebe8e79b0c4d204317ed267bee479",
+    "02-Ward-Left-Eye-Compress.png": "eb9205ac917ad9dcc60a34beaf11f5be9673bc5a2960df47f357a626a45ddfc2"
+  }
+}

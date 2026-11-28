@@ -1,0 +1,22 @@
+{
+  "checkpoint": "UNITY_CLINICAL_WARD_RECOVERY_20261128",
+  "scene_sha256": "554d3ccb68b0d1b6c2341b2f7bad7ad8bca88a5e405c623913f5d42fc2321eb2",
+  "baseline_scene_sha256": "c949fdbd48de7786db24c23e6548942d1f626f15742afce991269ae49f70f271",
+  "preserved_colliders": 394,
+  "renderer": "Unity 6000.3.23f1 Play Mode, D3D11. Separate headless title resume.",
+  "checks": [
+    "Expected isolated Ward starting state.",
+    "Clinical walls, original bedside fittings and real mirror are active.",
+    "The original bedside wake commits.",
+    "The physical mirror reach commits EX-011.",
+    "Expected isolated Ward starting state.",
+    "Clinical walls, original bedside fittings and real mirror are active.",
+    "EX-011 Ward state survives the title."
+  ],
+  "capture_sha256": {
+    "01-Ward-Awake-Full.png": "52719c08ebc04045b54abbe48130b6ec608acfb35da68f6d92c20480224d4c81",
+    "02-Ward-Bed-and-Window.png": "4cb051a89aec0e9ab52d201358d08a2f93f21a6567c7f6616e780b13e0a12cec",
+    "01-Ward-Original-Bedside-Camera.png": "562709cb6cce82724494f979ac3bd046df309e7776b3642b0222558337f022ba",
+    "03-Ward-Playable-Mirror-Approach.png": "748991ba14d81fa5ae218a6cc1feb06978834637ef7353aa32c1793472f1ff83"
+  }
+}

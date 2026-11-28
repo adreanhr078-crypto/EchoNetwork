@@ -1,0 +1,26 @@
+{
+  "checkpoint": "UNITY_REACTOR_SERVICE_DECK_20261128",
+  "scene_sha256": "0e3a55b0ff098a03895a564dbbf1fa2dc30d08729634d25951c0812bd42c4666",
+  "baseline_scene_sha256": "41de16b1affffaa918faac342e31af63c58d85c5b2bb0133f0e9d80924f66275",
+  "renderer": "Unity 6000.3.23f1 Play Mode / D3D11, separate headless title resume",
+  "preserved_colliders": 394,
+  "checks": [
+    "Seed the isolated reactor save.",
+    "Before breaker operation both runs show steady standby.",
+    "Gameplay writes breaker mask 2.",
+    "The east breaker powers only its own deck run.",
+    "The powered east run changes intensity over elapsed gameplay time.",
+    "Gameplay writes breaker mask 3.",
+    "Reduced Motion preserves the two operating colors and freezes the intensity animation.",
+    "Resume has the committed two-breaker save.",
+    "Both powered deck circuits and service-link light survive title resume."
+  ],
+  "capture_sha256": {
+    "Before-Entry-Matched-Full.png": "26c4ce503dcc1231e5f6371bf3a0823f2b1d9a15fd7cae648909ef0f90aa0e04",
+    "01-Entry-Matched-Full.png": "ff050fe5bd888164bc28a3a29fe7e5f9cef7bc7557a5989e15e8ab34a3477d05",
+    "02-Service-Link-Approach.png": "24970094804819d34207007866b75ef66ae3ab750585273710032168d1efa02c",
+    "03-Return-To-Entry.png": "eea618b5a61716771f79153c48dd9d7349321937b6f5d174d0b9d28b50f07600",
+    "04-East-Power-Only.png": "8667a5764a7d71da8890811b762ad9eebca39c35147c1c0b70308fd9af4fb59d",
+    "05-Both-Powered-Reduced.png": "37d696f2faa61f90995e4b08dc3c0ddad2961cd1995daadaa8708c1ff3db1dbf"
+  }
+}
