@@ -1,14 +1,14 @@
 {
-  "checkpoint": "UNITY_R48_MEMORY_LABORATORY_20261123",
+  "checkpoint": "UNITY_SIGNAL_PRESENTATION_20261128",
   "godot_baseline": "d4d95c1b83446a4802df5236237b928fe669682e",
   "unity_version": "6000.3.23f1",
   "project": "artifacts/eleven-eleven/unity",
   "checkpoint_file": "Migration/CURRENT_WORK.ar.md",
   "plan": "artifacts/eleven-eleven/docs/internal/production/PRODUCTION_RESET_2026-11-06.ar.md",
   "ledger": "Migration/CardLedger.json",
-  "next_card": "R49",
-  "next_status": "UNITY_R48_LAB_GAMEPLAY_AND_RESUME_VERIFIED",
-  "next_action": "Finish the Reactor vestibule reveal and cold-to-hot cues, then the harsh public-facing quarantine override panel, using cached art and follow camera checks. Continue the room plan before audio.",
+  "next_card": "SCHOOL_JUMP_AND_MEDIA_WAKE",
+  "next_status": "UNITY_SIGNAL_PRESENTATION_COMPLETE",
+  "next_action": "Validate the pressure intake and valve camera, then the Archive decoder, Relay and Observation. Continue Signal and Surveillance art and motion. The Windows build remains deferred until cinematics, dialogue, sound and missions are complete.",
   "r34_route_entry_recheck": {
     "status": "PASS_SCOPED",
     "graphics": "Unity 6000.3.23f1 / D3D11 / Intel UHD",
@@ -389,5 +389,29 @@
   "r48_memory_lab_inductors": {
     "scene_sha256": "c3658f7acbe5b102c5c45a43f858eb131014708bd034b72751dcc667a07fcb3a",
     "evidence": "Migration/Evidence/ChapterLaboratoryR48/Validation.json"
+  },
+  "r49_reactor_quarantine": {
+    "scene_sha256": "c949fdbd48de7786db24c23e6548942d1f626f15742afce991269ae49f70f271",
+    "evidence": "Migration/Evidence/ChapterReactorQuarantineR49/Validation.json"
+  },
+  "r50_clinical_ward_recovery": {
+    "scene_sha256": "554d3ccb68b0d1b6c2341b2f7bad7ad8bca88a5e405c623913f5d42fc2321eb2",
+    "evidence": "Migration/Evidence/ClinicalWardRecovery/Validation.json"
+  },
+  "r50_ward_pact_hair_and_compress": {
+    "scene_sha256": "41de16b1affffaa918faac342e31af63c58d85c5b2bb0133f0e9d80924f66275",
+    "evidence": "Migration/Evidence/WardEyeAndHair/Validation.json"
+  },
+  "r50_reactor_deck_refinement": {
+    "scene_sha256": "0e3a55b0ff098a03895a564dbbf1fa2dc30d08729634d25951c0812bd42c4666",
+    "evidence": "Migration/Evidence/ChapterReactorDeck/Validation.json"
+  },
+  "r51_archive_pressure_relay": {
+    "scene_sha256": "9b1f8f52189fa0d6cc5aed0f680bf02aaf910cde89b9f38656692c3ccc8f7145",
+    "evidence": "Migration/Evidence/ChapterR51ArchiveRelayPressure/Validation.json"
+  },
+  "signal_presentation": {
+    "scene_sha256": "0f53a67b70ed56bb40b1333eff07ecfd898e7bbb5391900b9887c30c3fe6ce52",
+    "evidence": "Migration/Evidence/ChapterSignalPresentation/Validation.json"
   }
 }
