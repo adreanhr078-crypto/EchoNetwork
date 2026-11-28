@@ -162,15 +162,15 @@ namespace ElevenEleven.Opening
             var reply = beat == OpeningBeat.ExperimentReply || beat == OpeningBeat.SafetyReply;
             var finished = beat == OpeningBeat.Complete;
             var waking = beat == OpeningBeat.SystemWake;
-            if (waking) ShowWakePanel();
+            if (waking && cinematic.WakeRevealed) ShowWakePanel();
             else if (wakePanel != null) wakePanel.SetActive(false);
             experimentQuestion.gameObject.SetActive(questions);
             safetyQuestion.gameObject.SetActive(questions);
             ready.gameObject.SetActive(questions);
             back.gameObject.SetActive(reply);
             dialogue.transform.parent.gameObject.SetActive(questions || reply);
-            nextShot.gameObject.SetActive(waking || cinematic.CanAdvance);
-            pause.gameObject.SetActive(cinematic.IsFilmBeat);
+            nextShot.gameObject.SetActive((waking && cinematic.WakeRevealed) || cinematic.CanAdvance);
+            pause.gameObject.SetActive(cinematic.IsFilmBeat || waking);
             skip.interactable = cinematic.CanSkip && skipResponse == null;
             skipGroup.blocksRaycasts = skip.interactable;
             skipGroup.interactable = skip.interactable;

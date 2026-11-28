@@ -92,7 +92,7 @@ namespace ElevenEleven.Opening
                     grace = 2.4f;
                     var anchor = local.z > 30f ? new Vector3(0, 0.04f, 41f)
                         : local.z > 14f ? new Vector3(-11f, -1.89f, 16f) : new Vector3(0, -3.94f, 2.5f);
-                    player.ReturnToSafePoint(transform.TransformPoint(anchor), EntryCopy.Arabic
+                    player.TryHazardReturn(transform.TransformPoint(anchor), EntryCopy.Arabic
                         ? "‏ﻦﻣﻵﺍ ﻊﻗﻮﻤﻟﺍ ﻰﻟﺇ ﺕﺪﻋ" : "Discharge forced an emergency return.");
                 }
             }

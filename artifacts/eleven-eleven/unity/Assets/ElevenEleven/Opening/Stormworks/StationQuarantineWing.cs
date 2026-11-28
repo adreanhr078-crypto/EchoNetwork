@@ -10,6 +10,8 @@ namespace ElevenEleven.Opening
         [SerializeField] private GameObject mist;
         [SerializeField] private Light status;
         [SerializeField] private AudioSource extraction;
+        [SerializeField] private GameObject lockedCue;
+        [SerializeField] private GameObject clearedCue;
         private Vector3 closed;
         private static readonly Color Violet = new Color(0.46f, 0.17f, 1f);
         private static readonly Color Clear = new Color(0.1f, 1f, 0.64f);
@@ -37,6 +39,8 @@ namespace ElevenEleven.Opening
             gate.localPosition = Vector3.Lerp(gate.localPosition, closed + Vector3.up * (overridden ? 3.18f : 0f), blend);
             mist.SetActive(!overridden);
             status.color = overridden ? Clear : Violet;
+            if (lockedCue && lockedCue.activeSelf == overridden) lockedCue.SetActive(!overridden);
+            if (clearedCue && clearedCue.activeSelf != overridden) clearedCue.SetActive(overridden);
         }
 
         internal void Tick(Vector3 position, bool overridden, bool modal, float dt)

@@ -75,6 +75,7 @@ namespace ElevenEleven.Opening
         internal bool InExamination => examination?.IsReading == true || zero?.IsReading == true ||
             confrontation?.IsReading == true || ward?.IsReading == true;
         internal WardBeat WardProgress => ward != null ? ward.Beat : default;
+        internal bool WardCompressEquipped => InWard && ward.CompressEquipped;
         private bool InWard => ward != null && AfterPact == KinjaBeat.WishConfirmed;
         internal KinjaBeat AfterPact => confrontation != null ? confrontation.Beat : default;
         internal ZeroPactProgress ZeroProgress => zero != null ? zero.Progress : default;
@@ -131,7 +132,7 @@ namespace ElevenEleven.Opening
             _ => new Vector3(0f, 0.05f, 28.3f),
         };
 
-        internal void Restore(int stage, int archiveFragments, int reactorBreakers, bool examined, ZeroPactProgress pact, KinjaBeat aftermath, WardBeat bedside)
+        internal void Restore(int stage, int archiveFragments, int reactorBreakers, bool examined, ZeroPactProgress pact, KinjaBeat aftermath, WardBeat bedside, bool compress = false)
         {
             Stage = stage;
             revealed = stage >= RelayRestored;
@@ -145,7 +146,7 @@ namespace ElevenEleven.Opening
             examination?.Restore(examined);
             zero?.Restore(pact);
             confrontation?.Restore(pact.Accepted, aftermath);
-            ward?.Restore(InWard, bedside);
+            ward?.Restore(InWard, bedside, compress);
         }
 
         internal string Objective(Vector3 position) => Stage switch

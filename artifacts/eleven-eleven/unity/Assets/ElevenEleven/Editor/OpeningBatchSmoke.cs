@@ -23,9 +23,9 @@ internal static class OpeningBatchSmoke
         Require(cover.GetComponentsInChildren<CoverTileInput>(true).Length == 6, "six drag inputs");
         Require(cover.Restored.GetPersistentEventCount() == 1 && cover.Restored.GetPersistentTarget(0) == host, "single film handoff");
         var buttons = host.GetComponentsInChildren<Button>(true);
-        Require(buttons.Length == 17 && buttons.All(button => button.onClick.GetPersistentEventCount() == 1), "all controls wired once");
+        Require(buttons.Length == 19 && buttons.All(button => button.onClick.GetPersistentEventCount() == 1), "all controls wired once");
         var data = new SerializedObject(film);
-        Require(ClipLength(data, "school", 8) && ClipLength(data, "laboratory", 8) && ClipLength(data, "experiment", 6), "native film durations");
+        Require(ClipLength(data, "school", 6) && ClipLength(data, "laboratory", 10.5) && ClipLength(data, "experiment", 11.5), "native film durations");
         Require(data.FindProperty("laboratory.ambience").objectReferenceValue == data.FindProperty("experiment.ambience").objectReferenceValue,
             "laboratory pressure-air source reused");
         var eventSystem = roots.Select(root => root.GetComponent<EventSystem>()).Single(system => system != null);

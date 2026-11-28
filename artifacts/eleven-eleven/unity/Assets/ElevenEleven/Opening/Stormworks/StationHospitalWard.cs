@@ -28,6 +28,9 @@ namespace ElevenEleven.Opening
         [SerializeField] private Text line;
         [SerializeField] private Button advance;
 
+        [SerializeField] private WardEyeDressing eyeDressing;
+
+        internal bool CompressEquipped { get; private set; }
         private Room01Player actor;
         private Coroutine playback;
         private bool playing;
@@ -38,11 +41,13 @@ namespace ElevenEleven.Opening
 
         internal WardBeat Beat { get; private set; }
         internal bool IsReading => panel.activeSelf;
-        internal bool OwnsShot => IsReading || (reflection.MirageSequenceActive && !ChapterSceneLink.ReducedMotion &&
+        private Transform WakeShot => Beat == WardBeat.Awake && eyeDressing && actor &&
+            (actor.transform.position - bedside.position).sqrMagnitude < .40f ? eyeDressing.WakeShot : null;
+        internal bool OwnsShot => IsReading || WakeShot || (reflection.MirageSequenceActive && !ChapterSceneLink.ReducedMotion &&
             actor != null && InMirrorReach(actor.transform.position));
         private bool OnCloseShot => reflection.MirageActive && !ChapterSceneLink.ReducedMotion;
-        internal Transform Shot => Beat == WardBeat.Bedside ? bedsideShot : OnCloseShot ? closeShot : mirrorShot;
-        internal float ShotFov => OnCloseShot ? 36f : 50f;
+        internal Transform Shot => WakeShot ? WakeShot : Beat == WardBeat.Bedside ? bedsideShot : OnCloseShot ? closeShot : mirrorShot;
+        internal float ShotFov => WakeShot ? 38f : OnCloseShot ? 36f : 50f;
         internal Vector3 ReturnPoint => Beat == WardBeat.MarkRevealed ? vanity.position : bedside.position;
 
         private static string Copy(string english, string arabic) => EntryCopy.Arabic ? arabic : english;
@@ -50,13 +55,15 @@ namespace ElevenEleven.Opening
         internal string Objective => Beat switch
         {
             WardBeat.Bedside => Copy("Open your eyes.", ".ﻚﻴﻨﻴﻋ ﺢﺘﻓﺍ"),
+            WardBeat.Awake when eyeDressing && !CompressEquipped => Copy("Find and wear the compress beside the bed.", ".ﻚﻨﻴﻋ ﻰﻠﻋ ﺎﻬﻌﺿﻭ ﺮﻳﺮﺴﻟﺍ ﺭﺍﻮﺟ ﻦﻣ ﺓﺩﺎﻤﻜﻟﺍ ﺬﺧ"),
             WardBeat.Awake => Copy("Find the mirror and inspect the mark.", ".ﺮﺛﻷﺍ ﺺﺤﻓﺍﻭ ﺓﺁﺮﻤﻟﺍ ﻰﻟﺇ ﻪﺠﺗﺍ"),
             _ => Copy("Chapter 1 complete.", ".ﻝﻭﻷﺍ ﻞﺼﻔﻟﺍ ﻰﻬﺘﻧﺍ"),
         };
 
-        internal void Restore(bool transferred, WardBeat beat)
+        internal void Restore(bool transferred, WardBeat beat, bool compress = false)
         {
             Beat = beat;
+            CompressEquipped = compress;
             fromCheckpoint = transferred;
             ward.SetActive(transferred);
             markLight.enabled = false;
@@ -68,7 +75,7 @@ namespace ElevenEleven.Opening
             if (Time.timeScale > 0f) reflection.AdvanceMirage(Time.unscaledDeltaTime);
             if (Beat == WardBeat.Awake)
             {
-                if (InMirrorReach(player.transform.position)) Reveal(player);
+                if ((!eyeDressing || CompressEquipped) && InMirrorReach(player.transform.position)) Reveal(player);
                 else if (reflection.MirageSequenceActive)
                 {
                     reflection.LookAway();
@@ -99,6 +106,7 @@ namespace ElevenEleven.Opening
             actor = player;
             ward.SetActive(true);
             actor.ApplyPactAppearance(false);
+            if (eyeDressing) eyeDressing.Present(Beat != WardBeat.Bedside, CompressEquipped, false);
             if (!fromCheckpoint) actor.ReturnToSafePoint(ReturnPoint, "");
             if (Beat != WardBeat.Bedside) return;
             actor.FaceRouteFocus(mirror.position);
@@ -146,7 +154,9 @@ namespace ElevenEleven.Opening
 
         internal string Action(Vector3 position)
         {
-            return Beat == WardBeat.Awake && InMirrorReach(position)
+            if (Beat != WardBeat.Bedside && eyeDressing && !CompressEquipped && eyeDressing.InReach(position))
+                return Copy("Take and wear the eye compress [E]", "ﺎﻬﺴﺒﻟﺍﻭ ﺓﺩﺎﻤﻜﻟﺍ ﺬﺧ");
+            return Beat == WardBeat.Awake && (!eyeDressing || CompressEquipped) && InMirrorReach(position)
                 ? Copy("Inspect the mirror [E]", "ﺓﺁﺮﻤﻟﺍ ﺺﺤﻓﺍ") : "";
         }
 
@@ -159,6 +169,13 @@ namespace ElevenEleven.Opening
         internal void Interact(Vector3 position)
         {
             if (Action(position).Length == 0) return;
+            if (eyeDressing && !CompressEquipped && eyeDressing.InReach(position))
+            {
+                if (!actor.TrySaveWardCompress()) return;
+                CompressEquipped = true;
+                eyeDressing.Present(true, true, false);
+                return;
+            }
             if (!actor.TrySaveWardBeat(Beat, WardBeat.MarkRevealed))
             {
                 actor.ShowRouteNote(Copy("Could not save the mark. Try again.", ".ﺍﺩﺪﺠﻣ ﻝﻭﺎﺣ .ﺮﺛﻷﺍ ﻆﻔﺣ ﺭﺬﻌﺗ"));
@@ -183,9 +200,9 @@ namespace ElevenEleven.Opening
         {
             media.gameObject.SetActive(Beat == WardBeat.Bedside);
             if (Beat == WardBeat.Bedside) media.texture = poster;
-            speaker.text = Beat == WardBeat.Bedside ? Copy("Hospital", "ﻰﻔﺸﺘﺴﻤﻟﺍ") : "EX-011";
+            speaker.text = Beat == WardBeat.Bedside ? Copy("Doctor", "ﺐﻴﺒﻄﻟﺍ") : "EX-011";
             line.text = Beat == WardBeat.Bedside
-                ? Copy("Do not move. Rest is important.", ".ﺔﻤﻬﻣ ﺔﺣﺍﺮﻟﺍ .ﻙﺮﺤﺘﺗ ﻻ")
+                ? Copy("Open your eyes slowly. There is a compress beside your bed. Put it over your left eye.", ".ﻯﺮﺴﻴﻟﺍ ﻚﻨﻴﻋ ﻰﻠﻋ ﺎﻬﻌﺿ .ﺮﻳﺮﺴﻟﺍ ﺏﺮﻗ ﺓﺩﺎﻤﻛ ﺪﺠﺘﺳ .ﺀﻂﺒﺑ ﻚﻴﻨﻴﻋ ﺢﺘﻓﺍ")
                 : Copy("The experiment’s trace remains.\nChapter 1 complete.", ".ﺔﺑﺮﺠﺘﻟﺍ ﺮﺛﺃ ﻝﺍﺯ ﺎﻣ\n.ﻝﻭﻷﺍ ﻞﺼﻔﻟﺍ ﻰﻬﺘﻧﺍ");
             AdvanceLabel(Beat == WardBeat.Bedside ? Copy("Open your eyes", "ﻚﻴﻨﻴﻋ ﺢﺘﻓﺍ") :
                 Copy("Look away", "ﻙﺮﻈﻧ ﺪﻌﺑﺃ"));
@@ -209,6 +226,7 @@ namespace ElevenEleven.Opening
                     return;
                 }
                 Beat = WardBeat.Awake;
+                if (eyeDressing) eyeDressing.Present(true, CompressEquipped, true);
             }
             reflection.LookAway();
             mirrorCue.Stop();

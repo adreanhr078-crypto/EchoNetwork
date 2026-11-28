@@ -22,6 +22,7 @@ namespace ElevenEleven.Editor
         private const string Running = "11.11.StationSmoke";
         private const string Room = "Assets/ElevenEleven/Scenes/ChapterRoom01.unity";
         private const BindingFlags Private = BindingFlags.NonPublic | BindingFlags.Instance;
+        private const int SchoolJumpSettlePhase = 1700;
         private static int phase;
         private static int checks;
         private static AsyncOperation reload;
@@ -30,6 +31,15 @@ namespace ElevenEleven.Editor
         private static Keyboard keyboard;
         private static float peak;
         private static bool sprintSeen;
+        private static float jumpLaunchHeight;
+        private static float jumpApexHeight;
+        private static float lastJumpSample;
+        private static int schoolJumpFlightFrames;
+        private static Quaternion jumpTakeoffShin;
+        private static Transform jumpShin;
+        private static bool jumpKneeMoved;
+        private static string jumpBeforeJson;
+        private static bool jumpPreviousReducedMotion;
         private static Vector3 revealStart;
         private static bool observatoryPriorReducedMotion;
         private static Quaternion initialClockRotation;
@@ -39,6 +49,7 @@ namespace ElevenEleven.Editor
         private static bool ExaminationOnly => Environment.GetEnvironmentVariable("ECHO_EXAMINATION_ONLY") == "1";
         private static bool connected;
         private static bool ExercisePact => connected || Environment.GetEnvironmentVariable("ECHO_STATION_PACT") == "1";
+        private static bool ProveSchoolJump => Environment.GetEnvironmentVariable("ECHO_STATION_SCHOOL_JUMP") == "1";
         private static string Checkpoint => Path.Combine(Fixture, "system_opening_v1.json");
 
         static StormworksSmoke()
@@ -103,7 +114,7 @@ namespace ElevenEleven.Editor
                 {
                     var entry = GameObject.Find("Chapter entry")?.GetComponent<Button>();
                     if (entry == null || !entry.interactable) return;
-                    Require(entry.GetComponentInChildren<Text>().text == "Continue",
+                    Require(entry.GetComponentInChildren<Text>().text is "Continue" or "ﺔﻌﺑﺎﺘﻣ",
                         "The ordinary title entry offers Continue after chapter clear");
                     entry.onClick.Invoke();
                     phase = 101;
@@ -197,11 +208,24 @@ namespace ElevenEleven.Editor
                         player.OpenInspection();
                         Place(player, new Vector3(0f, 0.04f, 24.3f));
                         SetKeys(Key.W);
+                        CaptureRoomView(player, camera, "72-Pressure-VentedPass", "already on the vented pressure pass");
                         Capture(camera, "02-Pressure");
                         phase++;
                         break;
                     case 4:
+                        if (R40Review && !ventCueVerified)
+                        {
+                            var ventIndicator = GameObject.Find("Pressure vent state");
+                            var lamp = ventIndicator.GetComponentInChildren<Light>();
+                            ventCueVerified = lamp.color.r > .9f && lamp.color.g > .55f &&
+                                ventIndicator.transform.Find("Vent time lens").gameObject.activeSelf;
+                            if (ventCueVerified)
+                                CaptureAt(camera, "90-Pressure-Vent-Readout", new Vector3(-.69f,1.53f,23.39f),
+                                    new Vector3(-2.19f,1.39f,24.65f));
+                        }
                         if (position.z < 27f) return;
+                        if (R40Review) Require(ventCueVerified,
+                            "Actual valve interaction exposes the live vent state and remaining time");
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 1, "Walking through vented pressure writes stage one");
                         phase++;
                         break;
@@ -222,10 +246,26 @@ namespace ElevenEleven.Editor
                         break;
                     case 7:
                         if (!player.GetComponent<CharacterController>().isGrounded) return;
+                        CaptureRoomView(player, camera, "73-Observatory-Bridge", "bridge after the vista releases input");
                         Capture(camera, "04-ServicePlatforms");
                         // Keep the input test independent of a cold native capture's render hitch.
                         Time.captureDeltaTime = 1f / 50f;
                         sprintSeen = false;
+                        if (ProveSchoolJump)
+                        {
+                            jumpPreviousReducedMotion = ChapterSceneLink.ReducedMotion;
+                            ChapterSceneLink.ReducedMotion = Environment.GetEnvironmentVariable("ECHO_STATION_JUMP_REDUCED") == "1";
+                            var configuredHz = Environment.GetEnvironmentVariable("ECHO_STATION_JUMP_HZ");
+                            if (!string.IsNullOrEmpty(configuredHz))
+                            {
+                                var hz = int.Parse(configuredHz);
+                                if (hz != 30 && hz != 60) throw new InvalidOperationException("Jump proof accepts 30 or 60 Hz.");
+                                Time.captureDeltaTime = 1f / hz;
+                            }
+                            jumpBeforeJson = File.ReadAllText(Checkpoint);
+                            Require(HasSchool(player) && PactBeat() == 0 && Room01Checkpoint.Load(Checkpoint).StationStage == 1,
+                                "School jump starts before pact and with the pressure crossing checkpoint");
+                        }
                         SetKeys(Key.A, Key.LeftShift);
                         phase = 70;
                         break;
@@ -236,28 +276,67 @@ namespace ElevenEleven.Editor
                         Require(sprintSeen, "Sprint uses remapped School65 Run");
                         if (!player.GetComponent<CharacterController>().isGrounded)
                             throw new InvalidOperationException($"Jump input reached phase 70 after leaving the bridge at {position}.");
+                        if (ProveSchoolJump)
+                        {
+                            jumpLaunchHeight = jumpApexHeight = position.y;
+                            lastJumpSample = 24f / 30f - 0.001f;
+                            schoolJumpFlightFrames = 0;
+                            jumpKneeMoved = false;
+                            jumpShin = SchoolJumpMotion(player).GetComponentsInChildren<Transform>(true)
+                                .Single(joint => joint.name.EndsWith(":LeftLeg", StringComparison.Ordinal));
+                        }
                         SetKeys(Key.A, Key.LeftShift, Key.Space);
                         phase = 8;
                         break;
                     case 8:
                         if (position.z < 50f) throw new InvalidOperationException($"Jump missed; returned from peak {peak:0.00} m.");
                         peak = Mathf.Max(peak, position.y);
+                        if (ProveSchoolJump) SampleSchoolJumpPhysics(player);
                         if (position.x > -4.17f) return;
                         SetKeys();
                         phase++;
                         break;
                     case 9:
-                        if (!player.GetComponent<CharacterController>().isGrounded) return;
+                        if (!player.GetComponent<CharacterController>().isGrounded)
+                        {
+                            if (ProveSchoolJump) SampleSchoolJumpPhysics(player);
+                            return;
+                        }
                         Require(position.x < -3.72f && position.y > 0.30f && peak > 0.85f, "Jump input reaches the first suspended plate");
+                        if (ProveSchoolJump)
+                        {
+                            var jump = SchoolJumpMotion(player);
+                            Require(jump.IsPlaying("Jump") && Mathf.Abs(jump["Jump"].time - 42f / 30f) < 0.04f,
+                                "Capsule contact selects the authored landing pose");
+                            Require(schoolJumpFlightFrames >= 8 && jumpKneeMoved &&
+                                    jumpApexHeight - jumpLaunchHeight >= 0.95f && jumpApexHeight - jumpLaunchHeight <= 1.40f,
+                                "The school body articulates in flight while the original capsule arc reaches the platform");
+                            Capture(camera, "04B-SchoolJump-Landing");
+                            phase = SchoolJumpSettlePhase;
+                            break;
+                        }
+                        goto case SchoolJumpSettlePhase;
+                    case SchoolJumpSettlePhase:
+                        if (ProveSchoolJump)
+                        {
+                            var motion = SchoolJumpMotion(player);
+                            if (motion.IsPlaying("Jump")) return;
+                            Require(player.GetComponent<CharacterController>().isGrounded && HasSchool(player) && PactBeat() == 0 &&
+                                    File.ReadAllText(Checkpoint) == jumpBeforeJson,
+                                "The school landing returns to ground locomotion with the same save and pact authority");
+                            Debug.Log(FormattableString.Invariant($"SCHOOL_JUMP_PHYSICS_PASS frames={schoolJumpFlightFrames} clearance_m={jumpApexHeight - jumpLaunchHeight:F4} reduced={ChapterSceneLink.ReducedMotion}"));
+                            ChapterSceneLink.ReducedMotion = jumpPreviousReducedMotion;
+                        }
                         Time.captureDeltaTime = 0f;
                         Place(player, new Vector3(-15f, 0.04f, 50.07f));
                         SetKeys(Key.W);
-                        phase++;
+                        phase = 10;
                         break;
                     case 10:
                         if (position.z < 55.6f) return;
                         SetKeys();
                         Require(position.y > 0.9f, "Alternate stair route reaches relay on foot");
+                        CaptureRoomView(player, camera, "74-Relay-StairApproach", "relay stair approach before activation");
                         player.OpenInspection();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 2, "Relay writes stage two");
                         phase++;
@@ -271,6 +350,7 @@ namespace ElevenEleven.Editor
                         break;
                     case 12:
                         if (position.z < 66.7f) return;
+                        CaptureRoomView(player, camera, "75-MemoryLab-LogApproach", "inside the memory lab before logging");
                         SetKeys();
                         player.OpenInspection();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 3, "Lab log writes stage three");
@@ -409,6 +489,7 @@ namespace ElevenEleven.Editor
                         break;
                     }
                     case 14:
+                        CaptureRoomView(player, camera, "76-Security-Diversion", "security arrival before activating the diversion");
                         player.OpenInspection();
                         var security = UnityEngine.Object.FindFirstObjectByType<StationSecurityWing>();
                         var remaining = (float)typeof(StationSecurityWing).GetField("diversionRemaining", Private).GetValue(security);
@@ -461,6 +542,7 @@ namespace ElevenEleven.Editor
                         phase++;
                         break;
                     case 20:
+                        CaptureRoomView(player, camera, "77-Specimen-EX011", "checked EX-011 terminal approach");
                         player.OpenInspection();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 5, "The canonical EX-011 record unlocks the west gate");
                         var specimen = GameObject.Find("Specimen containment").transform;
@@ -542,6 +624,7 @@ namespace ElevenEleven.Editor
                         phase++;
                         break;
                     case 31:
+                        CaptureRoomView(player, camera, "78-Archive-Decoder", "checked archive decoder approach");
                         player.OpenInspection();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 7, "Decoding requires the recovered record and opens the gate");
                         CaptureAt(camera, "08-Archive", new Vector3(-30.8f, 2.32f, 114.8f), new Vector3(-35.35f, 2.26f, 111.58f));
@@ -571,6 +654,7 @@ namespace ElevenEleven.Editor
                         if (position.z < 147.3f) return;
                         SetKeys();
                         Require(position.y < 0.14f && position.y >= -0.08f, "Reserve conduit reaches the reactor entry balcony");
+                        CaptureRoomView(player, camera, "79-Reactor-EntryBalcony", "reactor entry balcony");
                         CaptureAt(camera, "09-Reactor", new Vector3(-34.6f, 2.25f, 148.6f), new Vector3(-35.5f, 2.9f, 172f));
                         PlaceAtBreaker(player, "East breaker reach");
                         phase++;
@@ -585,6 +669,12 @@ namespace ElevenEleven.Editor
                     case 37:
                         if (position.z < 148f) return;
                         Require(Room01Checkpoint.Load(Checkpoint).ReactorBreakers == 2, "Partial circuit power survives reload");
+                        if (R40Review)
+                        {
+                            if (!CueIsReady("East breaker's bus state")) return;
+                            Require(!CueIsReady("West breaker's bus state"),
+                                "Restoring one breaker lights only its physical bus indicator");
+                        }
                         PlaceAtBreaker(player, "West breaker reach");
                         phase++;
                         break;
@@ -596,6 +686,13 @@ namespace ElevenEleven.Editor
                     case 39:
                         if (GameObject.Find("HydraulicBridge").transform.position.y < 3.95f ||
                             GameObject.Find("NorthExitGate").transform.position.y < 8.65f) return;
+                        if (R40Review)
+                        {
+                            Require(CueIsReady("East breaker's bus state") && CueIsReady("West breaker's bus state"),
+                                "The two reactor indicators turn green with actual hydraulic restoration");
+                            CaptureAt(camera, "91-Reactor-Breaker-Readout", new Vector3(-45.19f,3.1f,161.3f),
+                                new Vector3(-47.98f,3.65f,162f));
+                        }
                         Require(Physics.Raycast(new Vector3(-35.5f, 7.2f, 181.8f), Vector3.down, 3.5f,
                             ~(1 << 2), QueryTriggerInteraction.Ignore), "Restored hydraulic bridge is physically solid at the raised height");
                         Place(player, new Vector3(-35.5f, 4.04f, 188.6f));
@@ -638,6 +735,7 @@ namespace ElevenEleven.Editor
                         phase++;
                         break;
                     case 45:
+                        CaptureRoomView(player, camera, "80-Quarantine-UpperCatwalk", "upper catwalk beside the override before activation");
                         player.OpenInspection();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 10, "Quarantine override saves at the console");
                         LoadCheckpoint();
@@ -646,6 +744,14 @@ namespace ElevenEleven.Editor
                     case 46:
                         var quarantine = UnityEngine.Object.FindFirstObjectByType<StationQuarantineWing>();
                         Require(Vector3.Distance(position, new Vector3(-36.9f, 7.25f, 217.06f)) < 0.22f, "Cleared quarantine restores to its safe catwalk");
+                        if (R40Review)
+                        {
+                            if (!CueIsReady("Quarantine extraction state")) return;
+                            Require(CueIsReady("Quarantine extraction state"),
+                                "The quarantine indicator restores clear after the actual console override");
+                            CaptureAt(camera, "92-Quarantine-Override-Readout", new Vector3(-36.8f,7.35f,215.35f),
+                                new Vector3(-35.77f,8.1f,216.9f));
+                        }
                         Require(quarantine.GetComponentsInChildren<Transform>(true)
                             .Any(t => t.name == "Atmospheric extraction standpipes" && !t.gameObject.activeSelf),
                             "Cleared quarantine restores with spray disabled");
@@ -657,6 +763,24 @@ namespace ElevenEleven.Editor
                         if (position.z < 243.65f) return;
                         SetKeys();
                         Require(Room01Checkpoint.Load(Checkpoint).StationStage == 11, "Quarantine and surveillance joined through a physical connector");
+                        if (SurveillanceApproachReview)
+                        {
+                            var bay = UnityEngine.Object.FindFirstObjectByType<StationSurveillanceWing>();
+                            Require(bay, "The playable surveillance wing is loaded");
+                            FollowView(player, camera, bay.transform, "93-Surveillance-Arrival", new Vector3(.05f, .045f, 6.7f), 0f, 13f);
+                            FollowView(player, camera, bay.transform, "94-Surveillance-Side-Aisle", new Vector3(5.24f, .045f, 8.4f), -17f, 13f);
+                            FollowView(player, camera, bay.transform, "95-Surveillance-Approach-Emitter", new Vector3(4.41f, .045f, 7.25f), -29f, 19f);
+                            FollowView(player, camera, bay.transform, "96-Surveillance-Reduced-Motion", new Vector3(.05f, .045f, 6.7f), 0f, 13f, true);
+                            if (Environment.GetEnvironmentVariable("ECHO_R41_EXPECT_FIT") == "1")
+                            {
+                                var guides = bay.transform.Find("Surveillance scanner gallery/Fitted surveillance approach guides");
+                                Require(guides && guides.childCount == 16, "Both walkable aisles have inset guides at the four scanner crossings");
+                                Require(bay.GetComponentsInChildren<Transform>(true).Count(t => t.name == "Flush deck flange") == 8,
+                                    "Each scanner endpoint has a floor-mounted flange");
+                                Require(bay.GetComponentsInChildren<Transform>(false).Count(t => t.name == "Crossing limit inlay") == 8,
+                                    "Live amber limits are visible at each scanner endpoint");
+                            }
+                        }
                         CaptureAt(camera, "11-Surveillance", new Vector3(-38f, 6.2f, 247.2f), new Vector3(-32f, 6.4f, 257f));
                         Place(player, new Vector3(-35.5f, 4.04f, 249.47f));
                         SetKeys(Key.W);
@@ -666,6 +790,7 @@ namespace ElevenEleven.Editor
                         if (position.z > 248.0f) return;
                         SetKeys();
                         Require(position.z < 247f, "Scanner contact returns to the surveillance arrival bay");
+                        CaptureRoomView(player, camera, "81-Surveillance-RecoveryAisle", "playable surveillance bay after scanner recovery");
                         Place(player, new Vector3(-36.74f, 6.445f, 259.48f));
                         phase++;
                         break;
@@ -678,6 +803,24 @@ namespace ElevenEleven.Editor
                     case 50:
                         Require(Vector3.Distance(position, new Vector3(-37.70f, 6.445f, 259.48f)) < 0.22f,
                             "Partial surveillance progress resumes on the command dais");
+                        if (R40Review)
+                        {
+                            if (!CueIsReady("Surveillance discharge authorization")) return;
+                            Require(!GameObject.Find("Surveillance scanner grid"),
+                                "The mechanical command terminal displays the restored scanner shutdown");
+                        }
+                        if (SurveillanceApproachReview)
+                        {
+                            var bay = UnityEngine.Object.FindFirstObjectByType<StationSurveillanceWing>();
+                            FollowView(player, camera, bay.transform, "97-Surveillance-After-Reload", new Vector3(.05f, .045f, 6.7f), 0f, 13f);
+                            if (Environment.GetEnvironmentVariable("ECHO_R41_EXPECT_FIT") == "1")
+                            {
+                                Require(!bay.GetComponentsInChildren<Transform>(false).Any(t => t.name == "Crossing limit inlay"),
+                                    "Amber crossing limits stay off after resuming scanner shutdown");
+                                Require(bay.transform.Find("Surveillance scanner gallery/Fitted surveillance approach guides").gameObject.activeInHierarchy,
+                                    "Nonhazard aisle guides remain visible after resuming shutdown");
+                            }
+                        }
                         var exitGate = GameObject.Find("SurveillanceExitGate");
                         Require(exitGate.transform.position.y < 5.68f, "Grid shutdown alone keeps the north gate shut");
                         Place(player, new Vector3(-28.8f, 4.045f, 252f));
@@ -699,6 +842,7 @@ namespace ElevenEleven.Editor
                             if (reflectionState.GetFloat("_ReflectionReady") < 0.5f) return;
                             Require(reflectionState.GetTexture("_ReflectionMap") is RenderTexture, "The live mirror rendered a planar color target");
                         }
+                        CaptureRoomView(player, camera, "82-InspectionMirror-Interlock", "live reflection after unlocking the interlock");
                         Capture(camera, "12-InspectionMirror");
                         typeof(Room01Player).GetField("viewYaw", Private).SetValue(player, 0f);
                         Place(player, new Vector3(-35.5f, 4.04f, 276.65f));
@@ -723,6 +867,7 @@ namespace ElevenEleven.Editor
                         if (position.z < 298.45f) return;
                         Require(Mathf.Abs(position.x + 35.5f) < 0.15f && position.y > 5.18f,
                             "Walking from the landing crosses the entrance and climbs the examination ramp");
+                        CaptureRoomView(player, camera, "83-ExaminationTheatre-RampArrival", "theatre ramp arrival before dialogue");
                         SetKeys(Key.D);
                         phase++;
                         break;
@@ -788,6 +933,7 @@ namespace ElevenEleven.Editor
                         player.OpenInspection();
                         Require(!GameObject.Find("Examination dialogue"), "The same memory cannot count twice");
                         Place(player, new Vector3(-39.6f, 5.245f, 301.03f));
+                        CaptureRoomView(player, camera, "85-ObservationAlcove-ShizukaCue", "checked Shizuka cue within the authored observation alcove");
                         player.OpenInspection();
                         Require(GameObject.Find("Manhwa memory").GetComponent<RawImage>().texture.name == "Shizuka-PDF041",
                             "The opposite cue opens Shizuka's approved memory crop");
@@ -825,6 +971,7 @@ namespace ElevenEleven.Editor
                             "Resume restores the completed examination and altar cue");
                         Require(!GameObject.Find("Examination dialogue") && !GameObject.Find("Examination wing interlock"),
                             "Resume opens the altar approach without replaying the trial");
+                        CaptureRoomView(player, camera, "84-ZeroThreshold-AfterContinue", "altar approach after restoring completed examination");
                         if (ExercisePact)
                         {
                             phase = 80;
@@ -1019,6 +1166,7 @@ namespace ElevenEleven.Editor
                         if (!GameObject.Find("Awakening ward")) return;
                         Require(HasSchool(player) && WardProgress() == 1 && !GameObject.Find("Hospital recovery"),
                             "Ward reload preserves wake without repeating the film");
+                        CaptureRoomView(player, camera, "86-Ward-AwakeAfterContinue", "normal ward control after restoring awake checkpoint");
                         if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ECHO_STATION_WARD_SEED")))
                         {
                             var wardRoom = GameObject.Find("Awakening ward").transform;
@@ -1185,6 +1333,26 @@ namespace ElevenEleven.Editor
         private static T Get<T>(StormworksRoute route, string property) =>
             (T)typeof(StormworksRoute).GetProperty(property, Private).GetValue(route);
 
+        private static Animation SchoolJumpMotion(Room01Player player) => player.GetComponentsInChildren<Animation>(true)
+            .Single(motion => motion.GetClip("Jump") != null);
+
+        private static void SampleSchoolJumpPhysics(Room01Player player)
+        {
+            if (player.GetComponent<CharacterController>().isGrounded) return;
+            var height = player.transform.position.y;
+            var motion = SchoolJumpMotion(player);
+            var sourceTime = motion["Jump"].time;
+            if (!motion.IsPlaying("Jump") || sourceTime + 0.001f < lastJumpSample || sourceTime > 42f / 30f + 0.001f)
+                throw new InvalidOperationException($"Jump pose does not follow the capsule flight: time={sourceTime:F4}.");
+            if (schoolJumpFlightFrames == 0)
+                jumpTakeoffShin = jumpShin.localRotation;
+            else if (Quaternion.Angle(jumpTakeoffShin, jumpShin.localRotation) > 18f)
+                jumpKneeMoved = true;
+            schoolJumpFlightFrames++;
+            lastJumpSample = sourceTime;
+            jumpApexHeight = Mathf.Max(jumpApexHeight, height);
+        }
+
         private static void SetKeys(params Key[] keys)
         {
             InputSystem.QueueStateEvent(keyboard, new KeyboardState(keys));
@@ -1198,6 +1366,62 @@ namespace ElevenEleven.Editor
             var block = new MaterialPropertyBlock();
             renderer.GetPropertyBlock(block);
             return block.GetVector("_ClockDotIntensity");
+        }
+
+        private static bool ventCueVerified;
+        private static bool R40Review => Environment.GetEnvironmentVariable("ECHO_R40_CUES") == "1";
+
+        private static bool CueIsReady(string name)
+        {
+            var go = GameObject.Find(name);
+            if (!go || !go.TryGetComponent<RoomSystemCue>(out _)) throw new InvalidDataException(name);
+            return go.GetComponentInChildren<Light>().color.g > .75f &&
+                   go.GetComponentInChildren<Light>().color.r < .4f;
+        }
+
+        private static bool SurveillanceApproachReview => Environment.GetEnvironmentVariable("ECHO_R41_APPROACH_REVIEW") == "1";
+
+        private static void FollowView(Room01Player player, Camera camera, Transform room, string shot,
+            Vector3 point, float yaw, float pitch, bool reduced = false)
+        {
+            var yawField = typeof(Room01Player).GetField("viewYaw", Private);
+            var pitchField = typeof(Room01Player).GetField("viewPitch", Private);
+            var oldYaw = yawField.GetValue(player);
+            var oldPitch = pitchField.GetValue(player);
+            var oldPoint = player.transform.position;
+            var oldReduced = ChapterSceneLink.ReducedMotion;
+            try
+            {
+                ChapterSceneLink.ReducedMotion = reduced;
+                yawField.SetValue(player, room.eulerAngles.y + yaw);
+                pitchField.SetValue(player, pitch);
+                Place(player, room.TransformPoint(point));
+                Require(Vector3.Distance(camera.transform.position, player.transform.position + Vector3.up * 1.4f) > .32f,
+                    shot + " retains a usable production follow arm");
+                if (reduced) Require(Mathf.Abs(camera.fieldOfView - 60f) < .03f, shot + " retains the fixed reduced-motion lens");
+                var fit = room.GetComponentsInChildren<Transform>(false).Where(t => t.name is
+                    "Fitted surveillance approach guides" or "Flush deck flange" or "Live crossing threshold").ToArray();
+                if (fit.Length > 0)
+                {
+                    try
+                    {
+                        foreach (var part in fit) part.gameObject.SetActive(false);
+                        Capture(camera, shot + "-R40");
+                    }
+                    finally
+                    {
+                        foreach (var part in fit) part.gameObject.SetActive(true);
+                    }
+                }
+                Capture(camera, shot + "-R41");
+            }
+            finally
+            {
+                ChapterSceneLink.ReducedMotion = oldReduced;
+                yawField.SetValue(player, oldYaw);
+                pitchField.SetValue(player, oldPitch);
+                Place(player, oldPoint);
+            }
         }
 
         private static void CaptureAt(Camera camera, string name, Vector3 at, Vector3 focus)
@@ -1215,6 +1439,24 @@ namespace ElevenEleven.Editor
             }
         }
 
+        internal static void CaptureRoomView(Room01Player player, Camera camera, string name, string scope)
+        {
+            if (Environment.GetEnvironmentVariable("ECHO_ALL_ROOM_VIEWS") != "1" || !camera || !camera.isActiveAndEnabled ||
+                SystemInfo.graphicsDeviceType == GraphicsDeviceType.Null) return;
+            var destination = Environment.GetEnvironmentVariable("ECHO_STATION_CAPTURE");
+            if (string.IsNullOrWhiteSpace(destination)) return;
+
+            var routeChecks = checks;
+            try
+            {
+                Capture(camera, name);
+                if (File.Exists(Path.Combine(destination, name + ".png")))
+                    Debug.Log($"ECHO_ALL_ROOM_VIEW {name} scope={scope} feet={player.transform.position:F3} " +
+                        $"eye={camera.transform.position:F3} forward={camera.transform.forward:F3} fov={camera.fieldOfView:F2} " +
+                        $"reducedMotion={ChapterSceneLink.ReducedMotion}");
+            }
+            finally { checks = routeChecks; }
+        }
         internal static void Capture(Camera camera, string name)
         {
             var destination = Environment.GetEnvironmentVariable("ECHO_STATION_CAPTURE");

@@ -69,6 +69,10 @@ internal static class OpeningBatchPlaySmoke
             Press(buttons, "I am ready.");
             Require(film.Beat == OpeningBeat.Experiment, "ready opens experiment");
             Press(buttons, "Continue");
+            Require(film.Beat == OpeningBeat.Memory && !film.ShowingVideo, "experiment advances to threshold memory");
+            Press(buttons, "Continue");
+            Require(film.Beat == OpeningBeat.SystemWake && film.WakeRevealed, "threshold advances to system wake");
+            Press(buttons, "Continue");
             Require(film.Beat == OpeningBeat.Complete && !Button(buttons, "Continue").gameObject.activeSelf,
                 "experiment finishes with no duplicate action");
             Debug.Log($"OPENING_NATIVE_PLAY_PASS {checks} checks");

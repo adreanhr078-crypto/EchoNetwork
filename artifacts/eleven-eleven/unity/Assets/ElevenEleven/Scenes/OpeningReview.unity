@@ -1467,6 +1467,8 @@ MonoBehaviour:
   surface: {fileID: 179299586}
   player: {fileID: 273063761}
   ambience: {fileID: 273063760}
+  wakeAmbience: {fileID: 8300000, guid: de970ae1d7c403142859d76f70b96e8e, type: 3}
+  wakeFoley: {fileID: 8300000, guid: f75966568f524338a4f310ab48a40625, type: 3}
   completed:
     m_PersistentCalls:
       m_Calls: []

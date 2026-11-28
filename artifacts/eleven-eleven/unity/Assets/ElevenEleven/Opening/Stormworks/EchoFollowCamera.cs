@@ -14,6 +14,8 @@ namespace ElevenEleven.Opening
         private float bank;
         private float landing;
         private float landingVelocity;
+        private float trauma;
+        private float fovBoost;
 
         internal void Reset()
         {
@@ -21,10 +23,17 @@ namespace ElevenEleven.Opening
             current = ChapterCameraFraming.Frame.Default;
             framingReady = false;
             distance = 3.6f;
-            bank = landing = landingVelocity = 0f;
+            bank = landing = landingVelocity = trauma = fovBoost = 0f;
         }
 
         internal void Land(float impact) => landingVelocity = -Mathf.Min(2.3f, impact * 0.14f);
+
+        internal void ImpulseTrauma(float shakeAmount, float fovKick = 0f)
+        {
+            if (ChapterSceneLink.ReducedMotion) return;
+            trauma = Mathf.Clamp01(Mathf.Max(trauma, shakeAmount));
+            if (fovKick != 0f) fovBoost = Mathf.Clamp(Mathf.Max(fovBoost, fovKick), -4f, 6.5f);
+        }
 
         internal void Draw(Camera camera, Vector3 feet, Vector3 velocity, float pitch, float yaw,
             float lookInput, LayerMask obstacles, StormworksRoute route, float dt)
@@ -76,7 +85,10 @@ namespace ElevenEleven.Opening
                 target = Vector3.Lerp(target, route.VistaFocus.position, weight);
             }
 
-            var fov = Mathf.Lerp(current.Fov, 53f, weight);
+            var udt = Mathf.Max(Time.unscaledDeltaTime, dt);
+            trauma = reduced ? 0f : Mathf.Max(0f, trauma - udt * 2.4f);
+            fovBoost = reduced ? 0f : Mathf.Lerp(fovBoost, 0f, 1f - Mathf.Exp(-7.5f * udt));
+            var fov = Mathf.Lerp(current.Fov, 53f, weight) + fovBoost * (1f - weight);
             var arm = destination - anchor;
             var requested = arm.magnitude;
             var clearance = 1f;
@@ -96,6 +108,16 @@ namespace ElevenEleven.Opening
                 clearance = Mathf.Clamp01(distance / requested);
                 destination = anchor + direction * distance;
                 if (weight > 0f) aim = target - destination;
+            }
+
+            if (trauma > 0.001f)
+            {
+                var mag = trauma * trauma * 0.16f * (1f - weight);
+                var shakeTime = Time.unscaledTime * 34f;
+                var sx = (Mathf.PerlinNoise(shakeTime, 1.3f) - 0.5f) * 2f * mag;
+                var sy = (Mathf.PerlinNoise(3.7f, shakeTime) - 0.5f) * 2f * mag;
+                destination += camera.transform.right * sx + camera.transform.up * sy;
+                aim = target - destination;
             }
 
             var rotation = aim.sqrMagnitude > .0001f ? Quaternion.LookRotation(aim, Vector3.up) : orbit;

@@ -14,7 +14,12 @@ namespace ElevenEleven.Opening
         [SerializeField] private GameObject scannerGrid;
         [SerializeField] private Light mirrorSignal;
         [SerializeField] private Light consoleSignal;
+        [SerializeField] private GameObject pathSafeCue;
+        [SerializeField] private Renderer pathSafeLens;
         private Vector3 closed;
+        private MaterialPropertyBlock pathSafeMpb;
+        private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+        private static readonly int EmissionColorId = Shader.PropertyToID("_EmissionColor");
         private static readonly Color Amber = new Color(1f, 0.32f, 0.06f);
         private static readonly Color Turquoise = new Color(0.08f, 1f, 0.69f);
 
@@ -74,7 +79,7 @@ namespace ElevenEleven.Opening
             {
                 if (Mathf.Abs(local.z - z) > 0.31f) continue;
                 var exit = z < 20f ? Arrival : transform.TransformPoint(new Vector3(-5.15f, 0.045f, 24f));
-                player.ReturnToSafePoint(exit, EntryCopy.Arabic
+                player.TryHazardReturn(exit, EntryCopy.Arabic
                     ? "‏ﻲﺒﻧﺎﺠﻟﺍ ﺮﻤﻤﻟﺍ ﻚﻠﺳﺍ .ﺢﺴﻤﻟﺍ ﻚﻔﺸﺘﻛﺍ"
                     : "Scanner detected movement. Use the side aisle.");
                 return;
@@ -88,6 +93,15 @@ namespace ElevenEleven.Opening
             mirrorSignal.color = inspected ? Turquoise : Amber;
             consoleSignal.color = overridden ? Turquoise : Amber;
             scannerGrid.SetActive(!overridden);
+            if (pathSafeCue && pathSafeCue.activeSelf != overridden) pathSafeCue.SetActive(overridden);
+            if (pathSafeLens)
+            {
+                pathSafeMpb ??= new MaterialPropertyBlock();
+                pathSafeLens.GetPropertyBlock(pathSafeMpb);
+                pathSafeMpb.SetColor(BaseColorId, overridden ? new Color(0.14f, 0.96f, 0.72f, 1f) : new Color(0.32f, 0.14f, 0.08f, 1f));
+                pathSafeMpb.SetColor(EmissionColorId, overridden ? new Color(0.16f, 1.55f, 1.05f, 1f) : new Color(0.28f, 0.09f, 0.02f, 1f));
+                pathSafeLens.SetPropertyBlock(pathSafeMpb);
+            }
         }
     }
 }

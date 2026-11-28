@@ -153,6 +153,8 @@ namespace ElevenEleven.Editor
             Set(filmData, "surface", surface);
             Set(filmData, "player", video);
             Set(filmData, "ambience", audio);
+            Set(filmData, "wakeAmbience", pressureAir);
+            Set(filmData, "wakeFoley", Load<AudioClip>("SystemWakeFoley.wav"));
             filmData.ApplyModifiedPropertiesWithoutUndo();
 
             var strip = Element("Dialogue and Playback", filmPanel.transform, 0, 0, 1, 0.27f);

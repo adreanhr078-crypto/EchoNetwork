@@ -16,6 +16,13 @@ namespace ElevenEleven.Opening
         [SerializeField] private AnimationClip schoolIdle;
         [SerializeField] private AnimationClip schoolWalk;
         [SerializeField] private AnimationClip schoolRun;
+        [SerializeField] private AnimationClip schoolJump;
+        [SerializeField] private AnimationClip schoolRoll;
+        [SerializeField] private AnimationClip schoolMantle;
+        [SerializeField] private AnimationClip schoolHang;
+        [SerializeField] private AnimationClip pactStrikeBoxing;
+        [SerializeField] private AnimationClip pactStrikeHorizontal;
+        [SerializeField] private AnimationClip pactStrikeOverhead;
         [SerializeField] private Transform pact;
         [SerializeField] private Animation pactMotion;
         [SerializeField] private Camera roomCamera;
@@ -44,6 +51,22 @@ namespace ElevenEleven.Opening
         private float turnInput;
         private float jumpBuffer;
         private float groundGrace;
+        private bool schoolJumpInFlight;
+        private float schoolJumpRecovery;
+        private StationActionFx actionFx;
+        private float dodgeTimer;
+        private float dodgeCooldown;
+        private float dodgeInvulnTimer;
+        private Vector3 dodgeDir;
+        private bool mantling;
+        private float mantleTimer;
+        private Vector3 mantleStart;
+        private Vector3 mantleEnd;
+        private float strikeTimer;
+        private float comboResetTimer;
+        private int comboIndex;
+        private bool queuedCombo;
+        private string activeStrikeClip = "Strike";
 
         private static readonly string[] InspectionNotes =
         {
@@ -56,6 +79,10 @@ namespace ElevenEleven.Opening
         private int nextClue;
         private const float WalkSpeed = 1.55f;
         private const float AuthoredWalkSpeed = 1.3587f;
+        private const float JumpTakeoffSpeed = 7.15f;
+        private const float SchoolJumpLaunchTime = 24f / 30f;
+        private const float SchoolJumpContactTime = 42f / 30f;
+        private const float SchoolJumpRecoveryTime = 0.12f;
         private string locomotion = "Idle";
         private bool earnedPact;
         private bool signalAligned;
@@ -65,6 +92,7 @@ namespace ElevenEleven.Opening
         public bool IsStaged { get; private set; }
         internal bool HasGroundContact => controller != null && controller.isGrounded;
         internal bool ConduitPowered => powered;
+        internal bool SignalAligned => signalAligned;
         internal bool UtilityMotionPaused => inspection.activeSelf || tuner.IsOpen || (station && station.InExamination);
         private Text inspectLabel;
         private float verticalSpeed;
@@ -75,9 +103,20 @@ namespace ElevenEleven.Opening
         private void Awake()
         {
             controller = GetComponent<CharacterController>();
+            actionFx = GetComponent<StationActionFx>() ?? gameObject.AddComponent<StationActionFx>();
             schoolMotion.AddClip(schoolIdle, "Idle");
             schoolMotion.AddClip(schoolWalk, "Walk");
             if (schoolRun != null) schoolMotion.AddClip(schoolRun, "Run");
+            if (schoolJump != null) schoolMotion.AddClip(schoolJump, "Jump");
+            if (schoolRoll != null) schoolMotion.AddClip(schoolRoll, "Roll");
+            if (schoolMantle != null) schoolMotion.AddClip(schoolMantle, "Mantle");
+            if (schoolHang != null) schoolMotion.AddClip(schoolHang, "Hang");
+            if (pactMotion != null)
+            {
+                if (pactStrikeBoxing != null) pactMotion.AddClip(pactStrikeBoxing, "StrikeBoxing");
+                if (pactStrikeHorizontal != null) pactMotion.AddClip(pactStrikeHorizontal, "StrikeHorizontal");
+                if (pactStrikeOverhead != null) pactMotion.AddClip(pactStrikeOverhead, "StrikeOverhead");
+            }
             schoolIdle.SampleAnimation(schoolMotion.gameObject, 0f);
             schoolMotion.Play("Idle");
             inspectLabel = inspect.GetComponentInChildren<Text>(true);
@@ -123,7 +162,7 @@ namespace ElevenEleven.Opening
             tuner.Restore(state);
             ApplyPactAppearance(state.Zero.Accepted && state.AfterPact < KinjaBeat.WishConfirmed);
             GetComponent<EchoExperimentInjuries>()?.Apply(state.ExaminationCompleted);
-            station?.Restore(state.StationStage, state.ArchiveFragments, state.ReactorBreakers, state.ExaminationCompleted, state.Zero, state.AfterPact, state.Ward);
+            station?.Restore(state.StationStage, state.ArchiveFragments, state.ReactorBreakers, state.ExaminationCompleted, state.Zero, state.AfterPact, state.Ward, state.WardCompress);
             if (powered) ShowPower();
             if (signalAligned && powered) gate.RestoreOpen();
             if (crossed) Place(station != null && station.Stage > 0 ? station.ReturnPoint : gate.ResumePosition);
@@ -187,10 +226,15 @@ namespace ElevenEleven.Opening
 
             if (keyboard?.spaceKey.wasPressedThisFrame == true || pad?.buttonSouth.wasPressedThisFrame == true)
                 RequestJump();
+            if (keyboard?.leftCtrlKey.wasPressedThisFrame == true || keyboard?.cKey.wasPressedThisFrame == true || pad?.buttonEast.wasPressedThisFrame == true)
+                RequestDodge();
             var sprint = keyboard?.leftShiftKey.isPressed == true || pad?.leftStickButton.isPressed == true;
-            if (keyboard?.fKey.wasPressedThisFrame == true || pad?.rightShoulder.wasPressedThisFrame == true)
+            var mouseAttack = mouse?.leftButton.wasPressedThisFrame == true &&
+                (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()) &&
+                station != null && station.Stage > 0 && !station.GameplayHeld && !station.InExamination;
+            if (keyboard?.fKey.wasPressedThisFrame == true || pad?.rightShoulder.wasPressedThisFrame == true || mouseAttack)
                 RequestPactStrike();
-            if (earnedPact && pactMotion.IsPlaying("Strike")) move = Vector2.zero;
+            if (earnedPact && IsPlayingAnyStrike) move = Vector2.zero;
             Move(Vector2.ClampMagnitude(move, 1f), dt, sprint);
             if (transform.position.y < -4f)
             {
@@ -224,12 +268,44 @@ namespace ElevenEleven.Opening
 
         private void Move(Vector2 input, float deltaTime, bool sprint = false)
         {
+            dodgeCooldown = Mathf.Max(0f, dodgeCooldown - deltaTime);
+            dodgeInvulnTimer = Mathf.Max(0f, dodgeInvulnTimer - deltaTime);
+            strikeTimer = Mathf.Max(0f, strikeTimer - deltaTime);
+            if (comboResetTimer > 0f)
+            {
+                comboResetTimer -= deltaTime;
+                if (comboResetTimer <= 0f) comboIndex = 0;
+            }
+            if (queuedCombo && strikeTimer <= 0f && earnedPact)
+            {
+                queuedCombo = false;
+                RequestPactStrike();
+            }
+
+            if (mantling)
+            {
+                StepMantle(deltaTime);
+                return;
+            }
+
+            if (dodgeTimer > 0f)
+            {
+                dodgeTimer = Mathf.Max(0f, dodgeTimer - deltaTime);
+                var dashSpeed = earnedPact ? 8.4f : Mathf.Lerp(2.8f, 6.2f, dodgeTimer / 0.42f);
+                planarVelocity = dodgeDir * dashSpeed;
+                verticalSpeed = controller.isGrounded ? -1f : Mathf.Max(-14f, verticalSpeed - 18f * deltaTime);
+                controller.Move((planarVelocity + Vector3.up * verticalSpeed) * deltaTime);
+                if (dodgeTimer <= 0f) locomotion = null;
+                return;
+            }
+
             var travel = Quaternion.Euler(0f, viewYaw, 0f) * new Vector3(input.x, 0f, input.y);
-            if (travel.sqrMagnitude > 0.01f)
+            if (travel.sqrMagnitude > 0.01f && !IsPlayingAnyStrike)
                 ActiveAvatar.rotation = Quaternion.RotateTowards(ActiveAvatar.rotation, Quaternion.LookRotation(travel), 720f * deltaTime);
             var freeTraversal = station != null && station.Stage > 0 && !IsStaged;
             var grounded = controller.isGrounded && verticalSpeed <= 0f;
-            var desired = travel * (freeTraversal ? sprint ? 3.45f : 2.45f : WalkSpeed);
+            var strikeLunge = IsPlayingAnyStrike && strikeTimer > 0.30f ? ActiveAvatar.forward * 2.4f : Vector3.zero;
+            var desired = IsPlayingAnyStrike ? strikeLunge : travel * (freeTraversal ? sprint ? 3.45f : 2.45f : WalkSpeed);
             if (station == null || IsStaged) planarVelocity = desired;
             else
             {
@@ -237,12 +313,14 @@ namespace ElevenEleven.Opening
                 planarVelocity = Vector3.Lerp(planarVelocity, desired, 1f - Mathf.Exp(-response * deltaTime));
             }
 
-            groundGrace = grounded ? 0.10f : Mathf.Max(0f, groundGrace - deltaTime);
+            groundGrace = grounded ? 0.13f : Mathf.Max(0f, groundGrace - deltaTime);
             verticalSpeed = grounded ? -1f : Mathf.Max(-18f, verticalSpeed - 20f * deltaTime);
             if (freeTraversal && jumpBuffer > 0f && groundGrace > 0f)
             {
-                verticalSpeed = 7.15f;
+                verticalSpeed = JumpTakeoffSpeed;
                 groundGrace = jumpBuffer = 0f;
+                schoolJumpInFlight = schoolJump != null && !earnedPact;
+                schoolJumpRecovery = 0f;
             }
             jumpBuffer = Mathf.Max(0f, jumpBuffer - deltaTime);
 
@@ -253,15 +331,60 @@ namespace ElevenEleven.Opening
             {
                 followCamera.Land(-verticalSpeed);
                 station?.Land(transform.position, -verticalSpeed / 9f);
+                actionFx?.PlayMantle(transform.position);
             }
+            if (freeTraversal && !controller.isGrounded && !earnedPact && verticalSpeed < 2.2f && travel.sqrMagnitude > 0.04f &&
+                TryDetectAndStartLedgeMantle(travel.normalized))
+                return;
+
             var displacement = transform.position - before;
             var speed = new Vector2(displacement.x, displacement.z).magnitude / Mathf.Max(deltaTime, 0.0001f);
+            if (PlaySchoolJumpPose(deltaTime)) return;
             PlayLocomotion(freeTraversal && !controller.isGrounded ? 0f : speed);
+        }
+
+        private bool PlaySchoolJumpPose(float deltaTime)
+        {
+            if (schoolJumpInFlight)
+            {
+                if (!controller.isGrounded)
+                {
+                    var flight = Mathf.Clamp01((JumpTakeoffSpeed - verticalSpeed) / (2f * JumpTakeoffSpeed));
+                    SampleSchoolJump(Mathf.Lerp(SchoolJumpLaunchTime, SchoolJumpContactTime, flight));
+                    return true;
+                }
+
+                schoolJumpInFlight = false;
+                schoolJumpRecovery = SchoolJumpRecoveryTime;
+                SampleSchoolJump(SchoolJumpContactTime);
+                return true;
+            }
+
+            if (!controller.isGrounded) schoolJumpRecovery = 0f;
+            if (schoolJumpRecovery <= 0f) return false;
+            schoolJumpRecovery = Mathf.Max(0f, schoolJumpRecovery - deltaTime);
+            if (schoolJumpRecovery <= 0f) return false;
+            SampleSchoolJump(SchoolJumpContactTime + (SchoolJumpRecoveryTime - schoolJumpRecovery) * 1.4f);
+            return true;
+        }
+
+        private void SampleSchoolJump(float time)
+        {
+            var state = schoolMotion["Jump"];
+            state.speed = 0f;
+            if (locomotion != "Jump")
+            {
+                schoolMotion.Play("Jump");
+                locomotion = "Jump";
+            }
+            state.time = time;
+            schoolMotion.Sample();
         }
 
         private void PlayLocomotion(float speed)
         {
-            if (earnedPact && pactMotion.IsPlaying("Strike")) return;
+            if (earnedPact && IsPlayingAnyStrike) return;
+            if (dodgeTimer > 0f || mantling) return;
             var speedThreshold = locomotion == "Run" ? 2.67f : 2.89f;
             var clip = speed <= 0.04f ? "Idle" : schoolRun != null && speed > speedThreshold ? "Run" : "Walk";
             var motion = earnedPact ? pactMotion : schoolMotion;
@@ -406,6 +529,10 @@ namespace ElevenEleven.Opening
             controller.enabled = true;
             verticalSpeed = groundGrace = jumpBuffer = 0f;
             planarVelocity = Vector3.zero;
+            schoolJumpInFlight = false;
+            schoolJumpRecovery = 0f;
+            dodgeTimer = dodgeInvulnTimer = strikeTimer = comboResetTimer = 0f;
+            mantling = queuedCombo = false;
             followCamera.Reset();
             PlayLocomotion(0f);
             UpdateCamera();
@@ -414,7 +541,121 @@ namespace ElevenEleven.Opening
         public void RequestJump()
         {
             if (station != null && station.Stage > 0 && !station.GameplayHeld && !station.InExamination)
-                jumpBuffer = 0.14f;
+                jumpBuffer = 0.15f;
+        }
+
+        public void RequestDodge()
+        {
+            if (station == null || station.Stage <= 0 || IsStaged || station.GameplayHeld || station.InExamination || Time.timeScale <= 0f)
+                return;
+            if (dodgeTimer > 0f || dodgeCooldown > 0f || mantling) return;
+            if (!earnedPact && schoolRoll == null) return;
+
+            var keyboard = Keyboard.current;
+            var moveInput = keyboard != null
+                ? new Vector2(Axis(keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed, keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed),
+                              Axis(keyboard.sKey.isPressed || keyboard.downArrowKey.isPressed, keyboard.wKey.isPressed || keyboard.upArrowKey.isPressed))
+                : Vector2.zero;
+            var dir = moveInput.sqrMagnitude > 0.01f
+                ? Quaternion.Euler(0f, viewYaw, 0f) * new Vector3(moveInput.x, 0f, moveInput.y).normalized
+                : ActiveAvatar.forward;
+            dir.y = 0f;
+            dodgeDir = dir.sqrMagnitude > 0.001f ? dir.normalized : ActiveAvatar.forward;
+            ActiveAvatar.rotation = Quaternion.LookRotation(dodgeDir);
+
+            schoolJumpInFlight = false;
+            schoolJumpRecovery = 0f;
+            strikeTimer = 0f;
+            dodgeTimer = earnedPact ? 0.30f : 0.42f;
+            dodgeCooldown = earnedPact ? 0.48f : 0.60f;
+            dodgeInvulnTimer = earnedPact ? 0.38f : 0.34f;
+            if (earnedPact)
+            {
+                followCamera.ImpulseTrauma(0.18f, 4.2f);
+                actionFx?.PlayShadowDash(transform.position);
+            }
+            else
+            {
+                if (schoolRoll != null)
+                {
+                    locomotion = "Roll";
+                    var rollState = schoolMotion["Roll"];
+                    rollState.time = Mathf.Min(0.42f, rollState.length * 0.25f);
+                    rollState.speed = 2.45f;
+                    schoolMotion.Play("Roll");
+                }
+                actionFx?.PlayRoll(transform.position);
+            }
+        }
+
+        internal bool IsDodgeInvulnerable => dodgeInvulnTimer > 0f;
+
+        internal bool TryHazardReturn(Vector3 position, string message)
+        {
+            if (IsDodgeInvulnerable)
+            {
+                actionFx?.PlayEvade(transform.position);
+                ShowRouteNote(EntryCopy.Arabic ? "تفادٍ متقن!" : "EVADED!");
+                return false;
+            }
+            ReturnToSafePoint(position, message);
+            return true;
+        }
+
+        private bool TryDetectAndStartLedgeMantle(Vector3 moveDir)
+        {
+            if (schoolMantle == null) return false;
+            var pos = transform.position;
+            if (!Physics.Raycast(pos + Vector3.up * 0.65f, moveDir, 0.78f, ~(1 << 2), QueryTriggerInteraction.Ignore))
+                return false;
+            if (Physics.Raycast(pos + Vector3.up * 2.02f, moveDir, 0.85f, ~(1 << 2), QueryTriggerInteraction.Ignore))
+                return false;
+            if (!Physics.Raycast(pos + moveDir * 0.64f + Vector3.up * 1.85f, Vector3.down, out var topHit, 1.40f, ~(1 << 2), QueryTriggerInteraction.Ignore))
+                return false;
+            if (topHit.normal.y < 0.72f) return false;
+            var rise = topHit.point.y - pos.y;
+            if (rise < 0.50f || rise > 1.52f) return false;
+
+            mantling = true;
+            mantleTimer = 0f;
+            mantleStart = pos;
+            mantleEnd = new Vector3(topHit.point.x, topHit.point.y + 0.04f, topHit.point.z);
+            schoolJumpInFlight = false;
+            schoolJumpRecovery = 0f;
+            verticalSpeed = 0f;
+            planarVelocity = Vector3.zero;
+            ActiveAvatar.rotation = Quaternion.LookRotation(new Vector3(moveDir.x, 0f, moveDir.z));
+            if (schoolHang != null)
+            {
+                locomotion = "Hang";
+                schoolMotion.CrossFade("Hang", 0.04f);
+            }
+            actionFx?.PlayMantle(transform.position);
+            return true;
+        }
+
+        private void StepMantle(float dt)
+        {
+            const float hangTime = 0.07f;
+            const float totalTime = 0.42f;
+            var prev = mantleTimer;
+            mantleTimer += dt;
+            if (prev < hangTime && mantleTimer >= hangTime && schoolMantle != null)
+            {
+                locomotion = "Mantle";
+                schoolMotion["Mantle"].speed = Mathf.Max(1.0f, schoolMantle.length / (totalTime - hangTime));
+                schoolMotion.CrossFade("Mantle", 0.06f);
+            }
+            var u = Mathf.Clamp01((mantleTimer - hangTime) / (totalTime - hangTime));
+            var smooth = Mathf.SmoothStep(0f, 1f, u);
+            var desired = Vector3.Lerp(mantleStart, mantleEnd, smooth);
+            controller.Move(desired - transform.position);
+            if (mantleTimer >= totalTime)
+            {
+                mantling = false;
+                locomotion = null;
+                PlayLocomotion(0f);
+            }
         }
 
         public void SkipStationVista()
@@ -481,27 +722,75 @@ namespace ElevenEleven.Opening
 
         private Transform ActiveAvatar => earnedPact ? pact : school;
 
+        private bool IsPlayingAnyStrike => pactMotion != null && (
+            pactMotion.IsPlaying("Strike") ||
+            pactMotion.IsPlaying("StrikeBoxing") ||
+            pactMotion.IsPlaying("StrikeHorizontal") ||
+            pactMotion.IsPlaying("StrikeOverhead")) && strikeTimer > 0f;
+
         public void RequestPactStrike()
         {
-            if (earnedPact && !IsStaged && Time.timeScale > 0f)
-                station?.RequestPactStrike(this);
+            if (!earnedPact || IsStaged || Time.timeScale <= 0f) return;
+            if (strikeTimer > 0.14f && strikeTimer < 0.36f)
+            {
+                queuedCombo = true;
+                return;
+            }
+            station?.RequestPactStrike(this);
+            if (!IsPlayingAnyStrike && station != null && station.Stage > 0 && !station.GameplayHeld && !station.InExamination)
+                TryPlayPactStrike(transform.position + ActiveAvatar.forward * 2.2f, out _);
         }
 
         internal bool TryPlayPactStrike(Vector3 target, out float duration)
         {
             duration = 0f;
-            if (!earnedPact || !controller.isGrounded || pactMotion.IsPlaying("Strike")) return false;
+            if (!earnedPact || !controller.isGrounded || IsPlayingAnyStrike) return false;
             FaceRouteFocus(target);
-            if (!pactMotion.Play("Strike")) return false;
-            duration = pactMotion["Strike"].length;
+
+            var hit = comboIndex % 3;
+            var clipKey = hit switch
+            {
+                0 when pactMotion["StrikeBoxing"] != null => "StrikeBoxing",
+                1 when pactMotion["StrikeHorizontal"] != null => "StrikeHorizontal",
+                2 when pactMotion["StrikeOverhead"] != null => "StrikeOverhead",
+                _ => "Strike"
+            };
+            if (pactMotion[clipKey] == null) clipKey = "Strike";
+            if (pactMotion[clipKey] == null) return false;
+
+            var state = pactMotion[clipKey];
+            state.time = clipKey switch
+            {
+                "StrikeBoxing" => Mathf.Min(0.32f, state.length * 0.25f),
+                "StrikeHorizontal" => Mathf.Min(0.22f, state.length * 0.15f),
+                "StrikeOverhead" => Mathf.Min(0.18f, state.length * 0.15f),
+                _ => 0f
+            };
+            state.speed = clipKey == "Strike" ? 1f : 1.65f;
+            pactMotion.Play(clipKey);
+            activeStrikeClip = clipKey;
+            duration = Mathf.Clamp(state.length / Mathf.Max(0.5f, state.speed), 0.42f, 0.72f);
+            strikeTimer = duration;
+            comboIndex = (hit + 1) % 3;
+            comboResetTimer = 1.65f;
             locomotion = null;
+            actionFx?.PlaySlash(ActiveAvatar, hit, pactMotion, activeStrikeClip);
+            followCamera.ImpulseTrauma(hit == 2 ? 0.22f : 0.11f, hit == 2 ? 3.0f : 1.4f);
             return true;
+        }
+
+        internal void OnCombatImpact(Vector3 worldPos, bool finisher)
+        {
+            actionFx?.PlayImpact(worldPos, finisher);
+            followCamera.ImpulseTrauma(finisher ? 0.46f : 0.25f, finisher ? 4.8f : 2.5f);
         }
 
         internal void ApplyPactAppearance(bool accepted)
         {
             if (earnedPact == accepted || pact == null) return;
             var facing = ActiveAvatar.rotation;
+            schoolJumpInFlight = false;
+            schoolJumpRecovery = 0f;
             earnedPact = accepted;
             ActiveAvatar.rotation = facing;
             school.gameObject.SetActive(!accepted);
@@ -566,6 +855,24 @@ namespace ElevenEleven.Opening
             }
         }
 
+        internal bool TrySaveWardCompress()
+        {
+            CompleteInitialSave();
+            var path = ChapterSaveSession.SavePath;
+            lock (CheckpointFile.WriteLock)
+            {
+                var state = Room01Checkpoint.Load(path);
+                var saved = state != null && state.Ward >= WardBeat.Awake && !state.WardCompress;
+                if (saved)
+                {
+                    state.WardCompress = true;
+                    saved = state.Save(path);
+                }
+                ReportSave(saved);
+                return saved;
+            }
+        }
+
         private Room01Checkpoint CaptureCheckpoint()
         {
             var state = new Room01Checkpoint
@@ -578,6 +885,7 @@ namespace ElevenEleven.Opening
                 Zero = station?.ZeroProgress ?? default,
                 AfterPact = station?.AfterPact ?? default,
                 Ward = station?.WardProgress ?? default,
+                WardCompress = station?.WardCompressEquipped ?? false,
             };
             tuner.Capture(state);
             return state;

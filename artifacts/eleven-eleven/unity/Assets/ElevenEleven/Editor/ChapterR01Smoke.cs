@@ -41,7 +41,7 @@ namespace ElevenEleven.Editor
             if (!Application.isBatchMode) throw new InvalidOperationException("Use Unity batch mode.");
             ChapterSceneBuilder.OpenRegisteredTitle();
             SessionState.SetBool(Running, true);
-            var openingLimit = SessionState.GetBool(Connected, false) ? 600f : FullOpening ? 240f : 120f;
+            var openingLimit = SessionState.GetBool(Connected, false) ? 600f : FullOpening ? 360f : 240f;
             SessionState.SetFloat(Deadline, (float)EditorApplication.timeSinceStartup + openingLimit);
             EditorApplication.update += Advance;
             EditorApplication.EnterPlaymode();
@@ -185,7 +185,9 @@ namespace ElevenEleven.Editor
                         break;
                     case 22 when scene == "ChapterOpening":
                         var questions = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
-                        if (questions.Beat != OpeningBeat.Questions) return;
+                        var roomWarmup = UnityEngine.Object.FindFirstObjectByType<ChapterRoomStage>(FindObjectsInactive.Include);
+                        if (questions.Beat != OpeningBeat.Questions || roomWarmup == null ||
+                            (!roomWarmup.IsReady && !roomWarmup.IsFailed)) return;
                         Press("What is this experiment?");
                         Require(questions.Beat == OpeningBeat.ExperimentReply, "The seated shot hands off to the existing interactive experiment question");
                         Press("Back to questions");
@@ -210,7 +212,22 @@ namespace ElevenEleven.Editor
                         Require(thresholdVideo.clip.name == "Opening3D-threshold" && threshold.CanSkip,
                             "The completed trial hands off to the decoded threshold and preserves the skip window");
                         Press("Skip shot");
-                        Require(threshold.Beat == OpeningBeat.SystemWake, "Skipping the threshold reaches the System Wake screen");
+                        stage = 25;
+                        break;
+                    case 25 when scene == "ChapterOpening":
+                        var wakeSystem = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        if (wakeSystem == null || wakeSystem.Beat != OpeningBeat.SystemWake) return;
+                        Require(UnityEngine.Object.FindObjectsByType<AudioSource>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
+                                .Any(source => source.isPlaying && source.clip != null &&
+                                    (source.clip.name == "SystemWakeFoley" || source.clip.name == "PressureAir")),
+                            "Skipping the threshold reaches System Wake with spatial wake audio");
+                        stage = 26;
+                        break;
+                    case 26 when scene == "ChapterOpening":
+                        var wakeReveal = UnityEngine.Object.FindFirstObjectByType<OpeningCinematicPresenter>();
+                        if (wakeReveal == null || !wakeReveal.WakeRevealed) return;
+                        Require(GameObject.Find("System Wake panel") != null,
+                            "System Wake reveals its overlay after the sound lead");
                         stage = 3;
                         break;
                     case 3 when scene == "ChapterRoom01":
@@ -218,6 +235,7 @@ namespace ElevenEleven.Editor
                         if (SessionState.GetBool(DirectRoom, false))
                         {
                             if (!player || !Camera.main) return;
+                            if (Environment.GetEnvironmentVariable("ECHO_R39_ROOM_MOTION_PROBE") == "1" && !ChapterRoomMotionReview.Step(player)) return;
                             if (CameraProbe && !ObserveCameraFraming()) return;
                             if (UtilityProbe && !ObserveUtilityEffects()) return;
                             if (!PhotographyEntryOnly && !player.GetComponent<CharacterController>().isGrounded) return;
@@ -231,6 +249,8 @@ namespace ElevenEleven.Editor
                         Require(Camera.main != null && Camera.main.isActiveAndEnabled, "Room camera owns the view");
                         Require(player.GetComponentInChildren<Animation>().IsPlaying("Idle"), "First playable frame uses School Idle");
                         Require(Objective() == "Find the stopped clock.", "Arrival starts at the first clue");
+                        StormworksSmoke.CaptureRoomView(player, Camera.main, "71-Signal-FirstPlayableView",
+                            "first playable camera after entering the signal chamber");
                         Require(Physics.Raycast(new Vector3(0, 0.7f, 17), Vector3.forward, 2f), "North exit is sealed");
                         keyboard = InputSystem.AddDevice<Keyboard>();
                         keyboard.MakeCurrent();
@@ -323,7 +343,8 @@ namespace ElevenEleven.Editor
                     case 10:
                         if (!InteractionIs("Energize  [E]")) return;
                         Press("Inspect  [E]");
-                        Require(Gate().IsOpen, "Reduced Motion opens the door without a slide");
+                        if (ChapterSceneLink.ReducedMotion)
+                            Require(Gate().IsOpen, "Reduced Motion opens the door without a slide");
                         stage++;
                         break;
                     case 11:

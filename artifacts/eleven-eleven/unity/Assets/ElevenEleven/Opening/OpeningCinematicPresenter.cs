@@ -9,6 +9,9 @@ namespace ElevenEleven.Opening
 {
     public sealed class OpeningCinematicPresenter : MonoBehaviour
     {
+        private const float WakeDuration = 2.8f;
+        private const float WakeSoundLead = 0.38f;
+
         [Serializable]
         private struct Shot
         {
@@ -24,6 +27,8 @@ namespace ElevenEleven.Opening
         [SerializeField] private RawImage surface;
         [SerializeField] private VideoPlayer player;
         [SerializeField] private AudioSource ambience;
+        [SerializeField] private AudioClip wakeAmbience;
+        [SerializeField] private AudioClip wakeFoley;
         [SerializeField] private UnityEvent completed = new UnityEvent();
 
         private readonly OpeningSequence sequence = new OpeningSequence();
@@ -38,16 +43,18 @@ namespace ElevenEleven.Opening
         private float skipWindow;
         private bool offeredSkip;
         private ChapterSceneLink destination;
+        private OpeningWakeAudio wakeAudio;
 
         public OpeningBeat Beat => sequence.Beat;
         public OpeningQuestion Asked => sequence.Asked;
         public bool Paused => sequence.Paused;
         public bool ShowingVideo => showingVideo;
+        public bool WakeRevealed { get; private set; }
         public bool IsFilmBeat => Beat == OpeningBeat.School || Beat == OpeningBeat.Laboratory ||
             Beat == OpeningBeat.Experiment || (Beat == OpeningBeat.Memory && memory.clip != null);
         public bool CanSkip => ShowingVideo && !Paused && skipWindow > 0f;
         public bool CanAdvance => Beat == OpeningBeat.SystemWake
-            ? destination == null || destination.Ready || destination.PreparationFailed
+            ? WakeRevealed && (destination == null || destination.Ready || destination.PreparationFailed)
             : IsFilmBeat && !showingVideo && prepareShot == null;
         public UnityEvent Completed => completed;
         public event Action StateChanged;
@@ -71,7 +78,11 @@ namespace ElevenEleven.Opening
             if (started && !completedRaised) PresentBeat();
         }
 
-        private void OnDisable() => StopMedia();
+        private void OnDisable()
+        {
+            StopMedia();
+            StopWakeAudio();
+        }
 
         private void OnDestroy()
         {
@@ -143,13 +154,18 @@ namespace ElevenEleven.Opening
             if (started && !completedRaised) PresentBeat();
         }
 
-        public void SetMuted(bool value) => ambience.mute = value;
+        public void SetMuted(bool value)
+        {
+            ambience.mute = value;
+            if (wakeAudio != null) wakeAudio.SetMuted(value);
+        }
 
         public void TogglePause()
         {
             if (!started || completedRaised) return;
 
             sequence.SetPaused(!sequence.Paused);
+            if (wakeAudio != null) wakeAudio.SetPaused(sequence.Paused);
             if (mediaPlaying)
             {
                 if (sequence.Paused)
@@ -180,6 +196,12 @@ namespace ElevenEleven.Opening
             {
                 if (completedRaised) return;
 
+                if (destination != null)
+                {
+                    destination.SetWakeAudio(wakeAudio);
+                    wakeAudio = null;
+                }
+                else StopWakeAudio();
                 completedRaised = true;
                 StateChanged?.Invoke();
                 completed.Invoke();
@@ -188,10 +210,18 @@ namespace ElevenEleven.Opening
 
             if (Beat == OpeningBeat.SystemWake)
             {
-                surface.texture = memory.poster;
-                surface.color = memory.poster != null ? new Color(0.60f, 0.78f, 0.88f) : new Color(0.016f, 0.035f, 0.066f);
-                if (!reducedMotion && SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Null)
-                    prepareShot = StartCoroutine(ShowWake());
+                if (wakeAudio == null && wakeAmbience != null)
+                    wakeAudio = OpeningWakeAudio.Begin(gameObject.scene, wakeAmbience, wakeFoley, ambience.mute, sequence.Paused);
+
+                var fullMotion = !reducedMotion &&
+                    SystemInfo.graphicsDeviceType != UnityEngine.Rendering.GraphicsDeviceType.Null;
+                if (WakeRevealed || !fullMotion || wakeAudio == null) RevealWake();
+                else
+                {
+                    surface.texture = null;
+                    surface.color = new Color(0.005f, 0.010f, 0.018f);
+                }
+                if (fullMotion) prepareShot = StartCoroutine(ShowWake());
             }
             else
             {
@@ -206,15 +236,34 @@ namespace ElevenEleven.Opening
 
         private IEnumerator ShowWake()
         {
-            var remaining = 2.8f;
+            var remaining = WakeDuration;
             while (remaining > 0f)
             {
                 yield return null;
                 if (!sequence.Paused) remaining -= Time.unscaledDeltaTime;
+                if (!WakeRevealed && remaining <= WakeDuration - WakeSoundLead)
+                {
+                    RevealWake();
+                    StateChanged?.Invoke();
+                }
             }
             while (!CanAdvance || sequence.Paused) yield return null;
             prepareShot = null;
             ContinueShot();
+        }
+
+        private void RevealWake()
+        {
+            WakeRevealed = true;
+            surface.texture = memory.poster;
+            surface.color = memory.poster != null ? new Color(0.60f, 0.78f, 0.88f) :
+                new Color(0.016f, 0.035f, 0.066f);
+        }
+
+        private void StopWakeAudio()
+        {
+            if (wakeAudio != null) wakeAudio.Stop();
+            wakeAudio = null;
         }
 
         private IEnumerator Prepare(Shot shot)

@@ -18,6 +18,7 @@ namespace ElevenEleven.Opening
         internal ZeroPactProgress Zero { get; set; }
         internal KinjaBeat AfterPact { get; set; }
         internal WardBeat Ward { get; set; }
+        internal bool WardCompress { get; set; }
         public int StationStage { get; set; }
         public int ArchiveFragments { get; set; }
         public int ReactorBreakers { get; set; }
@@ -54,6 +55,7 @@ namespace ElevenEleven.Opening
                 Ward = flags.TryGetValue("ward", out var ward)
                     ? ward.Type == JTokenType.Integer ? (WardBeat)(int)ward : throw new FormatException("ward")
                     : WardBeat.Bedside,
+                WardCompress = flags.ContainsKey("ward_compress") && ReadBool(flags, "ward_compress"),
                 StationStage = flags.TryGetValue("station", out var station)
                     ? station.Type == JTokenType.Integer ? (int)station : throw new FormatException("station")
                     : 0,
@@ -78,6 +80,7 @@ namespace ElevenEleven.Opening
             (AfterPact == KinjaBeat.Return || Zero.Accepted) &&
             Ward >= WardBeat.Bedside && Ward <= WardBeat.MarkRevealed &&
             (Ward == WardBeat.Bedside || AfterPact == KinjaBeat.WishConfirmed) &&
+            (!WardCompress || Ward >= WardBeat.Awake) &&
             ArchiveFragments >= 0 && ArchiveFragments <= StationArchiveWing.CompleteMask &&
             (StationStage >= StormworksRoute.SpecimenPassed || ArchiveFragments == 0) &&
             (StationStage < StormworksRoute.ArchiveDecoded || ArchiveFragments == StationArchiveWing.CompleteMask) &&
@@ -105,7 +108,7 @@ namespace ElevenEleven.Opening
                 ["wake"] = Wake, ["clock"] = Clock, ["photo"] = Photo, ["memory"] = Memory,
                 ["terminal"] = Terminal, ["conduit"] = Conduit, ["ending"] = Ending, ["station"] = StationStage, ["archive_fragments"] = ArchiveFragments,
                 ["reactor_breakers"] = ReactorBreakers, ["examination"] = ExaminationCompleted,
-                ["zero"] = Zero.ToJson(), ["after_pact"] = (int)AfterPact, ["ward"] = (int)Ward,
+                ["zero"] = Zero.ToJson(), ["after_pact"] = (int)AfterPact, ["ward"] = (int)Ward, ["ward_compress"] = WardCompress,
             },
             ["terminal"] = new JObject { ["frequency"] = Frequency, ["phase"] = Phase, ["harmonic"] = Channel },
         };

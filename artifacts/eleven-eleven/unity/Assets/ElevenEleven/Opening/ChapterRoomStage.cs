@@ -18,6 +18,7 @@ namespace ElevenEleven.Opening
         public bool IsReady { get; private set; }
         public bool IsFailed { get; private set; }
         public bool RenderWarmupCompleted { get; private set; }
+        internal Vector3 EntryPosition => player.transform.position;
 
         private void Awake()
         {

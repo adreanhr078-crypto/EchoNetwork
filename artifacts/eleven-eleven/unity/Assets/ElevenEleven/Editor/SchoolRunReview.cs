@@ -66,7 +66,7 @@ namespace ElevenEleven.Editor
             var target = Instantiate(School);
             try
             {
-                return CompareAndRemap(source, target);
+                return CompareAndRemap(source, target, Source, Times, "Run", 25);
             }
             finally
             {
@@ -75,10 +75,11 @@ namespace ElevenEleven.Editor
             }
         }
 
-        private static AnimationClip CompareAndRemap(GameObject source, GameObject target)
+        internal static AnimationClip CompareAndRemap(GameObject source, GameObject target, string sourcePath,
+            string samplesPath, string motion, int expectedSamples)
         {
-            var clips = AssetDatabase.LoadAllAssetsAtPath(Source).OfType<AnimationClip>().ToArray();
-            if (clips.Length != 1) throw new InvalidDataException($"Expected one imported Run clip, got {clips.Length}.");
+            var clips = AssetDatabase.LoadAllAssetsAtPath(sourcePath).OfType<AnimationClip>().ToArray();
+            if (clips.Length != 1) throw new InvalidDataException($"Expected one imported {motion} clip, got {clips.Length}.");
             var sourceClip = clips[0];
             var targetJoints = target.GetComponentsInChildren<SkinnedMeshRenderer>()
                 .SelectMany(renderer => renderer.bones).Distinct().ToDictionary(bone => bone.name);
@@ -114,12 +115,13 @@ namespace ElevenEleven.Editor
                 restScale = Mathf.Max(restScale, Vector3.Distance(original.localScale, mapped.localScale));
             }
             Debug.Log(FormattableString.Invariant(
-                $"SCHOOL_RUN_REST joints=65 position_m={restPosition:G8} rotation_deg={restAngle:G8} scale={restScale:G8}"));
+                $"SCHOOL_{motion.ToUpperInvariant()}_REST joints=65 position_m={restPosition:G8} rotation_deg={restAngle:G8} scale={restScale:G8}"));
             if (restPosition > 0.00005f || restAngle > 0.1f || restScale > 0.0002f)
-                throw new InvalidDataException("Run bind transforms require inspection before remapping.");
+                throw new InvalidDataException($"{motion} bind transforms require inspection before remapping.");
 
-            var samples = JsonUtility.FromJson<Samples>(File.ReadAllText(Times)).times;
-            if (samples.Length != 25) throw new InvalidDataException("The qualified Run has 25 source samples.");
+            var samples = JsonUtility.FromJson<Samples>(File.ReadAllText(samplesPath)).times;
+            if (samples.Length != expectedSamples)
+                throw new InvalidDataException($"The qualified {motion} has {expectedSamples} source samples.");
             var firstRotations = new Dictionary<string, Quaternion>();
             var errorPosition = 0f;
             var errorRotation = 0f;
@@ -142,14 +144,14 @@ namespace ElevenEleven.Editor
                 }
             }
             Debug.Log(FormattableString.Invariant(
-                $"SCHOOL_RUN_SAMPLES samples={samples.Length} curves={bindings.Length} position_m={errorPosition:G8} rotation_deg={errorRotation:G8} scale={errorScale:G8} motion_span_deg={swing:G8}"));
+                $"SCHOOL_{motion.ToUpperInvariant()}_SAMPLES samples={samples.Length} curves={bindings.Length} position_m={errorPosition:G8} rotation_deg={errorRotation:G8} scale={errorScale:G8} motion_span_deg={swing:G8}"));
             if (errorPosition > 0.00005f || errorRotation > 0.1f || errorScale > 0.0002f || swing < 15f)
-                throw new InvalidDataException("Run sampling failed the Unity path-binding comparison.");
-            Debug.Log("SCHOOL_RUN_NUMERIC_PASS, isolated comparison");
+                throw new InvalidDataException($"{motion} sampling failed the Unity path-binding comparison.");
+            Debug.Log($"SCHOOL_{motion.ToUpperInvariant()}_NUMERIC_PASS, isolated comparison");
             return retargeted;
         }
 
-        private static GameObject Instantiate(string path)
+        internal static GameObject Instantiate(string path)
         {
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             return prefab == null

@@ -22,6 +22,7 @@ namespace ElevenEleven.Opening
         private PreparedChapterRoom prepared;
         private Coroutine transition;
         private AsyncOperation opening;
+        private OpeningWakeAudio wakeAudio;
         internal bool Ready => prepared?.Ready == true || opening?.progress >= 0.9f;
         internal bool PreparationFailed => prepared?.Failed == true || (prepared == null && opening == null);
 
@@ -67,8 +68,11 @@ namespace ElevenEleven.Opening
             prepared = null;
         }
 
+        internal void SetWakeAudio(OpeningWakeAudio source) => wakeAudio = source;
+
         private void OnDestroy()
         {
+            StopWakeAudio();
             ReleasePreparation();
             if (opening != null && !opening.isDone) opening.allowSceneActivation = true;
         }
@@ -87,7 +91,7 @@ namespace ElevenEleven.Opening
             IsLoading = true;
             if (prepared != null)
             {
-                if (prepared.Ready && prepared.Activate()) return;
+                if (prepared.Ready && ActivateRoom(prepared)) return;
                 transition = StartCoroutine(ActivatePrepared(prepared));
             }
             else if (stageBeforeEntry) ShowFailure();
@@ -107,9 +111,22 @@ namespace ElevenEleven.Opening
             while (!staged.Ready && !staged.Failed) yield return null;
 
             transition = null;
-            if (staged.Activate()) yield break;
+            if (ActivateRoom(staged)) yield break;
             ReleasePreparation();
             ShowFailure();
+        }
+
+        private bool ActivateRoom(PreparedChapterRoom staged)
+        {
+            if (!staged.Activate(wakeAudio)) return false;
+            wakeAudio = null;
+            return true;
+        }
+
+        private void StopWakeAudio()
+        {
+            if (wakeAudio != null) wakeAudio.Stop();
+            wakeAudio = null;
         }
 
         private void LoadSingle(string scene)
@@ -151,6 +168,7 @@ namespace ElevenEleven.Opening
 
         private void ReturnToTitle()
         {
+            StopWakeAudio();
             if (transition != null) StopCoroutine(transition);
             transition = null;
             ReleasePreparation();
@@ -161,6 +179,7 @@ namespace ElevenEleven.Opening
 
         private void ShowFailure()
         {
+            StopWakeAudio();
             IsLoading = false;
             if (loadingView != null)
             {

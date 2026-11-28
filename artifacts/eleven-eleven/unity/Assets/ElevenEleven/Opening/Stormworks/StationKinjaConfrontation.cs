@@ -24,6 +24,8 @@ namespace ElevenEleven.Opening
 
         private Room01Player actor;
         private float impactTime;
+        private float pulseCooldown = 3.8f;
+        private float pulseWindup;
         private float recoveryTime;
         private float recoil;
         private bool available;
@@ -90,16 +92,16 @@ namespace ElevenEleven.Opening
 
         internal void RequestStrike(Room01Player player)
         {
-            if (!CanFight || IsReading || recoveryTime > 0f || !Within(player, 2.05f) ||
+            if (!CanFight || IsReading || recoveryTime > 0f || !Within(player, 2.25f) ||
                 !player.TryPlayPactStrike(target.position, out var duration)) return;
-            impactTime = 0.27f;
-            recoveryTime = Mathf.Max(0.78f, duration);
+            impactTime = 0.24f;
+            recoveryTime = Mathf.Clamp(duration * 0.85f, 0.42f, 0.72f);
         }
 
         internal void Tick(Room01Player player, float dt, bool held)
         {
             if (!available) return;
-            strike.gameObject.SetActive(CanFight && !held && Within(player, 2.05f) &&
+            strike.gameObject.SetActive(CanFight && !held && Within(player, 2.25f) &&
                 (UnityEngine.InputSystem.Touchscreen.current != null || Application.isMobilePlatform));
             if (held || dt <= 0f) return;
 
@@ -107,22 +109,60 @@ namespace ElevenEleven.Opening
             if (impactTime > 0f)
             {
                 impactTime -= dt;
-                if (impactTime <= 0f && CanFight && Within(player, 2.20f))
+                if (impactTime <= 0f && CanFight && Within(player, 2.40f))
                     ResolveContact(player);
             }
+
+            if (CanFight && !IsReading)
+            {
+                if (pulseWindup > 0f)
+                {
+                    pulseWindup -= dt;
+                    if (key) key.color = new Color(1f, 0.24f, 0.18f);
+                    if (pulseWindup <= 0f)
+                    {
+                        pulseCooldown = 4.4f;
+                        if (Within(player, 2.05f))
+                        {
+                            player.TryHazardReturn(transform.position + Vector3.back * 2.6f,
+                                Copy("Kinja's defensive pulse pushed you back!", "دفعك نبض كينجا الدفاعي للخلف!"));
+                        }
+                        Refresh();
+                    }
+                }
+                else
+                {
+                    pulseCooldown -= dt;
+                    if (pulseCooldown <= 0f && Within(player, 4.8f))
+                    {
+                        pulseWindup = 1.25f;
+                        player.ShowRouteNote(Copy("Kinja channels a pulse — Dodge [Ctrl] or Counter [F]!",
+                            "كينجا يجمع نبضة — تفادَ [Ctrl] أو اضرب مضاداً [F]!"));
+                    }
+                }
+            }
+
             recoil = Mathf.MoveTowards(recoil, 0f, dt * 2.8f);
+            var tremor = pulseWindup > 0f && !ChapterSceneLink.ReducedMotion ? Mathf.Sin(Time.time * 42f) * 2.5f : 0f;
             reaction.localRotation = Quaternion.Euler(0f, 0f,
-                ChapterSceneLink.ReducedMotion ? 0f : (Beat == KinjaBeat.Staggered ? -12f : 0f) - recoil * 14f);
+                (ChapterSceneLink.ReducedMotion ? 0f : (Beat == KinjaBeat.Staggered ? -12f : 0f) - recoil * 14f) + tremor);
         }
 
         private void ResolveContact(Room01Player player)
         {
+            var countered = pulseWindup > 0f;
+            pulseWindup = 0f;
+            pulseCooldown = 4.2f;
             if (!Commit(player, Beat + 1)) return;
-            recoil = 1f;
-            if (!ChapterSceneLink.Muted) contactSound.PlayOneShot(contacts[(int)Beat - 1]);
+            recoil = countered ? 1.35f : 1f;
+            var finisher = Beat == KinjaBeat.Staggered || countered;
+            if (!ChapterSceneLink.Muted) contactSound.PlayOneShot(contacts[Mathf.Clamp((int)Beat - 1, 0, contacts.Length - 1)]);
+            player.OnCombatImpact(target.position + Vector3.up * 1.15f, finisher);
             player.ShowRouteNote(Beat == KinjaBeat.Staggered
-                ? Copy("Kinja is staggered.", ".ﺎﺠﻨﻴﻛ ﺡﺮﻨﺗ")
-                : Copy($"Contact {(int)Beat} / 3", $"{(int)Beat} / 3"));
+                ? Copy("Kinja is staggered!", ".ﺎﺠﻨﻴﻛ ﺡﺮﻨﺗ")
+                : countered
+                    ? Copy($"Counter Break! {(int)Beat} / 3", $"كسر مضاد! {(int)Beat} / 3")
+                    : Copy($"Contact {(int)Beat} / 3", $"{(int)Beat} / 3"));
         }
 
         public void Confirm()

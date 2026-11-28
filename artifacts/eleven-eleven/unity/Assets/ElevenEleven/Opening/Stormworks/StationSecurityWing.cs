@@ -93,7 +93,7 @@ namespace ElevenEleven.Opening
 
             warning = 0f;
             retryCooldown = 2f;
-            player.ReturnToSafePoint(new Vector3(CenterX - 2.6f, 0.045f, EntranceZ + 1.4f),
+            player.TryHazardReturn(new Vector3(CenterX - 2.6f, 0.045f, EntranceZ + 1.4f),
                 EntryCopy.Arabic ? "‏ﻦﻣﻵﺍ ﻊﻗﻮﻤﻟﺍ ﻰﻟﺇ ﺕﺪﻋ" : "Scanner locked on. Returned to cover.");
         }
 

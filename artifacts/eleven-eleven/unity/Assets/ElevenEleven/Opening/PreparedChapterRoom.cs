@@ -80,7 +80,7 @@ namespace ElevenEleven.Opening
             else stage.StartWarmup();
         }
 
-        internal bool Activate()
+        internal bool Activate(OpeningWakeAudio wakeAudio = null)
         {
             if (cancelled || consumed || !Ready || !owner.isLoaded || SceneManager.GetActiveScene() != owner ||
                 stage == null || !scene.isLoaded || !SceneManager.SetActiveScene(scene))
@@ -88,6 +88,7 @@ namespace ElevenEleven.Opening
 
             consumed = true;
             if (current == this) current = null;
+            if (wakeAudio != null) wakeAudio.EnterRoom(scene, stage.EntryPosition);
             foreach (var root in owner.GetRootGameObjects()) root.SetActive(false);
             stage.Activate();
             var unload = SceneManager.UnloadSceneAsync(owner);
